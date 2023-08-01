@@ -1,0 +1,151 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace QWS_Local
+{
+    public partial class TrucksInQuarry : Form
+    {
+        public TrucksInQuarry()
+        {
+            InitializeComponent();
+        }
+
+        private void TrucksInQuarry_Load(object sender, EventArgs e)
+        {
+            // set up and down arrows
+            button3.Text = ""+ (char)24;
+            button2.Text = ""+ (char)25;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            RefreshQueue();
+        }
+
+        private void RefreshQueue()
+        {
+            try
+            {
+                this.trucksInQuarryTableAdapter.FillBy(this.dsQWSLocal.TrucksInQuarry);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnAddVehicle_Click(object sender, EventArgs e)
+        {
+            BookInTruck();
+        }
+
+        private void BookInTruck()
+        {
+            BookInTruck frmBookIn = new BookInTruck();
+            frmBookIn.MdiParent = this.MdiParent;
+            frmBookIn.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ShowTIQDetail();
+        }
+
+        private void ShowTIQDetail()
+        {
+            // get TIQID of selected row
+            // test that a row is selected
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataRow dataRow = ((DataRowView)trucksInQuarryBindingSource.Current).Row;
+                dsQWSLocal.TrucksInQuarryRow trucksInQuarryRow = (dsQWSLocal.TrucksInQuarryRow)dataRow;
+                int TIQID = trucksInQuarryRow.TIQID;
+                TIQDetail frmTIQDetail = new TIQDetail(TIQID);
+                frmTIQDetail.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row!");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //move up
+            TIQRowUp();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //move down
+            TIQRowDown();
+        }
+
+        private void TIQRowDown()
+        {
+            int iCount = dataGridView1.Rows.Count;
+            if (iCount == 1)
+            {
+                dataGridView1.CurrentRow.Selected = true;
+            }
+            else if (iCount > 1)
+            {
+                int iRow;
+                int iSelectedRow = -1;
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    iRow = dataGridView1.CurrentCell.RowIndex; // zero based
+                    if(row.Selected == true)
+                    {
+                        iSelectedRow = iRow;
+                    }
+                }
+                if (iSelectedRow + 1 < iCount)
+                {
+                    dataGridView1.CurrentCell = dataGridView1.Rows[iSelectedRow + 1].Cells[0];
+                    dataGridView1.Rows[iSelectedRow + 1].Selected = true;
+                }
+            }
+        }
+
+        private void TIQRowUp()
+        {
+            int iCount = dataGridView1.Rows.Count;
+            if (iCount == 1)
+            {
+                dataGridView1.CurrentRow.Selected = true;
+            }
+            else if (iCount > 1)
+            {
+                int iRow;
+                int iSelectedRow = 0;
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    iRow = dataGridView1.CurrentCell.RowIndex; // zero based
+                    if (row.Selected == true)
+                    {
+                        iSelectedRow = iRow;
+                    }
+                }
+                if (iSelectedRow <= 1)
+                {
+                    iSelectedRow = 1;
+                }
+                    dataGridView1.CurrentCell = dataGridView1.Rows[iSelectedRow - 1].Cells[0];
+                    dataGridView1.Rows[iSelectedRow - 1].Selected = true;                
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
+    }
+}
