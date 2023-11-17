@@ -52,6 +52,7 @@ namespace QWS_Local
             System.Windows.Forms.Label trailerRatioLabel;
             System.Windows.Forms.Label driveAxleLoadLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PBSMaintenance));
+            System.Windows.Forms.Label label1;
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripContainer2 = new System.Windows.Forms.ToolStripContainer();
@@ -126,6 +127,7 @@ namespace QWS_Local
             this.pBSConfigBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pBS_ConfigTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.PBS_ConfigTableAdapter();
             this.pBS_VINTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.PBS_VINTableAdapter();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             pBS_IDLabel = new System.Windows.Forms.Label();
             vehicleApprovalLabel = new System.Windows.Forms.Label();
             versionLabel = new System.Windows.Forms.Label();
@@ -147,6 +149,7 @@ namespace QWS_Local
             hML_TruckLabel = new System.Windows.Forms.Label();
             trailerRatioLabel = new System.Windows.Forms.Label();
             driveAxleLoadLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             this.toolStripContainer1.SuspendLayout();
             this.toolStripContainer2.ContentPanel.SuspendLayout();
             this.toolStripContainer2.TopToolStripPanel.SuspendLayout();
@@ -357,7 +360,7 @@ namespace QWS_Local
             // trailerRatioLabel
             // 
             trailerRatioLabel.AutoSize = true;
-            trailerRatioLabel.Location = new System.Drawing.Point(814, 356);
+            trailerRatioLabel.Location = new System.Drawing.Point(830, 356);
             trailerRatioLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             trailerRatioLabel.Name = "trailerRatioLabel";
             trailerRatioLabel.Size = new System.Drawing.Size(140, 18);
@@ -403,6 +406,8 @@ namespace QWS_Local
             // toolStripContainer2.ContentPanel
             // 
             this.toolStripContainer2.ContentPanel.AutoScroll = true;
+            this.toolStripContainer2.ContentPanel.Controls.Add(label1);
+            this.toolStripContainer2.ContentPanel.Controls.Add(this.textBox1);
             this.toolStripContainer2.ContentPanel.Controls.Add(driveAxleLoadLabel);
             this.toolStripContainer2.ContentPanel.Controls.Add(this.driveAxleLoadTextBox);
             this.toolStripContainer2.ContentPanel.Controls.Add(trailerRatioLabel);
@@ -1099,6 +1104,25 @@ namespace QWS_Local
             // 
             this.pBS_VINTableAdapter.ClearBeforeFill = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigBindingSource, "AxleConfiguration", true));
+            this.textBox1.Location = new System.Drawing.Point(978, 384);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(148, 24);
+            this.textBox1.TabIndex = 48;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(835, 387);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(135, 18);
+            label1.TabIndex = 49;
+            label1.Text = "Axle Configuration :";
+            // 
             // PBSMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -1215,5 +1239,6 @@ namespace QWS_Local
         private System.Windows.Forms.ToolStripButton toolStripButton8;
         private System.Windows.Forms.ToolStripButton toolStripButton9;
         private System.Windows.Forms.ToolStripTextBox txtPBS2Find;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
