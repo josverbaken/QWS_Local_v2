@@ -25,7 +25,7 @@ namespace QWS_Local
         private void PBS_Maintenance_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dsQWSLocal.PBS_VIN' table. You can move, or remove it, as needed.
-            this.pBS_VINTableAdapter.Fill(this.dsQWSLocal.PBS_VIN);
+            //this.pBS_VINTableAdapter.Fill(this.dsQWSLocal.PBS_VIN);
             // TODO: This line of code loads data into the 'dsQWSLocal1.PBS_Config' table. You can move, or remove it, as needed.
             this.pBS_ConfigTableAdapter.Fill(this.dsQWSLocal.PBS_Config);
             // TODO: This line of code loads data into the 'dsQWSLocal1.PBS' table. You can move, or remove it, as needed.
@@ -95,9 +95,10 @@ namespace QWS_Local
         {
             try
             {
+                // TODO check if still rqd
                 this.Validate();
-                this.pBS_VINBindingSource.EndEdit();
-                this.pBS_VINTableAdapter.Update(this.dsQWSLocal);
+                //this.pBS_VINBindingSource.EndEdit();
+                //this.pBS_VINTableAdapter.Update(this.dsQWSLocal);
             }
             catch (Exception e)
             {
@@ -114,7 +115,7 @@ namespace QWS_Local
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             //copy bps_config_id
-            txtPBS_Config_ID_VIN.Text = txtPBS_Config_ID.Text;
+            //txtPBS_Config_ID_VIN.Text = txtPBS_Config_ID.Text;
         }
     }
 }

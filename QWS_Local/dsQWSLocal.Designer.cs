@@ -68,15 +68,13 @@ namespace QWS_Local {
         
         private ConfiguredTnTDataTable tableConfiguredTnT;
         
-        private global::System.Data.DataRelation relationFK_PBS_Config_PBS;
+        private PBS_ConfigSchemeDataTable tablePBS_ConfigScheme;
         
-        private global::System.Data.DataRelation relationFK_PBS_VIN_PBS_Config;
+        private global::System.Data.DataRelation relationFK_PBS_Config_PBS;
         
         private global::System.Data.DataRelation relationJurisdiction_VehicleRegFeeCodes;
         
         private global::System.Data.DataRelation relationFK_VehicleConfig_NHVR_GVM;
-        
-        private global::System.Data.DataRelation relationFK_VehicleConfig_PBS_Config;
         
         private global::System.Data.DataRelation relationFK_VehicleConfig_Vehicle;
         
@@ -91,6 +89,8 @@ namespace QWS_Local {
         private global::System.Data.DataRelation relationFK_Vehicle_AxleConfiguration;
         
         private global::System.Data.DataRelation relationFK_PBS_Config_AxleConfiguration;
+        
+        private global::System.Data.DataRelation relationFK_PBS_ConfigScheme_PBS_Config;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -185,6 +185,9 @@ namespace QWS_Local {
                 }
                 if ((ds.Tables["ConfiguredTnT"] != null)) {
                     base.Tables.Add(new ConfiguredTnTDataTable(ds.Tables["ConfiguredTnT"]));
+                }
+                if ((ds.Tables["PBS_ConfigScheme"] != null)) {
+                    base.Tables.Add(new PBS_ConfigSchemeDataTable(ds.Tables["PBS_ConfigScheme"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -426,6 +429,16 @@ namespace QWS_Local {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public PBS_ConfigSchemeDataTable PBS_ConfigScheme {
+            get {
+                return this.tablePBS_ConfigScheme;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -556,6 +569,9 @@ namespace QWS_Local {
                 }
                 if ((ds.Tables["ConfiguredTnT"] != null)) {
                     base.Tables.Add(new ConfiguredTnTDataTable(ds.Tables["ConfiguredTnT"]));
+                }
+                if ((ds.Tables["PBS_ConfigScheme"] != null)) {
+                    base.Tables.Add(new PBS_ConfigSchemeDataTable(ds.Tables["PBS_ConfigScheme"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -722,11 +738,15 @@ namespace QWS_Local {
                     this.tableConfiguredTnT.InitVars();
                 }
             }
+            this.tablePBS_ConfigScheme = ((PBS_ConfigSchemeDataTable)(base.Tables["PBS_ConfigScheme"]));
+            if ((initTable == true)) {
+                if ((this.tablePBS_ConfigScheme != null)) {
+                    this.tablePBS_ConfigScheme.InitVars();
+                }
+            }
             this.relationFK_PBS_Config_PBS = this.Relations["FK_PBS_Config_PBS"];
-            this.relationFK_PBS_VIN_PBS_Config = this.Relations["FK_PBS_VIN_PBS_Config"];
             this.relationJurisdiction_VehicleRegFeeCodes = this.Relations["Jurisdiction_VehicleRegFeeCodes"];
             this.relationFK_VehicleConfig_NHVR_GVM = this.Relations["FK_VehicleConfig_NHVR_GVM"];
-            this.relationFK_VehicleConfig_PBS_Config = this.Relations["FK_VehicleConfig_PBS_Config"];
             this.relationFK_VehicleConfig_Vehicle = this.Relations["FK_VehicleConfig_Vehicle"];
             this.relationFK_VehicleConfigTrailers_Vehicle = this.Relations["FK_VehicleConfigTrailers_Vehicle"];
             this.relationFK_VehicleConfigTrailers_VehicleConfig = this.Relations["FK_VehicleConfigTrailers_VehicleConfig"];
@@ -734,6 +754,7 @@ namespace QWS_Local {
             this.relationFK_Vehicle_VehicleRegFeeCodes = this.Relations["FK_Vehicle_VehicleRegFeeCodes"];
             this.relationFK_Vehicle_AxleConfiguration = this.Relations["FK_Vehicle_AxleConfiguration"];
             this.relationFK_PBS_Config_AxleConfiguration = this.Relations["FK_PBS_Config_AxleConfiguration"];
+            this.relationFK_PBS_ConfigScheme_PBS_Config = this.Relations["FK_PBS_ConfigScheme_PBS_Config"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -788,14 +809,12 @@ namespace QWS_Local {
             base.Tables.Add(this.tableTkTrConfigNotPBS);
             this.tableConfiguredTnT = new ConfiguredTnTDataTable();
             base.Tables.Add(this.tableConfiguredTnT);
+            this.tablePBS_ConfigScheme = new PBS_ConfigSchemeDataTable();
+            base.Tables.Add(this.tablePBS_ConfigScheme);
             this.relationFK_PBS_Config_PBS = new global::System.Data.DataRelation("FK_PBS_Config_PBS", new global::System.Data.DataColumn[] {
                         this.tablePBS.PBS_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tablePBS_Config.PBS_IDColumn}, false);
             this.Relations.Add(this.relationFK_PBS_Config_PBS);
-            this.relationFK_PBS_VIN_PBS_Config = new global::System.Data.DataRelation("FK_PBS_VIN_PBS_Config", new global::System.Data.DataColumn[] {
-                        this.tablePBS_Config.PBS_Config_IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tablePBS_VIN.PBS_Config_IDColumn}, false);
-            this.Relations.Add(this.relationFK_PBS_VIN_PBS_Config);
             this.relationJurisdiction_VehicleRegFeeCodes = new global::System.Data.DataRelation("Jurisdiction_VehicleRegFeeCodes", new global::System.Data.DataColumn[] {
                         this.tableJurisdiction.JurisdictionColumn}, new global::System.Data.DataColumn[] {
                         this.tableVehicleRegFeeCodes.JurisdictionColumn}, false);
@@ -804,10 +823,6 @@ namespace QWS_Local {
                         this.tableNHVR_GVM.TruckTypeIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTruckConfig.TruckTypeIDColumn}, false);
             this.Relations.Add(this.relationFK_VehicleConfig_NHVR_GVM);
-            this.relationFK_VehicleConfig_PBS_Config = new global::System.Data.DataRelation("FK_VehicleConfig_PBS_Config", new global::System.Data.DataColumn[] {
-                        this.tablePBS_Config.PBS_Config_IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTruckConfig.PBS_Config_IDColumn}, false);
-            this.Relations.Add(this.relationFK_VehicleConfig_PBS_Config);
             this.relationFK_VehicleConfig_Vehicle = new global::System.Data.DataRelation("FK_VehicleConfig_Vehicle", new global::System.Data.DataColumn[] {
                         this.tableVehicle.RegoColumn}, new global::System.Data.DataColumn[] {
                         this.tableTruckConfig.RegoColumn}, false);
@@ -836,6 +851,10 @@ namespace QWS_Local {
                         this.tableAxleConfiguration.AxleConfigurationColumn}, new global::System.Data.DataColumn[] {
                         this.tablePBS_Config.AxleConfigurationColumn}, false);
             this.Relations.Add(this.relationFK_PBS_Config_AxleConfiguration);
+            this.relationFK_PBS_ConfigScheme_PBS_Config = new global::System.Data.DataRelation("FK_PBS_ConfigScheme_PBS_Config", new global::System.Data.DataColumn[] {
+                        this.tablePBS_Config.PBS_ConfigIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePBS_ConfigScheme.PBS_ConfigIDColumn}, false);
+            this.Relations.Add(this.relationFK_PBS_ConfigScheme_PBS_Config);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -972,6 +991,12 @@ namespace QWS_Local {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializePBS_ConfigScheme() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -1091,6 +1116,9 @@ namespace QWS_Local {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void ConfiguredTnTRowChangeEventHandler(object sender, ConfiguredTnTRowChangeEvent e);
         
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void PBS_ConfigSchemeRowChangeEventHandler(object sender, PBS_ConfigSchemeRowChangeEvent e);
+        
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -1106,13 +1134,9 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnApprovalDT;
             
-            private global::System.Data.DataColumn columnApplicant;
-            
-            private global::System.Data.DataColumn columnApplicationNo;
-            
-            private global::System.Data.DataColumn columnAssessor;
-            
             private global::System.Data.DataColumn columnOperator;
+            
+            private global::System.Data.DataColumn columnCardCode;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -1181,33 +1205,17 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ApplicantColumn {
-                get {
-                    return this.columnApplicant;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ApplicationNoColumn {
-                get {
-                    return this.columnApplicationNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn AssessorColumn {
-                get {
-                    return this.columnAssessor;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn OperatorColumn {
                 get {
                     return this.columnOperator;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CardCodeColumn {
+                get {
+                    return this.columnCardCode;
                 }
             }
             
@@ -1248,17 +1256,15 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PBSRow AddPBSRow(int VehicleApproval, string Version, System.DateTime ApprovalDT, string Applicant, string ApplicationNo, string Assessor, string Operator) {
+            public PBSRow AddPBSRow(int VehicleApproval, string Version, System.DateTime ApprovalDT, string Operator, string CardCode) {
                 PBSRow rowPBSRow = ((PBSRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         VehicleApproval,
                         Version,
                         ApprovalDT,
-                        Applicant,
-                        ApplicationNo,
-                        Assessor,
-                        Operator};
+                        Operator,
+                        CardCode};
                 rowPBSRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPBSRow);
                 return rowPBSRow;
@@ -1292,10 +1298,8 @@ namespace QWS_Local {
                 this.columnVehicleApproval = base.Columns["VehicleApproval"];
                 this.columnVersion = base.Columns["Version"];
                 this.columnApprovalDT = base.Columns["ApprovalDT"];
-                this.columnApplicant = base.Columns["Applicant"];
-                this.columnApplicationNo = base.Columns["ApplicationNo"];
-                this.columnAssessor = base.Columns["Assessor"];
                 this.columnOperator = base.Columns["Operator"];
+                this.columnCardCode = base.Columns["CardCode"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1309,14 +1313,10 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnVersion);
                 this.columnApprovalDT = new global::System.Data.DataColumn("ApprovalDT", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnApprovalDT);
-                this.columnApplicant = new global::System.Data.DataColumn("Applicant", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnApplicant);
-                this.columnApplicationNo = new global::System.Data.DataColumn("ApplicationNo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnApplicationNo);
-                this.columnAssessor = new global::System.Data.DataColumn("Assessor", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAssessor);
                 this.columnOperator = new global::System.Data.DataColumn("Operator", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOperator);
+                this.columnCardCode = new global::System.Data.DataColumn("CardCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCardCode);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPBS_ID}, true));
                 this.columnPBS_ID.AutoIncrement = true;
@@ -1329,14 +1329,9 @@ namespace QWS_Local {
                 this.columnVersion.AllowDBNull = false;
                 this.columnVersion.MaxLength = 10;
                 this.columnApprovalDT.AllowDBNull = false;
-                this.columnApplicant.AllowDBNull = false;
-                this.columnApplicant.MaxLength = 50;
-                this.columnApplicationNo.AllowDBNull = false;
-                this.columnApplicationNo.MaxLength = 50;
-                this.columnAssessor.AllowDBNull = false;
-                this.columnAssessor.MaxLength = 50;
                 this.columnOperator.AllowDBNull = false;
                 this.columnOperator.MaxLength = 100;
+                this.columnCardCode.MaxLength = 15;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1470,29 +1465,15 @@ namespace QWS_Local {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class PBS_ConfigDataTable : global::System.Data.TypedTableBase<PBS_ConfigRow> {
             
-            private global::System.Data.DataColumn columnPBS_Config_ID;
-            
             private global::System.Data.DataColumn columnPBS_ID;
             
             private global::System.Data.DataColumn columnTableNo;
             
-            private global::System.Data.DataColumn columnGML_GCM;
-            
-            private global::System.Data.DataColumn columnGML_Truck;
-            
-            private global::System.Data.DataColumn columnCML_GCM;
-            
-            private global::System.Data.DataColumn columnCML_Truck;
-            
-            private global::System.Data.DataColumn columnHML_GCM;
-            
-            private global::System.Data.DataColumn columnHML_Truck;
-            
-            private global::System.Data.DataColumn columnDriveAxleLoad;
-            
-            private global::System.Data.DataColumn columnDriveAxleLoadUOM;
-            
             private global::System.Data.DataColumn columnAxleConfiguration;
+            
+            private global::System.Data.DataColumn columnPBS_ConfigID;
+            
+            private global::System.Data.DataColumn columnPBS_Level;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -1529,14 +1510,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PBS_Config_IDColumn {
-                get {
-                    return this.columnPBS_Config_ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn PBS_IDColumn {
                 get {
                     return this.columnPBS_ID;
@@ -1553,73 +1526,25 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn GML_GCMColumn {
-                get {
-                    return this.columnGML_GCM;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn GML_TruckColumn {
-                get {
-                    return this.columnGML_Truck;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CML_GCMColumn {
-                get {
-                    return this.columnCML_GCM;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CML_TruckColumn {
-                get {
-                    return this.columnCML_Truck;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn HML_GCMColumn {
-                get {
-                    return this.columnHML_GCM;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn HML_TruckColumn {
-                get {
-                    return this.columnHML_Truck;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DriveAxleLoadColumn {
-                get {
-                    return this.columnDriveAxleLoad;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DriveAxleLoadUOMColumn {
-                get {
-                    return this.columnDriveAxleLoadUOM;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn AxleConfigurationColumn {
                 get {
                     return this.columnAxleConfiguration;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PBS_ConfigIDColumn {
+                get {
+                    return this.columnPBS_ConfigID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PBS_LevelColumn {
+                get {
+                    return this.columnPBS_Level;
                 }
             }
             
@@ -1660,26 +1585,19 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PBS_ConfigRow AddPBS_ConfigRow(PBSRow parentPBSRowByFK_PBS_Config_PBS, int TableNo, decimal GML_GCM, decimal GML_Truck, decimal CML_GCM, decimal CML_Truck, decimal HML_GCM, decimal HML_Truck, decimal DriveAxleLoad, string DriveAxleLoadUOM, AxleConfigurationRow parentAxleConfigurationRowByFK_PBS_Config_AxleConfiguration) {
+            public PBS_ConfigRow AddPBS_ConfigRow(PBSRow parentPBSRowByFK_PBS_Config_PBS, int TableNo, AxleConfigurationRow parentAxleConfigurationRowByFK_PBS_Config_AxleConfiguration, int PBS_Level) {
                 PBS_ConfigRow rowPBS_ConfigRow = ((PBS_ConfigRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        null,
                         TableNo,
-                        GML_GCM,
-                        GML_Truck,
-                        CML_GCM,
-                        CML_Truck,
-                        HML_GCM,
-                        HML_Truck,
-                        DriveAxleLoad,
-                        DriveAxleLoadUOM,
-                        null};
+                        null,
+                        null,
+                        PBS_Level};
                 if ((parentPBSRowByFK_PBS_Config_PBS != null)) {
-                    columnValuesArray[1] = parentPBSRowByFK_PBS_Config_PBS[0];
+                    columnValuesArray[0] = parentPBSRowByFK_PBS_Config_PBS[0];
                 }
                 if ((parentAxleConfigurationRowByFK_PBS_Config_AxleConfiguration != null)) {
-                    columnValuesArray[11] = parentAxleConfigurationRowByFK_PBS_Config_AxleConfiguration[0];
+                    columnValuesArray[2] = parentAxleConfigurationRowByFK_PBS_Config_AxleConfiguration[0];
                 }
                 rowPBS_ConfigRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPBS_ConfigRow);
@@ -1688,9 +1606,9 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PBS_ConfigRow FindByPBS_Config_ID(int PBS_Config_ID) {
+            public PBS_ConfigRow FindByPBS_ConfigID(int PBS_ConfigID) {
                 return ((PBS_ConfigRow)(this.Rows.Find(new object[] {
-                            PBS_Config_ID})));
+                            PBS_ConfigID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1710,66 +1628,37 @@ namespace QWS_Local {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnPBS_Config_ID = base.Columns["PBS_Config_ID"];
                 this.columnPBS_ID = base.Columns["PBS_ID"];
                 this.columnTableNo = base.Columns["TableNo"];
-                this.columnGML_GCM = base.Columns["GML_GCM"];
-                this.columnGML_Truck = base.Columns["GML_Truck"];
-                this.columnCML_GCM = base.Columns["CML_GCM"];
-                this.columnCML_Truck = base.Columns["CML_Truck"];
-                this.columnHML_GCM = base.Columns["HML_GCM"];
-                this.columnHML_Truck = base.Columns["HML_Truck"];
-                this.columnDriveAxleLoad = base.Columns["DriveAxleLoad"];
-                this.columnDriveAxleLoadUOM = base.Columns["DriveAxleLoadUOM"];
                 this.columnAxleConfiguration = base.Columns["AxleConfiguration"];
+                this.columnPBS_ConfigID = base.Columns["PBS_ConfigID"];
+                this.columnPBS_Level = base.Columns["PBS_Level"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnPBS_Config_ID = new global::System.Data.DataColumn("PBS_Config_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPBS_Config_ID);
                 this.columnPBS_ID = new global::System.Data.DataColumn("PBS_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPBS_ID);
                 this.columnTableNo = new global::System.Data.DataColumn("TableNo", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTableNo);
-                this.columnGML_GCM = new global::System.Data.DataColumn("GML_GCM", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnGML_GCM);
-                this.columnGML_Truck = new global::System.Data.DataColumn("GML_Truck", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnGML_Truck);
-                this.columnCML_GCM = new global::System.Data.DataColumn("CML_GCM", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCML_GCM);
-                this.columnCML_Truck = new global::System.Data.DataColumn("CML_Truck", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCML_Truck);
-                this.columnHML_GCM = new global::System.Data.DataColumn("HML_GCM", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHML_GCM);
-                this.columnHML_Truck = new global::System.Data.DataColumn("HML_Truck", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHML_Truck);
-                this.columnDriveAxleLoad = new global::System.Data.DataColumn("DriveAxleLoad", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDriveAxleLoad);
-                this.columnDriveAxleLoadUOM = new global::System.Data.DataColumn("DriveAxleLoadUOM", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDriveAxleLoadUOM);
                 this.columnAxleConfiguration = new global::System.Data.DataColumn("AxleConfiguration", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAxleConfiguration);
+                this.columnPBS_ConfigID = new global::System.Data.DataColumn("PBS_ConfigID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPBS_ConfigID);
+                this.columnPBS_Level = new global::System.Data.DataColumn("PBS_Level", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPBS_Level);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnPBS_Config_ID}, true));
-                this.columnPBS_Config_ID.AutoIncrement = true;
-                this.columnPBS_Config_ID.AutoIncrementSeed = -1;
-                this.columnPBS_Config_ID.AutoIncrementStep = -1;
-                this.columnPBS_Config_ID.AllowDBNull = false;
-                this.columnPBS_Config_ID.ReadOnly = true;
-                this.columnPBS_Config_ID.Unique = true;
+                                this.columnPBS_ConfigID}, true));
                 this.columnPBS_ID.AllowDBNull = false;
                 this.columnTableNo.AllowDBNull = false;
-                this.columnGML_GCM.AllowDBNull = false;
-                this.columnGML_Truck.AllowDBNull = false;
-                this.columnCML_GCM.AllowDBNull = false;
-                this.columnCML_Truck.AllowDBNull = false;
-                this.columnHML_GCM.AllowDBNull = false;
-                this.columnHML_Truck.AllowDBNull = false;
-                this.columnDriveAxleLoad.AllowDBNull = false;
-                this.columnDriveAxleLoadUOM.MaxLength = 50;
                 this.columnAxleConfiguration.MaxLength = 50;
+                this.columnPBS_ConfigID.AutoIncrement = true;
+                this.columnPBS_ConfigID.AutoIncrementSeed = -1;
+                this.columnPBS_ConfigID.AutoIncrementStep = -1;
+                this.columnPBS_ConfigID.AllowDBNull = false;
+                this.columnPBS_ConfigID.ReadOnly = true;
+                this.columnPBS_ConfigID.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2003,15 +1892,12 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PBS_VINRow AddPBS_VINRow(PBS_ConfigRow parentPBS_ConfigRowByFK_PBS_VIN_PBS_Config, string VIN) {
+            public PBS_VINRow AddPBS_VINRow(int PBS_Config_ID, string VIN) {
                 PBS_VINRow rowPBS_VINRow = ((PBS_VINRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        null,
+                        PBS_Config_ID,
                         VIN};
-                if ((parentPBS_ConfigRowByFK_PBS_VIN_PBS_Config != null)) {
-                    columnValuesArray[1] = parentPBS_ConfigRowByFK_PBS_VIN_PBS_Config[0];
-                }
                 rowPBS_VINRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPBS_VINRow);
                 return rowPBS_VINRow;
@@ -2235,6 +2121,12 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnCreateDTTM;
             
+            private global::System.Data.DataColumn columnPBS_VA;
+            
+            private global::System.Data.DataColumn columnCardCode;
+            
+            private global::System.Data.DataColumn columnMassAccreditationLabel;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public VehicleDataTable() {
@@ -2414,6 +2306,30 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PBS_VAColumn {
+                get {
+                    return this.columnPBS_VA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CardCodeColumn {
+                get {
+                    return this.columnCardCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn MassAccreditationLabelColumn {
+                get {
+                    return this.columnMassAccreditationLabel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2467,7 +2383,10 @@ namespace QWS_Local {
                         System.DateTime RegistrationExpiryDT, 
                         bool RetareEverytime, 
                         string Active, 
-                        System.DateTime CreateDTTM) {
+                        System.DateTime CreateDTTM, 
+                        int PBS_VA, 
+                        string CardCode, 
+                        string MassAccreditationLabel) {
                 VehicleRow rowVehicleRow = ((VehicleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Rego,
@@ -2487,7 +2406,10 @@ namespace QWS_Local {
                         RegistrationExpiryDT,
                         RetareEverytime,
                         Active,
-                        CreateDTTM};
+                        CreateDTTM,
+                        PBS_VA,
+                        CardCode,
+                        MassAccreditationLabel};
                 if ((parentVehicleRegFeeCodesRowByFK_Vehicle_VehicleRegFeeCodes != null)) {
                     columnValuesArray[6] = parentVehicleRegFeeCodesRowByFK_Vehicle_VehicleRegFeeCodes[0];
                 }
@@ -2541,6 +2463,9 @@ namespace QWS_Local {
                 this.columnRetareEverytime = base.Columns["RetareEverytime"];
                 this.columnActive = base.Columns["Active"];
                 this.columnCreateDTTM = base.Columns["CreateDTTM"];
+                this.columnPBS_VA = base.Columns["PBS_VA"];
+                this.columnCardCode = base.Columns["CardCode"];
+                this.columnMassAccreditationLabel = base.Columns["MassAccreditationLabel"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2582,6 +2507,12 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnActive);
                 this.columnCreateDTTM = new global::System.Data.DataColumn("CreateDTTM", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCreateDTTM);
+                this.columnPBS_VA = new global::System.Data.DataColumn("PBS_VA", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPBS_VA);
+                this.columnCardCode = new global::System.Data.DataColumn("CardCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCardCode);
+                this.columnMassAccreditationLabel = new global::System.Data.DataColumn("MassAccreditationLabel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMassAccreditationLabel);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRego}, true));
                 this.columnRego.AllowDBNull = false;
@@ -2603,6 +2534,9 @@ namespace QWS_Local {
                 this.columnRetareEverytime.AllowDBNull = false;
                 this.columnActive.MaxLength = 1;
                 this.columnCreateDTTM.AllowDBNull = false;
+                this.columnCardCode.AllowDBNull = false;
+                this.columnCardCode.MaxLength = 15;
+                this.columnMassAccreditationLabel.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5330,13 +5264,13 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TruckConfigRow AddTruckConfigRow(VehicleRow parentVehicleRowByFK_VehicleConfig_Vehicle, NHVR_GVMRow parentNHVR_GVMRowByFK_VehicleConfig_NHVR_GVM, PBS_ConfigRow parentPBS_ConfigRowByFK_VehicleConfig_PBS_Config, decimal Tare, System.DateTime TareDT) {
+            public TruckConfigRow AddTruckConfigRow(VehicleRow parentVehicleRowByFK_VehicleConfig_Vehicle, NHVR_GVMRow parentNHVR_GVMRowByFK_VehicleConfig_NHVR_GVM, int PBS_Config_ID, decimal Tare, System.DateTime TareDT) {
                 TruckConfigRow rowTruckConfigRow = ((TruckConfigRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         null,
-                        null,
+                        PBS_Config_ID,
                         Tare,
                         TareDT};
                 if ((parentVehicleRowByFK_VehicleConfig_Vehicle != null)) {
@@ -5344,9 +5278,6 @@ namespace QWS_Local {
                 }
                 if ((parentNHVR_GVMRowByFK_VehicleConfig_NHVR_GVM != null)) {
                     columnValuesArray[2] = parentNHVR_GVMRowByFK_VehicleConfig_NHVR_GVM[0];
-                }
-                if ((parentPBS_ConfigRowByFK_VehicleConfig_PBS_Config != null)) {
-                    columnValuesArray[3] = parentPBS_ConfigRowByFK_VehicleConfig_PBS_Config[0];
                 }
                 rowTruckConfigRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTruckConfigRow);
@@ -10216,6 +10147,361 @@ namespace QWS_Local {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class PBS_ConfigSchemeDataTable : global::System.Data.TypedTableBase<PBS_ConfigSchemeRow> {
+            
+            private global::System.Data.DataColumn columnPBS_ConfigSchemeID;
+            
+            private global::System.Data.DataColumn columnPBS_ConfigID;
+            
+            private global::System.Data.DataColumn columnSchemeCode;
+            
+            private global::System.Data.DataColumn columnGCM;
+            
+            private global::System.Data.DataColumn columnGVMTruck;
+            
+            private global::System.Data.DataColumn columnDriveAxleLoad;
+            
+            private global::System.Data.DataColumn columnDriveAxleLoadUOM;
+            
+            private global::System.Data.DataColumn columnMassMgmtRqd;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PBS_ConfigSchemeDataTable() {
+                this.TableName = "PBS_ConfigScheme";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal PBS_ConfigSchemeDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected PBS_ConfigSchemeDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PBS_ConfigSchemeIDColumn {
+                get {
+                    return this.columnPBS_ConfigSchemeID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PBS_ConfigIDColumn {
+                get {
+                    return this.columnPBS_ConfigID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SchemeCodeColumn {
+                get {
+                    return this.columnSchemeCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn GCMColumn {
+                get {
+                    return this.columnGCM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn GVMTruckColumn {
+                get {
+                    return this.columnGVMTruck;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DriveAxleLoadColumn {
+                get {
+                    return this.columnDriveAxleLoad;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DriveAxleLoadUOMColumn {
+                get {
+                    return this.columnDriveAxleLoadUOM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn MassMgmtRqdColumn {
+                get {
+                    return this.columnMassMgmtRqd;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PBS_ConfigSchemeRow this[int index] {
+                get {
+                    return ((PBS_ConfigSchemeRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event PBS_ConfigSchemeRowChangeEventHandler PBS_ConfigSchemeRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event PBS_ConfigSchemeRowChangeEventHandler PBS_ConfigSchemeRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event PBS_ConfigSchemeRowChangeEventHandler PBS_ConfigSchemeRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event PBS_ConfigSchemeRowChangeEventHandler PBS_ConfigSchemeRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddPBS_ConfigSchemeRow(PBS_ConfigSchemeRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PBS_ConfigSchemeRow AddPBS_ConfigSchemeRow(int PBS_ConfigSchemeID, PBS_ConfigRow parentPBS_ConfigRowByFK_PBS_ConfigScheme_PBS_Config, string SchemeCode, decimal GCM, decimal GVMTruck, decimal DriveAxleLoad, string DriveAxleLoadUOM, bool MassMgmtRqd) {
+                PBS_ConfigSchemeRow rowPBS_ConfigSchemeRow = ((PBS_ConfigSchemeRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        PBS_ConfigSchemeID,
+                        null,
+                        SchemeCode,
+                        GCM,
+                        GVMTruck,
+                        DriveAxleLoad,
+                        DriveAxleLoadUOM,
+                        MassMgmtRqd};
+                if ((parentPBS_ConfigRowByFK_PBS_ConfigScheme_PBS_Config != null)) {
+                    columnValuesArray[1] = parentPBS_ConfigRowByFK_PBS_ConfigScheme_PBS_Config[3];
+                }
+                rowPBS_ConfigSchemeRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPBS_ConfigSchemeRow);
+                return rowPBS_ConfigSchemeRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                PBS_ConfigSchemeDataTable cln = ((PBS_ConfigSchemeDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new PBS_ConfigSchemeDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnPBS_ConfigSchemeID = base.Columns["PBS_ConfigSchemeID"];
+                this.columnPBS_ConfigID = base.Columns["PBS_ConfigID"];
+                this.columnSchemeCode = base.Columns["SchemeCode"];
+                this.columnGCM = base.Columns["GCM"];
+                this.columnGVMTruck = base.Columns["GVMTruck"];
+                this.columnDriveAxleLoad = base.Columns["DriveAxleLoad"];
+                this.columnDriveAxleLoadUOM = base.Columns["DriveAxleLoadUOM"];
+                this.columnMassMgmtRqd = base.Columns["MassMgmtRqd"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnPBS_ConfigSchemeID = new global::System.Data.DataColumn("PBS_ConfigSchemeID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPBS_ConfigSchemeID);
+                this.columnPBS_ConfigID = new global::System.Data.DataColumn("PBS_ConfigID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPBS_ConfigID);
+                this.columnSchemeCode = new global::System.Data.DataColumn("SchemeCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSchemeCode);
+                this.columnGCM = new global::System.Data.DataColumn("GCM", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGCM);
+                this.columnGVMTruck = new global::System.Data.DataColumn("GVMTruck", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGVMTruck);
+                this.columnDriveAxleLoad = new global::System.Data.DataColumn("DriveAxleLoad", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDriveAxleLoad);
+                this.columnDriveAxleLoadUOM = new global::System.Data.DataColumn("DriveAxleLoadUOM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDriveAxleLoadUOM);
+                this.columnMassMgmtRqd = new global::System.Data.DataColumn("MassMgmtRqd", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMassMgmtRqd);
+                this.columnPBS_ConfigSchemeID.AllowDBNull = false;
+                this.columnPBS_ConfigID.AllowDBNull = false;
+                this.columnSchemeCode.AllowDBNull = false;
+                this.columnSchemeCode.MaxLength = 50;
+                this.columnGCM.AllowDBNull = false;
+                this.columnDriveAxleLoad.AllowDBNull = false;
+                this.columnDriveAxleLoadUOM.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PBS_ConfigSchemeRow NewPBS_ConfigSchemeRow() {
+                return ((PBS_ConfigSchemeRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new PBS_ConfigSchemeRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(PBS_ConfigSchemeRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.PBS_ConfigSchemeRowChanged != null)) {
+                    this.PBS_ConfigSchemeRowChanged(this, new PBS_ConfigSchemeRowChangeEvent(((PBS_ConfigSchemeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.PBS_ConfigSchemeRowChanging != null)) {
+                    this.PBS_ConfigSchemeRowChanging(this, new PBS_ConfigSchemeRowChangeEvent(((PBS_ConfigSchemeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.PBS_ConfigSchemeRowDeleted != null)) {
+                    this.PBS_ConfigSchemeRowDeleted(this, new PBS_ConfigSchemeRowChangeEvent(((PBS_ConfigSchemeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.PBS_ConfigSchemeRowDeleting != null)) {
+                    this.PBS_ConfigSchemeRowDeleting(this, new PBS_ConfigSchemeRowChangeEvent(((PBS_ConfigSchemeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemovePBS_ConfigSchemeRow(PBS_ConfigSchemeRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsQWSLocal ds = new dsQWSLocal();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "PBS_ConfigSchemeDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class PBSRow : global::System.Data.DataRow {
@@ -10275,39 +10561,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Applicant {
-                get {
-                    return ((string)(this[this.tablePBS.ApplicantColumn]));
-                }
-                set {
-                    this[this.tablePBS.ApplicantColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ApplicationNo {
-                get {
-                    return ((string)(this[this.tablePBS.ApplicationNoColumn]));
-                }
-                set {
-                    this[this.tablePBS.ApplicationNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Assessor {
-                get {
-                    return ((string)(this[this.tablePBS.AssessorColumn]));
-                }
-                set {
-                    this[this.tablePBS.AssessorColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Operator {
                 get {
                     return ((string)(this[this.tablePBS.OperatorColumn]));
@@ -10315,6 +10568,34 @@ namespace QWS_Local {
                 set {
                     this[this.tablePBS.OperatorColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CardCode {
+                get {
+                    try {
+                        return ((string)(this[this.tablePBS.CardCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CardCode\' in table \'PBS\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePBS.CardCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCardCodeNull() {
+                return this.IsNull(this.tablePBS.CardCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCardCodeNull() {
+                this[this.tablePBS.CardCodeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10345,17 +10626,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int PBS_Config_ID {
-                get {
-                    return ((int)(this[this.tablePBS_Config.PBS_Config_IDColumn]));
-                }
-                set {
-                    this[this.tablePBS_Config.PBS_Config_IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int PBS_ID {
                 get {
                     return ((int)(this[this.tablePBS_Config.PBS_IDColumn]));
@@ -10378,99 +10648,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal GML_GCM {
-                get {
-                    return ((decimal)(this[this.tablePBS_Config.GML_GCMColumn]));
-                }
-                set {
-                    this[this.tablePBS_Config.GML_GCMColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal GML_Truck {
-                get {
-                    return ((decimal)(this[this.tablePBS_Config.GML_TruckColumn]));
-                }
-                set {
-                    this[this.tablePBS_Config.GML_TruckColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal CML_GCM {
-                get {
-                    return ((decimal)(this[this.tablePBS_Config.CML_GCMColumn]));
-                }
-                set {
-                    this[this.tablePBS_Config.CML_GCMColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal CML_Truck {
-                get {
-                    return ((decimal)(this[this.tablePBS_Config.CML_TruckColumn]));
-                }
-                set {
-                    this[this.tablePBS_Config.CML_TruckColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal HML_GCM {
-                get {
-                    return ((decimal)(this[this.tablePBS_Config.HML_GCMColumn]));
-                }
-                set {
-                    this[this.tablePBS_Config.HML_GCMColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal HML_Truck {
-                get {
-                    return ((decimal)(this[this.tablePBS_Config.HML_TruckColumn]));
-                }
-                set {
-                    this[this.tablePBS_Config.HML_TruckColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal DriveAxleLoad {
-                get {
-                    return ((decimal)(this[this.tablePBS_Config.DriveAxleLoadColumn]));
-                }
-                set {
-                    this[this.tablePBS_Config.DriveAxleLoadColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string DriveAxleLoadUOM {
-                get {
-                    try {
-                        return ((string)(this[this.tablePBS_Config.DriveAxleLoadUOMColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DriveAxleLoadUOM\' in table \'PBS_Config\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePBS_Config.DriveAxleLoadUOMColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string AxleConfiguration {
                 get {
                     try {
@@ -10482,6 +10659,33 @@ namespace QWS_Local {
                 }
                 set {
                     this[this.tablePBS_Config.AxleConfigurationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int PBS_ConfigID {
+                get {
+                    return ((int)(this[this.tablePBS_Config.PBS_ConfigIDColumn]));
+                }
+                set {
+                    this[this.tablePBS_Config.PBS_ConfigIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int PBS_Level {
+                get {
+                    try {
+                        return ((int)(this[this.tablePBS_Config.PBS_LevelColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PBS_Level\' in table \'PBS_Config\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePBS_Config.PBS_LevelColumn] = value;
                 }
             }
             
@@ -10509,18 +10713,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDriveAxleLoadUOMNull() {
-                return this.IsNull(this.tablePBS_Config.DriveAxleLoadUOMColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDriveAxleLoadUOMNull() {
-                this[this.tablePBS_Config.DriveAxleLoadUOMColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsAxleConfigurationNull() {
                 return this.IsNull(this.tablePBS_Config.AxleConfigurationColumn);
             }
@@ -10533,23 +10725,24 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PBS_VINRow[] GetPBS_VINRows() {
-                if ((this.Table.ChildRelations["FK_PBS_VIN_PBS_Config"] == null)) {
-                    return new PBS_VINRow[0];
-                }
-                else {
-                    return ((PBS_VINRow[])(base.GetChildRows(this.Table.ChildRelations["FK_PBS_VIN_PBS_Config"])));
-                }
+            public bool IsPBS_LevelNull() {
+                return this.IsNull(this.tablePBS_Config.PBS_LevelColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TruckConfigRow[] GetTruckConfigRows() {
-                if ((this.Table.ChildRelations["FK_VehicleConfig_PBS_Config"] == null)) {
-                    return new TruckConfigRow[0];
+            public void SetPBS_LevelNull() {
+                this[this.tablePBS_Config.PBS_LevelColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PBS_ConfigSchemeRow[] GetPBS_ConfigSchemeRows() {
+                if ((this.Table.ChildRelations["FK_PBS_ConfigScheme_PBS_Config"] == null)) {
+                    return new PBS_ConfigSchemeRow[0];
                 }
                 else {
-                    return ((TruckConfigRow[])(base.GetChildRows(this.Table.ChildRelations["FK_VehicleConfig_PBS_Config"])));
+                    return ((PBS_ConfigSchemeRow[])(base.GetChildRows(this.Table.ChildRelations["FK_PBS_ConfigScheme_PBS_Config"])));
                 }
             }
         }
@@ -10598,17 +10791,6 @@ namespace QWS_Local {
                 }
                 set {
                     this[this.tablePBS_VIN.VINColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PBS_ConfigRow PBS_ConfigRow {
-                get {
-                    return ((PBS_ConfigRow)(this.GetParentRow(this.Table.ParentRelations["FK_PBS_VIN_PBS_Config"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_PBS_VIN_PBS_Config"]);
                 }
             }
         }
@@ -10872,6 +11054,49 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int PBS_VA {
+                get {
+                    try {
+                        return ((int)(this[this.tableVehicle.PBS_VAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PBS_VA\' in table \'Vehicle\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVehicle.PBS_VAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CardCode {
+                get {
+                    return ((string)(this[this.tableVehicle.CardCodeColumn]));
+                }
+                set {
+                    this[this.tableVehicle.CardCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string MassAccreditationLabel {
+                get {
+                    try {
+                        return ((string)(this[this.tableVehicle.MassAccreditationLabelColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MassAccreditationLabel\' in table \'Vehicle\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVehicle.MassAccreditationLabelColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public VehicleRegFeeCodesRow VehicleRegFeeCodesRow {
                 get {
                     return ((VehicleRegFeeCodesRow)(this.GetParentRow(this.Table.ParentRelations["FK_Vehicle_VehicleRegFeeCodes"])));
@@ -10998,6 +11223,30 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetActiveNull() {
                 this[this.tableVehicle.ActiveColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPBS_VANull() {
+                return this.IsNull(this.tableVehicle.PBS_VAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPBS_VANull() {
+                this[this.tableVehicle.PBS_VAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMassAccreditationLabelNull() {
+                return this.IsNull(this.tableVehicle.MassAccreditationLabelColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMassAccreditationLabelNull() {
+                this[this.tableVehicle.MassAccreditationLabelColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12173,17 +12422,6 @@ namespace QWS_Local {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_VehicleConfig_NHVR_GVM"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PBS_ConfigRow PBS_ConfigRow {
-                get {
-                    return ((PBS_ConfigRow)(this.GetParentRow(this.Table.ParentRelations["FK_VehicleConfig_PBS_Config"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_VehicleConfig_PBS_Config"]);
                 }
             }
             
@@ -14682,6 +14920,171 @@ namespace QWS_Local {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class PBS_ConfigSchemeRow : global::System.Data.DataRow {
+            
+            private PBS_ConfigSchemeDataTable tablePBS_ConfigScheme;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal PBS_ConfigSchemeRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablePBS_ConfigScheme = ((PBS_ConfigSchemeDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int PBS_ConfigSchemeID {
+                get {
+                    return ((int)(this[this.tablePBS_ConfigScheme.PBS_ConfigSchemeIDColumn]));
+                }
+                set {
+                    this[this.tablePBS_ConfigScheme.PBS_ConfigSchemeIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int PBS_ConfigID {
+                get {
+                    return ((int)(this[this.tablePBS_ConfigScheme.PBS_ConfigIDColumn]));
+                }
+                set {
+                    this[this.tablePBS_ConfigScheme.PBS_ConfigIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string SchemeCode {
+                get {
+                    return ((string)(this[this.tablePBS_ConfigScheme.SchemeCodeColumn]));
+                }
+                set {
+                    this[this.tablePBS_ConfigScheme.SchemeCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal GCM {
+                get {
+                    return ((decimal)(this[this.tablePBS_ConfigScheme.GCMColumn]));
+                }
+                set {
+                    this[this.tablePBS_ConfigScheme.GCMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal GVMTruck {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablePBS_ConfigScheme.GVMTruckColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GVMTruck\' in table \'PBS_ConfigScheme\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePBS_ConfigScheme.GVMTruckColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal DriveAxleLoad {
+                get {
+                    return ((decimal)(this[this.tablePBS_ConfigScheme.DriveAxleLoadColumn]));
+                }
+                set {
+                    this[this.tablePBS_ConfigScheme.DriveAxleLoadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DriveAxleLoadUOM {
+                get {
+                    try {
+                        return ((string)(this[this.tablePBS_ConfigScheme.DriveAxleLoadUOMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DriveAxleLoadUOM\' in table \'PBS_ConfigScheme\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePBS_ConfigScheme.DriveAxleLoadUOMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool MassMgmtRqd {
+                get {
+                    try {
+                        return ((bool)(this[this.tablePBS_ConfigScheme.MassMgmtRqdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MassMgmtRqd\' in table \'PBS_ConfigScheme\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePBS_ConfigScheme.MassMgmtRqdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PBS_ConfigRow PBS_ConfigRow {
+                get {
+                    return ((PBS_ConfigRow)(this.GetParentRow(this.Table.ParentRelations["FK_PBS_ConfigScheme_PBS_Config"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_PBS_ConfigScheme_PBS_Config"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsGVMTruckNull() {
+                return this.IsNull(this.tablePBS_ConfigScheme.GVMTruckColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetGVMTruckNull() {
+                this[this.tablePBS_ConfigScheme.GVMTruckColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDriveAxleLoadUOMNull() {
+                return this.IsNull(this.tablePBS_ConfigScheme.DriveAxleLoadUOMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDriveAxleLoadUOMNull() {
+                this[this.tablePBS_ConfigScheme.DriveAxleLoadUOMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMassMgmtRqdNull() {
+                return this.IsNull(this.tablePBS_ConfigScheme.MassMgmtRqdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMassMgmtRqdNull() {
+                this[this.tablePBS_ConfigScheme.MassMgmtRqdColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -15428,6 +15831,40 @@ namespace QWS_Local {
                 }
             }
         }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class PBS_ConfigSchemeRowChangeEvent : global::System.EventArgs {
+            
+            private PBS_ConfigSchemeRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PBS_ConfigSchemeRowChangeEvent(PBS_ConfigSchemeRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PBS_ConfigSchemeRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
     }
 }
 namespace QWS_Local.dsQWSLocalTableAdapters {
@@ -15558,55 +15995,47 @@ namespace QWS_Local.dsQWSLocalTableAdapters {
             tableMapping.ColumnMappings.Add("VehicleApproval", "VehicleApproval");
             tableMapping.ColumnMappings.Add("Version", "Version");
             tableMapping.ColumnMappings.Add("ApprovalDT", "ApprovalDT");
-            tableMapping.ColumnMappings.Add("Applicant", "Applicant");
-            tableMapping.ColumnMappings.Add("ApplicationNo", "ApplicationNo");
-            tableMapping.ColumnMappings.Add("Assessor", "Assessor");
             tableMapping.ColumnMappings.Add("Operator", "Operator");
+            tableMapping.ColumnMappings.Add("CardCode", "CardCode");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [PBS] WHERE (([PBS_ID] = @Original_PBS_ID) AND ([VehicleApproval] = @Original_VehicleApproval) AND ([Version] = @Original_Version) AND ([ApprovalDT] = @Original_ApprovalDT) AND ([Applicant] = @Original_Applicant) AND ([ApplicationNo] = @Original_ApplicationNo) AND ([Assessor] = @Original_Assessor) AND ([Operator] = @Original_Operator))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [PBS] WHERE (([PBS_ID] = @Original_PBS_ID) AND ([VehicleApproval] = @Original_VehicleApproval) AND ([Version] = @Original_Version) AND ([ApprovalDT] = @Original_ApprovalDT) AND ([Operator] = @Original_Operator) AND ((@IsNull_CardCode = 1 AND [CardCode] IS NULL) OR ([CardCode] = @Original_CardCode)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VehicleApproval", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleApproval", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Version", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Version", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ApprovalDT", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApprovalDT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Applicant", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Applicant", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ApplicationNo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApplicationNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assessor", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assessor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Operator", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operator", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CardCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CardCode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CardCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CardCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [PBS] ([VehicleApproval], [Version], [ApprovalDT], [Applicant], [ApplicationNo], [Assessor], [Operator]) VALUES (@VehicleApproval, @Version, @ApprovalDT, @Applicant, @ApplicationNo, @Assessor, @Operator);
-SELECT PBS_ID, VehicleApproval, Version, ApprovalDT, Applicant, ApplicationNo, Assessor, Operator FROM PBS WHERE (PBS_ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [PBS] ([VehicleApproval], [Version], [ApprovalDT], [Operator], [CardCode]) VALUES (@VehicleApproval, @Version, @ApprovalDT, @Operator, @CardCode);
+SELECT PBS_ID, VehicleApproval, Version, ApprovalDT, Operator, CardCode FROM PBS WHERE (PBS_ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleApproval", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleApproval", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Version", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Version", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApprovalDT", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApprovalDT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Applicant", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Applicant", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApplicationNo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApplicationNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assessor", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assessor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Operator", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CardCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CardCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [PBS] SET [VehicleApproval] = @VehicleApproval, [Version] = @Version, [ApprovalDT] = @ApprovalDT, [Applicant] = @Applicant, [ApplicationNo] = @ApplicationNo, [Assessor] = @Assessor, [Operator] = @Operator WHERE (([PBS_ID] = @Original_PBS_ID) AND ([VehicleApproval] = @Original_VehicleApproval) AND ([Version] = @Original_Version) AND ([ApprovalDT] = @Original_ApprovalDT) AND ([Applicant] = @Original_Applicant) AND ([ApplicationNo] = @Original_ApplicationNo) AND ([Assessor] = @Original_Assessor) AND ([Operator] = @Original_Operator));
-SELECT PBS_ID, VehicleApproval, Version, ApprovalDT, Applicant, ApplicationNo, Assessor, Operator FROM PBS WHERE (PBS_ID = @PBS_ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [PBS] SET [VehicleApproval] = @VehicleApproval, [Version] = @Version, [ApprovalDT] = @ApprovalDT, [Operator] = @Operator, [CardCode] = @CardCode WHERE (([PBS_ID] = @Original_PBS_ID) AND ([VehicleApproval] = @Original_VehicleApproval) AND ([Version] = @Original_Version) AND ([ApprovalDT] = @Original_ApprovalDT) AND ([Operator] = @Original_Operator) AND ((@IsNull_CardCode = 1 AND [CardCode] IS NULL) OR ([CardCode] = @Original_CardCode)));
+SELECT PBS_ID, VehicleApproval, Version, ApprovalDT, Operator, CardCode FROM PBS WHERE (PBS_ID = @PBS_ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleApproval", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleApproval", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Version", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Version", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApprovalDT", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApprovalDT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Applicant", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Applicant", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApplicationNo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApplicationNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assessor", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assessor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Operator", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CardCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CardCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VehicleApproval", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleApproval", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Version", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Version", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ApprovalDT", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApprovalDT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Applicant", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Applicant", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ApplicationNo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApplicationNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assessor", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assessor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Operator", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operator", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CardCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CardCode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CardCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CardCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -15623,8 +16052,7 @@ SELECT PBS_ID, VehicleApproval, Version, ApprovalDT, Applicant, ApplicationNo, A
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        PBS_ID, VehicleApproval, Version, ApprovalDT, Applicant, Applicatio" +
-                "nNo, Assessor, Operator\r\nFROM            PBS";
+            this._commandCollection[0].CommandText = "SELECT        PBS.*\r\nFROM            PBS";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -15685,7 +16113,7 @@ SELECT PBS_ID, VehicleApproval, Version, ApprovalDT, Applicant, ApplicationNo, A
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_PBS_ID, int Original_VehicleApproval, string Original_Version, System.DateTime Original_ApprovalDT, string Original_Applicant, string Original_ApplicationNo, string Original_Assessor, string Original_Operator) {
+        public virtual int Delete(int Original_PBS_ID, int Original_VehicleApproval, string Original_Version, System.DateTime Original_ApprovalDT, string Original_Operator, string Original_CardCode) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_PBS_ID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_VehicleApproval));
             if ((Original_Version == null)) {
@@ -15695,29 +16123,19 @@ SELECT PBS_ID, VehicleApproval, Version, ApprovalDT, Applicant, ApplicationNo, A
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Version));
             }
             this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_ApprovalDT));
-            if ((Original_Applicant == null)) {
-                throw new global::System.ArgumentNullException("Original_Applicant");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Applicant));
-            }
-            if ((Original_ApplicationNo == null)) {
-                throw new global::System.ArgumentNullException("Original_ApplicationNo");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_ApplicationNo));
-            }
-            if ((Original_Assessor == null)) {
-                throw new global::System.ArgumentNullException("Original_Assessor");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Assessor));
-            }
             if ((Original_Operator == null)) {
                 throw new global::System.ArgumentNullException("Original_Operator");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Operator));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Operator));
+            }
+            if ((Original_CardCode == null)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_CardCode));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -15739,7 +16157,7 @@ SELECT PBS_ID, VehicleApproval, Version, ApprovalDT, Applicant, ApplicationNo, A
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int VehicleApproval, string Version, System.DateTime ApprovalDT, string Applicant, string ApplicationNo, string Assessor, string Operator) {
+        public virtual int Insert(int VehicleApproval, string Version, System.DateTime ApprovalDT, string Operator, string CardCode) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(VehicleApproval));
             if ((Version == null)) {
                 throw new global::System.ArgumentNullException("Version");
@@ -15748,29 +16166,17 @@ SELECT PBS_ID, VehicleApproval, Version, ApprovalDT, Applicant, ApplicationNo, A
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Version));
             }
             this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(ApprovalDT));
-            if ((Applicant == null)) {
-                throw new global::System.ArgumentNullException("Applicant");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Applicant));
-            }
-            if ((ApplicationNo == null)) {
-                throw new global::System.ArgumentNullException("ApplicationNo");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(ApplicationNo));
-            }
-            if ((Assessor == null)) {
-                throw new global::System.ArgumentNullException("Assessor");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Assessor));
-            }
             if ((Operator == null)) {
                 throw new global::System.ArgumentNullException("Operator");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Operator));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Operator));
+            }
+            if ((CardCode == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(CardCode));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -15792,23 +16198,7 @@ SELECT PBS_ID, VehicleApproval, Version, ApprovalDT, Applicant, ApplicationNo, A
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int VehicleApproval, 
-                    string Version, 
-                    System.DateTime ApprovalDT, 
-                    string Applicant, 
-                    string ApplicationNo, 
-                    string Assessor, 
-                    string Operator, 
-                    int Original_PBS_ID, 
-                    int Original_VehicleApproval, 
-                    string Original_Version, 
-                    System.DateTime Original_ApprovalDT, 
-                    string Original_Applicant, 
-                    string Original_ApplicationNo, 
-                    string Original_Assessor, 
-                    string Original_Operator, 
-                    int PBS_ID) {
+        public virtual int Update(int VehicleApproval, string Version, System.DateTime ApprovalDT, string Operator, string CardCode, int Original_PBS_ID, int Original_VehicleApproval, string Original_Version, System.DateTime Original_ApprovalDT, string Original_Operator, string Original_CardCode, int PBS_ID) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(VehicleApproval));
             if ((Version == null)) {
                 throw new global::System.ArgumentNullException("Version");
@@ -15817,64 +16207,42 @@ SELECT PBS_ID, VehicleApproval, Version, ApprovalDT, Applicant, ApplicationNo, A
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Version));
             }
             this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(ApprovalDT));
-            if ((Applicant == null)) {
-                throw new global::System.ArgumentNullException("Applicant");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Applicant));
-            }
-            if ((ApplicationNo == null)) {
-                throw new global::System.ArgumentNullException("ApplicationNo");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(ApplicationNo));
-            }
-            if ((Assessor == null)) {
-                throw new global::System.ArgumentNullException("Assessor");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Assessor));
-            }
             if ((Operator == null)) {
                 throw new global::System.ArgumentNullException("Operator");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Operator));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Operator));
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_PBS_ID));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_VehicleApproval));
+            if ((CardCode == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(CardCode));
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_PBS_ID));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_VehicleApproval));
             if ((Original_Version == null)) {
                 throw new global::System.ArgumentNullException("Original_Version");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Version));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Version));
             }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_ApprovalDT));
-            if ((Original_Applicant == null)) {
-                throw new global::System.ArgumentNullException("Original_Applicant");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Applicant));
-            }
-            if ((Original_ApplicationNo == null)) {
-                throw new global::System.ArgumentNullException("Original_ApplicationNo");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_ApplicationNo));
-            }
-            if ((Original_Assessor == null)) {
-                throw new global::System.ArgumentNullException("Original_Assessor");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Assessor));
-            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_ApprovalDT));
             if ((Original_Operator == null)) {
                 throw new global::System.ArgumentNullException("Original_Operator");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Operator));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Operator));
             }
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(PBS_ID));
+            if ((Original_CardCode == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_CardCode));
+            }
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(PBS_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -15895,8 +16263,8 @@ SELECT PBS_ID, VehicleApproval, Version, ApprovalDT, Applicant, ApplicationNo, A
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int VehicleApproval, string Version, System.DateTime ApprovalDT, string Applicant, string ApplicationNo, string Assessor, string Operator, int Original_PBS_ID, int Original_VehicleApproval, string Original_Version, System.DateTime Original_ApprovalDT, string Original_Applicant, string Original_ApplicationNo, string Original_Assessor, string Original_Operator) {
-            return this.Update(VehicleApproval, Version, ApprovalDT, Applicant, ApplicationNo, Assessor, Operator, Original_PBS_ID, Original_VehicleApproval, Original_Version, Original_ApprovalDT, Original_Applicant, Original_ApplicationNo, Original_Assessor, Original_Operator, Original_PBS_ID);
+        public virtual int Update(int VehicleApproval, string Version, System.DateTime ApprovalDT, string Operator, string CardCode, int Original_PBS_ID, int Original_VehicleApproval, string Original_Version, System.DateTime Original_ApprovalDT, string Original_Operator, string Original_CardCode) {
+            return this.Update(VehicleApproval, Version, ApprovalDT, Operator, CardCode, Original_PBS_ID, Original_VehicleApproval, Original_Version, Original_ApprovalDT, Original_Operator, Original_CardCode, Original_PBS_ID);
         }
     }
     
@@ -16021,84 +16389,49 @@ SELECT PBS_ID, VehicleApproval, Version, ApprovalDT, Applicant, ApplicationNo, A
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "PBS_Config";
-            tableMapping.ColumnMappings.Add("PBS_Config_ID", "PBS_Config_ID");
             tableMapping.ColumnMappings.Add("PBS_ID", "PBS_ID");
             tableMapping.ColumnMappings.Add("TableNo", "TableNo");
-            tableMapping.ColumnMappings.Add("GML_GCM", "GML_GCM");
-            tableMapping.ColumnMappings.Add("GML_Truck", "GML_Truck");
-            tableMapping.ColumnMappings.Add("CML_GCM", "CML_GCM");
-            tableMapping.ColumnMappings.Add("CML_Truck", "CML_Truck");
-            tableMapping.ColumnMappings.Add("HML_GCM", "HML_GCM");
-            tableMapping.ColumnMappings.Add("HML_Truck", "HML_Truck");
-            tableMapping.ColumnMappings.Add("DriveAxleLoad", "DriveAxleLoad");
-            tableMapping.ColumnMappings.Add("DriveAxleLoadUOM", "DriveAxleLoadUOM");
             tableMapping.ColumnMappings.Add("AxleConfiguration", "AxleConfiguration");
+            tableMapping.ColumnMappings.Add("PBS_ConfigID", "PBS_ConfigID");
+            tableMapping.ColumnMappings.Add("PBS_Level", "PBS_Level");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [PBS_Config] WHERE (([PBS_Config_ID] = @Original_PBS_Config_ID) AND ([PBS_ID] = @Original_PBS_ID) AND ([TableNo] = @Original_TableNo) AND ([GML_GCM] = @Original_GML_GCM) AND ([GML_Truck] = @Original_GML_Truck) AND ([CML_GCM] = @Original_CML_GCM) AND ([CML_Truck] = @Original_CML_Truck) AND ([HML_GCM] = @Original_HML_GCM) AND ([HML_Truck] = @Original_HML_Truck) AND ([DriveAxleLoad] = @Original_DriveAxleLoad) AND ((@IsNull_DriveAxleLoadUOM = 1 AND [DriveAxleLoadUOM] IS NULL) OR ([DriveAxleLoadUOM] = @Original_DriveAxleLoadUOM)) AND ((@IsNull_AxleConfiguration = 1 AND [AxleConfiguration] IS NULL) OR ([AxleConfiguration] = @Original_AxleConfiguration)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [PBS_Config] WHERE (([PBS_ConfigID] = @Original_PBS_ConfigID) AND ([PBS_ID] = @Original_PBS_ID) AND ((@IsNull_PBS_Level = 1 AND [PBS_Level] IS NULL) OR ([PBS_Level] = @Original_PBS_Level)) AND ([TableNo] = @Original_TableNo) AND ((@IsNull_AxleConfiguration = 1 AND [AxleConfiguration] IS NULL) OR ([AxleConfiguration] = @Original_AxleConfiguration)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_Config_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_Config_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_ConfigID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ConfigID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PBS_Level", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_Level", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_Level", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_Level", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TableNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TableNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GML_GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GML_GCM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GML_Truck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GML_Truck", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CML_GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "CML_GCM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CML_Truck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "CML_Truck", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HML_GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "HML_GCM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HML_Truck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "HML_Truck", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DriveAxleLoad", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "DriveAxleLoad", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DriveAxleLoadUOM", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DriveAxleLoadUOM", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DriveAxleLoadUOM", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DriveAxleLoadUOM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AxleConfiguration", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [PBS_Config] ([PBS_ID], [TableNo], [GML_GCM], [GML_Truck], [CML_GCM], [CML_Truck], [HML_GCM], [HML_Truck], [DriveAxleLoad], [DriveAxleLoadUOM], [AxleConfiguration]) VALUES (@PBS_ID, @TableNo, @GML_GCM, @GML_Truck, @CML_GCM, @CML_Truck, @HML_GCM, @HML_Truck, @DriveAxleLoad, @DriveAxleLoadUOM, @AxleConfiguration);
-SELECT PBS_Config_ID, PBS_ID, TableNo, GML_GCM, GML_Truck, CML_GCM, CML_Truck, HML_GCM, HML_Truck, DriveAxleLoad, DriveAxleLoadUOM, AxleConfiguration FROM PBS_Config WHERE (PBS_Config_ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [PBS_Config] ([PBS_ID], [PBS_Level], [TableNo], [AxleConfiguration]) VALUES (@PBS_ID, @PBS_Level, @TableNo, @AxleConfiguration);
+SELECT PBS_ConfigID, PBS_ID, PBS_Level, TableNo, AxleConfiguration FROM PBS_Config WHERE (PBS_ConfigID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_Level", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_Level", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TableNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TableNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GML_GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GML_GCM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GML_Truck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GML_Truck", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CML_GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "CML_GCM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CML_Truck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "CML_Truck", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HML_GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "HML_GCM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HML_Truck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "HML_Truck", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DriveAxleLoad", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "DriveAxleLoad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DriveAxleLoadUOM", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DriveAxleLoadUOM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [PBS_Config] SET [PBS_ID] = @PBS_ID, [TableNo] = @TableNo, [GML_GCM] = @GML_GCM, [GML_Truck] = @GML_Truck, [CML_GCM] = @CML_GCM, [CML_Truck] = @CML_Truck, [HML_GCM] = @HML_GCM, [HML_Truck] = @HML_Truck, [DriveAxleLoad] = @DriveAxleLoad, [DriveAxleLoadUOM] = @DriveAxleLoadUOM, [AxleConfiguration] = @AxleConfiguration WHERE (([PBS_Config_ID] = @Original_PBS_Config_ID) AND ([PBS_ID] = @Original_PBS_ID) AND ([TableNo] = @Original_TableNo) AND ([GML_GCM] = @Original_GML_GCM) AND ([GML_Truck] = @Original_GML_Truck) AND ([CML_GCM] = @Original_CML_GCM) AND ([CML_Truck] = @Original_CML_Truck) AND ([HML_GCM] = @Original_HML_GCM) AND ([HML_Truck] = @Original_HML_Truck) AND ([DriveAxleLoad] = @Original_DriveAxleLoad) AND ((@IsNull_DriveAxleLoadUOM = 1 AND [DriveAxleLoadUOM] IS NULL) OR ([DriveAxleLoadUOM] = @Original_DriveAxleLoadUOM)) AND ((@IsNull_AxleConfiguration = 1 AND [AxleConfiguration] IS NULL) OR ([AxleConfiguration] = @Original_AxleConfiguration)));
-SELECT PBS_Config_ID, PBS_ID, TableNo, GML_GCM, GML_Truck, CML_GCM, CML_Truck, HML_GCM, HML_Truck, DriveAxleLoad, DriveAxleLoadUOM, AxleConfiguration FROM PBS_Config WHERE (PBS_Config_ID = @PBS_Config_ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [PBS_Config] SET [PBS_ID] = @PBS_ID, [PBS_Level] = @PBS_Level, [TableNo] = @TableNo, [AxleConfiguration] = @AxleConfiguration WHERE (([PBS_ConfigID] = @Original_PBS_ConfigID) AND ([PBS_ID] = @Original_PBS_ID) AND ((@IsNull_PBS_Level = 1 AND [PBS_Level] IS NULL) OR ([PBS_Level] = @Original_PBS_Level)) AND ([TableNo] = @Original_TableNo) AND ((@IsNull_AxleConfiguration = 1 AND [AxleConfiguration] IS NULL) OR ([AxleConfiguration] = @Original_AxleConfiguration)));
+SELECT PBS_ConfigID, PBS_ID, PBS_Level, TableNo, AxleConfiguration FROM PBS_Config WHERE (PBS_ConfigID = @PBS_ConfigID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_Level", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_Level", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TableNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TableNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GML_GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GML_GCM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GML_Truck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GML_Truck", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CML_GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "CML_GCM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CML_Truck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "CML_Truck", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HML_GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "HML_GCM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HML_Truck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "HML_Truck", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DriveAxleLoad", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "DriveAxleLoad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DriveAxleLoadUOM", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DriveAxleLoadUOM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_Config_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_Config_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_ConfigID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ConfigID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PBS_Level", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_Level", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_Level", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_Level", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TableNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TableNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GML_GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GML_GCM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GML_Truck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GML_Truck", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CML_GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "CML_GCM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CML_Truck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "CML_Truck", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HML_GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "HML_GCM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HML_Truck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "HML_Truck", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DriveAxleLoad", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "DriveAxleLoad", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DriveAxleLoadUOM", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DriveAxleLoadUOM", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DriveAxleLoadUOM", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DriveAxleLoadUOM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AxleConfiguration", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_Config_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_Config_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ConfigID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ConfigID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16114,9 +16447,7 @@ SELECT PBS_Config_ID, PBS_ID, TableNo, GML_GCM, GML_Truck, CML_GCM, CML_Truck, H
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        PBS_Config_ID, PBS_ID, TableNo, GML_GCM, GML_Truck, CML_GCM, CML_Tr" +
-                "uck, HML_GCM, HML_Truck, DriveAxleLoad, DriveAxleLoadUOM, AxleConfiguration\r\nFRO" +
-                "M            PBS_Config";
+            this._commandCollection[0].CommandText = "SELECT        PBS_Config.*\r\nFROM            PBS_Config";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -16177,32 +16508,25 @@ SELECT PBS_Config_ID, PBS_ID, TableNo, GML_GCM, GML_Truck, CML_GCM, CML_Truck, H
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_PBS_Config_ID, int Original_PBS_ID, int Original_TableNo, decimal Original_GML_GCM, decimal Original_GML_Truck, decimal Original_CML_GCM, decimal Original_CML_Truck, decimal Original_HML_GCM, decimal Original_HML_Truck, decimal Original_DriveAxleLoad, string Original_DriveAxleLoadUOM, string Original_AxleConfiguration) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_PBS_Config_ID));
+        public virtual int Delete(int Original_PBS_ConfigID, int Original_PBS_ID, global::System.Nullable<int> Original_PBS_Level, int Original_TableNo, string Original_AxleConfiguration) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_PBS_ConfigID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_PBS_ID));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_TableNo));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((decimal)(Original_GML_GCM));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((decimal)(Original_GML_Truck));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((decimal)(Original_CML_GCM));
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_CML_Truck));
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((decimal)(Original_HML_GCM));
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((decimal)(Original_HML_Truck));
-            this.Adapter.DeleteCommand.Parameters[9].Value = ((decimal)(Original_DriveAxleLoad));
-            if ((Original_DriveAxleLoadUOM == null)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+            if ((Original_PBS_Level.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_PBS_Level.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_DriveAxleLoadUOM));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_TableNo));
             if ((Original_AxleConfiguration == null)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_AxleConfiguration));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_AxleConfiguration));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -16224,27 +16548,20 @@ SELECT PBS_Config_ID, PBS_ID, TableNo, GML_GCM, GML_Truck, CML_GCM, CML_Truck, H
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int PBS_ID, int TableNo, decimal GML_GCM, decimal GML_Truck, decimal CML_GCM, decimal CML_Truck, decimal HML_GCM, decimal HML_Truck, decimal DriveAxleLoad, string DriveAxleLoadUOM, string AxleConfiguration) {
+        public virtual int Insert(int PBS_ID, global::System.Nullable<int> PBS_Level, int TableNo, string AxleConfiguration) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(PBS_ID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(TableNo));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(GML_GCM));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(GML_Truck));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(CML_GCM));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(CML_Truck));
-            this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(HML_GCM));
-            this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(HML_Truck));
-            this.Adapter.InsertCommand.Parameters[8].Value = ((decimal)(DriveAxleLoad));
-            if ((DriveAxleLoadUOM == null)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            if ((PBS_Level.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(PBS_Level.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(DriveAxleLoadUOM));
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(TableNo));
             if ((AxleConfiguration == null)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(AxleConfiguration));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(AxleConfiguration));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -16266,79 +16583,41 @@ SELECT PBS_Config_ID, PBS_ID, TableNo, GML_GCM, GML_Truck, CML_GCM, CML_Truck, H
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int PBS_ID, 
-                    int TableNo, 
-                    decimal GML_GCM, 
-                    decimal GML_Truck, 
-                    decimal CML_GCM, 
-                    decimal CML_Truck, 
-                    decimal HML_GCM, 
-                    decimal HML_Truck, 
-                    decimal DriveAxleLoad, 
-                    string DriveAxleLoadUOM, 
-                    string AxleConfiguration, 
-                    int Original_PBS_Config_ID, 
-                    int Original_PBS_ID, 
-                    int Original_TableNo, 
-                    decimal Original_GML_GCM, 
-                    decimal Original_GML_Truck, 
-                    decimal Original_CML_GCM, 
-                    decimal Original_CML_Truck, 
-                    decimal Original_HML_GCM, 
-                    decimal Original_HML_Truck, 
-                    decimal Original_DriveAxleLoad, 
-                    string Original_DriveAxleLoadUOM, 
-                    string Original_AxleConfiguration, 
-                    int PBS_Config_ID) {
+        public virtual int Update(int PBS_ID, global::System.Nullable<int> PBS_Level, int TableNo, string AxleConfiguration, int Original_PBS_ConfigID, int Original_PBS_ID, global::System.Nullable<int> Original_PBS_Level, int Original_TableNo, string Original_AxleConfiguration, int PBS_ConfigID) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(PBS_ID));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(TableNo));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(GML_GCM));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(GML_Truck));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(CML_GCM));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(CML_Truck));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(HML_GCM));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(HML_Truck));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(DriveAxleLoad));
-            if ((DriveAxleLoadUOM == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            if ((PBS_Level.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(PBS_Level.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(DriveAxleLoadUOM));
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(TableNo));
             if ((AxleConfiguration == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(AxleConfiguration));
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_PBS_ConfigID));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_PBS_ID));
+            if ((Original_PBS_Level.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_PBS_Level.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_TableNo));
+            if ((Original_AxleConfiguration == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(AxleConfiguration));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_AxleConfiguration));
             }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_PBS_Config_ID));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_PBS_ID));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_TableNo));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Original_GML_GCM));
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(Original_GML_Truck));
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(Original_CML_GCM));
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(Original_CML_Truck));
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(Original_HML_GCM));
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(Original_HML_Truck));
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(Original_DriveAxleLoad));
-            if ((Original_DriveAxleLoadUOM == null)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_DriveAxleLoadUOM));
-            }
-            if ((Original_AxleConfiguration == null)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_AxleConfiguration));
-            }
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(PBS_Config_ID));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(PBS_ConfigID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -16359,31 +16638,8 @@ SELECT PBS_Config_ID, PBS_ID, TableNo, GML_GCM, GML_Truck, CML_GCM, CML_Truck, H
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int PBS_ID, 
-                    int TableNo, 
-                    decimal GML_GCM, 
-                    decimal GML_Truck, 
-                    decimal CML_GCM, 
-                    decimal CML_Truck, 
-                    decimal HML_GCM, 
-                    decimal HML_Truck, 
-                    decimal DriveAxleLoad, 
-                    string DriveAxleLoadUOM, 
-                    string AxleConfiguration, 
-                    int Original_PBS_Config_ID, 
-                    int Original_PBS_ID, 
-                    int Original_TableNo, 
-                    decimal Original_GML_GCM, 
-                    decimal Original_GML_Truck, 
-                    decimal Original_CML_GCM, 
-                    decimal Original_CML_Truck, 
-                    decimal Original_HML_GCM, 
-                    decimal Original_HML_Truck, 
-                    decimal Original_DriveAxleLoad, 
-                    string Original_DriveAxleLoadUOM, 
-                    string Original_AxleConfiguration) {
-            return this.Update(PBS_ID, TableNo, GML_GCM, GML_Truck, CML_GCM, CML_Truck, HML_GCM, HML_Truck, DriveAxleLoad, DriveAxleLoadUOM, AxleConfiguration, Original_PBS_Config_ID, Original_PBS_ID, Original_TableNo, Original_GML_GCM, Original_GML_Truck, Original_CML_GCM, Original_CML_Truck, Original_HML_GCM, Original_HML_Truck, Original_DriveAxleLoad, Original_DriveAxleLoadUOM, Original_AxleConfiguration, Original_PBS_Config_ID);
+        public virtual int Update(int PBS_ID, global::System.Nullable<int> PBS_Level, int TableNo, string AxleConfiguration, int Original_PBS_ConfigID, int Original_PBS_ID, global::System.Nullable<int> Original_PBS_Level, int Original_TableNo, string Original_AxleConfiguration) {
+            return this.Update(PBS_ID, PBS_Level, TableNo, AxleConfiguration, Original_PBS_ConfigID, Original_PBS_ID, Original_PBS_Level, Original_TableNo, Original_AxleConfiguration, Original_PBS_ConfigID);
         }
     }
     
@@ -16816,59 +17072,56 @@ SELECT PBS_VIN_ID, PBS_Config_ID, VIN FROM PBS_VIN WHERE (PBS_VIN_ID = @PBS_VIN_
             tableMapping.ColumnMappings.Add("RetareEverytime", "RetareEverytime");
             tableMapping.ColumnMappings.Add("Active", "Active");
             tableMapping.ColumnMappings.Add("CreateDTTM", "CreateDTTM");
+            tableMapping.ColumnMappings.Add("PBS_VA", "PBS_VA");
+            tableMapping.ColumnMappings.Add("CardCode", "CardCode");
+            tableMapping.ColumnMappings.Add("MassAccreditationLabel", "MassAccreditationLabel");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM [Vehicle] WHERE (([Rego] = @Original_Rego))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rego", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Vehicle] ([Rego], [VIN], [SAPCode], [Owner], [Make], [Model], [AxleConfiguration], [RegisteredTare], [FeeCodeID], [RegistrationExpiryDT], [ForceRetare], [RetareEverytime], [Tare], [TareDT], [PrefPayload], [PrefCustomerCode], [Active], [CreateDTTM]) VALUES (@Rego, @VIN, @SAPCode, @Owner, @Make, @Model, @AxleConfiguration, @RegisteredTare, @FeeCodeID, @RegistrationExpiryDT, @ForceRetare, @RetareEverytime, @Tare, @TareDT, @PrefPayload, @PrefCustomerCode, @Active, @CreateDTTM);
-SELECT Rego, VIN, SAPCode, Owner, Make, Model, AxleConfiguration, RegisteredTare, FeeCodeID, RegistrationExpiryDT, ForceRetare, RetareEverytime, Tare, TareDT, PrefPayload, PrefCustomerCode, Active, CreateDTTM FROM Vehicle WHERE (Rego = @Rego)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Vehicle] ([Rego], [VIN], [PBS_VA], [CardCode], [Owner], [Make], [Model], [AxleConfiguration], [MassAccreditationLabel], [RegisteredTare], [FeeCodeID], [RegistrationExpiryDT], [PrefCustomerCode], [Active], [CreateDTTM]) VALUES (@Rego, @VIN, @PBS_VA, @CardCode, @Owner, @Make, @Model, @AxleConfiguration, @MassAccreditationLabel, @RegisteredTare, @FeeCodeID, @RegistrationExpiryDT, @PrefCustomerCode, @Active, @CreateDTTM);
+SELECT Rego, VIN, PBS_VA, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, PrefCustomerCode, Active, CreateDTTM FROM Vehicle WHERE (Rego = @Rego)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rego", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VIN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SAPCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SAPCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_VA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_VA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CardCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CardCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Owner", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Owner", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Make", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Make", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Model", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Model", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MassAccreditationLabel", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassAccreditationLabel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegisteredTare", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "RegisteredTare", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeCodeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCodeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegistrationExpiryDT", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegistrationExpiryDT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ForceRetare", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ForceRetare", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RetareEverytime", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RetareEverytime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tare", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Tare", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TareDT", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TareDT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrefPayload", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "PrefPayload", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrefCustomerCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrefCustomerCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Active", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Vehicle] SET [Rego] = @Rego, [VIN] = @VIN, [SAPCode] = @SAPCode, [Owner] = @Owner, [Make] = @Make, [Model] = @Model, [AxleConfiguration] = @AxleConfiguration, [RegisteredTare] = @RegisteredTare, [FeeCodeID] = @FeeCodeID, [RegistrationExpiryDT] = @RegistrationExpiryDT, [ForceRetare] = @ForceRetare, [RetareEverytime] = @RetareEverytime, [Tare] = @Tare, [TareDT] = @TareDT, [PrefPayload] = @PrefPayload, [PrefCustomerCode] = @PrefCustomerCode, [Active] = @Active, [CreateDTTM] = @CreateDTTM WHERE (([Rego] = @Original_Rego));
-SELECT Rego, VIN, SAPCode, Owner, Make, Model, AxleConfiguration, RegisteredTare, FeeCodeID, RegistrationExpiryDT, ForceRetare, RetareEverytime, Tare, TareDT, PrefPayload, PrefCustomerCode, Active, CreateDTTM FROM Vehicle WHERE (Rego = @Rego)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Vehicle] SET [Rego] = @Rego, [VIN] = @VIN, [PBS_VA] = @PBS_VA, [CardCode] = @CardCode, [Owner] = @Owner, [Make] = @Make, [Model] = @Model, [AxleConfiguration] = @AxleConfiguration, [MassAccreditationLabel] = @MassAccreditationLabel, [RegisteredTare] = @RegisteredTare, [FeeCodeID] = @FeeCodeID, [RegistrationExpiryDT] = @RegistrationExpiryDT, [PrefCustomerCode] = @PrefCustomerCode, [Active] = @Active, [CreateDTTM] = @CreateDTTM WHERE (([Rego] = @Original_Rego));
+SELECT Rego, VIN, PBS_VA, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, PrefCustomerCode, Active, CreateDTTM FROM Vehicle WHERE (Rego = @Rego)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rego", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VIN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SAPCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SAPCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_VA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_VA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CardCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CardCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Owner", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Owner", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Make", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Make", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Model", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Model", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MassAccreditationLabel", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassAccreditationLabel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegisteredTare", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "RegisteredTare", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeCodeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCodeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegistrationExpiryDT", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegistrationExpiryDT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ForceRetare", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ForceRetare", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RetareEverytime", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RetareEverytime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tare", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Tare", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TareDT", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TareDT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrefPayload", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "PrefPayload", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrefCustomerCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrefCustomerCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Active", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rego", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17117,6 +17370,41 @@ SELECT Rego, VIN, SAPCode, Owner, Make, Model, AxleConfiguration, RegisteredTare
             tableMapping.ColumnMappings.Add("MaxTrailers", "MaxTrailers");
             tableMapping.ColumnMappings.Add("VehicleType", "VehicleType");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [VehicleRegFeeCodes] WHERE (([FeeCodeID] = @Original_FeeCodeID))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FeeCodeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCodeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [VehicleRegFeeCodes] ([Jurisdiction], [FeeCode], [FeeType], [Coupling], [Axles], [FeeConditions], [MaxTrailers], [MaxAxles], [MaxGVM]) VALUES (@Jurisdiction, @FeeCode, @FeeType, @Coupling, @Axles, @FeeConditions, @MaxTrailers, @MaxAxles, @MaxGVM);
+SELECT FeeCodeID, Jurisdiction, FeeCode, FeeType, Coupling, Axles, FeeConditions, MaxTrailers, MaxAxles, MaxGVM FROM VehicleRegFeeCodes WHERE (FeeCodeID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Jurisdiction", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Jurisdiction", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeeType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Coupling", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Coupling", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Axles", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Axles", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeConditions", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeeConditions", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaxTrailers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaxTrailers", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaxAxles", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaxAxles", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaxGVM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "MaxGVM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [VehicleRegFeeCodes] SET [Jurisdiction] = @Jurisdiction, [FeeCode] = @FeeCode, [FeeType] = @FeeType, [Coupling] = @Coupling, [Axles] = @Axles, [FeeConditions] = @FeeConditions, [MaxTrailers] = @MaxTrailers, [MaxAxles] = @MaxAxles, [MaxGVM] = @MaxGVM WHERE (([FeeCodeID] = @Original_FeeCodeID));
+SELECT FeeCodeID, Jurisdiction, FeeCode, FeeType, Coupling, Axles, FeeConditions, MaxTrailers, MaxAxles, MaxGVM FROM VehicleRegFeeCodes WHERE (FeeCodeID = @FeeCodeID)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Jurisdiction", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Jurisdiction", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeeType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Coupling", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Coupling", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Axles", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Axles", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeConditions", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeeConditions", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaxTrailers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaxTrailers", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaxAxles", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaxAxles", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaxGVM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "MaxGVM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FeeCodeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCodeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeCodeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCodeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17136,14 +17424,15 @@ SELECT Rego, VIN, SAPCode, Owner, Make, Model, AxleConfiguration, RegisteredTare
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        VehicleRegFeeCodes.*\r\nFROM            VehicleRegFeeCodes\r\nWHERE Fee" +
-                "Code like \'%\' + @FeeCode + \'%\'";
+            this._commandCollection[1].CommandText = "SELECT        VehicleRegFeeCodes.*\r\nFROM            VehicleRegFeeCodes\r\nWHERE    " +
+                "    (FeeCode LIKE \'%\' + @FeeCode + \'%\')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeCode", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT        VehicleRegFeeCodes.*\r\nFROM            VehicleRegFeeCodes\r\nWHERE 1=1" +
-                "\r\nAND FeeCode like @FeeCode\r\nAND Jurisdiction like @Jurisdiction";
+            this._commandCollection[2].CommandText = "SELECT Axles, Coupling, FeeCode, FeeCodeID, FeeConditions, FeeType, Jurisdiction," +
+                " MaxAxles, MaxGVM, MaxTrailers FROM VehicleRegFeeCodes WHERE (1 = 1) AND (FeeCod" +
+                "e LIKE @FeeCode) AND (Jurisdiction LIKE @Jurisdiction)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeCode", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Jurisdiction", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Jurisdiction", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17287,6 +17576,35 @@ SELECT Rego, VIN, SAPCode, Owner, Make, Model, AxleConfiguration, RegisteredTare
             dsQWSLocal.VehicleRegFeeCodesDataTable dataTable = new dsQWSLocal.VehicleRegFeeCodesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dsQWSLocal.VehicleRegFeeCodesDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dsQWSLocal dataSet) {
+            return this.Adapter.Update(dataSet, "VehicleRegFeeCodes");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
         }
     }
     
@@ -22808,6 +23126,270 @@ and TIQID like @TIQID";
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class PBS_ConfigSchemeTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public PBS_ConfigSchemeTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "PBS_ConfigScheme";
+            tableMapping.ColumnMappings.Add("PBS_ConfigSchemeID", "PBS_ConfigSchemeID");
+            tableMapping.ColumnMappings.Add("PBS_ConfigID", "PBS_ConfigID");
+            tableMapping.ColumnMappings.Add("SchemeCode", "SchemeCode");
+            tableMapping.ColumnMappings.Add("GCM", "GCM");
+            tableMapping.ColumnMappings.Add("GVMTruck", "GVMTruck");
+            tableMapping.ColumnMappings.Add("DriveAxleLoad", "DriveAxleLoad");
+            tableMapping.ColumnMappings.Add("DriveAxleLoadUOM", "DriveAxleLoadUOM");
+            tableMapping.ColumnMappings.Add("MassMgmtRqd", "MassMgmtRqd");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [PBS_ConfigScheme] ([PBS_ConfigSchemeID], [PBS_ConfigID], [SchemeCode], [GCM], [GVMTruck], [DriveAxleLoad], [DriveAxleLoadUOM], [MassMgmtRqd]) VALUES (@PBS_ConfigSchemeID, @PBS_ConfigID, @SchemeCode, @GCM, @GVMTruck, @DriveAxleLoad, @DriveAxleLoadUOM, @MassMgmtRqd)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ConfigSchemeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ConfigSchemeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ConfigID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ConfigID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SchemeCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SchemeCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GCM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GVMTruck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GVMTruck", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DriveAxleLoad", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "DriveAxleLoad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DriveAxleLoadUOM", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DriveAxleLoadUOM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MassMgmtRqd", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassMgmtRqd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::QWS_Local.Properties.Settings.Default.cnQWSLocal;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT        PBS_ConfigScheme.*\r\nFROM            PBS_ConfigScheme";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(dsQWSLocal.PBS_ConfigSchemeDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual dsQWSLocal.PBS_ConfigSchemeDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            dsQWSLocal.PBS_ConfigSchemeDataTable dataTable = new dsQWSLocal.PBS_ConfigSchemeDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dsQWSLocal.PBS_ConfigSchemeDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dsQWSLocal dataSet) {
+            return this.Adapter.Update(dataSet, "PBS_ConfigScheme");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(int PBS_ConfigSchemeID, int PBS_ConfigID, string SchemeCode, decimal GCM, global::System.Nullable<decimal> GVMTruck, decimal DriveAxleLoad, string DriveAxleLoadUOM, global::System.Nullable<bool> MassMgmtRqd) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(PBS_ConfigSchemeID));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(PBS_ConfigID));
+            if ((SchemeCode == null)) {
+                throw new global::System.ArgumentNullException("SchemeCode");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(SchemeCode));
+            }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(GCM));
+            if ((GVMTruck.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(GVMTruck.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(DriveAxleLoad));
+            if ((DriveAxleLoadUOM == null)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(DriveAxleLoadUOM));
+            }
+            if ((MassMgmtRqd.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(MassMgmtRqd.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -22827,6 +23409,8 @@ and TIQID like @TIQID";
         
         private VehicleTableAdapter _vehicleTableAdapter;
         
+        private VehicleRegFeeCodesTableAdapter _vehicleRegFeeCodesTableAdapter;
+        
         private AxleConfigurationTableAdapter _axleConfigurationTableAdapter;
         
         private NHVR_GVMTableAdapter _nHVR_GVMTableAdapter;
@@ -22836,6 +23420,8 @@ and TIQID like @TIQID";
         private TruckConfigTrailersTableAdapter _truckConfigTrailersTableAdapter;
         
         private TrucksInQuarryTableAdapter _trucksInQuarryTableAdapter;
+        
+        private PBS_ConfigSchemeTableAdapter _pBS_ConfigSchemeTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -22913,6 +23499,20 @@ and TIQID like @TIQID";
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
+        public VehicleRegFeeCodesTableAdapter VehicleRegFeeCodesTableAdapter {
+            get {
+                return this._vehicleRegFeeCodesTableAdapter;
+            }
+            set {
+                this._vehicleRegFeeCodesTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
         public AxleConfigurationTableAdapter AxleConfigurationTableAdapter {
             get {
                 return this._axleConfigurationTableAdapter;
@@ -22980,6 +23580,20 @@ and TIQID like @TIQID";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public PBS_ConfigSchemeTableAdapter PBS_ConfigSchemeTableAdapter {
+            get {
+                return this._pBS_ConfigSchemeTableAdapter;
+            }
+            set {
+                this._pBS_ConfigSchemeTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -23013,6 +23627,10 @@ and TIQID like @TIQID";
                             && (this._vehicleTableAdapter.Connection != null))) {
                     return this._vehicleTableAdapter.Connection;
                 }
+                if (((this._vehicleRegFeeCodesTableAdapter != null) 
+                            && (this._vehicleRegFeeCodesTableAdapter.Connection != null))) {
+                    return this._vehicleRegFeeCodesTableAdapter.Connection;
+                }
                 if (((this._axleConfigurationTableAdapter != null) 
                             && (this._axleConfigurationTableAdapter.Connection != null))) {
                     return this._axleConfigurationTableAdapter.Connection;
@@ -23032,6 +23650,10 @@ and TIQID like @TIQID";
                 if (((this._trucksInQuarryTableAdapter != null) 
                             && (this._trucksInQuarryTableAdapter.Connection != null))) {
                     return this._trucksInQuarryTableAdapter.Connection;
+                }
+                if (((this._pBS_ConfigSchemeTableAdapter != null) 
+                            && (this._pBS_ConfigSchemeTableAdapter.Connection != null))) {
+                    return this._pBS_ConfigSchemeTableAdapter.Connection;
                 }
                 return null;
             }
@@ -23058,6 +23680,9 @@ and TIQID like @TIQID";
                 if ((this._vehicleTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._vehicleRegFeeCodesTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 if ((this._axleConfigurationTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -23073,6 +23698,9 @@ and TIQID like @TIQID";
                 if ((this._trucksInQuarryTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._pBS_ConfigSchemeTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 return count;
             }
         }
@@ -23084,12 +23712,12 @@ and TIQID like @TIQID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(dsQWSLocal dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._pBSTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.PBS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._vehicleRegFeeCodesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.VehicleRegFeeCodes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._pBSTableAdapter.Update(updatedRows));
+                    result = (result + this._vehicleRegFeeCodesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -23102,12 +23730,12 @@ and TIQID like @TIQID";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._pBS_ConfigTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.PBS_Config.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._pBSTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.PBS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._pBS_ConfigTableAdapter.Update(updatedRows));
+                    result = (result + this._pBSTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -23129,12 +23757,30 @@ and TIQID like @TIQID";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._pBS_ConfigTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.PBS_Config.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._pBS_ConfigTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._truckConfigTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.TruckConfig.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._truckConfigTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._trucksInQuarryTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.TrucksInQuarry.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._trucksInQuarryTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -23156,12 +23802,12 @@ and TIQID like @TIQID";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._trucksInQuarryTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.TrucksInQuarry.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._pBS_ConfigSchemeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.PBS_ConfigScheme.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._trucksInQuarryTableAdapter.Update(updatedRows));
+                    result = (result + this._pBS_ConfigSchemeTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -23175,11 +23821,11 @@ and TIQID like @TIQID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(dsQWSLocal dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._pBSTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.PBS.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._vehicleRegFeeCodesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.VehicleRegFeeCodes.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._pBSTableAdapter.Update(addedRows));
+                    result = (result + this._vehicleRegFeeCodesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -23191,11 +23837,11 @@ and TIQID like @TIQID";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._pBS_ConfigTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.PBS_Config.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._pBSTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.PBS.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._pBS_ConfigTableAdapter.Update(addedRows));
+                    result = (result + this._pBSTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -23215,11 +23861,27 @@ and TIQID like @TIQID";
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._pBS_ConfigTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.PBS_Config.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._pBS_ConfigTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._truckConfigTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.TruckConfig.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._truckConfigTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._trucksInQuarryTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.TrucksInQuarry.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._trucksInQuarryTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -23239,11 +23901,11 @@ and TIQID like @TIQID";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._trucksInQuarryTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.TrucksInQuarry.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._pBS_ConfigSchemeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.PBS_ConfigScheme.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._trucksInQuarryTableAdapter.Update(addedRows));
+                    result = (result + this._pBS_ConfigSchemeTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -23257,11 +23919,11 @@ and TIQID like @TIQID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(dsQWSLocal dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._trucksInQuarryTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.TrucksInQuarry.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._pBS_ConfigSchemeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.PBS_ConfigScheme.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._trucksInQuarryTableAdapter.Update(deletedRows));
+                    result = (result + this._pBS_ConfigSchemeTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -23281,11 +23943,27 @@ and TIQID like @TIQID";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._trucksInQuarryTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.TrucksInQuarry.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._trucksInQuarryTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._truckConfigTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.TruckConfig.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._truckConfigTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._pBS_ConfigTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.PBS_Config.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._pBS_ConfigTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -23305,11 +23983,11 @@ and TIQID like @TIQID";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._pBS_ConfigTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.PBS_Config.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._pBSTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.PBS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._pBS_ConfigTableAdapter.Update(deletedRows));
+                    result = (result + this._pBSTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -23321,11 +23999,11 @@ and TIQID like @TIQID";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._pBSTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.PBS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._vehicleRegFeeCodesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.VehicleRegFeeCodes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._pBSTableAdapter.Update(deletedRows));
+                    result = (result + this._vehicleRegFeeCodesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -23388,6 +24066,11 @@ and TIQID like @TIQID";
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
+            if (((this._vehicleRegFeeCodesTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._vehicleRegFeeCodesTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
             if (((this._axleConfigurationTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._axleConfigurationTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
@@ -23410,6 +24093,11 @@ and TIQID like @TIQID";
             }
             if (((this._trucksInQuarryTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._trucksInQuarryTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._pBS_ConfigSchemeTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._pBS_ConfigSchemeTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -23481,6 +24169,15 @@ and TIQID like @TIQID";
                         adaptersWithAcceptChangesDuringUpdate.Add(this._vehicleTableAdapter.Adapter);
                     }
                 }
+                if ((this._vehicleRegFeeCodesTableAdapter != null)) {
+                    revertConnections.Add(this._vehicleRegFeeCodesTableAdapter, this._vehicleRegFeeCodesTableAdapter.Connection);
+                    this._vehicleRegFeeCodesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._vehicleRegFeeCodesTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._vehicleRegFeeCodesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._vehicleRegFeeCodesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._vehicleRegFeeCodesTableAdapter.Adapter);
+                    }
+                }
                 if ((this._axleConfigurationTableAdapter != null)) {
                     revertConnections.Add(this._axleConfigurationTableAdapter, this._axleConfigurationTableAdapter.Connection);
                     this._axleConfigurationTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -23524,6 +24221,15 @@ and TIQID like @TIQID";
                     if (this._trucksInQuarryTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._trucksInQuarryTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._trucksInQuarryTableAdapter.Adapter);
+                    }
+                }
+                if ((this._pBS_ConfigSchemeTableAdapter != null)) {
+                    revertConnections.Add(this._pBS_ConfigSchemeTableAdapter, this._pBS_ConfigSchemeTableAdapter.Connection);
+                    this._pBS_ConfigSchemeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._pBS_ConfigSchemeTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._pBS_ConfigSchemeTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._pBS_ConfigSchemeTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._pBS_ConfigSchemeTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -23600,6 +24306,10 @@ and TIQID like @TIQID";
                     this._vehicleTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._vehicleTableAdapter]));
                     this._vehicleTableAdapter.Transaction = null;
                 }
+                if ((this._vehicleRegFeeCodesTableAdapter != null)) {
+                    this._vehicleRegFeeCodesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._vehicleRegFeeCodesTableAdapter]));
+                    this._vehicleRegFeeCodesTableAdapter.Transaction = null;
+                }
                 if ((this._axleConfigurationTableAdapter != null)) {
                     this._axleConfigurationTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._axleConfigurationTableAdapter]));
                     this._axleConfigurationTableAdapter.Transaction = null;
@@ -23619,6 +24329,10 @@ and TIQID like @TIQID";
                 if ((this._trucksInQuarryTableAdapter != null)) {
                     this._trucksInQuarryTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._trucksInQuarryTableAdapter]));
                     this._trucksInQuarryTableAdapter.Transaction = null;
+                }
+                if ((this._pBS_ConfigSchemeTableAdapter != null)) {
+                    this._pBS_ConfigSchemeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._pBS_ConfigSchemeTableAdapter]));
+                    this._pBS_ConfigSchemeTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

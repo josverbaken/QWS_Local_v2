@@ -19,15 +19,16 @@ namespace QWS_Local
 
         private void NHVR_GVM_Load(object sender, EventArgs e)
         {
-            this.nHVR_GVMTableAdapter.Fill(this.dsQWSLocal.NHVR_GVM);
+            // TODO link to NHVL
+            //this.nHVR_GVMTableAdapter.Fill(this.dsQWSLocal.NHVR_GVM);
 
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.nHVRGVMBindingSource.EndEdit();
-            this.nHVR_GVMTableAdapter.Update(this.dsQWSLocal.NHVR_GVM);
+            //this.Validate();
+            //this.nHVRGVMBindingSource.EndEdit();
+            //this.nHVR_GVMTableAdapter.Update(this.dsQWSLocal.NHVR_GVM);
         }
     }
 }
