@@ -94,6 +94,7 @@ namespace QWS_Local
             this.txtPrefCustomer = new System.Windows.Forms.TextBox();
             this.btnSetPrefCustomer = new System.Windows.Forms.Button();
             this.txtPBS_VA = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             regoLabel = new System.Windows.Forms.Label();
             vINLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
@@ -243,6 +244,17 @@ namespace QWS_Local
             label4.TabIndex = 62;
             label4.Text = "Pref Customer :";
             label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(19, 302);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(158, 18);
+            label1.TabIndex = 64;
+            label1.Text = "PBS Vehicle Approval :";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtRego
             // 
@@ -431,10 +443,10 @@ namespace QWS_Local
             // txtFeeCode
             // 
             this.txtFeeCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleRegFeeCodesBindingSource, "FeeCode", true));
-            this.txtFeeCode.Location = new System.Drawing.Point(773, 69);
+            this.txtFeeCode.Location = new System.Drawing.Point(812, 72);
             this.txtFeeCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtFeeCode.Name = "txtFeeCode";
-            this.txtFeeCode.Size = new System.Drawing.Size(148, 24);
+            this.txtFeeCode.Size = new System.Drawing.Size(107, 24);
             this.txtFeeCode.TabIndex = 10;
             // 
             // txtAxleConfig
@@ -614,6 +626,7 @@ namespace QWS_Local
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager.VehicleTableAdapter = this.vehicleTableAdapter;
+            this.tableAdapterManager.VehicleTypeTableAdapter = null;
             // 
             // vehicleRegFeeCodesTableAdapter
             // 
@@ -680,22 +693,21 @@ namespace QWS_Local
             this.txtPBS_VA.Size = new System.Drawing.Size(148, 24);
             this.txtPBS_VA.TabIndex = 63;
             // 
-            // label1
+            // textBox2
             // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(19, 302);
-            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(158, 18);
-            label1.TabIndex = 64;
-            label1.Text = "PBS Vehicle Approval :";
-            label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "FeeCodeID", true));
+            this.textBox2.Location = new System.Drawing.Point(771, 72);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(33, 24);
+            this.textBox2.TabIndex = 65;
             // 
             // VehicleMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1171, 696);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(label1);
             this.Controls.Add(this.txtPBS_VA);
             this.Controls.Add(label4);
@@ -814,5 +826,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox txtPrefCustomer;
         private System.Windows.Forms.Button btnSetPrefCustomer;
         private System.Windows.Forms.TextBox txtPBS_VA;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

@@ -24,7 +24,6 @@ namespace QWS_Local
         {
             try
             {
-                // nothing currently
                 txtJurisdiction.Text = Properties.Settings.Default.defaultJurisdiction;
             }
             catch (Exception ex)
@@ -76,7 +75,7 @@ namespace QWS_Local
                     //CheckPBS(); // not yet need axle config etc
                     if (vehicleBindingSource.Count > 0) //to carry over owner for new truck 
                     {
-                        _SAPCode = CurrentVehicle().SAPCode;
+                        _SAPCode = CurrentVehicle().CardCode;
                         _Owner = CurrentVehicle().Owner;
                     }
                     int iRows = this.vehicleTableAdapter.FillBy(dsQWSLocal.Vehicle, strSearch);
@@ -88,7 +87,7 @@ namespace QWS_Local
                                 AddVehicleRequest(strSearch);
                                 if (UseCurrentOwner == true)
                                 {
-                                    CurrentVehicle().SAPCode = _SAPCode;
+                                    CurrentVehicle().CardCode = _SAPCode;
                                     CurrentVehicle().Owner = _Owner;
                                     vehicleBindingSource.EndEdit();
                                 }
@@ -98,7 +97,6 @@ namespace QWS_Local
                         case 1:
                             SynchAxleConfig(CurrentVehicle().AxleConfiguration);
                             SynchFeeCode(CurrentVehicle().FeeCodeID);
-                            CheckPBS();
                             CheckExpiryDT();
                             break;
                         case int n when(n > 1):
@@ -111,7 +109,6 @@ namespace QWS_Local
                                 iRows += 2;
                                 SynchAxleConfig(CurrentVehicle().AxleConfiguration);
                                 SynchFeeCode(CurrentVehicle().FeeCodeID);
-                                CheckPBS();
                             }
                             else
                             {
@@ -168,7 +165,6 @@ namespace QWS_Local
         private void btnIdentificationSave_Click(object sender, EventArgs e)
         {
             IdentificationSave();
-            //CheckPBS();
             CheckExpiryDT();
         }
 
@@ -229,9 +225,7 @@ namespace QWS_Local
 
         private void AxleConfiguration()
         {
-
-            //string myVehicleType = CurrentFeeCode().VehicleType;
-            bool myIsLeadVehicle = true; // TODO get from fee code
+            bool myIsLeadVehicle = CurrentFeeCode().IsLeadVehicle;
             int myAxles = CurrentFeeCode().Axles;
             string myCoupling = CurrentFeeCode().Coupling;
 
@@ -259,7 +253,7 @@ namespace QWS_Local
                 DialogResult dr =  businessSearch.ShowDialog();
                 if (dr == DialogResult.OK)
                 { 
-                    CurrentVehicle().SAPCode = businessSearch.SAPCode;
+                    CurrentVehicle().CardCode = businessSearch.SAPCode;
                     CurrentVehicle().Owner = businessSearch.BusinessName;
                     vehicleBindingSource.EndEdit();
                     txtVehicleMake.Focus();
@@ -409,7 +403,7 @@ namespace QWS_Local
             dsQWSLocal.VehicleRow vehicleRow = (dsQWSLocal.VehicleRow)dr;
             vehicleRow.Rego = newRego; //don't overwrite user input
             vehicleRow.VIN = "";
-            vehicleRow.SAPCode = "";
+            vehicleRow.CardCode = "";
             vehicleRow.Owner = "Name or Code";
             vehicleRow.Make = "";
             vehicleRow.Model = "";
@@ -429,7 +423,7 @@ namespace QWS_Local
             dsQWSLocal.VehicleRow vehicleRow = (dsQWSLocal.VehicleRow)dr;
             vehicleRow.Rego = "NewReg";
             vehicleRow.VIN = "";
-            vehicleRow.SAPCode = SAPCode;
+            vehicleRow.CardCode = SAPCode;
             vehicleRow.Owner = Owner;
             vehicleRow.Make = "";
             vehicleRow.Model = "";
@@ -446,7 +440,7 @@ namespace QWS_Local
             dsQWSLocal.VehicleRow vehicleRow = (dsQWSLocal.VehicleRow)dr;
             vehicleRow.Rego = "newReg";
             vehicleRow.VIN = "";
-            vehicleRow.SAPCode = SAPCode;
+            vehicleRow.CardCode = SAPCode;
             vehicleRow.Owner = Owner;
             vehicleRow.Make = "";
             vehicleRow.Model = "";
@@ -461,7 +455,7 @@ namespace QWS_Local
         private void btnTrailerAdd_Click(object sender, EventArgs e)
         {
             // check if any trailers already associated with owner
-            AddTrailer(CurrentVehicle().SAPCode, CurrentVehicle().Owner);
+            AddTrailer(CurrentVehicle().CardCode, CurrentVehicle().Owner);
         }
 
         private void btnVehicleAdd_Click(object sender, EventArgs e)
@@ -475,14 +469,14 @@ namespace QWS_Local
             // TODO revise logic
             if (CurrentFeeCode().FeeCode.Substring(0, 2) == "MR")// (CurrentFeeCode().VehicleType == "Truck")
             {
-                iVehicleCount = VehicleCount("Trailer", CurrentVehicle().SAPCode);
+                iVehicleCount = VehicleCount("Trailer", CurrentVehicle().CardCode);
                 if (iVehicleCount == 0)
                 {
                     DialogResult dr = MessageBox.Show("Do you want to configure Truck only. Press No to add trailer first.","No trailers",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                     if (dr == DialogResult.Yes)
                     {
                         // go to TruckConfguration and add Truck only use axle configuration to filter NHVR_GVM
-                        TruckConfiguration(CurrentVehicle().Rego, "", CurrentVehicle().SAPCode, "TruckOnly");
+                        TruckConfiguration(CurrentVehicle().Rego, "", CurrentVehicle().CardCode, "TruckOnly");
                     }
                 }
                 else if (iVehicleCount ==1)
@@ -492,11 +486,11 @@ namespace QWS_Local
                     if (dr == DialogResult.Yes)
                     {
                         // go to TruckConfguration and add Truck only use axle configuration to filter NHVR_GVM
-                        TruckConfiguration(CurrentVehicle().Rego, "", CurrentVehicle().SAPCode, "TruckOnly");
+                        TruckConfiguration(CurrentVehicle().Rego, "", CurrentVehicle().CardCode, "TruckOnly");
                     }
                     else
                     {
-                        AddTrailer(CurrentVehicle().SAPCode, CurrentVehicle().Owner);
+                        AddTrailer(CurrentVehicle().CardCode, CurrentVehicle().Owner);
                     }
                 }
                 else if (iVehicleCount > 1)
@@ -515,7 +509,7 @@ namespace QWS_Local
                     if (myRego =="Not Found")
                     {
                         // see if any trucks at all
-                        iVehicleCount = VehicleCount("Truck", CurrentVehicle().SAPCode);
+                        iVehicleCount = VehicleCount("Truck", CurrentVehicle().CardCode);
                         if (iVehicleCount >0)
                         {
                             MessageBox.Show("No recent truck found so will list by SAPCode", "Truck 4 Trailer");
@@ -523,7 +517,7 @@ namespace QWS_Local
                         else
                         {
                             MessageBox.Show("Please add Truck first", "Truck 4 Trailer");
-                            AddTruck(CurrentVehicle().SAPCode, CurrentVehicle().Owner);
+                            AddTruck(CurrentVehicle().CardCode, CurrentVehicle().Owner);
                         }
                     }
                     else
@@ -593,7 +587,7 @@ namespace QWS_Local
         private void TruckConfigTruck()
         {
             string mySAPCode;
-            mySAPCode = CurrentVehicle().SAPCode;
+            mySAPCode = CurrentVehicle().CardCode;
             int iCount = this.truckConfigTruckTableAdapter.FillBy(this.dsTruckConfig.TruckConfigTruck,mySAPCode);
             int iCount2 = this.truckConfigTrailerTableAdapter.FillBy(this.dsTruckConfig.TruckConfigTrailer,mySAPCode);
             int iCount3 = this.unconfiguredVehiclesTableAdapter.Fill(this.dsTruckConfig.UnconfiguredVehicles, mySAPCode);
@@ -626,25 +620,6 @@ namespace QWS_Local
             txtRego.Text = "NewReg";
             txtRego.Focus();
         }
-
-        private void btnCheckPBS_Click(object sender, EventArgs e)
-        {
-            CheckPBS();
-        }
-
-        private void CheckPBS()
-        {
-            try
-            {
-                int myCount;
-                checkPBSbyRegoTableAdapter.Fill(dsQWSLocal.CheckPBSbyRego, txtRego.Text);
-                myCount = checkPBSbyRegoBindingSource.Count;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-    }
+   }
 }
 
