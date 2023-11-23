@@ -14,7 +14,7 @@ namespace QWS_Local
     {
         private dsQWSLocal.AxleConfigurationRow myAxleConfigurationRow;
 
-        //private string myVehicleType;
+        private bool myIsLeadVehicle;
         private int myAxles;
         private string myCoupling;
 
@@ -27,10 +27,10 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public AxleConfigurationSearch(int Axles, string Coupling)
+        public AxleConfigurationSearch(bool IsLeadVehicle, int Axles, string Coupling)
         {
             InitializeComponent();
-            //myVehicleType = VehicleType;
+            myIsLeadVehicle = IsLeadVehicle;
             myAxles = Axles;
             myCoupling = Coupling;
         }
@@ -52,7 +52,7 @@ namespace QWS_Local
             string myFilter = "Axles = " + myAxles.ToString();
                 //"VehicleType like '" + myVehicleType + "'";
                 //myFilter += " and Axles = " + myAxles.ToString();
-                if (myVehicleType == "Trailer")
+                if (myIsLeadVehicle == false)
                 {
                     myFilter += " and AxleConfiguration like '" + myCoupling + "%'";
                 }

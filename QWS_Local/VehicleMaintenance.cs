@@ -168,7 +168,7 @@ namespace QWS_Local
         private void btnIdentificationSave_Click(object sender, EventArgs e)
         {
             IdentificationSave();
-            CheckPBS();
+            //CheckPBS();
             CheckExpiryDT();
         }
 
@@ -231,10 +231,11 @@ namespace QWS_Local
         {
 
             //string myVehicleType = CurrentFeeCode().VehicleType;
+            bool myIsLeadVehicle = true; // TODO get from fee code
             int myAxles = CurrentFeeCode().Axles;
             string myCoupling = CurrentFeeCode().Coupling;
 
-            AxleConfigurationSearch axleConfigurationSearch = new AxleConfigurationSearch(myAxles, myCoupling);
+            AxleConfigurationSearch axleConfigurationSearch = new AxleConfigurationSearch(myIsLeadVehicle, myAxles, myCoupling);
             DialogResult dr = axleConfigurationSearch.ShowDialog();
             if (dr == DialogResult.OK)
             {

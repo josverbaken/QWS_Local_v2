@@ -2697,6 +2697,8 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnMaxTrailers;
             
+            private global::System.Data.DataColumn columnIsLeadVehicle;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public VehicleRegFeeCodesDataTable() {
@@ -2812,6 +2814,14 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IsLeadVehicleColumn {
+                get {
+                    return this.columnIsLeadVehicle;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2847,7 +2857,7 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VehicleRegFeeCodesRow AddVehicleRegFeeCodesRow(JurisdictionRow parentJurisdictionRowByJurisdiction_VehicleRegFeeCodes, string FeeCode, string FeeType, string FeeConditions, int MaxAxles, decimal MaxGVM, string Coupling, int Axles, int MaxTrailers) {
+            public VehicleRegFeeCodesRow AddVehicleRegFeeCodesRow(JurisdictionRow parentJurisdictionRowByJurisdiction_VehicleRegFeeCodes, string FeeCode, string FeeType, string FeeConditions, int MaxAxles, decimal MaxGVM, string Coupling, int Axles, int MaxTrailers, bool IsLeadVehicle) {
                 VehicleRegFeeCodesRow rowVehicleRegFeeCodesRow = ((VehicleRegFeeCodesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2859,7 +2869,8 @@ namespace QWS_Local {
                         MaxGVM,
                         Coupling,
                         Axles,
-                        MaxTrailers};
+                        MaxTrailers,
+                        IsLeadVehicle};
                 if ((parentJurisdictionRowByJurisdiction_VehicleRegFeeCodes != null)) {
                     columnValuesArray[1] = parentJurisdictionRowByJurisdiction_VehicleRegFeeCodes[0];
                 }
@@ -2902,6 +2913,7 @@ namespace QWS_Local {
                 this.columnCoupling = base.Columns["Coupling"];
                 this.columnAxles = base.Columns["Axles"];
                 this.columnMaxTrailers = base.Columns["MaxTrailers"];
+                this.columnIsLeadVehicle = base.Columns["IsLeadVehicle"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2927,6 +2939,8 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnAxles);
                 this.columnMaxTrailers = new global::System.Data.DataColumn("MaxTrailers", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMaxTrailers);
+                this.columnIsLeadVehicle = new global::System.Data.DataColumn("IsLeadVehicle", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIsLeadVehicle);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnFeeCodeID}, true));
                 this.columnFeeCodeID.AutoIncrement = true;
@@ -2949,6 +2963,7 @@ namespace QWS_Local {
                 this.columnCoupling.MaxLength = 1;
                 this.columnAxles.AllowDBNull = false;
                 this.columnMaxTrailers.AllowDBNull = false;
+                this.columnIsLeadVehicle.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11406,6 +11421,17 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsLeadVehicle {
+                get {
+                    return ((bool)(this[this.tableVehicleRegFeeCodes.IsLeadVehicleColumn]));
+                }
+                set {
+                    this[this.tableVehicleRegFeeCodes.IsLeadVehicleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public JurisdictionRow JurisdictionRow {
                 get {
                     return ((JurisdictionRow)(this.GetParentRow(this.Table.ParentRelations["Jurisdiction_VehicleRegFeeCodes"])));
@@ -17415,6 +17441,7 @@ SELECT Rego, VIN, PBS_VA, CardCode, Owner, Make, Model, AxleConfiguration, MassA
             tableMapping.ColumnMappings.Add("Coupling", "Coupling");
             tableMapping.ColumnMappings.Add("Axles", "Axles");
             tableMapping.ColumnMappings.Add("MaxTrailers", "MaxTrailers");
+            tableMapping.ColumnMappings.Add("IsLeadVehicle", "IsLeadVehicle");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -17423,8 +17450,8 @@ SELECT Rego, VIN, PBS_VA, CardCode, Owner, Make, Model, AxleConfiguration, MassA
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FeeCodeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCodeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [VehicleRegFeeCodes] ([Jurisdiction], [FeeCode], [FeeType], [Coupling], [Axles], [FeeConditions], [MaxTrailers], [MaxAxles], [MaxGVM]) VALUES (@Jurisdiction, @FeeCode, @FeeType, @Coupling, @Axles, @FeeConditions, @MaxTrailers, @MaxAxles, @MaxGVM);
-SELECT FeeCodeID, Jurisdiction, FeeCode, FeeType, Coupling, Axles, FeeConditions, MaxTrailers, MaxAxles, MaxGVM FROM VehicleRegFeeCodes WHERE (FeeCodeID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [VehicleRegFeeCodes] ([Jurisdiction], [FeeCode], [FeeType], [Coupling], [Axles], [FeeConditions], [MaxTrailers], [MaxAxles], [MaxGVM], [IsLeadVehicle]) VALUES (@Jurisdiction, @FeeCode, @FeeType, @Coupling, @Axles, @FeeConditions, @MaxTrailers, @MaxAxles, @MaxGVM, @IsLeadVehicle);
+SELECT FeeCodeID, Jurisdiction, FeeCode, FeeType, Coupling, Axles, FeeConditions, MaxTrailers, MaxAxles, MaxGVM, IsLeadVehicle FROM VehicleRegFeeCodes WHERE (FeeCodeID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Jurisdiction", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Jurisdiction", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17435,10 +17462,11 @@ SELECT FeeCodeID, Jurisdiction, FeeCode, FeeType, Coupling, Axles, FeeConditions
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaxTrailers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaxTrailers", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaxAxles", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaxAxles", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaxGVM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "MaxGVM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsLeadVehicle", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IsLeadVehicle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [VehicleRegFeeCodes] SET [Jurisdiction] = @Jurisdiction, [FeeCode] = @FeeCode, [FeeType] = @FeeType, [Coupling] = @Coupling, [Axles] = @Axles, [FeeConditions] = @FeeConditions, [MaxTrailers] = @MaxTrailers, [MaxAxles] = @MaxAxles, [MaxGVM] = @MaxGVM WHERE (([FeeCodeID] = @Original_FeeCodeID));
-SELECT FeeCodeID, Jurisdiction, FeeCode, FeeType, Coupling, Axles, FeeConditions, MaxTrailers, MaxAxles, MaxGVM FROM VehicleRegFeeCodes WHERE (FeeCodeID = @FeeCodeID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [VehicleRegFeeCodes] SET [Jurisdiction] = @Jurisdiction, [FeeCode] = @FeeCode, [FeeType] = @FeeType, [Coupling] = @Coupling, [Axles] = @Axles, [FeeConditions] = @FeeConditions, [MaxTrailers] = @MaxTrailers, [MaxAxles] = @MaxAxles, [MaxGVM] = @MaxGVM, [IsLeadVehicle] = @IsLeadVehicle WHERE (([FeeCodeID] = @Original_FeeCodeID));
+SELECT FeeCodeID, Jurisdiction, FeeCode, FeeType, Coupling, Axles, FeeConditions, MaxTrailers, MaxAxles, MaxGVM, IsLeadVehicle FROM VehicleRegFeeCodes WHERE (FeeCodeID = @FeeCodeID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Jurisdiction", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Jurisdiction", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17449,6 +17477,7 @@ SELECT FeeCodeID, Jurisdiction, FeeCode, FeeType, Coupling, Axles, FeeConditions
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaxTrailers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaxTrailers", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaxAxles", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaxAxles", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaxGVM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "MaxGVM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsLeadVehicle", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IsLeadVehicle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FeeCodeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCodeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeCodeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCodeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -17466,29 +17495,30 @@ SELECT FeeCodeID, Jurisdiction, FeeCode, FeeType, Coupling, Axles, FeeConditions
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT FeeCodeID, Jurisdiction, FeeCode, FeeType, Coupling, Axles, FeeConditions," +
-                " MaxTrailers, MaxAxles, MaxGVM FROM VehicleRegFeeCodes";
+            this._commandCollection[0].CommandText = "SELECT        FeeCodeID, Jurisdiction, FeeCode, FeeType, Coupling, Axles, FeeCond" +
+                "itions, MaxTrailers, MaxAxles, MaxGVM, IsLeadVehicle\r\nFROM            VehicleReg" +
+                "FeeCodes";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Axles, Coupling, FeeCode, FeeCodeID, FeeConditions, FeeType, Jurisdiction," +
-                " MaxAxles, MaxGVM, MaxTrailers FROM VehicleRegFeeCodes WHERE (FeeCode LIKE \'%\' +" +
-                " @FeeCode + \'%\')";
+            this._commandCollection[1].CommandText = "SELECT Axles, Coupling, FeeCode, FeeCodeID, FeeConditions, FeeType, IsLeadVehicle" +
+                ", Jurisdiction, MaxAxles, MaxGVM, MaxTrailers FROM VehicleRegFeeCodes WHERE (Fee" +
+                "Code LIKE \'%\' + @FeeCode + \'%\')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeCode", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT Axles, Coupling, FeeCode, FeeCodeID, FeeConditions, FeeType, Jurisdiction," +
-                " MaxAxles, MaxGVM, MaxTrailers FROM VehicleRegFeeCodes WHERE (1 = 1) AND (FeeCod" +
-                "e LIKE @FeeCode) AND (Jurisdiction LIKE @Jurisdiction)";
+            this._commandCollection[2].CommandText = "SELECT Axles, Coupling, FeeCode, FeeCodeID, FeeConditions, FeeType, IsLeadVehicle" +
+                ", Jurisdiction, MaxAxles, MaxGVM, MaxTrailers FROM VehicleRegFeeCodes WHERE (1 =" +
+                " 1) AND (FeeCode LIKE @FeeCode) AND (Jurisdiction LIKE @Jurisdiction)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeCode", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Jurisdiction", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Jurisdiction", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT Axles, Coupling, FeeCode, FeeCodeID, FeeConditions, FeeType, Jurisdiction," +
-                " MaxAxles, MaxGVM, MaxTrailers FROM VehicleRegFeeCodes WHERE (1 = 1) AND (FeeCod" +
-                "eID LIKE @FeeCodeID)";
+            this._commandCollection[3].CommandText = "SELECT Axles, Coupling, FeeCode, FeeCodeID, FeeConditions, FeeType, IsLeadVehicle" +
+                ", Jurisdiction, MaxAxles, MaxGVM, MaxTrailers FROM VehicleRegFeeCodes WHERE (1 =" +
+                " 1) AND (FeeCodeID LIKE @FeeCodeID)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeCodeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCodeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

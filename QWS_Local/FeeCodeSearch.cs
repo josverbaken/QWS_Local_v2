@@ -69,10 +69,6 @@ namespace QWS_Local
             }
         }
 
-        private void rbVehicleType_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void rbClearFilters_CheckedChanged(object sender, EventArgs e)
         {

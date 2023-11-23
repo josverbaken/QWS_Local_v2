@@ -40,8 +40,8 @@ namespace QWS_Local
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label jurisdictionLabel1;
-            System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label4;
+            System.Windows.Forms.Label label1;
             this.txtRego = new System.Windows.Forms.TextBox();
             this.vehicleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
@@ -79,7 +79,6 @@ namespace QWS_Local
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.truck2TrailerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.truckConfigTruckTruckConfigTrailerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtVehicleApproval = new System.Windows.Forms.TextBox();
             this.checkPBSbyRegoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.jurisdictionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vehicleTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.VehicleTableAdapter();
@@ -92,8 +91,6 @@ namespace QWS_Local
             this.trailersByPBSVehicleApprovalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.trailersByPBSVehicleApprovalTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.TrailersByPBSVehicleApprovalTableAdapter();
             this.pBSTrailers4TruckTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.PBSTrailers4TruckTableAdapter();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.txtPrefCustomer = new System.Windows.Forms.TextBox();
             this.btnSetPrefCustomer = new System.Windows.Forms.Button();
             this.txtPBS_VA = new System.Windows.Forms.TextBox();
@@ -107,8 +104,8 @@ namespace QWS_Local
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             jurisdictionLabel1 = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleRegFeeCodesBindingSource)).BeginInit();
@@ -184,7 +181,7 @@ namespace QWS_Local
             // tareLabel
             // 
             tareLabel.AutoSize = true;
-            tareLabel.Location = new System.Drawing.Point(50, 267);
+            tareLabel.Location = new System.Drawing.Point(50, 270);
             tareLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             tareLabel.Name = "tareLabel";
             tareLabel.Size = new System.Drawing.Size(117, 18);
@@ -236,21 +233,10 @@ namespace QWS_Local
             jurisdictionLabel1.Text = "Jurisdiction:";
             jurisdictionLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(103, 332);
-            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(68, 18);
-            label1.TabIndex = 57;
-            label1.Text = "PBS VA :";
-            label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(64, 378);
+            label4.Location = new System.Drawing.Point(63, 340);
             label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(113, 18);
@@ -324,7 +310,7 @@ namespace QWS_Local
             // tareTextBox
             // 
             this.tareTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "RegisteredTare", true));
-            this.tareTextBox.Location = new System.Drawing.Point(209, 264);
+            this.tareTextBox.Location = new System.Drawing.Point(209, 267);
             this.tareTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.tareTextBox.Name = "tareTextBox";
             this.tareTextBox.Size = new System.Drawing.Size(148, 24);
@@ -599,17 +585,6 @@ namespace QWS_Local
             this.truckConfigTruckTruckConfigTrailerBindingSource.DataMember = "Truck2Trailer";
             this.truckConfigTruckTruckConfigTrailerBindingSource.DataSource = this.truckConfigTruckBindingSource;
             // 
-            // txtVehicleApproval
-            // 
-            this.txtVehicleApproval.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.checkPBSbyRegoBindingSource, "VehicleApproval", true));
-            this.txtVehicleApproval.Location = new System.Drawing.Point(209, 329);
-            this.txtVehicleApproval.Margin = new System.Windows.Forms.Padding(4);
-            this.txtVehicleApproval.Name = "txtVehicleApproval";
-            this.txtVehicleApproval.ReadOnly = true;
-            this.txtVehicleApproval.Size = new System.Drawing.Size(87, 24);
-            this.txtVehicleApproval.TabIndex = 55;
-            this.txtVehicleApproval.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // checkPBSbyRegoBindingSource
             // 
             this.checkPBSbyRegoBindingSource.DataMember = "CheckPBSbyRego";
@@ -674,32 +649,10 @@ namespace QWS_Local
             // 
             this.pBSTrailers4TruckTableAdapter.ClearBeforeFill = true;
             // 
-            // textBox2
-            // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.checkPBSbyRegoBindingSource, "Version", true));
-            this.textBox2.Location = new System.Drawing.Point(304, 329);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(53, 24);
-            this.textBox2.TabIndex = 58;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox4
-            // 
-            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.checkPBSbyRegoBindingSource, "ApprovalDT", true));
-            this.textBox4.Location = new System.Drawing.Point(365, 329);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(197, 24);
-            this.textBox4.TabIndex = 59;
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // txtPrefCustomer
             // 
             this.txtPrefCustomer.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "PrefCustomerCode", true));
-            this.txtPrefCustomer.Location = new System.Drawing.Point(209, 375);
+            this.txtPrefCustomer.Location = new System.Drawing.Point(208, 337);
             this.txtPrefCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrefCustomer.Name = "txtPrefCustomer";
             this.txtPrefCustomer.Size = new System.Drawing.Size(280, 24);
@@ -710,7 +663,7 @@ namespace QWS_Local
             this.btnSetPrefCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnSetPrefCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetPrefCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetPrefCustomer.Location = new System.Drawing.Point(501, 374);
+            this.btnSetPrefCustomer.Location = new System.Drawing.Point(500, 336);
             this.btnSetPrefCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.btnSetPrefCustomer.Name = "btnSetPrefCustomer";
             this.btnSetPrefCustomer.Size = new System.Drawing.Size(61, 25);
@@ -721,25 +674,33 @@ namespace QWS_Local
             // txtPBS_VA
             // 
             this.txtPBS_VA.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "PBS_VA", true));
-            this.txtPBS_VA.Location = new System.Drawing.Point(208, 296);
+            this.txtPBS_VA.Location = new System.Drawing.Point(208, 302);
             this.txtPBS_VA.Margin = new System.Windows.Forms.Padding(4);
             this.txtPBS_VA.Name = "txtPBS_VA";
             this.txtPBS_VA.Size = new System.Drawing.Size(148, 24);
             this.txtPBS_VA.TabIndex = 63;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(19, 302);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(158, 18);
+            label1.TabIndex = 64;
+            label1.Text = "PBS Vehicle Approval :";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // VehicleMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1171, 696);
+            this.Controls.Add(label1);
             this.Controls.Add(this.txtPBS_VA);
             this.Controls.Add(label4);
             this.Controls.Add(this.btnSetPrefCustomer);
             this.Controls.Add(this.txtPrefCustomer);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(label1);
-            this.Controls.Add(this.txtVehicleApproval);
             this.Controls.Add(this.btnNewVehicleCurrentOwner);
             this.Controls.Add(this.btnNewVehicle);
             this.Controls.Add(this.btnGo2Config);
@@ -844,15 +805,12 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnGo2Config;
         private System.Windows.Forms.Button btnNewVehicle;
         private System.Windows.Forms.Button btnNewVehicleCurrentOwner;
-        private System.Windows.Forms.TextBox txtVehicleApproval;
         private System.Windows.Forms.BindingSource checkPBSbyRegoBindingSource;
         private dsQWSLocalTableAdapters.CheckPBSbyRegoTableAdapter checkPBSbyRegoTableAdapter;
         private System.Windows.Forms.BindingSource trailersByPBSVehicleApprovalBindingSource;
         private dsQWSLocalTableAdapters.TrailersByPBSVehicleApprovalTableAdapter trailersByPBSVehicleApprovalTableAdapter;
         private System.Windows.Forms.BindingSource pBSTrailers4TruckBindingSource;
         private dsQWSLocalTableAdapters.PBSTrailers4TruckTableAdapter pBSTrailers4TruckTableAdapter;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox txtPrefCustomer;
         private System.Windows.Forms.Button btnSetPrefCustomer;
         private System.Windows.Forms.TextBox txtPBS_VA;
