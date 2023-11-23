@@ -95,6 +95,7 @@ namespace QWS_Local
             this.btnSetPrefCustomer = new System.Windows.Forms.Button();
             this.txtPBS_VA = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             regoLabel = new System.Windows.Forms.Label();
             vINLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
@@ -702,11 +703,21 @@ namespace QWS_Local
             this.textBox2.Size = new System.Drawing.Size(33, 24);
             this.textBox2.TabIndex = 65;
             // 
+            // textBox3
+            // 
+            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleRegFeeCodesBindingSource, "IsLeadVehicle", true));
+            this.textBox3.Location = new System.Drawing.Point(617, 233);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(33, 24);
+            this.textBox3.TabIndex = 66;
+            // 
             // VehicleMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1171, 696);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(label1);
             this.Controls.Add(this.txtPBS_VA);
@@ -827,5 +838,6 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnSetPrefCustomer;
         private System.Windows.Forms.TextBox txtPBS_VA;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }

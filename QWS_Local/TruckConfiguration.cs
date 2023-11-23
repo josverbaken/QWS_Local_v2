@@ -63,10 +63,10 @@ namespace QWS_Local
                 if (iCount == 1)
                 {
                     dsQWSLocal.VehicleDetailsRow vehicleDetailsRow = (dsQWSLocal.VehicleDetailsRow)dsQWSLocal.VehicleDetails.Rows[0];
-                    if (vehicleDetailsRow.VehicleType == "Truck")
+                    if (vehicleDetailsRow.IsLeadVehicle == true)
                     {
                         this.truckConfigTableAdapter.FillBy(this.dsQWSLocal.TruckConfig, Rego);
-                        string SAPCode = vehicleDetailsRow.SAPCode; // TODO - I think this okay but otherwise reload TruckConfigTrailers on binding source changed
+                        string SAPCode = vehicleDetailsRow.CardCode; // TODO - I think this okay but otherwise reload TruckConfigTrailers on binding source changed
                         this.truckConfigTrailersTableAdapter.FillBy(this.dsQWSLocal.TruckConfigTrailers, SAPCode);
                     }
                     // else trailer ? what TODO
@@ -117,8 +117,8 @@ namespace QWS_Local
             {
                 vehicleDetailsTableAdapter.FillBy(dsQWSLocal.VehicleDetails, txtRego.Text);
                 dsQWSLocal.VehicleDetailsRow vehicleDetailsRow = (dsQWSLocal.VehicleDetailsRow)dsQWSLocal.VehicleDetails.Rows[0];
-                mySAPCode = vehicleDetailsRow.SAPCode;
-                if(vehicleDetailsRow.VehicleType == "Trailer")
+                mySAPCode = vehicleDetailsRow.CardCode;
+                if(vehicleDetailsRow.IsLeadVehicle == false)
                 {
                     btnFindNHVR_GVM.Enabled = false;
                 }

@@ -6694,8 +6694,6 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnVIN;
             
-            private global::System.Data.DataColumn columnSAPCode;
-            
             private global::System.Data.DataColumn columnOwner;
             
             private global::System.Data.DataColumn columnMake;
@@ -6714,11 +6712,17 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnFeeConditions;
             
-            private global::System.Data.DataColumn columnVehicleType;
-            
             private global::System.Data.DataColumn columnVehicleDescription;
             
             private global::System.Data.DataColumn columnSchematic;
+            
+            private global::System.Data.DataColumn columnCardCode;
+            
+            private global::System.Data.DataColumn columnRegistrationExpDT;
+            
+            private global::System.Data.DataColumn columnIsLeadVehicle;
+            
+            private global::System.Data.DataColumn columnCreateDTTM;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -6766,14 +6770,6 @@ namespace QWS_Local {
             public global::System.Data.DataColumn VINColumn {
                 get {
                     return this.columnVIN;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn SAPCodeColumn {
-                get {
-                    return this.columnSAPCode;
                 }
             }
             
@@ -6851,14 +6847,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn VehicleTypeColumn {
-                get {
-                    return this.columnVehicleType;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn VehicleDescriptionColumn {
                 get {
                     return this.columnVehicleDescription;
@@ -6870,6 +6858,38 @@ namespace QWS_Local {
             public global::System.Data.DataColumn SchematicColumn {
                 get {
                     return this.columnSchematic;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CardCodeColumn {
+                get {
+                    return this.columnCardCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn RegistrationExpDTColumn {
+                get {
+                    return this.columnRegistrationExpDT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IsLeadVehicleColumn {
+                get {
+                    return this.columnIsLeadVehicle;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CreateDTTMColumn {
+                get {
+                    return this.columnCreateDTTM;
                 }
             }
             
@@ -6910,12 +6930,28 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VehicleDetailsRow AddVehicleDetailsRow(string Rego, string VIN, string SAPCode, string Owner, string Make, string Model, string AxleConfiguration, decimal RegisteredTare, string FeeCode, string Jurisdiction, string FeeType, string FeeConditions, string VehicleType, string VehicleDescription, byte[] Schematic) {
+            public VehicleDetailsRow AddVehicleDetailsRow(
+                        string Rego, 
+                        string VIN, 
+                        string Owner, 
+                        string Make, 
+                        string Model, 
+                        string AxleConfiguration, 
+                        decimal RegisteredTare, 
+                        string FeeCode, 
+                        string Jurisdiction, 
+                        string FeeType, 
+                        string FeeConditions, 
+                        string VehicleDescription, 
+                        byte[] Schematic, 
+                        string CardCode, 
+                        System.DateTime RegistrationExpDT, 
+                        bool IsLeadVehicle, 
+                        System.DateTime CreateDTTM) {
                 VehicleDetailsRow rowVehicleDetailsRow = ((VehicleDetailsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Rego,
                         VIN,
-                        SAPCode,
                         Owner,
                         Make,
                         Model,
@@ -6925,9 +6961,12 @@ namespace QWS_Local {
                         Jurisdiction,
                         FeeType,
                         FeeConditions,
-                        VehicleType,
                         VehicleDescription,
-                        Schematic};
+                        Schematic,
+                        CardCode,
+                        RegistrationExpDT,
+                        IsLeadVehicle,
+                        CreateDTTM};
                 rowVehicleDetailsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVehicleDetailsRow);
                 return rowVehicleDetailsRow;
@@ -6959,7 +6998,6 @@ namespace QWS_Local {
             internal void InitVars() {
                 this.columnRego = base.Columns["Rego"];
                 this.columnVIN = base.Columns["VIN"];
-                this.columnSAPCode = base.Columns["SAPCode"];
                 this.columnOwner = base.Columns["Owner"];
                 this.columnMake = base.Columns["Make"];
                 this.columnModel = base.Columns["Model"];
@@ -6969,9 +7007,12 @@ namespace QWS_Local {
                 this.columnJurisdiction = base.Columns["Jurisdiction"];
                 this.columnFeeType = base.Columns["FeeType"];
                 this.columnFeeConditions = base.Columns["FeeConditions"];
-                this.columnVehicleType = base.Columns["VehicleType"];
                 this.columnVehicleDescription = base.Columns["VehicleDescription"];
                 this.columnSchematic = base.Columns["Schematic"];
+                this.columnCardCode = base.Columns["CardCode"];
+                this.columnRegistrationExpDT = base.Columns["RegistrationExpDT"];
+                this.columnIsLeadVehicle = base.Columns["IsLeadVehicle"];
+                this.columnCreateDTTM = base.Columns["CreateDTTM"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6981,8 +7022,6 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnRego);
                 this.columnVIN = new global::System.Data.DataColumn("VIN", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVIN);
-                this.columnSAPCode = new global::System.Data.DataColumn("SAPCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSAPCode);
                 this.columnOwner = new global::System.Data.DataColumn("Owner", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOwner);
                 this.columnMake = new global::System.Data.DataColumn("Make", typeof(string), null, global::System.Data.MappingType.Element);
@@ -7001,12 +7040,18 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnFeeType);
                 this.columnFeeConditions = new global::System.Data.DataColumn("FeeConditions", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFeeConditions);
-                this.columnVehicleType = new global::System.Data.DataColumn("VehicleType", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnVehicleType);
                 this.columnVehicleDescription = new global::System.Data.DataColumn("VehicleDescription", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVehicleDescription);
                 this.columnSchematic = new global::System.Data.DataColumn("Schematic", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSchematic);
+                this.columnCardCode = new global::System.Data.DataColumn("CardCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCardCode);
+                this.columnRegistrationExpDT = new global::System.Data.DataColumn("RegistrationExpDT", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRegistrationExpDT);
+                this.columnIsLeadVehicle = new global::System.Data.DataColumn("IsLeadVehicle", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIsLeadVehicle);
+                this.columnCreateDTTM = new global::System.Data.DataColumn("CreateDTTM", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCreateDTTM);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRego}, true));
                 this.columnRego.AllowDBNull = false;
@@ -7014,8 +7059,6 @@ namespace QWS_Local {
                 this.columnRego.MaxLength = 6;
                 this.columnVIN.AllowDBNull = false;
                 this.columnVIN.MaxLength = 17;
-                this.columnSAPCode.AllowDBNull = false;
-                this.columnSAPCode.MaxLength = 15;
                 this.columnOwner.AllowDBNull = false;
                 this.columnOwner.MaxLength = 100;
                 this.columnMake.AllowDBNull = false;
@@ -7027,8 +7070,10 @@ namespace QWS_Local {
                 this.columnJurisdiction.MaxLength = 50;
                 this.columnFeeType.MaxLength = 500;
                 this.columnFeeConditions.MaxLength = 5000;
-                this.columnVehicleType.MaxLength = 50;
                 this.columnVehicleDescription.MaxLength = 100;
+                this.columnCardCode.AllowDBNull = false;
+                this.columnCardCode.MaxLength = 15;
+                this.columnCreateDTTM.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13328,17 +13373,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string SAPCode {
-                get {
-                    return ((string)(this[this.tableVehicleDetails.SAPCodeColumn]));
-                }
-                set {
-                    this[this.tableVehicleDetails.SAPCodeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Owner {
                 get {
                     return ((string)(this[this.tableVehicleDetails.OwnerColumn]));
@@ -13468,22 +13502,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string VehicleType {
-                get {
-                    try {
-                        return ((string)(this[this.tableVehicleDetails.VehicleTypeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'VehicleType\' in table \'VehicleDetails\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVehicleDetails.VehicleTypeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string VehicleDescription {
                 get {
                     try {
@@ -13511,6 +13529,60 @@ namespace QWS_Local {
                 }
                 set {
                     this[this.tableVehicleDetails.SchematicColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CardCode {
+                get {
+                    return ((string)(this[this.tableVehicleDetails.CardCodeColumn]));
+                }
+                set {
+                    this[this.tableVehicleDetails.CardCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime RegistrationExpDT {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableVehicleDetails.RegistrationExpDTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RegistrationExpDT\' in table \'VehicleDetails\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVehicleDetails.RegistrationExpDTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsLeadVehicle {
+                get {
+                    try {
+                        return ((bool)(this[this.tableVehicleDetails.IsLeadVehicleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IsLeadVehicle\' in table \'VehicleDetails\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVehicleDetails.IsLeadVehicleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime CreateDTTM {
+                get {
+                    return ((global::System.DateTime)(this[this.tableVehicleDetails.CreateDTTMColumn]));
+                }
+                set {
+                    this[this.tableVehicleDetails.CreateDTTMColumn] = value;
                 }
             }
             
@@ -13588,18 +13660,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsVehicleTypeNull() {
-                return this.IsNull(this.tableVehicleDetails.VehicleTypeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetVehicleTypeNull() {
-                this[this.tableVehicleDetails.VehicleTypeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsVehicleDescriptionNull() {
                 return this.IsNull(this.tableVehicleDetails.VehicleDescriptionColumn);
             }
@@ -13620,6 +13680,30 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetSchematicNull() {
                 this[this.tableVehicleDetails.SchematicColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRegistrationExpDTNull() {
+                return this.IsNull(this.tableVehicleDetails.RegistrationExpDTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRegistrationExpDTNull() {
+                this[this.tableVehicleDetails.RegistrationExpDTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsIsLeadVehicleNull() {
+                return this.IsNull(this.tableVehicleDetails.IsLeadVehicleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetIsLeadVehicleNull() {
+                this[this.tableVehicleDetails.IsLeadVehicleColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -21171,7 +21255,6 @@ SELECT TruckConfigID, Rego, Position FROM TruckConfigTrailers WHERE (Rego = @Reg
             tableMapping.DataSetTable = "VehicleDetails";
             tableMapping.ColumnMappings.Add("Rego", "Rego");
             tableMapping.ColumnMappings.Add("VIN", "VIN");
-            tableMapping.ColumnMappings.Add("SAPCode", "SAPCode");
             tableMapping.ColumnMappings.Add("Owner", "Owner");
             tableMapping.ColumnMappings.Add("Make", "Make");
             tableMapping.ColumnMappings.Add("Model", "Model");
@@ -21181,9 +21264,12 @@ SELECT TruckConfigID, Rego, Position FROM TruckConfigTrailers WHERE (Rego = @Reg
             tableMapping.ColumnMappings.Add("Jurisdiction", "Jurisdiction");
             tableMapping.ColumnMappings.Add("FeeType", "FeeType");
             tableMapping.ColumnMappings.Add("FeeConditions", "FeeConditions");
-            tableMapping.ColumnMappings.Add("VehicleType", "VehicleType");
             tableMapping.ColumnMappings.Add("VehicleDescription", "VehicleDescription");
             tableMapping.ColumnMappings.Add("Schematic", "Schematic");
+            tableMapping.ColumnMappings.Add("CardCode", "CardCode");
+            tableMapping.ColumnMappings.Add("RegistrationExpDT", "RegistrationExpDT");
+            tableMapping.ColumnMappings.Add("IsLeadVehicle", "IsLeadVehicle");
+            tableMapping.ColumnMappings.Add("CreateDTTM", "CreateDTTM");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -21200,7 +21286,9 @@ SELECT TruckConfigID, Rego, Position FROM TruckConfigTrailers WHERE (Rego = @Reg
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        VehicleDetails.*\r\nFROM            VehicleDetails";
+            this._commandCollection[0].CommandText = @"SELECT        Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, RegisteredTare, FeeCode, Jurisdiction, FeeType, FeeConditions, RegistrationExpDT, IsLeadVehicle, VehicleDescription, Schematic, 
+                         CreateDTTM
+FROM            VehicleDetails";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
