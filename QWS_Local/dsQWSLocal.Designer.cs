@@ -42,7 +42,7 @@ namespace QWS_Local {
         
         private AxleConfigurationDataTable tableAxleConfiguration;
         
-        private NHVR_GVMDataTable tableNHVR_GVM;
+        private NHVLDataTable tableNHVL;
         
         private TruckConfigDataTable tableTruckConfig;
         
@@ -91,6 +91,8 @@ namespace QWS_Local {
         private global::System.Data.DataRelation relationFK_PBS_Config_AxleConfiguration;
         
         private global::System.Data.DataRelation relationFK_PBS_ConfigScheme_PBS_Config;
+        
+        private global::System.Data.DataRelation relationFK_NHVL_AxleConfiguration;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -147,8 +149,8 @@ namespace QWS_Local {
                 if ((ds.Tables["AxleConfiguration"] != null)) {
                     base.Tables.Add(new AxleConfigurationDataTable(ds.Tables["AxleConfiguration"]));
                 }
-                if ((ds.Tables["NHVR_GVM"] != null)) {
-                    base.Tables.Add(new NHVR_GVMDataTable(ds.Tables["NHVR_GVM"]));
+                if ((ds.Tables["NHVL"] != null)) {
+                    base.Tables.Add(new NHVLDataTable(ds.Tables["NHVL"]));
                 }
                 if ((ds.Tables["TruckConfig"] != null)) {
                     base.Tables.Add(new TruckConfigDataTable(ds.Tables["TruckConfig"]));
@@ -301,9 +303,9 @@ namespace QWS_Local {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public NHVR_GVMDataTable NHVR_GVM {
+        public NHVLDataTable NHVL {
             get {
-                return this.tableNHVR_GVM;
+                return this.tableNHVL;
             }
         }
         
@@ -531,8 +533,8 @@ namespace QWS_Local {
                 if ((ds.Tables["AxleConfiguration"] != null)) {
                     base.Tables.Add(new AxleConfigurationDataTable(ds.Tables["AxleConfiguration"]));
                 }
-                if ((ds.Tables["NHVR_GVM"] != null)) {
-                    base.Tables.Add(new NHVR_GVMDataTable(ds.Tables["NHVR_GVM"]));
+                if ((ds.Tables["NHVL"] != null)) {
+                    base.Tables.Add(new NHVLDataTable(ds.Tables["NHVL"]));
                 }
                 if ((ds.Tables["TruckConfig"] != null)) {
                     base.Tables.Add(new TruckConfigDataTable(ds.Tables["TruckConfig"]));
@@ -660,10 +662,10 @@ namespace QWS_Local {
                     this.tableAxleConfiguration.InitVars();
                 }
             }
-            this.tableNHVR_GVM = ((NHVR_GVMDataTable)(base.Tables["NHVR_GVM"]));
+            this.tableNHVL = ((NHVLDataTable)(base.Tables["NHVL"]));
             if ((initTable == true)) {
-                if ((this.tableNHVR_GVM != null)) {
-                    this.tableNHVR_GVM.InitVars();
+                if ((this.tableNHVL != null)) {
+                    this.tableNHVL.InitVars();
                 }
             }
             this.tableTruckConfig = ((TruckConfigDataTable)(base.Tables["TruckConfig"]));
@@ -755,6 +757,7 @@ namespace QWS_Local {
             this.relationFK_Vehicle_AxleConfiguration = this.Relations["FK_Vehicle_AxleConfiguration"];
             this.relationFK_PBS_Config_AxleConfiguration = this.Relations["FK_PBS_Config_AxleConfiguration"];
             this.relationFK_PBS_ConfigScheme_PBS_Config = this.Relations["FK_PBS_ConfigScheme_PBS_Config"];
+            this.relationFK_NHVL_AxleConfiguration = this.Relations["FK_NHVL_AxleConfiguration"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -783,8 +786,8 @@ namespace QWS_Local {
             base.Tables.Add(this.tableJurisdiction);
             this.tableAxleConfiguration = new AxleConfigurationDataTable();
             base.Tables.Add(this.tableAxleConfiguration);
-            this.tableNHVR_GVM = new NHVR_GVMDataTable();
-            base.Tables.Add(this.tableNHVR_GVM);
+            this.tableNHVL = new NHVLDataTable();
+            base.Tables.Add(this.tableNHVL);
             this.tableTruckConfig = new TruckConfigDataTable();
             base.Tables.Add(this.tableTruckConfig);
             this.tableTruckConfigTrailers = new TruckConfigTrailersDataTable();
@@ -820,7 +823,7 @@ namespace QWS_Local {
                         this.tableVehicleRegFeeCodes.JurisdictionColumn}, false);
             this.Relations.Add(this.relationJurisdiction_VehicleRegFeeCodes);
             this.relationFK_VehicleConfig_NHVR_GVM = new global::System.Data.DataRelation("FK_VehicleConfig_NHVR_GVM", new global::System.Data.DataColumn[] {
-                        this.tableNHVR_GVM.TruckTypeIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableNHVL.TruckTypeIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTruckConfig.TruckTypeIDColumn}, false);
             this.Relations.Add(this.relationFK_VehicleConfig_NHVR_GVM);
             this.relationFK_VehicleConfig_Vehicle = new global::System.Data.DataRelation("FK_VehicleConfig_Vehicle", new global::System.Data.DataColumn[] {
@@ -855,6 +858,10 @@ namespace QWS_Local {
                         this.tablePBS_Config.PBS_ConfigIDColumn}, new global::System.Data.DataColumn[] {
                         this.tablePBS_ConfigScheme.PBS_ConfigIDColumn}, false);
             this.Relations.Add(this.relationFK_PBS_ConfigScheme_PBS_Config);
+            this.relationFK_NHVL_AxleConfiguration = new global::System.Data.DataRelation("FK_NHVL_AxleConfiguration", new global::System.Data.DataColumn[] {
+                        this.tableAxleConfiguration.AxleConfigurationColumn}, new global::System.Data.DataColumn[] {
+                        this.tableNHVL.AxleConfigurationColumn}, false);
+            this.Relations.Add(this.relationFK_NHVL_AxleConfiguration);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -913,7 +920,7 @@ namespace QWS_Local {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeNHVR_GVM() {
+        private bool ShouldSerializeNHVL() {
             return false;
         }
         
@@ -1078,7 +1085,7 @@ namespace QWS_Local {
         public delegate void AxleConfigurationRowChangeEventHandler(object sender, AxleConfigurationRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void NHVR_GVMRowChangeEventHandler(object sender, NHVR_GVMRowChangeEvent e);
+        public delegate void NHVLRowChangeEventHandler(object sender, NHVLRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void TruckConfigRowChangeEventHandler(object sender, TruckConfigRowChangeEvent e);
@@ -2690,8 +2697,6 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnMaxTrailers;
             
-            private global::System.Data.DataColumn columnVehicleType;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public VehicleRegFeeCodesDataTable() {
@@ -2807,14 +2812,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn VehicleTypeColumn {
-                get {
-                    return this.columnVehicleType;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2850,7 +2847,7 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VehicleRegFeeCodesRow AddVehicleRegFeeCodesRow(JurisdictionRow parentJurisdictionRowByJurisdiction_VehicleRegFeeCodes, string FeeCode, string FeeType, string FeeConditions, int MaxAxles, decimal MaxGVM, string Coupling, int Axles, int MaxTrailers, string VehicleType) {
+            public VehicleRegFeeCodesRow AddVehicleRegFeeCodesRow(JurisdictionRow parentJurisdictionRowByJurisdiction_VehicleRegFeeCodes, string FeeCode, string FeeType, string FeeConditions, int MaxAxles, decimal MaxGVM, string Coupling, int Axles, int MaxTrailers) {
                 VehicleRegFeeCodesRow rowVehicleRegFeeCodesRow = ((VehicleRegFeeCodesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2862,8 +2859,7 @@ namespace QWS_Local {
                         MaxGVM,
                         Coupling,
                         Axles,
-                        MaxTrailers,
-                        VehicleType};
+                        MaxTrailers};
                 if ((parentJurisdictionRowByJurisdiction_VehicleRegFeeCodes != null)) {
                     columnValuesArray[1] = parentJurisdictionRowByJurisdiction_VehicleRegFeeCodes[0];
                 }
@@ -2906,7 +2902,6 @@ namespace QWS_Local {
                 this.columnCoupling = base.Columns["Coupling"];
                 this.columnAxles = base.Columns["Axles"];
                 this.columnMaxTrailers = base.Columns["MaxTrailers"];
-                this.columnVehicleType = base.Columns["VehicleType"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2932,8 +2927,6 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnAxles);
                 this.columnMaxTrailers = new global::System.Data.DataColumn("MaxTrailers", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMaxTrailers);
-                this.columnVehicleType = new global::System.Data.DataColumn("VehicleType", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnVehicleType);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnFeeCodeID}, true));
                 this.columnFeeCodeID.AutoIncrement = true;
@@ -2956,8 +2949,6 @@ namespace QWS_Local {
                 this.columnCoupling.MaxLength = 1;
                 this.columnAxles.AllowDBNull = false;
                 this.columnMaxTrailers.AllowDBNull = false;
-                this.columnVehicleType.AllowDBNull = false;
-                this.columnVehicleType.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4690,7 +4681,7 @@ namespace QWS_Local {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class NHVR_GVMDataTable : global::System.Data.TypedTableBase<NHVR_GVMRow> {
+        public partial class NHVLDataTable : global::System.Data.TypedTableBase<NHVLRow> {
             
             private global::System.Data.DataColumn columnTruckTypeID;
             
@@ -4718,10 +4709,12 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnGVMTruck;
             
+            private global::System.Data.DataColumn columnMassMgmtRqd;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public NHVR_GVMDataTable() {
-                this.TableName = "NHVR_GVM";
+            public NHVLDataTable() {
+                this.TableName = "NHVL";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -4729,7 +4722,7 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal NHVR_GVMDataTable(global::System.Data.DataTable table) {
+            internal NHVLDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -4746,7 +4739,7 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected NHVR_GVMDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected NHVLDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -4857,6 +4850,14 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn MassMgmtRqdColumn {
+                get {
+                    return this.columnMassMgmtRqd;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4866,37 +4867,37 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public NHVR_GVMRow this[int index] {
+            public NHVLRow this[int index] {
                 get {
-                    return ((NHVR_GVMRow)(this.Rows[index]));
+                    return ((NHVLRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event NHVR_GVMRowChangeEventHandler NHVR_GVMRowChanging;
+            public event NHVLRowChangeEventHandler NHVLRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event NHVR_GVMRowChangeEventHandler NHVR_GVMRowChanged;
+            public event NHVLRowChangeEventHandler NHVLRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event NHVR_GVMRowChangeEventHandler NHVR_GVMRowDeleting;
+            public event NHVLRowChangeEventHandler NHVLRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event NHVR_GVMRowChangeEventHandler NHVR_GVMRowDeleted;
+            public event NHVLRowChangeEventHandler NHVLRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddNHVR_GVMRow(NHVR_GVMRow row) {
+            public void AddNHVLRow(NHVLRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public NHVR_GVMRow AddNHVR_GVMRow(int TruckTypeID, string AxleConfiguration, string TruckTypeDescription, int Axles, string Coupling, decimal MaxLength, string SchemeCode, bool SteerAxleAllowance, int Trailers, int Compartments, decimal TrTkRatio, decimal GCM, decimal GVMTruck) {
-                NHVR_GVMRow rowNHVR_GVMRow = ((NHVR_GVMRow)(this.NewRow()));
+            public NHVLRow AddNHVLRow(int TruckTypeID, AxleConfigurationRow parentAxleConfigurationRowByFK_NHVL_AxleConfiguration, string TruckTypeDescription, int Axles, string Coupling, decimal MaxLength, string SchemeCode, bool SteerAxleAllowance, int Trailers, int Compartments, decimal TrTkRatio, decimal GCM, decimal GVMTruck, bool MassMgmtRqd) {
+                NHVLRow rowNHVLRow = ((NHVLRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TruckTypeID,
-                        AxleConfiguration,
+                        null,
                         TruckTypeDescription,
                         Axles,
                         Coupling,
@@ -4907,23 +4908,27 @@ namespace QWS_Local {
                         Compartments,
                         TrTkRatio,
                         GCM,
-                        GVMTruck};
-                rowNHVR_GVMRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowNHVR_GVMRow);
-                return rowNHVR_GVMRow;
+                        GVMTruck,
+                        MassMgmtRqd};
+                if ((parentAxleConfigurationRowByFK_NHVL_AxleConfiguration != null)) {
+                    columnValuesArray[1] = parentAxleConfigurationRowByFK_NHVL_AxleConfiguration[0];
+                }
+                rowNHVLRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowNHVLRow);
+                return rowNHVLRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public NHVR_GVMRow FindByTruckTypeID(int TruckTypeID) {
-                return ((NHVR_GVMRow)(this.Rows.Find(new object[] {
+            public NHVLRow FindByTruckTypeID(int TruckTypeID) {
+                return ((NHVLRow)(this.Rows.Find(new object[] {
                             TruckTypeID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                NHVR_GVMDataTable cln = ((NHVR_GVMDataTable)(base.Clone()));
+                NHVLDataTable cln = ((NHVLDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -4931,7 +4936,7 @@ namespace QWS_Local {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new NHVR_GVMDataTable();
+                return new NHVLDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4950,6 +4955,7 @@ namespace QWS_Local {
                 this.columnTrTkRatio = base.Columns["TrTkRatio"];
                 this.columnGCM = base.Columns["GCM"];
                 this.columnGVMTruck = base.Columns["GVMTruck"];
+                this.columnMassMgmtRqd = base.Columns["MassMgmtRqd"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4981,6 +4987,8 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnGCM);
                 this.columnGVMTruck = new global::System.Data.DataColumn("GVMTruck", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGVMTruck);
+                this.columnMassMgmtRqd = new global::System.Data.DataColumn("MassMgmtRqd", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMassMgmtRqd);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTruckTypeID}, true));
                 this.columnTruckTypeID.AllowDBNull = false;
@@ -5005,28 +5013,28 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public NHVR_GVMRow NewNHVR_GVMRow() {
-                return ((NHVR_GVMRow)(this.NewRow()));
+            public NHVLRow NewNHVLRow() {
+                return ((NHVLRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new NHVR_GVMRow(builder);
+                return new NHVLRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(NHVR_GVMRow);
+                return typeof(NHVLRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.NHVR_GVMRowChanged != null)) {
-                    this.NHVR_GVMRowChanged(this, new NHVR_GVMRowChangeEvent(((NHVR_GVMRow)(e.Row)), e.Action));
+                if ((this.NHVLRowChanged != null)) {
+                    this.NHVLRowChanged(this, new NHVLRowChangeEvent(((NHVLRow)(e.Row)), e.Action));
                 }
             }
             
@@ -5034,8 +5042,8 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.NHVR_GVMRowChanging != null)) {
-                    this.NHVR_GVMRowChanging(this, new NHVR_GVMRowChangeEvent(((NHVR_GVMRow)(e.Row)), e.Action));
+                if ((this.NHVLRowChanging != null)) {
+                    this.NHVLRowChanging(this, new NHVLRowChangeEvent(((NHVLRow)(e.Row)), e.Action));
                 }
             }
             
@@ -5043,8 +5051,8 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.NHVR_GVMRowDeleted != null)) {
-                    this.NHVR_GVMRowDeleted(this, new NHVR_GVMRowChangeEvent(((NHVR_GVMRow)(e.Row)), e.Action));
+                if ((this.NHVLRowDeleted != null)) {
+                    this.NHVLRowDeleted(this, new NHVLRowChangeEvent(((NHVLRow)(e.Row)), e.Action));
                 }
             }
             
@@ -5052,14 +5060,14 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.NHVR_GVMRowDeleting != null)) {
-                    this.NHVR_GVMRowDeleting(this, new NHVR_GVMRowChangeEvent(((NHVR_GVMRow)(e.Row)), e.Action));
+                if ((this.NHVLRowDeleting != null)) {
+                    this.NHVLRowDeleting(this, new NHVLRowChangeEvent(((NHVLRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveNHVR_GVMRow(NHVR_GVMRow row) {
+            public void RemoveNHVLRow(NHVLRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -5086,7 +5094,7 @@ namespace QWS_Local {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "NHVR_GVMDataTable";
+                attribute2.FixedValue = "NHVLDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -5264,7 +5272,7 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TruckConfigRow AddTruckConfigRow(VehicleRow parentVehicleRowByFK_VehicleConfig_Vehicle, NHVR_GVMRow parentNHVR_GVMRowByFK_VehicleConfig_NHVR_GVM, int PBS_Config_ID, decimal Tare, System.DateTime TareDT) {
+            public TruckConfigRow AddTruckConfigRow(VehicleRow parentVehicleRowByFK_VehicleConfig_Vehicle, NHVLRow parentNHVLRowByFK_VehicleConfig_NHVR_GVM, int PBS_Config_ID, decimal Tare, System.DateTime TareDT) {
                 TruckConfigRow rowTruckConfigRow = ((TruckConfigRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -5276,8 +5284,8 @@ namespace QWS_Local {
                 if ((parentVehicleRowByFK_VehicleConfig_Vehicle != null)) {
                     columnValuesArray[1] = parentVehicleRowByFK_VehicleConfig_Vehicle[0];
                 }
-                if ((parentNHVR_GVMRowByFK_VehicleConfig_NHVR_GVM != null)) {
-                    columnValuesArray[2] = parentNHVR_GVMRowByFK_VehicleConfig_NHVR_GVM[0];
+                if ((parentNHVLRowByFK_VehicleConfig_NHVR_GVM != null)) {
+                    columnValuesArray[2] = parentNHVLRowByFK_VehicleConfig_NHVR_GVM[0];
                 }
                 rowTruckConfigRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTruckConfigRow);
@@ -11398,17 +11406,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string VehicleType {
-                get {
-                    return ((string)(this[this.tableVehicleRegFeeCodes.VehicleTypeColumn]));
-                }
-                set {
-                    this[this.tableVehicleRegFeeCodes.VehicleTypeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public JurisdictionRow JurisdictionRow {
                 get {
                     return ((JurisdictionRow)(this.GetParentRow(this.Table.ParentRelations["Jurisdiction_VehicleRegFeeCodes"])));
@@ -12143,30 +12140,41 @@ namespace QWS_Local {
                     return ((PBS_ConfigRow[])(base.GetChildRows(this.Table.ChildRelations["FK_PBS_Config_AxleConfiguration"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public NHVLRow[] GetNHVLRows() {
+                if ((this.Table.ChildRelations["FK_NHVL_AxleConfiguration"] == null)) {
+                    return new NHVLRow[0];
+                }
+                else {
+                    return ((NHVLRow[])(base.GetChildRows(this.Table.ChildRelations["FK_NHVL_AxleConfiguration"])));
+                }
+            }
         }
         
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class NHVR_GVMRow : global::System.Data.DataRow {
+        public partial class NHVLRow : global::System.Data.DataRow {
             
-            private NHVR_GVMDataTable tableNHVR_GVM;
+            private NHVLDataTable tableNHVL;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal NHVR_GVMRow(global::System.Data.DataRowBuilder rb) : 
+            internal NHVLRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableNHVR_GVM = ((NHVR_GVMDataTable)(this.Table));
+                this.tableNHVL = ((NHVLDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int TruckTypeID {
                 get {
-                    return ((int)(this[this.tableNHVR_GVM.TruckTypeIDColumn]));
+                    return ((int)(this[this.tableNHVL.TruckTypeIDColumn]));
                 }
                 set {
-                    this[this.tableNHVR_GVM.TruckTypeIDColumn] = value;
+                    this[this.tableNHVL.TruckTypeIDColumn] = value;
                 }
             }
             
@@ -12174,10 +12182,10 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string AxleConfiguration {
                 get {
-                    return ((string)(this[this.tableNHVR_GVM.AxleConfigurationColumn]));
+                    return ((string)(this[this.tableNHVL.AxleConfigurationColumn]));
                 }
                 set {
-                    this[this.tableNHVR_GVM.AxleConfigurationColumn] = value;
+                    this[this.tableNHVL.AxleConfigurationColumn] = value;
                 }
             }
             
@@ -12185,10 +12193,10 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string TruckTypeDescription {
                 get {
-                    return ((string)(this[this.tableNHVR_GVM.TruckTypeDescriptionColumn]));
+                    return ((string)(this[this.tableNHVL.TruckTypeDescriptionColumn]));
                 }
                 set {
-                    this[this.tableNHVR_GVM.TruckTypeDescriptionColumn] = value;
+                    this[this.tableNHVL.TruckTypeDescriptionColumn] = value;
                 }
             }
             
@@ -12196,10 +12204,10 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int Axles {
                 get {
-                    return ((int)(this[this.tableNHVR_GVM.AxlesColumn]));
+                    return ((int)(this[this.tableNHVL.AxlesColumn]));
                 }
                 set {
-                    this[this.tableNHVR_GVM.AxlesColumn] = value;
+                    this[this.tableNHVL.AxlesColumn] = value;
                 }
             }
             
@@ -12207,10 +12215,10 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Coupling {
                 get {
-                    return ((string)(this[this.tableNHVR_GVM.CouplingColumn]));
+                    return ((string)(this[this.tableNHVL.CouplingColumn]));
                 }
                 set {
-                    this[this.tableNHVR_GVM.CouplingColumn] = value;
+                    this[this.tableNHVL.CouplingColumn] = value;
                 }
             }
             
@@ -12218,10 +12226,10 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public decimal MaxLength {
                 get {
-                    return ((decimal)(this[this.tableNHVR_GVM.MaxLengthColumn]));
+                    return ((decimal)(this[this.tableNHVL.MaxLengthColumn]));
                 }
                 set {
-                    this[this.tableNHVR_GVM.MaxLengthColumn] = value;
+                    this[this.tableNHVL.MaxLengthColumn] = value;
                 }
             }
             
@@ -12229,10 +12237,10 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string SchemeCode {
                 get {
-                    return ((string)(this[this.tableNHVR_GVM.SchemeCodeColumn]));
+                    return ((string)(this[this.tableNHVL.SchemeCodeColumn]));
                 }
                 set {
-                    this[this.tableNHVR_GVM.SchemeCodeColumn] = value;
+                    this[this.tableNHVL.SchemeCodeColumn] = value;
                 }
             }
             
@@ -12240,10 +12248,10 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool SteerAxleAllowance {
                 get {
-                    return ((bool)(this[this.tableNHVR_GVM.SteerAxleAllowanceColumn]));
+                    return ((bool)(this[this.tableNHVL.SteerAxleAllowanceColumn]));
                 }
                 set {
-                    this[this.tableNHVR_GVM.SteerAxleAllowanceColumn] = value;
+                    this[this.tableNHVL.SteerAxleAllowanceColumn] = value;
                 }
             }
             
@@ -12251,10 +12259,10 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int Trailers {
                 get {
-                    return ((int)(this[this.tableNHVR_GVM.TrailersColumn]));
+                    return ((int)(this[this.tableNHVL.TrailersColumn]));
                 }
                 set {
-                    this[this.tableNHVR_GVM.TrailersColumn] = value;
+                    this[this.tableNHVL.TrailersColumn] = value;
                 }
             }
             
@@ -12262,10 +12270,10 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int Compartments {
                 get {
-                    return ((int)(this[this.tableNHVR_GVM.CompartmentsColumn]));
+                    return ((int)(this[this.tableNHVL.CompartmentsColumn]));
                 }
                 set {
-                    this[this.tableNHVR_GVM.CompartmentsColumn] = value;
+                    this[this.tableNHVL.CompartmentsColumn] = value;
                 }
             }
             
@@ -12273,10 +12281,10 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public decimal TrTkRatio {
                 get {
-                    return ((decimal)(this[this.tableNHVR_GVM.TrTkRatioColumn]));
+                    return ((decimal)(this[this.tableNHVL.TrTkRatioColumn]));
                 }
                 set {
-                    this[this.tableNHVR_GVM.TrTkRatioColumn] = value;
+                    this[this.tableNHVL.TrTkRatioColumn] = value;
                 }
             }
             
@@ -12284,10 +12292,10 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public decimal GCM {
                 get {
-                    return ((decimal)(this[this.tableNHVR_GVM.GCMColumn]));
+                    return ((decimal)(this[this.tableNHVL.GCMColumn]));
                 }
                 set {
-                    this[this.tableNHVR_GVM.GCMColumn] = value;
+                    this[this.tableNHVL.GCMColumn] = value;
                 }
             }
             
@@ -12295,11 +12303,50 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public decimal GVMTruck {
                 get {
-                    return ((decimal)(this[this.tableNHVR_GVM.GVMTruckColumn]));
+                    return ((decimal)(this[this.tableNHVL.GVMTruckColumn]));
                 }
                 set {
-                    this[this.tableNHVR_GVM.GVMTruckColumn] = value;
+                    this[this.tableNHVL.GVMTruckColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool MassMgmtRqd {
+                get {
+                    try {
+                        return ((bool)(this[this.tableNHVL.MassMgmtRqdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MassMgmtRqd\' in table \'NHVL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNHVL.MassMgmtRqdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public AxleConfigurationRow AxleConfigurationRow {
+                get {
+                    return ((AxleConfigurationRow)(this.GetParentRow(this.Table.ParentRelations["FK_NHVL_AxleConfiguration"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_NHVL_AxleConfiguration"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMassMgmtRqdNull() {
+                return this.IsNull(this.tableNHVL.MassMgmtRqdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMassMgmtRqdNull() {
+                this[this.tableNHVL.MassMgmtRqdColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12416,9 +12463,9 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public NHVR_GVMRow NHVR_GVMRow {
+            public NHVLRow NHVR_GVMRow {
                 get {
-                    return ((NHVR_GVMRow)(this.GetParentRow(this.Table.ParentRelations["FK_VehicleConfig_NHVR_GVM"])));
+                    return ((NHVLRow)(this.GetParentRow(this.Table.ParentRelations["FK_VehicleConfig_NHVR_GVM"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_VehicleConfig_NHVR_GVM"]);
@@ -15394,22 +15441,22 @@ namespace QWS_Local {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class NHVR_GVMRowChangeEvent : global::System.EventArgs {
+        public class NHVLRowChangeEvent : global::System.EventArgs {
             
-            private NHVR_GVMRow eventRow;
+            private NHVLRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public NHVR_GVMRowChangeEvent(NHVR_GVMRow row, global::System.Data.DataRowAction action) {
+            public NHVLRowChangeEvent(NHVLRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public NHVR_GVMRow Row {
+            public NHVLRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -17368,7 +17415,6 @@ SELECT Rego, VIN, PBS_VA, CardCode, Owner, Make, Model, AxleConfiguration, MassA
             tableMapping.ColumnMappings.Add("Coupling", "Coupling");
             tableMapping.ColumnMappings.Add("Axles", "Axles");
             tableMapping.ColumnMappings.Add("MaxTrailers", "MaxTrailers");
-            tableMapping.ColumnMappings.Add("VehicleType", "VehicleType");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -17420,12 +17466,14 @@ SELECT FeeCodeID, Jurisdiction, FeeCode, FeeType, Coupling, Axles, FeeConditions
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        VehicleRegFeeCodes.*\r\nFROM            VehicleRegFeeCodes";
+            this._commandCollection[0].CommandText = "SELECT FeeCodeID, Jurisdiction, FeeCode, FeeType, Coupling, Axles, FeeConditions," +
+                " MaxTrailers, MaxAxles, MaxGVM FROM VehicleRegFeeCodes";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        VehicleRegFeeCodes.*\r\nFROM            VehicleRegFeeCodes\r\nWHERE    " +
-                "    (FeeCode LIKE \'%\' + @FeeCode + \'%\')";
+            this._commandCollection[1].CommandText = "SELECT Axles, Coupling, FeeCode, FeeCodeID, FeeConditions, FeeType, Jurisdiction," +
+                " MaxAxles, MaxGVM, MaxTrailers FROM VehicleRegFeeCodes WHERE (FeeCode LIKE \'%\' +" +
+                " @FeeCode + \'%\')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeCode", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
@@ -17438,8 +17486,9 @@ SELECT FeeCodeID, Jurisdiction, FeeCode, FeeType, Coupling, Axles, FeeConditions
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Jurisdiction", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Jurisdiction", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT        VehicleRegFeeCodes.*\r\nFROM            VehicleRegFeeCodes\r\nWHERE 1=1" +
-                "\r\nAND FeeCodeID like @FeeCodeID";
+            this._commandCollection[3].CommandText = "SELECT Axles, Coupling, FeeCode, FeeCodeID, FeeConditions, FeeType, Jurisdiction," +
+                " MaxAxles, MaxGVM, MaxTrailers FROM VehicleRegFeeCodes WHERE (1 = 1) AND (FeeCod" +
+                "eID LIKE @FeeCodeID)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeCodeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCodeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -18700,7 +18749,7 @@ SELECT AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, VehicleD
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class NHVR_GVMTableAdapter : global::System.ComponentModel.Component {
+    public partial class NHVLTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -18714,7 +18763,7 @@ SELECT AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, VehicleD
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public NHVR_GVMTableAdapter() {
+        public NHVLTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -18811,7 +18860,7 @@ SELECT AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, VehicleD
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "NHVR_GVM";
+            tableMapping.DataSetTable = "NHVL";
             tableMapping.ColumnMappings.Add("TruckTypeID", "TruckTypeID");
             tableMapping.ColumnMappings.Add("AxleConfiguration", "AxleConfiguration");
             tableMapping.ColumnMappings.Add("TruckTypeDescription", "TruckTypeDescription");
@@ -18825,10 +18874,11 @@ SELECT AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, VehicleD
             tableMapping.ColumnMappings.Add("TrTkRatio", "TrTkRatio");
             tableMapping.ColumnMappings.Add("GCM", "GCM");
             tableMapping.ColumnMappings.Add("GVMTruck", "GVMTruck");
+            tableMapping.ColumnMappings.Add("MassMgmtRqd", "MassMgmtRqd");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [NHVR_GVM] WHERE (([TruckTypeID] = @Original_TruckTypeID) AND ([AxleConfiguration] = @Original_AxleConfiguration) AND ([TruckTypeDescription] = @Original_TruckTypeDescription) AND ([Axles] = @Original_Axles) AND ([Coupling] = @Original_Coupling) AND ([MaxLength] = @Original_MaxLength) AND ([SchemeCode] = @Original_SchemeCode) AND ([SteerAxleAllowance] = @Original_SteerAxleAllowance) AND ([Trailers] = @Original_Trailers) AND ([Compartments] = @Original_Compartments) AND ([TrTkRatio] = @Original_TrTkRatio) AND ([GCM] = @Original_GCM) AND ([GVMTruck] = @Original_GVMTruck))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [NHVL] WHERE (([TruckTypeID] = @Original_TruckTypeID) AND ([AxleConfiguration] = @Original_AxleConfiguration) AND ([TruckTypeDescription] = @Original_TruckTypeDescription) AND ([Axles] = @Original_Axles) AND ([Coupling] = @Original_Coupling) AND ([MaxLength] = @Original_MaxLength) AND ([SchemeCode] = @Original_SchemeCode) AND ([SteerAxleAllowance] = @Original_SteerAxleAllowance) AND ([Trailers] = @Original_Trailers) AND ([Compartments] = @Original_Compartments) AND ([TrTkRatio] = @Original_TrTkRatio) AND ([GCM] = @Original_GCM) AND ([GVMTruck] = @Original_GVMTruck) AND ((@IsNull_MassMgmtRqd = 1 AND [MassMgmtRqd] IS NULL) OR ([MassMgmtRqd] = @Original_MassMgmtRqd)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TruckTypeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckTypeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -18843,10 +18893,12 @@ SELECT AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, VehicleD
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TrTkRatio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "TrTkRatio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GCM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GVMTruck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GVMTruck", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MassMgmtRqd", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassMgmtRqd", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MassMgmtRqd", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassMgmtRqd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [NHVR_GVM] ([TruckTypeID], [AxleConfiguration], [TruckTypeDescription], [Axles], [Coupling], [MaxLength], [SchemeCode], [SteerAxleAllowance], [Trailers], [Compartments], [TrTkRatio], [GCM], [GVMTruck]) VALUES (@TruckTypeID, @AxleConfiguration, @TruckTypeDescription, @Axles, @Coupling, @MaxLength, @SchemeCode, @SteerAxleAllowance, @Trailers, @Compartments, @TrTkRatio, @GCM, @GVMTruck);
-SELECT TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, MaxLength, SchemeCode, SteerAxleAllowance, Trailers, Compartments, TrTkRatio, GCM, GVMTruck FROM NHVR_GVM WHERE (TruckTypeID = @TruckTypeID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [NHVL] ([TruckTypeID], [AxleConfiguration], [TruckTypeDescription], [Axles], [Coupling], [MaxLength], [SchemeCode], [SteerAxleAllowance], [Trailers], [Compartments], [TrTkRatio], [GCM], [GVMTruck], [MassMgmtRqd]) VALUES (@TruckTypeID, @AxleConfiguration, @TruckTypeDescription, @Axles, @Coupling, @MaxLength, @SchemeCode, @SteerAxleAllowance, @Trailers, @Compartments, @TrTkRatio, @GCM, @GVMTruck, @MassMgmtRqd);
+SELECT TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, MaxLength, SchemeCode, SteerAxleAllowance, Trailers, Compartments, TrTkRatio, GCM, GVMTruck, MassMgmtRqd FROM NHVL WHERE (TruckTypeID = @TruckTypeID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckTypeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckTypeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -18861,10 +18913,11 @@ SELECT TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, Ma
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TrTkRatio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "TrTkRatio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GCM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GVMTruck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GVMTruck", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MassMgmtRqd", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassMgmtRqd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [NHVR_GVM] SET [TruckTypeID] = @TruckTypeID, [AxleConfiguration] = @AxleConfiguration, [TruckTypeDescription] = @TruckTypeDescription, [Axles] = @Axles, [Coupling] = @Coupling, [MaxLength] = @MaxLength, [SchemeCode] = @SchemeCode, [SteerAxleAllowance] = @SteerAxleAllowance, [Trailers] = @Trailers, [Compartments] = @Compartments, [TrTkRatio] = @TrTkRatio, [GCM] = @GCM, [GVMTruck] = @GVMTruck WHERE (([TruckTypeID] = @Original_TruckTypeID) AND ([AxleConfiguration] = @Original_AxleConfiguration) AND ([TruckTypeDescription] = @Original_TruckTypeDescription) AND ([Axles] = @Original_Axles) AND ([Coupling] = @Original_Coupling) AND ([MaxLength] = @Original_MaxLength) AND ([SchemeCode] = @Original_SchemeCode) AND ([SteerAxleAllowance] = @Original_SteerAxleAllowance) AND ([Trailers] = @Original_Trailers) AND ([Compartments] = @Original_Compartments) AND ([TrTkRatio] = @Original_TrTkRatio) AND ([GCM] = @Original_GCM) AND ([GVMTruck] = @Original_GVMTruck));
-SELECT TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, MaxLength, SchemeCode, SteerAxleAllowance, Trailers, Compartments, TrTkRatio, GCM, GVMTruck FROM NHVR_GVM WHERE (TruckTypeID = @TruckTypeID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [NHVL] SET [TruckTypeID] = @TruckTypeID, [AxleConfiguration] = @AxleConfiguration, [TruckTypeDescription] = @TruckTypeDescription, [Axles] = @Axles, [Coupling] = @Coupling, [MaxLength] = @MaxLength, [SchemeCode] = @SchemeCode, [SteerAxleAllowance] = @SteerAxleAllowance, [Trailers] = @Trailers, [Compartments] = @Compartments, [TrTkRatio] = @TrTkRatio, [GCM] = @GCM, [GVMTruck] = @GVMTruck, [MassMgmtRqd] = @MassMgmtRqd WHERE (([TruckTypeID] = @Original_TruckTypeID) AND ([AxleConfiguration] = @Original_AxleConfiguration) AND ([TruckTypeDescription] = @Original_TruckTypeDescription) AND ([Axles] = @Original_Axles) AND ([Coupling] = @Original_Coupling) AND ([MaxLength] = @Original_MaxLength) AND ([SchemeCode] = @Original_SchemeCode) AND ([SteerAxleAllowance] = @Original_SteerAxleAllowance) AND ([Trailers] = @Original_Trailers) AND ([Compartments] = @Original_Compartments) AND ([TrTkRatio] = @Original_TrTkRatio) AND ([GCM] = @Original_GCM) AND ([GVMTruck] = @Original_GVMTruck) AND ((@IsNull_MassMgmtRqd = 1 AND [MassMgmtRqd] IS NULL) OR ([MassMgmtRqd] = @Original_MassMgmtRqd)));
+SELECT TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, MaxLength, SchemeCode, SteerAxleAllowance, Trailers, Compartments, TrTkRatio, GCM, GVMTruck, MassMgmtRqd FROM NHVL WHERE (TruckTypeID = @TruckTypeID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckTypeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckTypeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -18879,6 +18932,7 @@ SELECT TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, Ma
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TrTkRatio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "TrTkRatio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GCM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GVMTruck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GVMTruck", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MassMgmtRqd", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassMgmtRqd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TruckTypeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckTypeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TruckTypeDescription", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckTypeDescription", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -18892,6 +18946,8 @@ SELECT TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, Ma
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TrTkRatio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "TrTkRatio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GCM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GVMTruck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GVMTruck", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MassMgmtRqd", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassMgmtRqd", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MassMgmtRqd", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassMgmtRqd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18909,21 +18965,20 @@ SELECT TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, Ma
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupli" +
                 "ng, MaxLength, SchemeCode, SteerAxleAllowance, Trailers, Compartments, TrTkRatio" +
-                ", GCM, GVMTruck\r\nFROM            NHVR_GVM";
+                ", GCM, GVMTruck, MassMgmtRqd\r\nFROM            NHVL";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, MaxLength, SchemeCode, SteerAxleAllowance, Trailers, Compartments, TrTkRatio, GCM, GVMTruck
-FROM            NHVR_GVM
-WHERE AxleConfiguration like @AxleConfiguration + '%'";
+            this._commandCollection[1].CommandText = @"SELECT        TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, MaxLength, SchemeCode, SteerAxleAllowance, Trailers, Compartments, TrTkRatio, GCM, GVMTruck, MassMgmtRqd
+FROM            NHVL
+WHERE        (AxleConfiguration LIKE @AxleConfiguration + '%')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AxleConfiguration", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT        TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, MaxLength, SchemeCode, SteerAxleAllowance, Trailers, Compartments, TrTkRatio, GCM, GVMTruck
-FROM            NHVR_GVM
-WHERE AxleConfiguration like @AxleConfiguration + '%'
-AND SteerAxleAllowance = @SteerAxleAllowance";
+            this._commandCollection[2].CommandText = @"SELECT        TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, MaxLength, SchemeCode, SteerAxleAllowance, Trailers, Compartments, TrTkRatio, GCM, GVMTruck, MassMgmtRqd
+FROM            NHVL
+WHERE        (AxleConfiguration LIKE @AxleConfiguration + '%') AND (SteerAxleAllowance = @SteerAxleAllowance)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AxleConfiguration", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SteerAxleAllowance", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "SteerAxleAllowance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -18933,7 +18988,7 @@ AND SteerAxleAllowance = @SteerAxleAllowance";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsQWSLocal.NHVR_GVMDataTable dataTable) {
+        public virtual int Fill(dsQWSLocal.NHVLDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -18946,9 +19001,9 @@ AND SteerAxleAllowance = @SteerAxleAllowance";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsQWSLocal.NHVR_GVMDataTable GetData() {
+        public virtual dsQWSLocal.NHVLDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            dsQWSLocal.NHVR_GVMDataTable dataTable = new dsQWSLocal.NHVR_GVMDataTable();
+            dsQWSLocal.NHVLDataTable dataTable = new dsQWSLocal.NHVLDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -18957,7 +19012,7 @@ AND SteerAxleAllowance = @SteerAxleAllowance";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(dsQWSLocal.NHVR_GVMDataTable dataTable, string AxleConfiguration) {
+        public virtual int FillBy(dsQWSLocal.NHVLDataTable dataTable, string AxleConfiguration) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((AxleConfiguration == null)) {
                 throw new global::System.ArgumentNullException("AxleConfiguration");
@@ -18976,7 +19031,7 @@ AND SteerAxleAllowance = @SteerAxleAllowance";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual dsQWSLocal.NHVR_GVMDataTable GetDataBy(string AxleConfiguration) {
+        public virtual dsQWSLocal.NHVLDataTable GetDataBy(string AxleConfiguration) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((AxleConfiguration == null)) {
                 throw new global::System.ArgumentNullException("AxleConfiguration");
@@ -18984,7 +19039,7 @@ AND SteerAxleAllowance = @SteerAxleAllowance";
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(AxleConfiguration));
             }
-            dsQWSLocal.NHVR_GVMDataTable dataTable = new dsQWSLocal.NHVR_GVMDataTable();
+            dsQWSLocal.NHVLDataTable dataTable = new dsQWSLocal.NHVLDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -18993,7 +19048,7 @@ AND SteerAxleAllowance = @SteerAxleAllowance";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByAxlePlusSteer(dsQWSLocal.NHVR_GVMDataTable dataTable, string AxleConfiguration, bool SteerAxleAllowance) {
+        public virtual int FillByAxlePlusSteer(dsQWSLocal.NHVLDataTable dataTable, string AxleConfiguration, bool SteerAxleAllowance) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((AxleConfiguration == null)) {
                 throw new global::System.ArgumentNullException("AxleConfiguration");
@@ -19013,7 +19068,7 @@ AND SteerAxleAllowance = @SteerAxleAllowance";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual dsQWSLocal.NHVR_GVMDataTable GetDataByAxlePlusSteer(string AxleConfiguration, bool SteerAxleAllowance) {
+        public virtual dsQWSLocal.NHVLDataTable GetDataByAxlePlusSteer(string AxleConfiguration, bool SteerAxleAllowance) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((AxleConfiguration == null)) {
                 throw new global::System.ArgumentNullException("AxleConfiguration");
@@ -19022,7 +19077,7 @@ AND SteerAxleAllowance = @SteerAxleAllowance";
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(AxleConfiguration));
             }
             this.Adapter.SelectCommand.Parameters[1].Value = ((bool)(SteerAxleAllowance));
-            dsQWSLocal.NHVR_GVMDataTable dataTable = new dsQWSLocal.NHVR_GVMDataTable();
+            dsQWSLocal.NHVLDataTable dataTable = new dsQWSLocal.NHVLDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -19030,7 +19085,7 @@ AND SteerAxleAllowance = @SteerAxleAllowance";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(dsQWSLocal.NHVR_GVMDataTable dataTable) {
+        public virtual int Update(dsQWSLocal.NHVLDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -19038,7 +19093,7 @@ AND SteerAxleAllowance = @SteerAxleAllowance";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(dsQWSLocal dataSet) {
-            return this.Adapter.Update(dataSet, "NHVR_GVM");
+            return this.Adapter.Update(dataSet, "NHVL");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19054,260 +19109,6 @@ AND SteerAxleAllowance = @SteerAxleAllowance";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_TruckTypeID, string Original_AxleConfiguration, string Original_TruckTypeDescription, int Original_Axles, string Original_Coupling, decimal Original_MaxLength, string Original_SchemeCode, bool Original_SteerAxleAllowance, int Original_Trailers, int Original_Compartments, decimal Original_TrTkRatio, decimal Original_GCM, decimal Original_GVMTruck) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_TruckTypeID));
-            if ((Original_AxleConfiguration == null)) {
-                throw new global::System.ArgumentNullException("Original_AxleConfiguration");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_AxleConfiguration));
-            }
-            if ((Original_TruckTypeDescription == null)) {
-                throw new global::System.ArgumentNullException("Original_TruckTypeDescription");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_TruckTypeDescription));
-            }
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_Axles));
-            if ((Original_Coupling == null)) {
-                throw new global::System.ArgumentNullException("Original_Coupling");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Coupling));
-            }
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((decimal)(Original_MaxLength));
-            if ((Original_SchemeCode == null)) {
-                throw new global::System.ArgumentNullException("Original_SchemeCode");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_SchemeCode));
-            }
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((bool)(Original_SteerAxleAllowance));
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_Trailers));
-            this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_Compartments));
-            this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_TrTkRatio));
-            this.Adapter.DeleteCommand.Parameters[11].Value = ((decimal)(Original_GCM));
-            this.Adapter.DeleteCommand.Parameters[12].Value = ((decimal)(Original_GVMTruck));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int TruckTypeID, string AxleConfiguration, string TruckTypeDescription, int Axles, string Coupling, decimal MaxLength, string SchemeCode, bool SteerAxleAllowance, int Trailers, int Compartments, decimal TrTkRatio, decimal GCM, decimal GVMTruck) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(TruckTypeID));
-            if ((AxleConfiguration == null)) {
-                throw new global::System.ArgumentNullException("AxleConfiguration");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(AxleConfiguration));
-            }
-            if ((TruckTypeDescription == null)) {
-                throw new global::System.ArgumentNullException("TruckTypeDescription");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(TruckTypeDescription));
-            }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Axles));
-            if ((Coupling == null)) {
-                throw new global::System.ArgumentNullException("Coupling");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Coupling));
-            }
-            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(MaxLength));
-            if ((SchemeCode == null)) {
-                throw new global::System.ArgumentNullException("SchemeCode");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(SchemeCode));
-            }
-            this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(SteerAxleAllowance));
-            this.Adapter.InsertCommand.Parameters[8].Value = ((int)(Trailers));
-            this.Adapter.InsertCommand.Parameters[9].Value = ((int)(Compartments));
-            this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(TrTkRatio));
-            this.Adapter.InsertCommand.Parameters[11].Value = ((decimal)(GCM));
-            this.Adapter.InsertCommand.Parameters[12].Value = ((decimal)(GVMTruck));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int TruckTypeID, 
-                    string AxleConfiguration, 
-                    string TruckTypeDescription, 
-                    int Axles, 
-                    string Coupling, 
-                    decimal MaxLength, 
-                    string SchemeCode, 
-                    bool SteerAxleAllowance, 
-                    int Trailers, 
-                    int Compartments, 
-                    decimal TrTkRatio, 
-                    decimal GCM, 
-                    decimal GVMTruck, 
-                    int Original_TruckTypeID, 
-                    string Original_AxleConfiguration, 
-                    string Original_TruckTypeDescription, 
-                    int Original_Axles, 
-                    string Original_Coupling, 
-                    decimal Original_MaxLength, 
-                    string Original_SchemeCode, 
-                    bool Original_SteerAxleAllowance, 
-                    int Original_Trailers, 
-                    int Original_Compartments, 
-                    decimal Original_TrTkRatio, 
-                    decimal Original_GCM, 
-                    decimal Original_GVMTruck) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(TruckTypeID));
-            if ((AxleConfiguration == null)) {
-                throw new global::System.ArgumentNullException("AxleConfiguration");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(AxleConfiguration));
-            }
-            if ((TruckTypeDescription == null)) {
-                throw new global::System.ArgumentNullException("TruckTypeDescription");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(TruckTypeDescription));
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Axles));
-            if ((Coupling == null)) {
-                throw new global::System.ArgumentNullException("Coupling");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Coupling));
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(MaxLength));
-            if ((SchemeCode == null)) {
-                throw new global::System.ArgumentNullException("SchemeCode");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(SchemeCode));
-            }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(SteerAxleAllowance));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Trailers));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Compartments));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(TrTkRatio));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((decimal)(GCM));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(GVMTruck));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_TruckTypeID));
-            if ((Original_AxleConfiguration == null)) {
-                throw new global::System.ArgumentNullException("Original_AxleConfiguration");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_AxleConfiguration));
-            }
-            if ((Original_TruckTypeDescription == null)) {
-                throw new global::System.ArgumentNullException("Original_TruckTypeDescription");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_TruckTypeDescription));
-            }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_Axles));
-            if ((Original_Coupling == null)) {
-                throw new global::System.ArgumentNullException("Original_Coupling");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Coupling));
-            }
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(Original_MaxLength));
-            if ((Original_SchemeCode == null)) {
-                throw new global::System.ArgumentNullException("Original_SchemeCode");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_SchemeCode));
-            }
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((bool)(Original_SteerAxleAllowance));
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_Trailers));
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_Compartments));
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((decimal)(Original_TrTkRatio));
-            this.Adapter.UpdateCommand.Parameters[24].Value = ((decimal)(Original_GCM));
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((decimal)(Original_GVMTruck));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string AxleConfiguration, 
-                    string TruckTypeDescription, 
-                    int Axles, 
-                    string Coupling, 
-                    decimal MaxLength, 
-                    string SchemeCode, 
-                    bool SteerAxleAllowance, 
-                    int Trailers, 
-                    int Compartments, 
-                    decimal TrTkRatio, 
-                    decimal GCM, 
-                    decimal GVMTruck, 
-                    int Original_TruckTypeID, 
-                    string Original_AxleConfiguration, 
-                    string Original_TruckTypeDescription, 
-                    int Original_Axles, 
-                    string Original_Coupling, 
-                    decimal Original_MaxLength, 
-                    string Original_SchemeCode, 
-                    bool Original_SteerAxleAllowance, 
-                    int Original_Trailers, 
-                    int Original_Compartments, 
-                    decimal Original_TrTkRatio, 
-                    decimal Original_GCM, 
-                    decimal Original_GVMTruck) {
-            return this.Update(Original_TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, MaxLength, SchemeCode, SteerAxleAllowance, Trailers, Compartments, TrTkRatio, GCM, GVMTruck, Original_TruckTypeID, Original_AxleConfiguration, Original_TruckTypeDescription, Original_Axles, Original_Coupling, Original_MaxLength, Original_SchemeCode, Original_SteerAxleAllowance, Original_Trailers, Original_Compartments, Original_TrTkRatio, Original_GCM, Original_GVMTruck);
         }
     }
     
@@ -23413,7 +23214,7 @@ and TIQID like @TIQID";
         
         private AxleConfigurationTableAdapter _axleConfigurationTableAdapter;
         
-        private NHVR_GVMTableAdapter _nHVR_GVMTableAdapter;
+        private NHVLTableAdapter _nHVLTableAdapter;
         
         private TruckConfigTableAdapter _truckConfigTableAdapter;
         
@@ -23527,12 +23328,12 @@ and TIQID like @TIQID";
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public NHVR_GVMTableAdapter NHVR_GVMTableAdapter {
+        public NHVLTableAdapter NHVLTableAdapter {
             get {
-                return this._nHVR_GVMTableAdapter;
+                return this._nHVLTableAdapter;
             }
             set {
-                this._nHVR_GVMTableAdapter = value;
+                this._nHVLTableAdapter = value;
             }
         }
         
@@ -23635,9 +23436,9 @@ and TIQID like @TIQID";
                             && (this._axleConfigurationTableAdapter.Connection != null))) {
                     return this._axleConfigurationTableAdapter.Connection;
                 }
-                if (((this._nHVR_GVMTableAdapter != null) 
-                            && (this._nHVR_GVMTableAdapter.Connection != null))) {
-                    return this._nHVR_GVMTableAdapter.Connection;
+                if (((this._nHVLTableAdapter != null) 
+                            && (this._nHVLTableAdapter.Connection != null))) {
+                    return this._nHVLTableAdapter.Connection;
                 }
                 if (((this._truckConfigTableAdapter != null) 
                             && (this._truckConfigTableAdapter.Connection != null))) {
@@ -23686,7 +23487,7 @@ and TIQID like @TIQID";
                 if ((this._axleConfigurationTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._nHVR_GVMTableAdapter != null)) {
+                if ((this._nHVLTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._truckConfigTableAdapter != null)) {
@@ -23748,12 +23549,12 @@ and TIQID like @TIQID";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._nHVR_GVMTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.NHVR_GVM.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._nHVLTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.NHVL.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._nHVR_GVMTableAdapter.Update(updatedRows));
+                    result = (result + this._nHVLTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -23853,11 +23654,11 @@ and TIQID like @TIQID";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._nHVR_GVMTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.NHVR_GVM.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._nHVLTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.NHVL.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._nHVR_GVMTableAdapter.Update(addedRows));
+                    result = (result + this._nHVLTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -23967,11 +23768,11 @@ and TIQID like @TIQID";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._nHVR_GVMTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.NHVR_GVM.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._nHVLTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.NHVL.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._nHVR_GVMTableAdapter.Update(deletedRows));
+                    result = (result + this._nHVLTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -24076,8 +23877,8 @@ and TIQID like @TIQID";
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._nHVR_GVMTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._nHVR_GVMTableAdapter.Connection) == false))) {
+            if (((this._nHVLTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._nHVLTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -24187,13 +23988,13 @@ and TIQID like @TIQID";
                         adaptersWithAcceptChangesDuringUpdate.Add(this._axleConfigurationTableAdapter.Adapter);
                     }
                 }
-                if ((this._nHVR_GVMTableAdapter != null)) {
-                    revertConnections.Add(this._nHVR_GVMTableAdapter, this._nHVR_GVMTableAdapter.Connection);
-                    this._nHVR_GVMTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._nHVR_GVMTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._nHVR_GVMTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._nHVR_GVMTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._nHVR_GVMTableAdapter.Adapter);
+                if ((this._nHVLTableAdapter != null)) {
+                    revertConnections.Add(this._nHVLTableAdapter, this._nHVLTableAdapter.Connection);
+                    this._nHVLTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._nHVLTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._nHVLTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._nHVLTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._nHVLTableAdapter.Adapter);
                     }
                 }
                 if ((this._truckConfigTableAdapter != null)) {
@@ -24314,9 +24115,9 @@ and TIQID like @TIQID";
                     this._axleConfigurationTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._axleConfigurationTableAdapter]));
                     this._axleConfigurationTableAdapter.Transaction = null;
                 }
-                if ((this._nHVR_GVMTableAdapter != null)) {
-                    this._nHVR_GVMTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._nHVR_GVMTableAdapter]));
-                    this._nHVR_GVMTableAdapter.Transaction = null;
+                if ((this._nHVLTableAdapter != null)) {
+                    this._nHVLTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._nHVLTableAdapter]));
+                    this._nHVLTableAdapter.Transaction = null;
                 }
                 if ((this._truckConfigTableAdapter != null)) {
                     this._truckConfigTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._truckConfigTableAdapter]));

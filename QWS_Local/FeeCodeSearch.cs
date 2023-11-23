@@ -71,11 +71,7 @@ namespace QWS_Local
 
         private void rbVehicleType_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbVehicleType.Checked == true)
-            {
-                string strFilter = "VehicleType like '%" + this.vehicleTypeTextBox.Text + "%'";
-                vehicleRegFeeCodesBindingSource.Filter = strFilter;
-            }
+
         }
 
         private void rbClearFilters_CheckedChanged(object sender, EventArgs e)

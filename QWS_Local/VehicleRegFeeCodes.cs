@@ -19,7 +19,14 @@ namespace QWS_Local
 
         private void VehicleRegFeeCodes_Load(object sender, EventArgs e)
         {
-            this.vehicleRegFeeCodesTableAdapter.Fill(this.dsQWSLocal.VehicleRegFeeCodes);
+            try
+            {
+                this.vehicleRegFeeCodesTableAdapter.Fill(this.dsQWSLocal.VehicleRegFeeCodes);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
@@ -28,7 +35,7 @@ namespace QWS_Local
         {
             this.Validate();
             this.vehicleRegFeeCodesBindingSource.EndEdit();
-            //this.vehicleRegFeeCodesTableAdapter.Update(this.dsQWSLocal.VehicleRegFeeCodes);
+            this.vehicleRegFeeCodesTableAdapter.Update(this.dsQWSLocal.VehicleRegFeeCodes);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace QWS_Local
     {
         private dsQWSLocal.AxleConfigurationRow myAxleConfigurationRow;
 
-        private string myVehicleType;
+        //private string myVehicleType;
         private int myAxles;
         private string myCoupling;
 
@@ -27,10 +27,10 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public AxleConfigurationSearch(string VehicleType, int Axles, string Coupling)
+        public AxleConfigurationSearch(int Axles, string Coupling)
         {
             InitializeComponent();
-            myVehicleType = VehicleType;
+            //myVehicleType = VehicleType;
             myAxles = Axles;
             myCoupling = Coupling;
         }
@@ -49,8 +49,9 @@ namespace QWS_Local
             {
                 this.axleConfigurationTableAdapter.Fill(this.dsQWSLocal.AxleConfiguration);
                 // TODO probably better to call parameterised stored procedure
-            string myFilter = "VehicleType like '" + myVehicleType + "'";
-                myFilter += " and Axles = " + myAxles.ToString();
+            string myFilter = "Axles = " + myAxles.ToString();
+                //"VehicleType like '" + myVehicleType + "'";
+                //myFilter += " and Axles = " + myAxles.ToString();
                 if (myVehicleType == "Trailer")
                 {
                     myFilter += " and AxleConfiguration like '" + myCoupling + "%'";

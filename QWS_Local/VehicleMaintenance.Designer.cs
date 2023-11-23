@@ -40,8 +40,6 @@ namespace QWS_Local
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label jurisdictionLabel1;
-            System.Windows.Forms.Label tareLabel1;
-            System.Windows.Forms.Label tareDTLabel;
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label4;
             this.txtRego = new System.Windows.Forms.TextBox();
@@ -68,10 +66,6 @@ namespace QWS_Local
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.chkForceRetare = new System.Windows.Forms.CheckBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.tareTextBox1 = new System.Windows.Forms.TextBox();
             this.truckConfigTruckBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.truckConfigTruckTableAdapter = new QWS_Local.dsTruckConfigTableAdapters.TruckConfigTruckTableAdapter();
@@ -102,6 +96,7 @@ namespace QWS_Local
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.txtPrefCustomer = new System.Windows.Forms.TextBox();
             this.btnSetPrefCustomer = new System.Windows.Forms.Button();
+            this.txtPBS_VA = new System.Windows.Forms.TextBox();
             regoLabel = new System.Windows.Forms.Label();
             vINLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
@@ -112,15 +107,12 @@ namespace QWS_Local
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             jurisdictionLabel1 = new System.Windows.Forms.Label();
-            tareLabel1 = new System.Windows.Forms.Label();
-            tareDTLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleRegFeeCodesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axleConfigurationBindingSource)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.truckConfigTruckBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.truckConfigTrailerBindingSource)).BeginInit();
@@ -244,28 +236,10 @@ namespace QWS_Local
             jurisdictionLabel1.Text = "Jurisdiction:";
             jurisdictionLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // tareLabel1
-            // 
-            tareLabel1.AutoSize = true;
-            tareLabel1.Location = new System.Drawing.Point(86, 46);
-            tareLabel1.Name = "tareLabel1";
-            tareLabel1.Size = new System.Drawing.Size(42, 18);
-            tareLabel1.TabIndex = 0;
-            tareLabel1.Text = "Tare:";
-            // 
-            // tareDTLabel
-            // 
-            tareDTLabel.AutoSize = true;
-            tareDTLabel.Location = new System.Drawing.Point(59, 87);
-            tareDTLabel.Name = "tareDTLabel";
-            tareDTLabel.Size = new System.Drawing.Size(66, 18);
-            tareDTLabel.TabIndex = 2;
-            tareDTLabel.Text = "Tare DT:";
-            // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(103, 509);
+            label1.Location = new System.Drawing.Point(103, 332);
             label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(68, 18);
@@ -276,7 +250,7 @@ namespace QWS_Local
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(64, 555);
+            label4.Location = new System.Drawing.Point(64, 378);
             label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(113, 18);
@@ -528,47 +502,6 @@ namespace QWS_Local
             this.textBox6.TabIndex = 32;
             this.textBox6.TabStop = false;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.groupBox1.Controls.Add(this.chkForceRetare);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(tareDTLabel);
-            this.groupBox1.Controls.Add(tareLabel1);
-            this.groupBox1.Controls.Add(this.tareTextBox1);
-            this.groupBox1.Location = new System.Drawing.Point(43, 312);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(519, 170);
-            this.groupBox1.TabIndex = 50;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Operating Tare";
-            // 
-            // chkForceRetare
-            // 
-            this.chkForceRetare.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.vehicleBindingSource, "ForceRetare", true));
-            this.chkForceRetare.Location = new System.Drawing.Point(164, 127);
-            this.chkForceRetare.Name = "chkForceRetare";
-            this.chkForceRetare.Size = new System.Drawing.Size(138, 24);
-            this.chkForceRetare.TabIndex = 5;
-            this.chkForceRetare.Text = "Force Retare";
-            this.chkForceRetare.UseVisualStyleBackColor = true;
-            // 
-            // textBox3
-            // 
-            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "TareDT", true));
-            this.textBox3.Location = new System.Drawing.Point(166, 84);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(148, 24);
-            this.textBox3.TabIndex = 3;
-            // 
-            // tareTextBox1
-            // 
-            this.tareTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "Tare", true));
-            this.tareTextBox1.Location = new System.Drawing.Point(166, 40);
-            this.tareTextBox1.Name = "tareTextBox1";
-            this.tareTextBox1.Size = new System.Drawing.Size(148, 24);
-            this.tareTextBox1.TabIndex = 1;
-            // 
             // truckConfigTruckBindingSource
             // 
             this.truckConfigTruckBindingSource.DataMember = "TruckConfigTruck";
@@ -669,7 +602,7 @@ namespace QWS_Local
             // txtVehicleApproval
             // 
             this.txtVehicleApproval.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.checkPBSbyRegoBindingSource, "VehicleApproval", true));
-            this.txtVehicleApproval.Location = new System.Drawing.Point(209, 506);
+            this.txtVehicleApproval.Location = new System.Drawing.Point(209, 329);
             this.txtVehicleApproval.Margin = new System.Windows.Forms.Padding(4);
             this.txtVehicleApproval.Name = "txtVehicleApproval";
             this.txtVehicleApproval.ReadOnly = true;
@@ -695,7 +628,8 @@ namespace QWS_Local
             // 
             this.tableAdapterManager.AxleConfigurationTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.NHVR_GVMTableAdapter = null;
+            this.tableAdapterManager.NHVLTableAdapter = null;
+            this.tableAdapterManager.PBS_ConfigSchemeTableAdapter = null;
             this.tableAdapterManager.PBS_ConfigTableAdapter = null;
             this.tableAdapterManager.PBS_VINTableAdapter = null;
             this.tableAdapterManager.PBSTableAdapter = null;
@@ -703,6 +637,7 @@ namespace QWS_Local
             this.tableAdapterManager.TruckConfigTrailersTableAdapter = null;
             this.tableAdapterManager.TrucksInQuarryTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager.VehicleTableAdapter = this.vehicleTableAdapter;
             // 
             // vehicleRegFeeCodesTableAdapter
@@ -742,7 +677,7 @@ namespace QWS_Local
             // textBox2
             // 
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.checkPBSbyRegoBindingSource, "Version", true));
-            this.textBox2.Location = new System.Drawing.Point(304, 506);
+            this.textBox2.Location = new System.Drawing.Point(304, 329);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
@@ -753,7 +688,7 @@ namespace QWS_Local
             // textBox4
             // 
             this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.checkPBSbyRegoBindingSource, "ApprovalDT", true));
-            this.textBox4.Location = new System.Drawing.Point(365, 506);
+            this.textBox4.Location = new System.Drawing.Point(365, 329);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
@@ -764,7 +699,7 @@ namespace QWS_Local
             // txtPrefCustomer
             // 
             this.txtPrefCustomer.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "PrefCustomerCode", true));
-            this.txtPrefCustomer.Location = new System.Drawing.Point(209, 552);
+            this.txtPrefCustomer.Location = new System.Drawing.Point(209, 375);
             this.txtPrefCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrefCustomer.Name = "txtPrefCustomer";
             this.txtPrefCustomer.Size = new System.Drawing.Size(280, 24);
@@ -775,7 +710,7 @@ namespace QWS_Local
             this.btnSetPrefCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnSetPrefCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetPrefCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetPrefCustomer.Location = new System.Drawing.Point(501, 551);
+            this.btnSetPrefCustomer.Location = new System.Drawing.Point(501, 374);
             this.btnSetPrefCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.btnSetPrefCustomer.Name = "btnSetPrefCustomer";
             this.btnSetPrefCustomer.Size = new System.Drawing.Size(61, 25);
@@ -783,11 +718,21 @@ namespace QWS_Local
             this.btnSetPrefCustomer.Text = "Set";
             this.btnSetPrefCustomer.UseVisualStyleBackColor = false;
             // 
+            // txtPBS_VA
+            // 
+            this.txtPBS_VA.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "PBS_VA", true));
+            this.txtPBS_VA.Location = new System.Drawing.Point(208, 296);
+            this.txtPBS_VA.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPBS_VA.Name = "txtPBS_VA";
+            this.txtPBS_VA.Size = new System.Drawing.Size(148, 24);
+            this.txtPBS_VA.TabIndex = 63;
+            // 
             // VehicleMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1171, 696);
+            this.Controls.Add(this.txtPBS_VA);
             this.Controls.Add(label4);
             this.Controls.Add(this.btnSetPrefCustomer);
             this.Controls.Add(this.txtPrefCustomer);
@@ -798,7 +743,6 @@ namespace QWS_Local
             this.Controls.Add(this.btnNewVehicleCurrentOwner);
             this.Controls.Add(this.btnNewVehicle);
             this.Controls.Add(this.btnGo2Config);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnFeeCodesMore);
             this.Controls.Add(this.btnIdentificationSave);
             this.Controls.Add(this.textBox8);
@@ -839,8 +783,6 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleRegFeeCodesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axleConfigurationBindingSource)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.truckConfigTruckBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.truckConfigTrailerBindingSource)).EndInit();
@@ -890,10 +832,6 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnIdentificationSave;
         private System.Windows.Forms.TextBox txtJurisdiction;
         private System.Windows.Forms.Button btnFeeCodesMore;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox chkForceRetare;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox tareTextBox1;
         private dsTruckConfig dsTruckConfig;
         private System.Windows.Forms.BindingSource truckConfigTruckBindingSource;
         private dsTruckConfigTableAdapters.TruckConfigTruckTableAdapter truckConfigTruckTableAdapter;
@@ -917,5 +855,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox txtPrefCustomer;
         private System.Windows.Forms.Button btnSetPrefCustomer;
+        private System.Windows.Forms.TextBox txtPBS_VA;
     }
 }

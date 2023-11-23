@@ -56,7 +56,6 @@ namespace QWS_Local
             this.Coupling = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Axles = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaxTrailers = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VehicleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxAxlesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxGVMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleRegFeeCodesBindingSource)).BeginInit();
@@ -93,7 +92,6 @@ namespace QWS_Local
             this.Coupling,
             this.Axles,
             this.MaxTrailers,
-            this.VehicleType,
             this.maxAxlesDataGridViewTextBoxColumn,
             this.maxGVMDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.vehicleRegFeeCodesBindingSource;
@@ -293,12 +291,6 @@ namespace QWS_Local
             this.MaxTrailers.HeaderText = "MaxTrailers";
             this.MaxTrailers.Name = "MaxTrailers";
             // 
-            // VehicleType
-            // 
-            this.VehicleType.DataPropertyName = "VehicleType";
-            this.VehicleType.HeaderText = "VehicleType";
-            this.VehicleType.Name = "VehicleType";
-            // 
             // maxAxlesDataGridViewTextBoxColumn
             // 
             this.maxAxlesDataGridViewTextBoxColumn.DataPropertyName = "MaxAxles";
@@ -363,7 +355,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn Coupling;
         private System.Windows.Forms.DataGridViewTextBoxColumn Axles;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaxTrailers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VehicleType;
         private System.Windows.Forms.DataGridViewTextBoxColumn maxAxlesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maxGVMDataGridViewTextBoxColumn;
     }

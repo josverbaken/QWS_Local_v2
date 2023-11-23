@@ -34,7 +34,6 @@ namespace QWS_Local
             System.Windows.Forms.Label jurisdictionLabel;
             System.Windows.Forms.Label feeTypeLabel;
             System.Windows.Forms.Label feeConditionsLabel;
-            System.Windows.Forms.Label vehicleTypeLabel;
             System.Windows.Forms.Label maxAxlesLabel;
             System.Windows.Forms.Label maxGVMLabel;
             System.Windows.Forms.Label couplingLabel;
@@ -48,7 +47,6 @@ namespace QWS_Local
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.rbCoupling = new System.Windows.Forms.RadioButton();
             this.rbClearFilters = new System.Windows.Forms.RadioButton();
-            this.rbVehicleType = new System.Windows.Forms.RadioButton();
             this.rbFeeCode = new System.Windows.Forms.RadioButton();
             this.btnSelect = new System.Windows.Forms.Button();
             this.maxTrailersTextBox = new System.Windows.Forms.TextBox();
@@ -56,7 +54,6 @@ namespace QWS_Local
             this.couplingTextBox = new System.Windows.Forms.TextBox();
             this.maxGVMTextBox = new System.Windows.Forms.TextBox();
             this.maxAxlesTextBox = new System.Windows.Forms.TextBox();
-            this.vehicleTypeTextBox = new System.Windows.Forms.TextBox();
             this.feeConditionsTextBox = new System.Windows.Forms.TextBox();
             this.feeTypeTextBox = new System.Windows.Forms.TextBox();
             this.jurisdictionTextBox = new System.Windows.Forms.TextBox();
@@ -67,7 +64,6 @@ namespace QWS_Local
             jurisdictionLabel = new System.Windows.Forms.Label();
             feeTypeLabel = new System.Windows.Forms.Label();
             feeConditionsLabel = new System.Windows.Forms.Label();
-            vehicleTypeLabel = new System.Windows.Forms.Label();
             maxAxlesLabel = new System.Windows.Forms.Label();
             maxGVMLabel = new System.Windows.Forms.Label();
             couplingLabel = new System.Windows.Forms.Label();
@@ -121,16 +117,6 @@ namespace QWS_Local
             feeConditionsLabel.Size = new System.Drawing.Size(112, 18);
             feeConditionsLabel.TabIndex = 6;
             feeConditionsLabel.Text = "Fee Conditions:";
-            // 
-            // vehicleTypeLabel
-            // 
-            vehicleTypeLabel.AutoSize = true;
-            vehicleTypeLabel.Location = new System.Drawing.Point(57, 348);
-            vehicleTypeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            vehicleTypeLabel.Name = "vehicleTypeLabel";
-            vehicleTypeLabel.Size = new System.Drawing.Size(95, 18);
-            vehicleTypeLabel.TabIndex = 8;
-            vehicleTypeLabel.Text = "Vehicle Type:";
             // 
             // maxAxlesLabel
             // 
@@ -197,7 +183,6 @@ namespace QWS_Local
             // 
             this.splitContainer1.Panel2.Controls.Add(this.rbCoupling);
             this.splitContainer1.Panel2.Controls.Add(this.rbClearFilters);
-            this.splitContainer1.Panel2.Controls.Add(this.rbVehicleType);
             this.splitContainer1.Panel2.Controls.Add(this.rbFeeCode);
             this.splitContainer1.Panel2.Controls.Add(this.btnSelect);
             this.splitContainer1.Panel2.Controls.Add(maxTrailersLabel);
@@ -210,8 +195,6 @@ namespace QWS_Local
             this.splitContainer1.Panel2.Controls.Add(this.maxGVMTextBox);
             this.splitContainer1.Panel2.Controls.Add(maxAxlesLabel);
             this.splitContainer1.Panel2.Controls.Add(this.maxAxlesTextBox);
-            this.splitContainer1.Panel2.Controls.Add(vehicleTypeLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.vehicleTypeTextBox);
             this.splitContainer1.Panel2.Controls.Add(feeConditionsLabel);
             this.splitContainer1.Panel2.Controls.Add(this.feeConditionsTextBox);
             this.splitContainer1.Panel2.Controls.Add(feeTypeLabel);
@@ -291,18 +274,6 @@ namespace QWS_Local
             this.rbClearFilters.UseVisualStyleBackColor = true;
             this.rbClearFilters.CheckedChanged += new System.EventHandler(this.rbClearFilters_CheckedChanged);
             // 
-            // rbVehicleType
-            // 
-            this.rbVehicleType.AutoSize = true;
-            this.rbVehicleType.Location = new System.Drawing.Point(343, 346);
-            this.rbVehicleType.Name = "rbVehicleType";
-            this.rbVehicleType.Size = new System.Drawing.Size(53, 22);
-            this.rbVehicleType.TabIndex = 24;
-            this.rbVehicleType.TabStop = true;
-            this.rbVehicleType.Text = "filter";
-            this.rbVehicleType.UseVisualStyleBackColor = true;
-            this.rbVehicleType.CheckedChanged += new System.EventHandler(this.rbVehicleType_CheckedChanged);
-            // 
             // rbFeeCode
             // 
             this.rbFeeCode.AutoSize = true;
@@ -371,15 +342,6 @@ namespace QWS_Local
             this.maxAxlesTextBox.Size = new System.Drawing.Size(148, 24);
             this.maxAxlesTextBox.TabIndex = 11;
             // 
-            // vehicleTypeTextBox
-            // 
-            this.vehicleTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleRegFeeCodesBindingSource, "VehicleType", true));
-            this.vehicleTypeTextBox.Location = new System.Drawing.Point(174, 344);
-            this.vehicleTypeTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.vehicleTypeTextBox.Name = "vehicleTypeTextBox";
-            this.vehicleTypeTextBox.Size = new System.Drawing.Size(148, 24);
-            this.vehicleTypeTextBox.TabIndex = 9;
-            // 
             // feeConditionsTextBox
             // 
             this.feeConditionsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleRegFeeCodesBindingSource, "FeeConditions", true));
@@ -426,13 +388,16 @@ namespace QWS_Local
             this.tableAdapterManager.AxleConfigurationTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.NHVR_GVMTableAdapter = null;
+            this.tableAdapterManager.NHVLTableAdapter = null;
+            this.tableAdapterManager.PBS_ConfigSchemeTableAdapter = null;
             this.tableAdapterManager.PBS_ConfigTableAdapter = null;
             this.tableAdapterManager.PBS_VINTableAdapter = null;
             this.tableAdapterManager.PBSTableAdapter = null;
             this.tableAdapterManager.TruckConfigTableAdapter = null;
             this.tableAdapterManager.TruckConfigTrailersTableAdapter = null;
+            this.tableAdapterManager.TrucksInQuarryTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager.VehicleTableAdapter = null;
             // 
             // FeeCodeSearch
@@ -470,7 +435,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox couplingTextBox;
         private System.Windows.Forms.TextBox maxGVMTextBox;
         private System.Windows.Forms.TextBox maxAxlesTextBox;
-        private System.Windows.Forms.TextBox vehicleTypeTextBox;
         private System.Windows.Forms.TextBox feeConditionsTextBox;
         private System.Windows.Forms.TextBox feeTypeTextBox;
         private System.Windows.Forms.TextBox jurisdictionTextBox;
@@ -480,7 +444,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.RadioButton rbFeeCode;
-        private System.Windows.Forms.RadioButton rbVehicleType;
         private System.Windows.Forms.RadioButton rbClearFilters;
         private System.Windows.Forms.RadioButton rbCoupling;
     }

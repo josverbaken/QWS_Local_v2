@@ -34,6 +34,7 @@ namespace QWS_Local
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -43,10 +44,11 @@ namespace QWS_Local
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.nHVRGVMBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dsQWSLocal1 = new QWS_Local.dsQWSLocal();
+            this.nHVLBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nHVLTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.NHVLTableAdapter();
             this.truckTypeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.axleConfigurationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.truckTypeDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,16 +62,17 @@ namespace QWS_Local
             this.trTkRatioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gCMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gVMTruckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nHVR_GVMTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.NHVR_GVMTableAdapter();
+            this.massMgmtRqdDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nHVRGVMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nHVLBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -95,7 +98,6 @@ namespace QWS_Local
             // bindingNavigator1
             // 
             this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.bindingNavigator1.BindingSource = this.nHVRGVMBindingSource;
             this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator1.DeleteItem = null;
             this.bindingNavigator1.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -131,6 +133,11 @@ namespace QWS_Local
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 24);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // dsQWSLocal
+            // 
+            this.dsQWSLocal.DataSetName = "dsQWSLocal";
+            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -199,6 +206,16 @@ namespace QWS_Local
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(44, 24);
+            this.toolStripButton1.Text = "Save";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
@@ -216,33 +233,28 @@ namespace QWS_Local
             this.compartmentsDataGridViewTextBoxColumn,
             this.trTkRatioDataGridViewTextBoxColumn,
             this.gCMDataGridViewTextBoxColumn,
-            this.gVMTruckDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.nHVRGVMBindingSource;
+            this.gVMTruckDataGridViewTextBoxColumn,
+            this.massMgmtRqdDataGridViewCheckBoxColumn});
+            this.dataGridView1.DataSource = this.nHVLBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1200, 558);
             this.dataGridView1.TabIndex = 0;
             // 
-            // toolStripButton1
+            // dsQWSLocal1
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(44, 24);
-            this.toolStripButton1.Text = "Save";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.dsQWSLocal1.DataSetName = "dsQWSLocal";
+            this.dsQWSLocal1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // nHVRGVMBindingSource
+            // nHVLBindingSource
             // 
-            this.nHVRGVMBindingSource.DataMember = "NHVR_GVM";
-            this.nHVRGVMBindingSource.DataSource = this.dsQWSLocal;
+            this.nHVLBindingSource.DataMember = "NHVL";
+            this.nHVLBindingSource.DataSource = this.dsQWSLocal1;
             // 
-            // dsQWSLocal
+            // nHVLTableAdapter
             // 
-            this.dsQWSLocal.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.nHVLTableAdapter.ClearBeforeFill = true;
             // 
             // truckTypeIDDataGridViewTextBoxColumn
             // 
@@ -261,7 +273,6 @@ namespace QWS_Local
             this.truckTypeDescriptionDataGridViewTextBoxColumn.DataPropertyName = "TruckTypeDescription";
             this.truckTypeDescriptionDataGridViewTextBoxColumn.HeaderText = "TruckTypeDescription";
             this.truckTypeDescriptionDataGridViewTextBoxColumn.Name = "truckTypeDescriptionDataGridViewTextBoxColumn";
-            this.truckTypeDescriptionDataGridViewTextBoxColumn.Width = 250;
             // 
             // axlesDataGridViewTextBoxColumn
             // 
@@ -323,9 +334,11 @@ namespace QWS_Local
             this.gVMTruckDataGridViewTextBoxColumn.HeaderText = "GVMTruck";
             this.gVMTruckDataGridViewTextBoxColumn.Name = "gVMTruckDataGridViewTextBoxColumn";
             // 
-            // nHVR_GVMTableAdapter
+            // massMgmtRqdDataGridViewCheckBoxColumn
             // 
-            this.nHVR_GVMTableAdapter.ClearBeforeFill = true;
+            this.massMgmtRqdDataGridViewCheckBoxColumn.DataPropertyName = "MassMgmtRqd";
+            this.massMgmtRqdDataGridViewCheckBoxColumn.HeaderText = "MassMgmtRqd";
+            this.massMgmtRqdDataGridViewCheckBoxColumn.Name = "massMgmtRqdDataGridViewCheckBoxColumn";
             // 
             // NHVR_GVM
             // 
@@ -346,9 +359,10 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nHVRGVMBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nHVLBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -369,8 +383,10 @@ namespace QWS_Local
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private dsQWSLocal dsQWSLocal;
-        private System.Windows.Forms.BindingSource nHVRGVMBindingSource;
-        private dsQWSLocalTableAdapters.NHVR_GVMTableAdapter nHVR_GVMTableAdapter;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private dsQWSLocal dsQWSLocal1;
+        private System.Windows.Forms.BindingSource nHVLBindingSource;
+        private dsQWSLocalTableAdapters.NHVLTableAdapter nHVLTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn truckTypeIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn axleConfigurationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn truckTypeDescriptionDataGridViewTextBoxColumn;
@@ -384,6 +400,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn trTkRatioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gCMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gVMTruckDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn massMgmtRqdDataGridViewCheckBoxColumn;
     }
 }

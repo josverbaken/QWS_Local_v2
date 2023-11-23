@@ -230,11 +230,11 @@ namespace QWS_Local
         private void AxleConfiguration()
         {
 
-            string myVehicleType = CurrentFeeCode().VehicleType;
+            //string myVehicleType = CurrentFeeCode().VehicleType;
             int myAxles = CurrentFeeCode().Axles;
             string myCoupling = CurrentFeeCode().Coupling;
 
-            AxleConfigurationSearch axleConfigurationSearch = new AxleConfigurationSearch(myVehicleType, myAxles, myCoupling);
+            AxleConfigurationSearch axleConfigurationSearch = new AxleConfigurationSearch(myAxles, myCoupling);
             DialogResult dr = axleConfigurationSearch.ShowDialog();
             if (dr == DialogResult.OK)
             {
@@ -471,7 +471,8 @@ namespace QWS_Local
         private void btnConfigureGVM_Click(object sender, EventArgs e)
         {
             int iVehicleCount;
-            if (CurrentFeeCode().VehicleType == "Truck")
+            // TODO revise logic
+            if (CurrentFeeCode().FeeCode.Substring(0, 2) == "MR")// (CurrentFeeCode().VehicleType == "Truck")
             {
                 iVehicleCount = VehicleCount("Trailer", CurrentVehicle().SAPCode);
                 if (iVehicleCount == 0)
@@ -502,7 +503,8 @@ namespace QWS_Local
 
                 }
             }
-            else if (CurrentFeeCode().VehicleType == "Trailer")
+            // TODO revise logic
+            else if (CurrentFeeCode().FeeCode.Substring(0,2) == "TD") //(CurrentFeeCode().VehicleType == "Trailer")
             {
                 DialogResult dr = MessageBox.Show("Press OK to add trailer to an existing truck.", "Add trailer to GVM Configuration", MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
                 if (dr ==DialogResult.OK)
@@ -531,7 +533,7 @@ namespace QWS_Local
             }
             else
             {
-                MessageBox.Show("Vehicle Type = " + CurrentFeeCode().VehicleType, "Vehicle Type Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Vehicle Type = " + CurrentFeeCode().FeeCode, "Vehicle Type Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             
         }

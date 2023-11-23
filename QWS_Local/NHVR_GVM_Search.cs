@@ -46,7 +46,7 @@ namespace QWS_Local
 
         private void LoadByAxleConfig(string AxleConfig)
         {
-            this.nHVR_GVMTableAdapter.FillBy(this.dsQWSLocal.NHVR_GVM,AxleConfig);
+            this.nHVR_GVMTableAdapter.FillBy(this.dsQWSLocal.NHVL,AxleConfig);
         }
   
          private void SetAxleConfigFilter()

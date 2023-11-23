@@ -61,7 +61,7 @@ namespace QWS_Local
             this.maxLengthTextBox = new System.Windows.Forms.TextBox();
             this.couplingTextBox = new System.Windows.Forms.TextBox();
             this.axlesTextBox = new System.Windows.Forms.TextBox();
-            this.nHVR_GVMTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.NHVR_GVMTableAdapter();
+            this.nHVR_GVMTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.NHVLTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.axleConfigurationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -473,7 +473,7 @@ namespace QWS_Local
             // 
             this.tableAdapterManager.AxleConfigurationTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.NHVR_GVMTableAdapter = this.nHVR_GVMTableAdapter;
+            this.tableAdapterManager.NHVLTableAdapter = this.nHVR_GVMTableAdapter;
             this.tableAdapterManager.PBS_ConfigTableAdapter = null;
             this.tableAdapterManager.PBS_VINTableAdapter = null;
             this.tableAdapterManager.PBSTableAdapter = null;
@@ -684,7 +684,7 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridView dataGridView1;
         private dsQWSLocal dsQWSLocal;
         private System.Windows.Forms.BindingSource nHVRGVMBindingSource;
-        private dsQWSLocalTableAdapters.NHVR_GVMTableAdapter nHVR_GVMTableAdapter;
+        private dsQWSLocalTableAdapters.NHVLTableAdapter nHVR_GVMTableAdapter;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.TextBox truckTypeIDTextBox;
