@@ -72,7 +72,6 @@ namespace QWS_Local
                     string strSearch = this.txtRego.Text;
                     string _SAPCode = "";
                     string _Owner = "";
-                    //CheckPBS(); // not yet need axle config etc
                     if (vehicleBindingSource.Count > 0) //to carry over owner for new truck 
                     {
                         _SAPCode = CurrentVehicle().CardCode;
@@ -112,7 +111,6 @@ namespace QWS_Local
                             }
                             else
                             {
-                                //MessageBox.Show("Not okay");
                                 txtRego.Focus();
                             }
                             break;
@@ -124,6 +122,7 @@ namespace QWS_Local
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                dsQWSLocal.Clear();
             }
 
         }
