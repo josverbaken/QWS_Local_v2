@@ -24,11 +24,8 @@ namespace QWS_Local
 
         private void PBS_Maintenance_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsQWSLocal.PBS_VIN' table. You can move, or remove it, as needed.
-            //this.pBS_VINTableAdapter.Fill(this.dsQWSLocal.PBS_VIN);
-            // TODO: This line of code loads data into the 'dsQWSLocal1.PBS_Config' table. You can move, or remove it, as needed.
+            this.pBS_ConfigSchemeTableAdapter.Fill(this.dsQWSLocal.PBS_ConfigScheme);
             this.pBS_ConfigTableAdapter.Fill(this.dsQWSLocal.PBS_Config);
-            // TODO: This line of code loads data into the 'dsQWSLocal1.PBS' table. You can move, or remove it, as needed.
             this.pBSTableAdapter.Fill(this.dsQWSLocal.PBS);
         }
 
