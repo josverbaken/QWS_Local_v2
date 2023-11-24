@@ -684,6 +684,7 @@ namespace QWS_Local
             this.btnSetPrefCustomer.TabIndex = 61;
             this.btnSetPrefCustomer.Text = "Set";
             this.btnSetPrefCustomer.UseVisualStyleBackColor = false;
+            this.btnSetPrefCustomer.Click += new System.EventHandler(this.btnSetPrefCustomer_Click);
             // 
             // txtPBS_VA
             // 

@@ -620,6 +620,43 @@ namespace QWS_Local
             txtRego.Text = "NewReg";
             txtRego.Focus();
         }
-   }
+
+        private void btnSetPrefCustomer_Click(object sender, EventArgs e)
+        {
+            PrefCustomerSearch();
+        }
+
+        private void PrefCustomerSearch()
+            // TODO refactor with BusinessSearch
+        {
+            try
+            {
+                BusinessSearch businessSearch = new BusinessSearch(txtOwner.Text);
+                DialogResult dr = businessSearch.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    CurrentVehicle().PrefCustomerCode = businessSearch.SAPCode;
+                    //CurrentVehicle().Owner = businessSearch.BusinessName;
+                    vehicleBindingSource.EndEdit();
+                    txtJurisdiction.Focus();
+                }
+                else if (dr == DialogResult.Abort)
+                {
+                    MessageBox.Show("Customer NOT found, please check with Accounts Manager.", "BP not on file!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtOwner.Focus();
+                }
+                else
+                {
+                    //just return to screen
+                    txtOwner.Focus();
+                    //MessageBox.Show("Change truck owner - cancelled.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Preferred Customer Search Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
 }
 

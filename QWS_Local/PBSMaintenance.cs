@@ -40,7 +40,6 @@ namespace QWS_Local
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
-                //throw;
             }
         }
 
@@ -83,36 +82,51 @@ namespace QWS_Local
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
-                //throw;
             }
         }
 
-
-        private void PBS_VIN_Add()
+        private void tspSavePBSConfigScheme_Click(object sender, EventArgs e)
         {
             try
             {
-                // TODO check if still rqd
                 this.Validate();
-                //this.pBS_VINBindingSource.EndEdit();
-                //this.pBS_VINTableAdapter.Update(this.dsQWSLocal);
+                this.pBS_ConfigSchemeBindingSource1.EndEdit();
+                int iCount = this.pBS_ConfigSchemeTableAdapter.Update(this.dsQWSLocal);
+                iCount += 1;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show(e.Message);
-                //throw;
+                MessageBox.Show(ex.Message);
             }
         }
 
-        private void toolStripButton9_Click(object sender, EventArgs e)
+        private void btnSetCardCode_Click(object sender, EventArgs e)
         {
-            PBS_VIN_Add();
+            SetCardCode();
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void SetCardCode()
         {
-            //copy bps_config_id
-            //txtPBS_Config_ID_VIN.Text = txtPBS_Config_ID.Text;
+            {
+                try
+                {
+                    BusinessSearch businessSearch = new BusinessSearch(txtOperator.Text);
+                    DialogResult dr = businessSearch.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        txtCardCode.Text = businessSearch.SAPCode;
+                        txtOperator.Text = businessSearch.BusinessName;
+                    }
+                    else if (dr == DialogResult.Abort)
+                    {
+                        MessageBox.Show("Customer NOT found, please check with Accounts Manager.", "BP not on file!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Truck Operator Search Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
