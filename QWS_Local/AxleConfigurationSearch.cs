@@ -47,7 +47,7 @@ namespace QWS_Local
         {
             try
             {
-                this.axleConfigurationTableAdapter.Fill(this.dsQWSLocal.AxleConfiguration);
+                this.axleConfigurationTableAdapter.FillByView(this.dsQWSLocal.AxleConfiguration);
                 // TODO probably better to call parameterised stored procedure
             string myFilter = "Axles = " + myAxles.ToString();
                 //"VehicleType like '" + myVehicleType + "'";
@@ -58,7 +58,9 @@ namespace QWS_Local
                 }
                 else
                 {
-                    myFilter += " and AxleConfiguration like '%" + myCoupling + "%'";
+                    //myFilter += " and AxleConfiguration like '%" + myCoupling + "%'  and AxleConfiguration not like '" + myCoupling + "%'";
+                    myFilter += " and AxleConfiguration like '%" + myCoupling + "%'  and IsLeadVehicle = 1";
+                    //myFilter += " and IsLeadVehicle = 1";
                 }
                 this.axleConfigurationBindingSource.Filter = myFilter;
             //this.radGridView1.TableElement.RowHeight = 150;

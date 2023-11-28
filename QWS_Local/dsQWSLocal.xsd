@@ -453,6 +453,17 @@ WHERE        (1 = 1) AND (AxleConfiguration LIKE @AxleConfiguration)</CommandTex
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByView" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByView" GeneratorSourceName="FillByView" GetMethodModifier="Public" GetMethodName="GetDataByView" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByView" UserSourceName="FillByView">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        AxleConfiguration.AxleConfiguration, AxleConfiguration.VehicleType, AxleConfiguration.Axles, AxleConfiguration.AxleGroups, AxleConfiguration.Compartments, AxleConfiguration.VehicleDescription, 
+                         AxleConfiguration.Schematic, AxleConfiguration.Trailers, VehicleType.IsLeadVehicle
+FROM            AxleConfiguration INNER JOIN
+                         VehicleType ON AxleConfiguration.VehicleType = VehicleType.VehicleType</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
             </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="NHVLTableAdapter" GeneratorDataComponentClassName="NHVLTableAdapter" Name="NHVL" UserDataComponentName="NHVLTableAdapter">
@@ -1656,6 +1667,7 @@ SELECT TruckConfigID, Rego, Position, PrefPayload FROM TruckConfigVehicle WHERE 
               </xs:element>
               <xs:element name="Schematic" msprop:Generator_ColumnVarNameInTable="columnSchematic" msprop:Generator_ColumnPropNameInRow="Schematic" msprop:Generator_ColumnPropNameInTable="SchematicColumn" msprop:Generator_UserColumnName="Schematic" type="xs:base64Binary" minOccurs="0" />
               <xs:element name="Trailers" msprop:Generator_ColumnVarNameInTable="columnTrailers" msprop:Generator_ColumnPropNameInRow="Trailers" msprop:Generator_ColumnPropNameInTable="TrailersColumn" msprop:Generator_UserColumnName="Trailers" type="xs:int" />
+              <xs:element name="IsLeadVehicle" msprop:Generator_ColumnVarNameInTable="columnIsLeadVehicle" msprop:Generator_ColumnPropNameInRow="IsLeadVehicle" msprop:Generator_ColumnPropNameInTable="IsLeadVehicleColumn" msprop:Generator_UserColumnName="IsLeadVehicle" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

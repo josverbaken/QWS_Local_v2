@@ -100,7 +100,6 @@ namespace QWS_Local
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPBS_ID = new System.Windows.Forms.TextBox();
-            this.checkPBSbyRegoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtApprovalDT = new System.Windows.Forms.TextBox();
             this.txtVersion = new System.Windows.Forms.TextBox();
             this.txtVehicleApproval = new System.Windows.Forms.TextBox();
@@ -157,7 +156,6 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDetailsBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkPBSbyRegoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schematicPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tkTrConfigNotPBSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBSTruckConfigBindingSource)).BeginInit();
@@ -827,47 +825,8 @@ namespace QWS_Local
             this.label2.Size = new System.Drawing.Size(294, 13);
             this.label2.TabIndex = 19;
             this.label2.Text = "Configured Truck and Trailers - both PBS and NHVR generic";
-            // 
-            // txtPBS_ID
-            // 
-            this.txtPBS_ID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.checkPBSbyRegoBindingSource, "PBS_ID", true));
-            this.txtPBS_ID.Location = new System.Drawing.Point(63, 110);
-            this.txtPBS_ID.Name = "txtPBS_ID";
-            this.txtPBS_ID.ReadOnly = true;
-            this.txtPBS_ID.Size = new System.Drawing.Size(46, 20);
-            this.txtPBS_ID.TabIndex = 17;
-            // 
-            // checkPBSbyRegoBindingSource
-            // 
-            this.checkPBSbyRegoBindingSource.DataMember = "CheckPBSbyRego";
-            this.checkPBSbyRegoBindingSource.DataSource = this.dsQWSLocal;
-            // 
-            // txtApprovalDT
-            // 
-            this.txtApprovalDT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.checkPBSbyRegoBindingSource, "ApprovalDT", true));
-            this.txtApprovalDT.Location = new System.Drawing.Point(262, 109);
-            this.txtApprovalDT.Name = "txtApprovalDT";
-            this.txtApprovalDT.ReadOnly = true;
-            this.txtApprovalDT.Size = new System.Drawing.Size(100, 20);
-            this.txtApprovalDT.TabIndex = 16;
-            // 
-            // txtVersion
-            // 
-            this.txtVersion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.checkPBSbyRegoBindingSource, "Version", true));
-            this.txtVersion.Location = new System.Drawing.Point(210, 109);
-            this.txtVersion.Name = "txtVersion";
-            this.txtVersion.ReadOnly = true;
-            this.txtVersion.Size = new System.Drawing.Size(46, 20);
-            this.txtVersion.TabIndex = 15;
-            // 
-            // txtVehicleApproval
-            // 
-            this.txtVehicleApproval.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.checkPBSbyRegoBindingSource, "VehicleApproval", true));
-            this.txtVehicleApproval.Location = new System.Drawing.Point(115, 110);
-            this.txtVehicleApproval.Name = "txtVehicleApproval";
-            this.txtVehicleApproval.ReadOnly = true;
-            this.txtVehicleApproval.Size = new System.Drawing.Size(84, 20);
-            this.txtVehicleApproval.TabIndex = 14;
+       
+
             // 
             // btnLoadDetails
             // 
@@ -1079,7 +1038,6 @@ namespace QWS_Local
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkPBSbyRegoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schematicPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tkTrConfigNotPBSBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBSTruckConfigBindingSource)).EndInit();
@@ -1144,7 +1102,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn regoDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn positionDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox txtApprovalDT;
-        private System.Windows.Forms.BindingSource checkPBSbyRegoBindingSource;
         private System.Windows.Forms.TextBox txtVersion;
         private System.Windows.Forms.TextBox txtVehicleApproval;
         private System.Windows.Forms.TextBox txtPBS_ID;

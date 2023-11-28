@@ -25,6 +25,8 @@ namespace QWS_Local
             try
             {
                 txtJurisdiction.Text = Properties.Settings.Default.defaultJurisdiction;
+                this.vehicleRegFeeCodesTableAdapter.Fill(dsQWSLocal.VehicleRegFeeCodes);
+                this.axleConfigurationTableAdapter.Fill(dsQWSLocal.AxleConfiguration);
             }
             catch (Exception ex)
             {
@@ -123,6 +125,7 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message);
                 dsQWSLocal.Clear();
+                txtRego.Focus();
             }
 
         }

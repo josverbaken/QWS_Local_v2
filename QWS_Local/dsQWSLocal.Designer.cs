@@ -2990,6 +2990,8 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnTrailers;
             
+            private global::System.Data.DataColumn columnIsLeadVehicle;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public AxleConfigurationDataTable() {
@@ -3089,6 +3091,14 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IsLeadVehicleColumn {
+                get {
+                    return this.columnIsLeadVehicle;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3124,7 +3134,7 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AxleConfigurationRow AddAxleConfigurationRow(string AxleConfiguration, VehicleTypeRow parentVehicleTypeRowByFK_AxleConfiguration_VehicleType, int Axles, int AxleGroups, int Compartments, string VehicleDescription, byte[] Schematic, int Trailers) {
+            public AxleConfigurationRow AddAxleConfigurationRow(string AxleConfiguration, VehicleTypeRow parentVehicleTypeRowByFK_AxleConfiguration_VehicleType, int Axles, int AxleGroups, int Compartments, string VehicleDescription, byte[] Schematic, int Trailers, bool IsLeadVehicle) {
                 AxleConfigurationRow rowAxleConfigurationRow = ((AxleConfigurationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         AxleConfiguration,
@@ -3134,7 +3144,8 @@ namespace QWS_Local {
                         Compartments,
                         VehicleDescription,
                         Schematic,
-                        Trailers};
+                        Trailers,
+                        IsLeadVehicle};
                 if ((parentVehicleTypeRowByFK_AxleConfiguration_VehicleType != null)) {
                     columnValuesArray[1] = parentVehicleTypeRowByFK_AxleConfiguration_VehicleType[0];
                 }
@@ -3175,6 +3186,7 @@ namespace QWS_Local {
                 this.columnVehicleDescription = base.Columns["VehicleDescription"];
                 this.columnSchematic = base.Columns["Schematic"];
                 this.columnTrailers = base.Columns["Trailers"];
+                this.columnIsLeadVehicle = base.Columns["IsLeadVehicle"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3196,6 +3208,8 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnSchematic);
                 this.columnTrailers = new global::System.Data.DataColumn("Trailers", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTrailers);
+                this.columnIsLeadVehicle = new global::System.Data.DataColumn("IsLeadVehicle", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIsLeadVehicle);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnAxleConfiguration}, true));
                 this.columnAxleConfiguration.AllowDBNull = false;
@@ -10300,6 +10314,22 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsLeadVehicle {
+                get {
+                    try {
+                        return ((bool)(this[this.tableAxleConfiguration.IsLeadVehicleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IsLeadVehicle\' in table \'AxleConfiguration\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAxleConfiguration.IsLeadVehicleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public VehicleTypeRow VehicleTypeRow {
                 get {
                     return ((VehicleTypeRow)(this.GetParentRow(this.Table.ParentRelations["FK_AxleConfiguration_VehicleType"])));
@@ -10343,6 +10373,18 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetSchematicNull() {
                 this[this.tableAxleConfiguration.SchematicColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsIsLeadVehicleNull() {
+                return this.IsNull(this.tableAxleConfiguration.IsLeadVehicleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetIsLeadVehicleNull() {
+                this[this.tableAxleConfiguration.IsLeadVehicleColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15914,7 +15956,7 @@ SELECT AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, VehicleD
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, Ve" +
@@ -15927,6 +15969,13 @@ SELECT AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, VehicleD
                 "       (1 = 1) AND (AxleConfiguration LIKE @AxleConfiguration)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AxleConfiguration", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT        AxleConfiguration.AxleConfiguration, AxleConfiguration.VehicleType, AxleConfiguration.Axles, AxleConfiguration.AxleGroups, AxleConfiguration.Compartments, AxleConfiguration.VehicleDescription, 
+                         AxleConfiguration.Schematic, AxleConfiguration.Trailers, VehicleType.IsLeadVehicle
+FROM            AxleConfiguration INNER JOIN
+                         VehicleType ON AxleConfiguration.VehicleType = VehicleType.VehicleType";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15984,6 +16033,30 @@ SELECT AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, VehicleD
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(AxleConfiguration));
             }
+            dsQWSLocal.AxleConfigurationDataTable dataTable = new dsQWSLocal.AxleConfigurationDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByView(dsQWSLocal.AxleConfigurationDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dsQWSLocal.AxleConfigurationDataTable GetDataByView() {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             dsQWSLocal.AxleConfigurationDataTable dataTable = new dsQWSLocal.AxleConfigurationDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

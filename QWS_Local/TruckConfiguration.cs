@@ -126,7 +126,7 @@ namespace QWS_Local
                 {
                     btnFindNHVR_GVM.Enabled = true;
                 }
-                CheckPBS();
+                //CheckPBS();
                 ConfiguredTnT();
                 //PBSTruckConfig();
                 //TruckTrailerConfigNotPBS();
@@ -193,20 +193,6 @@ namespace QWS_Local
             try
             {
                 pBSTruckConfigTableAdapter.Fill(dsQWSLocal.PBSTruckConfig, txtRego.Text);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void CheckPBS()
-        {
-            try
-            {
-                int myCount;
-                //checkPBSbyRegoTableAdapter.Fill(dsQWSLocal.CheckPBSbyRego, txtRego.Text);
-                myCount = checkPBSbyRegoBindingSource.Count;
             }
             catch (Exception ex)
             {
