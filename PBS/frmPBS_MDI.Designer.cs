@@ -32,18 +32,16 @@
             this.form1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showMeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pBSByRegoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.regoByPBSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.axleConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nHVRGVMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vehicleRegFeeCodesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.truckConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.businessPlusPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trucksInQuarryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cascadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trucksInQuarryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,8 +64,6 @@
             this.form1ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showMeToolStripMenuItem,
             this.showAllToolStripMenuItem,
-            this.pBSByRegoToolStripMenuItem,
-            this.regoByPBSToolStripMenuItem,
             this.axleConfigurationToolStripMenuItem,
             this.nHVRGVMToolStripMenuItem,
             this.vehicleRegFeeCodesToolStripMenuItem,
@@ -92,20 +88,6 @@
             this.showAllToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
             this.showAllToolStripMenuItem.Text = "Vehicle Maintenance";
             this.showAllToolStripMenuItem.Click += new System.EventHandler(this.showAllToolStripMenuItem_Click);
-            // 
-            // pBSByRegoToolStripMenuItem
-            // 
-            this.pBSByRegoToolStripMenuItem.Name = "pBSByRegoToolStripMenuItem";
-            this.pBSByRegoToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
-            this.pBSByRegoToolStripMenuItem.Text = "PBS by Rego";
-            this.pBSByRegoToolStripMenuItem.Click += new System.EventHandler(this.pBSByRegoToolStripMenuItem_Click);
-            // 
-            // regoByPBSToolStripMenuItem
-            // 
-            this.regoByPBSToolStripMenuItem.Name = "regoByPBSToolStripMenuItem";
-            this.regoByPBSToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
-            this.regoByPBSToolStripMenuItem.Text = "Rego by PBS";
-            this.regoByPBSToolStripMenuItem.Click += new System.EventHandler(this.regoByPBSToolStripMenuItem_Click);
             // 
             // axleConfigurationToolStripMenuItem
             // 
@@ -149,6 +131,13 @@
             this.itemSearchToolStripMenuItem.Text = "Item Search";
             this.itemSearchToolStripMenuItem.Click += new System.EventHandler(this.itemSearchToolStripMenuItem_Click);
             // 
+            // trucksInQuarryToolStripMenuItem
+            // 
+            this.trucksInQuarryToolStripMenuItem.Name = "trucksInQuarryToolStripMenuItem";
+            this.trucksInQuarryToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
+            this.trucksInQuarryToolStripMenuItem.Text = "TrucksInQuarry";
+            this.trucksInQuarryToolStripMenuItem.Click += new System.EventHandler(this.trucksInQuarryToolStripMenuItem_Click);
+            // 
             // windowsToolStripMenuItem
             // 
             this.windowsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -169,13 +158,6 @@
             this.closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
             this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.closeAllToolStripMenuItem.Text = "Close All";
-            // 
-            // trucksInQuarryToolStripMenuItem
-            // 
-            this.trucksInQuarryToolStripMenuItem.Name = "trucksInQuarryToolStripMenuItem";
-            this.trucksInQuarryToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
-            this.trucksInQuarryToolStripMenuItem.Text = "TrucksInQuarry";
-            this.trucksInQuarryToolStripMenuItem.Click += new System.EventHandler(this.trucksInQuarryToolStripMenuItem_Click);
             // 
             // frmPBS_MDI
             // 
@@ -203,8 +185,6 @@
         private System.Windows.Forms.ToolStripMenuItem form1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showMeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showAllToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pBSByRegoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem regoByPBSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem axleConfigurationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nHVRGVMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vehicleRegFeeCodesToolStripMenuItem;

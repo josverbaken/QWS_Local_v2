@@ -768,7 +768,6 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.truck2TrailerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.truckConfigTruckTruckConfigTrailerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkPBSbyRegoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jurisdictionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBSTrailers4TruckBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trailersByPBSVehicleApprovalBindingSource)).EndInit();

@@ -138,7 +138,22 @@ namespace QWS_Local
         {
             txtPBSConfigSchemeID.Text = "-1";
             chkMassMgmtRqd.Checked = false;
-            // TODO sync PBSConfigID
+            txtPBS_ConfigID.Text = CurrentPBSConfig().PBS_ConfigID.ToString();
+        }
+
+        private dsQWSLocal.PBS_ConfigRow CurrentPBSConfig()
+        {
+           try
+            {
+                DataRow myDR = ((DataRowView)pBS_ConfigBindingSource.Current).Row;
+                dsQWSLocal.PBS_ConfigRow PBS_ConfigRow = (dsQWSLocal.PBS_ConfigRow)myDR;
+                return PBS_ConfigRow;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
         }
     }
 }

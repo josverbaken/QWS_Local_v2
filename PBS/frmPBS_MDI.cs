@@ -39,32 +39,6 @@ namespace PBS
             frmVehicle.Show();
         }
 
-        private void pBSByRegoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PBSbyRego();
-        }
-
-        private void PBSbyRego()
-        {
-            try
-            {
-                PBS_by_Rego frmPBS = new PBS_by_Rego();
-                frmPBS.MdiParent = this;
-                frmPBS.Show();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void regoByPBSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Rego_By_PBS frmRego = new Rego_By_PBS();
-            frmRego.MdiParent = this;
-            frmRego.Show();
-        }
-
         private void axleConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AxleConfiguration frmAxle = new AxleConfiguration();
