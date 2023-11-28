@@ -33,7 +33,6 @@ namespace QWS_Local
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Rego_By_PBS));
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.getRegoByPBSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.getRegoByPBSTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.GetRegoByPBSTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.getRegoByPBSBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -83,16 +82,11 @@ namespace QWS_Local
             this.getRegoByPBSBindingSource.DataMember = "GetRegoByPBS";
             this.getRegoByPBSBindingSource.DataSource = this.dsQWSLocal;
             // 
-            // getRegoByPBSTableAdapter
-            // 
-            this.getRegoByPBSTableAdapter.ClearBeforeFill = true;
-            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.PBS_ConfigTableAdapter = null;
-            this.tableAdapterManager.PBS_VINTableAdapter = null;
             this.tableAdapterManager.PBSTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             //this.tableAdapterManager.VehicleTableAdapter = null;
@@ -383,7 +377,6 @@ namespace QWS_Local
 
         private dsQWSLocal dsQWSLocal;
         private System.Windows.Forms.BindingSource getRegoByPBSBindingSource;
-        private dsQWSLocalTableAdapters.GetRegoByPBSTableAdapter getRegoByPBSTableAdapter;
         private dsQWSLocalTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingNavigator getRegoByPBSBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;

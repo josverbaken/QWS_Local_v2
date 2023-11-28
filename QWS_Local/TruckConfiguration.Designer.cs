@@ -116,11 +116,9 @@ namespace QWS_Local
             this.tkTrConfigNotPBSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pBSTruckConfigBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.truckConfigTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.TruckConfigTableAdapter();
-            this.truckConfigTrailersTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.TruckConfigTrailersTableAdapter();
             this.vehicleDetailsTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.VehicleDetailsTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.pBSTrailers4TruckTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.PBSTrailers4TruckTableAdapter();
-            this.checkPBSbyRegoTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.CheckPBSbyRegoTableAdapter();
             this.pBSTruckConfigTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.PBSTruckConfigTableAdapter();
             this.tkTrConfigNotPBSTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.TkTrConfigNotPBSTableAdapter();
             this.configuredTnTTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.ConfiguredTnTTableAdapter();
@@ -967,10 +965,6 @@ namespace QWS_Local
             // 
             this.truckConfigTableAdapter.ClearBeforeFill = true;
             // 
-            // truckConfigTrailersTableAdapter
-            // 
-            this.truckConfigTrailersTableAdapter.ClearBeforeFill = true;
-            // 
             // vehicleDetailsTableAdapter
             // 
             this.vehicleDetailsTableAdapter.ClearBeforeFill = true;
@@ -981,10 +975,8 @@ namespace QWS_Local
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.NHVLTableAdapter = null;
             this.tableAdapterManager.PBS_ConfigTableAdapter = null;
-            this.tableAdapterManager.PBS_VINTableAdapter = null;
             this.tableAdapterManager.PBSTableAdapter = null;
             this.tableAdapterManager.TruckConfigTableAdapter = this.truckConfigTableAdapter;
-            this.tableAdapterManager.TruckConfigTrailersTableAdapter = this.truckConfigTrailersTableAdapter;
             this.tableAdapterManager.TrucksInQuarryTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VehicleTableAdapter = null;
@@ -992,10 +984,6 @@ namespace QWS_Local
             // pBSTrailers4TruckTableAdapter
             // 
             this.pBSTrailers4TruckTableAdapter.ClearBeforeFill = true;
-            // 
-            // checkPBSbyRegoTableAdapter
-            // 
-            this.checkPBSbyRegoTableAdapter.ClearBeforeFill = true;
             // 
             // pBSTruckConfigTableAdapter
             // 
@@ -1107,7 +1095,6 @@ namespace QWS_Local
         private dsQWSLocalTableAdapters.TruckConfigTableAdapter truckConfigTableAdapter;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.BindingSource fKVehicleConfigTrailersVehicleConfigBindingSource;
-        private dsQWSLocalTableAdapters.TruckConfigTrailersTableAdapter truckConfigTrailersTableAdapter;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -1160,7 +1147,6 @@ namespace QWS_Local
         private System.Windows.Forms.BindingSource checkPBSbyRegoBindingSource;
         private System.Windows.Forms.TextBox txtVersion;
         private System.Windows.Forms.TextBox txtVehicleApproval;
-        private dsQWSLocalTableAdapters.CheckPBSbyRegoTableAdapter checkPBSbyRegoTableAdapter;
         private System.Windows.Forms.TextBox txtPBS_ID;
         private System.Windows.Forms.BindingSource pBSTruckConfigBindingSource;
         private dsQWSLocalTableAdapters.PBSTruckConfigTableAdapter pBSTruckConfigTableAdapter;

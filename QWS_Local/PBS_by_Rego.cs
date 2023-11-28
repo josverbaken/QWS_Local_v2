@@ -26,12 +26,12 @@ namespace QWS_Local
         {
             try
             {
-                int iRow;
-            iRow = this.pBSbyRegoTableAdapter.FillByRego(this.dsQWSLocal.PBSbyRego, txtRego.Text);
-            if (iRow ==0)
-            {
-                MessageBox.Show("No truck found!");
-            }
+                //int iRow;
+                //iRow = this.pBSbyRegoTableAdapter.FillByRego(this.dsQWSLocal.PBSbyRego, txtRego.Text);
+                //if (iRow ==0)
+                //{
+                //    MessageBox.Show("No truck found!");
+                //}
 
             }
             catch (Exception ex)

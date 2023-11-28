@@ -21,7 +21,7 @@ namespace QWS_Local
         {
             try
             {
-                this.getRegoByPBSTableAdapter.Fill(this.dsQWSLocal.GetRegoByPBS, new System.Nullable<int>(((int)(System.Convert.ChangeType(vehicleApprovalToolStripTextBox.Text, typeof(int))))));
+                //this.getRegoByPBSTableAdapter.Fill(this.dsQWSLocal.GetRegoByPBS, new System.Nullable<int>(((int)(System.Convert.ChangeType(vehicleApprovalToolStripTextBox.Text, typeof(int))))));
             }
             catch (System.Exception ex)
             {

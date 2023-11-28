@@ -1036,10 +1036,8 @@ namespace QWS_Local
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.NHVLTableAdapter = null;
             this.tableAdapterManager.PBS_ConfigTableAdapter = null;
-            this.tableAdapterManager.PBS_VINTableAdapter = null;
             this.tableAdapterManager.PBSTableAdapter = null;
             this.tableAdapterManager.TruckConfigTableAdapter = null;
-            this.tableAdapterManager.TruckConfigTrailersTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             //this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
             //this.tableAdapterManager.VehicleTableAdapter = null;

@@ -86,7 +86,6 @@ namespace QWS_Local
             this.vehicleRegFeeCodesTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.VehicleRegFeeCodesTableAdapter();
             this.jurisdictionTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.JurisdictionTableAdapter();
             this.axleConfigurationTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
-            this.checkPBSbyRegoTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.CheckPBSbyRegoTableAdapter();
             this.pBSTrailers4TruckBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.trailersByPBSVehicleApprovalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.trailersByPBSVehicleApprovalTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.TrailersByPBSVehicleApprovalTableAdapter();
@@ -619,10 +618,8 @@ namespace QWS_Local
             this.tableAdapterManager.NHVLTableAdapter = null;
             this.tableAdapterManager.PBS_ConfigSchemeTableAdapter = null;
             this.tableAdapterManager.PBS_ConfigTableAdapter = null;
-            this.tableAdapterManager.PBS_VINTableAdapter = null;
             this.tableAdapterManager.PBSTableAdapter = null;
             this.tableAdapterManager.TruckConfigTableAdapter = null;
-            this.tableAdapterManager.TruckConfigTrailersTableAdapter = null;
             this.tableAdapterManager.TrucksInQuarryTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
@@ -640,10 +637,6 @@ namespace QWS_Local
             // axleConfigurationTableAdapter
             // 
             this.axleConfigurationTableAdapter.ClearBeforeFill = true;
-            // 
-            // checkPBSbyRegoTableAdapter
-            // 
-            this.checkPBSbyRegoTableAdapter.ClearBeforeFill = true;
             // 
             // pBSTrailers4TruckBindingSource
             // 
@@ -830,7 +823,6 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnNewVehicle;
         private System.Windows.Forms.Button btnNewVehicleCurrentOwner;
         private System.Windows.Forms.BindingSource checkPBSbyRegoBindingSource;
-        private dsQWSLocalTableAdapters.CheckPBSbyRegoTableAdapter checkPBSbyRegoTableAdapter;
         private System.Windows.Forms.BindingSource trailersByPBSVehicleApprovalBindingSource;
         private dsQWSLocalTableAdapters.TrailersByPBSVehicleApprovalTableAdapter trailersByPBSVehicleApprovalTableAdapter;
         private System.Windows.Forms.BindingSource pBSTrailers4TruckBindingSource;

@@ -67,7 +67,7 @@ namespace QWS_Local
                     {
                         this.truckConfigTableAdapter.FillBy(this.dsQWSLocal.TruckConfig, Rego);
                         string SAPCode = vehicleDetailsRow.CardCode; // TODO - I think this okay but otherwise reload TruckConfigTrailers on binding source changed
-                        this.truckConfigTrailersTableAdapter.FillBy(this.dsQWSLocal.TruckConfigTrailers, SAPCode);
+                        //this.truckConfigTrailersTableAdapter.FillBy(this.dsQWSLocal.TruckConfigTrailers, SAPCode);
                     }
                     // else trailer ? what TODO
                 }
@@ -98,7 +98,7 @@ namespace QWS_Local
             {
                 this.Validate();
                 this.fKVehicleConfigTrailersVehicleConfigBindingSource.EndEdit();
-                truckConfigTrailersTableAdapter.Update(dsQWSLocal.TruckConfigTrailers);
+                //truckConfigTrailersTableAdapter.Update(dsQWSLocal.TruckConfigTrailers);
             }
             catch (Exception ex)
             {
@@ -205,7 +205,7 @@ namespace QWS_Local
             try
             {
                 int myCount;
-                checkPBSbyRegoTableAdapter.Fill(dsQWSLocal.CheckPBSbyRego, txtRego.Text);
+                //checkPBSbyRegoTableAdapter.Fill(dsQWSLocal.CheckPBSbyRego, txtRego.Text);
                 myCount = checkPBSbyRegoBindingSource.Count;
             }
             catch (Exception ex)

@@ -39,14 +39,13 @@ namespace QWS_Local
             System.Windows.Forms.Label pBS_Config_IDLabel;
             System.Windows.Forms.Label tableNoLabel;
             System.Windows.Forms.Label label1;
-            System.Windows.Forms.Label label2;
             System.Windows.Forms.Label schemeCodeLabel1;
             System.Windows.Forms.Label gCMLabel1;
             System.Windows.Forms.Label pBS_ConfigSchemeIDLabel;
             System.Windows.Forms.Label gVMTruckLabel;
             System.Windows.Forms.Label driveAxleLoadLabel;
-            System.Windows.Forms.Label driveAxleLoadUOMLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PBSMaintenance));
+            System.Windows.Forms.Label pBS_LevelLabel;
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripContainer2 = new System.Windows.Forms.ToolStripContainer();
@@ -56,11 +55,11 @@ namespace QWS_Local
             this.pBSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.btnSetCardCode = new System.Windows.Forms.Button();
-            this.massMgmtRqdCheckBox = new System.Windows.Forms.CheckBox();
+            this.chkMassMgmtRqd = new System.Windows.Forms.CheckBox();
             this.driveAxleLoadUOMTextBox = new System.Windows.Forms.TextBox();
             this.driveAxleLoadTextBox = new System.Windows.Forms.TextBox();
             this.gVMTruckTextBox = new System.Windows.Forms.TextBox();
-            this.pBS_ConfigSchemeIDTextBox = new System.Windows.Forms.TextBox();
+            this.txtPBSConfigSchemeID = new System.Windows.Forms.TextBox();
             this.gCMTextBox1 = new System.Windows.Forms.TextBox();
             this.schemeCodeTextBox1 = new System.Windows.Forms.TextBox();
             this.bindingNavigator2 = new System.Windows.Forms.BindingNavigator(this.components);
@@ -76,7 +75,6 @@ namespace QWS_Local
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tspSavePBSConfigScheme = new System.Windows.Forms.ToolStripButton();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem1 = new System.Windows.Forms.ToolStripButton();
@@ -114,11 +112,11 @@ namespace QWS_Local
             this.pBSBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.txtPBS2Find = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.pBSConfigBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pBSTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.PBSTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.pBS_ConfigTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.PBS_ConfigTableAdapter();
             this.pBS_ConfigSchemeTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.PBS_ConfigSchemeTableAdapter();
+            this.pBS_LevelTextBox = new System.Windows.Forms.TextBox();
             pBS_IDLabel = new System.Windows.Forms.Label();
             vehicleApprovalLabel = new System.Windows.Forms.Label();
             versionLabel = new System.Windows.Forms.Label();
@@ -128,13 +126,12 @@ namespace QWS_Local
             pBS_Config_IDLabel = new System.Windows.Forms.Label();
             tableNoLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
             schemeCodeLabel1 = new System.Windows.Forms.Label();
             gCMLabel1 = new System.Windows.Forms.Label();
             pBS_ConfigSchemeIDLabel = new System.Windows.Forms.Label();
             gVMTruckLabel = new System.Windows.Forms.Label();
             driveAxleLoadLabel = new System.Windows.Forms.Label();
-            driveAxleLoadUOMLabel = new System.Windows.Forms.Label();
+            pBS_LevelLabel = new System.Windows.Forms.Label();
             this.toolStripContainer1.SuspendLayout();
             this.toolStripContainer2.ContentPanel.SuspendLayout();
             this.toolStripContainer2.TopToolStripPanel.SuspendLayout();
@@ -149,7 +146,6 @@ namespace QWS_Local
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBSBindingNavigator)).BeginInit();
             this.pBSBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBSConfigBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pBS_IDLabel
@@ -235,27 +231,17 @@ namespace QWS_Local
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(59, 410);
+            label1.Location = new System.Drawing.Point(59, 378);
             label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(135, 18);
             label1.TabIndex = 49;
             label1.Text = "Axle Configuration :";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(133, 378);
-            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(50, 18);
-            label2.TabIndex = 50;
-            label2.Text = "Level :";
-            // 
             // schemeCodeLabel1
             // 
             schemeCodeLabel1.AutoSize = true;
-            schemeCodeLabel1.Location = new System.Drawing.Point(657, 329);
+            schemeCodeLabel1.Location = new System.Drawing.Point(658, 359);
             schemeCodeLabel1.Name = "schemeCodeLabel1";
             schemeCodeLabel1.Size = new System.Drawing.Size(107, 18);
             schemeCodeLabel1.TabIndex = 58;
@@ -264,7 +250,7 @@ namespace QWS_Local
             // gCMLabel1
             // 
             gCMLabel1.AutoSize = true;
-            gCMLabel1.Location = new System.Drawing.Point(716, 389);
+            gCMLabel1.Location = new System.Drawing.Point(717, 422);
             gCMLabel1.Name = "gCMLabel1";
             gCMLabel1.Size = new System.Drawing.Size(48, 18);
             gCMLabel1.TabIndex = 59;
@@ -282,7 +268,7 @@ namespace QWS_Local
             // gVMTruckLabel
             // 
             gVMTruckLabel.AutoSize = true;
-            gVMTruckLabel.Location = new System.Drawing.Point(680, 419);
+            gVMTruckLabel.Location = new System.Drawing.Point(681, 452);
             gVMTruckLabel.Name = "gVMTruckLabel";
             gVMTruckLabel.Size = new System.Drawing.Size(84, 18);
             gVMTruckLabel.TabIndex = 61;
@@ -291,20 +277,11 @@ namespace QWS_Local
             // driveAxleLoadLabel
             // 
             driveAxleLoadLabel.AutoSize = true;
-            driveAxleLoadLabel.Location = new System.Drawing.Point(650, 449);
+            driveAxleLoadLabel.Location = new System.Drawing.Point(602, 485);
             driveAxleLoadLabel.Name = "driveAxleLoadLabel";
-            driveAxleLoadLabel.Size = new System.Drawing.Size(114, 18);
+            driveAxleLoadLabel.Size = new System.Drawing.Size(162, 18);
             driveAxleLoadLabel.TabIndex = 62;
-            driveAxleLoadLabel.Text = "Drive Axle Load:";
-            // 
-            // driveAxleLoadUOMLabel
-            // 
-            driveAxleLoadUOMLabel.AutoSize = true;
-            driveAxleLoadUOMLabel.Location = new System.Drawing.Point(610, 479);
-            driveAxleLoadUOMLabel.Name = "driveAxleLoadUOMLabel";
-            driveAxleLoadUOMLabel.Size = new System.Drawing.Size(154, 18);
-            driveAxleLoadUOMLabel.TabIndex = 63;
-            driveAxleLoadUOMLabel.Text = "Drive Axle Load UOM:";
+            driveAxleLoadLabel.Text = "Drive Axle Load / UOM:";
             // 
             // toolStripContainer1
             // 
@@ -335,24 +312,23 @@ namespace QWS_Local
             // toolStripContainer2.ContentPanel
             // 
             this.toolStripContainer2.ContentPanel.AutoScroll = true;
+            this.toolStripContainer2.ContentPanel.Controls.Add(pBS_LevelLabel);
+            this.toolStripContainer2.ContentPanel.Controls.Add(this.pBS_LevelTextBox);
             this.toolStripContainer2.ContentPanel.Controls.Add(this.pBS_ConfigIDTextBox);
             this.toolStripContainer2.ContentPanel.Controls.Add(this.btnSetCardCode);
-            this.toolStripContainer2.ContentPanel.Controls.Add(this.massMgmtRqdCheckBox);
-            this.toolStripContainer2.ContentPanel.Controls.Add(driveAxleLoadUOMLabel);
+            this.toolStripContainer2.ContentPanel.Controls.Add(this.chkMassMgmtRqd);
             this.toolStripContainer2.ContentPanel.Controls.Add(this.driveAxleLoadUOMTextBox);
             this.toolStripContainer2.ContentPanel.Controls.Add(driveAxleLoadLabel);
             this.toolStripContainer2.ContentPanel.Controls.Add(this.driveAxleLoadTextBox);
             this.toolStripContainer2.ContentPanel.Controls.Add(gVMTruckLabel);
             this.toolStripContainer2.ContentPanel.Controls.Add(this.gVMTruckTextBox);
             this.toolStripContainer2.ContentPanel.Controls.Add(pBS_ConfigSchemeIDLabel);
-            this.toolStripContainer2.ContentPanel.Controls.Add(this.pBS_ConfigSchemeIDTextBox);
+            this.toolStripContainer2.ContentPanel.Controls.Add(this.txtPBSConfigSchemeID);
             this.toolStripContainer2.ContentPanel.Controls.Add(gCMLabel1);
             this.toolStripContainer2.ContentPanel.Controls.Add(this.gCMTextBox1);
             this.toolStripContainer2.ContentPanel.Controls.Add(schemeCodeLabel1);
             this.toolStripContainer2.ContentPanel.Controls.Add(this.schemeCodeTextBox1);
             this.toolStripContainer2.ContentPanel.Controls.Add(this.bindingNavigator2);
-            this.toolStripContainer2.ContentPanel.Controls.Add(label2);
-            this.toolStripContainer2.ContentPanel.Controls.Add(this.textBox2);
             this.toolStripContainer2.ContentPanel.Controls.Add(label1);
             this.toolStripContainer2.ContentPanel.Controls.Add(this.textBox1);
             this.toolStripContainer2.ContentPanel.Controls.Add(this.bindingNavigator1);
@@ -389,7 +365,7 @@ namespace QWS_Local
             // pBS_ConfigIDTextBox
             // 
             this.pBS_ConfigIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigSchemeBindingSource1, "PBS_ConfigID", true));
-            this.pBS_ConfigIDTextBox.Location = new System.Drawing.Point(486, 311);
+            this.pBS_ConfigIDTextBox.Location = new System.Drawing.Point(903, 296);
             this.pBS_ConfigIDTextBox.Name = "pBS_ConfigIDTextBox";
             this.pBS_ConfigIDTextBox.Size = new System.Drawing.Size(100, 24);
             this.pBS_ConfigIDTextBox.TabIndex = 67;
@@ -424,22 +400,22 @@ namespace QWS_Local
             this.btnSetCardCode.UseVisualStyleBackColor = true;
             this.btnSetCardCode.Click += new System.EventHandler(this.btnSetCardCode_Click);
             // 
-            // massMgmtRqdCheckBox
+            // chkMassMgmtRqd
             // 
-            this.massMgmtRqdCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.massMgmtRqdCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.pBS_ConfigSchemeBindingSource1, "MassMgmtRqd", true));
-            this.massMgmtRqdCheckBox.Location = new System.Drawing.Point(526, 356);
-            this.massMgmtRqdCheckBox.Name = "massMgmtRqdCheckBox";
-            this.massMgmtRqdCheckBox.Size = new System.Drawing.Size(299, 24);
-            this.massMgmtRqdCheckBox.TabIndex = 65;
-            this.massMgmtRqdCheckBox.Text = "NHVAS Mass Accred Rqd";
-            this.massMgmtRqdCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.massMgmtRqdCheckBox.UseVisualStyleBackColor = true;
+            this.chkMassMgmtRqd.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkMassMgmtRqd.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.pBS_ConfigSchemeBindingSource1, "MassMgmtRqd", true));
+            this.chkMassMgmtRqd.Location = new System.Drawing.Point(527, 389);
+            this.chkMassMgmtRqd.Name = "chkMassMgmtRqd";
+            this.chkMassMgmtRqd.Size = new System.Drawing.Size(299, 24);
+            this.chkMassMgmtRqd.TabIndex = 65;
+            this.chkMassMgmtRqd.Text = "NHVAS Mass Accred Rqd";
+            this.chkMassMgmtRqd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkMassMgmtRqd.UseVisualStyleBackColor = true;
             // 
             // driveAxleLoadUOMTextBox
             // 
             this.driveAxleLoadUOMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigSchemeBindingSource1, "DriveAxleLoadUOM", true));
-            this.driveAxleLoadUOMTextBox.Location = new System.Drawing.Point(770, 476);
+            this.driveAxleLoadUOMTextBox.Location = new System.Drawing.Point(877, 479);
             this.driveAxleLoadUOMTextBox.Name = "driveAxleLoadUOMTextBox";
             this.driveAxleLoadUOMTextBox.Size = new System.Drawing.Size(100, 24);
             this.driveAxleLoadUOMTextBox.TabIndex = 64;
@@ -447,7 +423,7 @@ namespace QWS_Local
             // driveAxleLoadTextBox
             // 
             this.driveAxleLoadTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigSchemeBindingSource1, "DriveAxleLoad", true));
-            this.driveAxleLoadTextBox.Location = new System.Drawing.Point(770, 446);
+            this.driveAxleLoadTextBox.Location = new System.Drawing.Point(771, 479);
             this.driveAxleLoadTextBox.Name = "driveAxleLoadTextBox";
             this.driveAxleLoadTextBox.Size = new System.Drawing.Size(100, 24);
             this.driveAxleLoadTextBox.TabIndex = 63;
@@ -455,23 +431,24 @@ namespace QWS_Local
             // gVMTruckTextBox
             // 
             this.gVMTruckTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigSchemeBindingSource1, "GVMTruck", true));
-            this.gVMTruckTextBox.Location = new System.Drawing.Point(770, 416);
+            this.gVMTruckTextBox.Location = new System.Drawing.Point(771, 449);
             this.gVMTruckTextBox.Name = "gVMTruckTextBox";
             this.gVMTruckTextBox.Size = new System.Drawing.Size(100, 24);
             this.gVMTruckTextBox.TabIndex = 62;
             // 
-            // pBS_ConfigSchemeIDTextBox
+            // txtPBSConfigSchemeID
             // 
-            this.pBS_ConfigSchemeIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigSchemeBindingSource1, "PBS_ConfigSchemeID", true));
-            this.pBS_ConfigSchemeIDTextBox.Location = new System.Drawing.Point(770, 296);
-            this.pBS_ConfigSchemeIDTextBox.Name = "pBS_ConfigSchemeIDTextBox";
-            this.pBS_ConfigSchemeIDTextBox.Size = new System.Drawing.Size(100, 24);
-            this.pBS_ConfigSchemeIDTextBox.TabIndex = 61;
+            this.txtPBSConfigSchemeID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigSchemeBindingSource1, "PBS_ConfigSchemeID", true));
+            this.txtPBSConfigSchemeID.Location = new System.Drawing.Point(770, 296);
+            this.txtPBSConfigSchemeID.Name = "txtPBSConfigSchemeID";
+            this.txtPBSConfigSchemeID.ReadOnly = true;
+            this.txtPBSConfigSchemeID.Size = new System.Drawing.Size(100, 24);
+            this.txtPBSConfigSchemeID.TabIndex = 61;
             // 
             // gCMTextBox1
             // 
             this.gCMTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigSchemeBindingSource1, "GCM", true));
-            this.gCMTextBox1.Location = new System.Drawing.Point(770, 386);
+            this.gCMTextBox1.Location = new System.Drawing.Point(771, 419);
             this.gCMTextBox1.Name = "gCMTextBox1";
             this.gCMTextBox1.Size = new System.Drawing.Size(100, 24);
             this.gCMTextBox1.TabIndex = 60;
@@ -479,7 +456,7 @@ namespace QWS_Local
             // schemeCodeTextBox1
             // 
             this.schemeCodeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigSchemeBindingSource1, "SchemeCode", true));
-            this.schemeCodeTextBox1.Location = new System.Drawing.Point(770, 326);
+            this.schemeCodeTextBox1.Location = new System.Drawing.Point(771, 356);
             this.schemeCodeTextBox1.Name = "schemeCodeTextBox1";
             this.schemeCodeTextBox1.Size = new System.Drawing.Size(100, 24);
             this.schemeCodeTextBox1.TabIndex = 59;
@@ -524,6 +501,7 @@ namespace QWS_Local
             this.toolStripButton1.RightToLeftAutoMirrorImage = true;
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "Add new";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripLabel1
             // 
@@ -611,19 +589,10 @@ namespace QWS_Local
             this.tspSavePBSConfigScheme.Text = "Save";
             this.tspSavePBSConfigScheme.Click += new System.EventHandler(this.tspSavePBSConfigScheme_Click);
             // 
-            // textBox2
-            // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigBindingSource, "PBS_Level", true));
-            this.textBox2.Location = new System.Drawing.Point(202, 375);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(148, 24);
-            this.textBox2.TabIndex = 51;
-            // 
             // textBox1
             // 
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigBindingSource, "AxleConfiguration", true));
-            this.textBox1.Location = new System.Drawing.Point(202, 407);
+            this.textBox1.Location = new System.Drawing.Point(202, 375);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(148, 24);
@@ -952,11 +921,11 @@ namespace QWS_Local
             // 
             // pBSBindingNavigatorSaveItem
             // 
-            this.pBSBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.pBSBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.pBSBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("pBSBindingNavigatorSaveItem.Image")));
             this.pBSBindingNavigatorSaveItem.Name = "pBSBindingNavigatorSaveItem";
-            this.pBSBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.pBSBindingNavigatorSaveItem.Text = "Save Data";
+            this.pBSBindingNavigatorSaveItem.Size = new System.Drawing.Size(35, 22);
+            this.pBSBindingNavigatorSaveItem.Text = "Save";
             this.pBSBindingNavigatorSaveItem.Click += new System.EventHandler(this.pBSBindingNavigatorSaveItem_Click);
             // 
             // txtPBS2Find
@@ -985,10 +954,8 @@ namespace QWS_Local
             this.tableAdapterManager.NHVLTableAdapter = null;
             this.tableAdapterManager.PBS_ConfigSchemeTableAdapter = null;
             this.tableAdapterManager.PBS_ConfigTableAdapter = null;
-            this.tableAdapterManager.PBS_VINTableAdapter = null;
             this.tableAdapterManager.PBSTableAdapter = this.pBSTableAdapter;
             this.tableAdapterManager.TruckConfigTableAdapter = null;
-            this.tableAdapterManager.TruckConfigTrailersTableAdapter = null;
             this.tableAdapterManager.TrucksInQuarryTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
@@ -1002,6 +969,23 @@ namespace QWS_Local
             // pBS_ConfigSchemeTableAdapter
             // 
             this.pBS_ConfigSchemeTableAdapter.ClearBeforeFill = true;
+            // 
+            // pBS_LevelLabel
+            // 
+            pBS_LevelLabel.AutoSize = true;
+            pBS_LevelLabel.Location = new System.Drawing.Point(685, 329);
+            pBS_LevelLabel.Name = "pBS_LevelLabel";
+            pBS_LevelLabel.Size = new System.Drawing.Size(80, 18);
+            pBS_LevelLabel.TabIndex = 67;
+            pBS_LevelLabel.Text = "PBS Level:";
+            // 
+            // pBS_LevelTextBox
+            // 
+            this.pBS_LevelTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigSchemeBindingSource1, "PBS_Level", true));
+            this.pBS_LevelTextBox.Location = new System.Drawing.Point(771, 326);
+            this.pBS_LevelTextBox.Name = "pBS_LevelTextBox";
+            this.pBS_LevelTextBox.Size = new System.Drawing.Size(100, 24);
+            this.pBS_LevelTextBox.TabIndex = 68;
             // 
             // PBSMaintenance
             // 
@@ -1037,7 +1021,6 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.pBSBindingNavigator)).EndInit();
             this.pBSBindingNavigator.ResumeLayout(false);
             this.pBSBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBSConfigBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1071,7 +1054,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox versionTextBox;
         private System.Windows.Forms.TextBox vehicleApprovalTextBox;
         private System.Windows.Forms.TextBox pBS_IDTextBox;
-        private System.Windows.Forms.BindingSource pBSConfigBindingSource;
         private dsQWSLocalTableAdapters.PBS_ConfigTableAdapter pBS_ConfigTableAdapter;
         private System.Windows.Forms.BindingSource pBS_ConfigBindingSource;
         private System.Windows.Forms.TextBox tableNoTextBox;
@@ -1092,7 +1074,6 @@ namespace QWS_Local
         private System.Windows.Forms.ToolStripButton toolStripButton8;
         private System.Windows.Forms.ToolStripTextBox txtPBS2Find;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private dsQWSLocalTableAdapters.PBS_ConfigSchemeTableAdapter pBS_ConfigSchemeTableAdapter;
         private System.Windows.Forms.BindingNavigator bindingNavigator2;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
@@ -1110,12 +1091,13 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox schemeCodeTextBox1;
         private System.Windows.Forms.BindingSource pBS_ConfigSchemeBindingSource1;
         private System.Windows.Forms.TextBox gCMTextBox1;
-        private System.Windows.Forms.CheckBox massMgmtRqdCheckBox;
+        private System.Windows.Forms.CheckBox chkMassMgmtRqd;
         private System.Windows.Forms.TextBox driveAxleLoadUOMTextBox;
         private System.Windows.Forms.TextBox driveAxleLoadTextBox;
         private System.Windows.Forms.TextBox gVMTruckTextBox;
-        private System.Windows.Forms.TextBox pBS_ConfigSchemeIDTextBox;
+        private System.Windows.Forms.TextBox txtPBSConfigSchemeID;
         private System.Windows.Forms.Button btnSetCardCode;
         private System.Windows.Forms.TextBox pBS_ConfigIDTextBox;
+        private System.Windows.Forms.TextBox pBS_LevelTextBox;
     }
 }

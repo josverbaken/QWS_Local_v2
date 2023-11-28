@@ -128,5 +128,17 @@ namespace QWS_Local
                 }
             }
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            PBSConfigSchemAdd();
+        }
+
+        private void PBSConfigSchemAdd()
+        {
+            txtPBSConfigSchemeID.Text = "-1";
+            chkMassMgmtRqd.Checked = false;
+            // TODO sync PBSConfigID
+        }
     }
 }
