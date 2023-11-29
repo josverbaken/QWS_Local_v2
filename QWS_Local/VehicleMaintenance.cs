@@ -25,8 +25,6 @@ namespace QWS_Local
             try
             {
                 txtJurisdiction.Text = Properties.Settings.Default.defaultJurisdiction;
-                this.vehicleRegFeeCodesTableAdapter.Fill(dsQWSLocal.VehicleRegFeeCodes);
-                this.axleConfigurationTableAdapter.Fill(dsQWSLocal.AxleConfiguration);
             }
             catch (Exception ex)
             {
@@ -175,9 +173,6 @@ namespace QWS_Local
         {
             int iCount = this.txtVIN.Text.Length;
             if (iCount == 0)
-            //{
-            //    this.vINTextBox.Text = "Empty";
-            //}
             this.txtVIN.Text.Trim();
             this.txtVIN.SelectAll();
         }
@@ -268,9 +263,7 @@ namespace QWS_Local
                 }
                 else
                 {
-                    //just return to screen
                     txtOwner.Focus();
-                    //MessageBox.Show("Change truck owner - cancelled.");
                 }
             }
             catch (Exception ex)
@@ -278,6 +271,36 @@ namespace QWS_Local
                 MessageBox.Show(ex.Message, "Business Search Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
+
+        private void PrefCustomerSearch()
+        {
+            // TODO refactor BusinessSearch and PrefCustomerSearch to just return found BP
+            try
+            {
+                BusinessSearch businessSearch = new BusinessSearch(txtOwner.Text);
+                DialogResult dr = businessSearch.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    CurrentVehicle().PrefCustomerCode = businessSearch.SAPCode;
+                    vehicleBindingSource.EndEdit();
+                    txtJurisdiction.Focus();
+                }
+                else if (dr == DialogResult.Abort)
+                {
+                    MessageBox.Show("Customer NOT found, please check with Accounts Manager.", "BP not on file!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtOwner.Focus();
+                }
+                else
+                {
+                    txtOwner.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Preferred Customer Search Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private void btnFindVehicle_Click(object sender, EventArgs e)
         {
@@ -435,168 +458,7 @@ namespace QWS_Local
             SynchFeeCode(0);
             txtRego.Focus();
         }
-        private void AddTrailer(string SAPCode, string Owner)
-        {
-            dsQWSLocal.Vehicle.Clear();
-            DataRow dr = dsQWSLocal.Vehicle.NewRow();
-            dsQWSLocal.VehicleRow vehicleRow = (dsQWSLocal.VehicleRow)dr;
-            vehicleRow.Rego = "newReg";
-            vehicleRow.VIN = "";
-            vehicleRow.CardCode = SAPCode;
-            vehicleRow.Owner = Owner;
-            vehicleRow.Make = "";
-            vehicleRow.Model = "";
-            vehicleRow.RegistrationExpiryDT = DateTime.Now;
-            dsQWSLocal.Vehicle.AddVehicleRow(vehicleRow);
-            //vehicleBindingSource.EndEdit();
-            SynchAxleConfig("tba");
-            SynchFeeCode(0);
-            txtRego.Focus();
-        }
-
-        private void btnTrailerAdd_Click(object sender, EventArgs e)
-        {
-            // check if any trailers already associated with owner
-            AddTrailer(CurrentVehicle().CardCode, CurrentVehicle().Owner);
-        }
-
-        private void btnVehicleAdd_Click(object sender, EventArgs e)
-        {
-            AddVehicleRequest(txtRego.Text);
-        }
-
-        private void btnConfigureGVM_Click(object sender, EventArgs e)
-        {
-            int iVehicleCount;
-            // TODO revise logic
-            if (CurrentFeeCode().FeeCode.Substring(0, 2) == "MR")// (CurrentFeeCode().VehicleType == "Truck")
-            {
-                iVehicleCount = VehicleCount("Trailer", CurrentVehicle().CardCode);
-                if (iVehicleCount == 0)
-                {
-                    DialogResult dr = MessageBox.Show("Do you want to configure Truck only. Press No to add trailer first.","No trailers",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-                    if (dr == DialogResult.Yes)
-                    {
-                        // go to TruckConfguration and add Truck only use axle configuration to filter NHVR_GVM
-                        TruckConfiguration(CurrentVehicle().Rego, "", CurrentVehicle().CardCode, "TruckOnly");
-                    }
-                }
-                else if (iVehicleCount ==1)
-                {
-                    //check if new trailer by CreateDTTM
-                    DialogResult dr = MessageBox.Show("Do you want to configure Truck with this trailer. Press No to add trailer first.", "No trailers", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dr == DialogResult.Yes)
-                    {
-                        // go to TruckConfguration and add Truck only use axle configuration to filter NHVR_GVM
-                        TruckConfiguration(CurrentVehicle().Rego, "", CurrentVehicle().CardCode, "TruckOnly");
-                    }
-                    else
-                    {
-                        AddTrailer(CurrentVehicle().CardCode, CurrentVehicle().Owner);
-                    }
-                }
-                else if (iVehicleCount > 1)
-                {
-
-                }
-            }
-            // TODO revise logic
-            else if (CurrentFeeCode().FeeCode.Substring(0,2) == "TD") //(CurrentFeeCode().VehicleType == "Trailer")
-            {
-                DialogResult dr = MessageBox.Show("Press OK to add trailer to an existing truck.", "Add trailer to GVM Configuration", MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
-                if (dr ==DialogResult.OK)
-                {
-                    //search by owner ? filter trucks
-                    string myRego = FindTruck4Trailer(CurrentVehicle().Rego);
-                    if (myRego =="Not Found")
-                    {
-                        // see if any trucks at all
-                        iVehicleCount = VehicleCount("Truck", CurrentVehicle().CardCode);
-                        if (iVehicleCount >0)
-                        {
-                            MessageBox.Show("No recent truck found so will list by SAPCode", "Truck 4 Trailer");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Please add Truck first", "Truck 4 Trailer");
-                            AddTruck(CurrentVehicle().CardCode, CurrentVehicle().Owner);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show(myRego, "Truck 4 Trailer");
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vehicle Type = " + CurrentFeeCode().FeeCode, "Vehicle Type Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
-            
-        }
-
-        private int VehicleCount(string VehicleType, string SAPCode)
-        {
-            int myCount = -9;
-            try
-            {
-                SqlConnection sqlConn = new SqlConnection();
-                sqlConn.ConnectionString = Properties.Settings.Default.cnQWSLocal;
-                sqlConn.Open();
-                SqlCommand sqlCmd = new SqlCommand("VehicleCount", sqlConn);
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-                sqlCmd.Parameters.AddWithValue("@SAPCode", SqlDbType.NVarChar).Value = SAPCode;
-                sqlCmd.Parameters.AddWithValue("@VehicleType", SqlDbType.NVarChar).Value = VehicleType;
-                myCount = (int) sqlCmd.ExecuteScalar();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            return myCount;
-        }
-
-        private string FindTruck4Trailer(string Rego)
-        {
-            string myRego = "Truck";
-            try
-            {
-                SqlConnection sqlConn = new SqlConnection();
-                sqlConn.ConnectionString = Properties.Settings.Default.cnQWSLocal;
-                sqlConn.Open();
-                SqlCommand sqlCmd = new SqlCommand("Truck4Trailer", sqlConn);
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-                sqlCmd.Parameters.AddWithValue("@Rego", SqlDbType.NVarChar).Value = Rego;
-                sqlCmd.Parameters.AddWithValue("@Lag", SqlDbType.Int).Value = 80; //TODO add to settings
-                myRego = (string)sqlCmd.ExecuteScalar();
-                if (myRego == null)
-                {
-                    myRego = "No Truck";
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            return myRego;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            TruckConfigTruck();
-        }
-
-        private void TruckConfigTruck()
-        {
-            string mySAPCode;
-            mySAPCode = CurrentVehicle().CardCode;
-            int iCount = this.truckConfigTruckTableAdapter.FillBy(this.dsTruckConfig.TruckConfigTruck,mySAPCode);
-            int iCount2 = this.truckConfigTrailerTableAdapter.FillBy(this.dsTruckConfig.TruckConfigTrailer,mySAPCode);
-            int iCount3 = this.unconfiguredVehiclesTableAdapter.Fill(this.dsTruckConfig.UnconfiguredVehicles, mySAPCode);
-            iCount += iCount2;
-            iCount += iCount3;
-        }
-
+ 
         private void btnGo2Config_Click(object sender, EventArgs e)
         {
             Go2GVMConfiguration();
@@ -613,6 +475,7 @@ namespace QWS_Local
         {
             UseCurrentOwner = true;
             txtRego.Text = "NewReg";
+            // TODO clear out fields
             txtRego.Focus();
         }
 
@@ -620,44 +483,13 @@ namespace QWS_Local
         {
             txtOwner.Text = "";
             txtRego.Text = "NewReg";
+            // TODO clear out fields
             txtRego.Focus();
         }
 
         private void btnSetPrefCustomer_Click(object sender, EventArgs e)
         {
             PrefCustomerSearch();
-        }
-
-        private void PrefCustomerSearch()
-            // TODO refactor with BusinessSearch
-        {
-            try
-            {
-                BusinessSearch businessSearch = new BusinessSearch(txtOwner.Text);
-                DialogResult dr = businessSearch.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                    CurrentVehicle().PrefCustomerCode = businessSearch.SAPCode;
-                    //CurrentVehicle().Owner = businessSearch.BusinessName;
-                    vehicleBindingSource.EndEdit();
-                    txtJurisdiction.Focus();
-                }
-                else if (dr == DialogResult.Abort)
-                {
-                    MessageBox.Show("Customer NOT found, please check with Accounts Manager.", "BP not on file!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtOwner.Focus();
-                }
-                else
-                {
-                    //just return to screen
-                    txtOwner.Focus();
-                    //MessageBox.Show("Change truck owner - cancelled.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Preferred Customer Search Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
     }
 }

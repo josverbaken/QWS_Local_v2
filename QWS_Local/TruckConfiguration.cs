@@ -52,7 +52,7 @@ namespace QWS_Local
         {
             //Rego = "ABC123";
             //MessageBox.Show("Loading config for {0}.", Rego);
-            MessageBox.Show("Loading config for " + Rego);
+            MessageBox.Show("Loading config for " + Rego );
         }
 
 

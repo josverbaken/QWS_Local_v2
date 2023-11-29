@@ -66,29 +66,17 @@ namespace QWS_Local
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.truckConfigTruckBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
-            this.truckConfigTruckTableAdapter = new QWS_Local.dsTruckConfigTableAdapters.TruckConfigTruckTableAdapter();
-            this.truckConfigTrailerTableAdapter = new QWS_Local.dsTruckConfigTableAdapters.TruckConfigTrailerTableAdapter();
-            this.truckConfigTrailerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.unconfiguredVehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.unconfiguredVehiclesTableAdapter = new QWS_Local.dsTruckConfigTableAdapters.UnconfiguredVehiclesTableAdapter();
             this.btnGo2Config = new System.Windows.Forms.Button();
             this.btnNewVehicle = new System.Windows.Forms.Button();
             this.btnNewVehicleCurrentOwner = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.truck2TrailerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.truckConfigTruckTruckConfigTrailerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.jurisdictionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vehicleTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.VehicleTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.vehicleRegFeeCodesTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.VehicleRegFeeCodesTableAdapter();
             this.jurisdictionTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.JurisdictionTableAdapter();
             this.axleConfigurationTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
-            this.pBSTrailers4TruckBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.trailersByPBSVehicleApprovalBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.trailersByPBSVehicleApprovalTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.TrailersByPBSVehicleApprovalTableAdapter();
-            this.pBSTrailers4TruckTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.PBSTrailers4TruckTableAdapter();
             this.txtPrefCustomer = new System.Windows.Forms.TextBox();
             this.btnSetPrefCustomer = new System.Windows.Forms.Button();
             this.txtPBS_VA = new System.Windows.Forms.TextBox();
@@ -109,16 +97,9 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleRegFeeCodesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axleConfigurationBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.truckConfigTruckBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.truckConfigTrailerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.unconfiguredVehiclesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.truck2TrailerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.truckConfigTruckTruckConfigTrailerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jurisdictionBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBSTrailers4TruckBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trailersByPBSVehicleApprovalBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // regoLabel
@@ -497,37 +478,10 @@ namespace QWS_Local
             this.textBox6.TabIndex = 32;
             this.textBox6.TabStop = false;
             // 
-            // truckConfigTruckBindingSource
-            // 
-            this.truckConfigTruckBindingSource.DataMember = "TruckConfigTruck";
-            this.truckConfigTruckBindingSource.DataSource = this.dsTruckConfig;
-            // 
             // dsTruckConfig
             // 
             this.dsTruckConfig.DataSetName = "dsTruckConfig";
             this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // truckConfigTruckTableAdapter
-            // 
-            this.truckConfigTruckTableAdapter.ClearBeforeFill = true;
-            // 
-            // truckConfigTrailerTableAdapter
-            // 
-            this.truckConfigTrailerTableAdapter.ClearBeforeFill = true;
-            // 
-            // truckConfigTrailerBindingSource
-            // 
-            this.truckConfigTrailerBindingSource.DataMember = "TruckConfigTrailer";
-            this.truckConfigTrailerBindingSource.DataSource = this.dsTruckConfig;
-            // 
-            // unconfiguredVehiclesBindingSource
-            // 
-            this.unconfiguredVehiclesBindingSource.DataMember = "UnconfiguredVehicles";
-            this.unconfiguredVehiclesBindingSource.DataSource = this.dsTruckConfig;
-            // 
-            // unconfiguredVehiclesTableAdapter
-            // 
-            this.unconfiguredVehiclesTableAdapter.ClearBeforeFill = true;
             // 
             // btnGo2Config
             // 
@@ -584,17 +538,6 @@ namespace QWS_Local
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
             // 
-            // truck2TrailerBindingSource
-            // 
-            this.truck2TrailerBindingSource.DataMember = "Truck2Trailer";
-            this.truck2TrailerBindingSource.DataSource = this.truckConfigTruckBindingSource;
-            // 
-            // truckConfigTruckTruckConfigTrailerBindingSource
-            // 
-            this.truckConfigTruckTruckConfigTrailerBindingSource.DataMember = "Truck2Trailer";
-            this.truckConfigTruckTruckConfigTrailerBindingSource.DataSource = this.truckConfigTruckBindingSource;
- 
-            // 
             // jurisdictionBindingSource
             // 
             this.jurisdictionBindingSource.DataMember = "Jurisdiction";
@@ -632,24 +575,6 @@ namespace QWS_Local
             // axleConfigurationTableAdapter
             // 
             this.axleConfigurationTableAdapter.ClearBeforeFill = true;
-            // 
-            // pBSTrailers4TruckBindingSource
-            // 
-            this.pBSTrailers4TruckBindingSource.DataMember = "PBSTrailers4Truck";
-            this.pBSTrailers4TruckBindingSource.DataSource = this.dsQWSLocal;
-            // 
-            // trailersByPBSVehicleApprovalBindingSource
-            // 
-            this.trailersByPBSVehicleApprovalBindingSource.DataMember = "TrailersByPBSVehicleApproval";
-            this.trailersByPBSVehicleApprovalBindingSource.DataSource = this.dsQWSLocal;
-            // 
-            // trailersByPBSVehicleApprovalTableAdapter
-            // 
-            this.trailersByPBSVehicleApprovalTableAdapter.ClearBeforeFill = true;
-            // 
-            // pBSTrailers4TruckTableAdapter
-            // 
-            this.pBSTrailers4TruckTableAdapter.ClearBeforeFill = true;
             // 
             // txtPrefCustomer
             // 
@@ -746,16 +671,9 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleRegFeeCodesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axleConfigurationBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.truckConfigTruckBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.truckConfigTrailerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.unconfiguredVehiclesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.truck2TrailerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.truckConfigTruckTruckConfigTrailerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jurisdictionBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBSTrailers4TruckBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trailersByPBSVehicleApprovalBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -795,21 +713,9 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox txtJurisdiction;
         private System.Windows.Forms.Button btnFeeCodesMore;
         private dsTruckConfig dsTruckConfig;
-        private System.Windows.Forms.BindingSource truckConfigTruckBindingSource;
-        private dsTruckConfigTableAdapters.TruckConfigTruckTableAdapter truckConfigTruckTableAdapter;
-        private System.Windows.Forms.BindingSource truckConfigTruckTruckConfigTrailerBindingSource;
-        private dsTruckConfigTableAdapters.TruckConfigTrailerTableAdapter truckConfigTrailerTableAdapter;
-        private System.Windows.Forms.BindingSource truckConfigTrailerBindingSource;
-        private System.Windows.Forms.BindingSource truck2TrailerBindingSource;
-        private System.Windows.Forms.BindingSource unconfiguredVehiclesBindingSource;
-        private dsTruckConfigTableAdapters.UnconfiguredVehiclesTableAdapter unconfiguredVehiclesTableAdapter;
         private System.Windows.Forms.Button btnGo2Config;
         private System.Windows.Forms.Button btnNewVehicle;
         private System.Windows.Forms.Button btnNewVehicleCurrentOwner;
-        private System.Windows.Forms.BindingSource trailersByPBSVehicleApprovalBindingSource;
-        private dsQWSLocalTableAdapters.TrailersByPBSVehicleApprovalTableAdapter trailersByPBSVehicleApprovalTableAdapter;
-        private System.Windows.Forms.BindingSource pBSTrailers4TruckBindingSource;
-        private dsQWSLocalTableAdapters.PBSTrailers4TruckTableAdapter pBSTrailers4TruckTableAdapter;
         private System.Windows.Forms.TextBox txtPrefCustomer;
         private System.Windows.Forms.Button btnSetPrefCustomer;
         private System.Windows.Forms.TextBox txtPBS_VA;
