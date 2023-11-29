@@ -46,6 +46,7 @@ namespace QWS_Local
             System.Windows.Forms.Label driveAxleLoadLabel;
             System.Windows.Forms.Label pBS_LevelLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PBSMaintenance));
+            System.Windows.Forms.Label label2;
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripContainer2 = new System.Windows.Forms.ToolStripContainer();
@@ -54,7 +55,6 @@ namespace QWS_Local
             this.pBS_ConfigBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pBSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
-            this.txtPBS_ConfigID = new System.Windows.Forms.TextBox();
             this.btnSetCardCode = new System.Windows.Forms.Button();
             this.chkMassMgmtRqd = new System.Windows.Forms.CheckBox();
             this.driveAxleLoadUOMTextBox = new System.Windows.Forms.TextBox();
@@ -117,6 +117,7 @@ namespace QWS_Local
             this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.pBS_ConfigTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.PBS_ConfigTableAdapter();
             this.pBS_ConfigSchemeTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.PBS_ConfigSchemeTableAdapter();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             pBS_IDLabel = new System.Windows.Forms.Label();
             vehicleApprovalLabel = new System.Windows.Forms.Label();
             versionLabel = new System.Windows.Forms.Label();
@@ -132,6 +133,7 @@ namespace QWS_Local
             gVMTruckLabel = new System.Windows.Forms.Label();
             driveAxleLoadLabel = new System.Windows.Forms.Label();
             pBS_LevelLabel = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
             this.toolStripContainer1.SuspendLayout();
             this.toolStripContainer2.ContentPanel.SuspendLayout();
             this.toolStripContainer2.TopToolStripPanel.SuspendLayout();
@@ -231,12 +233,12 @@ namespace QWS_Local
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(59, 378);
+            label1.Location = new System.Drawing.Point(40, 378);
             label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(135, 18);
+            label1.Size = new System.Drawing.Size(144, 18);
             label1.TabIndex = 49;
-            label1.Text = "Axle Configuration :";
+            label1.Text = "Bridge Assessment :";
             // 
             // schemeCodeLabel1
             // 
@@ -321,9 +323,10 @@ namespace QWS_Local
             // toolStripContainer2.ContentPanel
             // 
             this.toolStripContainer2.ContentPanel.AutoScroll = true;
+            this.toolStripContainer2.ContentPanel.Controls.Add(label2);
+            this.toolStripContainer2.ContentPanel.Controls.Add(this.textBox2);
             this.toolStripContainer2.ContentPanel.Controls.Add(pBS_LevelLabel);
             this.toolStripContainer2.ContentPanel.Controls.Add(this.pBS_LevelTextBox);
-            this.toolStripContainer2.ContentPanel.Controls.Add(this.txtPBS_ConfigID);
             this.toolStripContainer2.ContentPanel.Controls.Add(this.btnSetCardCode);
             this.toolStripContainer2.ContentPanel.Controls.Add(this.chkMassMgmtRqd);
             this.toolStripContainer2.ContentPanel.Controls.Add(this.driveAxleLoadUOMTextBox);
@@ -398,14 +401,6 @@ namespace QWS_Local
             // 
             this.dsQWSLocal.DataSetName = "dsQWSLocal";
             this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // txtPBS_ConfigID
-            // 
-            this.txtPBS_ConfigID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigSchemeBindingSource1, "PBS_ConfigID", true));
-            this.txtPBS_ConfigID.Location = new System.Drawing.Point(903, 296);
-            this.txtPBS_ConfigID.Name = "txtPBS_ConfigID";
-            this.txtPBS_ConfigID.Size = new System.Drawing.Size(100, 24);
-            this.txtPBS_ConfigID.TabIndex = 67;
             // 
             // btnSetCardCode
             // 
@@ -608,7 +603,7 @@ namespace QWS_Local
             // 
             // textBox1
             // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigBindingSource, "AxleConfiguration", true));
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigBindingSource, "BridgeAssessment", true));
             this.textBox1.Location = new System.Drawing.Point(202, 375);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
@@ -989,6 +984,25 @@ namespace QWS_Local
             // 
             this.pBS_ConfigSchemeTableAdapter.ClearBeforeFill = true;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(59, 410);
+            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(135, 18);
+            label2.TabIndex = 70;
+            label2.Text = "Axle Configuration :";
+            // 
+            // textBox2
+            // 
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigBindingSource, "AxleConfiguration", true));
+            this.textBox2.Location = new System.Drawing.Point(202, 407);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(148, 24);
+            this.textBox2.TabIndex = 69;
+            // 
             // PBSMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -1099,7 +1113,7 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox gVMTruckTextBox;
         private System.Windows.Forms.TextBox txtPBSConfigSchemeID;
         private System.Windows.Forms.Button btnSetCardCode;
-        private System.Windows.Forms.TextBox txtPBS_ConfigID;
         private System.Windows.Forms.TextBox pBS_LevelTextBox;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
