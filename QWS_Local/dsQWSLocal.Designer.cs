@@ -1424,6 +1424,8 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnPBS_ConfigID;
             
+            private global::System.Data.DataColumn columnBridgeAssessment;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public PBS_ConfigDataTable() {
@@ -1491,6 +1493,14 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn BridgeAssessmentColumn {
+                get {
+                    return this.columnBridgeAssessment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1526,13 +1536,14 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PBS_ConfigRow AddPBS_ConfigRow(PBSRow parentPBSRowByFK_PBS_Config_PBS, int TableNo, AxleConfigurationRow parentAxleConfigurationRowByFK_PBS_Config_AxleConfiguration) {
+            public PBS_ConfigRow AddPBS_ConfigRow(PBSRow parentPBSRowByFK_PBS_Config_PBS, int TableNo, AxleConfigurationRow parentAxleConfigurationRowByFK_PBS_Config_AxleConfiguration, string BridgeAssessment) {
                 PBS_ConfigRow rowPBS_ConfigRow = ((PBS_ConfigRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         TableNo,
                         null,
-                        null};
+                        null,
+                        BridgeAssessment};
                 if ((parentPBSRowByFK_PBS_Config_PBS != null)) {
                     columnValuesArray[0] = parentPBSRowByFK_PBS_Config_PBS[0];
                 }
@@ -1572,6 +1583,7 @@ namespace QWS_Local {
                 this.columnTableNo = base.Columns["TableNo"];
                 this.columnAxleConfiguration = base.Columns["AxleConfiguration"];
                 this.columnPBS_ConfigID = base.Columns["PBS_ConfigID"];
+                this.columnBridgeAssessment = base.Columns["BridgeAssessment"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1585,6 +1597,8 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnAxleConfiguration);
                 this.columnPBS_ConfigID = new global::System.Data.DataColumn("PBS_ConfigID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPBS_ConfigID);
+                this.columnBridgeAssessment = new global::System.Data.DataColumn("BridgeAssessment", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBridgeAssessment);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPBS_ConfigID}, true));
                 this.columnPBS_ID.AllowDBNull = false;
@@ -1597,6 +1611,9 @@ namespace QWS_Local {
                 this.columnPBS_ConfigID.AllowDBNull = false;
                 this.columnPBS_ConfigID.ReadOnly = true;
                 this.columnPBS_ConfigID.Unique = true;
+                this.columnBridgeAssessment.AllowDBNull = false;
+                this.columnBridgeAssessment.DefaultValue = ((string)("tba"));
+                this.columnBridgeAssessment.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1744,21 +1761,11 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnFeeCodeID;
             
-            private global::System.Data.DataColumn columnForceRetare;
-            
-            private global::System.Data.DataColumn columnTare;
-            
-            private global::System.Data.DataColumn columnTareDT;
-            
-            private global::System.Data.DataColumn columnPrefPayload;
-            
             private global::System.Data.DataColumn columnAxleConfiguration;
             
             private global::System.Data.DataColumn columnPrefCustomerCode;
             
             private global::System.Data.DataColumn columnRegistrationExpiryDT;
-            
-            private global::System.Data.DataColumn columnRetareEverytime;
             
             private global::System.Data.DataColumn columnCreateDTTM;
             
@@ -1861,38 +1868,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ForceRetareColumn {
-                get {
-                    return this.columnForceRetare;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TareColumn {
-                get {
-                    return this.columnTare;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TareDTColumn {
-                get {
-                    return this.columnTareDT;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PrefPayloadColumn {
-                get {
-                    return this.columnPrefPayload;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn AxleConfigurationColumn {
                 get {
                     return this.columnAxleConfiguration;
@@ -1912,14 +1887,6 @@ namespace QWS_Local {
             public global::System.Data.DataColumn RegistrationExpiryDTColumn {
                 get {
                     return this.columnRegistrationExpiryDT;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn RetareEverytimeColumn {
-                get {
-                    return this.columnRetareEverytime;
                 }
             }
             
@@ -2000,27 +1967,7 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VehicleRow AddVehicleRow(
-                        string Rego, 
-                        string VIN, 
-                        string Owner, 
-                        string Make, 
-                        string Model, 
-                        decimal RegisteredTare, 
-                        VehicleRegFeeCodesRow parentVehicleRegFeeCodesRowByFK_Vehicle_VehicleRegFeeCodes, 
-                        bool ForceRetare, 
-                        decimal Tare, 
-                        System.DateTime TareDT, 
-                        decimal PrefPayload, 
-                        AxleConfigurationRow parentAxleConfigurationRowByFK_Vehicle_AxleConfiguration, 
-                        string PrefCustomerCode, 
-                        System.DateTime RegistrationExpiryDT, 
-                        bool RetareEverytime, 
-                        System.DateTime CreateDTTM, 
-                        int PBS_VA, 
-                        string CardCode, 
-                        string MassAccreditationLabel, 
-                        bool Active) {
+            public VehicleRow AddVehicleRow(string Rego, string VIN, string Owner, string Make, string Model, decimal RegisteredTare, VehicleRegFeeCodesRow parentVehicleRegFeeCodesRowByFK_Vehicle_VehicleRegFeeCodes, AxleConfigurationRow parentAxleConfigurationRowByFK_Vehicle_AxleConfiguration, string PrefCustomerCode, System.DateTime RegistrationExpiryDT, System.DateTime CreateDTTM, int PBS_VA, string CardCode, string MassAccreditationLabel, bool Active) {
                 VehicleRow rowVehicleRow = ((VehicleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Rego,
@@ -2030,14 +1977,9 @@ namespace QWS_Local {
                         Model,
                         RegisteredTare,
                         null,
-                        ForceRetare,
-                        Tare,
-                        TareDT,
-                        PrefPayload,
                         null,
                         PrefCustomerCode,
                         RegistrationExpiryDT,
-                        RetareEverytime,
                         CreateDTTM,
                         PBS_VA,
                         CardCode,
@@ -2047,7 +1989,7 @@ namespace QWS_Local {
                     columnValuesArray[6] = parentVehicleRegFeeCodesRowByFK_Vehicle_VehicleRegFeeCodes[0];
                 }
                 if ((parentAxleConfigurationRowByFK_Vehicle_AxleConfiguration != null)) {
-                    columnValuesArray[11] = parentAxleConfigurationRowByFK_Vehicle_AxleConfiguration[0];
+                    columnValuesArray[7] = parentAxleConfigurationRowByFK_Vehicle_AxleConfiguration[0];
                 }
                 rowVehicleRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVehicleRow);
@@ -2085,14 +2027,9 @@ namespace QWS_Local {
                 this.columnModel = base.Columns["Model"];
                 this.columnRegisteredTare = base.Columns["RegisteredTare"];
                 this.columnFeeCodeID = base.Columns["FeeCodeID"];
-                this.columnForceRetare = base.Columns["ForceRetare"];
-                this.columnTare = base.Columns["Tare"];
-                this.columnTareDT = base.Columns["TareDT"];
-                this.columnPrefPayload = base.Columns["PrefPayload"];
                 this.columnAxleConfiguration = base.Columns["AxleConfiguration"];
                 this.columnPrefCustomerCode = base.Columns["PrefCustomerCode"];
                 this.columnRegistrationExpiryDT = base.Columns["RegistrationExpiryDT"];
-                this.columnRetareEverytime = base.Columns["RetareEverytime"];
                 this.columnCreateDTTM = base.Columns["CreateDTTM"];
                 this.columnPBS_VA = base.Columns["PBS_VA"];
                 this.columnCardCode = base.Columns["CardCode"];
@@ -2117,22 +2054,12 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnRegisteredTare);
                 this.columnFeeCodeID = new global::System.Data.DataColumn("FeeCodeID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFeeCodeID);
-                this.columnForceRetare = new global::System.Data.DataColumn("ForceRetare", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnForceRetare);
-                this.columnTare = new global::System.Data.DataColumn("Tare", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTare);
-                this.columnTareDT = new global::System.Data.DataColumn("TareDT", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTareDT);
-                this.columnPrefPayload = new global::System.Data.DataColumn("PrefPayload", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPrefPayload);
                 this.columnAxleConfiguration = new global::System.Data.DataColumn("AxleConfiguration", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAxleConfiguration);
                 this.columnPrefCustomerCode = new global::System.Data.DataColumn("PrefCustomerCode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrefCustomerCode);
                 this.columnRegistrationExpiryDT = new global::System.Data.DataColumn("RegistrationExpiryDT", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRegistrationExpiryDT);
-                this.columnRetareEverytime = new global::System.Data.DataColumn("RetareEverytime", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRetareEverytime);
                 this.columnCreateDTTM = new global::System.Data.DataColumn("CreateDTTM", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCreateDTTM);
                 this.columnPBS_VA = new global::System.Data.DataColumn("PBS_VA", typeof(int), null, global::System.Data.MappingType.Element);
@@ -2157,21 +2084,27 @@ namespace QWS_Local {
                 this.columnModel.AllowDBNull = false;
                 this.columnModel.MaxLength = 50;
                 this.columnRegisteredTare.AllowDBNull = false;
+                this.columnRegisteredTare.DefaultValue = ((decimal)(0.0m));
                 this.columnFeeCodeID.AllowDBNull = false;
-                this.columnForceRetare.AllowDBNull = false;
+                this.columnFeeCodeID.DefaultValue = ((int)(0));
                 this.columnAxleConfiguration.AllowDBNull = false;
+                this.columnAxleConfiguration.DefaultValue = ((string)("tba"));
                 this.columnAxleConfiguration.MaxLength = 50;
                 this.columnPrefCustomerCode.AllowDBNull = false;
+                this.columnPrefCustomerCode.DefaultValue = ((string)("tba"));
                 this.columnPrefCustomerCode.MaxLength = 15;
                 this.columnRegistrationExpiryDT.AllowDBNull = false;
-                this.columnRetareEverytime.AllowDBNull = false;
                 this.columnCreateDTTM.AllowDBNull = false;
                 this.columnPBS_VA.AllowDBNull = false;
+                this.columnPBS_VA.DefaultValue = ((int)(0));
                 this.columnCardCode.AllowDBNull = false;
+                this.columnCardCode.DefaultValue = ((string)("tba"));
                 this.columnCardCode.MaxLength = 15;
                 this.columnMassAccreditationLabel.AllowDBNull = false;
+                this.columnMassAccreditationLabel.DefaultValue = ((string)("tba"));
                 this.columnMassAccreditationLabel.MaxLength = 50;
                 this.columnActive.AllowDBNull = false;
+                this.columnActive.DefaultValue = ((bool)(true));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9648,6 +9581,17 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string BridgeAssessment {
+                get {
+                    return ((string)(this[this.tablePBS_Config.BridgeAssessmentColumn]));
+                }
+                set {
+                    this[this.tablePBS_Config.BridgeAssessmentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public PBSRow PBSRow {
                 get {
                     return ((PBSRow)(this.GetParentRow(this.Table.ParentRelations["FK_PBS_Config_PBS"])));
@@ -9773,65 +9717,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool ForceRetare {
-                get {
-                    return ((bool)(this[this.tableVehicle.ForceRetareColumn]));
-                }
-                set {
-                    this[this.tableVehicle.ForceRetareColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal Tare {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableVehicle.TareColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Tare\' in table \'Vehicle\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVehicle.TareColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime TareDT {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableVehicle.TareDTColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TareDT\' in table \'Vehicle\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVehicle.TareDTColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal PrefPayload {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableVehicle.PrefPayloadColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PrefPayload\' in table \'Vehicle\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVehicle.PrefPayloadColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string AxleConfiguration {
                 get {
                     return ((string)(this[this.tableVehicle.AxleConfigurationColumn]));
@@ -9860,17 +9745,6 @@ namespace QWS_Local {
                 }
                 set {
                     this[this.tableVehicle.RegistrationExpiryDTColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool RetareEverytime {
-                get {
-                    return ((bool)(this[this.tableVehicle.RetareEverytimeColumn]));
-                }
-                set {
-                    this[this.tableVehicle.RetareEverytimeColumn] = value;
                 }
             }
             
@@ -9949,42 +9823,6 @@ namespace QWS_Local {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Vehicle_AxleConfiguration"]);
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTareNull() {
-                return this.IsNull(this.tableVehicle.TareColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTareNull() {
-                this[this.tableVehicle.TareColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTareDTNull() {
-                return this.IsNull(this.tableVehicle.TareDTColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTareDTNull() {
-                this[this.tableVehicle.TareDTColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPrefPayloadNull() {
-                return this.IsNull(this.tableVehicle.PrefPayloadColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPrefPayloadNull() {
-                this[this.tableVehicle.PrefPayloadColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14704,38 +14542,43 @@ SELECT PBS_ID, VehicleApproval, Version, ApprovalDT, Operator, CardCode FROM PBS
             tableMapping.ColumnMappings.Add("TableNo", "TableNo");
             tableMapping.ColumnMappings.Add("AxleConfiguration", "AxleConfiguration");
             tableMapping.ColumnMappings.Add("PBS_ConfigID", "PBS_ConfigID");
+            tableMapping.ColumnMappings.Add("BridgeAssessment", "BridgeAssessment");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM [PBS_Config] WHERE (([PBS_ConfigID] = @Original_PBS_ConfigID) AND ([P" +
                 "BS_ID] = @Original_PBS_ID) AND ([TableNo] = @Original_TableNo) AND ([AxleConfigu" +
-                "ration] = @Original_AxleConfiguration))";
+                "ration] = @Original_AxleConfiguration) AND ([BridgeAssessment] = @Original_Bridg" +
+                "eAssessment))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_ConfigID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ConfigID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TableNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TableNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BridgeAssessment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BridgeAssessment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [PBS_Config] ([PBS_ID], [TableNo], [AxleConfiguration]) VALUES (@PBS_" +
-                "ID, @TableNo, @AxleConfiguration);\r\nSELECT PBS_ConfigID, PBS_ID, TableNo, AxleCo" +
-                "nfiguration FROM PBS_Config WHERE (PBS_ConfigID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [PBS_Config] ([PBS_ID], [TableNo], [AxleConfiguration], [BridgeAssessment]) VALUES (@PBS_ID, @TableNo, @AxleConfiguration, @BridgeAssessment);
+SELECT PBS_ConfigID, PBS_ID, TableNo, AxleConfiguration, BridgeAssessment FROM PBS_Config WHERE (PBS_ConfigID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TableNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TableNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BridgeAssessment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BridgeAssessment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [PBS_Config] SET [PBS_ID] = @PBS_ID, [TableNo] = @TableNo, [AxleConfiguration] = @AxleConfiguration WHERE (([PBS_ConfigID] = @Original_PBS_ConfigID) AND ([PBS_ID] = @Original_PBS_ID) AND ([TableNo] = @Original_TableNo) AND ([AxleConfiguration] = @Original_AxleConfiguration));
-SELECT PBS_ConfigID, PBS_ID, TableNo, AxleConfiguration FROM PBS_Config WHERE (PBS_ConfigID = @PBS_ConfigID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [PBS_Config] SET [PBS_ID] = @PBS_ID, [TableNo] = @TableNo, [AxleConfiguration] = @AxleConfiguration, [BridgeAssessment] = @BridgeAssessment WHERE (([PBS_ConfigID] = @Original_PBS_ConfigID) AND ([PBS_ID] = @Original_PBS_ID) AND ([TableNo] = @Original_TableNo) AND ([AxleConfiguration] = @Original_AxleConfiguration) AND ([BridgeAssessment] = @Original_BridgeAssessment));
+SELECT PBS_ConfigID, PBS_ID, TableNo, AxleConfiguration, BridgeAssessment FROM PBS_Config WHERE (PBS_ConfigID = @PBS_ConfigID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TableNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TableNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BridgeAssessment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BridgeAssessment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_ConfigID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ConfigID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TableNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TableNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BridgeAssessment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BridgeAssessment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ConfigID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ConfigID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -14752,8 +14595,8 @@ SELECT PBS_ConfigID, PBS_ID, TableNo, AxleConfiguration FROM PBS_Config WHERE (P
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        PBS_ConfigID, PBS_ID, TableNo, AxleConfiguration\r\nFROM            P" +
-                "BS_Config";
+            this._commandCollection[0].CommandText = "SELECT        PBS_ConfigID, PBS_ID, TableNo, AxleConfiguration, BridgeAssessment\r" +
+                "\nFROM            PBS_Config";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -14814,7 +14657,7 @@ SELECT PBS_ConfigID, PBS_ID, TableNo, AxleConfiguration FROM PBS_Config WHERE (P
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_PBS_ConfigID, int Original_PBS_ID, int Original_TableNo, string Original_AxleConfiguration) {
+        public virtual int Delete(int Original_PBS_ConfigID, int Original_PBS_ID, int Original_TableNo, string Original_AxleConfiguration, string Original_BridgeAssessment) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_PBS_ConfigID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_PBS_ID));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_TableNo));
@@ -14823,6 +14666,12 @@ SELECT PBS_ConfigID, PBS_ID, TableNo, AxleConfiguration FROM PBS_Config WHERE (P
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_AxleConfiguration));
+            }
+            if ((Original_BridgeAssessment == null)) {
+                throw new global::System.ArgumentNullException("Original_BridgeAssessment");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_BridgeAssessment));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -14844,7 +14693,7 @@ SELECT PBS_ConfigID, PBS_ID, TableNo, AxleConfiguration FROM PBS_Config WHERE (P
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int PBS_ID, int TableNo, string AxleConfiguration) {
+        public virtual int Insert(int PBS_ID, int TableNo, string AxleConfiguration, string BridgeAssessment) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(PBS_ID));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(TableNo));
             if ((AxleConfiguration == null)) {
@@ -14852,6 +14701,12 @@ SELECT PBS_ConfigID, PBS_ID, TableNo, AxleConfiguration FROM PBS_Config WHERE (P
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(AxleConfiguration));
+            }
+            if ((BridgeAssessment == null)) {
+                throw new global::System.ArgumentNullException("BridgeAssessment");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(BridgeAssessment));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -14873,7 +14728,7 @@ SELECT PBS_ConfigID, PBS_ID, TableNo, AxleConfiguration FROM PBS_Config WHERE (P
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int PBS_ID, int TableNo, string AxleConfiguration, int Original_PBS_ConfigID, int Original_PBS_ID, int Original_TableNo, string Original_AxleConfiguration, int PBS_ConfigID) {
+        public virtual int Update(int PBS_ID, int TableNo, string AxleConfiguration, string BridgeAssessment, int Original_PBS_ConfigID, int Original_PBS_ID, int Original_TableNo, string Original_AxleConfiguration, string Original_BridgeAssessment, int PBS_ConfigID) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(PBS_ID));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(TableNo));
             if ((AxleConfiguration == null)) {
@@ -14882,16 +14737,28 @@ SELECT PBS_ConfigID, PBS_ID, TableNo, AxleConfiguration FROM PBS_Config WHERE (P
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(AxleConfiguration));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_PBS_ConfigID));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_PBS_ID));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_TableNo));
+            if ((BridgeAssessment == null)) {
+                throw new global::System.ArgumentNullException("BridgeAssessment");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(BridgeAssessment));
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_PBS_ConfigID));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_PBS_ID));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_TableNo));
             if ((Original_AxleConfiguration == null)) {
                 throw new global::System.ArgumentNullException("Original_AxleConfiguration");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_AxleConfiguration));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_AxleConfiguration));
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(PBS_ConfigID));
+            if ((Original_BridgeAssessment == null)) {
+                throw new global::System.ArgumentNullException("Original_BridgeAssessment");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_BridgeAssessment));
+            }
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(PBS_ConfigID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -14912,8 +14779,8 @@ SELECT PBS_ConfigID, PBS_ID, TableNo, AxleConfiguration FROM PBS_Config WHERE (P
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int PBS_ID, int TableNo, string AxleConfiguration, int Original_PBS_ConfigID, int Original_PBS_ID, int Original_TableNo, string Original_AxleConfiguration) {
-            return this.Update(PBS_ID, TableNo, AxleConfiguration, Original_PBS_ConfigID, Original_PBS_ID, Original_TableNo, Original_AxleConfiguration, Original_PBS_ConfigID);
+        public virtual int Update(int PBS_ID, int TableNo, string AxleConfiguration, string BridgeAssessment, int Original_PBS_ConfigID, int Original_PBS_ID, int Original_TableNo, string Original_AxleConfiguration, string Original_BridgeAssessment) {
+            return this.Update(PBS_ID, TableNo, AxleConfiguration, BridgeAssessment, Original_PBS_ConfigID, Original_PBS_ID, Original_TableNo, Original_AxleConfiguration, Original_BridgeAssessment, Original_PBS_ConfigID);
         }
     }
     
@@ -15045,14 +14912,9 @@ SELECT PBS_ConfigID, PBS_ID, TableNo, AxleConfiguration FROM PBS_Config WHERE (P
             tableMapping.ColumnMappings.Add("Model", "Model");
             tableMapping.ColumnMappings.Add("RegisteredTare", "RegisteredTare");
             tableMapping.ColumnMappings.Add("FeeCodeID", "FeeCodeID");
-            tableMapping.ColumnMappings.Add("ForceRetare", "ForceRetare");
-            tableMapping.ColumnMappings.Add("Tare", "Tare");
-            tableMapping.ColumnMappings.Add("TareDT", "TareDT");
-            tableMapping.ColumnMappings.Add("PrefPayload", "PrefPayload");
             tableMapping.ColumnMappings.Add("AxleConfiguration", "AxleConfiguration");
             tableMapping.ColumnMappings.Add("PrefCustomerCode", "PrefCustomerCode");
             tableMapping.ColumnMappings.Add("RegistrationExpiryDT", "RegistrationExpiryDT");
-            tableMapping.ColumnMappings.Add("RetareEverytime", "RetareEverytime");
             tableMapping.ColumnMappings.Add("CreateDTTM", "CreateDTTM");
             tableMapping.ColumnMappings.Add("PBS_VA", "PBS_VA");
             tableMapping.ColumnMappings.Add("CardCode", "CardCode");
@@ -15120,9 +14982,9 @@ SELECT Rego, VIN, PBS_VA, CardCode, Owner, Make, Model, AxleConfiguration, MassA
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        Rego, VIN, PBS_VA, CardCode, Owner, Make, Model, AxleConfiguration," +
-                " MassAccreditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, PrefCu" +
-                "stomerCode, CreateDTTM, Active\r\nFROM            Vehicle";
+            this._commandCollection[0].CommandText = "SELECT Rego, VIN, PBS_VA, CardCode, Owner, Make, Model, AxleConfiguration, MassAc" +
+                "creditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, PrefCustomerC" +
+                "ode, CreateDTTM, Active FROM Vehicle";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;

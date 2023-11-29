@@ -409,9 +409,8 @@ namespace QWS_Local
             vehicleRow.Owner = "Name or Code";
             vehicleRow.Make = "";
             vehicleRow.Model = "";
-            vehicleRow.ForceRetare = false;
-            vehicleRow.RetareEverytime = false;
             vehicleRow.CreateDTTM = DateTime.Now;
+            vehicleRow.RegistrationExpiryDT = DateTime.Now;
             dsQWSLocal.Vehicle.AddVehicleRow(vehicleRow);
             SynchAxleConfig("tba");
             SynchFeeCode(0); // 0 = unspecified, see database
@@ -429,7 +428,7 @@ namespace QWS_Local
             vehicleRow.Owner = Owner;
             vehicleRow.Make = "";
             vehicleRow.Model = "";
-            vehicleRow.ForceRetare = false;
+            vehicleRow.RegistrationExpiryDT = DateTime.Now;
             dsQWSLocal.Vehicle.AddVehicleRow(vehicleRow);
             SynchAxleConfig("tba");
             SynchFeeCode(0);
@@ -446,7 +445,7 @@ namespace QWS_Local
             vehicleRow.Owner = Owner;
             vehicleRow.Make = "";
             vehicleRow.Model = "";
-            vehicleRow.ForceRetare = false;
+            vehicleRow.RegistrationExpiryDT = DateTime.Now;
             dsQWSLocal.Vehicle.AddVehicleRow(vehicleRow);
             //vehicleBindingSource.EndEdit();
             SynchAxleConfig("tba");
