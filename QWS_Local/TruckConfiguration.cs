@@ -29,8 +29,6 @@ namespace QWS_Local
             // TODO use MODE
             string TruckOwnerCode = SAPCode;
             string myMode = Mode;
-            tabControl1.SelectedTab = tabPage2;
-            label1.Text = "Called by truck " + Truck + " with trailer " + Trailer + ", will try to add automatically";
         }
 
         public TruckConfiguration(string Rego, string SAPCode, string Mode)
@@ -38,8 +36,6 @@ namespace QWS_Local
             InitializeComponent();
             //LoadTruckConfig(Rego, SAPCode);
             // TODO use MODE
-            tabControl1.SelectedTab = tabPage2;
-            label1.Text = "called by trailer " + Rego +", please available trucks";
         }
         public TruckConfiguration(string Rego)
         {
@@ -52,206 +48,18 @@ namespace QWS_Local
             // nothing yet
         }
 
-
-
         private void LoadTruckConfig(string Rego)
         {
-            try
-            {
-                int iCount = this.vehicleDetailsTableAdapter.FillBy(this.dsQWSLocal.VehicleDetails, Rego);
-                // if type truck
-                if (iCount == 1)
-                {
-                    dsQWSLocal.VehicleDetailsRow vehicleDetailsRow = (dsQWSLocal.VehicleDetailsRow)dsQWSLocal.VehicleDetails.Rows[0];
-                    if (vehicleDetailsRow.IsLeadVehicle == true)
-                    {
-                        this.truckConfigTableAdapter.FillBy(this.dsQWSLocal.TruckConfig, Rego);
-                        string SAPCode = vehicleDetailsRow.CardCode; // TODO - I think this okay but otherwise reload TruckConfigTrailers on binding source changed
-                        //this.truckConfigTrailersTableAdapter.FillBy(this.dsQWSLocal.TruckConfigTrailers, SAPCode);
-                    }
-                    // else trailer ? what TODO
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Load Truck config Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void tspSaveTruckConfig_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.Validate();
-                this.truckConfigBindingSource.EndEdit();    
-                truckConfigTableAdapter.Update(dsQWSLocal.TruckConfig); 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //Rego = "ABC123";
+            //MessageBox.Show("Loading config for {0}.", Rego);
+            MessageBox.Show("Loading config for " + Rego);
         }
 
-        private void tspSaveTruckconfigtrailers_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.Validate();
-                this.fKVehicleConfigTrailersVehicleConfigBindingSource.EndEdit();
-                //truckConfigTrailersTableAdapter.Update(dsQWSLocal.TruckConfigTrailers);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Trailer Config Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
-        private void btnFindVehicleDetails_Click(object sender, EventArgs e)
-        {
-            FindVehicleDetails();
-        }
 
-        private void FindVehicleDetails()
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            try
-            {
-                vehicleDetailsTableAdapter.FillBy(dsQWSLocal.VehicleDetails, txtRego.Text);
-                dsQWSLocal.VehicleDetailsRow vehicleDetailsRow = (dsQWSLocal.VehicleDetailsRow)dsQWSLocal.VehicleDetails.Rows[0];
-                mySAPCode = vehicleDetailsRow.CardCode;
-                if(vehicleDetailsRow.IsLeadVehicle == false)
-                {
-                    btnFindNHVR_GVM.Enabled = false;
-                }
-                else
-                {
-                    btnFindNHVR_GVM.Enabled = true;
-                }
-                //CheckPBS();
-                ConfiguredTnT();
-                //PBSTruckConfig();
-                //TruckTrailerConfigNotPBS();
-                // maybe only if PBS? - doesn't matter zero rows if not PBS
-                int iCount = pBSTrailers4TruckTableAdapter.Fill(dsQWSLocal.PBSTrailers4Truck, txtRego.Text);
-                if (iCount > 0)
-                {
-                    btnAddTrailer.Visible = false;
-                }
-                else
-                {
-                    btnAddTrailer.Visible = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void DataGridViewColumns()
-        {
-            try
-            {
-                dataGridView5.Columns["GVMTruck"].Visible = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void ConfiguredTnT()
-        {
-            try
-            {
-                int iRows = configuredTnTTableAdapter.Fill(dsQWSLocal.ConfiguredTnT, txtRego.Text,"");
-                if (iRows > 0)
-                {
-                    //schematicPictureBox.DataBindings.Clear();
-                    //schematicPictureBox.DataBindings.Add(configuredTnTBindingSource.DataSource());
-                    schematicPictureBox.Visible = false;
-                    pictureBox1.Visible = true;
-                }
-                else
-                {
-                    schematicPictureBox.Visible = true;
-                    pictureBox1.Visible = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void TruckTrailerConfigNotPBS()
-        {
-            tkTrConfigNotPBSTableAdapter.Fill(dsQWSLocal.TkTrConfigNotPBS, txtRego.Text);
-        }
-
-        private void PBSTruckConfig()
-        {
-            try
-            {
-                pBSTruckConfigTableAdapter.Fill(dsQWSLocal.PBSTruckConfig, txtRego.Text);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void LoadVehicles(string SAPCode)
-        {
-            try
-            {
-                int iCount = vehicleDetailsTableAdapter.FillBySAPCode(dsQWSLocal.VehicleDetails, SAPCode);
-                iCount += 1;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            SearchNHVR_GVM();
-        }
-
-        private void SearchNHVR_GVM()
-        {
-            try
-            {
-                NHVR_GVM_Search _Search = new NHVR_GVM_Search(txtAxleConfig.Text);
-                DialogResult dr = _Search.ShowDialog();
-                if (dr == DialogResult.Cancel)
-                {
-                    MessageBox.Show("Search Cancelled.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void btnLoadDetails_Click(object sender, EventArgs e)
-        {
-            if (mySAPCode.Length > 0)
-            {
-                LoadVehicles(mySAPCode);
-            }
-        }
-
-        private void btnAddTrailer_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("TODO - take to Vehicle Maintenance");
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            LoadTruckConfig(txtRego.Text);
-            
+            MessageBox.Show("Hello - blank form, start afresh!");
         }
     }
 }
