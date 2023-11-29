@@ -39,6 +39,7 @@ namespace QWS_Local
         {
             try
             {
+                CurrentVehicle().Rego = CurrentVehicle().Rego.ToUpper();
                 this.Validate();
                 this.vehicleBindingSource.EndEdit();
                 this.vehicleTableAdapter.Update(dsQWSLocal.Vehicle);
