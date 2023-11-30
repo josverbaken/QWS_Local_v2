@@ -334,12 +334,17 @@ namespace QWS_Local
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.NHVLTableAdapter = null;
+            this.tableAdapterManager.PBS_ConfigSchemeTableAdapter = null;
             this.tableAdapterManager.PBS_ConfigTableAdapter = null;
             this.tableAdapterManager.PBSTableAdapter = null;
+            this.tableAdapterManager.SchemeCodesTableAdapter = null;
             this.tableAdapterManager.TruckConfigTableAdapter = null;
+            this.tableAdapterManager.TruckConfigVehicleTableAdapter = null;
             this.tableAdapterManager.TrucksInQuarryTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager.VehicleTableAdapter = null;
+            this.tableAdapterManager.VehicleTypeTableAdapter = null;
             // 
             // toolStripSeparator1
             // 
@@ -360,11 +365,12 @@ namespace QWS_Local
             // btnSearchByCode
             // 
             this.btnSearchByCode.BackColor = System.Drawing.Color.LemonChiffon;
-            this.btnSearchByCode.Image = global::QWS_Local.Properties.Resources.Search_1;
+            this.btnSearchByCode.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnSearchByCode.Image = global::QWS_Local.Properties.Resources.A2;
             this.btnSearchByCode.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSearchByCode.Name = "btnSearchByCode";
             this.btnSearchByCode.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnSearchByCode.Size = new System.Drawing.Size(77, 24);
+            this.btnSearchByCode.Size = new System.Drawing.Size(61, 24);
             this.btnSearchByCode.Text = "Find";
             this.btnSearchByCode.Click += new System.EventHandler(this.btnSearchByCode_Click);
             // 

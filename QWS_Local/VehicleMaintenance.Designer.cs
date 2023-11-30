@@ -619,6 +619,7 @@ namespace QWS_Local
             // isLeadVehicleCheckBox
             // 
             this.isLeadVehicleCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.vehicleBindingSource, "IsLeadVehicle", true));
+            this.isLeadVehicleCheckBox.Enabled = false;
             this.isLeadVehicleCheckBox.Location = new System.Drawing.Point(678, 303);
             this.isLeadVehicleCheckBox.Name = "isLeadVehicleCheckBox";
             this.isLeadVehicleCheckBox.Size = new System.Drawing.Size(210, 24);
@@ -639,11 +640,11 @@ namespace QWS_Local
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.axleConfigurationBindingSource, "Schematic", true));
-            this.pictureBox1.Image = global::QWS_Local.Properties.Resources.generic;
+            this.pictureBox1.Image = global::QWS_Local.Properties.Resources.A2;
             this.pictureBox1.Location = new System.Drawing.Point(676, 338);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(452, 152);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;

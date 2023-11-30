@@ -276,31 +276,10 @@
     <None Include="Resources\A2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Search 1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Search 2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Search Engine.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\TruckCartoon.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\TruckCartoon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Artboard 1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\generic.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\12A3R2A3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\generic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
