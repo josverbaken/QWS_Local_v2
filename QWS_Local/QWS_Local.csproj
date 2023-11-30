@@ -33,7 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Extensions" />
@@ -147,12 +149,6 @@
     <Compile Include="TrucksInQuarry.Designer.cs">
       <DependentUpon>TrucksInQuarry.cs</DependentUpon>
     </Compile>
-    <Compile Include="VehicleMaintenanceSave.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VehicleMaintenanceSave.Designer.cs">
-      <DependentUpon>VehicleMaintenanceSave.cs</DependentUpon>
-    </Compile>
     <Compile Include="VehicleRegFeeCodes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,9 +216,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TrucksInQuarry.resx">
       <DependentUpon>TrucksInQuarry.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VehicleMaintenanceSave.resx">
-      <DependentUpon>VehicleMaintenanceSave.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VehicleRegFeeCodes.resx">
       <DependentUpon>VehicleRegFeeCodes.cs</DependentUpon>

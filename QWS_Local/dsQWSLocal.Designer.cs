@@ -1742,6 +1742,10 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnActive;
             
+            private global::System.Data.DataColumn columnPrefCustomer;
+            
+            private global::System.Data.DataColumn columnIsLeadVehicle;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public VehicleDataTable() {
@@ -1897,6 +1901,22 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PrefCustomerColumn {
+                get {
+                    return this.columnPrefCustomer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IsLeadVehicleColumn {
+                get {
+                    return this.columnIsLeadVehicle;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1932,7 +1952,24 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VehicleRow AddVehicleRow(string Rego, string VIN, string Owner, string Make, string Model, decimal RegisteredTare, VehicleRegFeeCodesRow parentVehicleRegFeeCodesRowByFK_Vehicle_VehicleRegFeeCodes, AxleConfigurationRow parentAxleConfigurationRowByFK_Vehicle_AxleConfiguration, string PrefCustomerCode, System.DateTime RegistrationExpiryDT, System.DateTime CreateDTTM, int PBS_VA, string CardCode, string MassAccreditationLabel, bool Active) {
+            public VehicleRow AddVehicleRow(
+                        string Rego, 
+                        string VIN, 
+                        string Owner, 
+                        string Make, 
+                        string Model, 
+                        decimal RegisteredTare, 
+                        VehicleRegFeeCodesRow parentVehicleRegFeeCodesRowByFK_Vehicle_VehicleRegFeeCodes, 
+                        AxleConfigurationRow parentAxleConfigurationRowByFK_Vehicle_AxleConfiguration, 
+                        string PrefCustomerCode, 
+                        System.DateTime RegistrationExpiryDT, 
+                        System.DateTime CreateDTTM, 
+                        int PBS_VA, 
+                        string CardCode, 
+                        string MassAccreditationLabel, 
+                        bool Active, 
+                        string PrefCustomer, 
+                        bool IsLeadVehicle) {
                 VehicleRow rowVehicleRow = ((VehicleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Rego,
@@ -1949,7 +1986,9 @@ namespace QWS_Local {
                         PBS_VA,
                         CardCode,
                         MassAccreditationLabel,
-                        Active};
+                        Active,
+                        PrefCustomer,
+                        IsLeadVehicle};
                 if ((parentVehicleRegFeeCodesRowByFK_Vehicle_VehicleRegFeeCodes != null)) {
                     columnValuesArray[6] = parentVehicleRegFeeCodesRowByFK_Vehicle_VehicleRegFeeCodes[0];
                 }
@@ -2000,6 +2039,8 @@ namespace QWS_Local {
                 this.columnCardCode = base.Columns["CardCode"];
                 this.columnMassAccreditationLabel = base.Columns["MassAccreditationLabel"];
                 this.columnActive = base.Columns["Active"];
+                this.columnPrefCustomer = base.Columns["PrefCustomer"];
+                this.columnIsLeadVehicle = base.Columns["IsLeadVehicle"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2035,6 +2076,10 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnMassAccreditationLabel);
                 this.columnActive = new global::System.Data.DataColumn("Active", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnActive);
+                this.columnPrefCustomer = new global::System.Data.DataColumn("PrefCustomer", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrefCustomer);
+                this.columnIsLeadVehicle = new global::System.Data.DataColumn("IsLeadVehicle", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIsLeadVehicle);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRego}, true));
                 this.columnRego.AllowDBNull = false;
@@ -2070,6 +2115,11 @@ namespace QWS_Local {
                 this.columnMassAccreditationLabel.MaxLength = 50;
                 this.columnActive.AllowDBNull = false;
                 this.columnActive.DefaultValue = ((bool)(true));
+                this.columnPrefCustomer.AllowDBNull = false;
+                this.columnPrefCustomer.DefaultValue = ((string)("tba"));
+                this.columnPrefCustomer.MaxLength = 100;
+                this.columnIsLeadVehicle.AllowDBNull = false;
+                this.columnIsLeadVehicle.DefaultValue = ((bool)(false));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9480,6 +9530,28 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string PrefCustomer {
+                get {
+                    return ((string)(this[this.tableVehicle.PrefCustomerColumn]));
+                }
+                set {
+                    this[this.tableVehicle.PrefCustomerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsLeadVehicle {
+                get {
+                    return ((bool)(this[this.tableVehicle.IsLeadVehicleColumn]));
+                }
+                set {
+                    this[this.tableVehicle.IsLeadVehicleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public VehicleRegFeeCodesRow VehicleRegFeeCodesRow {
                 get {
                     return ((VehicleRegFeeCodesRow)(this.GetParentRow(this.Table.ParentRelations["FK_Vehicle_VehicleRegFeeCodes"])));
@@ -14495,6 +14567,8 @@ SELECT PBS_ConfigID, PBS_ID, TableNo, AxleConfiguration, BridgeAssessment FROM P
             tableMapping.ColumnMappings.Add("CardCode", "CardCode");
             tableMapping.ColumnMappings.Add("MassAccreditationLabel", "MassAccreditationLabel");
             tableMapping.ColumnMappings.Add("Active", "Active");
+            tableMapping.ColumnMappings.Add("PrefCustomer", "PrefCustomer");
+            tableMapping.ColumnMappings.Add("IsLeadVehicle", "IsLeadVehicle");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -14503,8 +14577,8 @@ SELECT PBS_ConfigID, PBS_ID, TableNo, AxleConfiguration, BridgeAssessment FROM P
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Vehicle] ([Rego], [VIN], [PBS_VA], [CardCode], [Owner], [Make], [Model], [AxleConfiguration], [MassAccreditationLabel], [RegisteredTare], [FeeCodeID], [RegistrationExpiryDT], [PrefCustomerCode], [CreateDTTM], [Active]) VALUES (@Rego, @VIN, @PBS_VA, @CardCode, @Owner, @Make, @Model, @AxleConfiguration, @MassAccreditationLabel, @RegisteredTare, @FeeCodeID, @RegistrationExpiryDT, @PrefCustomerCode, @CreateDTTM, @Active);
-SELECT Rego, VIN, PBS_VA, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, PrefCustomerCode, CreateDTTM, Active FROM Vehicle WHERE (Rego = @Rego)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Vehicle] ([Rego], [VIN], [PBS_VA], [CardCode], [Owner], [Make], [Model], [AxleConfiguration], [MassAccreditationLabel], [RegisteredTare], [FeeCodeID], [RegistrationExpiryDT], [PrefCustomerCode], [CreateDTTM], [Active], [PrefCustomer], [IsLeadVehicle]) VALUES (@Rego, @VIN, @PBS_VA, @CardCode, @Owner, @Make, @Model, @AxleConfiguration, @MassAccreditationLabel, @RegisteredTare, @FeeCodeID, @RegistrationExpiryDT, @PrefCustomerCode, @CreateDTTM, @Active, @PrefCustomer, @IsLeadVehicle);
+SELECT Rego, VIN, PBS_VA, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, PrefCustomerCode, CreateDTTM, Active, PrefCustomer, IsLeadVehicle FROM Vehicle WHERE (Rego = @Rego)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VIN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14521,10 +14595,12 @@ SELECT Rego, VIN, PBS_VA, CardCode, Owner, Make, Model, AxleConfiguration, MassA
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrefCustomerCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrefCustomerCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Active", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrefCustomer", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrefCustomer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsLeadVehicle", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IsLeadVehicle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Vehicle] SET [Rego] = @Rego, [VIN] = @VIN, [PBS_VA] = @PBS_VA, [CardCode] = @CardCode, [Owner] = @Owner, [Make] = @Make, [Model] = @Model, [AxleConfiguration] = @AxleConfiguration, [MassAccreditationLabel] = @MassAccreditationLabel, [RegisteredTare] = @RegisteredTare, [FeeCodeID] = @FeeCodeID, [RegistrationExpiryDT] = @RegistrationExpiryDT, [PrefCustomerCode] = @PrefCustomerCode, [CreateDTTM] = @CreateDTTM, [Active] = @Active WHERE (([Rego] = @Original_Rego));
-SELECT Rego, VIN, PBS_VA, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, PrefCustomerCode, CreateDTTM, Active FROM Vehicle WHERE (Rego = @Rego)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Vehicle] SET [Rego] = @Rego, [VIN] = @VIN, [PBS_VA] = @PBS_VA, [CardCode] = @CardCode, [Owner] = @Owner, [Make] = @Make, [Model] = @Model, [AxleConfiguration] = @AxleConfiguration, [MassAccreditationLabel] = @MassAccreditationLabel, [RegisteredTare] = @RegisteredTare, [FeeCodeID] = @FeeCodeID, [RegistrationExpiryDT] = @RegistrationExpiryDT, [PrefCustomerCode] = @PrefCustomerCode, [CreateDTTM] = @CreateDTTM, [Active] = @Active, [PrefCustomer] = @PrefCustomer, [IsLeadVehicle] = @IsLeadVehicle WHERE (([Rego] = @Original_Rego));
+SELECT Rego, VIN, PBS_VA, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, PrefCustomerCode, CreateDTTM, Active, PrefCustomer, IsLeadVehicle FROM Vehicle WHERE (Rego = @Rego)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VIN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14541,6 +14617,8 @@ SELECT Rego, VIN, PBS_VA, CardCode, Owner, Make, Model, AxleConfiguration, MassA
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrefCustomerCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrefCustomerCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Active", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrefCustomer", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrefCustomer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsLeadVehicle", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IsLeadVehicle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -14557,9 +14635,9 @@ SELECT Rego, VIN, PBS_VA, CardCode, Owner, Make, Model, AxleConfiguration, MassA
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Rego, VIN, PBS_VA, CardCode, Owner, Make, Model, AxleConfiguration, MassAc" +
-                "creditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, PrefCustomerC" +
-                "ode, CreateDTTM, Active FROM Vehicle";
+            this._commandCollection[0].CommandText = @"SELECT        Rego, VIN, PBS_VA, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, PrefCustomerCode, CreateDTTM, Active, PrefCustomer, 
+                         IsLeadVehicle
+FROM            Vehicle";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;

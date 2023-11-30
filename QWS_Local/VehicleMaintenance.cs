@@ -234,6 +234,7 @@ namespace QWS_Local
                 string myAxleConfig = axleConfigurationSearch._AxleConfigurationRow.AxleConfiguration;
                 txtAxleConfig.Text = myAxleConfig;
                 CurrentVehicle().AxleConfiguration = myAxleConfig;
+                CurrentVehicle().IsLeadVehicle = axleConfigurationSearch._AxleConfigurationRow.IsLeadVehicle; // set/sync
                 this.axleConfigurationTableAdapter.FillBy(dsQWSLocal.AxleConfiguration,myAxleConfig); // WHY - for the picture!
             }
         }
@@ -277,11 +278,12 @@ namespace QWS_Local
             // TODO refactor BusinessSearch and PrefCustomerSearch to just return found BP
             try
             {
-                BusinessSearch businessSearch = new BusinessSearch(txtOwner.Text);
+                BusinessSearch businessSearch = new BusinessSearch(txtPrefCustName.Text);
                 DialogResult dr = businessSearch.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
                     CurrentVehicle().PrefCustomerCode = businessSearch.SAPCode;
+                    CurrentVehicle().PrefCustomer = businessSearch.BusinessName;
                     vehicleBindingSource.EndEdit();
                     txtJurisdiction.Focus();
                 }
