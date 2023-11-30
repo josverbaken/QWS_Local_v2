@@ -110,7 +110,7 @@ namespace QWS_Local
             // btnSearch
             // 
             this.btnSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnSearch.Image = global::QWS_Local.Properties.Resources.Search_2;
+            this.btnSearch.Image = global::QWS_Local.Properties.Resources.Search_1;
             this.btnSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(41, 36);

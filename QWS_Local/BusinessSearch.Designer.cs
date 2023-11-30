@@ -360,7 +360,7 @@ namespace QWS_Local
             // btnSearchByCode
             // 
             this.btnSearchByCode.BackColor = System.Drawing.Color.LemonChiffon;
-            this.btnSearchByCode.Image = global::QWS_Local.Properties.Resources.Search_2;
+            this.btnSearchByCode.Image = global::QWS_Local.Properties.Resources.Search_1;
             this.btnSearchByCode.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSearchByCode.Name = "btnSearchByCode";
             this.btnSearchByCode.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
