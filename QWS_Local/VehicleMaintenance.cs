@@ -329,14 +329,6 @@ namespace QWS_Local
             txtRegoSelectAll();
         }
 
-        private void TruckConfiguration(string Truck, string Trailer, string SAPCode, string Mode)
-        {
-            TruckConfiguration truckConfiguration = new TruckConfiguration(Truck);
-            truckConfiguration.MdiParent = this.MdiParent;
-           
-            truckConfiguration.Show();
-        }
-
         private void txtRegoExpiryDT_Click(object sender, EventArgs e)
         {
             txtRegoExpiryDTSelectAll();
@@ -467,8 +459,8 @@ namespace QWS_Local
         }
 
         private void Go2GVMConfiguration()
-        {     
-                TruckConfiguration truckConfiguration = new TruckConfiguration(CurrentVehicle().Rego);
+        {
+            TruckConfiguration truckConfiguration = new TruckConfiguration(CurrentVehicle().Rego, CurrentVehicle().CardCode);
                 truckConfiguration.MdiParent = this.MdiParent;
                 truckConfiguration.Show();
         }

@@ -12,40 +12,25 @@ namespace QWS_Local
 {
     public partial class TruckConfiguration : Form
     {
-        private string mySAPCode;
-        public string SAPCode
-        {
-            get { return mySAPCode; }
-        }
+        private string myRego;
+        private string myCardCode;
         public TruckConfiguration()
         {
             InitializeComponent();
         }
 
-        public TruckConfiguration(string Truck, string Trailer, string SAPCode, string Mode)
+        public TruckConfiguration(string Rego, string CardCode)
         {
             InitializeComponent();
-            //LoadTruckConfig(Rego, SAPCode);
-            // TODO use MODE
-            string TruckOwnerCode = SAPCode;
-            string myMode = Mode;
-        }
-
-        public TruckConfiguration(string Rego, string SAPCode, string Mode)
-        {
-            InitializeComponent();
-            //LoadTruckConfig(Rego, SAPCode);
-            // TODO use MODE
-        }
-        public TruckConfiguration(string Rego)
-        {
-            InitializeComponent();
-            LoadTruckConfig(Rego);
+            myRego = Rego;
+            myCardCode = CardCode;
+            //LoadTruckConfig(Rego);
         }
 
         private void TruckConfiguration_Load(object sender, EventArgs e)
         {
-            // nothing yet
+            this.taVehicle.FillByCardCode(this.dsQWSLocal.Vehicle,myCardCode);
+            this.taVehicleDetails.FillBy(this.dsQWSLocal.VehicleDetails,myRego);
         }
 
         private void LoadTruckConfig(string Rego)
@@ -60,6 +45,7 @@ namespace QWS_Local
         private void button1_Click_1(object sender, EventArgs e)
         {
             MessageBox.Show("Hello - blank form, start afresh!");
+            this.bsVehicleDetails.Filter = "";
         }
     }
 }
