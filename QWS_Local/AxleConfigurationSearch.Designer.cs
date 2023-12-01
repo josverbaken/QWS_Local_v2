@@ -31,6 +31,7 @@ namespace QWS_Local
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AxleConfigurationSearch));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.axleConfigurationDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,11 +45,11 @@ namespace QWS_Local
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnLoad = new System.Windows.Forms.ToolStripButton();
             this.btnClear = new System.Windows.Forms.ToolStripButton();
             this.btnClearFilter = new System.Windows.Forms.ToolStripButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.axleConfigurationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehicleTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.axlesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,8 +68,8 @@ namespace QWS_Local
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -170,11 +171,17 @@ namespace QWS_Local
             this.tableAdapterManager.AxleConfigurationTableAdapter = this.axleConfigurationTableAdapter;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.NHVLTableAdapter = null;
+            this.tableAdapterManager.PBS_ConfigSchemeTableAdapter = null;
             this.tableAdapterManager.PBS_ConfigTableAdapter = null;
             this.tableAdapterManager.PBSTableAdapter = null;
+            this.tableAdapterManager.SchemeCodesTableAdapter = null;
             this.tableAdapterManager.TruckConfigTableAdapter = null;
+            this.tableAdapterManager.TruckConfigVehicleTableAdapter = null;
+            this.tableAdapterManager.TrucksInQuarryTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager.VehicleTableAdapter = null;
+            this.tableAdapterManager.VehicleTypeTableAdapter = null;
             // 
             // tabControl1
             // 
@@ -210,6 +217,29 @@ namespace QWS_Local
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.axleConfigurationDataGridViewTextBoxColumn,
+            this.vehicleTypeDataGridViewTextBoxColumn,
+            this.axlesDataGridViewTextBoxColumn,
+            this.axleGroupsDataGridViewTextBoxColumn,
+            this.compartmentsDataGridViewTextBoxColumn,
+            this.vehicleDescriptionDataGridViewTextBoxColumn,
+            this.schematicDataGridViewImageColumn});
+            this.dataGridView1.DataSource = this.axleConfigurationBindingSource;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 28);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Height = 150;
+            this.dataGridView1.Size = new System.Drawing.Size(1227, 561);
+            this.dataGridView1.TabIndex = 2;
             // 
             // toolStrip1
             // 
@@ -253,41 +283,21 @@ namespace QWS_Local
             this.btnClearFilter.Text = "Clear Filter";
             this.btnClearFilter.Click += new System.EventHandler(this.btnClearFilter_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.axleConfigurationDataGridViewTextBoxColumn,
-            this.vehicleTypeDataGridViewTextBoxColumn,
-            this.axlesDataGridViewTextBoxColumn,
-            this.axleGroupsDataGridViewTextBoxColumn,
-            this.compartmentsDataGridViewTextBoxColumn,
-            this.vehicleDescriptionDataGridViewTextBoxColumn,
-            this.schematicDataGridViewImageColumn});
-            this.dataGridView1.DataSource = this.axleConfigurationBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 28);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1227, 561);
-            this.dataGridView1.TabIndex = 2;
-            // 
             // axleConfigurationDataGridViewTextBoxColumn
             // 
             this.axleConfigurationDataGridViewTextBoxColumn.DataPropertyName = "AxleConfiguration";
-            this.axleConfigurationDataGridViewTextBoxColumn.HeaderText = "AxleConfiguration";
+            this.axleConfigurationDataGridViewTextBoxColumn.HeaderText = "Config";
             this.axleConfigurationDataGridViewTextBoxColumn.Name = "axleConfigurationDataGridViewTextBoxColumn";
             this.axleConfigurationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.axleConfigurationDataGridViewTextBoxColumn.Width = 70;
             // 
             // vehicleTypeDataGridViewTextBoxColumn
             // 
             this.vehicleTypeDataGridViewTextBoxColumn.DataPropertyName = "VehicleType";
-            this.vehicleTypeDataGridViewTextBoxColumn.HeaderText = "VehicleType";
+            this.vehicleTypeDataGridViewTextBoxColumn.HeaderText = "Type";
             this.vehicleTypeDataGridViewTextBoxColumn.Name = "vehicleTypeDataGridViewTextBoxColumn";
             this.vehicleTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vehicleTypeDataGridViewTextBoxColumn.Width = 70;
             // 
             // axlesDataGridViewTextBoxColumn
             // 
@@ -295,13 +305,15 @@ namespace QWS_Local
             this.axlesDataGridViewTextBoxColumn.HeaderText = "Axles";
             this.axlesDataGridViewTextBoxColumn.Name = "axlesDataGridViewTextBoxColumn";
             this.axlesDataGridViewTextBoxColumn.ReadOnly = true;
+            this.axlesDataGridViewTextBoxColumn.Width = 70;
             // 
             // axleGroupsDataGridViewTextBoxColumn
             // 
             this.axleGroupsDataGridViewTextBoxColumn.DataPropertyName = "AxleGroups";
-            this.axleGroupsDataGridViewTextBoxColumn.HeaderText = "AxleGroups";
+            this.axleGroupsDataGridViewTextBoxColumn.HeaderText = "Groups";
             this.axleGroupsDataGridViewTextBoxColumn.Name = "axleGroupsDataGridViewTextBoxColumn";
             this.axleGroupsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.axleGroupsDataGridViewTextBoxColumn.Width = 70;
             // 
             // compartmentsDataGridViewTextBoxColumn
             // 
@@ -309,13 +321,17 @@ namespace QWS_Local
             this.compartmentsDataGridViewTextBoxColumn.HeaderText = "Compartments";
             this.compartmentsDataGridViewTextBoxColumn.Name = "compartmentsDataGridViewTextBoxColumn";
             this.compartmentsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.compartmentsDataGridViewTextBoxColumn.Width = 120;
             // 
             // vehicleDescriptionDataGridViewTextBoxColumn
             // 
             this.vehicleDescriptionDataGridViewTextBoxColumn.DataPropertyName = "VehicleDescription";
-            this.vehicleDescriptionDataGridViewTextBoxColumn.HeaderText = "VehicleDescription";
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.vehicleDescriptionDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.vehicleDescriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.vehicleDescriptionDataGridViewTextBoxColumn.Name = "vehicleDescriptionDataGridViewTextBoxColumn";
             this.vehicleDescriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vehicleDescriptionDataGridViewTextBoxColumn.Width = 250;
             // 
             // schematicDataGridViewImageColumn
             // 
@@ -323,6 +339,7 @@ namespace QWS_Local
             this.schematicDataGridViewImageColumn.HeaderText = "Schematic";
             this.schematicDataGridViewImageColumn.Name = "schematicDataGridViewImageColumn";
             this.schematicDataGridViewImageColumn.ReadOnly = true;
+            this.schematicDataGridViewImageColumn.Width = 450;
             // 
             // AxleConfigurationSearch
             // 
@@ -347,9 +364,9 @@ namespace QWS_Local
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
