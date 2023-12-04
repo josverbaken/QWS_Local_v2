@@ -45,7 +45,14 @@ namespace QWS_Local
         private void button1_Click_1(object sender, EventArgs e)
         {
             MessageBox.Show("Hello - blank form, start afresh!");
-            this.bsVehicleDetails.Filter = "";
+            if (checkBox1.Checked)
+            {
+                this.bsVehicle.Filter = "IsLeadVehicle = 1";
+            }
+            else
+            {
+                this.bsVehicle.Filter = "IsLeadVehicle = 0";
+            }
         }
     }
 }
