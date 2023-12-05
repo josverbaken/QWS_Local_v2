@@ -24,34 +24,84 @@ namespace QWS_Local
             InitializeComponent();
             myRego = Rego;
             myCardCode = CardCode;
-            //LoadTruckConfig(Rego);
         }
 
         private void TruckConfiguration_Load(object sender, EventArgs e)
         {
             this.taVehicle.FillByCardCode(this.dsQWSLocal.Vehicle,myCardCode);
             this.taVehicleDetails.FillBy(this.dsQWSLocal.VehicleDetails,myRego);
-        }
-
-        private void LoadTruckConfig(string Rego)
-        {
-            //Rego = "ABC123";
-            //MessageBox.Show("Loading config for {0}.", Rego);
-            MessageBox.Show("Loading config for " + Rego );
-        }
-
-
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            MessageBox.Show("Hello - blank form, start afresh!");
-            if (checkBox1.Checked)
+            LoadTruckConfigVehicleList(myRego);
+            if (CurrentVehicleDetails().IsLeadVehicle)
             {
-                this.bsVehicle.Filter = "IsLeadVehicle = 1";
+                // show trailers
+                this.bsVehicle.Filter = "IsLeadVehicle = 0 and AxleConfiguration not like 'tba'";
             }
             else
             {
-                this.bsVehicle.Filter = "IsLeadVehicle = 0";
+                // show truck or prime mover
+                this.bsVehicle.Filter = "IsLeadVehicle = 1";
+            }
+        }
+
+        private void LoadTruckConfigVehicleList(string Rego)
+        {
+            this.taTruckConfigVehicleList.Fill(dsTruckConfig.TruckConfigVehicleList, Rego);
+        }
+
+        private dsQWSLocal.VehicleDetailsRow CurrentVehicleDetails()
+        {
+            try
+            {
+
+                DataRow myDR = ((DataRowView)bsVehicleDetails.Current).Row;
+                dsQWSLocal.VehicleDetailsRow vehicleRow = (dsQWSLocal.VehicleDetailsRow)myDR;
+                return vehicleRow;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
+        private void LoadTruckConfigDetails(int TruckConfigID)
+        {
+            try
+            {
+                this.taTruckConfigDetails.Fill(this.dsTruckConfig.TruckConfigDetails, TruckConfigID);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void btnFindVehicle_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("To find vehicle with rego :" + txtRego.Text);
+        }
+
+        private void bsTruckConfigVehicleList_CurrentChanged(object sender, EventArgs e)
+        {
+            int myTruckConfigID = CurrentVehicleDetailsList().TruckConfigID;
+
+            LoadTruckConfigDetails(myTruckConfigID);
+        }
+
+        private dsTruckConfig.TruckConfigVehicleListRow CurrentVehicleDetailsList()
+        {
+            try
+            {
+
+                DataRow myDR = ((DataRowView)bsTruckConfigVehicleList.Current).Row;
+                dsTruckConfig.TruckConfigVehicleListRow vehicleRow = (dsTruckConfig.TruckConfigVehicleListRow)myDR;
+                return vehicleRow;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
             }
         }
     }
