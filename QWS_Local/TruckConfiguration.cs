@@ -84,9 +84,19 @@ namespace QWS_Local
 
         private void bsTruckConfigVehicleList_CurrentChanged(object sender, EventArgs e)
         {
-            int myTruckConfigID = CurrentVehicleDetailsList().TruckConfigID;
+            try
+            {
+                if (bsTruckConfigVehicleList.Count > 0)
+                {
+                    int myTruckConfigID = CurrentVehicleDetailsList().TruckConfigID;
 
-            LoadTruckConfigDetails(myTruckConfigID);
+                    LoadTruckConfigDetails(myTruckConfigID);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Current Changed Error");
+            }
         }
 
         private dsTruckConfig.TruckConfigVehicleListRow CurrentVehicleDetailsList()
@@ -103,6 +113,26 @@ namespace QWS_Local
                 MessageBox.Show(ex.Message);
                 return null;
             }
+        }
+
+        private void btnAddVehicle2Config_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Will add selected vehicle as new truck config.");
+        }
+
+        private void btnShowAllConfig_Click(object sender, EventArgs e)
+        {
+            this.taTruckConfigVehicleList.FillBy(dsTruckConfig.TruckConfigVehicleList, myCardCode);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.taTruckConfigVehicleList.Fill(dsTruckConfig.TruckConfigVehicleList, myRego);
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
