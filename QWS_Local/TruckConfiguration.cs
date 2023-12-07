@@ -81,7 +81,9 @@ namespace QWS_Local
             msg += " ";
             msg += CurrentVehicle().Rego;
             MessageBox.Show(msg);
+            GetNHVLID(CurrentVehicle().AxleConfiguration);
         }
+
 
         private void btnShowAllConfig_Click(object sender, EventArgs e)
         {
@@ -128,9 +130,19 @@ namespace QWS_Local
             }
         }
 
-        private void label5_Click(object sender, EventArgs e)
+     
+        private void GetNHVLID(string AxleConfig)
         {
-
+            NHVR_GVM_Search frmSearch = new NHVR_GVM_Search();// (AxleConfig);
+            DialogResult dr = frmSearch.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                MessageBox.Show("Got NHVL code!");
+            }
+            else
+            {
+                MessageBox.Show("NHVL code not available yet.");
+            }
         }
     }
 }

@@ -28,7 +28,8 @@ namespace QWS_Local
         private void NHVR_GVM_Search_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dsQWSLocal.NHVR_GVM' table. You can move, or remove it, as needed.
-            //this.nHVR_GVMTableAdapter.Fill(this.dsQWSLocal.NHVR_GVM);
+           int iCount = this.nHVR_GVMTableAdapter.Fill(this.dsQWSLocal.NHVL);
+            iCount += 1;
 
         }
 

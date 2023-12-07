@@ -303,7 +303,7 @@ namespace QWS_Local
             // 
             // nHVRGVMBindingSource
             // 
-            this.nHVRGVMBindingSource.DataMember = "NHVR_GVM";
+            this.nHVRGVMBindingSource.DataMember = "NHVL";
             this.nHVRGVMBindingSource.DataSource = this.dsQWSLocal;
             // 
             // dsQWSLocal
