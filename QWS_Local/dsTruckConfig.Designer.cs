@@ -34,6 +34,8 @@ namespace QWS_Local {
         
         private TruckConfigVehicleListDataTable tableTruckConfigVehicleList;
         
+        private TruckConfigByOwnerDataTable tableTruckConfigByOwner;
+        
         private global::System.Data.DataRelation relationTruck2Trailer;
         
         private global::System.Data.DataRelation relationTruckConfigVehicleList_TruckConfigDetails;
@@ -80,6 +82,9 @@ namespace QWS_Local {
                 }
                 if ((ds.Tables["TruckConfigVehicleList"] != null)) {
                     base.Tables.Add(new TruckConfigVehicleListDataTable(ds.Tables["TruckConfigVehicleList"]));
+                }
+                if ((ds.Tables["TruckConfigByOwner"] != null)) {
+                    base.Tables.Add(new TruckConfigByOwnerDataTable(ds.Tables["TruckConfigByOwner"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -146,6 +151,16 @@ namespace QWS_Local {
         public TruckConfigVehicleListDataTable TruckConfigVehicleList {
             get {
                 return this.tableTruckConfigVehicleList;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public TruckConfigByOwnerDataTable TruckConfigByOwner {
+            get {
+                return this.tableTruckConfigByOwner;
             }
         }
         
@@ -231,6 +246,9 @@ namespace QWS_Local {
                 if ((ds.Tables["TruckConfigVehicleList"] != null)) {
                     base.Tables.Add(new TruckConfigVehicleListDataTable(ds.Tables["TruckConfigVehicleList"]));
                 }
+                if ((ds.Tables["TruckConfigByOwner"] != null)) {
+                    base.Tables.Add(new TruckConfigByOwnerDataTable(ds.Tables["TruckConfigByOwner"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -294,6 +312,12 @@ namespace QWS_Local {
                     this.tableTruckConfigVehicleList.InitVars();
                 }
             }
+            this.tableTruckConfigByOwner = ((TruckConfigByOwnerDataTable)(base.Tables["TruckConfigByOwner"]));
+            if ((initTable == true)) {
+                if ((this.tableTruckConfigByOwner != null)) {
+                    this.tableTruckConfigByOwner.InitVars();
+                }
+            }
             this.relationTruck2Trailer = this.Relations["Truck2Trailer"];
             this.relationTruckConfigVehicleList_TruckConfigDetails = this.Relations["TruckConfigVehicleList_TruckConfigDetails"];
         }
@@ -316,6 +340,8 @@ namespace QWS_Local {
             base.Tables.Add(this.tableTruckConfigDetails);
             this.tableTruckConfigVehicleList = new TruckConfigVehicleListDataTable();
             base.Tables.Add(this.tableTruckConfigVehicleList);
+            this.tableTruckConfigByOwner = new TruckConfigByOwnerDataTable();
+            base.Tables.Add(this.tableTruckConfigByOwner);
             this.relationTruck2Trailer = new global::System.Data.DataRelation("Truck2Trailer", new global::System.Data.DataColumn[] {
                         this.tableTruckConfigTruck.TruckConfigIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTruckConfigTrailer.TruckConfigIDColumn}, false);
@@ -353,6 +379,12 @@ namespace QWS_Local {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeTruckConfigVehicleList() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeTruckConfigByOwner() {
             return false;
         }
         
@@ -425,6 +457,9 @@ namespace QWS_Local {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void TruckConfigVehicleListRowChangeEventHandler(object sender, TruckConfigVehicleListRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void TruckConfigByOwnerRowChangeEventHandler(object sender, TruckConfigByOwnerRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2390,6 +2425,489 @@ namespace QWS_Local {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class TruckConfigByOwnerDataTable : global::System.Data.TypedTableBase<TruckConfigByOwnerRow> {
+            
+            private global::System.Data.DataColumn columnTruckConfigID;
+            
+            private global::System.Data.DataColumn columnCardCode;
+            
+            private global::System.Data.DataColumn columnOwner;
+            
+            private global::System.Data.DataColumn columnPrefCustomerCode;
+            
+            private global::System.Data.DataColumn columnPrefCustomer;
+            
+            private global::System.Data.DataColumn columnTruck;
+            
+            private global::System.Data.DataColumn columnTrailer;
+            
+            private global::System.Data.DataColumn columnAxleConfiguration;
+            
+            private global::System.Data.DataColumn columnSchemeCode;
+            
+            private global::System.Data.DataColumn columnScheme;
+            
+            private global::System.Data.DataColumn columnGCM;
+            
+            private global::System.Data.DataColumn columnGVMTruck;
+            
+            private global::System.Data.DataColumn columnTare;
+            
+            private global::System.Data.DataColumn columnTareTk;
+            
+            private global::System.Data.DataColumn columnTareDT;
+            
+            private global::System.Data.DataColumn columnSchematic;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public TruckConfigByOwnerDataTable() {
+                this.TableName = "TruckConfigByOwner";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal TruckConfigByOwnerDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected TruckConfigByOwnerDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TruckConfigIDColumn {
+                get {
+                    return this.columnTruckConfigID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CardCodeColumn {
+                get {
+                    return this.columnCardCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn OwnerColumn {
+                get {
+                    return this.columnOwner;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PrefCustomerCodeColumn {
+                get {
+                    return this.columnPrefCustomerCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PrefCustomerColumn {
+                get {
+                    return this.columnPrefCustomer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TruckColumn {
+                get {
+                    return this.columnTruck;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TrailerColumn {
+                get {
+                    return this.columnTrailer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AxleConfigurationColumn {
+                get {
+                    return this.columnAxleConfiguration;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SchemeCodeColumn {
+                get {
+                    return this.columnSchemeCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SchemeColumn {
+                get {
+                    return this.columnScheme;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn GCMColumn {
+                get {
+                    return this.columnGCM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn GVMTruckColumn {
+                get {
+                    return this.columnGVMTruck;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TareColumn {
+                get {
+                    return this.columnTare;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TareTkColumn {
+                get {
+                    return this.columnTareTk;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TareDTColumn {
+                get {
+                    return this.columnTareDT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SchematicColumn {
+                get {
+                    return this.columnSchematic;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public TruckConfigByOwnerRow this[int index] {
+                get {
+                    return ((TruckConfigByOwnerRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event TruckConfigByOwnerRowChangeEventHandler TruckConfigByOwnerRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event TruckConfigByOwnerRowChangeEventHandler TruckConfigByOwnerRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event TruckConfigByOwnerRowChangeEventHandler TruckConfigByOwnerRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event TruckConfigByOwnerRowChangeEventHandler TruckConfigByOwnerRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddTruckConfigByOwnerRow(TruckConfigByOwnerRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public TruckConfigByOwnerRow AddTruckConfigByOwnerRow(string CardCode, string Owner, string PrefCustomerCode, string PrefCustomer, string Truck, string Trailer, string AxleConfiguration, string SchemeCode, string Scheme, decimal GCM, decimal GVMTruck, decimal Tare, decimal TareTk, System.DateTime TareDT, byte[] Schematic) {
+                TruckConfigByOwnerRow rowTruckConfigByOwnerRow = ((TruckConfigByOwnerRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        CardCode,
+                        Owner,
+                        PrefCustomerCode,
+                        PrefCustomer,
+                        Truck,
+                        Trailer,
+                        AxleConfiguration,
+                        SchemeCode,
+                        Scheme,
+                        GCM,
+                        GVMTruck,
+                        Tare,
+                        TareTk,
+                        TareDT,
+                        Schematic};
+                rowTruckConfigByOwnerRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowTruckConfigByOwnerRow);
+                return rowTruckConfigByOwnerRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                TruckConfigByOwnerDataTable cln = ((TruckConfigByOwnerDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new TruckConfigByOwnerDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnTruckConfigID = base.Columns["TruckConfigID"];
+                this.columnCardCode = base.Columns["CardCode"];
+                this.columnOwner = base.Columns["Owner"];
+                this.columnPrefCustomerCode = base.Columns["PrefCustomerCode"];
+                this.columnPrefCustomer = base.Columns["PrefCustomer"];
+                this.columnTruck = base.Columns["Truck"];
+                this.columnTrailer = base.Columns["Trailer"];
+                this.columnAxleConfiguration = base.Columns["AxleConfiguration"];
+                this.columnSchemeCode = base.Columns["SchemeCode"];
+                this.columnScheme = base.Columns["Scheme"];
+                this.columnGCM = base.Columns["GCM"];
+                this.columnGVMTruck = base.Columns["GVMTruck"];
+                this.columnTare = base.Columns["Tare"];
+                this.columnTareTk = base.Columns["TareTk"];
+                this.columnTareDT = base.Columns["TareDT"];
+                this.columnSchematic = base.Columns["Schematic"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnTruckConfigID = new global::System.Data.DataColumn("TruckConfigID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTruckConfigID);
+                this.columnCardCode = new global::System.Data.DataColumn("CardCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCardCode);
+                this.columnOwner = new global::System.Data.DataColumn("Owner", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOwner);
+                this.columnPrefCustomerCode = new global::System.Data.DataColumn("PrefCustomerCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrefCustomerCode);
+                this.columnPrefCustomer = new global::System.Data.DataColumn("PrefCustomer", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrefCustomer);
+                this.columnTruck = new global::System.Data.DataColumn("Truck", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTruck);
+                this.columnTrailer = new global::System.Data.DataColumn("Trailer", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTrailer);
+                this.columnAxleConfiguration = new global::System.Data.DataColumn("AxleConfiguration", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAxleConfiguration);
+                this.columnSchemeCode = new global::System.Data.DataColumn("SchemeCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSchemeCode);
+                this.columnScheme = new global::System.Data.DataColumn("Scheme", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnScheme);
+                this.columnGCM = new global::System.Data.DataColumn("GCM", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGCM);
+                this.columnGVMTruck = new global::System.Data.DataColumn("GVMTruck", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGVMTruck);
+                this.columnTare = new global::System.Data.DataColumn("Tare", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTare);
+                this.columnTareTk = new global::System.Data.DataColumn("TareTk", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTareTk);
+                this.columnTareDT = new global::System.Data.DataColumn("TareDT", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTareDT);
+                this.columnSchematic = new global::System.Data.DataColumn("Schematic", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSchematic);
+                this.columnTruckConfigID.AutoIncrement = true;
+                this.columnTruckConfigID.AutoIncrementSeed = -1;
+                this.columnTruckConfigID.AutoIncrementStep = -1;
+                this.columnTruckConfigID.AllowDBNull = false;
+                this.columnTruckConfigID.ReadOnly = true;
+                this.columnCardCode.AllowDBNull = false;
+                this.columnCardCode.MaxLength = 15;
+                this.columnOwner.AllowDBNull = false;
+                this.columnOwner.MaxLength = 100;
+                this.columnPrefCustomerCode.AllowDBNull = false;
+                this.columnPrefCustomerCode.MaxLength = 15;
+                this.columnPrefCustomer.AllowDBNull = false;
+                this.columnPrefCustomer.MaxLength = 100;
+                this.columnTruck.AllowDBNull = false;
+                this.columnTruck.MaxLength = 6;
+                this.columnTrailer.ReadOnly = true;
+                this.columnTrailer.MaxLength = 20;
+                this.columnAxleConfiguration.AllowDBNull = false;
+                this.columnAxleConfiguration.MaxLength = 50;
+                this.columnSchemeCode.AllowDBNull = false;
+                this.columnSchemeCode.MaxLength = 10;
+                this.columnScheme.AllowDBNull = false;
+                this.columnScheme.MaxLength = 50;
+                this.columnGCM.AllowDBNull = false;
+                this.columnGVMTruck.AllowDBNull = false;
+                this.columnTareTk.ReadOnly = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public TruckConfigByOwnerRow NewTruckConfigByOwnerRow() {
+                return ((TruckConfigByOwnerRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new TruckConfigByOwnerRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(TruckConfigByOwnerRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.TruckConfigByOwnerRowChanged != null)) {
+                    this.TruckConfigByOwnerRowChanged(this, new TruckConfigByOwnerRowChangeEvent(((TruckConfigByOwnerRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.TruckConfigByOwnerRowChanging != null)) {
+                    this.TruckConfigByOwnerRowChanging(this, new TruckConfigByOwnerRowChangeEvent(((TruckConfigByOwnerRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.TruckConfigByOwnerRowDeleted != null)) {
+                    this.TruckConfigByOwnerRowDeleted(this, new TruckConfigByOwnerRowChangeEvent(((TruckConfigByOwnerRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.TruckConfigByOwnerRowDeleting != null)) {
+                    this.TruckConfigByOwnerRowDeleting(this, new TruckConfigByOwnerRowChangeEvent(((TruckConfigByOwnerRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveTruckConfigByOwnerRow(TruckConfigByOwnerRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsTruckConfig ds = new dsTruckConfig();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "TruckConfigByOwnerDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class TruckConfigTrailerRow : global::System.Data.DataRow {
@@ -3425,6 +3943,282 @@ namespace QWS_Local {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class TruckConfigByOwnerRow : global::System.Data.DataRow {
+            
+            private TruckConfigByOwnerDataTable tableTruckConfigByOwner;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal TruckConfigByOwnerRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableTruckConfigByOwner = ((TruckConfigByOwnerDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int TruckConfigID {
+                get {
+                    return ((int)(this[this.tableTruckConfigByOwner.TruckConfigIDColumn]));
+                }
+                set {
+                    this[this.tableTruckConfigByOwner.TruckConfigIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CardCode {
+                get {
+                    return ((string)(this[this.tableTruckConfigByOwner.CardCodeColumn]));
+                }
+                set {
+                    this[this.tableTruckConfigByOwner.CardCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Owner {
+                get {
+                    return ((string)(this[this.tableTruckConfigByOwner.OwnerColumn]));
+                }
+                set {
+                    this[this.tableTruckConfigByOwner.OwnerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string PrefCustomerCode {
+                get {
+                    return ((string)(this[this.tableTruckConfigByOwner.PrefCustomerCodeColumn]));
+                }
+                set {
+                    this[this.tableTruckConfigByOwner.PrefCustomerCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string PrefCustomer {
+                get {
+                    return ((string)(this[this.tableTruckConfigByOwner.PrefCustomerColumn]));
+                }
+                set {
+                    this[this.tableTruckConfigByOwner.PrefCustomerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Truck {
+                get {
+                    return ((string)(this[this.tableTruckConfigByOwner.TruckColumn]));
+                }
+                set {
+                    this[this.tableTruckConfigByOwner.TruckColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Trailer {
+                get {
+                    try {
+                        return ((string)(this[this.tableTruckConfigByOwner.TrailerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Trailer\' in table \'TruckConfigByOwner\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTruckConfigByOwner.TrailerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AxleConfiguration {
+                get {
+                    return ((string)(this[this.tableTruckConfigByOwner.AxleConfigurationColumn]));
+                }
+                set {
+                    this[this.tableTruckConfigByOwner.AxleConfigurationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string SchemeCode {
+                get {
+                    return ((string)(this[this.tableTruckConfigByOwner.SchemeCodeColumn]));
+                }
+                set {
+                    this[this.tableTruckConfigByOwner.SchemeCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Scheme {
+                get {
+                    return ((string)(this[this.tableTruckConfigByOwner.SchemeColumn]));
+                }
+                set {
+                    this[this.tableTruckConfigByOwner.SchemeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal GCM {
+                get {
+                    return ((decimal)(this[this.tableTruckConfigByOwner.GCMColumn]));
+                }
+                set {
+                    this[this.tableTruckConfigByOwner.GCMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal GVMTruck {
+                get {
+                    return ((decimal)(this[this.tableTruckConfigByOwner.GVMTruckColumn]));
+                }
+                set {
+                    this[this.tableTruckConfigByOwner.GVMTruckColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal Tare {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTruckConfigByOwner.TareColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Tare\' in table \'TruckConfigByOwner\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTruckConfigByOwner.TareColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal TareTk {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTruckConfigByOwner.TareTkColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TareTk\' in table \'TruckConfigByOwner\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTruckConfigByOwner.TareTkColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime TareDT {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableTruckConfigByOwner.TareDTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TareDT\' in table \'TruckConfigByOwner\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTruckConfigByOwner.TareDTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public byte[] Schematic {
+                get {
+                    try {
+                        return ((byte[])(this[this.tableTruckConfigByOwner.SchematicColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Schematic\' in table \'TruckConfigByOwner\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTruckConfigByOwner.SchematicColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTrailerNull() {
+                return this.IsNull(this.tableTruckConfigByOwner.TrailerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTrailerNull() {
+                this[this.tableTruckConfigByOwner.TrailerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTareNull() {
+                return this.IsNull(this.tableTruckConfigByOwner.TareColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTareNull() {
+                this[this.tableTruckConfigByOwner.TareColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTareTkNull() {
+                return this.IsNull(this.tableTruckConfigByOwner.TareTkColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTareTkNull() {
+                this[this.tableTruckConfigByOwner.TareTkColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTareDTNull() {
+                return this.IsNull(this.tableTruckConfigByOwner.TareDTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTareDTNull() {
+                this[this.tableTruckConfigByOwner.TareDTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSchematicNull() {
+                return this.IsNull(this.tableTruckConfigByOwner.SchematicColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSchematicNull() {
+                this[this.tableTruckConfigByOwner.SchematicColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -3580,6 +4374,40 @@ namespace QWS_Local {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public TruckConfigVehicleListRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class TruckConfigByOwnerRowChangeEvent : global::System.EventArgs {
+            
+            private TruckConfigByOwnerRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public TruckConfigByOwnerRowChangeEvent(TruckConfigByOwnerRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public TruckConfigByOwnerRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -4647,6 +5475,202 @@ namespace QWS_Local.dsTruckConfigTableAdapters {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(CardCode));
             }
             dsTruckConfig.TruckConfigVehicleListDataTable dataTable = new dsTruckConfig.TruckConfigVehicleListDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class TruckConfigByOwnerTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public TruckConfigByOwnerTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "TruckConfigByOwner";
+            tableMapping.ColumnMappings.Add("TruckConfigID", "TruckConfigID");
+            tableMapping.ColumnMappings.Add("CardCode", "CardCode");
+            tableMapping.ColumnMappings.Add("Owner", "Owner");
+            tableMapping.ColumnMappings.Add("PrefCustomerCode", "PrefCustomerCode");
+            tableMapping.ColumnMappings.Add("PrefCustomer", "PrefCustomer");
+            tableMapping.ColumnMappings.Add("Truck", "Truck");
+            tableMapping.ColumnMappings.Add("Trailer", "Trailer");
+            tableMapping.ColumnMappings.Add("AxleConfiguration", "AxleConfiguration");
+            tableMapping.ColumnMappings.Add("SchemeCode", "SchemeCode");
+            tableMapping.ColumnMappings.Add("Scheme", "Scheme");
+            tableMapping.ColumnMappings.Add("GCM", "GCM");
+            tableMapping.ColumnMappings.Add("GVMTruck", "GVMTruck");
+            tableMapping.ColumnMappings.Add("Tare", "Tare");
+            tableMapping.ColumnMappings.Add("TareTk", "TareTk");
+            tableMapping.ColumnMappings.Add("TareDT", "TareDT");
+            tableMapping.ColumnMappings.Add("Schematic", "Schematic");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::QWS_Local.Properties.Settings.Default.cnQWSLocal;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.TruckConfigByOwner";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CardCode", global::System.Data.SqlDbType.VarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(dsTruckConfig.TruckConfigByOwnerDataTable dataTable, string CardCode) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((CardCode == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(CardCode));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual dsTruckConfig.TruckConfigByOwnerDataTable GetData(string CardCode) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((CardCode == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(CardCode));
+            }
+            dsTruckConfig.TruckConfigByOwnerDataTable dataTable = new dsTruckConfig.TruckConfigByOwnerDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

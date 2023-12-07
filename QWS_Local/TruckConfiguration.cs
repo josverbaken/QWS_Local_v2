@@ -29,6 +29,7 @@ namespace QWS_Local
         private void TruckConfiguration_Load(object sender, EventArgs e)
         {
             this.taVehicle.FillByCardCode(this.dsQWSLocal.Vehicle,myCardCode);
+            this.taTruckConfigByOwner.Fill(this.dsTruckConfig.TruckConfigByOwner, myCardCode);
             this.taVehicleDetails.FillBy(this.dsQWSLocal.VehicleDetails,myRego);
             LoadTruckConfigVehicleList(myRego);
             if (CurrentVehicleDetails().IsLeadVehicle)
@@ -122,12 +123,33 @@ namespace QWS_Local
 
         private void btnShowAllConfig_Click(object sender, EventArgs e)
         {
-            this.taTruckConfigVehicleList.FillBy(dsTruckConfig.TruckConfigVehicleList, myCardCode);
+            //this.taTruckConfigVehicleList.FillBy(dsTruckConfig.TruckConfigVehicleList, myCardCode);
+            TruckConfigFilterByRego(myRego, false);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.taTruckConfigVehicleList.Fill(dsTruckConfig.TruckConfigVehicleList, myRego);
+            //this.taTruckConfigVehicleList.Fill(dsTruckConfig.TruckConfigVehicleList, myRego);
+            TruckConfigFilterByRego(myRego, true);
+        }
+
+        private void TruckConfigFilterByRego(string Rego, bool SingleVehicle)
+        {
+            if (SingleVehicle)
+            {
+                if (CurrentVehicleDetails().IsLeadVehicle)
+                {
+                    this.bsTruckConfigByOwner.Filter = "Truck like '" + Rego + "'";
+                }
+                else
+                {
+                    this.bsTruckConfigByOwner.Filter = "Trailer like '%" + Rego + "%'";
+                }
+            }
+            else
+            {
+                this.bsTruckConfigByOwner.Filter = "";
+            }
         }
 
         private void label5_Click(object sender, EventArgs e)
