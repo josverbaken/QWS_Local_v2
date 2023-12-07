@@ -76,7 +76,11 @@ namespace QWS_Local
 
         private void btnAddVehicle2Config_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Will add selected vehicle as new truck config.");
+            string msg = "Will add selected vehicles as new truck config: ";
+            msg += myRego;
+            msg += " ";
+            msg += CurrentVehicle().Rego;
+            MessageBox.Show(msg);
         }
 
         private void btnShowAllConfig_Click(object sender, EventArgs e)
@@ -105,6 +109,22 @@ namespace QWS_Local
             else
             {
                 this.bsTruckConfigByOwner.Filter = "";
+            }
+        }
+
+        private dsQWSLocal.VehicleRow CurrentVehicle()
+        {
+            try
+            {
+
+                DataRow myDR = ((DataRowView)bsVehicle.Current).Row;
+                dsQWSLocal.VehicleRow vehicleRow = (dsQWSLocal.VehicleRow)myDR;
+                return vehicleRow;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
             }
         }
 
