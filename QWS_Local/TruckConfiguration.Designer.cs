@@ -38,6 +38,8 @@ namespace QWS_Local
             this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.txtRego = new System.Windows.Forms.TextBox();
             this.ownerTextBox = new System.Windows.Forms.TextBox();
+            this.bsTruckConfigByOwner = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.cardCodeTextBox = new System.Windows.Forms.TextBox();
             this.axleConfigurationTextBox = new System.Windows.Forms.TextBox();
             this.bsVehicle = new System.Windows.Forms.BindingSource(this.components);
@@ -52,9 +54,19 @@ namespace QWS_Local
             this.btnFindVehicle = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Truck = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Trailer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.axleConfigurationDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TareDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnAddVehicle2Config = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -80,26 +92,14 @@ namespace QWS_Local
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.bsTruckConfigDetails = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTruckConfig = new QWS_Local.dsTruckConfig();
-            this.bsTruckConfigVehicleList = new System.Windows.Forms.BindingSource(this.components);
-            this.taTruckConfigDetails = new QWS_Local.dsTruckConfigTableAdapters.TruckConfigDetailsTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
-            this.taTruckConfigVehicleList = new QWS_Local.dsTruckConfigTableAdapters.TruckConfigVehicleListTableAdapter();
-            this.bsTruckConfigByOwner = new System.Windows.Forms.BindingSource(this.components);
             this.taTruckConfigByOwner = new QWS_Local.dsTruckConfigTableAdapters.TruckConfigByOwnerTableAdapter();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.Truck = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Trailer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.axleConfigurationDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TareDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTruckConfigByOwner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -109,10 +109,6 @@ namespace QWS_Local
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTruckConfigDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTruckConfigVehicleList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTruckConfigByOwner)).BeginInit();
             this.SuspendLayout();
             // 
             // dsQWSLocal
@@ -163,6 +159,16 @@ namespace QWS_Local
             this.ownerTextBox.Name = "ownerTextBox";
             this.ownerTextBox.Size = new System.Drawing.Size(344, 20);
             this.ownerTextBox.TabIndex = 4;
+            // 
+            // bsTruckConfigByOwner
+            // 
+            this.bsTruckConfigByOwner.DataMember = "TruckConfigByOwner";
+            this.bsTruckConfigByOwner.DataSource = this.dsTruckConfig;
+            // 
+            // dsTruckConfig
+            // 
+            this.dsTruckConfig.DataSetName = "dsTruckConfig";
+            this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // cardCodeTextBox
             // 
@@ -236,7 +242,7 @@ namespace QWS_Local
             this.groupBox1.Size = new System.Drawing.Size(491, 94);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Selected Vehicle Details";
+            this.groupBox1.Text = "Selected Vehicle";
             // 
             // button1
             // 
@@ -310,6 +316,35 @@ namespace QWS_Local
             this.dataGridView2.Size = new System.Drawing.Size(466, 187);
             this.dataGridView2.TabIndex = 0;
             // 
+            // Truck
+            // 
+            this.Truck.DataPropertyName = "Truck";
+            this.Truck.HeaderText = "Truck";
+            this.Truck.Name = "Truck";
+            this.Truck.ReadOnly = true;
+            // 
+            // Trailer
+            // 
+            this.Trailer.DataPropertyName = "Trailer";
+            this.Trailer.HeaderText = "Trailer";
+            this.Trailer.Name = "Trailer";
+            this.Trailer.ReadOnly = true;
+            this.Trailer.Width = 200;
+            // 
+            // axleConfigurationDataGridViewTextBoxColumn1
+            // 
+            this.axleConfigurationDataGridViewTextBoxColumn1.DataPropertyName = "AxleConfiguration";
+            this.axleConfigurationDataGridViewTextBoxColumn1.HeaderText = "Axle Config";
+            this.axleConfigurationDataGridViewTextBoxColumn1.Name = "axleConfigurationDataGridViewTextBoxColumn1";
+            this.axleConfigurationDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // TareDT
+            // 
+            this.TareDT.DataPropertyName = "TareDT";
+            this.TareDT.HeaderText = "TareDT";
+            this.TareDT.Name = "TareDT";
+            this.TareDT.ReadOnly = true;
+            // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.Control;
@@ -336,12 +371,12 @@ namespace QWS_Local
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox4.Controls.Add(this.textBox9);
+            this.groupBox4.Controls.Add(this.textBox11);
+            this.groupBox4.Controls.Add(this.textBox10);
             this.groupBox4.Controls.Add(this.textBox8);
             this.groupBox4.Controls.Add(this.textBox7);
             this.groupBox4.Controls.Add(this.textBox6);
             this.groupBox4.Controls.Add(this.textBox5);
-            this.groupBox4.Controls.Add(this.textBox4);
             this.groupBox4.Controls.Add(this.checkBox2);
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.cardCodeTextBox);
@@ -351,7 +386,6 @@ namespace QWS_Local
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.textBox3);
             this.groupBox4.Controls.Add(this.textBox2);
@@ -364,6 +398,54 @@ namespace QWS_Local
             this.groupBox4.TabIndex = 21;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Configuration Details";
+            // 
+            // textBox9
+            // 
+            this.textBox9.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckConfigByOwner, "PrefCustomerCode", true));
+            this.textBox9.Location = new System.Drawing.Point(185, 114);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(100, 20);
+            this.textBox9.TabIndex = 35;
+            // 
+            // textBox8
+            // 
+            this.textBox8.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckConfigByOwner, "Truck", true));
+            this.textBox8.Location = new System.Drawing.Point(20, 206);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(70, 20);
+            this.textBox8.TabIndex = 34;
+            // 
+            // textBox7
+            // 
+            this.textBox7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckConfigByOwner, "Trailer", true));
+            this.textBox7.Location = new System.Drawing.Point(96, 205);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(224, 20);
+            this.textBox7.TabIndex = 33;
+            // 
+            // textBox6
+            // 
+            this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckConfigByOwner, "SchemeCode", true));
+            this.textBox6.Location = new System.Drawing.Point(89, 312);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.TabIndex = 32;
+            // 
+            // textBox5
+            // 
+            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckConfigByOwner, "GVMTruck", true));
+            this.textBox5.Location = new System.Drawing.Point(291, 255);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.TabIndex = 31;
+            // 
+            // textBox4
+            // 
+            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckConfigByOwner, "PrefCustomer", true));
+            this.textBox4.Location = new System.Drawing.Point(185, 140);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(179, 20);
+            this.textBox4.TabIndex = 30;
             // 
             // checkBox2
             // 
@@ -433,7 +515,7 @@ namespace QWS_Local
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(210, 315);
+            this.label4.Location = new System.Drawing.Point(189, 78);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 13);
             this.label4.TabIndex = 23;
@@ -493,16 +575,19 @@ namespace QWS_Local
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox5.Controls.Add(this.textBox9);
             this.groupBox5.Controls.Add(this.button9);
             this.groupBox5.Controls.Add(this.button4);
             this.groupBox5.Controls.Add(this.button3);
             this.groupBox5.Controls.Add(this.button2);
             this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.textBox4);
             this.groupBox5.Controls.Add(this.label1);
             this.groupBox5.Controls.Add(this.button5);
             this.groupBox5.Controls.Add(this.button6);
             this.groupBox5.Controls.Add(this.button7);
             this.groupBox5.Controls.Add(this.button8);
+            this.groupBox5.Controls.Add(this.label4);
             this.groupBox5.Location = new System.Drawing.Point(541, 391);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(491, 269);
@@ -610,121 +695,31 @@ namespace QWS_Local
             this.button8.Text = "Ex Bin";
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // bsTruckConfigDetails
-            // 
-            this.bsTruckConfigDetails.DataMember = "TruckConfigDetails";
-            this.bsTruckConfigDetails.DataSource = this.dsTruckConfig;
-            // 
-            // dsTruckConfig
-            // 
-            this.dsTruckConfig.DataSetName = "dsTruckConfig";
-            this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bsTruckConfigVehicleList
-            // 
-            this.bsTruckConfigVehicleList.DataMember = "TruckConfigVehicleList";
-            this.bsTruckConfigVehicleList.DataSource = this.dsTruckConfig;
-            this.bsTruckConfigVehicleList.CurrentChanged += new System.EventHandler(this.bsTruckConfigVehicleList_CurrentChanged);
-            // 
-            // taTruckConfigDetails
-            // 
-            this.taTruckConfigDetails.ClearBeforeFill = true;
-            // 
             // tableAdapterManager1
             // 
             this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager1.Connection = null;
             this.tableAdapterManager1.UpdateOrder = QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // taTruckConfigVehicleList
-            // 
-            this.taTruckConfigVehicleList.ClearBeforeFill = true;
-            // 
-            // bsTruckConfigByOwner
-            // 
-            this.bsTruckConfigByOwner.DataMember = "TruckConfigByOwner";
-            this.bsTruckConfigByOwner.DataSource = this.dsTruckConfig;
-            // 
             // taTruckConfigByOwner
             // 
             this.taTruckConfigByOwner.ClearBeforeFill = true;
             // 
-            // textBox4
+            // textBox10
             // 
-            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckConfigByOwner, "PrefCustomer", true));
-            this.textBox4.Location = new System.Drawing.Point(291, 312);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(179, 20);
-            this.textBox4.TabIndex = 30;
+            this.textBox10.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckConfigByOwner, "Scheme", true));
+            this.textBox10.Location = new System.Drawing.Point(215, 312);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(255, 20);
+            this.textBox10.TabIndex = 35;
             // 
-            // textBox5
+            // textBox11
             // 
-            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckConfigByOwner, "GVMTruck", true));
-            this.textBox5.Location = new System.Drawing.Point(291, 255);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 31;
-            // 
-            // textBox6
-            // 
-            this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckConfigByOwner, "SchemeCode", true));
-            this.textBox6.Location = new System.Drawing.Point(89, 312);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 32;
-            // 
-            // textBox7
-            // 
-            this.textBox7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckConfigByOwner, "Trailer", true));
-            this.textBox7.Location = new System.Drawing.Point(136, 206);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(255, 20);
-            this.textBox7.TabIndex = 33;
-            // 
-            // textBox8
-            // 
-            this.textBox8.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckConfigByOwner, "Truck", true));
-            this.textBox8.Location = new System.Drawing.Point(20, 206);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 34;
-            // 
-            // textBox9
-            // 
-            this.textBox9.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckConfigByOwner, "PrefCustomerCode", true));
-            this.textBox9.Location = new System.Drawing.Point(291, 286);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 35;
-            // 
-            // Truck
-            // 
-            this.Truck.DataPropertyName = "Truck";
-            this.Truck.HeaderText = "Truck";
-            this.Truck.Name = "Truck";
-            this.Truck.ReadOnly = true;
-            // 
-            // Trailer
-            // 
-            this.Trailer.DataPropertyName = "Trailer";
-            this.Trailer.HeaderText = "Trailer";
-            this.Trailer.Name = "Trailer";
-            this.Trailer.ReadOnly = true;
-            this.Trailer.Width = 200;
-            // 
-            // axleConfigurationDataGridViewTextBoxColumn1
-            // 
-            this.axleConfigurationDataGridViewTextBoxColumn1.DataPropertyName = "AxleConfiguration";
-            this.axleConfigurationDataGridViewTextBoxColumn1.HeaderText = "Axle Config";
-            this.axleConfigurationDataGridViewTextBoxColumn1.Name = "axleConfigurationDataGridViewTextBoxColumn1";
-            this.axleConfigurationDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // TareDT
-            // 
-            this.TareDT.DataPropertyName = "TareDT";
-            this.TareDT.HeaderText = "TareDT";
-            this.TareDT.Name = "TareDT";
-            this.TareDT.ReadOnly = true;
+            this.textBox11.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckConfigByOwner, "AxleConfiguration", true));
+            this.textBox11.Location = new System.Drawing.Point(326, 205);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(81, 20);
+            this.textBox11.TabIndex = 36;
             // 
             // TruckConfiguration
             // 
@@ -741,6 +736,8 @@ namespace QWS_Local
             this.Load += new System.EventHandler(this.TruckConfiguration_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTruckConfigByOwner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -753,10 +750,6 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTruckConfigDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTruckConfigVehicleList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTruckConfigByOwner)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -780,13 +773,9 @@ namespace QWS_Local
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnAddVehicle2Config;
         private dsTruckConfig dsTruckConfig;
-        private System.Windows.Forms.BindingSource bsTruckConfigDetails;
-        private dsTruckConfigTableAdapters.TruckConfigDetailsTableAdapter taTruckConfigDetails;
         private dsTruckConfigTableAdapters.TableAdapterManager tableAdapterManager1;
         private System.Windows.Forms.TextBox truckConfigIDTextBox;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.BindingSource bsTruckConfigVehicleList;
-        private dsTruckConfigTableAdapters.TruckConfigVehicleListTableAdapter taTruckConfigVehicleList;
         private System.Windows.Forms.Button btnFindVehicle;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
@@ -828,5 +817,7 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn Trailer;
         private System.Windows.Forms.DataGridViewTextBoxColumn axleConfigurationDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox10;
     }
 }
