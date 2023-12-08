@@ -27,9 +27,11 @@ namespace QWS_Local
         }
         private void NHVR_GVM_Search_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsQWSLocal.AxleConfiguration' table. You can move, or remove it, as needed.
+            this.taAxleConfig.Fill(this.dsQWSLocal.AxleConfiguration);
             // TODO: This line of code loads data into the 'dsQWSLocal.NHVR_GVM' table. You can move, or remove it, as needed.
-           int iCount = this.nHVR_GVMTableAdapter.Fill(this.dsQWSLocal.NHVL);
-            iCount += 1;
+            //int iCount = this.nHVR_GVMTableAdapter.Fill(this.dsQWSLocal.NHVL);
+            //iCount += 1;
 
         }
 
@@ -52,18 +54,26 @@ namespace QWS_Local
   
          private void SetAxleConfigFilter()
         {
-            string myFilter = SchemeCodeFilter;
-            if (SteerAxleFilter.Length > 0)
+            try
             {
-                myFilter += " and ";
-                myFilter += SteerAxleFilter;
-            }
-            if (TruckPlustrailerFilter.Length > 0)
+                string myFilter = SchemeCodeFilter;
+                if (SteerAxleFilter.Length > 0)
+                {
+                    myFilter += " and ";
+                    myFilter += SteerAxleFilter;
+                }
+                if (TruckPlustrailerFilter.Length > 0)
+                {
+                    myFilter += " and ";
+                    myFilter += TruckPlustrailerFilter;
+                }
+                bsNHVL.Filter = myFilter;
+                // TODO test filter why just and Trailer
+                }
+            catch (Exception ex)
             {
-                myFilter += " and ";
-                myFilter += TruckPlustrailerFilter;
+                MessageBox.Show(ex.Message);
             }
-            nHVRGVMBindingSource.Filter = myFilter;
         }
 
         private void rbSchemeGML_CheckedChanged(object sender, EventArgs e)
@@ -144,6 +154,35 @@ namespace QWS_Local
             {
                 TruckPlustrailerFilter = "";
                 SetAxleConfigFilter();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // 
+
+            txtAxleConfiguration.Text = CurrentNHVL().AxleConfiguration;
+        }
+
+
+        private dsQWSLocal.NHVLRow CurrentNHVL()
+        {
+            DataRow myDR = ((DataRowView)bsNHVL.Current).Row;
+            dsQWSLocal.NHVLRow NHVLRow = (dsQWSLocal.NHVLRow)myDR;
+            return NHVLRow;
+        }
+
+        private void bsNHVL_CurrentChanged(object sender, EventArgs e)
+        {
+            SyncNHVL2AxleConfiguration();
+        }
+
+        private void SyncNHVL2AxleConfiguration()
+        {
+           int myIndex =  bsAxleConfig.Find("AxleConfiguration", CurrentNHVL().AxleConfiguration);
+            if (myIndex >=0)
+            {
+                bsAxleConfig.Position = myIndex;
             }
         }
     }

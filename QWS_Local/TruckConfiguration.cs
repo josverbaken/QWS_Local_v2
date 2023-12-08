@@ -81,7 +81,7 @@ namespace QWS_Local
             msg += " ";
             msg += CurrentVehicle().Rego;
             MessageBox.Show(msg);
-            GetNHVLID(CurrentVehicle().AxleConfiguration);
+            GetNHVLID(CurrentVehicleDetails().AxleConfiguration);
         }
 
 
@@ -133,7 +133,7 @@ namespace QWS_Local
      
         private void GetNHVLID(string AxleConfig)
         {
-            NHVR_GVM_Search frmSearch = new NHVR_GVM_Search();// (AxleConfig);
+            NHVR_GVM_Search frmSearch = new NHVR_GVM_Search(AxleConfig);
             DialogResult dr = frmSearch.ShowDialog();
             if (dr == DialogResult.OK)
             {
