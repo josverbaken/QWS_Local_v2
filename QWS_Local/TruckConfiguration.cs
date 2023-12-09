@@ -76,14 +76,13 @@ namespace QWS_Local
 
         private void btnAddVehicle2Config_Click(object sender, EventArgs e)
         {
-            string msg = "Will add selected vehicles as new truck config: ";
-            msg += myRego;
-            msg += " ";
-            msg += CurrentVehicle().Rego;
+            string msg = "Will add selected vehicles as a new truck config. ";
+            //msg += myRego;
+            //msg += " ";
+            //msg += CurrentVehicle().Rego;
             MessageBox.Show(msg);
-            GetNHVLID(CurrentVehicleDetails().AxleConfiguration);
+            GetNHVLID();
         }
-
 
         private void btnShowAllConfig_Click(object sender, EventArgs e)
         {
@@ -131,13 +130,24 @@ namespace QWS_Local
         }
 
      
-        private void GetNHVLID(string AxleConfig)
+        private void GetNHVLID()
         {
+            int NHVLID;
+            string AxleConfig;
+            if (CurrentVehicleDetails().IsLeadVehicle)
+            {
+                AxleConfig = CurrentVehicleDetails().AxleConfiguration;
+            }
+            else
+            {
+                AxleConfig = CurrentVehicle().AxleConfiguration;
+            }
             NHVR_GVM_Search frmSearch = new NHVR_GVM_Search(AxleConfig);
             DialogResult dr = frmSearch.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                MessageBox.Show("Got NHVL code!");
+                NHVLID = NHVR_GVM_Search.NHVLID;
+                MessageBox.Show("Got NHVL code :" + NHVLID.ToString());
             }
             else
             {

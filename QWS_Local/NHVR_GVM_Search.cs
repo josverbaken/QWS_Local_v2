@@ -15,6 +15,7 @@ namespace QWS_Local
         private static string SchemeCodeFilter = "";
         private static string SteerAxleFilter = "";
         private static string TruckPlustrailerFilter = "";
+        private static int myNHVLID;
         public NHVR_GVM_Search()
         {
             InitializeComponent();
@@ -25,6 +26,12 @@ namespace QWS_Local
             InitializeComponent();
             LoadByAxleConfig(AxleConfig);
         }
+
+        public static int NHVLID
+        {
+            get { return myNHVLID; }
+        }
+
         private void NHVR_GVM_Search_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dsQWSLocal.AxleConfiguration' table. You can move, or remove it, as needed.
@@ -179,6 +186,7 @@ namespace QWS_Local
 
         private void SyncNHVL2AxleConfiguration()
         {
+            myNHVLID = CurrentNHVL().TruckTypeID;
            int myIndex =  bsAxleConfig.Find("AxleConfiguration", CurrentNHVL().AxleConfiguration);
             if (myIndex >=0)
             {
