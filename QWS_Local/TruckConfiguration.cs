@@ -78,7 +78,6 @@ namespace QWS_Local
 
         private void btnFindVehicle_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("To find vehicle with rego :" + txtRego.Text);
             FindVehicle(txtRego.Text);
         }
 
