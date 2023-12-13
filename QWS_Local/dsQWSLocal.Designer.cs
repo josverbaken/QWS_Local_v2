@@ -3162,6 +3162,7 @@ namespace QWS_Local {
                                 this.columnAxleConfiguration}, true));
                 this.columnAxleConfiguration.AllowDBNull = false;
                 this.columnAxleConfiguration.Unique = true;
+                this.columnAxleConfiguration.DefaultValue = ((string)("AB"));
                 this.columnAxleConfiguration.MaxLength = 50;
                 this.columnVehicleType.AllowDBNull = false;
                 this.columnVehicleType.MaxLength = 7;

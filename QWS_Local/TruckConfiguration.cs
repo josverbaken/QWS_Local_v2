@@ -38,6 +38,10 @@ namespace QWS_Local
                 {
                     // show trailers
                     this.bsVehicle.Filter = "IsLeadVehicle = 0 and AxleConfiguration not like 'tba'";
+                    int iCount = dgvAvailableVehicles.SelectedRows.Count;
+                    dgvAvailableVehicles.ClearSelection();
+                    iCount = dgvAvailableVehicles.SelectedRows.Count;
+                    iCount += 1;
                 }
                 else
                 {

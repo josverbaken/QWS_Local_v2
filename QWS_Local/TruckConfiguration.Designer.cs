@@ -44,7 +44,7 @@ namespace QWS_Local
             this.axleConfigurationTextBox = new System.Windows.Forms.TextBox();
             this.bsVehicle = new System.Windows.Forms.BindingSource(this.components);
             this.taVehicle = new QWS_Local.dsQWSLocalTableAdapters.VehicleTableAdapter();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvAvailableVehicles = new System.Windows.Forms.DataGridView();
             this.regoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.axleConfigurationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -101,7 +101,7 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsTruckConfigByOwner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAvailableVehicles)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -195,21 +195,21 @@ namespace QWS_Local
             // 
             this.taVehicle.ClearBeforeFill = true;
             // 
-            // dataGridView1
+            // dgvAvailableVehicles
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvAvailableVehicles.AllowUserToAddRows = false;
+            this.dgvAvailableVehicles.AllowUserToDeleteRows = false;
+            this.dgvAvailableVehicles.AutoGenerateColumns = false;
+            this.dgvAvailableVehicles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAvailableVehicles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.regoDataGridViewTextBoxColumn,
             this.axleConfigurationDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.bsVehicle;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 22);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(266, 217);
-            this.dataGridView1.TabIndex = 17;
+            this.dgvAvailableVehicles.DataSource = this.bsVehicle;
+            this.dgvAvailableVehicles.Location = new System.Drawing.Point(20, 22);
+            this.dgvAvailableVehicles.Name = "dgvAvailableVehicles";
+            this.dgvAvailableVehicles.ReadOnly = true;
+            this.dgvAvailableVehicles.Size = new System.Drawing.Size(266, 217);
+            this.dgvAvailableVehicles.TabIndex = 17;
             // 
             // regoDataGridViewTextBoxColumn
             // 
@@ -349,7 +349,7 @@ namespace QWS_Local
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox3.Controls.Add(this.btnAddVehicle2Config);
-            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Controls.Add(this.dgvAvailableVehicles);
             this.groupBox3.Location = new System.Drawing.Point(28, 391);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(491, 269);
@@ -738,7 +738,7 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsTruckConfigByOwner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAvailableVehicles)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -764,7 +764,7 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox axleConfigurationTextBox;
         private System.Windows.Forms.BindingSource bsVehicle;
         private dsQWSLocalTableAdapters.VehicleTableAdapter taVehicle;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvAvailableVehicles;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
