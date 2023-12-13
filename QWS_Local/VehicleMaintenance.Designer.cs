@@ -85,6 +85,7 @@ namespace QWS_Local
             this.isLeadVehicleCheckBox = new System.Windows.Forms.CheckBox();
             this.txtSAPCode = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnVehiclesByCardCode = new System.Windows.Forms.Button();
             regoLabel = new System.Windows.Forms.Label();
             vINLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
@@ -385,7 +386,7 @@ namespace QWS_Local
             this.btnSetTruckOwner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnSetTruckOwner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetTruckOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetTruckOwner.Location = new System.Drawing.Point(541, 110);
+            this.btnSetTruckOwner.Location = new System.Drawing.Point(541, 109);
             this.btnSetTruckOwner.Margin = new System.Windows.Forms.Padding(4);
             this.btnSetTruckOwner.Name = "btnSetTruckOwner";
             this.btnSetTruckOwner.Size = new System.Drawing.Size(61, 25);
@@ -650,11 +651,26 @@ namespace QWS_Local
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
             // 
+            // btnVehiclesByCardCode
+            // 
+            this.btnVehiclesByCardCode.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnVehiclesByCardCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVehiclesByCardCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVehiclesByCardCode.Location = new System.Drawing.Point(303, 109);
+            this.btnVehiclesByCardCode.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVehiclesByCardCode.Name = "btnVehiclesByCardCode";
+            this.btnVehiclesByCardCode.Size = new System.Drawing.Size(137, 25);
+            this.btnVehiclesByCardCode.TabIndex = 69;
+            this.btnVehiclesByCardCode.Text = "List Vehicles";
+            this.btnVehiclesByCardCode.UseVisualStyleBackColor = false;
+            this.btnVehiclesByCardCode.Click += new System.EventHandler(this.btnVehiclesByCardCode_Click);
+            // 
             // VehicleMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1171, 696);
+            this.Controls.Add(this.btnVehiclesByCardCode);
             this.Controls.Add(this.txtSAPCode);
             this.Controls.Add(this.isLeadVehicleCheckBox);
             this.Controls.Add(this.txtPrefCustName);
@@ -759,5 +775,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox txtPrefCustName;
         private System.Windows.Forms.CheckBox isLeadVehicleCheckBox;
         private System.Windows.Forms.TextBox txtSAPCode;
+        private System.Windows.Forms.Button btnVehiclesByCardCode;
     }
 }

@@ -35,7 +35,7 @@ namespace QWS_Local
 
         private void Search4Vehicle(string Rego2Find)
         {
-            VehicleSearch vehicleSearch = new VehicleSearch(Rego2Find);
+            VehicleSearch vehicleSearch = new VehicleSearch(Rego2Find,false);
             DialogResult dr = vehicleSearch.ShowDialog();
             if (dr == DialogResult.OK)
             {

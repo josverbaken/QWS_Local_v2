@@ -13,6 +13,12 @@ namespace QWS_Local
     public partial class VehicleSearch : Form
     {
         private string myRego;
+        private string myCardCode;
+
+        public string CardCode
+        {
+            get { return myCardCode; }
+        }
 
         public string Rego
         {
@@ -29,24 +35,32 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public VehicleSearch(string strSearch)
+        public VehicleSearch(string strSearch, bool IsCardCode)
         {
             InitializeComponent();
-            Search4Vehicle(strSearch);
+            Search4Vehicle(strSearch, IsCardCode);
             // prime search textbox
             this.txtSearch.Text = strSearch;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            Search4Vehicle(this.txtSearch.Text);
+            Search4Vehicle(this.txtSearch.Text, false);
         }
 
-        private void Search4Vehicle(string strSearch)
+        private void Search4Vehicle(string strSearch, bool IsCardCode)
         {
             try
             {
-                this.vehicleDetailsTableAdapter.FillBy(this.dsQWSLocal.VehicleDetails, strSearch);
+                if (IsCardCode)
+                {
+                    this.vehicleDetailsTableAdapter.FillBySAPCode(this.dsQWSLocal.VehicleDetails, strSearch);
+
+                }
+                else
+                {
+                    this.vehicleDetailsTableAdapter.FillBy(this.dsQWSLocal.VehicleDetails, strSearch);
+                }
             }
             catch (Exception ex)
             {
@@ -56,9 +70,10 @@ namespace QWS_Local
 
         private void VehicleSet()
         {
-            DataRow myDR = ((DataRowView)vehicleDetailsBindingSource.Current).Row;
+            DataRow myDR = ((DataRowView)bsVehicleDetails.Current).Row;
             dsQWSLocal.VehicleDetailsRow vehicleDetailsRow = (dsQWSLocal.VehicleDetailsRow)myDR;
             myRego = vehicleDetailsRow.Rego;
+            myCardCode = vehicleDetailsRow.CardCode;
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -81,17 +96,17 @@ namespace QWS_Local
 
         private void FilterByTrailers()
         {
-                this.vehicleDetailsBindingSource.Filter = "VehicleType like 'Trailer'";
+                this.bsVehicleDetails.Filter = "IsLeadVehicle = 0";
         }
 
         private void btnTruck_Click(object sender, EventArgs e)
         {
-                this.vehicleDetailsBindingSource.Filter = "VehicleType like 'Truck'";
+                this.bsVehicleDetails.Filter = "IsLeadVehicle = 1";
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            this.vehicleDetailsBindingSource.Filter = "";
+            this.bsVehicleDetails.Filter = "";
         }
     }
 }

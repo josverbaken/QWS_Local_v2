@@ -37,7 +37,11 @@ namespace QWS_Local
             this.btnSearch = new System.Windows.Forms.ToolStripButton();
             this.btnSelect = new System.Windows.Forms.ToolStripButton();
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.btnTruck = new System.Windows.Forms.ToolStripButton();
             this.btnTrailer = new System.Windows.Forms.ToolStripButton();
+            this.btnClear = new System.Windows.Forms.ToolStripButton();
             this.vehicleDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,21 +50,17 @@ namespace QWS_Local
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FeeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Schematic = new System.Windows.Forms.DataGridViewImageColumn();
-            this.vehicleDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bsVehicleDetails = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.vehicleDetailsTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.VehicleDetailsTableAdapter();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.btnTruck = new System.Windows.Forms.ToolStripButton();
-            this.btnClear = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleDetailsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,7 +110,6 @@ namespace QWS_Local
             // btnSearch
             // 
             this.btnSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnSearch.Image = global::QWS_Local.Properties.Resources.Search_1;
             this.btnSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(41, 36);
@@ -137,6 +136,27 @@ namespace QWS_Local
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(55, 36);
+            this.toolStripLabel1.Text = "Filters :";
+            // 
+            // btnTruck
+            // 
+            this.btnTruck.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnTruck.Image = ((System.Drawing.Image)(resources.GetObject("btnTruck.Image")));
+            this.btnTruck.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnTruck.Name = "btnTruck";
+            this.btnTruck.Size = new System.Drawing.Size(53, 36);
+            this.btnTruck.Text = "Trucks";
+            this.btnTruck.Click += new System.EventHandler(this.btnTruck_Click);
+            // 
             // btnTrailer
             // 
             this.btnTrailer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -146,6 +166,16 @@ namespace QWS_Local
             this.btnTrailer.Size = new System.Drawing.Size(60, 36);
             this.btnTrailer.Text = "Trailers";
             this.btnTrailer.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+            this.btnClear.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(47, 36);
+            this.btnClear.Text = "Clear";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // vehicleDataGridView
             // 
@@ -161,7 +191,7 @@ namespace QWS_Local
             this.dataGridViewTextBoxColumn13,
             this.FeeCode,
             this.Schematic});
-            this.vehicleDataGridView.DataSource = this.vehicleDetailsBindingSource;
+            this.vehicleDataGridView.DataSource = this.bsVehicleDetails;
             this.vehicleDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.vehicleDataGridView.Location = new System.Drawing.Point(0, 0);
             this.vehicleDataGridView.Name = "vehicleDataGridView";
@@ -222,10 +252,10 @@ namespace QWS_Local
             this.Schematic.ReadOnly = true;
             this.Schematic.Width = 450;
             // 
-            // vehicleDetailsBindingSource
+            // bsVehicleDetails
             // 
-            this.vehicleDetailsBindingSource.DataMember = "VehicleDetails";
-            this.vehicleDetailsBindingSource.DataSource = this.dsQWSLocal;
+            this.bsVehicleDetails.DataMember = "VehicleDetails";
+            this.bsVehicleDetails.DataSource = this.dsQWSLocal;
             // 
             // dsQWSLocal
             // 
@@ -238,47 +268,21 @@ namespace QWS_Local
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.NHVLTableAdapter = null;
+            this.tableAdapterManager.PBS_ConfigSchemeTableAdapter = null;
             this.tableAdapterManager.PBS_ConfigTableAdapter = null;
             this.tableAdapterManager.PBSTableAdapter = null;
+            this.tableAdapterManager.SchemeCodesTableAdapter = null;
             this.tableAdapterManager.TruckConfigTableAdapter = null;
+            this.tableAdapterManager.TruckConfigVehicleTableAdapter = null;
             this.tableAdapterManager.TrucksInQuarryTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager.VehicleTableAdapter = null;
+            this.tableAdapterManager.VehicleTypeTableAdapter = null;
             // 
             // vehicleDetailsTableAdapter
             // 
             this.vehicleDetailsTableAdapter.ClearBeforeFill = true;
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(55, 36);
-            this.toolStripLabel1.Text = "Filters :";
-            // 
-            // btnTruck
-            // 
-            this.btnTruck.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnTruck.Image = ((System.Drawing.Image)(resources.GetObject("btnTruck.Image")));
-            this.btnTruck.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnTruck.Name = "btnTruck";
-            this.btnTruck.Size = new System.Drawing.Size(53, 36);
-            this.btnTruck.Text = "Trucks";
-            this.btnTruck.Click += new System.EventHandler(this.btnTruck_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(47, 36);
-            this.btnClear.Text = "Clear";
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
             // 
             // VehicleSearch
             // 
@@ -290,7 +294,7 @@ namespace QWS_Local
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VehicleSearch";
-            this.Text = "VehicleSearch";
+            this.Text = "Vehicle Search";
             this.Load += new System.EventHandler(this.VehicleSearch_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -300,7 +304,7 @@ namespace QWS_Local
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleDetailsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             this.ResumeLayout(false);
 
@@ -317,7 +321,7 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridView vehicleDataGridView;
         private System.Windows.Forms.ToolStripButton btnSelect;
         private System.Windows.Forms.ToolStripButton btnCancel;
-        private System.Windows.Forms.BindingSource vehicleDetailsBindingSource;
+        private System.Windows.Forms.BindingSource bsVehicleDetails;
         private dsQWSLocalTableAdapters.VehicleDetailsTableAdapter vehicleDetailsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;

@@ -28,11 +28,16 @@ namespace QWS_Local
 
         private void TruckConfiguration_Load(object sender, EventArgs e)
         {
+            TruckConfigurationLoad();
+        }
+
+        private void TruckConfigurationLoad()
+        {
             try
             {
-                this.taVehicle.FillByCardCode(this.dsQWSLocal.Vehicle,myCardCode);
+                this.taVehicle.FillByCardCode(this.dsQWSLocal.Vehicle, myCardCode);
                 this.taTruckConfigByOwner.Fill(this.dsTruckConfig.TruckConfigByOwner, myCardCode);
-                this.taVehicleDetails.FillBy(this.dsQWSLocal.VehicleDetails,myRego);
+                this.taVehicleDetails.FillBy(this.dsQWSLocal.VehicleDetails, myRego);
                 TruckConfigFilterByRego(myRego, true);
                 if (CurrentVehicleDetails().IsLeadVehicle)
                 {
@@ -55,7 +60,6 @@ namespace QWS_Local
             }
         }
 
-
         private dsQWSLocal.VehicleDetailsRow CurrentVehicleDetails()
         {
             try
@@ -75,6 +79,23 @@ namespace QWS_Local
         private void btnFindVehicle_Click(object sender, EventArgs e)
         {
             MessageBox.Show("To find vehicle with rego :" + txtRego.Text);
+            FindVehicle(txtRego.Text);
+        }
+
+        private void FindVehicle(string Rego)
+        {
+            VehicleSearch vehicleSearch = new VehicleSearch(Rego, false);
+            DialogResult dr1 = vehicleSearch.ShowDialog();
+            if (dr1 == DialogResult.OK)
+            {
+                myCardCode = vehicleSearch.CardCode;
+                myRego = vehicleSearch.Rego;
+                TruckConfigurationLoad();
+            }
+            else
+            {
+                txtRego.Focus();
+            }
         }
 
 

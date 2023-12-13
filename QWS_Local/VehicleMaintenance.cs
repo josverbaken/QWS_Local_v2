@@ -100,7 +100,7 @@ namespace QWS_Local
                             CheckExpiryDT();
                             break;
                         case int n when(n > 1):
-                            VehicleSearch vehicleSearch = new VehicleSearch(strSearch);
+                            VehicleSearch vehicleSearch = new VehicleSearch(strSearch, false);
                             dsQWSLocal.Clear();
                             DialogResult dr1 = vehicleSearch.ShowDialog();
                             if (dr1 == DialogResult.OK)
@@ -484,6 +484,30 @@ namespace QWS_Local
         private void btnSetPrefCustomer_Click(object sender, EventArgs e)
         {
             PrefCustomerSearch();
+        }
+
+        private void btnVehiclesByCardCode_Click(object sender, EventArgs e)
+        {
+            ListVehicles4CardCode(CurrentVehicle().CardCode);
+        }
+
+        private void ListVehicles4CardCode(string CardCode)
+        {
+            VehicleSearch vehicleSearch = new VehicleSearch(CardCode, true);
+            DialogResult dr1 = vehicleSearch.ShowDialog();
+            if (dr1 == DialogResult.OK)
+            {
+                dsQWSLocal.Clear();
+                int iRows = this.vehicleTableAdapter.FillBy(dsQWSLocal.Vehicle, vehicleSearch.Rego);
+                iRows += 2;
+                SynchAxleConfig(CurrentVehicle().AxleConfiguration);
+                SynchFeeCode(CurrentVehicle().FeeCodeID);
+            }
+            else
+            {
+                txtRego.Focus();
+            }
+
         }
     }
 }
