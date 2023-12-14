@@ -15,7 +15,10 @@ namespace QWS_Local
         private static string SchemeCodeFilter = "";
         private static string SteerAxleFilter = "";
         private static string TruckPlustrailerFilter = "";
+        private static string AxleConfigFilter = "";
         private static int myNHVLID;
+        private static dsQWSLocal.NHVLRow myNHVLRow;
+
         public NHVR_GVM_Search()
         {
             InitializeComponent();
@@ -32,11 +35,15 @@ namespace QWS_Local
             get { return myNHVLID; }
         }
 
+        public static dsQWSLocal.NHVLRow NHVLRow
+        {
+            get { return myNHVLRow; }
+        }            
+
         private void NHVR_GVM_Search_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsQWSLocal.AxleConfiguration' table. You can move, or remove it, as needed.
+            SchemeCodeFilter = "SchemeCode like '%'";
             this.taAxleConfig.Fill(this.dsQWSLocal.AxleConfiguration);
-            // TODO: This line of code loads data into the 'dsQWSLocal.NHVR_GVM' table. You can move, or remove it, as needed.
             //int iCount = this.nHVR_GVMTableAdapter.Fill(this.dsQWSLocal.NHVL);
             //iCount += 1;
 
@@ -56,7 +63,9 @@ namespace QWS_Local
 
         private void LoadByAxleConfig(string AxleConfig)
         {
-            this.nHVR_GVMTableAdapter.FillBy(this.dsQWSLocal.NHVL,AxleConfig);
+            this.taNHVL.FillBy(this.dsQWSLocal.NHVL,AxleConfig);
+            AxleConfigFilter = "AxleConfiguration like '" + AxleConfig + "%'";
+            bsNHVL.Filter = AxleConfigFilter;
         }
   
          private void SetAxleConfigFilter()
@@ -164,23 +173,18 @@ namespace QWS_Local
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // 
-
-            txtAxleConfiguration.Text = CurrentNHVL().AxleConfiguration;
-        }
-
 
         private dsQWSLocal.NHVLRow CurrentNHVL()
         {
             DataRow myDR = ((DataRowView)bsNHVL.Current).Row;
             dsQWSLocal.NHVLRow NHVLRow = (dsQWSLocal.NHVLRow)myDR;
+            myNHVLRow = NHVLRow;
             return NHVLRow;
         }
 
         private void bsNHVL_CurrentChanged(object sender, EventArgs e)
         {
+            //myNHVLRow = (dsQWSLocal.NHVLRow)bsNHVL.Current;
             SyncNHVL2AxleConfiguration();
         }
 

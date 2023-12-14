@@ -28,6 +28,8 @@ namespace QWS_Local
 
         private void TruckConfiguration_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsQWSLocal.NHVL' table. You can move, or remove it, as needed.
+            this.taNHVL.Fill(this.dsQWSLocal.NHVL);
             TruckConfigurationLoad();
         }
 
@@ -35,11 +37,11 @@ namespace QWS_Local
         {
             try
             {
-                this.taVehicle.FillByCardCode(this.dsQWSLocal.Vehicle, myCardCode);
+                int iVehicle = this.taVehicle.FillByCardCode(this.dsQWSLocal.Vehicle, myCardCode);
                 this.taTruckConfigByOwner.Fill(this.dsTruckConfig.TruckConfigByOwner, myCardCode);
-                this.taVehicleDetails.FillBy(this.dsQWSLocal.VehicleDetails, myRego);
+                int iVehicleDetails = this.taVehicleDetails.FillBy(this.dsQWSLocal.VehicleDetails, myRego);
                 TruckConfigFilterByRego(myRego, true);
-                if (CurrentVehicleDetails().IsLeadVehicle)
+                if (iVehicleDetails > 0 && CurrentVehicleDetails().IsLeadVehicle)
                 {
                     // show trailers
                     this.bsVehicle.Filter = "IsLeadVehicle = 0 and AxleConfiguration not like 'tba'";
@@ -48,10 +50,14 @@ namespace QWS_Local
                     iCount = dgvAvailableVehicles.SelectedRows.Count;
                     iCount += 1;
                 }
-                else
+                else if(iVehicle > 0 && CurrentVehicle().IsLeadVehicle)
                 {
                     // show truck or prime mover
                     this.bsVehicle.Filter = "IsLeadVehicle = 1";
+                }
+                else
+                {
+                    this.bsVehicle.Filter = "";
                 }
             }
             catch (Exception ex)
@@ -64,10 +70,16 @@ namespace QWS_Local
         {
             try
             {
-
+                if (bsVehicleDetails.Count > 0)
+                {
                 DataRow myDR = ((DataRowView)bsVehicleDetails.Current).Row;
                 dsQWSLocal.VehicleDetailsRow vehicleRow = (dsQWSLocal.VehicleDetailsRow)myDR;
                 return vehicleRow;
+                }
+                else
+                {
+                    return null;
+                }
             }
             catch (Exception ex)
             {
@@ -78,6 +90,7 @@ namespace QWS_Local
 
         private void btnFindVehicle_Click(object sender, EventArgs e)
         {
+            // TODO copy logic from VehicleMaintenance form, only call search if iRow !=1
             FindVehicle(txtRego.Text);
         }
 
@@ -100,12 +113,29 @@ namespace QWS_Local
 
         private void btnAddVehicle2Config_Click(object sender, EventArgs e)
         {
-            string msg = "Will add selected vehicles as a new truck config. ";
-            //msg += myRego;
-            //msg += " ";
-            //msg += CurrentVehicle().Rego;
-            MessageBox.Show(msg);
-            GetNHVLID();
+            AddTruckConfig();
+        }
+
+        private void AddTruckConfig()
+        {
+            int myNHVLID = GetNHVLRow().TruckTypeID;
+            string leadRego;
+            string trailerRego;
+            // add truckconfig using NHVLID
+
+
+            // add truckconfigvehicle x n
+            // where n = 1 for Truck only, 2 for T&T or semitrailer, 3 for B-double and up to 6 for road trains
+            if (CurrentVehicleDetails().IsLeadVehicle)
+            {
+                leadRego = CurrentVehicleDetails().Rego;
+                trailerRego = CurrentVehicle().Rego;
+            }
+            else
+            {
+                leadRego = CurrentVehicle().Rego;
+                trailerRego = CurrentVehicleDetails().Rego;
+            }
         }
 
         private void btnShowAllConfig_Click(object sender, EventArgs e)
@@ -120,7 +150,7 @@ namespace QWS_Local
 
         private void TruckConfigFilterByRego(string Rego, bool SingleVehicle)
         {
-            if (SingleVehicle)
+            if (SingleVehicle && bsVehicleDetails.Count > 0)
             {
                 if (CurrentVehicleDetails().IsLeadVehicle)
                 {
@@ -141,10 +171,16 @@ namespace QWS_Local
         {
             try
             {
-
-                DataRow myDR = ((DataRowView)bsVehicle.Current).Row;
-                dsQWSLocal.VehicleRow vehicleRow = (dsQWSLocal.VehicleRow)myDR;
-                return vehicleRow;
+                if (bsVehicle.Count > 0)
+                {
+                    DataRow myDR = ((DataRowView)bsVehicle.Current).Row;
+                    dsQWSLocal.VehicleRow vehicleRow = (dsQWSLocal.VehicleRow)myDR;
+                    return vehicleRow;
+                }
+                else
+                {
+                    return null;
+                }
             }
             catch (Exception ex)
             {
@@ -154,9 +190,8 @@ namespace QWS_Local
         }
 
      
-        private void GetNHVLID()
+        private dsQWSLocal.NHVLRow GetNHVLRow()
         {
-            int NHVLID;
             string AxleConfig;
             if (CurrentVehicleDetails().IsLeadVehicle)
             {
@@ -170,12 +205,13 @@ namespace QWS_Local
             DialogResult dr = frmSearch.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                NHVLID = NHVR_GVM_Search.NHVLID;
-                MessageBox.Show("Got NHVL code :" + NHVLID.ToString());
+                dsQWSLocal.NHVLRow myNHVLRow = NHVR_GVM_Search.NHVLRow;
+                return myNHVLRow;
             }
             else
-            {
-                MessageBox.Show("NHVL code not available yet.");
+            {        
+                MessageBox.Show("NHVL row not available!");
+                return null;
             }
         }
     }

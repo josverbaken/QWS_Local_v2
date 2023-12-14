@@ -43,7 +43,6 @@ namespace QWS_Local
             System.Windows.Forms.Label truckTypeDescriptionLabel;
             System.Windows.Forms.Label axleConfigurationLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.button1 = new System.Windows.Forms.Button();
             this.txtAxleConfiguration = new System.Windows.Forms.TextBox();
             this.bsAxleConfig = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
@@ -80,7 +79,7 @@ namespace QWS_Local
             this.maxLengthTextBox = new System.Windows.Forms.TextBox();
             this.couplingTextBox = new System.Windows.Forms.TextBox();
             this.axlesTextBox = new System.Windows.Forms.TextBox();
-            this.nHVR_GVMTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.NHVLTableAdapter();
+            this.taNHVL = new QWS_Local.dsQWSLocalTableAdapters.NHVLTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taAxleConfig = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
             axlesLabel = new System.Windows.Forms.Label();
@@ -251,7 +250,6 @@ namespace QWS_Local
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.txtAxleConfiguration);
             this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
             this.splitContainer1.Panel1.Controls.Add(this.dataGridView1);
@@ -293,16 +291,6 @@ namespace QWS_Local
             this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 0;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(186, 219);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // txtAxleConfiguration
             // 
             this.txtAxleConfiguration.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsAxleConfig, "AxleConfiguration", true));
@@ -326,7 +314,6 @@ namespace QWS_Local
             this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.bsAxleConfig, "Schematic", true));
-            this.pictureBox1.Image = global::QWS_Local.Properties.Resources.Artboard_1;
             this.pictureBox1.Location = new System.Drawing.Point(24, 31);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(339, 150);
@@ -677,15 +664,15 @@ namespace QWS_Local
             this.axlesTextBox.Size = new System.Drawing.Size(148, 24);
             this.axlesTextBox.TabIndex = 1;
             // 
-            // nHVR_GVMTableAdapter
+            // taNHVL
             // 
-            this.nHVR_GVMTableAdapter.ClearBeforeFill = true;
+            this.taNHVL.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.AxleConfigurationTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.NHVLTableAdapter = this.nHVR_GVMTableAdapter;
+            this.tableAdapterManager.NHVLTableAdapter = this.taNHVL;
             this.tableAdapterManager.PBS_ConfigSchemeTableAdapter = null;
             this.tableAdapterManager.PBS_ConfigTableAdapter = null;
             this.tableAdapterManager.PBSTableAdapter = null;
@@ -741,7 +728,7 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridView dataGridView1;
         private dsQWSLocal dsQWSLocal;
         private System.Windows.Forms.BindingSource bsNHVL;
-        private dsQWSLocalTableAdapters.NHVLTableAdapter nHVR_GVMTableAdapter;
+        private dsQWSLocalTableAdapters.NHVLTableAdapter taNHVL;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.TextBox truckTypeIDTextBox;
@@ -777,6 +764,5 @@ namespace QWS_Local
         private System.Windows.Forms.BindingSource bsAxleConfig;
         private dsQWSLocalTableAdapters.AxleConfigurationTableAdapter taAxleConfig;
         private System.Windows.Forms.TextBox txtAxleConfiguration;
-        private System.Windows.Forms.Button button1;
     }
 }
