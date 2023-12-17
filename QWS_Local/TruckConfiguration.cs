@@ -91,7 +91,17 @@ namespace QWS_Local
         private void btnFindVehicle_Click(object sender, EventArgs e)
         {
             // TODO copy logic from VehicleMaintenance form, only call search if iRow !=1
-            FindVehicle(txtRego.Text);
+            int iRows = taVehicle.FillBy(dsQWSLocal.Vehicle, txtRego.Text);
+            if (iRows == 1)
+            {
+                myCardCode = CurrentVehicle().CardCode;
+                myRego = CurrentVehicle().Rego;
+                TruckConfigurationLoad();
+            }
+            else
+            {
+                FindVehicle(txtRego.Text);
+            }
         }
 
         private void FindVehicle(string Rego)
