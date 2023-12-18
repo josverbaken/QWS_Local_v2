@@ -94,8 +94,16 @@ namespace QWS_Local
             int iRows = taVehicle.FillBy(dsQWSLocal.Vehicle, txtRego.Text);
             if (iRows == 1)
             {
-                myCardCode = CurrentVehicle().CardCode;
-                myRego = CurrentVehicle().Rego;
+                //myCardCode = CurrentVehicle().CardCode;
+                //myRego = CurrentVehicle().Rego;
+                // ?? how is this different!
+                //DataRow myDR = ((DataRowView)bsVehicle.Current).Row;
+                //dsQWSLocal.VehicleRow vehicleRow = (dsQWSLocal.VehicleRow)myDR;
+                myRego = dsQWSLocal.Vehicle[0]["Rego"].ToString();
+                myCardCode = dsQWSLocal.Vehicle[0]["CardCode"].ToString();
+
+                //myRego = vehicleRow.Rego;
+                //myCardCode = vehicleRow.CardCode;
                 TruckConfigurationLoad();
             }
             else
