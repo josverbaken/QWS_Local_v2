@@ -38,7 +38,7 @@ namespace QWS_Local
             try
             {
                 int iVehicle = this.taVehicle.FillByCardCode(this.dsQWSLocal.Vehicle, myCardCode);
-                this.taTruckConfigByOwner.Fill(this.dsTruckConfig.TruckConfigByOwner, myCardCode);
+                this.taConfiguredTnT.Fill(dsTruckConfig.ConfiguredTnT, "", "", myCardCode);
                 int iVehicleDetails = this.taVehicleDetails.FillBy(this.dsQWSLocal.VehicleDetails, myRego);
                 TruckConfigFilterByRego(myRego, true);
                 if (iVehicleDetails > 0 && CurrentVehicleDetails().IsLeadVehicle)
@@ -172,16 +172,16 @@ namespace QWS_Local
             {
                 if (CurrentVehicleDetails().IsLeadVehicle)
                 {
-                    this.bsTruckConfigByOwner.Filter = "Truck like '" + Rego + "'";
+                    this.bsConfiguredTnt.Filter = "RegoTk like '" + Rego + "'";
                 }
                 else
                 {
-                    this.bsTruckConfigByOwner.Filter = "Trailer like '%" + Rego + "%'";
+                    this.bsConfiguredTnt.Filter = "RegoTrailer like '%" + Rego + "&'";
                 }
             }
             else
             {
-                this.bsTruckConfigByOwner.Filter = "";
+                this.bsConfiguredTnt.Filter = "";
             }
         }
 
@@ -232,5 +232,7 @@ namespace QWS_Local
                 return null;
             }
         }
+
+
     }
 }
