@@ -31,8 +31,8 @@ namespace QWS_Local
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label maxLengthLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtRego = new System.Windows.Forms.TextBox();
             this.bsVehicleDetails = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
@@ -56,11 +56,39 @@ namespace QWS_Local
             this.RegoTrailer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AxleConfiguration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TareDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.truckConfigIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.regoTkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ownerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prefCustomerCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prefCustomerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.registrationExpiryDTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tareDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tareTkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tareDTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.axleConfigurationDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.configSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schemeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gCMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gVMTruckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.driveAxleLoadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.driveAxleLoadUOMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trTkRatioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schematicDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.regoTrailerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.regoTr1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.regoTr2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.regoTr3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.maxLengthTextBox = new System.Windows.Forms.TextBox();
             this.bsNHVL = new System.Windows.Forms.BindingSource(this.components);
             this.btnAddVehicle2Config = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button10 = new System.Windows.Forms.Button();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
@@ -100,34 +128,6 @@ namespace QWS_Local
             this.taNHVL = new QWS_Local.dsQWSLocalTableAdapters.NHVLTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
             this.taConfiguredTnT = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTnTTableAdapter();
-            this.truckConfigIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.regoTkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ownerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cardCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cardTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cardStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prefCustomerCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prefCustomerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.registrationExpiryDTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tareDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tareTkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tareDTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.axleConfigurationDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.configSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schemeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gCMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gVMTruckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.driveAxleLoadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.driveAxleLoadUOMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trTkRatioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schematicDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.regoTrailerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.regoTr1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.regoTr2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.regoTr3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button10 = new System.Windows.Forms.Button();
             maxLengthLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
@@ -226,8 +226,8 @@ namespace QWS_Local
             // regoDataGridViewTextBoxColumn
             // 
             this.regoDataGridViewTextBoxColumn.DataPropertyName = "Rego";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.regoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.regoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
             this.regoDataGridViewTextBoxColumn.HeaderText = "Rego";
             this.regoDataGridViewTextBoxColumn.Name = "regoDataGridViewTextBoxColumn";
             this.regoDataGridViewTextBoxColumn.ReadOnly = true;
@@ -235,8 +235,8 @@ namespace QWS_Local
             // axleConfigurationDataGridViewTextBoxColumn
             // 
             this.axleConfigurationDataGridViewTextBoxColumn.DataPropertyName = "AxleConfiguration";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.axleConfigurationDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.axleConfigurationDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this.axleConfigurationDataGridViewTextBoxColumn.HeaderText = "Axle Config";
             this.axleConfigurationDataGridViewTextBoxColumn.Name = "axleConfigurationDataGridViewTextBoxColumn";
             this.axleConfigurationDataGridViewTextBoxColumn.ReadOnly = true;
@@ -388,6 +388,195 @@ namespace QWS_Local
             this.TareDT.Name = "TareDT";
             this.TareDT.ReadOnly = true;
             // 
+            // truckConfigIDDataGridViewTextBoxColumn
+            // 
+            this.truckConfigIDDataGridViewTextBoxColumn.DataPropertyName = "TruckConfigID";
+            this.truckConfigIDDataGridViewTextBoxColumn.HeaderText = "TruckConfigID";
+            this.truckConfigIDDataGridViewTextBoxColumn.Name = "truckConfigIDDataGridViewTextBoxColumn";
+            this.truckConfigIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // regoTkDataGridViewTextBoxColumn
+            // 
+            this.regoTkDataGridViewTextBoxColumn.DataPropertyName = "RegoTk";
+            this.regoTkDataGridViewTextBoxColumn.HeaderText = "RegoTk";
+            this.regoTkDataGridViewTextBoxColumn.Name = "regoTkDataGridViewTextBoxColumn";
+            this.regoTkDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ownerDataGridViewTextBoxColumn
+            // 
+            this.ownerDataGridViewTextBoxColumn.DataPropertyName = "Owner";
+            this.ownerDataGridViewTextBoxColumn.HeaderText = "Owner";
+            this.ownerDataGridViewTextBoxColumn.Name = "ownerDataGridViewTextBoxColumn";
+            this.ownerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cardCodeDataGridViewTextBoxColumn
+            // 
+            this.cardCodeDataGridViewTextBoxColumn.DataPropertyName = "CardCode";
+            this.cardCodeDataGridViewTextBoxColumn.HeaderText = "CardCode";
+            this.cardCodeDataGridViewTextBoxColumn.Name = "cardCodeDataGridViewTextBoxColumn";
+            this.cardCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cardTypeDataGridViewTextBoxColumn
+            // 
+            this.cardTypeDataGridViewTextBoxColumn.DataPropertyName = "CardType";
+            this.cardTypeDataGridViewTextBoxColumn.HeaderText = "CardType";
+            this.cardTypeDataGridViewTextBoxColumn.Name = "cardTypeDataGridViewTextBoxColumn";
+            this.cardTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // groupCodeDataGridViewTextBoxColumn
+            // 
+            this.groupCodeDataGridViewTextBoxColumn.DataPropertyName = "GroupCode";
+            this.groupCodeDataGridViewTextBoxColumn.HeaderText = "GroupCode";
+            this.groupCodeDataGridViewTextBoxColumn.Name = "groupCodeDataGridViewTextBoxColumn";
+            this.groupCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cardStatusDataGridViewTextBoxColumn
+            // 
+            this.cardStatusDataGridViewTextBoxColumn.DataPropertyName = "CardStatus";
+            this.cardStatusDataGridViewTextBoxColumn.HeaderText = "CardStatus";
+            this.cardStatusDataGridViewTextBoxColumn.Name = "cardStatusDataGridViewTextBoxColumn";
+            this.cardStatusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // prefCustomerCodeDataGridViewTextBoxColumn
+            // 
+            this.prefCustomerCodeDataGridViewTextBoxColumn.DataPropertyName = "PrefCustomerCode";
+            this.prefCustomerCodeDataGridViewTextBoxColumn.HeaderText = "PrefCustomerCode";
+            this.prefCustomerCodeDataGridViewTextBoxColumn.Name = "prefCustomerCodeDataGridViewTextBoxColumn";
+            this.prefCustomerCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // prefCustomerDataGridViewTextBoxColumn
+            // 
+            this.prefCustomerDataGridViewTextBoxColumn.DataPropertyName = "PrefCustomer";
+            this.prefCustomerDataGridViewTextBoxColumn.HeaderText = "PrefCustomer";
+            this.prefCustomerDataGridViewTextBoxColumn.Name = "prefCustomerDataGridViewTextBoxColumn";
+            this.prefCustomerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // registrationExpiryDTDataGridViewTextBoxColumn
+            // 
+            this.registrationExpiryDTDataGridViewTextBoxColumn.DataPropertyName = "RegistrationExpiryDT";
+            this.registrationExpiryDTDataGridViewTextBoxColumn.HeaderText = "RegistrationExpiryDT";
+            this.registrationExpiryDTDataGridViewTextBoxColumn.Name = "registrationExpiryDTDataGridViewTextBoxColumn";
+            this.registrationExpiryDTDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tareDataGridViewTextBoxColumn
+            // 
+            this.tareDataGridViewTextBoxColumn.DataPropertyName = "Tare";
+            this.tareDataGridViewTextBoxColumn.HeaderText = "Tare";
+            this.tareDataGridViewTextBoxColumn.Name = "tareDataGridViewTextBoxColumn";
+            this.tareDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tareTkDataGridViewTextBoxColumn
+            // 
+            this.tareTkDataGridViewTextBoxColumn.DataPropertyName = "TareTk";
+            this.tareTkDataGridViewTextBoxColumn.HeaderText = "TareTk";
+            this.tareTkDataGridViewTextBoxColumn.Name = "tareTkDataGridViewTextBoxColumn";
+            this.tareTkDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tareDTDataGridViewTextBoxColumn
+            // 
+            this.tareDTDataGridViewTextBoxColumn.DataPropertyName = "TareDT";
+            this.tareDTDataGridViewTextBoxColumn.HeaderText = "TareDT";
+            this.tareDTDataGridViewTextBoxColumn.Name = "tareDTDataGridViewTextBoxColumn";
+            this.tareDTDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // axleConfigurationDataGridViewTextBoxColumn1
+            // 
+            this.axleConfigurationDataGridViewTextBoxColumn1.DataPropertyName = "AxleConfiguration";
+            this.axleConfigurationDataGridViewTextBoxColumn1.HeaderText = "AxleConfiguration";
+            this.axleConfigurationDataGridViewTextBoxColumn1.Name = "axleConfigurationDataGridViewTextBoxColumn1";
+            this.axleConfigurationDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // configSourceDataGridViewTextBoxColumn
+            // 
+            this.configSourceDataGridViewTextBoxColumn.DataPropertyName = "ConfigSource";
+            this.configSourceDataGridViewTextBoxColumn.HeaderText = "ConfigSource";
+            this.configSourceDataGridViewTextBoxColumn.Name = "configSourceDataGridViewTextBoxColumn";
+            this.configSourceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // schemeCodeDataGridViewTextBoxColumn
+            // 
+            this.schemeCodeDataGridViewTextBoxColumn.DataPropertyName = "SchemeCode";
+            this.schemeCodeDataGridViewTextBoxColumn.HeaderText = "SchemeCode";
+            this.schemeCodeDataGridViewTextBoxColumn.Name = "schemeCodeDataGridViewTextBoxColumn";
+            this.schemeCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // schemeDataGridViewTextBoxColumn
+            // 
+            this.schemeDataGridViewTextBoxColumn.DataPropertyName = "Scheme";
+            this.schemeDataGridViewTextBoxColumn.HeaderText = "Scheme";
+            this.schemeDataGridViewTextBoxColumn.Name = "schemeDataGridViewTextBoxColumn";
+            this.schemeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // gCMDataGridViewTextBoxColumn
+            // 
+            this.gCMDataGridViewTextBoxColumn.DataPropertyName = "GCM";
+            this.gCMDataGridViewTextBoxColumn.HeaderText = "GCM";
+            this.gCMDataGridViewTextBoxColumn.Name = "gCMDataGridViewTextBoxColumn";
+            this.gCMDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // gVMTruckDataGridViewTextBoxColumn
+            // 
+            this.gVMTruckDataGridViewTextBoxColumn.DataPropertyName = "GVMTruck";
+            this.gVMTruckDataGridViewTextBoxColumn.HeaderText = "GVMTruck";
+            this.gVMTruckDataGridViewTextBoxColumn.Name = "gVMTruckDataGridViewTextBoxColumn";
+            this.gVMTruckDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // driveAxleLoadDataGridViewTextBoxColumn
+            // 
+            this.driveAxleLoadDataGridViewTextBoxColumn.DataPropertyName = "DriveAxleLoad";
+            this.driveAxleLoadDataGridViewTextBoxColumn.HeaderText = "DriveAxleLoad";
+            this.driveAxleLoadDataGridViewTextBoxColumn.Name = "driveAxleLoadDataGridViewTextBoxColumn";
+            this.driveAxleLoadDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // driveAxleLoadUOMDataGridViewTextBoxColumn
+            // 
+            this.driveAxleLoadUOMDataGridViewTextBoxColumn.DataPropertyName = "DriveAxleLoadUOM";
+            this.driveAxleLoadUOMDataGridViewTextBoxColumn.HeaderText = "DriveAxleLoadUOM";
+            this.driveAxleLoadUOMDataGridViewTextBoxColumn.Name = "driveAxleLoadUOMDataGridViewTextBoxColumn";
+            this.driveAxleLoadUOMDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // trTkRatioDataGridViewTextBoxColumn
+            // 
+            this.trTkRatioDataGridViewTextBoxColumn.DataPropertyName = "TrTkRatio";
+            this.trTkRatioDataGridViewTextBoxColumn.HeaderText = "TrTkRatio";
+            this.trTkRatioDataGridViewTextBoxColumn.Name = "trTkRatioDataGridViewTextBoxColumn";
+            this.trTkRatioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // schematicDataGridViewImageColumn
+            // 
+            this.schematicDataGridViewImageColumn.DataPropertyName = "Schematic";
+            this.schematicDataGridViewImageColumn.HeaderText = "Schematic";
+            this.schematicDataGridViewImageColumn.Name = "schematicDataGridViewImageColumn";
+            this.schematicDataGridViewImageColumn.ReadOnly = true;
+            // 
+            // regoTrailerDataGridViewTextBoxColumn
+            // 
+            this.regoTrailerDataGridViewTextBoxColumn.DataPropertyName = "RegoTrailer";
+            this.regoTrailerDataGridViewTextBoxColumn.HeaderText = "RegoTrailer";
+            this.regoTrailerDataGridViewTextBoxColumn.Name = "regoTrailerDataGridViewTextBoxColumn";
+            this.regoTrailerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // regoTr1DataGridViewTextBoxColumn
+            // 
+            this.regoTr1DataGridViewTextBoxColumn.DataPropertyName = "RegoTr1";
+            this.regoTr1DataGridViewTextBoxColumn.HeaderText = "RegoTr1";
+            this.regoTr1DataGridViewTextBoxColumn.Name = "regoTr1DataGridViewTextBoxColumn";
+            this.regoTr1DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // regoTr2DataGridViewTextBoxColumn
+            // 
+            this.regoTr2DataGridViewTextBoxColumn.DataPropertyName = "RegoTr2";
+            this.regoTr2DataGridViewTextBoxColumn.HeaderText = "RegoTr2";
+            this.regoTr2DataGridViewTextBoxColumn.Name = "regoTr2DataGridViewTextBoxColumn";
+            this.regoTr2DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // regoTr3DataGridViewTextBoxColumn
+            // 
+            this.regoTr3DataGridViewTextBoxColumn.DataPropertyName = "RegoTr3";
+            this.regoTr3DataGridViewTextBoxColumn.HeaderText = "RegoTr3";
+            this.regoTr3DataGridViewTextBoxColumn.Name = "regoTr3DataGridViewTextBoxColumn";
+            this.regoTr3DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.Control;
@@ -458,6 +647,16 @@ namespace QWS_Local
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Configuration Details";
             // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(215, 286);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.TabIndex = 37;
+            this.button10.Text = "button10";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // textBox11
             // 
             this.textBox11.Location = new System.Drawing.Point(326, 205);
@@ -495,6 +694,7 @@ namespace QWS_Local
             // 
             // textBox5
             // 
+            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "GVMTruck", true));
             this.textBox5.Location = new System.Drawing.Point(291, 255);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
@@ -575,6 +775,7 @@ namespace QWS_Local
             // 
             // textBox3
             // 
+            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "TareTk", true));
             this.textBox3.Location = new System.Drawing.Point(89, 259);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
@@ -590,6 +791,7 @@ namespace QWS_Local
             // 
             // textBox1
             // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "GCM", true));
             this.textBox1.Location = new System.Drawing.Point(291, 232);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
@@ -597,6 +799,7 @@ namespace QWS_Local
             // 
             // truckConfigIDTextBox
             // 
+            this.truckConfigIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "Tare", true));
             this.truckConfigIDTextBox.Location = new System.Drawing.Point(89, 232);
             this.truckConfigIDTextBox.Name = "truckConfigIDTextBox";
             this.truckConfigIDTextBox.Size = new System.Drawing.Size(100, 20);
@@ -797,205 +1000,6 @@ namespace QWS_Local
             // taConfiguredTnT
             // 
             this.taConfiguredTnT.ClearBeforeFill = true;
-            // 
-            // truckConfigIDDataGridViewTextBoxColumn
-            // 
-            this.truckConfigIDDataGridViewTextBoxColumn.DataPropertyName = "TruckConfigID";
-            this.truckConfigIDDataGridViewTextBoxColumn.HeaderText = "TruckConfigID";
-            this.truckConfigIDDataGridViewTextBoxColumn.Name = "truckConfigIDDataGridViewTextBoxColumn";
-            this.truckConfigIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // regoTkDataGridViewTextBoxColumn
-            // 
-            this.regoTkDataGridViewTextBoxColumn.DataPropertyName = "RegoTk";
-            this.regoTkDataGridViewTextBoxColumn.HeaderText = "RegoTk";
-            this.regoTkDataGridViewTextBoxColumn.Name = "regoTkDataGridViewTextBoxColumn";
-            this.regoTkDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ownerDataGridViewTextBoxColumn
-            // 
-            this.ownerDataGridViewTextBoxColumn.DataPropertyName = "Owner";
-            this.ownerDataGridViewTextBoxColumn.HeaderText = "Owner";
-            this.ownerDataGridViewTextBoxColumn.Name = "ownerDataGridViewTextBoxColumn";
-            this.ownerDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cardCodeDataGridViewTextBoxColumn
-            // 
-            this.cardCodeDataGridViewTextBoxColumn.DataPropertyName = "CardCode";
-            this.cardCodeDataGridViewTextBoxColumn.HeaderText = "CardCode";
-            this.cardCodeDataGridViewTextBoxColumn.Name = "cardCodeDataGridViewTextBoxColumn";
-            this.cardCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cardTypeDataGridViewTextBoxColumn
-            // 
-            this.cardTypeDataGridViewTextBoxColumn.DataPropertyName = "CardType";
-            this.cardTypeDataGridViewTextBoxColumn.HeaderText = "CardType";
-            this.cardTypeDataGridViewTextBoxColumn.Name = "cardTypeDataGridViewTextBoxColumn";
-            this.cardTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // groupCodeDataGridViewTextBoxColumn
-            // 
-            this.groupCodeDataGridViewTextBoxColumn.DataPropertyName = "GroupCode";
-            this.groupCodeDataGridViewTextBoxColumn.HeaderText = "GroupCode";
-            this.groupCodeDataGridViewTextBoxColumn.Name = "groupCodeDataGridViewTextBoxColumn";
-            this.groupCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cardStatusDataGridViewTextBoxColumn
-            // 
-            this.cardStatusDataGridViewTextBoxColumn.DataPropertyName = "CardStatus";
-            this.cardStatusDataGridViewTextBoxColumn.HeaderText = "CardStatus";
-            this.cardStatusDataGridViewTextBoxColumn.Name = "cardStatusDataGridViewTextBoxColumn";
-            this.cardStatusDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // prefCustomerCodeDataGridViewTextBoxColumn
-            // 
-            this.prefCustomerCodeDataGridViewTextBoxColumn.DataPropertyName = "PrefCustomerCode";
-            this.prefCustomerCodeDataGridViewTextBoxColumn.HeaderText = "PrefCustomerCode";
-            this.prefCustomerCodeDataGridViewTextBoxColumn.Name = "prefCustomerCodeDataGridViewTextBoxColumn";
-            this.prefCustomerCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // prefCustomerDataGridViewTextBoxColumn
-            // 
-            this.prefCustomerDataGridViewTextBoxColumn.DataPropertyName = "PrefCustomer";
-            this.prefCustomerDataGridViewTextBoxColumn.HeaderText = "PrefCustomer";
-            this.prefCustomerDataGridViewTextBoxColumn.Name = "prefCustomerDataGridViewTextBoxColumn";
-            this.prefCustomerDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // registrationExpiryDTDataGridViewTextBoxColumn
-            // 
-            this.registrationExpiryDTDataGridViewTextBoxColumn.DataPropertyName = "RegistrationExpiryDT";
-            this.registrationExpiryDTDataGridViewTextBoxColumn.HeaderText = "RegistrationExpiryDT";
-            this.registrationExpiryDTDataGridViewTextBoxColumn.Name = "registrationExpiryDTDataGridViewTextBoxColumn";
-            this.registrationExpiryDTDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tareDataGridViewTextBoxColumn
-            // 
-            this.tareDataGridViewTextBoxColumn.DataPropertyName = "Tare";
-            this.tareDataGridViewTextBoxColumn.HeaderText = "Tare";
-            this.tareDataGridViewTextBoxColumn.Name = "tareDataGridViewTextBoxColumn";
-            this.tareDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tareTkDataGridViewTextBoxColumn
-            // 
-            this.tareTkDataGridViewTextBoxColumn.DataPropertyName = "TareTk";
-            this.tareTkDataGridViewTextBoxColumn.HeaderText = "TareTk";
-            this.tareTkDataGridViewTextBoxColumn.Name = "tareTkDataGridViewTextBoxColumn";
-            this.tareTkDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tareDTDataGridViewTextBoxColumn
-            // 
-            this.tareDTDataGridViewTextBoxColumn.DataPropertyName = "TareDT";
-            this.tareDTDataGridViewTextBoxColumn.HeaderText = "TareDT";
-            this.tareDTDataGridViewTextBoxColumn.Name = "tareDTDataGridViewTextBoxColumn";
-            this.tareDTDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // axleConfigurationDataGridViewTextBoxColumn1
-            // 
-            this.axleConfigurationDataGridViewTextBoxColumn1.DataPropertyName = "AxleConfiguration";
-            this.axleConfigurationDataGridViewTextBoxColumn1.HeaderText = "AxleConfiguration";
-            this.axleConfigurationDataGridViewTextBoxColumn1.Name = "axleConfigurationDataGridViewTextBoxColumn1";
-            this.axleConfigurationDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // configSourceDataGridViewTextBoxColumn
-            // 
-            this.configSourceDataGridViewTextBoxColumn.DataPropertyName = "ConfigSource";
-            this.configSourceDataGridViewTextBoxColumn.HeaderText = "ConfigSource";
-            this.configSourceDataGridViewTextBoxColumn.Name = "configSourceDataGridViewTextBoxColumn";
-            this.configSourceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // schemeCodeDataGridViewTextBoxColumn
-            // 
-            this.schemeCodeDataGridViewTextBoxColumn.DataPropertyName = "SchemeCode";
-            this.schemeCodeDataGridViewTextBoxColumn.HeaderText = "SchemeCode";
-            this.schemeCodeDataGridViewTextBoxColumn.Name = "schemeCodeDataGridViewTextBoxColumn";
-            this.schemeCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // schemeDataGridViewTextBoxColumn
-            // 
-            this.schemeDataGridViewTextBoxColumn.DataPropertyName = "Scheme";
-            this.schemeDataGridViewTextBoxColumn.HeaderText = "Scheme";
-            this.schemeDataGridViewTextBoxColumn.Name = "schemeDataGridViewTextBoxColumn";
-            this.schemeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // gCMDataGridViewTextBoxColumn
-            // 
-            this.gCMDataGridViewTextBoxColumn.DataPropertyName = "GCM";
-            this.gCMDataGridViewTextBoxColumn.HeaderText = "GCM";
-            this.gCMDataGridViewTextBoxColumn.Name = "gCMDataGridViewTextBoxColumn";
-            this.gCMDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // gVMTruckDataGridViewTextBoxColumn
-            // 
-            this.gVMTruckDataGridViewTextBoxColumn.DataPropertyName = "GVMTruck";
-            this.gVMTruckDataGridViewTextBoxColumn.HeaderText = "GVMTruck";
-            this.gVMTruckDataGridViewTextBoxColumn.Name = "gVMTruckDataGridViewTextBoxColumn";
-            this.gVMTruckDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // driveAxleLoadDataGridViewTextBoxColumn
-            // 
-            this.driveAxleLoadDataGridViewTextBoxColumn.DataPropertyName = "DriveAxleLoad";
-            this.driveAxleLoadDataGridViewTextBoxColumn.HeaderText = "DriveAxleLoad";
-            this.driveAxleLoadDataGridViewTextBoxColumn.Name = "driveAxleLoadDataGridViewTextBoxColumn";
-            this.driveAxleLoadDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // driveAxleLoadUOMDataGridViewTextBoxColumn
-            // 
-            this.driveAxleLoadUOMDataGridViewTextBoxColumn.DataPropertyName = "DriveAxleLoadUOM";
-            this.driveAxleLoadUOMDataGridViewTextBoxColumn.HeaderText = "DriveAxleLoadUOM";
-            this.driveAxleLoadUOMDataGridViewTextBoxColumn.Name = "driveAxleLoadUOMDataGridViewTextBoxColumn";
-            this.driveAxleLoadUOMDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // trTkRatioDataGridViewTextBoxColumn
-            // 
-            this.trTkRatioDataGridViewTextBoxColumn.DataPropertyName = "TrTkRatio";
-            this.trTkRatioDataGridViewTextBoxColumn.HeaderText = "TrTkRatio";
-            this.trTkRatioDataGridViewTextBoxColumn.Name = "trTkRatioDataGridViewTextBoxColumn";
-            this.trTkRatioDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // schematicDataGridViewImageColumn
-            // 
-            this.schematicDataGridViewImageColumn.DataPropertyName = "Schematic";
-            this.schematicDataGridViewImageColumn.HeaderText = "Schematic";
-            this.schematicDataGridViewImageColumn.Name = "schematicDataGridViewImageColumn";
-            this.schematicDataGridViewImageColumn.ReadOnly = true;
-            // 
-            // regoTrailerDataGridViewTextBoxColumn
-            // 
-            this.regoTrailerDataGridViewTextBoxColumn.DataPropertyName = "RegoTrailer";
-            this.regoTrailerDataGridViewTextBoxColumn.HeaderText = "RegoTrailer";
-            this.regoTrailerDataGridViewTextBoxColumn.Name = "regoTrailerDataGridViewTextBoxColumn";
-            this.regoTrailerDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // regoTr1DataGridViewTextBoxColumn
-            // 
-            this.regoTr1DataGridViewTextBoxColumn.DataPropertyName = "RegoTr1";
-            this.regoTr1DataGridViewTextBoxColumn.HeaderText = "RegoTr1";
-            this.regoTr1DataGridViewTextBoxColumn.Name = "regoTr1DataGridViewTextBoxColumn";
-            this.regoTr1DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // regoTr2DataGridViewTextBoxColumn
-            // 
-            this.regoTr2DataGridViewTextBoxColumn.DataPropertyName = "RegoTr2";
-            this.regoTr2DataGridViewTextBoxColumn.HeaderText = "RegoTr2";
-            this.regoTr2DataGridViewTextBoxColumn.Name = "regoTr2DataGridViewTextBoxColumn";
-            this.regoTr2DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // regoTr3DataGridViewTextBoxColumn
-            // 
-            this.regoTr3DataGridViewTextBoxColumn.DataPropertyName = "RegoTr3";
-            this.regoTr3DataGridViewTextBoxColumn.HeaderText = "RegoTr3";
-            this.regoTr3DataGridViewTextBoxColumn.Name = "regoTr3DataGridViewTextBoxColumn";
-            this.regoTr3DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(215, 286);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 37;
-            this.button10.Text = "button10";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // TruckConfiguration
             // 
