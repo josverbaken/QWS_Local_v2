@@ -232,10 +232,5 @@ namespace QWS_Local
                 return null;
             }
         }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Hello World!");
-        }
     }
 }

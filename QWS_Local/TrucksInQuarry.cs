@@ -48,6 +48,7 @@ namespace QWS_Local
 
         private void BookInTruck()
         {
+            // TODO run truckconfigsearch as if from vehiclemaintenance or truckconfiguration
             BookInTruck frmBookIn = new BookInTruck();
             frmBookIn.MdiParent = this.MdiParent;
             frmBookIn.Show();
