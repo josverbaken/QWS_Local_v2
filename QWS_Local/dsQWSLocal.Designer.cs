@@ -2901,7 +2901,7 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnSchematic;
             
-            private global::System.Data.DataColumn columnTrailers;
+            private global::System.Data.DataColumn columnVehicles;
             
             private global::System.Data.DataColumn columnIsLeadVehicle;
             
@@ -2996,9 +2996,9 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TrailersColumn {
+            public global::System.Data.DataColumn VehiclesColumn {
                 get {
-                    return this.columnTrailers;
+                    return this.columnVehicles;
                 }
             }
             
@@ -3047,7 +3047,7 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AxleConfigurationRow AddAxleConfigurationRow(string AxleConfiguration, VehicleTypeRow parentVehicleTypeRowByFK_AxleConfiguration_VehicleType, int Axles, int AxleGroups, int Compartments, string VehicleDescription, byte[] Schematic, int Trailers, bool IsLeadVehicle) {
+            public AxleConfigurationRow AddAxleConfigurationRow(string AxleConfiguration, VehicleTypeRow parentVehicleTypeRowByFK_AxleConfiguration_VehicleType, int Axles, int AxleGroups, int Compartments, string VehicleDescription, byte[] Schematic, int Vehicles, bool IsLeadVehicle) {
                 AxleConfigurationRow rowAxleConfigurationRow = ((AxleConfigurationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         AxleConfiguration,
@@ -3057,7 +3057,7 @@ namespace QWS_Local {
                         Compartments,
                         VehicleDescription,
                         Schematic,
-                        Trailers,
+                        Vehicles,
                         IsLeadVehicle};
                 if ((parentVehicleTypeRowByFK_AxleConfiguration_VehicleType != null)) {
                     columnValuesArray[1] = parentVehicleTypeRowByFK_AxleConfiguration_VehicleType[0];
@@ -3098,7 +3098,7 @@ namespace QWS_Local {
                 this.columnCompartments = base.Columns["Compartments"];
                 this.columnVehicleDescription = base.Columns["VehicleDescription"];
                 this.columnSchematic = base.Columns["Schematic"];
-                this.columnTrailers = base.Columns["Trailers"];
+                this.columnVehicles = base.Columns["Vehicles"];
                 this.columnIsLeadVehicle = base.Columns["IsLeadVehicle"];
             }
             
@@ -3119,8 +3119,8 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnVehicleDescription);
                 this.columnSchematic = new global::System.Data.DataColumn("Schematic", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSchematic);
-                this.columnTrailers = new global::System.Data.DataColumn("Trailers", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTrailers);
+                this.columnVehicles = new global::System.Data.DataColumn("Vehicles", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVehicles);
                 this.columnIsLeadVehicle = new global::System.Data.DataColumn("IsLeadVehicle", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIsLeadVehicle);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -3134,7 +3134,8 @@ namespace QWS_Local {
                 this.columnAxles.AllowDBNull = false;
                 this.columnCompartments.AllowDBNull = false;
                 this.columnVehicleDescription.MaxLength = 100;
-                this.columnTrailers.AllowDBNull = false;
+                this.columnVehicles.AllowDBNull = false;
+                this.columnIsLeadVehicle.DefaultValue = ((bool)(false));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9275,12 +9276,12 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Trailers {
+            public int Vehicles {
                 get {
-                    return ((int)(this[this.tableAxleConfiguration.TrailersColumn]));
+                    return ((int)(this[this.tableAxleConfiguration.VehiclesColumn]));
                 }
                 set {
-                    this[this.tableAxleConfiguration.TrailersColumn] = value;
+                    this[this.tableAxleConfiguration.VehiclesColumn] = value;
                 }
             }
             
@@ -14201,11 +14202,11 @@ SELECT FeeCodeID, Jurisdiction, FeeCode, FeeType, Coupling, Axles, FeeConditions
             tableMapping.ColumnMappings.Add("Compartments", "Compartments");
             tableMapping.ColumnMappings.Add("VehicleDescription", "VehicleDescription");
             tableMapping.ColumnMappings.Add("Schematic", "Schematic");
-            tableMapping.ColumnMappings.Add("Trailers", "Trailers");
+            tableMapping.ColumnMappings.Add("Vehicles", "Vehicles");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [AxleConfiguration] WHERE (([AxleConfiguration] = @Original_AxleConfiguration) AND ([VehicleType] = @Original_VehicleType) AND ([Axles] = @Original_Axles) AND ((@IsNull_AxleGroups = 1 AND [AxleGroups] IS NULL) OR ([AxleGroups] = @Original_AxleGroups)) AND ([Compartments] = @Original_Compartments) AND ((@IsNull_VehicleDescription = 1 AND [VehicleDescription] IS NULL) OR ([VehicleDescription] = @Original_VehicleDescription)) AND ([Trailers] = @Original_Trailers))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [AxleConfiguration] WHERE (([AxleConfiguration] = @Original_AxleConfiguration) AND ([VehicleType] = @Original_VehicleType) AND ([Axles] = @Original_Axles) AND ((@IsNull_AxleGroups = 1 AND [AxleGroups] IS NULL) OR ([AxleGroups] = @Original_AxleGroups)) AND ([Compartments] = @Original_Compartments) AND ((@IsNull_VehicleDescription = 1 AND [VehicleDescription] IS NULL) OR ([VehicleDescription] = @Original_VehicleDescription)) AND ([Vehicles] = @Original_Vehicles))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VehicleType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -14215,11 +14216,11 @@ SELECT FeeCodeID, Jurisdiction, FeeCode, FeeType, Coupling, Axles, FeeConditions
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Compartments", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Compartments", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_VehicleDescription", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleDescription", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VehicleDescription", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleDescription", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Trailers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Trailers", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Vehicles", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vehicles", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [AxleConfiguration] ([AxleConfiguration], [VehicleType], [Axles], [AxleGroups], [Compartments], [VehicleDescription], [Schematic], [Trailers]) VALUES (@AxleConfiguration, @VehicleType, @Axles, @AxleGroups, @Compartments, @VehicleDescription, @Schematic, @Trailers);
-SELECT AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, VehicleDescription, Schematic, Trailers FROM AxleConfiguration WHERE (AxleConfiguration = @AxleConfiguration)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [AxleConfiguration] ([AxleConfiguration], [VehicleType], [Axles], [AxleGroups], [Compartments], [VehicleDescription], [Schematic], [Vehicles]) VALUES (@AxleConfiguration, @VehicleType, @Axles, @AxleGroups, @Compartments, @VehicleDescription, @Schematic, @Vehicles);
+SELECT AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, VehicleDescription, Schematic, Vehicles FROM AxleConfiguration WHERE (AxleConfiguration = @AxleConfiguration)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14228,11 +14229,11 @@ SELECT AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, VehicleD
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Compartments", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Compartments", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleDescription", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleDescription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Schematic", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Schematic", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Trailers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Trailers", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Vehicles", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vehicles", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [AxleConfiguration] SET [AxleConfiguration] = @AxleConfiguration, [VehicleType] = @VehicleType, [Axles] = @Axles, [AxleGroups] = @AxleGroups, [Compartments] = @Compartments, [VehicleDescription] = @VehicleDescription, [Schematic] = @Schematic, [Trailers] = @Trailers WHERE (([AxleConfiguration] = @Original_AxleConfiguration) AND ([VehicleType] = @Original_VehicleType) AND ([Axles] = @Original_Axles) AND ((@IsNull_AxleGroups = 1 AND [AxleGroups] IS NULL) OR ([AxleGroups] = @Original_AxleGroups)) AND ([Compartments] = @Original_Compartments) AND ((@IsNull_VehicleDescription = 1 AND [VehicleDescription] IS NULL) OR ([VehicleDescription] = @Original_VehicleDescription)) AND ([Trailers] = @Original_Trailers));
-SELECT AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, VehicleDescription, Schematic, Trailers FROM AxleConfiguration WHERE (AxleConfiguration = @AxleConfiguration)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [AxleConfiguration] SET [AxleConfiguration] = @AxleConfiguration, [VehicleType] = @VehicleType, [Axles] = @Axles, [AxleGroups] = @AxleGroups, [Compartments] = @Compartments, [VehicleDescription] = @VehicleDescription, [Schematic] = @Schematic, [Vehicles] = @Vehicles WHERE (([AxleConfiguration] = @Original_AxleConfiguration) AND ([VehicleType] = @Original_VehicleType) AND ([Axles] = @Original_Axles) AND ((@IsNull_AxleGroups = 1 AND [AxleGroups] IS NULL) OR ([AxleGroups] = @Original_AxleGroups)) AND ([Compartments] = @Original_Compartments) AND ((@IsNull_VehicleDescription = 1 AND [VehicleDescription] IS NULL) OR ([VehicleDescription] = @Original_VehicleDescription)) AND ([Vehicles] = @Original_Vehicles));
+SELECT AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, VehicleDescription, Schematic, Vehicles FROM AxleConfiguration WHERE (AxleConfiguration = @AxleConfiguration)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14241,7 +14242,7 @@ SELECT AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, VehicleD
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Compartments", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Compartments", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VehicleDescription", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleDescription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Schematic", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Schematic", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Trailers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Trailers", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Vehicles", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vehicles", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VehicleType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Axles", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Axles", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -14250,7 +14251,7 @@ SELECT AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, VehicleD
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Compartments", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Compartments", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_VehicleDescription", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleDescription", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VehicleDescription", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VehicleDescription", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Trailers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Trailers", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Vehicles", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vehicles", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14267,19 +14268,19 @@ SELECT AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, VehicleD
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, Ve" +
-                "hicleDescription, Schematic, Trailers\r\nFROM            AxleConfiguration";
+                "hicleDescription, Schematic, Vehicles\r\nFROM            AxleConfiguration";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, Ve" +
-                "hicleDescription, Schematic, Trailers\r\nFROM            AxleConfiguration\r\nWHERE " +
-                "       (1 = 1) AND (AxleConfiguration LIKE @AxleConfiguration)";
+            this._commandCollection[1].CommandText = "SELECT AxleConfiguration, AxleGroups, Axles, Compartments, Schematic, VehicleDesc" +
+                "ription, VehicleType, Vehicles FROM AxleConfiguration WHERE (1 = 1) AND (AxleCon" +
+                "figuration LIKE @AxleConfiguration)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AxleConfiguration", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = @"SELECT        AxleConfiguration.AxleConfiguration, AxleConfiguration.VehicleType, AxleConfiguration.Axles, AxleConfiguration.AxleGroups, AxleConfiguration.Compartments, AxleConfiguration.VehicleDescription, 
-                         AxleConfiguration.Schematic, AxleConfiguration.Trailers, VehicleType.IsLeadVehicle
+                         AxleConfiguration.Schematic, AxleConfiguration.Vehicles, VehicleType.IsLeadVehicle
 FROM            AxleConfiguration INNER JOIN
                          VehicleType ON AxleConfiguration.VehicleType = VehicleType.VehicleType";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
@@ -14402,7 +14403,7 @@ FROM            AxleConfiguration INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_AxleConfiguration, string Original_VehicleType, int Original_Axles, global::System.Nullable<int> Original_AxleGroups, int Original_Compartments, string Original_VehicleDescription, int Original_Trailers) {
+        public virtual int Delete(string Original_AxleConfiguration, string Original_VehicleType, int Original_Axles, global::System.Nullable<int> Original_AxleGroups, int Original_Compartments, string Original_VehicleDescription, int Original_Vehicles) {
             if ((Original_AxleConfiguration == null)) {
                 throw new global::System.ArgumentNullException("Original_AxleConfiguration");
             }
@@ -14433,7 +14434,7 @@ FROM            AxleConfiguration INNER JOIN
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_VehicleDescription));
             }
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_Trailers));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_Vehicles));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -14454,7 +14455,7 @@ FROM            AxleConfiguration INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string AxleConfiguration, string VehicleType, int Axles, global::System.Nullable<int> AxleGroups, int Compartments, string VehicleDescription, byte[] Schematic, int Trailers) {
+        public virtual int Insert(string AxleConfiguration, string VehicleType, int Axles, global::System.Nullable<int> AxleGroups, int Compartments, string VehicleDescription, byte[] Schematic, int Vehicles) {
             if ((AxleConfiguration == null)) {
                 throw new global::System.ArgumentNullException("AxleConfiguration");
             }
@@ -14487,7 +14488,7 @@ FROM            AxleConfiguration INNER JOIN
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((byte[])(Schematic));
             }
-            this.Adapter.InsertCommand.Parameters[7].Value = ((int)(Trailers));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((int)(Vehicles));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -14508,7 +14509,7 @@ FROM            AxleConfiguration INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string AxleConfiguration, string VehicleType, int Axles, global::System.Nullable<int> AxleGroups, int Compartments, string VehicleDescription, byte[] Schematic, int Trailers, string Original_AxleConfiguration, string Original_VehicleType, int Original_Axles, global::System.Nullable<int> Original_AxleGroups, int Original_Compartments, string Original_VehicleDescription, int Original_Trailers) {
+        public virtual int Update(string AxleConfiguration, string VehicleType, int Axles, global::System.Nullable<int> AxleGroups, int Compartments, string VehicleDescription, byte[] Schematic, int Vehicles, string Original_AxleConfiguration, string Original_VehicleType, int Original_Axles, global::System.Nullable<int> Original_AxleGroups, int Original_Compartments, string Original_VehicleDescription, int Original_Vehicles) {
             if ((AxleConfiguration == null)) {
                 throw new global::System.ArgumentNullException("AxleConfiguration");
             }
@@ -14541,7 +14542,7 @@ FROM            AxleConfiguration INNER JOIN
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((byte[])(Schematic));
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Trailers));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Vehicles));
             if ((Original_AxleConfiguration == null)) {
                 throw new global::System.ArgumentNullException("Original_AxleConfiguration");
             }
@@ -14572,7 +14573,7 @@ FROM            AxleConfiguration INNER JOIN
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_VehicleDescription));
             }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_Trailers));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_Vehicles));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -14593,8 +14594,8 @@ FROM            AxleConfiguration INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string VehicleType, int Axles, global::System.Nullable<int> AxleGroups, int Compartments, string VehicleDescription, byte[] Schematic, int Trailers, string Original_AxleConfiguration, string Original_VehicleType, int Original_Axles, global::System.Nullable<int> Original_AxleGroups, int Original_Compartments, string Original_VehicleDescription, int Original_Trailers) {
-            return this.Update(Original_AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, VehicleDescription, Schematic, Trailers, Original_AxleConfiguration, Original_VehicleType, Original_Axles, Original_AxleGroups, Original_Compartments, Original_VehicleDescription, Original_Trailers);
+        public virtual int Update(string VehicleType, int Axles, global::System.Nullable<int> AxleGroups, int Compartments, string VehicleDescription, byte[] Schematic, int Vehicles, string Original_AxleConfiguration, string Original_VehicleType, int Original_Axles, global::System.Nullable<int> Original_AxleGroups, int Original_Compartments, string Original_VehicleDescription, int Original_Vehicles) {
+            return this.Update(Original_AxleConfiguration, VehicleType, Axles, AxleGroups, Compartments, VehicleDescription, Schematic, Vehicles, Original_AxleConfiguration, Original_VehicleType, Original_Axles, Original_AxleGroups, Original_Compartments, Original_VehicleDescription, Original_Vehicles);
         }
     }
     
