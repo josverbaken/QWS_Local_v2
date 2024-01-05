@@ -44,8 +44,6 @@ namespace QWS_Local
             System.Windows.Forms.Label label1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VehicleMaintenance));
             this.txtRego = new System.Windows.Forms.TextBox();
-            this.vehicleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.txtVIN = new System.Windows.Forms.TextBox();
             this.txtOwner = new System.Windows.Forms.TextBox();
             this.txtVehicleMake = new System.Windows.Forms.TextBox();
@@ -53,7 +51,6 @@ namespace QWS_Local
             this.tareTextBox = new System.Windows.Forms.TextBox();
             this.btnFeeCodesMore = new System.Windows.Forms.Button();
             this.txtJurisdiction = new System.Windows.Forms.TextBox();
-            this.vehicleRegFeeCodesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtRegoExpiryDT = new System.Windows.Forms.TextBox();
             this.btnIdentificationSave = new System.Windows.Forms.Button();
             this.btnFindVehicle = new System.Windows.Forms.Button();
@@ -63,7 +60,6 @@ namespace QWS_Local
             this.txtFeeCode = new System.Windows.Forms.TextBox();
             this.txtAxleConfig = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.axleConfigurationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -71,21 +67,31 @@ namespace QWS_Local
             this.btnGo2Config = new System.Windows.Forms.Button();
             this.btnNewVehicle = new System.Windows.Forms.Button();
             this.btnNewVehicleCurrentOwner = new System.Windows.Forms.Button();
-            this.jurisdictionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vehicleTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.VehicleTableAdapter();
-            this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
-            this.vehicleRegFeeCodesTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.VehicleRegFeeCodesTableAdapter();
-            this.jurisdictionTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.JurisdictionTableAdapter();
-            this.axleConfigurationTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
             this.txtPrefCustomerCode = new System.Windows.Forms.TextBox();
             this.btnSetPrefCustomer = new System.Windows.Forms.Button();
-            this.txtPBS_VA = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.txtPrefCustName = new System.Windows.Forms.TextBox();
             this.isLeadVehicleCheckBox = new System.Windows.Forms.CheckBox();
             this.txtSAPCode = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnVehiclesByCardCode = new System.Windows.Forms.Button();
+            this.vehicleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
+            this.axleConfigurationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vehicleRegFeeCodesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.jurisdictionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vehicleTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.VehicleTableAdapter();
+            this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
+            this.vehicleRegFeeCodesTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.VehicleRegFeeCodesTableAdapter();
+            this.jurisdictionTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.JurisdictionTableAdapter();
+            this.axleConfigurationTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
+            this.bsVehiclePBS = new System.Windows.Forms.BindingSource(this.components);
+            this.taVehiclePBS = new QWS_Local.dsQWSLocalTableAdapters.VehiclePBSTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.vehicleApprovalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             regoLabel = new System.Windows.Forms.Label();
             vINLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
@@ -98,13 +104,15 @@ namespace QWS_Local
             jurisdictionLabel1 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleRegFeeCodesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axleConfigurationBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleRegFeeCodesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jurisdictionBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVehiclePBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // regoLabel
@@ -231,12 +239,12 @@ namespace QWS_Local
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(19, 324);
+            label1.Location = new System.Drawing.Point(6, 441);
             label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(158, 18);
+            label1.Size = new System.Drawing.Size(170, 18);
             label1.TabIndex = 64;
-            label1.Text = "PBS Vehicle Approval :";
+            label1.Text = "PBS Vehicle Approval/s :";
             label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtRego
@@ -253,16 +261,6 @@ namespace QWS_Local
             this.toolTip1.SetToolTip(this.txtRego, "Search by Rego or Owner");
             this.txtRego.Click += new System.EventHandler(this.txtRego_Click);
             this.txtRego.Enter += new System.EventHandler(this.txtRego_Enter);
-            // 
-            // vehicleBindingSource
-            // 
-            this.vehicleBindingSource.DataMember = "Vehicle";
-            this.vehicleBindingSource.DataSource = this.dsQWSLocal;
-            // 
-            // dsQWSLocal
-            // 
-            this.dsQWSLocal.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtVIN
             // 
@@ -334,11 +332,6 @@ namespace QWS_Local
             this.txtJurisdiction.Name = "txtJurisdiction";
             this.txtJurisdiction.Size = new System.Drawing.Size(148, 24);
             this.txtJurisdiction.TabIndex = 9;
-            // 
-            // vehicleRegFeeCodesBindingSource
-            // 
-            this.vehicleRegFeeCodesBindingSource.DataMember = "VehicleRegFeeCodes";
-            this.vehicleRegFeeCodesBindingSource.DataSource = this.dsQWSLocal;
             // 
             // txtRegoExpiryDT
             // 
@@ -455,11 +448,6 @@ namespace QWS_Local
             this.textBox8.TabStop = false;
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // axleConfigurationBindingSource
-            // 
-            this.axleConfigurationBindingSource.DataMember = "AxleConfiguration";
-            this.axleConfigurationBindingSource.DataSource = this.dsQWSLocal;
-            // 
             // textBox1
             // 
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleRegFeeCodesBindingSource, "FeeConditions", true));
@@ -530,44 +518,6 @@ namespace QWS_Local
             this.btnNewVehicleCurrentOwner.UseVisualStyleBackColor = false;
             this.btnNewVehicleCurrentOwner.Click += new System.EventHandler(this.btnNewVehicleCurrentOwner_Click);
             // 
-            // jurisdictionBindingSource
-            // 
-            this.jurisdictionBindingSource.DataMember = "Jurisdiction";
-            this.jurisdictionBindingSource.DataSource = this.dsQWSLocal;
-            // 
-            // vehicleTableAdapter
-            // 
-            this.vehicleTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.AxleConfigurationTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.NHVLTableAdapter = null;
-            this.tableAdapterManager.PBS_ConfigSchemeTableAdapter = null;
-            this.tableAdapterManager.PBS_ConfigTableAdapter = null;
-            this.tableAdapterManager.PBSTableAdapter = null;
-            this.tableAdapterManager.SchemeCodesTableAdapter = null;
-            this.tableAdapterManager.TruckConfigTableAdapter = null;
-            this.tableAdapterManager.TruckConfigVehicleTableAdapter = null;
-            this.tableAdapterManager.TrucksInQuarryTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
-            this.tableAdapterManager.VehicleTableAdapter = this.vehicleTableAdapter;
-            this.tableAdapterManager.VehicleTypeTableAdapter = null;
-            // 
-            // vehicleRegFeeCodesTableAdapter
-            // 
-            this.vehicleRegFeeCodesTableAdapter.ClearBeforeFill = true;
-            // 
-            // jurisdictionTableAdapter
-            // 
-            this.jurisdictionTableAdapter.ClearBeforeFill = true;
-            // 
-            // axleConfigurationTableAdapter
-            // 
-            this.axleConfigurationTableAdapter.ClearBeforeFill = true;
-            // 
             // txtPrefCustomerCode
             // 
             this.txtPrefCustomerCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "PrefCustomerCode", true));
@@ -590,15 +540,6 @@ namespace QWS_Local
             this.btnSetPrefCustomer.Text = "Set";
             this.btnSetPrefCustomer.UseVisualStyleBackColor = false;
             this.btnSetPrefCustomer.Click += new System.EventHandler(this.btnSetPrefCustomer_Click);
-            // 
-            // txtPBS_VA
-            // 
-            this.txtPBS_VA.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "PBS_VA", true));
-            this.txtPBS_VA.Location = new System.Drawing.Point(208, 324);
-            this.txtPBS_VA.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPBS_VA.Name = "txtPBS_VA";
-            this.txtPBS_VA.Size = new System.Drawing.Size(148, 24);
-            this.txtPBS_VA.TabIndex = 63;
             // 
             // textBox2
             // 
@@ -665,18 +606,144 @@ namespace QWS_Local
             this.btnVehiclesByCardCode.UseVisualStyleBackColor = false;
             this.btnVehiclesByCardCode.Click += new System.EventHandler(this.btnVehiclesByCardCode_Click);
             // 
+            // vehicleBindingSource
+            // 
+            this.vehicleBindingSource.DataMember = "Vehicle";
+            this.vehicleBindingSource.DataSource = this.dsQWSLocal;
+            // 
+            // dsQWSLocal
+            // 
+            this.dsQWSLocal.DataSetName = "dsQWSLocal";
+            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // axleConfigurationBindingSource
+            // 
+            this.axleConfigurationBindingSource.DataMember = "AxleConfiguration";
+            this.axleConfigurationBindingSource.DataSource = this.dsQWSLocal;
+            // 
+            // vehicleRegFeeCodesBindingSource
+            // 
+            this.vehicleRegFeeCodesBindingSource.DataMember = "VehicleRegFeeCodes";
+            this.vehicleRegFeeCodesBindingSource.DataSource = this.dsQWSLocal;
+            // 
+            // jurisdictionBindingSource
+            // 
+            this.jurisdictionBindingSource.DataMember = "Jurisdiction";
+            this.jurisdictionBindingSource.DataSource = this.dsQWSLocal;
+            // 
+            // vehicleTableAdapter
+            // 
+            this.vehicleTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.AxleConfigurationTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.NHVLTableAdapter = null;
+            this.tableAdapterManager.PBS_ConfigSchemeTableAdapter = null;
+            this.tableAdapterManager.PBS_ConfigTableAdapter = null;
+            this.tableAdapterManager.PBSTableAdapter = null;
+            this.tableAdapterManager.SchemeCodesTableAdapter = null;
+            this.tableAdapterManager.TruckConfigTableAdapter = null;
+            this.tableAdapterManager.TruckConfigVehicleTableAdapter = null;
+            this.tableAdapterManager.TrucksInQuarryTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.VehiclePBSTableAdapter = null;
+            this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
+            this.tableAdapterManager.VehicleTableAdapter = this.vehicleTableAdapter;
+            this.tableAdapterManager.VehicleTypeTableAdapter = null;
+            // 
+            // vehicleRegFeeCodesTableAdapter
+            // 
+            this.vehicleRegFeeCodesTableAdapter.ClearBeforeFill = true;
+            // 
+            // jurisdictionTableAdapter
+            // 
+            this.jurisdictionTableAdapter.ClearBeforeFill = true;
+            // 
+            // axleConfigurationTableAdapter
+            // 
+            this.axleConfigurationTableAdapter.ClearBeforeFill = true;
+            // 
+            // bsVehiclePBS
+            // 
+            this.bsVehiclePBS.DataMember = "VehiclePBS";
+            this.bsVehiclePBS.DataSource = this.dsQWSLocal;
+            this.bsVehiclePBS.AddingNew += new System.ComponentModel.AddingNewEventHandler(this.bsVehiclePBS_AddingNew);
+            // 
+            // taVehiclePBS
+            // 
+            this.taVehiclePBS.ClearBeforeFill = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.SkyBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(472, 595);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(130, 32);
+            this.button1.TabIndex = 71;
+            this.button1.Text = "Update PBS";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ColumnHeadersVisible = false;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.vehicleApprovalDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.bsVehiclePBS;
+            this.dataGridView1.Location = new System.Drawing.Point(208, 477);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(163, 150);
+            this.dataGridView1.TabIndex = 72;
+            // 
+            // listBox1
+            // 
+            this.listBox1.DataSource = this.bsVehiclePBS;
+            this.listBox1.DisplayMember = "VehicleApproval";
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 18;
+            this.listBox1.Location = new System.Drawing.Point(21, 477);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(150, 148);
+            this.listBox1.TabIndex = 73;
+            this.listBox1.ValueMember = "VehiclePBS_ID";
+            // 
+            // vehicleApprovalDataGridViewTextBoxColumn
+            // 
+            this.vehicleApprovalDataGridViewTextBoxColumn.DataPropertyName = "VehicleApproval";
+            this.vehicleApprovalDataGridViewTextBoxColumn.HeaderText = "VA";
+            this.vehicleApprovalDataGridViewTextBoxColumn.Name = "vehicleApprovalDataGridViewTextBoxColumn";
+            // 
+            // textBox3
+            // 
+            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehiclePBS, "VehiclePBS_ID", true));
+            this.textBox3.Location = new System.Drawing.Point(421, 477);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(73, 24);
+            this.textBox3.TabIndex = 74;
+            // 
             // VehicleMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1171, 696);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnVehiclesByCardCode);
             this.Controls.Add(this.txtSAPCode);
             this.Controls.Add(this.isLeadVehicleCheckBox);
             this.Controls.Add(this.txtPrefCustName);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(label1);
-            this.Controls.Add(this.txtPBS_VA);
             this.Controls.Add(label4);
             this.Controls.Add(this.btnSetPrefCustomer);
             this.Controls.Add(this.txtPrefCustomerCode);
@@ -719,13 +786,15 @@ namespace QWS_Local
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Vehicle_Maintenance";
             this.Load += new System.EventHandler(this.Vehicle_Maintenance_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleRegFeeCodesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axleConfigurationBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleRegFeeCodesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jurisdictionBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVehiclePBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -770,11 +839,17 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnNewVehicleCurrentOwner;
         private System.Windows.Forms.TextBox txtPrefCustomerCode;
         private System.Windows.Forms.Button btnSetPrefCustomer;
-        private System.Windows.Forms.TextBox txtPBS_VA;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox txtPrefCustName;
         private System.Windows.Forms.CheckBox isLeadVehicleCheckBox;
         private System.Windows.Forms.TextBox txtSAPCode;
         private System.Windows.Forms.Button btnVehiclesByCardCode;
+        private System.Windows.Forms.BindingSource bsVehiclePBS;
+        private dsQWSLocalTableAdapters.VehiclePBSTableAdapter taVehiclePBS;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleApprovalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }

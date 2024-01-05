@@ -98,6 +98,7 @@ namespace QWS_Local
                             SynchAxleConfig(CurrentVehicle().AxleConfiguration);
                             SynchFeeCode(CurrentVehicle().FeeCodeID);
                             CheckExpiryDT();
+                            GetPBSApprovals(CurrentVehicle().Rego);
                             break;
                         case int n when(n > 1):
                             VehicleSearch vehicleSearch = new VehicleSearch(strSearch, false);
@@ -109,6 +110,7 @@ namespace QWS_Local
                                 iRows += 2;
                                 SynchAxleConfig(CurrentVehicle().AxleConfiguration);
                                 SynchFeeCode(CurrentVehicle().FeeCodeID);
+                                GetPBSApprovals(CurrentVehicle().Rego);
                             }
                             else
                             {
@@ -508,6 +510,64 @@ namespace QWS_Local
                 txtRego.Focus();
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UpdateVehiclePBS();
+        }
+
+        private void UpdateVehiclePBS()
+        {
+            try
+            {
+                bsVehiclePBS.EndEdit();
+                this.taVehiclePBS.Update(dsQWSLocal.VehiclePBS);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void GetPBSApprovals(string Rego)
+        {
+            try
+            {
+              int iCount =  this.taVehiclePBS.FillBy(this.dsQWSLocal.VehiclePBS,Rego);
+                iCount += 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void bsVehiclePBS_AddingNew(object sender, AddingNewEventArgs e)
+        {
+            try
+            {
+                e.NewObject = NewVehiclePBS();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);            }
+        }
+
+        private dsQWSLocal.VehiclePBSRow NewVehiclePBS()
+        {
+            try
+            {
+                DataRow dr = dsQWSLocal.VehiclePBS.NewRow();
+            dsQWSLocal.VehiclePBSRow vehiclePBSRow = (dsQWSLocal.VehiclePBSRow)dr;
+            vehiclePBSRow.Rego = CurrentVehicle().Rego;
+                return vehiclePBSRow;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
         }
     }
 }
