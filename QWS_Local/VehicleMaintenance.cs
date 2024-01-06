@@ -521,6 +521,10 @@ namespace QWS_Local
         {
             try
             {
+                //DataRow dr = ((DataRowView)bsVehiclePBS.Current).Row;
+                //dsQWSLocal.VehiclePBSRow vehiclePBSRow = (dsQWSLocal.VehiclePBSRow)dr;
+                //vehiclePBSRow.Rego = CurrentVehicle().Rego;
+                // TOO Late, exception occurs in bindingsource add item to list
                 bsVehiclePBS.EndEdit();
                 this.taVehiclePBS.Update(dsQWSLocal.VehiclePBS);
             }
@@ -561,12 +565,35 @@ namespace QWS_Local
                 DataRow dr = dsQWSLocal.VehiclePBS.NewRow();
             dsQWSLocal.VehiclePBSRow vehiclePBSRow = (dsQWSLocal.VehiclePBSRow)dr;
             vehiclePBSRow.Rego = CurrentVehicle().Rego;
+                vehiclePBSRow.VehicleApproval = -9;
                 return vehiclePBSRow;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 return null;
+            }
+        }
+
+        private void btnAddPBS_Click(object sender, EventArgs e)
+        {
+            AddVehiclePBS();
+        }
+
+        private void AddVehiclePBS()
+        {
+            try
+            {
+                DataRow dr = dsQWSLocal.VehiclePBS.NewRow();
+                dsQWSLocal.VehiclePBSRow vehiclePBSRow = (dsQWSLocal.VehiclePBSRow)dr;
+                vehiclePBSRow.Rego = CurrentVehicle().Rego;
+                vehiclePBSRow.VehicleApproval = System.Convert.ToInt32(txtPBS_VA.Text);
+                dsQWSLocal.VehiclePBS.AddVehiclePBSRow(vehiclePBSRow);
+                txtPBS_VA.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
