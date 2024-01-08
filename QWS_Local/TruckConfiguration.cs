@@ -39,6 +39,7 @@ namespace QWS_Local
             {
                 int iVehicle = this.taVehicle.FillByCardCode(this.dsQWSLocal.Vehicle, myCardCode);
                 this.taConfiguredTnT.Fill(dsTruckConfig.ConfiguredTnT, "", "", myCardCode);
+                // TODO how best to link vehicle to pbs_config??
                 int iVehicleDetails = this.taVehicleDetails.FillBy(this.dsQWSLocal.VehicleDetails, myRego);
                 TruckConfigFilterByRego(myRego, true);
                 if (iVehicleDetails > 0 && CurrentVehicleDetails().IsLeadVehicle)

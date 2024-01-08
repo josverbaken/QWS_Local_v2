@@ -277,16 +277,16 @@ namespace QWS_Local
 
         private void PrefCustomerSearch()
         {
-            // TODO refactor BusinessSearch and PrefCustomerSearch to just return found BP
+            // TODO refactor PrefCustomerSearch to just return found BP
             try
             {
-                BusinessSearch businessSearch = new BusinessSearch(txtPrefCustName.Text);
+                BusinessSearch businessSearch = new BusinessSearch(""); // txtPrefCustName.Text);
                 DialogResult dr = businessSearch.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    CurrentVehicle().PrefCustomerCode = businessSearch.SAPCode;
-                    CurrentVehicle().PrefCustomer = businessSearch.BusinessName;
-                    vehicleBindingSource.EndEdit();
+//                    CurrentVehicle().PrefCustomerCode = businessSearch.SAPCode;
+//                    CurrentVehicle().PrefCustomer = businessSearch.BusinessName;
+//                    vehicleBindingSource.EndEdit();
                     txtJurisdiction.Focus();
                 }
                 else if (dr == DialogResult.Abort)

@@ -71,10 +71,8 @@ namespace QWS_Local
             this.btnGo2Config = new System.Windows.Forms.Button();
             this.btnNewVehicle = new System.Windows.Forms.Button();
             this.btnNewVehicleCurrentOwner = new System.Windows.Forms.Button();
-            this.txtPrefCustomerCode = new System.Windows.Forms.TextBox();
             this.btnSetPrefCustomer = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.txtPrefCustName = new System.Windows.Forms.TextBox();
             this.isLeadVehicleCheckBox = new System.Windows.Forms.CheckBox();
             this.txtSAPCode = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -88,8 +86,6 @@ namespace QWS_Local
             this.bsVehiclePBS = new System.Windows.Forms.BindingSource(this.components);
             this.taVehiclePBS = new QWS_Local.dsQWSLocalTableAdapters.VehiclePBSTableAdapter();
             this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.vehicleApprovalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnAddPBS = new System.Windows.Forms.Button();
@@ -540,15 +536,6 @@ namespace QWS_Local
             this.btnNewVehicleCurrentOwner.UseVisualStyleBackColor = false;
             this.btnNewVehicleCurrentOwner.Click += new System.EventHandler(this.btnNewVehicleCurrentOwner_Click);
             // 
-            // txtPrefCustomerCode
-            // 
-            this.txtPrefCustomerCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "PrefCustomerCode", true));
-            this.txtPrefCustomerCode.Location = new System.Drawing.Point(208, 359);
-            this.txtPrefCustomerCode.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPrefCustomerCode.Name = "txtPrefCustomerCode";
-            this.txtPrefCustomerCode.Size = new System.Drawing.Size(73, 24);
-            this.txtPrefCustomerCode.TabIndex = 60;
-            // 
             // btnSetPrefCustomer
             // 
             this.btnSetPrefCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -571,15 +558,6 @@ namespace QWS_Local
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(33, 24);
             this.textBox2.TabIndex = 65;
-            // 
-            // txtPrefCustName
-            // 
-            this.txtPrefCustName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "PrefCustomer", true));
-            this.txtPrefCustName.Location = new System.Drawing.Point(208, 391);
-            this.txtPrefCustName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPrefCustName.Name = "txtPrefCustName";
-            this.txtPrefCustName.Size = new System.Drawing.Size(394, 24);
-            this.txtPrefCustName.TabIndex = 66;
             // 
             // isLeadVehicleCheckBox
             // 
@@ -690,27 +668,6 @@ namespace QWS_Local
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // listBox1
-            // 
-            this.listBox1.DataSource = this.bsVehiclePBS;
-            this.listBox1.DisplayMember = "VehicleApproval";
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 18;
-            this.listBox1.Location = new System.Drawing.Point(21, 477);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(150, 148);
-            this.listBox1.TabIndex = 73;
-            this.listBox1.ValueMember = "VehiclePBS_ID";
-            // 
-            // textBox3
-            // 
-            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehiclePBS, "VehiclePBS_ID", true));
-            this.textBox3.Location = new System.Drawing.Point(421, 477);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(73, 24);
-            this.textBox3.TabIndex = 74;
-            // 
             // vehicleApprovalDataGridViewTextBoxColumn
             // 
             this.vehicleApprovalDataGridViewTextBoxColumn.DataPropertyName = "VehicleApproval";
@@ -759,19 +716,15 @@ namespace QWS_Local
             this.ClientSize = new System.Drawing.Size(1171, 696);
             this.Controls.Add(this.txtPBS_VA);
             this.Controls.Add(this.btnAddPBS);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnVehiclesByCardCode);
             this.Controls.Add(this.txtSAPCode);
             this.Controls.Add(this.isLeadVehicleCheckBox);
-            this.Controls.Add(this.txtPrefCustName);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(label1);
             this.Controls.Add(label4);
             this.Controls.Add(this.btnSetPrefCustomer);
-            this.Controls.Add(this.txtPrefCustomerCode);
             this.Controls.Add(this.btnNewVehicleCurrentOwner);
             this.Controls.Add(this.btnNewVehicle);
             this.Controls.Add(this.btnGo2Config);
@@ -862,18 +815,14 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnGo2Config;
         private System.Windows.Forms.Button btnNewVehicle;
         private System.Windows.Forms.Button btnNewVehicleCurrentOwner;
-        private System.Windows.Forms.TextBox txtPrefCustomerCode;
         private System.Windows.Forms.Button btnSetPrefCustomer;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox txtPrefCustName;
         private System.Windows.Forms.CheckBox isLeadVehicleCheckBox;
         private System.Windows.Forms.TextBox txtSAPCode;
         private System.Windows.Forms.Button btnVehiclesByCardCode;
         private System.Windows.Forms.BindingSource bsVehiclePBS;
         private dsQWSLocalTableAdapters.VehiclePBSTableAdapter taVehiclePBS;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.DataGridViewTextBoxColumn vehicleApprovalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnAddPBS;

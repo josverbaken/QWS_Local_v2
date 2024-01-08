@@ -1735,8 +1735,6 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnAxleConfiguration;
             
-            private global::System.Data.DataColumn columnPrefCustomerCode;
-            
             private global::System.Data.DataColumn columnRegistrationExpiryDT;
             
             private global::System.Data.DataColumn columnCreateDTTM;
@@ -1746,8 +1744,6 @@ namespace QWS_Local {
             private global::System.Data.DataColumn columnMassAccreditationLabel;
             
             private global::System.Data.DataColumn columnActive;
-            
-            private global::System.Data.DataColumn columnPrefCustomer;
             
             private global::System.Data.DataColumn columnIsLeadVehicle;
             
@@ -1850,14 +1846,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PrefCustomerCodeColumn {
-                get {
-                    return this.columnPrefCustomerCode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn RegistrationExpiryDTColumn {
                 get {
                     return this.columnRegistrationExpiryDT;
@@ -1893,14 +1881,6 @@ namespace QWS_Local {
             public global::System.Data.DataColumn ActiveColumn {
                 get {
                     return this.columnActive;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PrefCustomerColumn {
-                get {
-                    return this.columnPrefCustomer;
                 }
             }
             
@@ -1949,23 +1929,7 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VehicleRow AddVehicleRow(
-                        string Rego, 
-                        string VIN, 
-                        string Owner, 
-                        string Make, 
-                        string Model, 
-                        decimal RegisteredTare, 
-                        VehicleRegFeeCodesRow parentVehicleRegFeeCodesRowByFK_Vehicle_VehicleRegFeeCodes, 
-                        AxleConfigurationRow parentAxleConfigurationRowByFK_Vehicle_AxleConfiguration, 
-                        string PrefCustomerCode, 
-                        System.DateTime RegistrationExpiryDT, 
-                        System.DateTime CreateDTTM, 
-                        string CardCode, 
-                        string MassAccreditationLabel, 
-                        bool Active, 
-                        string PrefCustomer, 
-                        bool IsLeadVehicle) {
+            public VehicleRow AddVehicleRow(string Rego, string VIN, string Owner, string Make, string Model, decimal RegisteredTare, VehicleRegFeeCodesRow parentVehicleRegFeeCodesRowByFK_Vehicle_VehicleRegFeeCodes, AxleConfigurationRow parentAxleConfigurationRowByFK_Vehicle_AxleConfiguration, System.DateTime RegistrationExpiryDT, System.DateTime CreateDTTM, string CardCode, string MassAccreditationLabel, bool Active, bool IsLeadVehicle) {
                 VehicleRow rowVehicleRow = ((VehicleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Rego,
@@ -1976,13 +1940,11 @@ namespace QWS_Local {
                         RegisteredTare,
                         null,
                         null,
-                        PrefCustomerCode,
                         RegistrationExpiryDT,
                         CreateDTTM,
                         CardCode,
                         MassAccreditationLabel,
                         Active,
-                        PrefCustomer,
                         IsLeadVehicle};
                 if ((parentVehicleRegFeeCodesRowByFK_Vehicle_VehicleRegFeeCodes != null)) {
                     columnValuesArray[6] = parentVehicleRegFeeCodesRowByFK_Vehicle_VehicleRegFeeCodes[0];
@@ -2027,13 +1989,11 @@ namespace QWS_Local {
                 this.columnRegisteredTare = base.Columns["RegisteredTare"];
                 this.columnFeeCodeID = base.Columns["FeeCodeID"];
                 this.columnAxleConfiguration = base.Columns["AxleConfiguration"];
-                this.columnPrefCustomerCode = base.Columns["PrefCustomerCode"];
                 this.columnRegistrationExpiryDT = base.Columns["RegistrationExpiryDT"];
                 this.columnCreateDTTM = base.Columns["CreateDTTM"];
                 this.columnCardCode = base.Columns["CardCode"];
                 this.columnMassAccreditationLabel = base.Columns["MassAccreditationLabel"];
                 this.columnActive = base.Columns["Active"];
-                this.columnPrefCustomer = base.Columns["PrefCustomer"];
                 this.columnIsLeadVehicle = base.Columns["IsLeadVehicle"];
             }
             
@@ -2056,8 +2016,6 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnFeeCodeID);
                 this.columnAxleConfiguration = new global::System.Data.DataColumn("AxleConfiguration", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAxleConfiguration);
-                this.columnPrefCustomerCode = new global::System.Data.DataColumn("PrefCustomerCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPrefCustomerCode);
                 this.columnRegistrationExpiryDT = new global::System.Data.DataColumn("RegistrationExpiryDT", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRegistrationExpiryDT);
                 this.columnCreateDTTM = new global::System.Data.DataColumn("CreateDTTM", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -2068,8 +2026,6 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnMassAccreditationLabel);
                 this.columnActive = new global::System.Data.DataColumn("Active", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnActive);
-                this.columnPrefCustomer = new global::System.Data.DataColumn("PrefCustomer", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPrefCustomer);
                 this.columnIsLeadVehicle = new global::System.Data.DataColumn("IsLeadVehicle", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIsLeadVehicle);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -2092,9 +2048,6 @@ namespace QWS_Local {
                 this.columnAxleConfiguration.AllowDBNull = false;
                 this.columnAxleConfiguration.DefaultValue = ((string)("tba"));
                 this.columnAxleConfiguration.MaxLength = 50;
-                this.columnPrefCustomerCode.AllowDBNull = false;
-                this.columnPrefCustomerCode.DefaultValue = ((string)("tba"));
-                this.columnPrefCustomerCode.MaxLength = 15;
                 this.columnRegistrationExpiryDT.AllowDBNull = false;
                 this.columnCreateDTTM.AllowDBNull = false;
                 this.columnCardCode.AllowDBNull = false;
@@ -2105,9 +2058,6 @@ namespace QWS_Local {
                 this.columnMassAccreditationLabel.MaxLength = 50;
                 this.columnActive.AllowDBNull = false;
                 this.columnActive.DefaultValue = ((bool)(true));
-                this.columnPrefCustomer.AllowDBNull = false;
-                this.columnPrefCustomer.DefaultValue = ((string)("tba"));
-                this.columnPrefCustomer.MaxLength = 100;
                 this.columnIsLeadVehicle.AllowDBNull = false;
                 this.columnIsLeadVehicle.DefaultValue = ((bool)(false));
             }
@@ -3310,10 +3260,6 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnSteerAxleAllowance;
             
-            private global::System.Data.DataColumn columnTrailers;
-            
-            private global::System.Data.DataColumn columnCompartments;
-            
             private global::System.Data.DataColumn columnTrTkRatio;
             
             private global::System.Data.DataColumn columnGCM;
@@ -3421,22 +3367,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TrailersColumn {
-                get {
-                    return this.columnTrailers;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CompartmentsColumn {
-                get {
-                    return this.columnCompartments;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn TrTkRatioColumn {
                 get {
                     return this.columnTrTkRatio;
@@ -3504,7 +3434,7 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public NHVLRow AddNHVLRow(int TruckTypeID, AxleConfigurationRow parentAxleConfigurationRowByFK_NHVL_AxleConfiguration, string TruckTypeDescription, int Axles, string Coupling, decimal MaxLength, SchemeCodesRow parentSchemeCodesRowByFK_NHVL_SchemeCodes, bool SteerAxleAllowance, int Trailers, int Compartments, decimal TrTkRatio, decimal GCM, decimal GVMTruck, bool MassMgmtRqd) {
+            public NHVLRow AddNHVLRow(int TruckTypeID, AxleConfigurationRow parentAxleConfigurationRowByFK_NHVL_AxleConfiguration, string TruckTypeDescription, int Axles, string Coupling, decimal MaxLength, SchemeCodesRow parentSchemeCodesRowByFK_NHVL_SchemeCodes, bool SteerAxleAllowance, decimal TrTkRatio, decimal GCM, decimal GVMTruck, bool MassMgmtRqd) {
                 NHVLRow rowNHVLRow = ((NHVLRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TruckTypeID,
@@ -3515,8 +3445,6 @@ namespace QWS_Local {
                         MaxLength,
                         null,
                         SteerAxleAllowance,
-                        Trailers,
-                        Compartments,
                         TrTkRatio,
                         GCM,
                         GVMTruck,
@@ -3564,8 +3492,6 @@ namespace QWS_Local {
                 this.columnMaxLength = base.Columns["MaxLength"];
                 this.columnSchemeCode = base.Columns["SchemeCode"];
                 this.columnSteerAxleAllowance = base.Columns["SteerAxleAllowance"];
-                this.columnTrailers = base.Columns["Trailers"];
-                this.columnCompartments = base.Columns["Compartments"];
                 this.columnTrTkRatio = base.Columns["TrTkRatio"];
                 this.columnGCM = base.Columns["GCM"];
                 this.columnGVMTruck = base.Columns["GVMTruck"];
@@ -3591,10 +3517,6 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnSchemeCode);
                 this.columnSteerAxleAllowance = new global::System.Data.DataColumn("SteerAxleAllowance", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSteerAxleAllowance);
-                this.columnTrailers = new global::System.Data.DataColumn("Trailers", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTrailers);
-                this.columnCompartments = new global::System.Data.DataColumn("Compartments", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCompartments);
                 this.columnTrTkRatio = new global::System.Data.DataColumn("TrTkRatio", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTrTkRatio);
                 this.columnGCM = new global::System.Data.DataColumn("GCM", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -3618,11 +3540,10 @@ namespace QWS_Local {
                 this.columnSchemeCode.AllowDBNull = false;
                 this.columnSchemeCode.MaxLength = 50;
                 this.columnSteerAxleAllowance.AllowDBNull = false;
-                this.columnTrailers.AllowDBNull = false;
-                this.columnCompartments.AllowDBNull = false;
                 this.columnTrTkRatio.AllowDBNull = false;
                 this.columnGCM.AllowDBNull = false;
                 this.columnGVMTruck.AllowDBNull = false;
+                this.columnMassMgmtRqd.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9162,17 +9083,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string PrefCustomerCode {
-                get {
-                    return ((string)(this[this.tableVehicle.PrefCustomerCodeColumn]));
-                }
-                set {
-                    this[this.tableVehicle.PrefCustomerCodeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.DateTime RegistrationExpiryDT {
                 get {
                     return ((global::System.DateTime)(this[this.tableVehicle.RegistrationExpiryDTColumn]));
@@ -9223,17 +9133,6 @@ namespace QWS_Local {
                 }
                 set {
                     this[this.tableVehicle.ActiveColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string PrefCustomer {
-                get {
-                    return ((string)(this[this.tableVehicle.PrefCustomerColumn]));
-                }
-                set {
-                    this[this.tableVehicle.PrefCustomerColumn] = value;
                 }
             }
             
@@ -9819,28 +9718,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Trailers {
-                get {
-                    return ((int)(this[this.tableNHVL.TrailersColumn]));
-                }
-                set {
-                    this[this.tableNHVL.TrailersColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Compartments {
-                get {
-                    return ((int)(this[this.tableNHVL.CompartmentsColumn]));
-                }
-                set {
-                    this[this.tableNHVL.CompartmentsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public decimal TrTkRatio {
                 get {
                     return ((decimal)(this[this.tableNHVL.TrTkRatioColumn]));
@@ -9876,12 +9753,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool MassMgmtRqd {
                 get {
-                    try {
-                        return ((bool)(this[this.tableNHVL.MassMgmtRqdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MassMgmtRqd\' in table \'NHVL\' is DBNull.", e);
-                    }
+                    return ((bool)(this[this.tableNHVL.MassMgmtRqdColumn]));
                 }
                 set {
                     this[this.tableNHVL.MassMgmtRqdColumn] = value;
@@ -9908,18 +9780,6 @@ namespace QWS_Local {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_NHVL_SchemeCodes"]);
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsMassMgmtRqdNull() {
-                return this.IsNull(this.tableNHVL.MassMgmtRqdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetMassMgmtRqdNull() {
-                this[this.tableNHVL.MassMgmtRqdColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13725,13 +13585,11 @@ SELECT PBS_ConfigID, PBS_ID, TableNo, AxleConfiguration, BridgeAssessment FROM P
             tableMapping.ColumnMappings.Add("RegisteredTare", "RegisteredTare");
             tableMapping.ColumnMappings.Add("FeeCodeID", "FeeCodeID");
             tableMapping.ColumnMappings.Add("AxleConfiguration", "AxleConfiguration");
-            tableMapping.ColumnMappings.Add("PrefCustomerCode", "PrefCustomerCode");
             tableMapping.ColumnMappings.Add("RegistrationExpiryDT", "RegistrationExpiryDT");
             tableMapping.ColumnMappings.Add("CreateDTTM", "CreateDTTM");
             tableMapping.ColumnMappings.Add("CardCode", "CardCode");
             tableMapping.ColumnMappings.Add("MassAccreditationLabel", "MassAccreditationLabel");
             tableMapping.ColumnMappings.Add("Active", "Active");
-            tableMapping.ColumnMappings.Add("PrefCustomer", "PrefCustomer");
             tableMapping.ColumnMappings.Add("IsLeadVehicle", "IsLeadVehicle");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -13741,8 +13599,8 @@ SELECT PBS_ConfigID, PBS_ID, TableNo, AxleConfiguration, BridgeAssessment FROM P
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Vehicle] ([Rego], [VIN], [CardCode], [Owner], [Make], [Model], [AxleConfiguration], [MassAccreditationLabel], [RegisteredTare], [FeeCodeID], [RegistrationExpiryDT], [PrefCustomerCode], [PrefCustomer], [IsLeadVehicle], [Active], [CreateDTTM]) VALUES (@Rego, @VIN, @CardCode, @Owner, @Make, @Model, @AxleConfiguration, @MassAccreditationLabel, @RegisteredTare, @FeeCodeID, @RegistrationExpiryDT, @PrefCustomerCode, @PrefCustomer, @IsLeadVehicle, @Active, @CreateDTTM);
-SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, PrefCustomerCode, PrefCustomer, IsLeadVehicle, Active, CreateDTTM FROM Vehicle WHERE (Rego = @Rego)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Vehicle] ([Rego], [VIN], [CardCode], [Owner], [Make], [Model], [AxleConfiguration], [MassAccreditationLabel], [RegisteredTare], [FeeCodeID], [RegistrationExpiryDT], [IsLeadVehicle], [Active], [CreateDTTM]) VALUES (@Rego, @VIN, @CardCode, @Owner, @Make, @Model, @AxleConfiguration, @MassAccreditationLabel, @RegisteredTare, @FeeCodeID, @RegistrationExpiryDT, @IsLeadVehicle, @Active, @CreateDTTM);
+SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, IsLeadVehicle, Active, CreateDTTM FROM Vehicle WHERE (Rego = @Rego)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VIN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -13755,15 +13613,13 @@ SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccredita
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegisteredTare", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "RegisteredTare", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeCodeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCodeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegistrationExpiryDT", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegistrationExpiryDT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrefCustomerCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrefCustomerCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrefCustomer", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrefCustomer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsLeadVehicle", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IsLeadVehicle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Active", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Vehicle] SET [Rego] = @Rego, [VIN] = @VIN, [CardCode] = @CardCode, [Owner] = @Owner, [Make] = @Make, [Model] = @Model, [AxleConfiguration] = @AxleConfiguration, [MassAccreditationLabel] = @MassAccreditationLabel, [RegisteredTare] = @RegisteredTare, [FeeCodeID] = @FeeCodeID, [RegistrationExpiryDT] = @RegistrationExpiryDT, [PrefCustomerCode] = @PrefCustomerCode, [PrefCustomer] = @PrefCustomer, [IsLeadVehicle] = @IsLeadVehicle, [Active] = @Active, [CreateDTTM] = @CreateDTTM WHERE (([Rego] = @Original_Rego));
-SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, PrefCustomerCode, PrefCustomer, IsLeadVehicle, Active, CreateDTTM FROM Vehicle WHERE (Rego = @Rego)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Vehicle] SET [Rego] = @Rego, [VIN] = @VIN, [CardCode] = @CardCode, [Owner] = @Owner, [Make] = @Make, [Model] = @Model, [AxleConfiguration] = @AxleConfiguration, [MassAccreditationLabel] = @MassAccreditationLabel, [RegisteredTare] = @RegisteredTare, [FeeCodeID] = @FeeCodeID, [RegistrationExpiryDT] = @RegistrationExpiryDT, [IsLeadVehicle] = @IsLeadVehicle, [Active] = @Active, [CreateDTTM] = @CreateDTTM WHERE (([Rego] = @Original_Rego));
+SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, IsLeadVehicle, Active, CreateDTTM FROM Vehicle WHERE (Rego = @Rego)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VIN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -13776,8 +13632,6 @@ SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccredita
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegisteredTare", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "RegisteredTare", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeCodeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCodeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegistrationExpiryDT", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegistrationExpiryDT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrefCustomerCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrefCustomerCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrefCustomer", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrefCustomer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsLeadVehicle", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IsLeadVehicle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Active", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -13797,9 +13651,9 @@ SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccredita
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, PrefCustomerCode, PrefCustomer, IsLeadVehicle, Active, 
-                         CreateDTTM
-FROM            Vehicle";
+            this._commandCollection[0].CommandText = "SELECT        Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAcc" +
+                "reditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, IsLeadVehicle," +
+                " Active, CreateDTTM\r\nFROM            Vehicle";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -15139,8 +14993,6 @@ FROM            AxleConfiguration INNER JOIN
             tableMapping.ColumnMappings.Add("MaxLength", "MaxLength");
             tableMapping.ColumnMappings.Add("SchemeCode", "SchemeCode");
             tableMapping.ColumnMappings.Add("SteerAxleAllowance", "SteerAxleAllowance");
-            tableMapping.ColumnMappings.Add("Trailers", "Trailers");
-            tableMapping.ColumnMappings.Add("Compartments", "Compartments");
             tableMapping.ColumnMappings.Add("TrTkRatio", "TrTkRatio");
             tableMapping.ColumnMappings.Add("GCM", "GCM");
             tableMapping.ColumnMappings.Add("GVMTruck", "GVMTruck");
@@ -15148,7 +15000,7 @@ FROM            AxleConfiguration INNER JOIN
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [NHVL] WHERE (([TruckTypeID] = @Original_TruckTypeID) AND ([AxleConfiguration] = @Original_AxleConfiguration) AND ([TruckTypeDescription] = @Original_TruckTypeDescription) AND ([Axles] = @Original_Axles) AND ([Coupling] = @Original_Coupling) AND ([MaxLength] = @Original_MaxLength) AND ([SchemeCode] = @Original_SchemeCode) AND ([SteerAxleAllowance] = @Original_SteerAxleAllowance) AND ([Trailers] = @Original_Trailers) AND ([Compartments] = @Original_Compartments) AND ([TrTkRatio] = @Original_TrTkRatio) AND ([GCM] = @Original_GCM) AND ([GVMTruck] = @Original_GVMTruck) AND ((@IsNull_MassMgmtRqd = 1 AND [MassMgmtRqd] IS NULL) OR ([MassMgmtRqd] = @Original_MassMgmtRqd)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [NHVL] WHERE (([TruckTypeID] = @Original_TruckTypeID) AND ([AxleConfiguration] = @Original_AxleConfiguration) AND ([TruckTypeDescription] = @Original_TruckTypeDescription) AND ([Axles] = @Original_Axles) AND ([Coupling] = @Original_Coupling) AND ([MaxLength] = @Original_MaxLength) AND ([SchemeCode] = @Original_SchemeCode) AND ([MassMgmtRqd] = @Original_MassMgmtRqd) AND ([SteerAxleAllowance] = @Original_SteerAxleAllowance) AND ([TrTkRatio] = @Original_TrTkRatio) AND ([GCM] = @Original_GCM) AND ([GVMTruck] = @Original_GVMTruck))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TruckTypeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckTypeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -15157,18 +15009,15 @@ FROM            AxleConfiguration INNER JOIN
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Coupling", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Coupling", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MaxLength", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "MaxLength", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SchemeCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SchemeCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MassMgmtRqd", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassMgmtRqd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SteerAxleAllowance", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SteerAxleAllowance", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Trailers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Trailers", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Compartments", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Compartments", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TrTkRatio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "TrTkRatio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GCM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GVMTruck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GVMTruck", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MassMgmtRqd", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassMgmtRqd", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MassMgmtRqd", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassMgmtRqd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [NHVL] ([TruckTypeID], [AxleConfiguration], [TruckTypeDescription], [Axles], [Coupling], [MaxLength], [SchemeCode], [SteerAxleAllowance], [Trailers], [Compartments], [TrTkRatio], [GCM], [GVMTruck], [MassMgmtRqd]) VALUES (@TruckTypeID, @AxleConfiguration, @TruckTypeDescription, @Axles, @Coupling, @MaxLength, @SchemeCode, @SteerAxleAllowance, @Trailers, @Compartments, @TrTkRatio, @GCM, @GVMTruck, @MassMgmtRqd);
-SELECT TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, MaxLength, SchemeCode, SteerAxleAllowance, Trailers, Compartments, TrTkRatio, GCM, GVMTruck, MassMgmtRqd FROM NHVL WHERE (TruckTypeID = @TruckTypeID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [NHVL] ([TruckTypeID], [AxleConfiguration], [TruckTypeDescription], [Axles], [Coupling], [MaxLength], [SchemeCode], [MassMgmtRqd], [SteerAxleAllowance], [TrTkRatio], [GCM], [GVMTruck]) VALUES (@TruckTypeID, @AxleConfiguration, @TruckTypeDescription, @Axles, @Coupling, @MaxLength, @SchemeCode, @MassMgmtRqd, @SteerAxleAllowance, @TrTkRatio, @GCM, @GVMTruck);
+SELECT TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, MaxLength, SchemeCode, MassMgmtRqd, SteerAxleAllowance, TrTkRatio, GCM, GVMTruck FROM NHVL WHERE (TruckTypeID = @TruckTypeID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckTypeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckTypeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15177,17 +15026,15 @@ SELECT TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, Ma
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Coupling", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Coupling", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaxLength", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "MaxLength", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SchemeCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SchemeCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MassMgmtRqd", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassMgmtRqd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SteerAxleAllowance", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SteerAxleAllowance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Trailers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Trailers", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Compartments", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Compartments", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TrTkRatio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "TrTkRatio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GCM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GVMTruck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GVMTruck", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MassMgmtRqd", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassMgmtRqd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [NHVL] SET [TruckTypeID] = @TruckTypeID, [AxleConfiguration] = @AxleConfiguration, [TruckTypeDescription] = @TruckTypeDescription, [Axles] = @Axles, [Coupling] = @Coupling, [MaxLength] = @MaxLength, [SchemeCode] = @SchemeCode, [SteerAxleAllowance] = @SteerAxleAllowance, [Trailers] = @Trailers, [Compartments] = @Compartments, [TrTkRatio] = @TrTkRatio, [GCM] = @GCM, [GVMTruck] = @GVMTruck, [MassMgmtRqd] = @MassMgmtRqd WHERE (([TruckTypeID] = @Original_TruckTypeID) AND ([AxleConfiguration] = @Original_AxleConfiguration) AND ([TruckTypeDescription] = @Original_TruckTypeDescription) AND ([Axles] = @Original_Axles) AND ([Coupling] = @Original_Coupling) AND ([MaxLength] = @Original_MaxLength) AND ([SchemeCode] = @Original_SchemeCode) AND ([SteerAxleAllowance] = @Original_SteerAxleAllowance) AND ([Trailers] = @Original_Trailers) AND ([Compartments] = @Original_Compartments) AND ([TrTkRatio] = @Original_TrTkRatio) AND ([GCM] = @Original_GCM) AND ([GVMTruck] = @Original_GVMTruck) AND ((@IsNull_MassMgmtRqd = 1 AND [MassMgmtRqd] IS NULL) OR ([MassMgmtRqd] = @Original_MassMgmtRqd)));
-SELECT TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, MaxLength, SchemeCode, SteerAxleAllowance, Trailers, Compartments, TrTkRatio, GCM, GVMTruck, MassMgmtRqd FROM NHVL WHERE (TruckTypeID = @TruckTypeID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [NHVL] SET [TruckTypeID] = @TruckTypeID, [AxleConfiguration] = @AxleConfiguration, [TruckTypeDescription] = @TruckTypeDescription, [Axles] = @Axles, [Coupling] = @Coupling, [MaxLength] = @MaxLength, [SchemeCode] = @SchemeCode, [MassMgmtRqd] = @MassMgmtRqd, [SteerAxleAllowance] = @SteerAxleAllowance, [TrTkRatio] = @TrTkRatio, [GCM] = @GCM, [GVMTruck] = @GVMTruck WHERE (([TruckTypeID] = @Original_TruckTypeID) AND ([AxleConfiguration] = @Original_AxleConfiguration) AND ([TruckTypeDescription] = @Original_TruckTypeDescription) AND ([Axles] = @Original_Axles) AND ([Coupling] = @Original_Coupling) AND ([MaxLength] = @Original_MaxLength) AND ([SchemeCode] = @Original_SchemeCode) AND ([MassMgmtRqd] = @Original_MassMgmtRqd) AND ([SteerAxleAllowance] = @Original_SteerAxleAllowance) AND ([TrTkRatio] = @Original_TrTkRatio) AND ([GCM] = @Original_GCM) AND ([GVMTruck] = @Original_GVMTruck));
+SELECT TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, MaxLength, SchemeCode, MassMgmtRqd, SteerAxleAllowance, TrTkRatio, GCM, GVMTruck FROM NHVL WHERE (TruckTypeID = @TruckTypeID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckTypeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckTypeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15196,13 +15043,11 @@ SELECT TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, Ma
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Coupling", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Coupling", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaxLength", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "MaxLength", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SchemeCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SchemeCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MassMgmtRqd", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassMgmtRqd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SteerAxleAllowance", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SteerAxleAllowance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Trailers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Trailers", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Compartments", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Compartments", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TrTkRatio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "TrTkRatio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GCM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GVMTruck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GVMTruck", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MassMgmtRqd", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassMgmtRqd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TruckTypeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckTypeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AxleConfiguration", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TruckTypeDescription", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckTypeDescription", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -15210,14 +15055,11 @@ SELECT TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, Ma
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Coupling", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Coupling", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MaxLength", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "MaxLength", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SchemeCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SchemeCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MassMgmtRqd", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassMgmtRqd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SteerAxleAllowance", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SteerAxleAllowance", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Trailers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Trailers", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Compartments", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Compartments", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TrTkRatio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "TrTkRatio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GCM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GVMTruck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GVMTruck", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MassMgmtRqd", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassMgmtRqd", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MassMgmtRqd", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassMgmtRqd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15234,21 +15076,19 @@ SELECT TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, Ma
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupli" +
-                "ng, MaxLength, SchemeCode, SteerAxleAllowance, Trailers, Compartments, TrTkRatio" +
-                ", GCM, GVMTruck, MassMgmtRqd\r\nFROM            NHVL";
+                "ng, MaxLength, SchemeCode, MassMgmtRqd, SteerAxleAllowance, TrTkRatio, GCM, GVMT" +
+                "ruck\r\nFROM            NHVL";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, MaxLength, SchemeCode, SteerAxleAllowance, Trailers, Compartments, TrTkRatio, GCM, GVMTruck, MassMgmtRqd
-FROM            NHVL
-WHERE        (AxleConfiguration LIKE @AxleConfiguration + '%')";
+            this._commandCollection[1].CommandText = "SELECT AxleConfiguration, Axles, Coupling, GCM, GVMTruck, MassMgmtRqd, MaxLength," +
+                " SchemeCode, SteerAxleAllowance, TrTkRatio, TruckTypeDescription, TruckTypeID FR" +
+                "OM NHVL WHERE (AxleConfiguration LIKE @AxleConfiguration + \'%\')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AxleConfiguration", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT        TruckTypeID, AxleConfiguration, TruckTypeDescription, Axles, Coupling, MaxLength, SchemeCode, SteerAxleAllowance, Trailers, Compartments, TrTkRatio, GCM, GVMTruck, MassMgmtRqd
-FROM            NHVL
-WHERE        (AxleConfiguration LIKE @AxleConfiguration + '%') AND (SteerAxleAllowance = @SteerAxleAllowance)";
+            this._commandCollection[2].CommandText = @"SELECT AxleConfiguration, Axles, Coupling, GCM, GVMTruck, MassMgmtRqd, MaxLength, SchemeCode, SteerAxleAllowance, TrTkRatio, TruckTypeDescription, TruckTypeID FROM NHVL WHERE (AxleConfiguration LIKE @AxleConfiguration + '%') AND (SteerAxleAllowance = @SteerAxleAllowance)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AxleConfiguration", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SteerAxleAllowance", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "SteerAxleAllowance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
