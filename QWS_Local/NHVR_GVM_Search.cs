@@ -150,7 +150,7 @@ namespace QWS_Local
         {
             if (rbTruckOnly.Checked)
             {
-                TruckPlustrailerFilter = "Trailers = 0";
+                TruckPlustrailerFilter = "len(AxleConfiguration) <= 3";//"Trailers = 0";
                 SetAxleConfigFilter();
             }
         }
@@ -159,7 +159,7 @@ namespace QWS_Local
         {
             if (rbTruckPlusTrailer.Checked)
             {
-                TruckPlustrailerFilter = "Trailers > 0";
+                TruckPlustrailerFilter = "len(AxleConfiguration) > 3";//"Trailers > 0";
                 SetAxleConfigFilter();
             }
         }
