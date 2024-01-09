@@ -22,6 +22,8 @@ namespace QWS_Local
 
         private void Vehicle_Maintenance_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsQWSLocal.VehiclePrefCustomers' table. You can move, or remove it, as needed.
+            this.taVehiclePrefCustomers.Fill(this.dsQWSLocal.VehiclePrefCustomers);
             try
             {
                 txtJurisdiction.Text = Properties.Settings.Default.defaultJurisdiction;
@@ -595,6 +597,22 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnSavePrefCustomers_Click(object sender, EventArgs e)
+        {
+            bsVehiclePrefCustomers.EndEdit();
+            taVehiclePrefCustomers.Update(dsQWSLocal.VehiclePrefCustomers);
+        }
+
+        private void btnLoadPrefCustomers_Click(object sender, EventArgs e)
+        {
+            LoadPrefCustomers();
+        }
+
+        private void LoadPrefCustomers()
+        {
+            taVehiclePrefCustomers.FillBy(dsQWSLocal.VehiclePrefCustomers, CurrentVehicle().Rego);
         }
     }
 }

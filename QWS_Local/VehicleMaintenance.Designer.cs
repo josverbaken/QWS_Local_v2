@@ -90,6 +90,19 @@ namespace QWS_Local
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnAddPBS = new System.Windows.Forms.Button();
             this.txtPBS_VA = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.bsVehiclePrefCustomers = new System.Windows.Forms.BindingSource(this.components);
+            this.taVehiclePrefCustomers = new QWS_Local.dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter();
+            this.prefCustIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.regoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prefCustomerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isDefaultDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.rankDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnSavePrefCustomers = new System.Windows.Forms.Button();
+            this.btnLoadPrefCustomers = new System.Windows.Forms.Button();
             regoLabel = new System.Windows.Forms.Label();
             vINLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
@@ -111,6 +124,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.jurisdictionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehiclePBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVehiclePrefCustomers)).BeginInit();
             this.SuspendLayout();
             // 
             // regoLabel
@@ -226,7 +241,7 @@ namespace QWS_Local
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(63, 362);
+            label4.Location = new System.Drawing.Point(406, 291);
             label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(113, 18);
@@ -237,7 +252,7 @@ namespace QWS_Local
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(6, 441);
+            label1.Location = new System.Drawing.Point(6, 521);
             label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(170, 18);
@@ -541,7 +556,7 @@ namespace QWS_Local
             this.btnSetPrefCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnSetPrefCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetPrefCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetPrefCustomer.Location = new System.Drawing.Point(541, 358);
+            this.btnSetPrefCustomer.Location = new System.Drawing.Point(541, 288);
             this.btnSetPrefCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.btnSetPrefCustomer.Name = "btnSetPrefCustomer";
             this.btnSetPrefCustomer.Size = new System.Drawing.Size(61, 25);
@@ -629,6 +644,7 @@ namespace QWS_Local
             this.tableAdapterManager.TrucksInQuarryTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VehiclePBSTableAdapter = null;
+            this.tableAdapterManager.VehiclePrefCustomersTableAdapter = null;
             this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager.VehicleTableAdapter = this.vehicleTableAdapter;
             this.tableAdapterManager.VehicleTypeTableAdapter = null;
@@ -683,9 +699,9 @@ namespace QWS_Local
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.vehicleApprovalDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.bsVehiclePBS;
-            this.dataGridView1.Location = new System.Drawing.Point(208, 477);
+            this.dataGridView1.Location = new System.Drawing.Point(208, 521);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(163, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(163, 106);
             this.dataGridView1.TabIndex = 72;
             // 
             // btnAddPBS
@@ -709,11 +725,119 @@ namespace QWS_Local
             this.txtPBS_VA.Size = new System.Drawing.Size(130, 24);
             this.txtPBS_VA.TabIndex = 76;
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.prefCustIDDataGridViewTextBoxColumn,
+            this.regoDataGridViewTextBoxColumn,
+            this.cardCodeDataGridViewTextBoxColumn,
+            this.prefCustomerDataGridViewTextBoxColumn,
+            this.isDefaultDataGridViewCheckBoxColumn,
+            this.rankDataGridViewTextBoxColumn,
+            this.commentDataGridViewTextBoxColumn,
+            this.activeDataGridViewCheckBoxColumn});
+            this.dataGridView2.DataSource = this.bsVehiclePrefCustomers;
+            this.dataGridView2.Location = new System.Drawing.Point(12, 320);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(614, 150);
+            this.dataGridView2.TabIndex = 77;
+            // 
+            // bsVehiclePrefCustomers
+            // 
+            this.bsVehiclePrefCustomers.DataMember = "VehiclePrefCustomers";
+            this.bsVehiclePrefCustomers.DataSource = this.dsQWSLocal;
+            // 
+            // taVehiclePrefCustomers
+            // 
+            this.taVehiclePrefCustomers.ClearBeforeFill = true;
+            // 
+            // prefCustIDDataGridViewTextBoxColumn
+            // 
+            this.prefCustIDDataGridViewTextBoxColumn.DataPropertyName = "PrefCustID";
+            this.prefCustIDDataGridViewTextBoxColumn.HeaderText = "PrefCustID";
+            this.prefCustIDDataGridViewTextBoxColumn.Name = "prefCustIDDataGridViewTextBoxColumn";
+            this.prefCustIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // regoDataGridViewTextBoxColumn
+            // 
+            this.regoDataGridViewTextBoxColumn.DataPropertyName = "Rego";
+            this.regoDataGridViewTextBoxColumn.HeaderText = "Rego";
+            this.regoDataGridViewTextBoxColumn.Name = "regoDataGridViewTextBoxColumn";
+            // 
+            // cardCodeDataGridViewTextBoxColumn
+            // 
+            this.cardCodeDataGridViewTextBoxColumn.DataPropertyName = "CardCode";
+            this.cardCodeDataGridViewTextBoxColumn.HeaderText = "CardCode";
+            this.cardCodeDataGridViewTextBoxColumn.Name = "cardCodeDataGridViewTextBoxColumn";
+            // 
+            // prefCustomerDataGridViewTextBoxColumn
+            // 
+            this.prefCustomerDataGridViewTextBoxColumn.DataPropertyName = "PrefCustomer";
+            this.prefCustomerDataGridViewTextBoxColumn.HeaderText = "PrefCustomer";
+            this.prefCustomerDataGridViewTextBoxColumn.Name = "prefCustomerDataGridViewTextBoxColumn";
+            // 
+            // isDefaultDataGridViewCheckBoxColumn
+            // 
+            this.isDefaultDataGridViewCheckBoxColumn.DataPropertyName = "IsDefault";
+            this.isDefaultDataGridViewCheckBoxColumn.HeaderText = "IsDefault";
+            this.isDefaultDataGridViewCheckBoxColumn.Name = "isDefaultDataGridViewCheckBoxColumn";
+            // 
+            // rankDataGridViewTextBoxColumn
+            // 
+            this.rankDataGridViewTextBoxColumn.DataPropertyName = "Rank";
+            this.rankDataGridViewTextBoxColumn.HeaderText = "Rank";
+            this.rankDataGridViewTextBoxColumn.Name = "rankDataGridViewTextBoxColumn";
+            // 
+            // commentDataGridViewTextBoxColumn
+            // 
+            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
+            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
+            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
+            // 
+            // activeDataGridViewCheckBoxColumn
+            // 
+            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
+            this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
+            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
+            // 
+            // btnSavePrefCustomers
+            // 
+            this.btnSavePrefCustomers.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnSavePrefCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSavePrefCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSavePrefCustomers.Location = new System.Drawing.Point(438, 477);
+            this.btnSavePrefCustomers.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSavePrefCustomers.Name = "btnSavePrefCustomers";
+            this.btnSavePrefCustomers.Size = new System.Drawing.Size(164, 25);
+            this.btnSavePrefCustomers.TabIndex = 78;
+            this.btnSavePrefCustomers.Text = "Save Pref Customers";
+            this.btnSavePrefCustomers.UseVisualStyleBackColor = false;
+            this.btnSavePrefCustomers.Click += new System.EventHandler(this.btnSavePrefCustomers_Click);
+            // 
+            // btnLoadPrefCustomers
+            // 
+            this.btnLoadPrefCustomers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnLoadPrefCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadPrefCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoadPrefCustomers.Location = new System.Drawing.Point(349, 477);
+            this.btnLoadPrefCustomers.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLoadPrefCustomers.Name = "btnLoadPrefCustomers";
+            this.btnLoadPrefCustomers.Size = new System.Drawing.Size(61, 25);
+            this.btnLoadPrefCustomers.TabIndex = 79;
+            this.btnLoadPrefCustomers.Text = "Load";
+            this.btnLoadPrefCustomers.UseVisualStyleBackColor = false;
+            this.btnLoadPrefCustomers.Click += new System.EventHandler(this.btnLoadPrefCustomers_Click);
+            // 
             // VehicleMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1171, 696);
+            this.Controls.Add(this.btnLoadPrefCustomers);
+            this.Controls.Add(this.btnSavePrefCustomers);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.txtPBS_VA);
             this.Controls.Add(this.btnAddPBS);
             this.Controls.Add(this.dataGridView1);
@@ -773,6 +897,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.jurisdictionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehiclePBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVehiclePrefCustomers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -827,5 +953,18 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnAddPBS;
         private System.Windows.Forms.TextBox txtPBS_VA;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.BindingSource bsVehiclePrefCustomers;
+        private dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter taVehiclePrefCustomers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prefCustIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn regoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cardCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prefCustomerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isDefaultDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rankDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.Button btnSavePrefCustomers;
+        private System.Windows.Forms.Button btnLoadPrefCustomers;
     }
 }
