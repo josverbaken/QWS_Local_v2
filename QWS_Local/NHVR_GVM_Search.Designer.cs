@@ -700,7 +700,6 @@ namespace QWS_Local
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NHVR_GVM_Search";
             this.Text = "NHVR_GVM_Search";
-            this.Load += new System.EventHandler(this.NHVR_GVM_Search_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

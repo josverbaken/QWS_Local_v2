@@ -43,6 +43,7 @@ namespace QWS_Local
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VehicleMaintenance));
+            System.Windows.Forms.Label label5;
             this.txtRego = new System.Windows.Forms.TextBox();
             this.vehicleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
@@ -91,8 +92,6 @@ namespace QWS_Local
             this.btnAddPBS = new System.Windows.Forms.Button();
             this.txtPBS_VA = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.bsVehiclePrefCustomers = new System.Windows.Forms.BindingSource(this.components);
-            this.taVehiclePrefCustomers = new QWS_Local.dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter();
             this.prefCustIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.regoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cardCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,8 +100,11 @@ namespace QWS_Local
             this.rankDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bsVehiclePrefCustomers = new System.Windows.Forms.BindingSource(this.components);
+            this.taVehiclePrefCustomers = new QWS_Local.dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter();
             this.btnSavePrefCustomers = new System.Windows.Forms.Button();
             this.btnLoadPrefCustomers = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             regoLabel = new System.Windows.Forms.Label();
             vINLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
@@ -115,6 +117,7 @@ namespace QWS_Local
             jurisdictionLabel1 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleRegFeeCodesBindingSource)).BeginInit();
@@ -744,15 +747,6 @@ namespace QWS_Local
             this.dataGridView2.Size = new System.Drawing.Size(614, 150);
             this.dataGridView2.TabIndex = 77;
             // 
-            // bsVehiclePrefCustomers
-            // 
-            this.bsVehiclePrefCustomers.DataMember = "VehiclePrefCustomers";
-            this.bsVehiclePrefCustomers.DataSource = this.dsQWSLocal;
-            // 
-            // taVehiclePrefCustomers
-            // 
-            this.taVehiclePrefCustomers.ClearBeforeFill = true;
-            // 
             // prefCustIDDataGridViewTextBoxColumn
             // 
             this.prefCustIDDataGridViewTextBoxColumn.DataPropertyName = "PrefCustID";
@@ -802,6 +796,15 @@ namespace QWS_Local
             this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
             this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
             // 
+            // bsVehiclePrefCustomers
+            // 
+            this.bsVehiclePrefCustomers.DataMember = "VehiclePrefCustomers";
+            this.bsVehiclePrefCustomers.DataSource = this.dsQWSLocal;
+            // 
+            // taVehiclePrefCustomers
+            // 
+            this.taVehiclePrefCustomers.ClearBeforeFill = true;
+            // 
             // btnSavePrefCustomers
             // 
             this.btnSavePrefCustomers.BackColor = System.Drawing.Color.SkyBlue;
@@ -830,11 +833,33 @@ namespace QWS_Local
             this.btnLoadPrefCustomers.UseVisualStyleBackColor = false;
             this.btnLoadPrefCustomers.Click += new System.EventHandler(this.btnLoadPrefCustomers_Click);
             // 
+            // textBox3
+            // 
+            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "MassAccreditationLabel", true));
+            this.textBox3.Location = new System.Drawing.Point(208, 478);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(116, 24);
+            this.textBox3.TabIndex = 80;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(57, 480);
+            label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(143, 18);
+            label5.TabIndex = 81;
+            label5.Text = "Mass Management :";
+            label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // VehicleMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1171, 696);
+            this.Controls.Add(label5);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.btnLoadPrefCustomers);
             this.Controls.Add(this.btnSavePrefCustomers);
             this.Controls.Add(this.dataGridView2);
@@ -966,5 +991,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
         private System.Windows.Forms.Button btnSavePrefCustomers;
         private System.Windows.Forms.Button btnLoadPrefCustomers;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }

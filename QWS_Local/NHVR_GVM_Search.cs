@@ -27,6 +27,7 @@ namespace QWS_Local
         public NHVR_GVM_Search(string AxleConfig)
         {
             InitializeComponent();
+            LoadAxleConfiguration();
             LoadByAxleConfig(AxleConfig);
         }
 
@@ -40,13 +41,10 @@ namespace QWS_Local
             get { return myNHVLRow; }
         }            
 
-        private void NHVR_GVM_Search_Load(object sender, EventArgs e)
+        private void LoadAxleConfiguration()
         {
-            SchemeCodeFilter = "SchemeCode like '%'";
+            //SchemeCodeFilter = "SchemeCode like '%'";
             this.taAxleConfig.Fill(this.dsQWSLocal.AxleConfiguration);
-            //int iCount = this.nHVR_GVMTableAdapter.Fill(this.dsQWSLocal.NHVL);
-            //iCount += 1;
-
         }
 
         private void btnSelect_Click(object sender, EventArgs e)

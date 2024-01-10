@@ -138,9 +138,11 @@ namespace QWS_Local
             int myNHVLID;// = GetNHVLRow().TruckTypeID;
             string leadRego;
             string trailerRego;
-            if (GetNHVLRow() != null)
+            dsQWSLocal.NHVLRow myNHVLRow;
+            myNHVLRow = GetNHVLRow();
+            if (myNHVLRow != null)
             {
-                myNHVLID = GetNHVLRow().TruckTypeID;
+                myNHVLID = myNHVLRow.TruckTypeID;
             }
 
             // add truckconfig using NHVLID
