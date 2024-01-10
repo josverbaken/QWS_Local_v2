@@ -57,8 +57,6 @@ namespace QWS_Local
             this.maxLengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.steerAxleAllowanceDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.trailersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.compartmentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trTkRatioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gCMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gVMTruckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -229,8 +227,6 @@ namespace QWS_Local
             this.maxLengthDataGridViewTextBoxColumn,
             this.schemeCodeDataGridViewTextBoxColumn,
             this.steerAxleAllowanceDataGridViewCheckBoxColumn,
-            this.trailersDataGridViewTextBoxColumn,
-            this.compartmentsDataGridViewTextBoxColumn,
             this.trTkRatioDataGridViewTextBoxColumn,
             this.gCMDataGridViewTextBoxColumn,
             this.gVMTruckDataGridViewTextBoxColumn,
@@ -302,19 +298,7 @@ namespace QWS_Local
             // 
             this.steerAxleAllowanceDataGridViewCheckBoxColumn.DataPropertyName = "SteerAxleAllowance";
             this.steerAxleAllowanceDataGridViewCheckBoxColumn.HeaderText = "SteerAxleAllowance";
-            this.steerAxleAllowanceDataGridViewCheckBoxColumn.Name = "steerAxleAllowanceDataGridViewCheckBoxColumn";
-            // 
-            // trailersDataGridViewTextBoxColumn
-            // 
-            this.trailersDataGridViewTextBoxColumn.DataPropertyName = "Trailers";
-            this.trailersDataGridViewTextBoxColumn.HeaderText = "Trailers";
-            this.trailersDataGridViewTextBoxColumn.Name = "trailersDataGridViewTextBoxColumn";
-            // 
-            // compartmentsDataGridViewTextBoxColumn
-            // 
-            this.compartmentsDataGridViewTextBoxColumn.DataPropertyName = "Compartments";
-            this.compartmentsDataGridViewTextBoxColumn.HeaderText = "Compartments";
-            this.compartmentsDataGridViewTextBoxColumn.Name = "compartmentsDataGridViewTextBoxColumn";
+            this.steerAxleAllowanceDataGridViewCheckBoxColumn.Name = "steerAxleAllowanceDataGridViewCheckBoxColumn";        
             // 
             // trTkRatioDataGridViewTextBoxColumn
             // 
@@ -395,8 +379,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn maxLengthDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn schemeCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn steerAxleAllowanceDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn trailersDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn compartmentsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn trTkRatioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gCMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gVMTruckDataGridViewTextBoxColumn;
