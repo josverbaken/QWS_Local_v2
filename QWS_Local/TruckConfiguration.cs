@@ -36,28 +36,10 @@ namespace QWS_Local
         {
             try
             {
-                int iVehicle = this.taVehicle.FillByCardCode(this.dsQWSLocal.Vehicle, myCardCode);
+                //int iVehicle = this.taVehicle.FillByCardCode(this.dsQWSLocal.Vehicle, myCardCode);
                 this.taConfiguredTnT.Fill(dsTruckConfig.ConfiguredTnT, "", "", myCardCode);
                 int iVehicleDetails = this.taVehicleDetails.FillBy(this.dsQWSLocal.VehicleDetails, myRego);
                 TruckConfigFilterByRego(myRego, true);
-                if (iVehicleDetails > 0 && CurrentVehicleDetails().IsLeadVehicle)
-                {
-                    // show trailers
-                    this.bsVehicle.Filter = "IsLeadVehicle = 0 and AxleConfiguration not like 'tba'";
-                    int iCount = dgvAvailableVehicles.SelectedRows.Count;
-                    dgvAvailableVehicles.ClearSelection();
-                    iCount = dgvAvailableVehicles.SelectedRows.Count;
-                    iCount += 1;
-                }
-                else if(iVehicle > 0 && CurrentVehicle().IsLeadVehicle)
-                {
-                    // show truck or prime mover
-                    this.bsVehicle.Filter = "IsLeadVehicle = 1";
-                }
-                else
-                {
-                    this.bsVehicle.Filter = "";
-                }
             }
             catch (Exception ex)
             {
@@ -89,20 +71,11 @@ namespace QWS_Local
 
         private void btnFindVehicle_Click(object sender, EventArgs e)
         {
-            // TODO copy logic from VehicleMaintenance form, only call search if iRow !=1
             int iRows = taVehicle.FillBy(dsQWSLocal.Vehicle, txtRego.Text);
             if (iRows == 1)
             {
-                //myCardCode = CurrentVehicle().CardCode;
-                //myRego = CurrentVehicle().Rego;
-                // ?? how is this different!
-                //DataRow myDR = ((DataRowView)bsVehicle.Current).Row;
-                //dsQWSLocal.VehicleRow vehicleRow = (dsQWSLocal.VehicleRow)myDR;
                 myRego = dsQWSLocal.Vehicle[0]["Rego"].ToString();
                 myCardCode = dsQWSLocal.Vehicle[0]["CardCode"].ToString();
-
-                //myRego = vehicleRow.Rego;
-                //myCardCode = vehicleRow.CardCode;
                 TruckConfigurationLoad();
             }
             else
@@ -182,7 +155,7 @@ namespace QWS_Local
                 }
                 else
                 {
-                    this.bsConfiguredTnt.Filter = "RegoTrailer like '%" + Rego + "&'";
+                    this.bsConfiguredTnt.Filter = "RegoTrailer like '%" + Rego + "%'";
                 }
             }
             else
