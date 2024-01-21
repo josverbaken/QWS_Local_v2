@@ -30,6 +30,8 @@ namespace QWS_Local
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label tareLabel;
+            System.Windows.Forms.Label regoTkLabel;
             this.txtRego = new System.Windows.Forms.TextBox();
             this.bsVehicleDetails = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
@@ -52,9 +54,6 @@ namespace QWS_Local
             this.taVehicle = new QWS_Local.dsQWSLocalTableAdapters.VehicleTableAdapter();
             this.taNHVL = new QWS_Local.dsQWSLocalTableAdapters.NHVLTableAdapter();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cardCodeTextBox = new System.Windows.Forms.TextBox();
-            this.ownerTextBox = new System.Windows.Forms.TextBox();
             this.RegoTk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RegoTrailer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AxleConfiguration = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +64,17 @@ namespace QWS_Local
             this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Scheme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BridgeAssessment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cardCodeTextBox = new System.Windows.Forms.TextBox();
+            this.ownerTextBox = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tareTextBox = new System.Windows.Forms.TextBox();
+            this.regoTkTextBox = new System.Windows.Forms.TextBox();
+            tareLabel = new System.Windows.Forms.Label();
+            regoTkLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnt)).BeginInit();
@@ -74,6 +84,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsNHVL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtRego
@@ -267,32 +279,6 @@ namespace QWS_Local
             this.dataGridView2.Size = new System.Drawing.Size(1031, 257);
             this.dataGridView2.TabIndex = 22;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.bsConfiguredTnt, "Schematic", true));
-            this.pictureBox1.Location = new System.Drawing.Point(50, 163);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(450, 150);
-            this.pictureBox1.TabIndex = 23;
-            this.pictureBox1.TabStop = false;
-            // 
-            // cardCodeTextBox
-            // 
-            this.cardCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "CardCode", true));
-            this.cardCodeTextBox.Location = new System.Drawing.Point(400, 137);
-            this.cardCodeTextBox.Name = "cardCodeTextBox";
-            this.cardCodeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.cardCodeTextBox.TabIndex = 25;
-            // 
-            // ownerTextBox
-            // 
-            this.ownerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "Owner", true));
-            this.ownerTextBox.Location = new System.Drawing.Point(50, 137);
-            this.ownerTextBox.Name = "ownerTextBox";
-            this.ownerTextBox.Size = new System.Drawing.Size(344, 20);
-            this.ownerTextBox.TabIndex = 24;
-            // 
             // RegoTk
             // 
             this.RegoTk.DataPropertyName = "RegoTk";
@@ -366,11 +352,114 @@ namespace QWS_Local
             this.BridgeAssessment.Name = "BridgeAssessment";
             this.BridgeAssessment.ReadOnly = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.bsConfiguredTnt, "Schematic", true));
+            this.pictureBox1.Location = new System.Drawing.Point(50, 163);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(450, 150);
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
+            // 
+            // cardCodeTextBox
+            // 
+            this.cardCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "CardCode", true));
+            this.cardCodeTextBox.Location = new System.Drawing.Point(400, 137);
+            this.cardCodeTextBox.Name = "cardCodeTextBox";
+            this.cardCodeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.cardCodeTextBox.TabIndex = 25;
+            // 
+            // ownerTextBox
+            // 
+            this.ownerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "Owner", true));
+            this.ownerTextBox.Location = new System.Drawing.Point(50, 137);
+            this.ownerTextBox.Name = "ownerTextBox";
+            this.ownerTextBox.Size = new System.Drawing.Size(344, 20);
+            this.ownerTextBox.TabIndex = 24;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(603, 136);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 26;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(590, 163);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(464, 160);
+            this.tabControl1.TabIndex = 27;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(192, 74);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(regoTkLabel);
+            this.tabPage2.Controls.Add(this.regoTkTextBox);
+            this.tabPage2.Controls.Add(tareLabel);
+            this.tabPage2.Controls.Add(this.tareTextBox);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(456, 134);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tareLabel
+            // 
+            tareLabel.AutoSize = true;
+            tareLabel.Location = new System.Drawing.Point(28, 52);
+            tareLabel.Name = "tareLabel";
+            tareLabel.Size = new System.Drawing.Size(32, 13);
+            tareLabel.TabIndex = 0;
+            tareLabel.Text = "Tare:";
+            // 
+            // tareTextBox
+            // 
+            this.tareTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "Tare", true));
+            this.tareTextBox.Location = new System.Drawing.Point(66, 49);
+            this.tareTextBox.Name = "tareTextBox";
+            this.tareTextBox.Size = new System.Drawing.Size(100, 20);
+            this.tareTextBox.TabIndex = 1;
+            // 
+            // regoTkLabel
+            // 
+            regoTkLabel.AutoSize = true;
+            regoTkLabel.Location = new System.Drawing.Point(34, 20);
+            regoTkLabel.Name = "regoTkLabel";
+            regoTkLabel.Size = new System.Drawing.Size(52, 13);
+            regoTkLabel.TabIndex = 2;
+            regoTkLabel.Text = "Rego Tk:";
+            // 
+            // regoTkTextBox
+            // 
+            this.regoTkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "RegoTk", true));
+            this.regoTkTextBox.Location = new System.Drawing.Point(92, 17);
+            this.regoTkTextBox.Name = "regoTkTextBox";
+            this.regoTkTextBox.Size = new System.Drawing.Size(100, 20);
+            this.regoTkTextBox.TabIndex = 3;
+            // 
             // TruckConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1093, 831);
+            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.cardCodeTextBox);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.ownerTextBox);
@@ -391,6 +480,9 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsNHVL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,5 +524,11 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn schemeCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Scheme;
         private System.Windows.Forms.DataGridViewTextBoxColumn BridgeAssessment;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TextBox regoTkTextBox;
+        private System.Windows.Forms.TextBox tareTextBox;
     }
 }
