@@ -32,6 +32,21 @@ namespace QWS_Local
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label tareLabel;
             System.Windows.Forms.Label regoTkLabel;
+            System.Windows.Forms.Label tareTkLabel;
+            System.Windows.Forms.Label tareDTLabel;
+            System.Windows.Forms.Label schemeCodeLabel;
+            System.Windows.Forms.Label schemeLabel;
+            System.Windows.Forms.Label gCMLabel;
+            System.Windows.Forms.Label gVMTruckLabel;
+            System.Windows.Forms.Label driveAxleLoadLabel;
+            System.Windows.Forms.Label driveAxleLoadUOMLabel;
+            System.Windows.Forms.Label trTkRatioLabel;
+            System.Windows.Forms.Label regoTrailerLabel;
+            System.Windows.Forms.Label pBS_LevelLabel;
+            System.Windows.Forms.Label bridgeAssessmentLabel;
+            System.Windows.Forms.Label regoTr1Label;
+            System.Windows.Forms.Label regoTr2Label;
+            System.Windows.Forms.Label regoTr3Label;
             this.txtRego = new System.Windows.Forms.TextBox();
             this.bsVehicleDetails = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
@@ -44,7 +59,6 @@ namespace QWS_Local
             this.btnShowAllConfig = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.btnFindVehicle = new System.Windows.Forms.Button();
-            this.maxLengthTextBox = new System.Windows.Forms.TextBox();
             this.bsNHVL = new System.Windows.Forms.BindingSource(this.components);
             this.btnAddVehicle2Config = new System.Windows.Forms.Button();
             this.tableAdapterManager1 = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
@@ -67,14 +81,43 @@ namespace QWS_Local
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cardCodeTextBox = new System.Windows.Forms.TextBox();
             this.ownerTextBox = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tpList = new System.Windows.Forms.TabPage();
+            this.tpDetails = new System.Windows.Forms.TabPage();
             this.tareTextBox = new System.Windows.Forms.TextBox();
             this.regoTkTextBox = new System.Windows.Forms.TextBox();
+            this.tareTkTextBox = new System.Windows.Forms.TextBox();
+            this.tareDTDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.schemeCodeTextBox = new System.Windows.Forms.TextBox();
+            this.schemeTextBox = new System.Windows.Forms.TextBox();
+            this.gCMTextBox = new System.Windows.Forms.TextBox();
+            this.gVMTruckTextBox = new System.Windows.Forms.TextBox();
+            this.driveAxleLoadTextBox = new System.Windows.Forms.TextBox();
+            this.driveAxleLoadUOMTextBox = new System.Windows.Forms.TextBox();
+            this.trTkRatioTextBox = new System.Windows.Forms.TextBox();
+            this.regoTrailerTextBox = new System.Windows.Forms.TextBox();
+            this.pBS_LevelTextBox = new System.Windows.Forms.TextBox();
+            this.bridgeAssessmentTextBox = new System.Windows.Forms.TextBox();
+            this.regoTr1TextBox = new System.Windows.Forms.TextBox();
+            this.regoTr2TextBox = new System.Windows.Forms.TextBox();
+            this.regoTr3TextBox = new System.Windows.Forms.TextBox();
             tareLabel = new System.Windows.Forms.Label();
             regoTkLabel = new System.Windows.Forms.Label();
+            tareTkLabel = new System.Windows.Forms.Label();
+            tareDTLabel = new System.Windows.Forms.Label();
+            schemeCodeLabel = new System.Windows.Forms.Label();
+            schemeLabel = new System.Windows.Forms.Label();
+            gCMLabel = new System.Windows.Forms.Label();
+            gVMTruckLabel = new System.Windows.Forms.Label();
+            driveAxleLoadLabel = new System.Windows.Forms.Label();
+            driveAxleLoadUOMLabel = new System.Windows.Forms.Label();
+            trTkRatioLabel = new System.Windows.Forms.Label();
+            regoTrailerLabel = new System.Windows.Forms.Label();
+            pBS_LevelLabel = new System.Windows.Forms.Label();
+            bridgeAssessmentLabel = new System.Windows.Forms.Label();
+            regoTr1Label = new System.Windows.Forms.Label();
+            regoTr2Label = new System.Windows.Forms.Label();
+            regoTr3Label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnt)).BeginInit();
@@ -85,7 +128,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tpList.SuspendLayout();
+            this.tpDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtRego
@@ -189,14 +233,6 @@ namespace QWS_Local
             this.btnFindVehicle.UseVisualStyleBackColor = true;
             this.btnFindVehicle.Click += new System.EventHandler(this.btnFindVehicle_Click);
             // 
-            // maxLengthTextBox
-            // 
-            this.maxLengthTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsNHVL, "MaxLength", true));
-            this.maxLengthTextBox.Location = new System.Drawing.Point(822, 83);
-            this.maxLengthTextBox.Name = "maxLengthTextBox";
-            this.maxLengthTextBox.Size = new System.Drawing.Size(100, 20);
-            this.maxLengthTextBox.TabIndex = 19;
-            // 
             // bsNHVL
             // 
             this.bsNHVL.DataMember = "NHVL";
@@ -273,10 +309,11 @@ namespace QWS_Local
             this.Scheme,
             this.BridgeAssessment});
             this.dataGridView2.DataSource = this.bsConfiguredTnt;
-            this.dataGridView2.Location = new System.Drawing.Point(50, 329);
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(3, 3);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(1031, 257);
+            this.dataGridView2.Size = new System.Drawing.Size(995, 347);
             this.dataGridView2.TabIndex = 22;
             // 
             // RegoTk
@@ -378,46 +415,70 @@ namespace QWS_Local
             this.ownerTextBox.Size = new System.Drawing.Size(344, 20);
             this.ownerTextBox.TabIndex = 24;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(603, 136);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 26;
-            // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(590, 163);
+            this.tabControl1.Controls.Add(this.tpList);
+            this.tabControl1.Controls.Add(this.tpDetails);
+            this.tabControl1.Location = new System.Drawing.Point(48, 319);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(464, 160);
+            this.tabControl1.Size = new System.Drawing.Size(1009, 379);
             this.tabControl1.TabIndex = 27;
             // 
-            // tabPage1
+            // tpList
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(192, 74);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tpList.Controls.Add(this.dataGridView2);
+            this.tpList.Location = new System.Drawing.Point(4, 22);
+            this.tpList.Name = "tpList";
+            this.tpList.Padding = new System.Windows.Forms.Padding(3);
+            this.tpList.Size = new System.Drawing.Size(1001, 353);
+            this.tpList.TabIndex = 0;
+            this.tpList.Text = "List";
+            this.tpList.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // tpDetails
             // 
-            this.tabPage2.Controls.Add(regoTkLabel);
-            this.tabPage2.Controls.Add(this.regoTkTextBox);
-            this.tabPage2.Controls.Add(tareLabel);
-            this.tabPage2.Controls.Add(this.tareTextBox);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(456, 134);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tpDetails.Controls.Add(regoTr3Label);
+            this.tpDetails.Controls.Add(this.regoTr3TextBox);
+            this.tpDetails.Controls.Add(regoTr2Label);
+            this.tpDetails.Controls.Add(this.regoTr2TextBox);
+            this.tpDetails.Controls.Add(regoTr1Label);
+            this.tpDetails.Controls.Add(this.regoTr1TextBox);
+            this.tpDetails.Controls.Add(bridgeAssessmentLabel);
+            this.tpDetails.Controls.Add(this.bridgeAssessmentTextBox);
+            this.tpDetails.Controls.Add(pBS_LevelLabel);
+            this.tpDetails.Controls.Add(this.pBS_LevelTextBox);
+            this.tpDetails.Controls.Add(regoTrailerLabel);
+            this.tpDetails.Controls.Add(this.regoTrailerTextBox);
+            this.tpDetails.Controls.Add(trTkRatioLabel);
+            this.tpDetails.Controls.Add(this.trTkRatioTextBox);
+            this.tpDetails.Controls.Add(driveAxleLoadUOMLabel);
+            this.tpDetails.Controls.Add(this.driveAxleLoadUOMTextBox);
+            this.tpDetails.Controls.Add(driveAxleLoadLabel);
+            this.tpDetails.Controls.Add(this.driveAxleLoadTextBox);
+            this.tpDetails.Controls.Add(gVMTruckLabel);
+            this.tpDetails.Controls.Add(this.gVMTruckTextBox);
+            this.tpDetails.Controls.Add(gCMLabel);
+            this.tpDetails.Controls.Add(this.gCMTextBox);
+            this.tpDetails.Controls.Add(schemeLabel);
+            this.tpDetails.Controls.Add(this.schemeTextBox);
+            this.tpDetails.Controls.Add(schemeCodeLabel);
+            this.tpDetails.Controls.Add(this.schemeCodeTextBox);
+            this.tpDetails.Controls.Add(tareDTLabel);
+            this.tpDetails.Controls.Add(this.tareDTDateTimePicker);
+            this.tpDetails.Controls.Add(tareTkLabel);
+            this.tpDetails.Controls.Add(this.tareTkTextBox);
+            this.tpDetails.Controls.Add(regoTkLabel);
+            this.tpDetails.Controls.Add(this.regoTkTextBox);
+            this.tpDetails.Controls.Add(tareLabel);
+            this.tpDetails.Controls.Add(this.tareTextBox);
+            this.tpDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpDetails.Name = "tpDetails";
+            this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
+            this.tpDetails.Size = new System.Drawing.Size(1001, 353);
+            this.tpDetails.TabIndex = 1;
+            this.tpDetails.Text = "Details";
+            this.tpDetails.UseVisualStyleBackColor = true;
             // 
             // tareLabel
             // 
@@ -453,18 +514,270 @@ namespace QWS_Local
             this.regoTkTextBox.Size = new System.Drawing.Size(100, 20);
             this.regoTkTextBox.TabIndex = 3;
             // 
+            // tareTkLabel
+            // 
+            tareTkLabel.AutoSize = true;
+            tareTkLabel.Location = new System.Drawing.Point(43, 92);
+            tareTkLabel.Name = "tareTkLabel";
+            tareTkLabel.Size = new System.Drawing.Size(48, 13);
+            tareTkLabel.TabIndex = 4;
+            tareTkLabel.Text = "Tare Tk:";
+            // 
+            // tareTkTextBox
+            // 
+            this.tareTkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "TareTk", true));
+            this.tareTkTextBox.Location = new System.Drawing.Point(97, 89);
+            this.tareTkTextBox.Name = "tareTkTextBox";
+            this.tareTkTextBox.Size = new System.Drawing.Size(100, 20);
+            this.tareTkTextBox.TabIndex = 5;
+            // 
+            // tareDTLabel
+            // 
+            tareDTLabel.AutoSize = true;
+            tareDTLabel.Location = new System.Drawing.Point(43, 127);
+            tareDTLabel.Name = "tareDTLabel";
+            tareDTLabel.Size = new System.Drawing.Size(50, 13);
+            tareDTLabel.TabIndex = 6;
+            tareDTLabel.Text = "Tare DT:";
+            // 
+            // tareDTDateTimePicker
+            // 
+            this.tareDTDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bsConfiguredTnt, "TareDT", true));
+            this.tareDTDateTimePicker.Location = new System.Drawing.Point(99, 123);
+            this.tareDTDateTimePicker.Name = "tareDTDateTimePicker";
+            this.tareDTDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.tareDTDateTimePicker.TabIndex = 7;
+            // 
+            // schemeCodeLabel
+            // 
+            schemeCodeLabel.AutoSize = true;
+            schemeCodeLabel.Location = new System.Drawing.Point(49, 159);
+            schemeCodeLabel.Name = "schemeCodeLabel";
+            schemeCodeLabel.Size = new System.Drawing.Size(77, 13);
+            schemeCodeLabel.TabIndex = 8;
+            schemeCodeLabel.Text = "Scheme Code:";
+            // 
+            // schemeCodeTextBox
+            // 
+            this.schemeCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "SchemeCode", true));
+            this.schemeCodeTextBox.Location = new System.Drawing.Point(132, 156);
+            this.schemeCodeTextBox.Name = "schemeCodeTextBox";
+            this.schemeCodeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.schemeCodeTextBox.TabIndex = 9;
+            // 
+            // schemeLabel
+            // 
+            schemeLabel.AutoSize = true;
+            schemeLabel.Location = new System.Drawing.Point(52, 193);
+            schemeLabel.Name = "schemeLabel";
+            schemeLabel.Size = new System.Drawing.Size(49, 13);
+            schemeLabel.TabIndex = 10;
+            schemeLabel.Text = "Scheme:";
+            // 
+            // schemeTextBox
+            // 
+            this.schemeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "Scheme", true));
+            this.schemeTextBox.Location = new System.Drawing.Point(107, 190);
+            this.schemeTextBox.Name = "schemeTextBox";
+            this.schemeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.schemeTextBox.TabIndex = 11;
+            // 
+            // gCMLabel
+            // 
+            gCMLabel.AutoSize = true;
+            gCMLabel.Location = new System.Drawing.Point(441, 76);
+            gCMLabel.Name = "gCMLabel";
+            gCMLabel.Size = new System.Drawing.Size(34, 13);
+            gCMLabel.TabIndex = 12;
+            gCMLabel.Text = "GCM:";
+            // 
+            // gCMTextBox
+            // 
+            this.gCMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "GCM", true));
+            this.gCMTextBox.Location = new System.Drawing.Point(481, 73);
+            this.gCMTextBox.Name = "gCMTextBox";
+            this.gCMTextBox.Size = new System.Drawing.Size(100, 20);
+            this.gCMTextBox.TabIndex = 13;
+            // 
+            // gVMTruckLabel
+            // 
+            gVMTruckLabel.AutoSize = true;
+            gVMTruckLabel.Location = new System.Drawing.Point(439, 104);
+            gVMTruckLabel.Name = "gVMTruckLabel";
+            gVMTruckLabel.Size = new System.Drawing.Size(62, 13);
+            gVMTruckLabel.TabIndex = 14;
+            gVMTruckLabel.Text = "GVMTruck:";
+            // 
+            // gVMTruckTextBox
+            // 
+            this.gVMTruckTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "GVMTruck", true));
+            this.gVMTruckTextBox.Location = new System.Drawing.Point(507, 101);
+            this.gVMTruckTextBox.Name = "gVMTruckTextBox";
+            this.gVMTruckTextBox.Size = new System.Drawing.Size(100, 20);
+            this.gVMTruckTextBox.TabIndex = 15;
+            // 
+            // driveAxleLoadLabel
+            // 
+            driveAxleLoadLabel.AutoSize = true;
+            driveAxleLoadLabel.Location = new System.Drawing.Point(439, 146);
+            driveAxleLoadLabel.Name = "driveAxleLoadLabel";
+            driveAxleLoadLabel.Size = new System.Drawing.Size(85, 13);
+            driveAxleLoadLabel.TabIndex = 16;
+            driveAxleLoadLabel.Text = "Drive Axle Load:";
+            // 
+            // driveAxleLoadTextBox
+            // 
+            this.driveAxleLoadTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "DriveAxleLoad", true));
+            this.driveAxleLoadTextBox.Location = new System.Drawing.Point(530, 143);
+            this.driveAxleLoadTextBox.Name = "driveAxleLoadTextBox";
+            this.driveAxleLoadTextBox.Size = new System.Drawing.Size(100, 20);
+            this.driveAxleLoadTextBox.TabIndex = 17;
+            // 
+            // driveAxleLoadUOMLabel
+            // 
+            driveAxleLoadUOMLabel.AutoSize = true;
+            driveAxleLoadUOMLabel.Location = new System.Drawing.Point(440, 183);
+            driveAxleLoadUOMLabel.Name = "driveAxleLoadUOMLabel";
+            driveAxleLoadUOMLabel.Size = new System.Drawing.Size(113, 13);
+            driveAxleLoadUOMLabel.TabIndex = 18;
+            driveAxleLoadUOMLabel.Text = "Drive Axle Load UOM:";
+            // 
+            // driveAxleLoadUOMTextBox
+            // 
+            this.driveAxleLoadUOMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "DriveAxleLoadUOM", true));
+            this.driveAxleLoadUOMTextBox.Location = new System.Drawing.Point(559, 180);
+            this.driveAxleLoadUOMTextBox.Name = "driveAxleLoadUOMTextBox";
+            this.driveAxleLoadUOMTextBox.Size = new System.Drawing.Size(100, 20);
+            this.driveAxleLoadUOMTextBox.TabIndex = 19;
+            // 
+            // trTkRatioLabel
+            // 
+            trTkRatioLabel.AutoSize = true;
+            trTkRatioLabel.Location = new System.Drawing.Point(451, 212);
+            trTkRatioLabel.Name = "trTkRatioLabel";
+            trTkRatioLabel.Size = new System.Drawing.Size(64, 13);
+            trTkRatioLabel.TabIndex = 20;
+            trTkRatioLabel.Text = "Tr Tk Ratio:";
+            // 
+            // trTkRatioTextBox
+            // 
+            this.trTkRatioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "TrTkRatio", true));
+            this.trTkRatioTextBox.Location = new System.Drawing.Point(521, 209);
+            this.trTkRatioTextBox.Name = "trTkRatioTextBox";
+            this.trTkRatioTextBox.Size = new System.Drawing.Size(100, 20);
+            this.trTkRatioTextBox.TabIndex = 21;
+            // 
+            // regoTrailerLabel
+            // 
+            regoTrailerLabel.AutoSize = true;
+            regoTrailerLabel.Location = new System.Drawing.Point(277, 23);
+            regoTrailerLabel.Name = "regoTrailerLabel";
+            regoTrailerLabel.Size = new System.Drawing.Size(68, 13);
+            regoTrailerLabel.TabIndex = 22;
+            regoTrailerLabel.Text = "Rego Trailer:";
+            // 
+            // regoTrailerTextBox
+            // 
+            this.regoTrailerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "RegoTrailer", true));
+            this.regoTrailerTextBox.Location = new System.Drawing.Point(351, 20);
+            this.regoTrailerTextBox.Name = "regoTrailerTextBox";
+            this.regoTrailerTextBox.Size = new System.Drawing.Size(100, 20);
+            this.regoTrailerTextBox.TabIndex = 23;
+            // 
+            // pBS_LevelLabel
+            // 
+            pBS_LevelLabel.AutoSize = true;
+            pBS_LevelLabel.Location = new System.Drawing.Point(453, 241);
+            pBS_LevelLabel.Name = "pBS_LevelLabel";
+            pBS_LevelLabel.Size = new System.Drawing.Size(60, 13);
+            pBS_LevelLabel.TabIndex = 24;
+            pBS_LevelLabel.Text = "PBS Level:";
+            // 
+            // pBS_LevelTextBox
+            // 
+            this.pBS_LevelTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "PBS_Level", true));
+            this.pBS_LevelTextBox.Location = new System.Drawing.Point(519, 238);
+            this.pBS_LevelTextBox.Name = "pBS_LevelTextBox";
+            this.pBS_LevelTextBox.Size = new System.Drawing.Size(100, 20);
+            this.pBS_LevelTextBox.TabIndex = 25;
+            // 
+            // bridgeAssessmentLabel
+            // 
+            bridgeAssessmentLabel.AutoSize = true;
+            bridgeAssessmentLabel.Location = new System.Drawing.Point(456, 272);
+            bridgeAssessmentLabel.Name = "bridgeAssessmentLabel";
+            bridgeAssessmentLabel.Size = new System.Drawing.Size(99, 13);
+            bridgeAssessmentLabel.TabIndex = 26;
+            bridgeAssessmentLabel.Text = "Bridge Assessment:";
+            // 
+            // bridgeAssessmentTextBox
+            // 
+            this.bridgeAssessmentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "BridgeAssessment", true));
+            this.bridgeAssessmentTextBox.Location = new System.Drawing.Point(561, 269);
+            this.bridgeAssessmentTextBox.Name = "bridgeAssessmentTextBox";
+            this.bridgeAssessmentTextBox.Size = new System.Drawing.Size(100, 20);
+            this.bridgeAssessmentTextBox.TabIndex = 27;
+            // 
+            // regoTr1Label
+            // 
+            regoTr1Label.AutoSize = true;
+            regoTr1Label.Location = new System.Drawing.Point(483, 35);
+            regoTr1Label.Name = "regoTr1Label";
+            regoTr1Label.Size = new System.Drawing.Size(55, 13);
+            regoTr1Label.TabIndex = 28;
+            regoTr1Label.Text = "Rego Tr1:";
+            // 
+            // regoTr1TextBox
+            // 
+            this.regoTr1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "RegoTr1", true));
+            this.regoTr1TextBox.Location = new System.Drawing.Point(544, 32);
+            this.regoTr1TextBox.Name = "regoTr1TextBox";
+            this.regoTr1TextBox.Size = new System.Drawing.Size(100, 20);
+            this.regoTr1TextBox.TabIndex = 29;
+            // 
+            // regoTr2Label
+            // 
+            regoTr2Label.AutoSize = true;
+            regoTr2Label.Location = new System.Drawing.Point(671, 40);
+            regoTr2Label.Name = "regoTr2Label";
+            regoTr2Label.Size = new System.Drawing.Size(55, 13);
+            regoTr2Label.TabIndex = 30;
+            regoTr2Label.Text = "Rego Tr2:";
+            // 
+            // regoTr2TextBox
+            // 
+            this.regoTr2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "RegoTr2", true));
+            this.regoTr2TextBox.Location = new System.Drawing.Point(732, 37);
+            this.regoTr2TextBox.Name = "regoTr2TextBox";
+            this.regoTr2TextBox.Size = new System.Drawing.Size(100, 20);
+            this.regoTr2TextBox.TabIndex = 31;
+            // 
+            // regoTr3Label
+            // 
+            regoTr3Label.AutoSize = true;
+            regoTr3Label.Location = new System.Drawing.Point(746, 77);
+            regoTr3Label.Name = "regoTr3Label";
+            regoTr3Label.Size = new System.Drawing.Size(55, 13);
+            regoTr3Label.TabIndex = 32;
+            regoTr3Label.Text = "Rego Tr3:";
+            // 
+            // regoTr3TextBox
+            // 
+            this.regoTr3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "RegoTr3", true));
+            this.regoTr3TextBox.Location = new System.Drawing.Point(807, 74);
+            this.regoTr3TextBox.Name = "regoTr3TextBox";
+            this.regoTr3TextBox.Size = new System.Drawing.Size(100, 20);
+            this.regoTr3TextBox.TabIndex = 33;
+            // 
             // TruckConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1093, 831);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.cardCodeTextBox);
-            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.ownerTextBox);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.maxLengthTextBox);
             this.Controls.Add(this.btnAddVehicle2Config);
             this.Controls.Add(this.groupBox1);
             this.Name = "TruckConfiguration";
@@ -481,8 +794,9 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tpList.ResumeLayout(false);
+            this.tpDetails.ResumeLayout(false);
+            this.tpDetails.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -507,7 +821,6 @@ namespace QWS_Local
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.BindingSource bsNHVL;
         private dsQWSLocalTableAdapters.NHVLTableAdapter taNHVL;
-        private System.Windows.Forms.TextBox maxLengthTextBox;
         private System.Windows.Forms.BindingSource bsConfiguredTnt;
         private dsTruckConfigTableAdapters.ConfiguredTnTTableAdapter taConfiguredTnT;
         private System.Windows.Forms.DataGridView dataGridView2;
@@ -524,11 +837,25 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn schemeCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Scheme;
         private System.Windows.Forms.DataGridViewTextBoxColumn BridgeAssessment;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tpList;
+        private System.Windows.Forms.TabPage tpDetails;
         private System.Windows.Forms.TextBox regoTkTextBox;
         private System.Windows.Forms.TextBox tareTextBox;
+        private System.Windows.Forms.TextBox regoTr3TextBox;
+        private System.Windows.Forms.TextBox regoTr2TextBox;
+        private System.Windows.Forms.TextBox regoTr1TextBox;
+        private System.Windows.Forms.TextBox bridgeAssessmentTextBox;
+        private System.Windows.Forms.TextBox pBS_LevelTextBox;
+        private System.Windows.Forms.TextBox regoTrailerTextBox;
+        private System.Windows.Forms.TextBox trTkRatioTextBox;
+        private System.Windows.Forms.TextBox driveAxleLoadUOMTextBox;
+        private System.Windows.Forms.TextBox driveAxleLoadTextBox;
+        private System.Windows.Forms.TextBox gVMTruckTextBox;
+        private System.Windows.Forms.TextBox gCMTextBox;
+        private System.Windows.Forms.TextBox schemeTextBox;
+        private System.Windows.Forms.TextBox schemeCodeTextBox;
+        private System.Windows.Forms.DateTimePicker tareDTDateTimePicker;
+        private System.Windows.Forms.TextBox tareTkTextBox;
     }
 }
