@@ -42,8 +42,8 @@ namespace QWS_Local
             System.Windows.Forms.Label jurisdictionLabel1;
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label1;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VehicleMaintenance));
             System.Windows.Forms.Label label5;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VehicleMaintenance));
             this.txtRego = new System.Windows.Forms.TextBox();
             this.vehicleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
@@ -262,6 +262,17 @@ namespace QWS_Local
             label1.TabIndex = 64;
             label1.Text = "PBS Vehicle Approval/s :";
             label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(57, 480);
+            label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(143, 18);
+            label5.TabIndex = 81;
+            label5.Text = "Mass Management :";
+            label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtRego
             // 
@@ -841,17 +852,6 @@ namespace QWS_Local
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(116, 24);
             this.textBox3.TabIndex = 80;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(57, 480);
-            label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(143, 18);
-            label5.TabIndex = 81;
-            label5.Text = "Mass Management :";
-            label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // VehicleMaintenance
             // 
