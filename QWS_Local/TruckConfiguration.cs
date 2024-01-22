@@ -119,11 +119,7 @@ namespace QWS_Local
             string leadRego;
             string trailerRego;
             dsQWSLocal.NHVLRow myNHVLRow;
-            myNHVLRow = GetNHVLRow();
-            if (myNHVLRow != null)
-            {
-                myNHVLID = myNHVLRow.TruckTypeID;
-            }
+
 
             // add truckconfig using NHVLID
 
@@ -133,12 +129,20 @@ namespace QWS_Local
             if (CurrentVehicleDetails().IsLeadVehicle)
             {
                 leadRego = CurrentVehicleDetails().Rego;
-                //trailerRego = CurrentVehicle().Rego;
+                myNHVLRow = GetNHVLRow(CurrentVehicleDetails().AxleConfiguration);
+                if (myNHVLRow != null)
+                {
+                    myNHVLID = myNHVLRow.TruckTypeID;
+                }
+                else
+                {
+                    MessageBox.Show("NHVL type code not chosen!");
+                }
             }
             else
             {
-                //leadRego = CurrentVehicle().Rego;
                 trailerRego = CurrentVehicleDetails().Rego;
+                MessageBox.Show("Please find Truck!");
             }
         }
 
@@ -194,19 +198,9 @@ namespace QWS_Local
         //}
 
      
-        private dsQWSLocal.NHVLRow GetNHVLRow()
-        {
-            string AxleConfig = "";
-            if (CurrentVehicleDetails().IsLeadVehicle)
-            {
-                AxleConfig = CurrentVehicleDetails().AxleConfiguration;
-            }
-            else
-            {
-                //AxleConfig = CurrentVehicle().AxleConfiguration;
-                MessageBox.Show("Please choose lead vehicle first.");
-            }
-            NHVR_GVM_Search frmSearch = new NHVR_GVM_Search(AxleConfig);
+        private dsQWSLocal.NHVLRow GetNHVLRow(string AxleConfigTruck)
+        {    
+            NHVR_GVM_Search frmSearch = new NHVR_GVM_Search(AxleConfigTruck);
             DialogResult dr = frmSearch.ShowDialog();
             if (dr == DialogResult.OK)
             {
