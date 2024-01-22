@@ -4959,6 +4959,10 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnCreateDTTM;
             
+            private global::System.Data.DataColumn columnMassAccreditationLabel;
+            
+            private global::System.Data.DataColumn columnActive;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public VehicleDetailsDataTable() {
@@ -5130,6 +5134,22 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn MassAccreditationLabelColumn {
+                get {
+                    return this.columnMassAccreditationLabel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ActiveColumn {
+                get {
+                    return this.columnActive;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5182,7 +5202,9 @@ namespace QWS_Local {
                         string CardCode, 
                         System.DateTime RegistrationExpDT, 
                         bool IsLeadVehicle, 
-                        System.DateTime CreateDTTM) {
+                        System.DateTime CreateDTTM, 
+                        string MassAccreditationLabel, 
+                        bool Active) {
                 VehicleDetailsRow rowVehicleDetailsRow = ((VehicleDetailsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Rego,
@@ -5201,7 +5223,9 @@ namespace QWS_Local {
                         CardCode,
                         RegistrationExpDT,
                         IsLeadVehicle,
-                        CreateDTTM};
+                        CreateDTTM,
+                        MassAccreditationLabel,
+                        Active};
                 rowVehicleDetailsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVehicleDetailsRow);
                 return rowVehicleDetailsRow;
@@ -5248,6 +5272,8 @@ namespace QWS_Local {
                 this.columnRegistrationExpDT = base.Columns["RegistrationExpDT"];
                 this.columnIsLeadVehicle = base.Columns["IsLeadVehicle"];
                 this.columnCreateDTTM = base.Columns["CreateDTTM"];
+                this.columnMassAccreditationLabel = base.Columns["MassAccreditationLabel"];
+                this.columnActive = base.Columns["Active"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5287,6 +5313,10 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnIsLeadVehicle);
                 this.columnCreateDTTM = new global::System.Data.DataColumn("CreateDTTM", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCreateDTTM);
+                this.columnMassAccreditationLabel = new global::System.Data.DataColumn("MassAccreditationLabel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMassAccreditationLabel);
+                this.columnActive = new global::System.Data.DataColumn("Active", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnActive);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRego}, true));
                 this.columnRego.AllowDBNull = false;
@@ -5300,7 +5330,9 @@ namespace QWS_Local {
                 this.columnMake.MaxLength = 50;
                 this.columnModel.AllowDBNull = false;
                 this.columnModel.MaxLength = 50;
+                this.columnAxleConfiguration.AllowDBNull = false;
                 this.columnAxleConfiguration.MaxLength = 50;
+                this.columnRegisteredTare.AllowDBNull = false;
                 this.columnFeeCode.MaxLength = 50;
                 this.columnJurisdiction.MaxLength = 50;
                 this.columnFeeType.MaxLength = 500;
@@ -5308,7 +5340,11 @@ namespace QWS_Local {
                 this.columnVehicleDescription.MaxLength = 100;
                 this.columnCardCode.AllowDBNull = false;
                 this.columnCardCode.MaxLength = 15;
+                this.columnRegistrationExpDT.AllowDBNull = false;
                 this.columnCreateDTTM.AllowDBNull = false;
+                this.columnMassAccreditationLabel.AllowDBNull = false;
+                this.columnMassAccreditationLabel.MaxLength = 50;
+                this.columnActive.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10798,12 +10834,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string AxleConfiguration {
                 get {
-                    try {
-                        return ((string)(this[this.tableVehicleDetails.AxleConfigurationColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AxleConfiguration\' in table \'VehicleDetails\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableVehicleDetails.AxleConfigurationColumn]));
                 }
                 set {
                     this[this.tableVehicleDetails.AxleConfigurationColumn] = value;
@@ -10814,12 +10845,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public decimal RegisteredTare {
                 get {
-                    try {
-                        return ((decimal)(this[this.tableVehicleDetails.RegisteredTareColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RegisteredTare\' in table \'VehicleDetails\' is DBNull.", e);
-                    }
+                    return ((decimal)(this[this.tableVehicleDetails.RegisteredTareColumn]));
                 }
                 set {
                     this[this.tableVehicleDetails.RegisteredTareColumn] = value;
@@ -10937,12 +10963,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.DateTime RegistrationExpDT {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableVehicleDetails.RegistrationExpDTColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RegistrationExpDT\' in table \'VehicleDetails\' is DBNull.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableVehicleDetails.RegistrationExpDTColumn]));
                 }
                 set {
                     this[this.tableVehicleDetails.RegistrationExpDTColumn] = value;
@@ -10978,26 +10999,24 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAxleConfigurationNull() {
-                return this.IsNull(this.tableVehicleDetails.AxleConfigurationColumn);
+            public string MassAccreditationLabel {
+                get {
+                    return ((string)(this[this.tableVehicleDetails.MassAccreditationLabelColumn]));
+                }
+                set {
+                    this[this.tableVehicleDetails.MassAccreditationLabelColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAxleConfigurationNull() {
-                this[this.tableVehicleDetails.AxleConfigurationColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsRegisteredTareNull() {
-                return this.IsNull(this.tableVehicleDetails.RegisteredTareColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetRegisteredTareNull() {
-                this[this.tableVehicleDetails.RegisteredTareColumn] = global::System.Convert.DBNull;
+            public bool Active {
+                get {
+                    return ((bool)(this[this.tableVehicleDetails.ActiveColumn]));
+                }
+                set {
+                    this[this.tableVehicleDetails.ActiveColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11070,18 +11089,6 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetSchematicNull() {
                 this[this.tableVehicleDetails.SchematicColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsRegistrationExpDTNull() {
-                return this.IsNull(this.tableVehicleDetails.RegistrationExpDTColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetRegistrationExpDTNull() {
-                this[this.tableVehicleDetails.RegistrationExpDTColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17058,6 +17065,8 @@ SELECT TruckConfigID, Rego, TruckTypeID, PBS_Config_ID, Tare, TareDT FROM TruckC
             tableMapping.ColumnMappings.Add("RegistrationExpDT", "RegistrationExpDT");
             tableMapping.ColumnMappings.Add("IsLeadVehicle", "IsLeadVehicle");
             tableMapping.ColumnMappings.Add("CreateDTTM", "CreateDTTM");
+            tableMapping.ColumnMappings.Add("MassAccreditationLabel", "MassAccreditationLabel");
+            tableMapping.ColumnMappings.Add("Active", "Active");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -17074,8 +17083,8 @@ SELECT TruckConfigID, Rego, TruckTypeID, PBS_Config_ID, Tare, TareDT FROM TruckC
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, RegisteredTare, FeeCode, Jurisdiction, FeeType, FeeConditions, RegistrationExpDT, IsLeadVehicle, VehicleDescription, Schematic, 
-                         CreateDTTM
+            this._commandCollection[0].CommandText = @"SELECT        Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCode, Jurisdiction, FeeType, FeeConditions, RegistrationExpDT, IsLeadVehicle, VehicleDescription, 
+                         Schematic, Active, CreateDTTM
 FROM            VehicleDetails";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();

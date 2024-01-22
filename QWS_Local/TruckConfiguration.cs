@@ -13,6 +13,7 @@ namespace QWS_Local
     public partial class TruckConfiguration : Form
     {
         private string myRego;
+        private string myTrailerRego;
         private string myCardCode;
         public TruckConfiguration()
         {
@@ -71,20 +72,26 @@ namespace QWS_Local
 
         private void btnFindVehicle_Click(object sender, EventArgs e)
         {
-            int iRows = taVehicle.FillBy(dsQWSLocal.Vehicle, txtRego.Text);
+            int iRows = taVehicleDetails.FillBy(dsQWSLocal.VehicleDetails, txtRego.Text);
             if (iRows == 1)
             {
-                myRego = dsQWSLocal.Vehicle[0]["Rego"].ToString();
-                myCardCode = dsQWSLocal.Vehicle[0]["CardCode"].ToString();
+                myRego = dsQWSLocal.VehicleDetails[0]["Rego"].ToString();
+                myCardCode = dsQWSLocal.VehicleDetails[0]["CardCode"].ToString();
+                if (System.Convert.ToBoolean(dsQWSLocal.VehicleDetails[0]["IsLeadVehicle"]) == false)
+                {
+                    myTrailerRego = myRego;
+                    //FindVehicle(myCardCode, true);
+                }
+
                 TruckConfigurationLoad();
             }
             else
             {
-                FindVehicle(txtRego.Text);
+                FindVehicle(txtRego.Text, false);
             }
         }
 
-        private void FindVehicle(string Rego)
+        private void FindVehicle(string Rego, bool isCardCode)
         {
             VehicleSearch vehicleSearch = new VehicleSearch(Rego, false);
             DialogResult dr1 = vehicleSearch.ShowDialog();
@@ -126,11 +133,11 @@ namespace QWS_Local
             if (CurrentVehicleDetails().IsLeadVehicle)
             {
                 leadRego = CurrentVehicleDetails().Rego;
-                trailerRego = CurrentVehicle().Rego;
+                //trailerRego = CurrentVehicle().Rego;
             }
             else
             {
-                leadRego = CurrentVehicle().Rego;
+                //leadRego = CurrentVehicle().Rego;
                 trailerRego = CurrentVehicleDetails().Rego;
             }
         }
@@ -164,39 +171,40 @@ namespace QWS_Local
             }
         }
 
-        private dsQWSLocal.VehicleRow CurrentVehicle()
-        {
-            try
-            {
-                if (bsVehicle.Count > 0)
-                {
-                    DataRow myDR = ((DataRowView)bsVehicle.Current).Row;
-                    dsQWSLocal.VehicleRow vehicleRow = (dsQWSLocal.VehicleRow)myDR;
-                    return vehicleRow;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return null;
-            }
-        }
+        //private dsQWSLocal.VehicleRow CurrentVehicle()
+        //{
+        //    try
+        //    {
+        //        if (bsVehicle.Count > 0)
+        //        {
+        //            DataRow myDR = ((DataRowView)bsVehicle.Current).Row;
+        //            dsQWSLocal.VehicleRow vehicleRow = (dsQWSLocal.VehicleRow)myDR;
+        //            return vehicleRow;
+        //        }
+        //        else
+        //        {
+        //            return null;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //        return null;
+        //    }
+        //}
 
      
         private dsQWSLocal.NHVLRow GetNHVLRow()
         {
-            string AxleConfig;
+            string AxleConfig = "";
             if (CurrentVehicleDetails().IsLeadVehicle)
             {
                 AxleConfig = CurrentVehicleDetails().AxleConfiguration;
             }
             else
             {
-                AxleConfig = CurrentVehicle().AxleConfiguration;
+                //AxleConfig = CurrentVehicle().AxleConfiguration;
+                MessageBox.Show("Please choose lead vehicle first.");
             }
             NHVR_GVM_Search frmSearch = new NHVR_GVM_Search(AxleConfig);
             DialogResult dr = frmSearch.ShowDialog();
