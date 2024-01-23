@@ -93,7 +93,7 @@ namespace QWS_Local
 
         private void FindVehicle(string Rego, bool isCardCode)
         {
-            VehicleSearch vehicleSearch = new VehicleSearch(Rego, false);
+            VehicleSearch vehicleSearch = new VehicleSearch(Rego, isCardCode);
             DialogResult dr1 = vehicleSearch.ShowDialog();
             if (dr1 == DialogResult.OK)
             {
@@ -128,7 +128,7 @@ namespace QWS_Local
                 if (myNHVLRow != null)
                 {
                     myNHVLID = myNHVLRow.TruckTypeID;
-                    this.nHVLDetailsTableAdapter.FillByTruckTypeID(this.dsTruckConfig.NHVLDetails, myNHVLID);
+                    this.taNHVLDetails.FillByTruckTypeID(this.dsTruckConfig.NHVLDetails, myNHVLID);
                     //MessageBox.Show("NHVL ID chosen is :" + myNHVLID.ToString());
                 }
                 else

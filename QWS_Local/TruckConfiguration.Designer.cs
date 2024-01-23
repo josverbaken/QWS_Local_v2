@@ -49,6 +49,10 @@ namespace QWS_Local
             System.Windows.Forms.Label regoTr3Label;
             System.Windows.Forms.Label truckTypeIDLabel;
             System.Windows.Forms.Label vehiclesLabel;
+            System.Windows.Forms.Label vehicleDescriptionLabel;
+            System.Windows.Forms.Label vehicleTypeLabel;
+            System.Windows.Forms.Label vehicleTypeDescriptionLabel;
+            System.Windows.Forms.Label schemeCodeLabel1;
             this.txtRego = new System.Windows.Forms.TextBox();
             this.bsVehicleDetails = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
@@ -104,10 +108,14 @@ namespace QWS_Local
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.tableAdapterManager1 = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
             this.taConfiguredTnT = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTnTTableAdapter();
-            this.nHVLDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nHVLDetailsTableAdapter = new QWS_Local.dsTruckConfigTableAdapters.NHVLDetailsTableAdapter();
+            this.bsNHVLDetails = new System.Windows.Forms.BindingSource(this.components);
+            this.taNHVLDetails = new QWS_Local.dsTruckConfigTableAdapters.NHVLDetailsTableAdapter();
             this.truckTypeIDTextBox = new System.Windows.Forms.TextBox();
             this.vehiclesTextBox = new System.Windows.Forms.TextBox();
+            this.vehicleDescriptionTextBox = new System.Windows.Forms.TextBox();
+            this.vehicleTypeTextBox = new System.Windows.Forms.TextBox();
+            this.vehicleTypeDescriptionTextBox = new System.Windows.Forms.TextBox();
+            this.schemeCodeTextBox1 = new System.Windows.Forms.TextBox();
             tareLabel = new System.Windows.Forms.Label();
             regoTkLabel = new System.Windows.Forms.Label();
             tareTkLabel = new System.Windows.Forms.Label();
@@ -127,6 +135,10 @@ namespace QWS_Local
             regoTr3Label = new System.Windows.Forms.Label();
             truckTypeIDLabel = new System.Windows.Forms.Label();
             vehiclesLabel = new System.Windows.Forms.Label();
+            vehicleDescriptionLabel = new System.Windows.Forms.Label();
+            vehicleTypeLabel = new System.Windows.Forms.Label();
+            vehicleTypeDescriptionLabel = new System.Windows.Forms.Label();
+            schemeCodeLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicle)).BeginInit();
@@ -139,7 +151,7 @@ namespace QWS_Local
             this.tpDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nHVLDetailsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsNHVLDetails)).BeginInit();
             this.SuspendLayout();
             // 
             // tareLabel
@@ -790,19 +802,19 @@ namespace QWS_Local
             // 
             this.taConfiguredTnT.ClearBeforeFill = true;
             // 
-            // nHVLDetailsBindingSource
+            // bsNHVLDetails
             // 
-            this.nHVLDetailsBindingSource.DataMember = "NHVLDetails";
-            this.nHVLDetailsBindingSource.DataSource = this.dsTruckConfig;
+            this.bsNHVLDetails.DataMember = "NHVLDetails";
+            this.bsNHVLDetails.DataSource = this.dsTruckConfig;
             // 
-            // nHVLDetailsTableAdapter
+            // taNHVLDetails
             // 
-            this.nHVLDetailsTableAdapter.ClearBeforeFill = true;
+            this.taNHVLDetails.ClearBeforeFill = true;
             // 
             // truckTypeIDLabel
             // 
             truckTypeIDLabel.AutoSize = true;
-            truckTypeIDLabel.Location = new System.Drawing.Point(860, 105);
+            truckTypeIDLabel.Location = new System.Drawing.Point(860, 53);
             truckTypeIDLabel.Name = "truckTypeIDLabel";
             truckTypeIDLabel.Size = new System.Drawing.Size(79, 13);
             truckTypeIDLabel.TabIndex = 29;
@@ -810,8 +822,8 @@ namespace QWS_Local
             // 
             // truckTypeIDTextBox
             // 
-            this.truckTypeIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.nHVLDetailsBindingSource, "TruckTypeID", true));
-            this.truckTypeIDTextBox.Location = new System.Drawing.Point(945, 102);
+            this.truckTypeIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsNHVLDetails, "TruckTypeID", true));
+            this.truckTypeIDTextBox.Location = new System.Drawing.Point(945, 50);
             this.truckTypeIDTextBox.Name = "truckTypeIDTextBox";
             this.truckTypeIDTextBox.Size = new System.Drawing.Size(100, 20);
             this.truckTypeIDTextBox.TabIndex = 30;
@@ -819,7 +831,7 @@ namespace QWS_Local
             // vehiclesLabel
             // 
             vehiclesLabel.AutoSize = true;
-            vehiclesLabel.Location = new System.Drawing.Point(857, 134);
+            vehiclesLabel.Location = new System.Drawing.Point(889, 105);
             vehiclesLabel.Name = "vehiclesLabel";
             vehiclesLabel.Size = new System.Drawing.Size(50, 13);
             vehiclesLabel.TabIndex = 30;
@@ -827,17 +839,93 @@ namespace QWS_Local
             // 
             // vehiclesTextBox
             // 
-            this.vehiclesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.nHVLDetailsBindingSource, "Vehicles", true));
-            this.vehiclesTextBox.Location = new System.Drawing.Point(913, 131);
+            this.vehiclesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsNHVLDetails, "Vehicles", true));
+            this.vehiclesTextBox.Location = new System.Drawing.Point(945, 102);
             this.vehiclesTextBox.Name = "vehiclesTextBox";
             this.vehiclesTextBox.Size = new System.Drawing.Size(100, 20);
             this.vehiclesTextBox.TabIndex = 31;
+            // 
+            // vehicleDescriptionLabel
+            // 
+            vehicleDescriptionLabel.AutoSize = true;
+            vehicleDescriptionLabel.Location = new System.Drawing.Point(838, 131);
+            vehicleDescriptionLabel.Name = "vehicleDescriptionLabel";
+            vehicleDescriptionLabel.Size = new System.Drawing.Size(101, 13);
+            vehicleDescriptionLabel.TabIndex = 31;
+            vehicleDescriptionLabel.Text = "Vehicle Description:";
+            // 
+            // vehicleDescriptionTextBox
+            // 
+            this.vehicleDescriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsNHVLDetails, "VehicleDescription", true));
+            this.vehicleDescriptionTextBox.Location = new System.Drawing.Point(945, 128);
+            this.vehicleDescriptionTextBox.Name = "vehicleDescriptionTextBox";
+            this.vehicleDescriptionTextBox.Size = new System.Drawing.Size(100, 20);
+            this.vehicleDescriptionTextBox.TabIndex = 32;
+            // 
+            // vehicleTypeLabel
+            // 
+            vehicleTypeLabel.AutoSize = true;
+            vehicleTypeLabel.Location = new System.Drawing.Point(867, 157);
+            vehicleTypeLabel.Name = "vehicleTypeLabel";
+            vehicleTypeLabel.Size = new System.Drawing.Size(72, 13);
+            vehicleTypeLabel.TabIndex = 32;
+            vehicleTypeLabel.Text = "Vehicle Type:";
+            // 
+            // vehicleTypeTextBox
+            // 
+            this.vehicleTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsNHVLDetails, "VehicleType", true));
+            this.vehicleTypeTextBox.Location = new System.Drawing.Point(945, 154);
+            this.vehicleTypeTextBox.Name = "vehicleTypeTextBox";
+            this.vehicleTypeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.vehicleTypeTextBox.TabIndex = 33;
+            // 
+            // vehicleTypeDescriptionLabel
+            // 
+            vehicleTypeDescriptionLabel.AutoSize = true;
+            vehicleTypeDescriptionLabel.Location = new System.Drawing.Point(811, 183);
+            vehicleTypeDescriptionLabel.Name = "vehicleTypeDescriptionLabel";
+            vehicleTypeDescriptionLabel.Size = new System.Drawing.Size(128, 13);
+            vehicleTypeDescriptionLabel.TabIndex = 33;
+            vehicleTypeDescriptionLabel.Text = "Vehicle Type Description:";
+            // 
+            // vehicleTypeDescriptionTextBox
+            // 
+            this.vehicleTypeDescriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsNHVLDetails, "VehicleTypeDescription", true));
+            this.vehicleTypeDescriptionTextBox.Location = new System.Drawing.Point(945, 180);
+            this.vehicleTypeDescriptionTextBox.Name = "vehicleTypeDescriptionTextBox";
+            this.vehicleTypeDescriptionTextBox.Size = new System.Drawing.Size(100, 20);
+            this.vehicleTypeDescriptionTextBox.TabIndex = 34;
+            // 
+            // schemeCodeLabel1
+            // 
+            schemeCodeLabel1.AutoSize = true;
+            schemeCodeLabel1.Location = new System.Drawing.Point(862, 79);
+            schemeCodeLabel1.Name = "schemeCodeLabel1";
+            schemeCodeLabel1.Size = new System.Drawing.Size(77, 13);
+            schemeCodeLabel1.TabIndex = 34;
+            schemeCodeLabel1.Text = "Scheme Code:";
+            // 
+            // schemeCodeTextBox1
+            // 
+            this.schemeCodeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsNHVLDetails, "SchemeCode", true));
+            this.schemeCodeTextBox1.Location = new System.Drawing.Point(945, 76);
+            this.schemeCodeTextBox1.Name = "schemeCodeTextBox1";
+            this.schemeCodeTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.schemeCodeTextBox1.TabIndex = 35;
             // 
             // TruckConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1093, 831);
+            this.ClientSize = new System.Drawing.Size(1097, 831);
+            this.Controls.Add(schemeCodeLabel1);
+            this.Controls.Add(this.schemeCodeTextBox1);
+            this.Controls.Add(vehicleTypeDescriptionLabel);
+            this.Controls.Add(this.vehicleTypeDescriptionTextBox);
+            this.Controls.Add(vehicleTypeLabel);
+            this.Controls.Add(this.vehicleTypeTextBox);
+            this.Controls.Add(vehicleDescriptionLabel);
+            this.Controls.Add(this.vehicleDescriptionTextBox);
             this.Controls.Add(vehiclesLabel);
             this.Controls.Add(this.vehiclesTextBox);
             this.Controls.Add(truckTypeIDLabel);
@@ -866,7 +954,7 @@ namespace QWS_Local
             this.tpDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nHVLDetailsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsNHVLDetails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -928,9 +1016,13 @@ namespace QWS_Local
         private System.Windows.Forms.DateTimePicker tareDTDateTimePicker;
         private System.Windows.Forms.TextBox tareTkTextBox;
         private System.Windows.Forms.Button btnBookIn;
-        private System.Windows.Forms.BindingSource nHVLDetailsBindingSource;
-        private dsTruckConfigTableAdapters.NHVLDetailsTableAdapter nHVLDetailsTableAdapter;
+        private System.Windows.Forms.BindingSource bsNHVLDetails;
+        private dsTruckConfigTableAdapters.NHVLDetailsTableAdapter taNHVLDetails;
         private System.Windows.Forms.TextBox truckTypeIDTextBox;
         private System.Windows.Forms.TextBox vehiclesTextBox;
+        private System.Windows.Forms.TextBox vehicleDescriptionTextBox;
+        private System.Windows.Forms.TextBox vehicleTypeTextBox;
+        private System.Windows.Forms.TextBox vehicleTypeDescriptionTextBox;
+        private System.Windows.Forms.TextBox schemeCodeTextBox1;
     }
 }

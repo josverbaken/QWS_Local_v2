@@ -55,7 +55,9 @@ namespace QWS_Local
                 if (IsCardCode)
                 {
                     this.vehicleDetailsTableAdapter.FillBySAPCode(this.dsQWSLocal.VehicleDetails, strSearch);
-
+                    this.bsVehicleDetails.Filter = "IsLeadVehicle = 1";
+                    // maybe pass in as a parameter from calling form
+                    // maybe create function for filter
                 }
                 else
                 {
