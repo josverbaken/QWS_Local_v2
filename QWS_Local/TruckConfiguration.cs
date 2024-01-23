@@ -223,7 +223,10 @@ namespace QWS_Local
             {
                 DataRow myDR = ((DataRowView)bsConfiguredTnt.Current).Row;
                 dsTruckConfig.ConfiguredTnTRow truckConfigRow = (dsTruckConfig.ConfiguredTnTRow)myDR;
-                MessageBox.Show("Booking In truck " + truckConfigRow.RegoTk);
+                MessageBox.Show("Booking In truck " + truckConfigRow.RegoTk + " TruckConfigID: " + truckConfigRow.TruckConfigID);
+                BookInTruck frmBookInTruck = new BookInTruck(truckConfigRow.TruckConfigID);
+                frmBookInTruck.MdiParent = this.MdiParent;
+                frmBookInTruck.Show();
             }
             catch (Exception ex)
             {

@@ -17,42 +17,23 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public BookInTruck(int TruckConfigID)
         {
-            //check rego input
-            string Rego2Find = mtxtRego.Text;
-            if (Rego2Find.Length != 6)
-            {
-                //
-                MessageBox.Show("Is this a special rego ? " + mtxtRego.Text);
-            }
-            else
-            {
-                MessageBox.Show("entry was " + mtxtRego.Text.Length.ToString() + " .. " + Rego2Find);
-            }
-            Search4Vehicle(Rego2Find);
+            InitializeComponent();
+            textBox1.Text = TruckConfigID.ToString();
         }
 
-        private void Search4Vehicle(string Rego2Find)
+        private void fillToolStripButton_Click(object sender, EventArgs e)
         {
-            VehicleSearch vehicleSearch = new VehicleSearch(Rego2Find,false);
-            DialogResult dr = vehicleSearch.ShowDialog();
-            if (dr == DialogResult.OK)
+            try
             {
-                //vehicle found
-                label1.Text = "Vehicle Found.";
-                mtxtRego.Text = vehicleSearch.Rego;
+                //this.configuredTnTTableAdapter.Fill(this.dsTruckConfig.ConfiguredTnT, regoToolStripTextBox.Text, ownerToolStripTextBox.Text, cardCodeToolStripTextBox.Text);
             }
-            else if (dr == DialogResult.Cancel)
+            catch (System.Exception ex)
             {
-                //cancelled
-                label1.Text = "Vehicle Search Cancelled!";
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
-            else
-            {
-                //??
-                label1.Text = " .. other ..";
-            }
+
         }
     }
 }

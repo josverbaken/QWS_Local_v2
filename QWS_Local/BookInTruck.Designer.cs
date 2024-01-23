@@ -29,52 +29,86 @@ namespace QWS_Local
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label regoTkLabel;
+            this.regoTkTextBox = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.mtxtRego = new System.Windows.Forms.MaskedTextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.bsConfiguredTnT = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTruckConfig = new QWS_Local.dsTruckConfig();
+            this.taConfiguredTnT = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTnTTableAdapter();
+            this.tableAdapterManager = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
+            regoTkLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             this.SuspendLayout();
+            // 
+            // regoTkLabel
+            // 
+            regoTkLabel.AutoSize = true;
+            regoTkLabel.Location = new System.Drawing.Point(183, 80);
+            regoTkLabel.Name = "regoTkLabel";
+            regoTkLabel.Size = new System.Drawing.Size(52, 13);
+            regoTkLabel.TabIndex = 2;
+            regoTkLabel.Text = "Rego Tk:";
+            // 
+            // regoTkTextBox
+            // 
+            this.regoTkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "RegoTk", true));
+            this.regoTkTextBox.Location = new System.Drawing.Point(241, 77);
+            this.regoTkTextBox.Name = "regoTkTextBox";
+            this.regoTkTextBox.Size = new System.Drawing.Size(100, 20);
+            this.regoTkTextBox.TabIndex = 3;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(241, 39);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 4;
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(294, 32);
+            this.button1.Location = new System.Drawing.Point(388, 35);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 41);
-            this.button1.TabIndex = 0;
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
             this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // mtxtRego
+            // bsConfiguredTnT
             // 
-            this.mtxtRego.AsciiOnly = true;
-            this.mtxtRego.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtxtRego.Location = new System.Drawing.Point(135, 39);
-            this.mtxtRego.Mask = "aaaaaa";
-            this.mtxtRego.Name = "mtxtRego";
-            this.mtxtRego.Size = new System.Drawing.Size(100, 26);
-            this.mtxtRego.TabIndex = 1;
+            this.bsConfiguredTnT.DataMember = "ConfiguredTnT";
+            this.bsConfiguredTnT.DataSource = this.dsTruckConfig;
             // 
-            // label1
+            // dsTruckConfig
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(439, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.dsTruckConfig.DataSetName = "dsTruckConfig";
+            this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // taConfiguredTnT
+            // 
+            this.taConfiguredTnT.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.UpdateOrder = QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // BookInTruck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.mtxtRego);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(regoTkLabel);
+            this.Controls.Add(this.regoTkTextBox);
             this.Name = "BookInTruck";
             this.Text = "BookInTruck";
+            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -82,8 +116,12 @@ namespace QWS_Local
 
         #endregion
 
+        private dsTruckConfig dsTruckConfig;
+        private System.Windows.Forms.BindingSource bsConfiguredTnT;
+        private dsTruckConfigTableAdapters.ConfiguredTnTTableAdapter taConfiguredTnT;
+        private dsTruckConfigTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.TextBox regoTkTextBox;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.MaskedTextBox mtxtRego;
-        private System.Windows.Forms.Label label1;
     }
 }
