@@ -115,14 +115,9 @@ namespace QWS_Local
 
         private void AddTruckConfig()
         {
-            int myNHVLID;// = GetNHVLRow().TruckTypeID;
+            int myNHVLID;
             string leadRego;
-            string trailerRego;
             dsQWSLocal.NHVLRow myNHVLRow;
-
-
-            // add truckconfig using NHVLID
-
 
             // add truckconfigvehicle x n
             // where n = 1 for Truck only, 2 for T&T or semitrailer, 3 for B-double and up to 6 for road trains
@@ -133,6 +128,8 @@ namespace QWS_Local
                 if (myNHVLRow != null)
                 {
                     myNHVLID = myNHVLRow.TruckTypeID;
+                    this.nHVLDetailsTableAdapter.FillByTruckTypeID(this.dsTruckConfig.NHVLDetails, myNHVLID);
+                    //MessageBox.Show("NHVL ID chosen is :" + myNHVLID.ToString());
                 }
                 else
                 {
@@ -141,8 +138,9 @@ namespace QWS_Local
             }
             else
             {
-                trailerRego = CurrentVehicleDetails().Rego;
+                myTrailerRego = CurrentVehicleDetails().Rego;
                 MessageBox.Show("Please find Truck!");
+                FindVehicle(CurrentVehicleDetails().CardCode, true); // TODO fix search by CardCode
             }
         }
 
@@ -213,5 +211,25 @@ namespace QWS_Local
                 return null;
             }
         }
+
+        private void btnBookIn_Click(object sender, EventArgs e)
+        {
+            BookInSelection();
+        }
+
+        private void BookInSelection()
+        {
+            try
+            {
+                DataRow myDR = ((DataRowView)bsConfiguredTnt.Current).Row;
+                dsTruckConfig.ConfiguredTnTRow truckConfigRow = (dsTruckConfig.ConfiguredTnTRow)myDR;
+                MessageBox.Show("Booking In truck " + truckConfigRow.RegoTk);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 }
