@@ -43,6 +43,8 @@ namespace QWS_Local
         private void GetTruckDriver()
         {
             MessageBox.Show("Getting truck drver for CardCode : " + txtCardCode.Text);
+            TruckDriverSearch frmTruckDriverSearch = new TruckDriverSearch(txtCardCode.Text);
+            frmTruckDriverSearch.ShowDialog();
         }
 
         private void BookInTruck_Load(object sender, EventArgs e)

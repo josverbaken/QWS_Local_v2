@@ -1,5 +1,5 @@
 ﻿
-namespace QWS_ManualDocket
+namespace QWS_Local
 {
     partial class TruckDriverSearch
     {
