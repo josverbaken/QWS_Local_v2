@@ -29,24 +29,10 @@ namespace QWS_Local
         public BookInTruck (dsTruckConfig.ConfiguredTnTRow configuredTnTRow)
         {
             InitializeComponent();
-            dsTruckConfig.ConfiguredTnTDataTable myTable = new dsTruckConfig.ConfiguredTnTDataTable();
-            myTable.ImportRow(configuredTnTRow);
+            dsTruckConfig.ConfiguredTnT.Clear();
+            dsTruckConfig.ConfiguredTnT.ImportRow(configuredTnTRow);
             myAxleConfig = configuredTnTRow.AxleConfiguration;
-            // TODO search project for other use of ImportRow
-        }
-
-
-        private void fillToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //this.configuredTnTTableAdapter.Fill(this.dsTruckConfig.ConfiguredTnT, regoToolStripTextBox.Text, ownerToolStripTextBox.Text, cardCodeToolStripTextBox.Text);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
+            myTruckConfigID = configuredTnTRow.TruckConfigID;
         }
 
         private void button1_Click(object sender, EventArgs e)
