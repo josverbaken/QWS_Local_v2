@@ -12,6 +12,9 @@ namespace QWS_Local
 {
     public partial class BookInTruck : Form
     {
+        private int myTruckConfigID;
+        private string myAxleConfig;
+
         public BookInTruck()
         {
             InitializeComponent();
@@ -19,8 +22,8 @@ namespace QWS_Local
 
         public BookInTruck(int TruckConfigID)
         {
+            myTruckConfigID = TruckConfigID;
             InitializeComponent();
-            textBox1.Text = TruckConfigID.ToString();
         }
 
         public BookInTruck (dsTruckConfig.ConfiguredTnTRow configuredTnTRow)
@@ -28,9 +31,10 @@ namespace QWS_Local
             InitializeComponent();
             dsTruckConfig.ConfiguredTnTDataTable myTable = new dsTruckConfig.ConfiguredTnTDataTable();
             myTable.ImportRow(configuredTnTRow);
-            textBox2.Text = configuredTnTRow.AxleConfiguration;
+            myAxleConfig = configuredTnTRow.AxleConfiguration;
             // TODO search project for other use of ImportRow
         }
+
 
         private void fillToolStripButton_Click(object sender, EventArgs e)
         {
@@ -43,6 +47,22 @@ namespace QWS_Local
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GetTruckDriver();
+        }
+
+        private void GetTruckDriver()
+        {
+            MessageBox.Show("Getting truck drver for CardCode : " + txtCardCode.Text);
+        }
+
+        private void BookInTruck_Load(object sender, EventArgs e)
+        {
+            txtAxleConfig2.Text = myAxleConfig;
+            textBox1.Text = myTruckConfigID.ToString();
         }
     }
 }

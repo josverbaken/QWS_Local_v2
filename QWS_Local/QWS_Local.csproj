@@ -143,6 +143,12 @@
     <Compile Include="TruckConfiguration.Designer.cs">
       <DependentUpon>TruckConfiguration.cs</DependentUpon>
     </Compile>
+    <Compile Include="TruckDriverSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TruckDriverSearch.designer.cs">
+      <DependentUpon>TruckDriverSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="TrucksInQuarry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TruckConfiguration.resx">
       <DependentUpon>TruckConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TruckDriverSearch.resx">
+      <DependentUpon>TruckDriverSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TrucksInQuarry.resx">
       <DependentUpon>TrucksInQuarry.cs</DependentUpon>
