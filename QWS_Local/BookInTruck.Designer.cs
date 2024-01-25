@@ -40,6 +40,8 @@ namespace QWS_Local
             this.tableAdapterManager = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
             this.txtCardCode = new System.Windows.Forms.TextBox();
             this.txtAxleConfig2 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             regoTkLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
@@ -114,11 +116,27 @@ namespace QWS_Local
             this.txtAxleConfig2.Size = new System.Drawing.Size(100, 20);
             this.txtAxleConfig2.TabIndex = 7;
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(455, 146);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 8;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(455, 172);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 9;
+            // 
             // BookInTruck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.txtAxleConfig2);
             this.Controls.Add(this.txtCardCode);
             this.Controls.Add(this.button1);
@@ -146,5 +164,7 @@ namespace QWS_Local
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtCardCode;
         private System.Windows.Forms.TextBox txtAxleConfig2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
