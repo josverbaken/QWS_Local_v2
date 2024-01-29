@@ -25,6 +25,12 @@ namespace QWS_Local
 
         private string myDriver;
         private int myDriverID;
+        private dsQWSLocal.TruckDriverRow myTruckDriver;
+
+        public dsQWSLocal.TruckDriverRow TruckDriverRow
+        {
+            get { return myTruckDriver; }
+        }
 
         public string TruckDriver
         {
@@ -63,6 +69,7 @@ namespace QWS_Local
             bool blDriverOK = true;
             DataRow dataRow = ((DataRowView)truckDriverBindingSource.Current).Row;
            QWS_Local.dsQWSLocal.TruckDriverRow truckDriverRow = (QWS_Local.dsQWSLocal.TruckDriverRow)dataRow;
+            myTruckDriver = truckDriverRow;
             myDriver = truckDriverRow.Person;
             myDriverID = truckDriverRow.CntctCode;
             if (truckDriverRow.LicenseExp < DateTime.Now)

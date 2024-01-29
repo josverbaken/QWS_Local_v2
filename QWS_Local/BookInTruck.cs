@@ -42,13 +42,14 @@ namespace QWS_Local
 
         private void GetTruckDriver()
         {
-            MessageBox.Show("Getting truck drver for CardCode : " + txtCardCode.Text);
+            //MessageBox.Show("Getting truck drver for CardCode : " + txtCardCode.Text);
             TruckDriverSearch frmTruckDriverSearch = new TruckDriverSearch(txtCardCode.Text);
             DialogResult dr = frmTruckDriverSearch.ShowDialog();
             if (dr ==DialogResult.OK)
             {
-                textBox2.Text = frmTruckDriverSearch.TruckDriverID.ToString();
-                textBox3.Text = frmTruckDriverSearch.TruckDriver;
+                dsQWSLocal.TruckDriver.Clear();
+                dsQWSLocal.TruckDriver.ImportRow(frmTruckDriverSearch.TruckDriverRow);
+                // TODO handle if expired or Active != Y
             }
         }
 
