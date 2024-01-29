@@ -39,15 +39,26 @@ namespace QWS_Local
             System.Windows.Forms.Label licenseExpLabel;
             System.Windows.Forms.Label inductionExpLabel;
             System.Windows.Forms.Label activeLabel;
+            System.Windows.Forms.Label ownerLabel;
+            System.Windows.Forms.Label groupCodeLabel;
+            System.Windows.Forms.Label cardStatusLabel;
+            System.Windows.Forms.Label registrationExpiryDTLabel;
+            System.Windows.Forms.Label gCMLabel;
+            System.Windows.Forms.Label gVMTruckLabel;
+            System.Windows.Forms.Label tareLabel;
+            System.Windows.Forms.Label tareTkLabel;
+            System.Windows.Forms.Label tareDTLabel;
+            System.Windows.Forms.Label axleConfigurationLabel;
+            System.Windows.Forms.Label configSourceLabel;
+            System.Windows.Forms.Label schemeCodeLabel;
+            System.Windows.Forms.Label regoTrailerLabel;
             this.regoTkTextBox = new System.Windows.Forms.TextBox();
             this.bsConfiguredTnT = new System.Windows.Forms.BindingSource(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.taConfiguredTnT = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTnTTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
             this.txtCardCode = new System.Windows.Forms.TextBox();
-            this.txtAxleConfig2 = new System.Windows.Forms.TextBox();
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.bsTruckDriver = new System.Windows.Forms.BindingSource(this.components);
             this.taTruckDriver = new QWS_Local.dsQWSLocalTableAdapters.TruckDriverTableAdapter();
@@ -57,9 +68,32 @@ namespace QWS_Local
             this.mobTextBox = new System.Windows.Forms.TextBox();
             this.telTextBox = new System.Windows.Forms.TextBox();
             this.licenseTypeTextBox = new System.Windows.Forms.TextBox();
-            this.inductionExpDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.activeTextBox = new System.Windows.Forms.TextBox();
-            this.licenseExpDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.txtActive = new System.Windows.Forms.TextBox();
+            this.txtInductionExp = new System.Windows.Forms.TextBox();
+            this.txtLicenseExp = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ownerTextBox = new System.Windows.Forms.TextBox();
+            this.groupCodeTextBox = new System.Windows.Forms.TextBox();
+            this.cardStatusTextBox = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.gCMTextBox = new System.Windows.Forms.TextBox();
+            this.gVMTruckTextBox = new System.Windows.Forms.TextBox();
+            this.tareTextBox = new System.Windows.Forms.TextBox();
+            this.tareTkTextBox = new System.Windows.Forms.TextBox();
+            this.axleConfigurationTextBox = new System.Windows.Forms.TextBox();
+            this.configSourceTextBox = new System.Windows.Forms.TextBox();
+            this.schemeCodeTextBox = new System.Windows.Forms.TextBox();
+            this.regoTrailerTextBox = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtOkay2Cart = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             regoTkLabel = new System.Windows.Forms.Label();
             personLabel = new System.Windows.Forms.Label();
             positionLabel = new System.Windows.Forms.Label();
@@ -69,27 +103,114 @@ namespace QWS_Local
             licenseExpLabel = new System.Windows.Forms.Label();
             inductionExpLabel = new System.Windows.Forms.Label();
             activeLabel = new System.Windows.Forms.Label();
+            ownerLabel = new System.Windows.Forms.Label();
+            groupCodeLabel = new System.Windows.Forms.Label();
+            cardStatusLabel = new System.Windows.Forms.Label();
+            registrationExpiryDTLabel = new System.Windows.Forms.Label();
+            gCMLabel = new System.Windows.Forms.Label();
+            gVMTruckLabel = new System.Windows.Forms.Label();
+            tareLabel = new System.Windows.Forms.Label();
+            tareTkLabel = new System.Windows.Forms.Label();
+            tareDTLabel = new System.Windows.Forms.Label();
+            axleConfigurationLabel = new System.Windows.Forms.Label();
+            configSourceLabel = new System.Windows.Forms.Label();
+            schemeCodeLabel = new System.Windows.Forms.Label();
+            regoTrailerLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // regoTkLabel
             // 
             regoTkLabel.AutoSize = true;
-            regoTkLabel.Location = new System.Drawing.Point(183, 80);
+            regoTkLabel.Location = new System.Drawing.Point(57, 15);
             regoTkLabel.Name = "regoTkLabel";
             regoTkLabel.Size = new System.Drawing.Size(52, 13);
             regoTkLabel.TabIndex = 2;
             regoTkLabel.Text = "Rego Tk:";
             // 
+            // personLabel
+            // 
+            personLabel.AutoSize = true;
+            personLabel.Location = new System.Drawing.Point(66, 283);
+            personLabel.Name = "personLabel";
+            personLabel.Size = new System.Drawing.Size(43, 13);
+            personLabel.TabIndex = 9;
+            personLabel.Text = "Person:";
+            // 
+            // positionLabel
+            // 
+            positionLabel.AutoSize = true;
+            positionLabel.Location = new System.Drawing.Point(62, 309);
+            positionLabel.Name = "positionLabel";
+            positionLabel.Size = new System.Drawing.Size(47, 13);
+            positionLabel.TabIndex = 10;
+            positionLabel.Text = "Position:";
+            // 
+            // mobLabel
+            // 
+            mobLabel.AutoSize = true;
+            mobLabel.Location = new System.Drawing.Point(223, 335);
+            mobLabel.Name = "mobLabel";
+            mobLabel.Size = new System.Drawing.Size(31, 13);
+            mobLabel.TabIndex = 12;
+            mobLabel.Text = "Mob:";
+            // 
+            // telLabel
+            // 
+            telLabel.AutoSize = true;
+            telLabel.Location = new System.Drawing.Point(84, 335);
+            telLabel.Name = "telLabel";
+            telLabel.Size = new System.Drawing.Size(25, 13);
+            telLabel.TabIndex = 14;
+            telLabel.Text = "Tel:";
+            // 
+            // licenseTypeLabel
+            // 
+            licenseTypeLabel.AutoSize = true;
+            licenseTypeLabel.Location = new System.Drawing.Point(35, 361);
+            licenseTypeLabel.Name = "licenseTypeLabel";
+            licenseTypeLabel.Size = new System.Drawing.Size(74, 13);
+            licenseTypeLabel.TabIndex = 16;
+            licenseTypeLabel.Text = "License Type:";
+            // 
+            // licenseExpLabel
+            // 
+            licenseExpLabel.AutoSize = true;
+            licenseExpLabel.Location = new System.Drawing.Point(41, 388);
+            licenseExpLabel.Name = "licenseExpLabel";
+            licenseExpLabel.Size = new System.Drawing.Size(68, 13);
+            licenseExpLabel.TabIndex = 18;
+            licenseExpLabel.Text = "License Exp:";
+            // 
+            // inductionExpLabel
+            // 
+            inductionExpLabel.AutoSize = true;
+            inductionExpLabel.Location = new System.Drawing.Point(34, 414);
+            inductionExpLabel.Name = "inductionExpLabel";
+            inductionExpLabel.Size = new System.Drawing.Size(75, 13);
+            inductionExpLabel.TabIndex = 20;
+            inductionExpLabel.Text = "Induction Exp:";
+            // 
+            // activeLabel
+            // 
+            activeLabel.AutoSize = true;
+            activeLabel.Location = new System.Drawing.Point(260, 283);
+            activeLabel.Name = "activeLabel";
+            activeLabel.Size = new System.Drawing.Size(40, 13);
+            activeLabel.TabIndex = 22;
+            activeLabel.Text = "Active:";
+            // 
             // regoTkTextBox
             // 
             this.regoTkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "RegoTk", true));
-            this.regoTkTextBox.Location = new System.Drawing.Point(241, 77);
+            this.regoTkTextBox.Location = new System.Drawing.Point(115, 12);
             this.regoTkTextBox.Name = "regoTkTextBox";
-            this.regoTkTextBox.Size = new System.Drawing.Size(100, 20);
+            this.regoTkTextBox.Size = new System.Drawing.Size(82, 20);
             this.regoTkTextBox.TabIndex = 3;
             // 
             // bsConfiguredTnT
@@ -102,18 +223,11 @@ namespace QWS_Local
             this.dsTruckConfig.DataSetName = "dsTruckConfig";
             this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(241, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(388, 35);
+            this.button1.Location = new System.Drawing.Point(115, 251);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 23);
+            this.button1.Size = new System.Drawing.Size(245, 23);
             this.button1.TabIndex = 5;
             this.button1.Text = "Get Truck Driver";
             this.button1.UseVisualStyleBackColor = true;
@@ -132,17 +246,10 @@ namespace QWS_Local
             // txtCardCode
             // 
             this.txtCardCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "CardCode", true));
-            this.txtCardCode.Location = new System.Drawing.Point(241, 120);
+            this.txtCardCode.Location = new System.Drawing.Point(304, 39);
             this.txtCardCode.Name = "txtCardCode";
-            this.txtCardCode.Size = new System.Drawing.Size(100, 20);
+            this.txtCardCode.Size = new System.Drawing.Size(67, 20);
             this.txtCardCode.TabIndex = 6;
-            // 
-            // txtAxleConfig2
-            // 
-            this.txtAxleConfig2.Location = new System.Drawing.Point(241, 146);
-            this.txtAxleConfig2.Name = "txtAxleConfig2";
-            this.txtAxleConfig2.Size = new System.Drawing.Size(100, 20);
-            this.txtAxleConfig2.TabIndex = 7;
             // 
             // dsQWSLocal
             // 
@@ -178,155 +285,427 @@ namespace QWS_Local
             this.tableAdapterManager1.VehicleTableAdapter = null;
             this.tableAdapterManager1.VehicleTypeTableAdapter = null;
             // 
-            // personLabel
-            // 
-            personLabel.AutoSize = true;
-            personLabel.Location = new System.Drawing.Point(406, 201);
-            personLabel.Name = "personLabel";
-            personLabel.Size = new System.Drawing.Size(43, 13);
-            personLabel.TabIndex = 9;
-            personLabel.Text = "Person:";
-            // 
             // personTextBox
             // 
             this.personTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Person", true));
-            this.personTextBox.Location = new System.Drawing.Point(455, 198);
+            this.personTextBox.Location = new System.Drawing.Point(115, 280);
             this.personTextBox.Name = "personTextBox";
             this.personTextBox.Size = new System.Drawing.Size(100, 20);
             this.personTextBox.TabIndex = 10;
             // 
-            // positionLabel
-            // 
-            positionLabel.AutoSize = true;
-            positionLabel.Location = new System.Drawing.Point(402, 227);
-            positionLabel.Name = "positionLabel";
-            positionLabel.Size = new System.Drawing.Size(47, 13);
-            positionLabel.TabIndex = 10;
-            positionLabel.Text = "Position:";
-            // 
             // positionTextBox
             // 
             this.positionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Position", true));
-            this.positionTextBox.Location = new System.Drawing.Point(455, 224);
+            this.positionTextBox.Location = new System.Drawing.Point(115, 306);
             this.positionTextBox.Name = "positionTextBox";
             this.positionTextBox.Size = new System.Drawing.Size(245, 20);
             this.positionTextBox.TabIndex = 11;
             // 
-            // mobLabel
-            // 
-            mobLabel.AutoSize = true;
-            mobLabel.Location = new System.Drawing.Point(563, 253);
-            mobLabel.Name = "mobLabel";
-            mobLabel.Size = new System.Drawing.Size(31, 13);
-            mobLabel.TabIndex = 12;
-            mobLabel.Text = "Mob:";
-            // 
             // mobTextBox
             // 
             this.mobTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Mob", true));
-            this.mobTextBox.Location = new System.Drawing.Point(600, 250);
+            this.mobTextBox.Location = new System.Drawing.Point(260, 332);
             this.mobTextBox.Name = "mobTextBox";
             this.mobTextBox.Size = new System.Drawing.Size(100, 20);
             this.mobTextBox.TabIndex = 13;
             // 
-            // telLabel
-            // 
-            telLabel.AutoSize = true;
-            telLabel.Location = new System.Drawing.Point(424, 253);
-            telLabel.Name = "telLabel";
-            telLabel.Size = new System.Drawing.Size(25, 13);
-            telLabel.TabIndex = 14;
-            telLabel.Text = "Tel:";
-            // 
             // telTextBox
             // 
             this.telTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Tel", true));
-            this.telTextBox.Location = new System.Drawing.Point(455, 250);
+            this.telTextBox.Location = new System.Drawing.Point(115, 332);
             this.telTextBox.Name = "telTextBox";
             this.telTextBox.Size = new System.Drawing.Size(100, 20);
             this.telTextBox.TabIndex = 15;
             // 
-            // licenseTypeLabel
-            // 
-            licenseTypeLabel.AutoSize = true;
-            licenseTypeLabel.Location = new System.Drawing.Point(375, 279);
-            licenseTypeLabel.Name = "licenseTypeLabel";
-            licenseTypeLabel.Size = new System.Drawing.Size(74, 13);
-            licenseTypeLabel.TabIndex = 16;
-            licenseTypeLabel.Text = "License Type:";
-            // 
             // licenseTypeTextBox
             // 
             this.licenseTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "LicenseType", true));
-            this.licenseTypeTextBox.Location = new System.Drawing.Point(455, 276);
+            this.licenseTypeTextBox.Location = new System.Drawing.Point(115, 358);
             this.licenseTypeTextBox.Name = "licenseTypeTextBox";
             this.licenseTypeTextBox.Size = new System.Drawing.Size(100, 20);
             this.licenseTypeTextBox.TabIndex = 17;
             // 
-            // licenseExpLabel
+            // txtActive
             // 
-            licenseExpLabel.AutoSize = true;
-            licenseExpLabel.Location = new System.Drawing.Point(381, 306);
-            licenseExpLabel.Name = "licenseExpLabel";
-            licenseExpLabel.Size = new System.Drawing.Size(68, 13);
-            licenseExpLabel.TabIndex = 18;
-            licenseExpLabel.Text = "License Exp:";
+            this.txtActive.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Active", true));
+            this.txtActive.Location = new System.Drawing.Point(313, 280);
+            this.txtActive.Name = "txtActive";
+            this.txtActive.Size = new System.Drawing.Size(47, 20);
+            this.txtActive.TabIndex = 23;
             // 
-            // inductionExpLabel
+            // txtInductionExp
             // 
-            inductionExpLabel.AutoSize = true;
-            inductionExpLabel.Location = new System.Drawing.Point(374, 332);
-            inductionExpLabel.Name = "inductionExpLabel";
-            inductionExpLabel.Size = new System.Drawing.Size(75, 13);
-            inductionExpLabel.TabIndex = 20;
-            inductionExpLabel.Text = "Induction Exp:";
+            this.txtInductionExp.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "InductionExp", true));
+            this.txtInductionExp.Location = new System.Drawing.Point(115, 411);
+            this.txtInductionExp.Name = "txtInductionExp";
+            this.txtInductionExp.Size = new System.Drawing.Size(100, 20);
+            this.txtInductionExp.TabIndex = 26;
             // 
-            // inductionExpDateTimePicker
+            // txtLicenseExp
             // 
-            this.inductionExpDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bsTruckDriver, "InductionExp", true));
-            this.inductionExpDateTimePicker.Enabled = false;
-            this.inductionExpDateTimePicker.Location = new System.Drawing.Point(455, 328);
-            this.inductionExpDateTimePicker.Name = "inductionExpDateTimePicker";
-            this.inductionExpDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.inductionExpDateTimePicker.TabIndex = 21;
+            this.txtLicenseExp.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "LicenseExp", true));
+            this.txtLicenseExp.Location = new System.Drawing.Point(115, 384);
+            this.txtLicenseExp.Name = "txtLicenseExp";
+            this.txtLicenseExp.Size = new System.Drawing.Size(100, 20);
+            this.txtLicenseExp.TabIndex = 27;
             // 
-            // activeLabel
+            // pictureBox1
             // 
-            activeLabel.AutoSize = true;
-            activeLabel.Location = new System.Drawing.Point(577, 201);
-            activeLabel.Name = "activeLabel";
-            activeLabel.Size = new System.Drawing.Size(40, 13);
-            activeLabel.TabIndex = 22;
-            activeLabel.Text = "Active:";
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.bsConfiguredTnT, "Schematic", true));
+            this.pictureBox1.Location = new System.Drawing.Point(115, 68);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(450, 150);
+            this.pictureBox1.TabIndex = 28;
+            this.pictureBox1.TabStop = false;
             // 
-            // activeTextBox
+            // ownerLabel
             // 
-            this.activeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Active", true));
-            this.activeTextBox.Location = new System.Drawing.Point(623, 198);
-            this.activeTextBox.Name = "activeTextBox";
-            this.activeTextBox.Size = new System.Drawing.Size(77, 20);
-            this.activeTextBox.TabIndex = 23;
+            ownerLabel.AutoSize = true;
+            ownerLabel.Location = new System.Drawing.Point(68, 42);
+            ownerLabel.Name = "ownerLabel";
+            ownerLabel.Size = new System.Drawing.Size(41, 13);
+            ownerLabel.TabIndex = 28;
+            ownerLabel.Text = "Owner:";
             // 
-            // licenseExpDateTimePicker
+            // ownerTextBox
             // 
-            this.licenseExpDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bsTruckDriver, "LicenseExp", true));
-            this.licenseExpDateTimePicker.Enabled = false;
-            this.licenseExpDateTimePicker.Location = new System.Drawing.Point(455, 302);
-            this.licenseExpDateTimePicker.Name = "licenseExpDateTimePicker";
-            this.licenseExpDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.licenseExpDateTimePicker.TabIndex = 19;
+            this.ownerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "Owner", true));
+            this.ownerTextBox.Location = new System.Drawing.Point(115, 39);
+            this.ownerTextBox.Name = "ownerTextBox";
+            this.ownerTextBox.Size = new System.Drawing.Size(183, 20);
+            this.ownerTextBox.TabIndex = 29;
+            // 
+            // groupCodeLabel
+            // 
+            groupCodeLabel.AutoSize = true;
+            groupCodeLabel.Location = new System.Drawing.Point(392, 42);
+            groupCodeLabel.Name = "groupCodeLabel";
+            groupCodeLabel.Size = new System.Drawing.Size(67, 13);
+            groupCodeLabel.TabIndex = 29;
+            groupCodeLabel.Text = "Group Code:";
+            // 
+            // groupCodeTextBox
+            // 
+            this.groupCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "GroupCode", true));
+            this.groupCodeTextBox.Location = new System.Drawing.Point(465, 39);
+            this.groupCodeTextBox.Name = "groupCodeTextBox";
+            this.groupCodeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.groupCodeTextBox.TabIndex = 30;
+            // 
+            // cardStatusLabel
+            // 
+            cardStatusLabel.AutoSize = true;
+            cardStatusLabel.Location = new System.Drawing.Point(583, 42);
+            cardStatusLabel.Name = "cardStatusLabel";
+            cardStatusLabel.Size = new System.Drawing.Size(65, 13);
+            cardStatusLabel.TabIndex = 30;
+            cardStatusLabel.Text = "Card Status:";
+            // 
+            // cardStatusTextBox
+            // 
+            this.cardStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "CardStatus", true));
+            this.cardStatusTextBox.Location = new System.Drawing.Point(654, 39);
+            this.cardStatusTextBox.Name = "cardStatusTextBox";
+            this.cardStatusTextBox.Size = new System.Drawing.Size(67, 20);
+            this.cardStatusTextBox.TabIndex = 31;
+            // 
+            // registrationExpiryDTLabel
+            // 
+            registrationExpiryDTLabel.AutoSize = true;
+            registrationExpiryDTLabel.Location = new System.Drawing.Point(660, 122);
+            registrationExpiryDTLabel.Name = "registrationExpiryDTLabel";
+            registrationExpiryDTLabel.Size = new System.Drawing.Size(115, 13);
+            registrationExpiryDTLabel.TabIndex = 31;
+            registrationExpiryDTLabel.Text = "Registration Expiry DT:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "RegistrationExpiryDT", true));
+            this.textBox2.Location = new System.Drawing.Point(781, 119);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(75, 20);
+            this.textBox2.TabIndex = 32;
+            // 
+            // gCMLabel
+            // 
+            gCMLabel.AutoSize = true;
+            gCMLabel.Location = new System.Drawing.Point(602, 148);
+            gCMLabel.Name = "gCMLabel";
+            gCMLabel.Size = new System.Drawing.Size(34, 13);
+            gCMLabel.TabIndex = 32;
+            gCMLabel.Text = "GCM:";
+            // 
+            // gCMTextBox
+            // 
+            this.gCMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "GCM", true));
+            this.gCMTextBox.Location = new System.Drawing.Point(642, 145);
+            this.gCMTextBox.Name = "gCMTextBox";
+            this.gCMTextBox.Size = new System.Drawing.Size(79, 20);
+            this.gCMTextBox.TabIndex = 33;
+            // 
+            // gVMTruckLabel
+            // 
+            gVMTruckLabel.AutoSize = true;
+            gVMTruckLabel.Location = new System.Drawing.Point(574, 174);
+            gVMTruckLabel.Name = "gVMTruckLabel";
+            gVMTruckLabel.Size = new System.Drawing.Size(62, 13);
+            gVMTruckLabel.TabIndex = 33;
+            gVMTruckLabel.Text = "GVMTruck:";
+            // 
+            // gVMTruckTextBox
+            // 
+            this.gVMTruckTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "GVMTruck", true));
+            this.gVMTruckTextBox.Location = new System.Drawing.Point(642, 171);
+            this.gVMTruckTextBox.Name = "gVMTruckTextBox";
+            this.gVMTruckTextBox.Size = new System.Drawing.Size(79, 20);
+            this.gVMTruckTextBox.TabIndex = 34;
+            // 
+            // tareLabel
+            // 
+            tareLabel.AutoSize = true;
+            tareLabel.Location = new System.Drawing.Point(743, 148);
+            tareLabel.Name = "tareLabel";
+            tareLabel.Size = new System.Drawing.Size(32, 13);
+            tareLabel.TabIndex = 35;
+            tareLabel.Text = "Tare:";
+            // 
+            // tareTextBox
+            // 
+            this.tareTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "Tare", true));
+            this.tareTextBox.Location = new System.Drawing.Point(781, 145);
+            this.tareTextBox.Name = "tareTextBox";
+            this.tareTextBox.Size = new System.Drawing.Size(75, 20);
+            this.tareTextBox.TabIndex = 36;
+            // 
+            // tareTkLabel
+            // 
+            tareTkLabel.AutoSize = true;
+            tareTkLabel.Location = new System.Drawing.Point(727, 174);
+            tareTkLabel.Name = "tareTkLabel";
+            tareTkLabel.Size = new System.Drawing.Size(48, 13);
+            tareTkLabel.TabIndex = 37;
+            tareTkLabel.Text = "Tare Tk:";
+            // 
+            // tareTkTextBox
+            // 
+            this.tareTkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "TareTk", true));
+            this.tareTkTextBox.Location = new System.Drawing.Point(781, 171);
+            this.tareTkTextBox.Name = "tareTkTextBox";
+            this.tareTkTextBox.Size = new System.Drawing.Size(75, 20);
+            this.tareTkTextBox.TabIndex = 38;
+            // 
+            // tareDTLabel
+            // 
+            tareDTLabel.AutoSize = true;
+            tareDTLabel.Location = new System.Drawing.Point(725, 201);
+            tareDTLabel.Name = "tareDTLabel";
+            tareDTLabel.Size = new System.Drawing.Size(50, 13);
+            tareDTLabel.TabIndex = 39;
+            tareDTLabel.Text = "Tare DT:";
+            // 
+            // axleConfigurationLabel
+            // 
+            axleConfigurationLabel.AutoSize = true;
+            axleConfigurationLabel.Location = new System.Drawing.Point(444, 15);
+            axleConfigurationLabel.Name = "axleConfigurationLabel";
+            axleConfigurationLabel.Size = new System.Drawing.Size(95, 13);
+            axleConfigurationLabel.TabIndex = 41;
+            axleConfigurationLabel.Text = "Axle Configuration:";
+            // 
+            // axleConfigurationTextBox
+            // 
+            this.axleConfigurationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "AxleConfiguration", true));
+            this.axleConfigurationTextBox.Location = new System.Drawing.Point(545, 12);
+            this.axleConfigurationTextBox.Name = "axleConfigurationTextBox";
+            this.axleConfigurationTextBox.Size = new System.Drawing.Size(82, 20);
+            this.axleConfigurationTextBox.TabIndex = 42;
+            // 
+            // configSourceLabel
+            // 
+            configSourceLabel.AutoSize = true;
+            configSourceLabel.Location = new System.Drawing.Point(32, 227);
+            configSourceLabel.Name = "configSourceLabel";
+            configSourceLabel.Size = new System.Drawing.Size(77, 13);
+            configSourceLabel.TabIndex = 43;
+            configSourceLabel.Text = "Config Source:";
+            // 
+            // configSourceTextBox
+            // 
+            this.configSourceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "ConfigSource", true));
+            this.configSourceTextBox.Location = new System.Drawing.Point(115, 224);
+            this.configSourceTextBox.Name = "configSourceTextBox";
+            this.configSourceTextBox.Size = new System.Drawing.Size(245, 20);
+            this.configSourceTextBox.TabIndex = 44;
+            // 
+            // schemeCodeLabel
+            // 
+            schemeCodeLabel.AutoSize = true;
+            schemeCodeLabel.Location = new System.Drawing.Point(400, 230);
+            schemeCodeLabel.Name = "schemeCodeLabel";
+            schemeCodeLabel.Size = new System.Drawing.Size(77, 13);
+            schemeCodeLabel.TabIndex = 45;
+            schemeCodeLabel.Text = "Scheme Code:";
+            // 
+            // schemeCodeTextBox
+            // 
+            this.schemeCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "SchemeCode", true));
+            this.schemeCodeTextBox.Location = new System.Drawing.Point(483, 227);
+            this.schemeCodeTextBox.Name = "schemeCodeTextBox";
+            this.schemeCodeTextBox.Size = new System.Drawing.Size(82, 20);
+            this.schemeCodeTextBox.TabIndex = 46;
+            // 
+            // regoTrailerLabel
+            // 
+            regoTrailerLabel.AutoSize = true;
+            regoTrailerLabel.Location = new System.Drawing.Point(222, 16);
+            regoTrailerLabel.Name = "regoTrailerLabel";
+            regoTrailerLabel.Size = new System.Drawing.Size(68, 13);
+            regoTrailerLabel.TabIndex = 49;
+            regoTrailerLabel.Text = "Rego Trailer:";
+            // 
+            // regoTrailerTextBox
+            // 
+            this.regoTrailerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "RegoTrailer", true));
+            this.regoTrailerTextBox.Location = new System.Drawing.Point(296, 13);
+            this.regoTrailerTextBox.Name = "regoTrailerTextBox";
+            this.regoTrailerTextBox.Size = new System.Drawing.Size(135, 20);
+            this.regoTrailerTextBox.TabIndex = 50;
+            // 
+            // textBox1
+            // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "TareDT", true));
+            this.textBox1.Location = new System.Drawing.Point(781, 200);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(75, 20);
+            this.textBox1.TabIndex = 51;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(242, 414);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.TabIndex = 52;
+            this.label1.Text = "OK 2 Cart:";
+            // 
+            // txtOkay2Cart
+            // 
+            this.txtOkay2Cart.Location = new System.Drawing.Point(313, 411);
+            this.txtOkay2Cart.Name = "txtOkay2Cart";
+            this.txtOkay2Cart.Size = new System.Drawing.Size(46, 20);
+            this.txtOkay2Cart.TabIndex = 53;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(15, 25);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(121, 44);
+            this.button2.TabIndex = 54;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button7);
+            this.groupBox1.Controls.Add(this.button6);
+            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Location = new System.Drawing.Point(403, 253);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(453, 194);
+            this.groupBox1.TabIndex = 55;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Book In Mode";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(158, 25);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(121, 44);
+            this.button3.TabIndex = 55;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(158, 82);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(121, 44);
+            this.button4.TabIndex = 56;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(15, 82);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(121, 44);
+            this.button5.TabIndex = 57;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(298, 25);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(121, 44);
+            this.button6.TabIndex = 58;
+            this.button6.Text = "button6";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(298, 82);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(121, 44);
+            this.button7.TabIndex = 59;
+            this.button7.Text = "button7";
+            this.button7.UseVisualStyleBackColor = true;
             // 
             // BookInTruck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 459);
+            this.ClientSize = new System.Drawing.Size(863, 459);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.txtOkay2Cart);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(regoTrailerLabel);
+            this.Controls.Add(this.regoTrailerTextBox);
+            this.Controls.Add(schemeCodeLabel);
+            this.Controls.Add(this.schemeCodeTextBox);
+            this.Controls.Add(configSourceLabel);
+            this.Controls.Add(this.configSourceTextBox);
+            this.Controls.Add(axleConfigurationLabel);
+            this.Controls.Add(this.axleConfigurationTextBox);
+            this.Controls.Add(tareDTLabel);
+            this.Controls.Add(tareTkLabel);
+            this.Controls.Add(this.tareTkTextBox);
+            this.Controls.Add(tareLabel);
+            this.Controls.Add(this.tareTextBox);
+            this.Controls.Add(gVMTruckLabel);
+            this.Controls.Add(this.gVMTruckTextBox);
+            this.Controls.Add(gCMLabel);
+            this.Controls.Add(this.gCMTextBox);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(registrationExpiryDTLabel);
+            this.Controls.Add(cardStatusLabel);
+            this.Controls.Add(this.cardStatusTextBox);
+            this.Controls.Add(groupCodeLabel);
+            this.Controls.Add(this.groupCodeTextBox);
+            this.Controls.Add(ownerLabel);
+            this.Controls.Add(this.ownerTextBox);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.txtLicenseExp);
+            this.Controls.Add(this.txtInductionExp);
             this.Controls.Add(activeLabel);
-            this.Controls.Add(this.activeTextBox);
+            this.Controls.Add(this.txtActive);
             this.Controls.Add(inductionExpLabel);
-            this.Controls.Add(this.inductionExpDateTimePicker);
             this.Controls.Add(licenseExpLabel);
-            this.Controls.Add(this.licenseExpDateTimePicker);
             this.Controls.Add(licenseTypeLabel);
             this.Controls.Add(this.licenseTypeTextBox);
             this.Controls.Add(telLabel);
@@ -337,10 +716,8 @@ namespace QWS_Local
             this.Controls.Add(this.positionTextBox);
             this.Controls.Add(personLabel);
             this.Controls.Add(this.personTextBox);
-            this.Controls.Add(this.txtAxleConfig2);
             this.Controls.Add(this.txtCardCode);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(regoTkLabel);
             this.Controls.Add(this.regoTkTextBox);
             this.Name = "BookInTruck";
@@ -350,6 +727,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,10 +741,8 @@ namespace QWS_Local
         private dsTruckConfigTableAdapters.ConfiguredTnTTableAdapter taConfiguredTnT;
         private dsTruckConfigTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.TextBox regoTkTextBox;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtCardCode;
-        private System.Windows.Forms.TextBox txtAxleConfig2;
         private dsQWSLocal dsQWSLocal;
         private System.Windows.Forms.BindingSource bsTruckDriver;
         private dsQWSLocalTableAdapters.TruckDriverTableAdapter taTruckDriver;
@@ -375,8 +752,31 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox mobTextBox;
         private System.Windows.Forms.TextBox telTextBox;
         private System.Windows.Forms.TextBox licenseTypeTextBox;
-        private System.Windows.Forms.DateTimePicker inductionExpDateTimePicker;
-        private System.Windows.Forms.TextBox activeTextBox;
-        private System.Windows.Forms.DateTimePicker licenseExpDateTimePicker;
+        private System.Windows.Forms.TextBox txtActive;
+        private System.Windows.Forms.TextBox txtInductionExp;
+        private System.Windows.Forms.TextBox txtLicenseExp;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox ownerTextBox;
+        private System.Windows.Forms.TextBox groupCodeTextBox;
+        private System.Windows.Forms.TextBox cardStatusTextBox;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox gCMTextBox;
+        private System.Windows.Forms.TextBox gVMTruckTextBox;
+        private System.Windows.Forms.TextBox tareTextBox;
+        private System.Windows.Forms.TextBox tareTkTextBox;
+        private System.Windows.Forms.TextBox axleConfigurationTextBox;
+        private System.Windows.Forms.TextBox configSourceTextBox;
+        private System.Windows.Forms.TextBox schemeCodeTextBox;
+        private System.Windows.Forms.TextBox regoTrailerTextBox;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtOkay2Cart;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
     }
 }

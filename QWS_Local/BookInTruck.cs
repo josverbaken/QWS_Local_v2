@@ -42,21 +42,59 @@ namespace QWS_Local
 
         private void GetTruckDriver()
         {
-            //MessageBox.Show("Getting truck drver for CardCode : " + txtCardCode.Text);
+            bool blOkay2Cart = true;
             TruckDriverSearch frmTruckDriverSearch = new TruckDriverSearch(txtCardCode.Text);
             DialogResult dr = frmTruckDriverSearch.ShowDialog();
             if (dr ==DialogResult.OK)
             {
                 dsQWSLocal.TruckDriver.Clear();
                 dsQWSLocal.TruckDriver.ImportRow(frmTruckDriverSearch.TruckDriverRow);
-                // TODO handle if expired or Active != Y
+                bsTruckDriver.Position = 0;
+                DataRow myRow = ((DataRowView)bsTruckDriver.Current).Row;
+                dsQWSLocal.TruckDriverRow myTruckDriverRow = (dsQWSLocal.TruckDriverRow)myRow;
+                if (myTruckDriverRow.LicenseExp < DateTime.Now)
+                {
+                    txtLicenseExp.BackColor = Color.Salmon;
+                    blOkay2Cart = false;
+                }
+                else
+                {
+                    txtLicenseExp.BackColor = Color.PaleGreen;
+                }
+                if (myTruckDriverRow.InductionExp < DateTime.Now)
+                {
+                    txtInductionExp.BackColor = Color.Salmon;
+                    blOkay2Cart = false;
+                }
+                else
+                {
+                    txtInductionExp.BackColor = Color.PaleGreen;
+                }
+                if (myTruckDriverRow.Active == "Y")
+                {
+                    txtActive.BackColor = Color.PaleGreen;
+                }
+                else
+                {
+                    txtActive.BackColor = Color.Salmon;
+                    blOkay2Cart = false;
+                }
+                if (blOkay2Cart)
+                {
+                    txtOkay2Cart.Text = "Y";
+                    txtOkay2Cart.BackColor = Color.PaleGreen;
+                }
+                else
+                {
+                    txtOkay2Cart.Text = "N";
+                    txtOkay2Cart.BackColor = Color.Salmon;
+                }
             }
         }
 
         private void BookInTruck_Load(object sender, EventArgs e)
         {
-            txtAxleConfig2.Text = myAxleConfig;
-            textBox1.Text = myTruckConfigID.ToString();
+            // nothing yet
         }
     }
 }
