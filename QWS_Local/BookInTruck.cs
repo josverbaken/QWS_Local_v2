@@ -89,12 +89,37 @@ namespace QWS_Local
                     txtOkay2Cart.Text = "N";
                     txtOkay2Cart.BackColor = Color.Salmon;
                 }
+                if (myTruckDriverRow.Position == "Authorised Cartage Contractor")
+                {
+                    chkDriverACC.Checked = true;
+                }
+                else
+                {
+                    chkDriverACC.Checked = false;
+                }
             }
         }
 
         private void BookInTruck_Load(object sender, EventArgs e)
         {
-            // nothing yet
+            DataRow myRow = ((DataRowView)bsConfiguredTnT.Current).Row;
+            dsTruckConfig.ConfiguredTnTRow configuredTnTRow = (dsTruckConfig.ConfiguredTnTRow)myRow;
+            if ( configuredTnTRow.GroupCode == 117)
+            {
+                chkACC.Checked = true;
+            }
+            else
+            {
+                chkACC.Checked = false;
+            }
+            if (configuredTnTRow.CardStatus == "A") // A = Active, I = Inactive, H = On Hold
+            {
+                txtCardStatus.BackColor = Color.PaleGreen;
+            }
+            else
+            {
+                txtCardStatus.BackColor = Color.Salmon;
+            }
         }
     }
 }

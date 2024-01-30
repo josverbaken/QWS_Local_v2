@@ -40,7 +40,6 @@ namespace QWS_Local
             System.Windows.Forms.Label inductionExpLabel;
             System.Windows.Forms.Label activeLabel;
             System.Windows.Forms.Label ownerLabel;
-            System.Windows.Forms.Label groupCodeLabel;
             System.Windows.Forms.Label cardStatusLabel;
             System.Windows.Forms.Label registrationExpiryDTLabel;
             System.Windows.Forms.Label gCMLabel;
@@ -73,8 +72,7 @@ namespace QWS_Local
             this.txtLicenseExp = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ownerTextBox = new System.Windows.Forms.TextBox();
-            this.groupCodeTextBox = new System.Windows.Forms.TextBox();
-            this.cardStatusTextBox = new System.Windows.Forms.TextBox();
+            this.txtCardStatus = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.gCMTextBox = new System.Windows.Forms.TextBox();
             this.gVMTruckTextBox = new System.Windows.Forms.TextBox();
@@ -94,6 +92,8 @@ namespace QWS_Local
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.chkACC = new System.Windows.Forms.CheckBox();
+            this.chkDriverACC = new System.Windows.Forms.CheckBox();
             regoTkLabel = new System.Windows.Forms.Label();
             personLabel = new System.Windows.Forms.Label();
             positionLabel = new System.Windows.Forms.Label();
@@ -104,7 +104,6 @@ namespace QWS_Local
             inductionExpLabel = new System.Windows.Forms.Label();
             activeLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
-            groupCodeLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
             registrationExpiryDTLabel = new System.Windows.Forms.Label();
             gCMLabel = new System.Windows.Forms.Label();
@@ -246,7 +245,7 @@ namespace QWS_Local
             // txtCardCode
             // 
             this.txtCardCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "CardCode", true));
-            this.txtCardCode.Location = new System.Drawing.Point(304, 39);
+            this.txtCardCode.Location = new System.Drawing.Point(498, 42);
             this.txtCardCode.Name = "txtCardCode";
             this.txtCardCode.Size = new System.Drawing.Size(67, 20);
             this.txtCardCode.TabIndex = 6;
@@ -373,42 +372,25 @@ namespace QWS_Local
             this.ownerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "Owner", true));
             this.ownerTextBox.Location = new System.Drawing.Point(115, 39);
             this.ownerTextBox.Name = "ownerTextBox";
-            this.ownerTextBox.Size = new System.Drawing.Size(183, 20);
+            this.ownerTextBox.Size = new System.Drawing.Size(362, 20);
             this.ownerTextBox.TabIndex = 29;
-            // 
-            // groupCodeLabel
-            // 
-            groupCodeLabel.AutoSize = true;
-            groupCodeLabel.Location = new System.Drawing.Point(392, 42);
-            groupCodeLabel.Name = "groupCodeLabel";
-            groupCodeLabel.Size = new System.Drawing.Size(67, 13);
-            groupCodeLabel.TabIndex = 29;
-            groupCodeLabel.Text = "Group Code:";
-            // 
-            // groupCodeTextBox
-            // 
-            this.groupCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "GroupCode", true));
-            this.groupCodeTextBox.Location = new System.Drawing.Point(465, 39);
-            this.groupCodeTextBox.Name = "groupCodeTextBox";
-            this.groupCodeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.groupCodeTextBox.TabIndex = 30;
             // 
             // cardStatusLabel
             // 
             cardStatusLabel.AutoSize = true;
-            cardStatusLabel.Location = new System.Drawing.Point(583, 42);
+            cardStatusLabel.Location = new System.Drawing.Point(710, 42);
             cardStatusLabel.Name = "cardStatusLabel";
             cardStatusLabel.Size = new System.Drawing.Size(65, 13);
             cardStatusLabel.TabIndex = 30;
             cardStatusLabel.Text = "Card Status:";
             // 
-            // cardStatusTextBox
+            // txtCardStatus
             // 
-            this.cardStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "CardStatus", true));
-            this.cardStatusTextBox.Location = new System.Drawing.Point(654, 39);
-            this.cardStatusTextBox.Name = "cardStatusTextBox";
-            this.cardStatusTextBox.Size = new System.Drawing.Size(67, 20);
-            this.cardStatusTextBox.TabIndex = 31;
+            this.txtCardStatus.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "CardStatus", true));
+            this.txtCardStatus.Location = new System.Drawing.Point(781, 39);
+            this.txtCardStatus.Name = "txtCardStatus";
+            this.txtCardStatus.Size = new System.Drawing.Size(67, 20);
+            this.txtCardStatus.TabIndex = 31;
             // 
             // registrationExpiryDTLabel
             // 
@@ -665,11 +647,33 @@ namespace QWS_Local
             this.button7.Text = "button7";
             this.button7.UseVisualStyleBackColor = true;
             // 
+            // chkACC
+            // 
+            this.chkACC.AutoSize = true;
+            this.chkACC.Location = new System.Drawing.Point(605, 44);
+            this.chkACC.Name = "chkACC";
+            this.chkACC.Size = new System.Drawing.Size(47, 17);
+            this.chkACC.TabIndex = 56;
+            this.chkACC.Text = "ACC";
+            this.chkACC.UseVisualStyleBackColor = true;
+            // 
+            // chkDriverACC
+            // 
+            this.chkDriverACC.AutoSize = true;
+            this.chkDriverACC.Location = new System.Drawing.Point(312, 386);
+            this.chkDriverACC.Name = "chkDriverACC";
+            this.chkDriverACC.Size = new System.Drawing.Size(47, 17);
+            this.chkDriverACC.TabIndex = 57;
+            this.chkDriverACC.Text = "ACC";
+            this.chkDriverACC.UseVisualStyleBackColor = true;
+            // 
             // BookInTruck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 459);
+            this.Controls.Add(this.chkDriverACC);
+            this.Controls.Add(this.chkACC);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtOkay2Cart);
             this.Controls.Add(this.label1);
@@ -694,9 +698,7 @@ namespace QWS_Local
             this.Controls.Add(this.textBox2);
             this.Controls.Add(registrationExpiryDTLabel);
             this.Controls.Add(cardStatusLabel);
-            this.Controls.Add(this.cardStatusTextBox);
-            this.Controls.Add(groupCodeLabel);
-            this.Controls.Add(this.groupCodeTextBox);
+            this.Controls.Add(this.txtCardStatus);
             this.Controls.Add(ownerLabel);
             this.Controls.Add(this.ownerTextBox);
             this.Controls.Add(this.pictureBox1);
@@ -757,8 +759,7 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox txtLicenseExp;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox ownerTextBox;
-        private System.Windows.Forms.TextBox groupCodeTextBox;
-        private System.Windows.Forms.TextBox cardStatusTextBox;
+        private System.Windows.Forms.TextBox txtCardStatus;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox gCMTextBox;
         private System.Windows.Forms.TextBox gVMTruckTextBox;
@@ -778,5 +779,7 @@ namespace QWS_Local
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.CheckBox chkACC;
+        private System.Windows.Forms.CheckBox chkDriverACC;
     }
 }

@@ -15,6 +15,7 @@ namespace QWS_Local
         private string myRego;
         private string myTrailerRego;
         private string myCardCode;
+        private static bool blOK2BookIn = true;
         public TruckConfiguration()
         {
             InitializeComponent();
@@ -38,9 +39,31 @@ namespace QWS_Local
             try
             {
                 //int iVehicle = this.taVehicle.FillByCardCode(this.dsQWSLocal.Vehicle, myCardCode);
-                this.taConfiguredTnT.Fill(dsTruckConfig.ConfiguredTnT, "", "", myCardCode);
+                int iCount = this.taConfiguredTnT.Fill(dsTruckConfig.ConfiguredTnT, "", "", myCardCode);
                 int iVehicleDetails = this.taVehicleDetails.FillBy(this.dsQWSLocal.VehicleDetails, myRego);
                 TruckConfigFilterByRego(myRego, true);
+                //if (iCount > 0)
+                //{
+                //DataRow myDR = ((DataRowView)bsConfiguredTnt.Current).Row;
+                //dsTruckConfig.ConfiguredTnTRow truckConfigRow = (dsTruckConfig.ConfiguredTnTRow)myDR;
+                //if (truckConfigRow.CardStatus == "A")
+                //{
+                //    txtCardStatus.BackColor = Color.PaleGreen;
+                //}
+                //else
+                //{
+                //    txtCardStatus.BackColor = Color.Salmon;
+                //    blOK2BookIn = false;
+                //}
+                //if (truckConfigRow.GroupCode == 117)
+                //{
+                //    chkACC.Checked = true;
+                //}
+                //else
+                //{ 
+                //    chkACC.Checked = false;
+                //}
+                //}
             }
             catch (Exception ex)
             {
@@ -221,11 +244,18 @@ namespace QWS_Local
         {
             try
             {
-                DataRow myDR = ((DataRowView)bsConfiguredTnt.Current).Row;
-                dsTruckConfig.ConfiguredTnTRow truckConfigRow = (dsTruckConfig.ConfiguredTnTRow)myDR;
-                BookInTruck frmBookInTruck = new BookInTruck(truckConfigRow);
-                frmBookInTruck.MdiParent = this.MdiParent;
-                frmBookInTruck.Show();
+                if (blOK2BookIn == true)
+                {
+                    DataRow myDR = ((DataRowView)bsConfiguredTnt.Current).Row;
+                    dsTruckConfig.ConfiguredTnTRow truckConfigRow = (dsTruckConfig.ConfiguredTnTRow)myDR;
+                    BookInTruck frmBookInTruck = new BookInTruck(truckConfigRow);
+                    frmBookInTruck.MdiParent = this.MdiParent;
+                    frmBookInTruck.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Cannot proceed, note truck owner not Active!");
+                }
             }
             catch (Exception ex)
             {
