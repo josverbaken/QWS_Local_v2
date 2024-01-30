@@ -71,16 +71,6 @@ namespace QWS_Local
             this.taVehicle = new QWS_Local.dsQWSLocalTableAdapters.VehicleTableAdapter();
             this.taNHVL = new QWS_Local.dsQWSLocalTableAdapters.NHVLTableAdapter();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.RegoTk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RegoTrailer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AxleConfiguration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GCM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tare = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TareDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.configSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Scheme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BridgeAssessment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsConfiguredTnt = new System.Windows.Forms.BindingSource(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -119,6 +109,17 @@ namespace QWS_Local
             this.schemeCodeTextBox1 = new System.Windows.Forms.TextBox();
             this.txtCardStatus = new System.Windows.Forms.TextBox();
             this.chkACC = new System.Windows.Forms.CheckBox();
+            this.RegoTk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegoTrailer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AxleConfiguration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegistrationExpiryDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GCM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.configSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Scheme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BridgeAssessment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tare = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TareDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             tareLabel = new System.Windows.Forms.Label();
             regoTkLabel = new System.Windows.Forms.Label();
             tareTkLabel = new System.Windows.Forms.Label();
@@ -365,6 +366,15 @@ namespace QWS_Local
             schemeCodeLabel1.TabIndex = 34;
             schemeCodeLabel1.Text = "Scheme Code:";
             // 
+            // cardStatusLabel
+            // 
+            cardStatusLabel.AutoSize = true;
+            cardStatusLabel.Location = new System.Drawing.Point(575, 140);
+            cardStatusLabel.Name = "cardStatusLabel";
+            cardStatusLabel.Size = new System.Drawing.Size(65, 13);
+            cardStatusLabel.TabIndex = 36;
+            cardStatusLabel.Text = "Card Status:";
+            // 
             // txtRego
             // 
             this.txtRego.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehicleDetails, "Rego", true));
@@ -514,13 +524,14 @@ namespace QWS_Local
             this.RegoTk,
             this.RegoTrailer,
             this.AxleConfiguration,
+            this.RegistrationExpiryDT,
             this.GCM,
-            this.Tare,
-            this.TareDT,
             this.configSourceDataGridViewTextBoxColumn,
             this.schemeCodeDataGridViewTextBoxColumn,
             this.Scheme,
-            this.BridgeAssessment});
+            this.BridgeAssessment,
+            this.Tare,
+            this.TareDT});
             this.dataGridView2.DataSource = this.bsConfiguredTnt;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 3);
@@ -528,79 +539,6 @@ namespace QWS_Local
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(995, 347);
             this.dataGridView2.TabIndex = 22;
-            // 
-            // RegoTk
-            // 
-            this.RegoTk.DataPropertyName = "RegoTk";
-            this.RegoTk.HeaderText = "Truck";
-            this.RegoTk.Name = "RegoTk";
-            this.RegoTk.ReadOnly = true;
-            // 
-            // RegoTrailer
-            // 
-            this.RegoTrailer.DataPropertyName = "RegoTrailer";
-            this.RegoTrailer.HeaderText = "Trailer";
-            this.RegoTrailer.Name = "RegoTrailer";
-            this.RegoTrailer.ReadOnly = true;
-            this.RegoTrailer.Width = 200;
-            // 
-            // AxleConfiguration
-            // 
-            this.AxleConfiguration.DataPropertyName = "AxleConfiguration";
-            this.AxleConfiguration.HeaderText = "Axle Cfg";
-            this.AxleConfiguration.Name = "AxleConfiguration";
-            this.AxleConfiguration.ReadOnly = true;
-            // 
-            // GCM
-            // 
-            this.GCM.DataPropertyName = "GCM";
-            this.GCM.HeaderText = "GCM";
-            this.GCM.Name = "GCM";
-            this.GCM.ReadOnly = true;
-            // 
-            // Tare
-            // 
-            this.Tare.DataPropertyName = "Tare";
-            this.Tare.HeaderText = "Tare";
-            this.Tare.Name = "Tare";
-            this.Tare.ReadOnly = true;
-            // 
-            // TareDT
-            // 
-            this.TareDT.DataPropertyName = "TareDT";
-            this.TareDT.HeaderText = "Tare Date";
-            this.TareDT.Name = "TareDT";
-            this.TareDT.ReadOnly = true;
-            // 
-            // configSourceDataGridViewTextBoxColumn
-            // 
-            this.configSourceDataGridViewTextBoxColumn.DataPropertyName = "ConfigSource";
-            this.configSourceDataGridViewTextBoxColumn.HeaderText = "ConfigSource";
-            this.configSourceDataGridViewTextBoxColumn.Name = "configSourceDataGridViewTextBoxColumn";
-            this.configSourceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.configSourceDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // schemeCodeDataGridViewTextBoxColumn
-            // 
-            this.schemeCodeDataGridViewTextBoxColumn.DataPropertyName = "SchemeCode";
-            this.schemeCodeDataGridViewTextBoxColumn.HeaderText = "SchemeCode";
-            this.schemeCodeDataGridViewTextBoxColumn.Name = "schemeCodeDataGridViewTextBoxColumn";
-            this.schemeCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Scheme
-            // 
-            this.Scheme.DataPropertyName = "Scheme";
-            this.Scheme.HeaderText = "Scheme";
-            this.Scheme.Name = "Scheme";
-            this.Scheme.ReadOnly = true;
-            this.Scheme.Width = 200;
-            // 
-            // BridgeAssessment
-            // 
-            this.BridgeAssessment.DataPropertyName = "BridgeAssessment";
-            this.BridgeAssessment.HeaderText = "BridgeAssessment";
-            this.BridgeAssessment.Name = "BridgeAssessment";
-            this.BridgeAssessment.ReadOnly = true;
             // 
             // bsConfiguredTnt
             // 
@@ -917,15 +855,6 @@ namespace QWS_Local
             this.schemeCodeTextBox1.Size = new System.Drawing.Size(100, 20);
             this.schemeCodeTextBox1.TabIndex = 35;
             // 
-            // cardStatusLabel
-            // 
-            cardStatusLabel.AutoSize = true;
-            cardStatusLabel.Location = new System.Drawing.Point(575, 140);
-            cardStatusLabel.Name = "cardStatusLabel";
-            cardStatusLabel.Size = new System.Drawing.Size(65, 13);
-            cardStatusLabel.TabIndex = 36;
-            cardStatusLabel.Text = "Card Status:";
-            // 
             // txtCardStatus
             // 
             this.txtCardStatus.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnt, "CardStatus", true));
@@ -944,6 +873,86 @@ namespace QWS_Local
             this.chkACC.TabIndex = 21;
             this.chkACC.Text = "ACC";
             this.chkACC.UseVisualStyleBackColor = true;
+            // 
+            // RegoTk
+            // 
+            this.RegoTk.DataPropertyName = "RegoTk";
+            this.RegoTk.HeaderText = "Truck";
+            this.RegoTk.Name = "RegoTk";
+            this.RegoTk.ReadOnly = true;
+            // 
+            // RegoTrailer
+            // 
+            this.RegoTrailer.DataPropertyName = "RegoTrailer";
+            this.RegoTrailer.HeaderText = "Trailer";
+            this.RegoTrailer.Name = "RegoTrailer";
+            this.RegoTrailer.ReadOnly = true;
+            this.RegoTrailer.Width = 200;
+            // 
+            // AxleConfiguration
+            // 
+            this.AxleConfiguration.DataPropertyName = "AxleConfiguration";
+            this.AxleConfiguration.HeaderText = "Axle Cfg";
+            this.AxleConfiguration.Name = "AxleConfiguration";
+            this.AxleConfiguration.ReadOnly = true;
+            // 
+            // RegistrationExpiryDT
+            // 
+            this.RegistrationExpiryDT.DataPropertyName = "RegistrationExpiryDT";
+            this.RegistrationExpiryDT.HeaderText = "Rego Expiry";
+            this.RegistrationExpiryDT.Name = "RegistrationExpiryDT";
+            this.RegistrationExpiryDT.ReadOnly = true;
+            // 
+            // GCM
+            // 
+            this.GCM.DataPropertyName = "GCM";
+            this.GCM.HeaderText = "GCM";
+            this.GCM.Name = "GCM";
+            this.GCM.ReadOnly = true;
+            // 
+            // configSourceDataGridViewTextBoxColumn
+            // 
+            this.configSourceDataGridViewTextBoxColumn.DataPropertyName = "ConfigSource";
+            this.configSourceDataGridViewTextBoxColumn.HeaderText = "ConfigSource";
+            this.configSourceDataGridViewTextBoxColumn.Name = "configSourceDataGridViewTextBoxColumn";
+            this.configSourceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.configSourceDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // schemeCodeDataGridViewTextBoxColumn
+            // 
+            this.schemeCodeDataGridViewTextBoxColumn.DataPropertyName = "SchemeCode";
+            this.schemeCodeDataGridViewTextBoxColumn.HeaderText = "SchemeCode";
+            this.schemeCodeDataGridViewTextBoxColumn.Name = "schemeCodeDataGridViewTextBoxColumn";
+            this.schemeCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Scheme
+            // 
+            this.Scheme.DataPropertyName = "Scheme";
+            this.Scheme.HeaderText = "Scheme";
+            this.Scheme.Name = "Scheme";
+            this.Scheme.ReadOnly = true;
+            this.Scheme.Width = 200;
+            // 
+            // BridgeAssessment
+            // 
+            this.BridgeAssessment.DataPropertyName = "BridgeAssessment";
+            this.BridgeAssessment.HeaderText = "BridgeAssessment";
+            this.BridgeAssessment.Name = "BridgeAssessment";
+            this.BridgeAssessment.ReadOnly = true;
+            // 
+            // Tare
+            // 
+            this.Tare.DataPropertyName = "Tare";
+            this.Tare.HeaderText = "Tare";
+            this.Tare.Name = "Tare";
+            this.Tare.ReadOnly = true;
+            // 
+            // TareDT
+            // 
+            this.TareDT.DataPropertyName = "TareDT";
+            this.TareDT.HeaderText = "Tare Date";
+            this.TareDT.Name = "TareDT";
+            this.TareDT.ReadOnly = true;
             // 
             // TruckConfiguration
             // 
@@ -1020,16 +1029,6 @@ namespace QWS_Local
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox cardCodeTextBox;
         private System.Windows.Forms.TextBox ownerTextBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RegoTk;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RegoTrailer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AxleConfiguration;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GCM;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tare;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn configSourceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn schemeCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Scheme;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BridgeAssessment;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpList;
         private System.Windows.Forms.TabPage tpDetails;
@@ -1061,5 +1060,16 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox schemeCodeTextBox1;
         private System.Windows.Forms.TextBox txtCardStatus;
         private System.Windows.Forms.CheckBox chkACC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RegoTk;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RegoTrailer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AxleConfiguration;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RegistrationExpiryDT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GCM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn configSourceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn schemeCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Scheme;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BridgeAssessment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tare;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
     }
 }

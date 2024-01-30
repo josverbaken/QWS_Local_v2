@@ -12,17 +12,8 @@ namespace QWS_Local
 {
     public partial class BookInTruck : Form
     {
-        private int myTruckConfigID;
-        private string myAxleConfig;
-
         public BookInTruck()
         {
-            InitializeComponent();
-        }
-
-        public BookInTruck(int TruckConfigID)
-        {
-            myTruckConfigID = TruckConfigID;
             InitializeComponent();
         }
 
@@ -31,8 +22,6 @@ namespace QWS_Local
             InitializeComponent();
             dsTruckConfig.ConfiguredTnT.Clear();
             dsTruckConfig.ConfiguredTnT.ImportRow(configuredTnTRow);
-            myAxleConfig = configuredTnTRow.AxleConfiguration;
-            myTruckConfigID = configuredTnTRow.TruckConfigID;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -83,15 +72,18 @@ namespace QWS_Local
                 {
                     txtOkay2Cart.Text = "Y";
                     txtOkay2Cart.BackColor = Color.PaleGreen;
+                    btnExBin.Enabled = true;
                 }
                 else
                 {
                     txtOkay2Cart.Text = "N";
                     txtOkay2Cart.BackColor = Color.Salmon;
+                    btnExBin.Enabled = false;
                 }
                 if (myTruckDriverRow.Position == "Authorised Cartage Contractor")
                 {
                     chkDriverACC.Checked = true;
+
                 }
                 else
                 {
@@ -119,6 +111,28 @@ namespace QWS_Local
             else
             {
                 txtCardStatus.BackColor = Color.Salmon;
+            }
+            if (configuredTnTRow.Compartments > 1)
+            {
+                btnTnT.Enabled = true;
+                btnSplitLoad.Enabled = true;
+                btnTrailerOnly.Enabled = true;
+            }
+            else
+            {
+                btnTnT.Enabled = false;
+                btnSplitLoad.Enabled = false;
+                btnTrailerOnly.Enabled = false;
+            }
+            if (configuredTnTRow.TareDT < DateTime.Now)
+            {
+                btnRetare.Enabled = true;
+                btnRetare.BackColor = Color.Orange;
+            }
+            else
+            {
+                btnRetare.Enabled = false;
+                btnRetare.BackColor = SystemColors.Control;
             }
         }
     }

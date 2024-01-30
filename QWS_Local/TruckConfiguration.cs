@@ -140,7 +140,7 @@ namespace QWS_Local
             int myNHVLID;
             string leadRego;
             dsQWSLocal.NHVLRow myNHVLRow;
-
+            // TODO implement storing leadRego to handle T&T
             // add truckconfigvehicle x n
             // where n = 1 for Truck only, 2 for T&T or semitrailer, 3 for B-double and up to 6 for road trains
             if (CurrentVehicleDetails().IsLeadVehicle)
@@ -155,7 +155,7 @@ namespace QWS_Local
                 }
                 else
                 {
-                    MessageBox.Show("NHVL type code not chosen!");
+                    MessageBox.Show("NHVL type code not chosen! " + leadRego);
                 }
             }
             else
@@ -243,17 +243,30 @@ namespace QWS_Local
         {
             try
             {
+                bool OK2BookIn = true;
+                string msg = "Cannot proceed because:";
                 DataRow myDR = ((DataRowView)bsConfiguredTnt.Current).Row;
                 dsTruckConfig.ConfiguredTnTRow truckConfigRow = (dsTruckConfig.ConfiguredTnTRow)myDR;
-                if (truckConfigRow.CardStatus == "A")
+                if (truckConfigRow.CardStatus != "A")
                 {                    
+                    OK2BookIn = false;
+                    msg += " Account not Active!";
+                }
+                if (truckConfigRow.RegistrationExpiryDT < DateTime.Now)
+                {
+                    OK2BookIn = false;
+                    msg += " Registration expired.";
+                }
+
+                if (OK2BookIn == true)
+                {
                     BookInTruck frmBookInTruck = new BookInTruck(truckConfigRow);
                     frmBookInTruck.MdiParent = this.MdiParent;
                     frmBookInTruck.Show();
                 }
                 else
                 {
-                    MessageBox.Show("Cannot proceed, note truck owner not Active!");
+                    MessageBox.Show(msg);
                 }
             }
             catch (Exception ex)
