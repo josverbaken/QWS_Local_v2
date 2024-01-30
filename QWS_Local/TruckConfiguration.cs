@@ -15,7 +15,6 @@ namespace QWS_Local
         private string myRego;
         private string myTrailerRego;
         private string myCardCode;
-        private static bool blOK2BookIn = true;
         public TruckConfiguration()
         {
             InitializeComponent();
@@ -244,10 +243,10 @@ namespace QWS_Local
         {
             try
             {
-                if (blOK2BookIn == true)
-                {
-                    DataRow myDR = ((DataRowView)bsConfiguredTnt.Current).Row;
-                    dsTruckConfig.ConfiguredTnTRow truckConfigRow = (dsTruckConfig.ConfiguredTnTRow)myDR;
+                DataRow myDR = ((DataRowView)bsConfiguredTnt.Current).Row;
+                dsTruckConfig.ConfiguredTnTRow truckConfigRow = (dsTruckConfig.ConfiguredTnTRow)myDR;
+                if (truckConfigRow.CardStatus == "A")
+                {                    
                     BookInTruck frmBookInTruck = new BookInTruck(truckConfigRow);
                     frmBookInTruck.MdiParent = this.MdiParent;
                     frmBookInTruck.Show();

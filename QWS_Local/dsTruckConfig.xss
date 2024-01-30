@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:TruckConfigTrailer" ZOrder="5" X="70" Y="70" Height="286" Width="253" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="216" />
     <Shape ID="DesignTable:TruckConfigTruck" ZOrder="4" X="352" Y="26" Height="324" Width="248" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
-    <Shape ID="DesignTable:ConfiguredTnT" ZOrder="2" X="659" Y="38" Height="575" Width="259" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="507" />
+    <Shape ID="DesignTable:ConfiguredTnT" ZOrder="2" X="659" Y="38" Height="305" Width="259" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:NHVLDetails" ZOrder="1" X="144" Y="438" Height="305" Width="253" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
   </Shapes>
   <Connectors>

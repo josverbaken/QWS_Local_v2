@@ -51,12 +51,9 @@ namespace QWS_Local
             System.Windows.Forms.Label configSourceLabel;
             System.Windows.Forms.Label schemeCodeLabel;
             System.Windows.Forms.Label regoTrailerLabel;
+            System.Windows.Forms.Label compartmentsLabel;
             this.regoTkTextBox = new System.Windows.Forms.TextBox();
-            this.bsConfiguredTnT = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.button1 = new System.Windows.Forms.Button();
-            this.taConfiguredTnT = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTnTTableAdapter();
-            this.tableAdapterManager = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
             this.txtCardCode = new System.Windows.Forms.TextBox();
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.bsTruckDriver = new System.Windows.Forms.BindingSource(this.components);
@@ -94,6 +91,11 @@ namespace QWS_Local
             this.button7 = new System.Windows.Forms.Button();
             this.chkACC = new System.Windows.Forms.CheckBox();
             this.chkDriverACC = new System.Windows.Forms.CheckBox();
+            this.bsConfiguredTnT = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTruckConfig = new QWS_Local.dsTruckConfig();
+            this.taConfiguredTnT = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTnTTableAdapter();
+            this.tableAdapterManager = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
+            this.compartmentsTextBox = new System.Windows.Forms.TextBox();
             regoTkLabel = new System.Windows.Forms.Label();
             personLabel = new System.Windows.Forms.Label();
             positionLabel = new System.Windows.Forms.Label();
@@ -115,12 +117,13 @@ namespace QWS_Local
             configSourceLabel = new System.Windows.Forms.Label();
             schemeCodeLabel = new System.Windows.Forms.Label();
             regoTrailerLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
+            compartmentsLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             this.SuspendLayout();
             // 
             // regoTkLabel
@@ -212,16 +215,6 @@ namespace QWS_Local
             this.regoTkTextBox.Size = new System.Drawing.Size(82, 20);
             this.regoTkTextBox.TabIndex = 3;
             // 
-            // bsConfiguredTnT
-            // 
-            this.bsConfiguredTnT.DataMember = "ConfiguredTnT";
-            this.bsConfiguredTnT.DataSource = this.dsTruckConfig;
-            // 
-            // dsTruckConfig
-            // 
-            this.dsTruckConfig.DataSetName = "dsTruckConfig";
-            this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(115, 251);
@@ -231,16 +224,6 @@ namespace QWS_Local
             this.button1.Text = "Get Truck Driver";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // taConfiguredTnT
-            // 
-            this.taConfiguredTnT.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.UpdateOrder = QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // txtCardCode
             // 
@@ -667,11 +650,50 @@ namespace QWS_Local
             this.chkDriverACC.Text = "ACC";
             this.chkDriverACC.UseVisualStyleBackColor = true;
             // 
+            // bsConfiguredTnT
+            // 
+            this.bsConfiguredTnT.DataMember = "ConfiguredTnT";
+            this.bsConfiguredTnT.DataSource = this.dsTruckConfig;
+            // 
+            // dsTruckConfig
+            // 
+            this.dsTruckConfig.DataSetName = "dsTruckConfig";
+            this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // taConfiguredTnT
+            // 
+            this.taConfiguredTnT.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.UpdateOrder = QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // compartmentsLabel
+            // 
+            compartmentsLabel.AutoSize = true;
+            compartmentsLabel.Location = new System.Drawing.Point(592, 227);
+            compartmentsLabel.Name = "compartmentsLabel";
+            compartmentsLabel.Size = new System.Drawing.Size(77, 13);
+            compartmentsLabel.TabIndex = 57;
+            compartmentsLabel.Text = "Compartments:";
+            // 
+            // compartmentsTextBox
+            // 
+            this.compartmentsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTnT, "Compartments", true));
+            this.compartmentsTextBox.Location = new System.Drawing.Point(675, 224);
+            this.compartmentsTextBox.Name = "compartmentsTextBox";
+            this.compartmentsTextBox.Size = new System.Drawing.Size(46, 20);
+            this.compartmentsTextBox.TabIndex = 58;
+            // 
             // BookInTruck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(863, 459);
+            this.ClientSize = new System.Drawing.Size(876, 467);
+            this.Controls.Add(compartmentsLabel);
+            this.Controls.Add(this.compartmentsTextBox);
             this.Controls.Add(this.chkDriverACC);
             this.Controls.Add(this.chkACC);
             this.Controls.Add(this.groupBox1);
@@ -725,12 +747,12 @@ namespace QWS_Local
             this.Name = "BookInTruck";
             this.Text = "BookInTruck";
             this.Load += new System.EventHandler(this.BookInTruck_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -781,5 +803,6 @@ namespace QWS_Local
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.CheckBox chkACC;
         private System.Windows.Forms.CheckBox chkDriverACC;
+        private System.Windows.Forms.TextBox compartmentsTextBox;
     }
 }

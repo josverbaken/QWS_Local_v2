@@ -1324,6 +1324,8 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnBridgeAssessment;
             
+            private global::System.Data.DataColumn columnCompartments;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ConfiguredTnTDataTable() {
@@ -1591,6 +1593,14 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CompartmentsColumn {
+                get {
+                    return this.columnCompartments;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1655,7 +1665,8 @@ namespace QWS_Local {
                         string RegoTr2, 
                         string RegoTr3, 
                         int PBS_Level, 
-                        string BridgeAssessment) {
+                        string BridgeAssessment, 
+                        int Compartments) {
                 ConfiguredTnTRow rowConfiguredTnTRow = ((ConfiguredTnTRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TruckConfigID,
@@ -1686,7 +1697,8 @@ namespace QWS_Local {
                         RegoTr2,
                         RegoTr3,
                         PBS_Level,
-                        BridgeAssessment};
+                        BridgeAssessment,
+                        Compartments};
                 rowConfiguredTnTRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowConfiguredTnTRow);
                 return rowConfiguredTnTRow;
@@ -1738,6 +1750,7 @@ namespace QWS_Local {
                 this.columnRegoTr3 = base.Columns["RegoTr3"];
                 this.columnPBS_Level = base.Columns["PBS_Level"];
                 this.columnBridgeAssessment = base.Columns["BridgeAssessment"];
+                this.columnCompartments = base.Columns["Compartments"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1801,6 +1814,8 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnPBS_Level);
                 this.columnBridgeAssessment = new global::System.Data.DataColumn("BridgeAssessment", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBridgeAssessment);
+                this.columnCompartments = new global::System.Data.DataColumn("Compartments", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompartments);
                 this.columnTruckConfigID.ReadOnly = true;
                 this.columnRegoTk.ReadOnly = true;
                 this.columnRegoTk.MaxLength = 6;
@@ -1847,6 +1862,7 @@ namespace QWS_Local {
                 this.columnPBS_Level.ReadOnly = true;
                 this.columnBridgeAssessment.ReadOnly = true;
                 this.columnBridgeAssessment.MaxLength = 50;
+                this.columnCompartments.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3575,6 +3591,22 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Compartments {
+                get {
+                    try {
+                        return ((int)(this[this.tableConfiguredTnT.CompartmentsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Compartments\' in table \'ConfiguredTnT\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableConfiguredTnT.CompartmentsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsTruckConfigIDNull() {
                 return this.IsNull(this.tableConfiguredTnT.TruckConfigIDColumn);
             }
@@ -3919,6 +3951,18 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetBridgeAssessmentNull() {
                 this[this.tableConfiguredTnT.BridgeAssessmentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCompartmentsNull() {
+                return this.IsNull(this.tableConfiguredTnT.CompartmentsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCompartmentsNull() {
+                this[this.tableConfiguredTnT.CompartmentsColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4879,6 +4923,7 @@ namespace QWS_Local.dsTruckConfigTableAdapters {
             tableMapping.ColumnMappings.Add("RegoTr3", "RegoTr3");
             tableMapping.ColumnMappings.Add("PBS_Level", "PBS_Level");
             tableMapping.ColumnMappings.Add("BridgeAssessment", "BridgeAssessment");
+            tableMapping.ColumnMappings.Add("Compartments", "Compartments");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
