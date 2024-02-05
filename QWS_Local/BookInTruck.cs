@@ -92,11 +92,17 @@ namespace QWS_Local
             }
         }
 
-        private void BookInTruck_Load(object sender, EventArgs e)
+        private dsTruckConfig.ConfiguredTnTRow CurrentTNT()
         {
             DataRow myRow = ((DataRowView)bsConfiguredTnT.Current).Row;
             dsTruckConfig.ConfiguredTnTRow configuredTnTRow = (dsTruckConfig.ConfiguredTnTRow)myRow;
-            if ( configuredTnTRow.GroupCode == 117)
+            return configuredTnTRow;
+        }
+
+        private void BookInTruck_Load(object sender, EventArgs e)
+        {
+            
+            if (CurrentTNT().GroupCode == 117)
             {
                 chkACC.Checked = true;
             }
@@ -104,7 +110,7 @@ namespace QWS_Local
             {
                 chkACC.Checked = false;
             }
-            if (configuredTnTRow.CardStatus == "A") // A = Active, I = Inactive, H = On Hold
+            if (CurrentTNT().CardStatus == "A") // A = Active, I = Inactive, H = On Hold
             {
                 txtCardStatus.BackColor = Color.PaleGreen;
             }
@@ -112,7 +118,7 @@ namespace QWS_Local
             {
                 txtCardStatus.BackColor = Color.Salmon;
             }
-            if (configuredTnTRow.Compartments > 1)
+            if (CurrentTNT().Compartments > 1)
             {
                 btnTnT.Enabled = true;
                 btnSplitLoad.Enabled = true;
@@ -124,7 +130,7 @@ namespace QWS_Local
                 btnSplitLoad.Enabled = false;
                 btnTrailerOnly.Enabled = false;
             }
-            if (configuredTnTRow.TareDT < DateTime.Now)
+            if (CurrentTNT().TareDT < DateTime.Now)
             {
                 btnRetare.Enabled = true;
                 btnRetare.BackColor = Color.Orange;
@@ -134,6 +140,19 @@ namespace QWS_Local
                 btnRetare.Enabled = false;
                 btnRetare.BackColor = SystemColors.Control;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            GetPrefCustomer();
+        }
+
+        private void GetPrefCustomer()
+        {
+            string myRego = CurrentTNT().RegoTk;
+            PreferredCustomers frmPrefCust = new PreferredCustomers(myRego);
+            DialogResult dr = frmPrefCust.ShowDialog();
+
         }
     }
 }

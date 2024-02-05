@@ -86,6 +86,8 @@ namespace QWS_Local
             this.txtOkay2Cart = new System.Windows.Forms.TextBox();
             this.btnExBin = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnCollected = new System.Windows.Forms.Button();
             this.btnDelivery = new System.Windows.Forms.Button();
             this.btnRetare = new System.Windows.Forms.Button();
@@ -99,8 +101,7 @@ namespace QWS_Local
             this.btnSplitLoad = new System.Windows.Forms.Button();
             this.btnTrailerOnly = new System.Windows.Forms.Button();
             this.btnTnT = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             regoTkLabel = new System.Windows.Forms.Label();
             personLabel = new System.Windows.Forms.Label();
             positionLabel = new System.Windows.Forms.Label();
@@ -612,6 +613,26 @@ namespace QWS_Local
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Book In Mode";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(174, 30);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 17);
+            this.label3.TabIndex = 60;
+            this.label3.Text = "Inbound";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(41, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 17);
+            this.label2.TabIndex = 59;
+            this.label2.Text = "Outbound";
+            // 
             // btnCollected
             // 
             this.btnCollected.Enabled = false;
@@ -732,31 +753,22 @@ namespace QWS_Local
             this.btnTnT.Text = "Truck and Trailer";
             this.btnTnT.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // button2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(41, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 17);
-            this.label2.TabIndex = 59;
-            this.label2.Text = "Outbound";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(174, 30);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 17);
-            this.label3.TabIndex = 60;
-            this.label3.Text = "Inbound";
+            this.button2.Location = new System.Drawing.Point(580, 68);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(121, 38);
+            this.button2.TabIndex = 61;
+            this.button2.Text = "Ex Bin";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // BookInTruck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(876, 467);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(compartmentsLabel);
             this.Controls.Add(this.compartmentsTextBox);
@@ -877,5 +889,6 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnTnT;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
     }
 }
