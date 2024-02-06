@@ -118,8 +118,6 @@ namespace QWS_Local
             this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Scheme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BridgeAssessment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tare = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TareDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             tareLabel = new System.Windows.Forms.Label();
             regoTkLabel = new System.Windows.Forms.Label();
             tareTkLabel = new System.Windows.Forms.Label();
@@ -529,9 +527,7 @@ namespace QWS_Local
             this.configSourceDataGridViewTextBoxColumn,
             this.schemeCodeDataGridViewTextBoxColumn,
             this.Scheme,
-            this.BridgeAssessment,
-            this.Tare,
-            this.TareDT});
+            this.BridgeAssessment});
             this.dataGridView2.DataSource = this.bsConfiguredTnt;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 3);
@@ -940,20 +936,6 @@ namespace QWS_Local
             this.BridgeAssessment.Name = "BridgeAssessment";
             this.BridgeAssessment.ReadOnly = true;
             // 
-            // Tare
-            // 
-            this.Tare.DataPropertyName = "Tare";
-            this.Tare.HeaderText = "Tare";
-            this.Tare.Name = "Tare";
-            this.Tare.ReadOnly = true;
-            // 
-            // TareDT
-            // 
-            this.TareDT.DataPropertyName = "TareDT";
-            this.TareDT.HeaderText = "Tare Date";
-            this.TareDT.Name = "TareDT";
-            this.TareDT.ReadOnly = true;
-            // 
             // TruckConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1069,7 +1051,5 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn schemeCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Scheme;
         private System.Windows.Forms.DataGridViewTextBoxColumn BridgeAssessment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tare;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
     }
 }
