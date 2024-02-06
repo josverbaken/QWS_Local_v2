@@ -71,8 +71,6 @@ namespace QWS_Local
             this.taVehicle = new QWS_Local.dsQWSLocalTableAdapters.VehicleTableAdapter();
             this.taNHVL = new QWS_Local.dsQWSLocalTableAdapters.NHVLTableAdapter();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.bsConfiguredTnt = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cardCodeTextBox = new System.Windows.Forms.TextBox();
             this.ownerTextBox = new System.Windows.Forms.TextBox();
@@ -97,10 +95,6 @@ namespace QWS_Local
             this.regoTkTextBox = new System.Windows.Forms.TextBox();
             this.tareTextBox = new System.Windows.Forms.TextBox();
             this.btnBookIn = new System.Windows.Forms.Button();
-            this.tableAdapterManager1 = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
-            this.taConfiguredTnT = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTnTTableAdapter();
-            this.bsNHVLDetails = new System.Windows.Forms.BindingSource(this.components);
-            this.taNHVLDetails = new QWS_Local.dsTruckConfigTableAdapters.NHVLDetailsTableAdapter();
             this.truckTypeIDTextBox = new System.Windows.Forms.TextBox();
             this.vehiclesTextBox = new System.Windows.Forms.TextBox();
             this.vehicleDescriptionTextBox = new System.Windows.Forms.TextBox();
@@ -109,12 +103,18 @@ namespace QWS_Local
             this.schemeCodeTextBox1 = new System.Windows.Forms.TextBox();
             this.txtCardStatus = new System.Windows.Forms.TextBox();
             this.chkACC = new System.Windows.Forms.CheckBox();
+            this.bsConfiguredTnt = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTruckConfig = new QWS_Local.dsTruckConfig();
+            this.bsNHVLDetails = new System.Windows.Forms.BindingSource(this.components);
+            this.tableAdapterManager1 = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
+            this.taConfiguredTnT = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTnTTableAdapter();
+            this.taNHVLDetails = new QWS_Local.dsTruckConfigTableAdapters.NHVLDetailsTableAdapter();
             this.RegoTk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RegoTrailer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AxleConfiguration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RegistrationExpiryDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GCM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.configSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegoCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Scheme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BridgeAssessment = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -148,12 +148,12 @@ namespace QWS_Local
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsNHVL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
             this.tpDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsNHVLDetails)).BeginInit();
             this.SuspendLayout();
             // 
@@ -522,9 +522,9 @@ namespace QWS_Local
             this.RegoTk,
             this.RegoTrailer,
             this.AxleConfiguration,
-            this.RegistrationExpiryDT,
             this.GCM,
             this.configSourceDataGridViewTextBoxColumn,
+            this.RegoCheck,
             this.schemeCodeDataGridViewTextBoxColumn,
             this.Scheme,
             this.BridgeAssessment});
@@ -535,16 +535,6 @@ namespace QWS_Local
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(995, 347);
             this.dataGridView2.TabIndex = 22;
-            // 
-            // bsConfiguredTnt
-            // 
-            this.bsConfiguredTnt.DataMember = "ConfiguredTnT";
-            this.bsConfiguredTnt.DataSource = this.dsTruckConfig;
-            // 
-            // dsTruckConfig
-            // 
-            this.dsTruckConfig.DataSetName = "dsTruckConfig";
-            this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // pictureBox1
             // 
@@ -784,25 +774,6 @@ namespace QWS_Local
             this.btnBookIn.UseVisualStyleBackColor = true;
             this.btnBookIn.Click += new System.EventHandler(this.btnBookIn_Click);
             // 
-            // tableAdapterManager1
-            // 
-            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager1.Connection = null;
-            this.tableAdapterManager1.UpdateOrder = QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // taConfiguredTnT
-            // 
-            this.taConfiguredTnT.ClearBeforeFill = true;
-            // 
-            // bsNHVLDetails
-            // 
-            this.bsNHVLDetails.DataMember = "NHVLDetails";
-            this.bsNHVLDetails.DataSource = this.dsTruckConfig;
-            // 
-            // taNHVLDetails
-            // 
-            this.taNHVLDetails.ClearBeforeFill = true;
-            // 
             // truckTypeIDTextBox
             // 
             this.truckTypeIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsNHVLDetails, "TruckTypeID", true));
@@ -870,6 +841,35 @@ namespace QWS_Local
             this.chkACC.Text = "ACC";
             this.chkACC.UseVisualStyleBackColor = true;
             // 
+            // bsConfiguredTnt
+            // 
+            this.bsConfiguredTnt.DataMember = "ConfiguredTnT";
+            this.bsConfiguredTnt.DataSource = this.dsTruckConfig;
+            // 
+            // dsTruckConfig
+            // 
+            this.dsTruckConfig.DataSetName = "dsTruckConfig";
+            this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bsNHVLDetails
+            // 
+            this.bsNHVLDetails.DataMember = "NHVLDetails";
+            this.bsNHVLDetails.DataSource = this.dsTruckConfig;
+            // 
+            // tableAdapterManager1
+            // 
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.Connection = null;
+            this.tableAdapterManager1.UpdateOrder = QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // taConfiguredTnT
+            // 
+            this.taConfiguredTnT.ClearBeforeFill = true;
+            // 
+            // taNHVLDetails
+            // 
+            this.taNHVLDetails.ClearBeforeFill = true;
+            // 
             // RegoTk
             // 
             this.RegoTk.DataPropertyName = "RegoTk";
@@ -892,13 +892,6 @@ namespace QWS_Local
             this.AxleConfiguration.Name = "AxleConfiguration";
             this.AxleConfiguration.ReadOnly = true;
             // 
-            // RegistrationExpiryDT
-            // 
-            this.RegistrationExpiryDT.DataPropertyName = "RegistrationExpiryDT";
-            this.RegistrationExpiryDT.HeaderText = "Rego Expiry";
-            this.RegistrationExpiryDT.Name = "RegistrationExpiryDT";
-            this.RegistrationExpiryDT.ReadOnly = true;
-            // 
             // GCM
             // 
             this.GCM.DataPropertyName = "GCM";
@@ -913,6 +906,13 @@ namespace QWS_Local
             this.configSourceDataGridViewTextBoxColumn.Name = "configSourceDataGridViewTextBoxColumn";
             this.configSourceDataGridViewTextBoxColumn.ReadOnly = true;
             this.configSourceDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // RegoCheck
+            // 
+            this.RegoCheck.DataPropertyName = "RegoCheck";
+            this.RegoCheck.HeaderText = "RegoCheck";
+            this.RegoCheck.Name = "RegoCheck";
+            this.RegoCheck.ReadOnly = true;
             // 
             // schemeCodeDataGridViewTextBoxColumn
             // 
@@ -973,13 +973,13 @@ namespace QWS_Local
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsNHVL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpList.ResumeLayout(false);
             this.tpDetails.ResumeLayout(false);
             this.tpDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsNHVLDetails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1045,9 +1045,9 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn RegoTk;
         private System.Windows.Forms.DataGridViewTextBoxColumn RegoTrailer;
         private System.Windows.Forms.DataGridViewTextBoxColumn AxleConfiguration;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RegistrationExpiryDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn GCM;
         private System.Windows.Forms.DataGridViewTextBoxColumn configSourceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn RegoCheck;
         private System.Windows.Forms.DataGridViewTextBoxColumn schemeCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Scheme;
         private System.Windows.Forms.DataGridViewTextBoxColumn BridgeAssessment;

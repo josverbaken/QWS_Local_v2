@@ -1326,6 +1326,8 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnCompartments;
             
+            private global::System.Data.DataColumn columnRegoCheck;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ConfiguredTnTDataTable() {
@@ -1601,6 +1603,14 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn RegoCheckColumn {
+                get {
+                    return this.columnRegoCheck;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1666,7 +1676,8 @@ namespace QWS_Local {
                         string RegoTr3, 
                         int PBS_Level, 
                         string BridgeAssessment, 
-                        int Compartments) {
+                        int Compartments, 
+                        bool RegoCheck) {
                 ConfiguredTnTRow rowConfiguredTnTRow = ((ConfiguredTnTRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TruckConfigID,
@@ -1698,7 +1709,8 @@ namespace QWS_Local {
                         RegoTr3,
                         PBS_Level,
                         BridgeAssessment,
-                        Compartments};
+                        Compartments,
+                        RegoCheck};
                 rowConfiguredTnTRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowConfiguredTnTRow);
                 return rowConfiguredTnTRow;
@@ -1751,6 +1763,7 @@ namespace QWS_Local {
                 this.columnPBS_Level = base.Columns["PBS_Level"];
                 this.columnBridgeAssessment = base.Columns["BridgeAssessment"];
                 this.columnCompartments = base.Columns["Compartments"];
+                this.columnRegoCheck = base.Columns["RegoCheck"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1816,6 +1829,8 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnBridgeAssessment);
                 this.columnCompartments = new global::System.Data.DataColumn("Compartments", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCompartments);
+                this.columnRegoCheck = new global::System.Data.DataColumn("RegoCheck", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRegoCheck);
                 this.columnTruckConfigID.ReadOnly = true;
                 this.columnRegoTk.ReadOnly = true;
                 this.columnRegoTk.MaxLength = 6;
@@ -1863,6 +1878,7 @@ namespace QWS_Local {
                 this.columnBridgeAssessment.ReadOnly = true;
                 this.columnBridgeAssessment.MaxLength = 50;
                 this.columnCompartments.ReadOnly = true;
+                this.columnRegoCheck.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3607,6 +3623,22 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool RegoCheck {
+                get {
+                    try {
+                        return ((bool)(this[this.tableConfiguredTnT.RegoCheckColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RegoCheck\' in table \'ConfiguredTnT\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableConfiguredTnT.RegoCheckColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsTruckConfigIDNull() {
                 return this.IsNull(this.tableConfiguredTnT.TruckConfigIDColumn);
             }
@@ -3963,6 +3995,18 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetCompartmentsNull() {
                 this[this.tableConfiguredTnT.CompartmentsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRegoCheckNull() {
+                return this.IsNull(this.tableConfiguredTnT.RegoCheckColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRegoCheckNull() {
+                this[this.tableConfiguredTnT.RegoCheckColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4924,6 +4968,7 @@ namespace QWS_Local.dsTruckConfigTableAdapters {
             tableMapping.ColumnMappings.Add("PBS_Level", "PBS_Level");
             tableMapping.ColumnMappings.Add("BridgeAssessment", "BridgeAssessment");
             tableMapping.ColumnMappings.Add("Compartments", "Compartments");
+            tableMapping.ColumnMappings.Add("RegoCheck", "RegoCheck");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

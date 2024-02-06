@@ -252,7 +252,7 @@ namespace QWS_Local
                     OK2BookIn = false;
                     msg += " Account not Active!";
                 }
-                if (truckConfigRow.RegistrationExpiryDT < DateTime.Now)
+                if (truckConfigRow.RegoCheck == false)
                 {
                     OK2BookIn = false;
                     msg += " Registration expired.";
