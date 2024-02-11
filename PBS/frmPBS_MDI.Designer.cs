@@ -42,6 +42,7 @@
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cascadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bookInTruckStep1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +71,8 @@
             this.truckConfigurationToolStripMenuItem,
             this.businessPlusPersonToolStripMenuItem,
             this.itemSearchToolStripMenuItem,
-            this.trucksInQuarryToolStripMenuItem});
+            this.trucksInQuarryToolStripMenuItem,
+            this.bookInTruckStep1ToolStripMenuItem});
             this.form1ToolStripMenuItem.Name = "form1ToolStripMenuItem";
             this.form1ToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
             this.form1ToolStripMenuItem.Text = "Menu";
@@ -159,6 +161,13 @@
             this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.closeAllToolStripMenuItem.Text = "Close All";
             // 
+            // bookInTruckStep1ToolStripMenuItem
+            // 
+            this.bookInTruckStep1ToolStripMenuItem.Name = "bookInTruckStep1ToolStripMenuItem";
+            this.bookInTruckStep1ToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
+            this.bookInTruckStep1ToolStripMenuItem.Text = "BookInTruckStep1";
+            this.bookInTruckStep1ToolStripMenuItem.Click += new System.EventHandler(this.bookInTruckStep1ToolStripMenuItem_Click);
+            // 
             // frmPBS_MDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -195,6 +204,7 @@
         private System.Windows.Forms.ToolStripMenuItem closeAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem itemSearchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trucksInQuarryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bookInTruckStep1ToolStripMenuItem;
     }
 }
 

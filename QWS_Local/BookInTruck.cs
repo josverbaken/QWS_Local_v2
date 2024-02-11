@@ -94,14 +94,27 @@ namespace QWS_Local
 
         private dsTruckConfig.ConfiguredTnTRow CurrentTNT()
         {
-            DataRow myRow = ((DataRowView)bsConfiguredTnT.Current).Row;
-            dsTruckConfig.ConfiguredTnTRow configuredTnTRow = (dsTruckConfig.ConfiguredTnTRow)myRow;
-            return configuredTnTRow;
+            try
+            {
+                if (bsConfiguredTnT.Count > 0)
+                {
+                    DataRow myRow = ((DataRowView)bsConfiguredTnT.Current).Row;
+                    dsTruckConfig.ConfiguredTnTRow configuredTnTRow = (dsTruckConfig.ConfiguredTnTRow)myRow;
+                    return configuredTnTRow;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
         }
 
         private void BookInTruck_Load(object sender, EventArgs e)
         {
-            
+            if (bsConfiguredTnT.Count > 0)
+            {
             if (CurrentTNT().GroupCode == 117)
             {
                 chkACC.Checked = true;
@@ -139,6 +152,7 @@ namespace QWS_Local
             {
                 btnRetare.Enabled = false;
                 btnRetare.BackColor = SystemColors.Control;
+                }
             }
         }
 
