@@ -2633,6 +2633,18 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnSchematic;
             
+            private global::System.Data.DataColumn columnTruckOwner;
+            
+            private global::System.Data.DataColumn columnCardCode;
+            
+            private global::System.Data.DataColumn columnCardType;
+            
+            private global::System.Data.DataColumn columnGroupCode;
+            
+            private global::System.Data.DataColumn columnCardStatus;
+            
+            private global::System.Data.DataColumn columnRegoCheck;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ConfiguredTrucksDataTable() {
@@ -2828,6 +2840,54 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TruckOwnerColumn {
+                get {
+                    return this.columnTruckOwner;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CardCodeColumn {
+                get {
+                    return this.columnCardCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CardTypeColumn {
+                get {
+                    return this.columnCardType;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn GroupCodeColumn {
+                get {
+                    return this.columnGroupCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CardStatusColumn {
+                get {
+                    return this.columnCardStatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn RegoCheckColumn {
+                get {
+                    return this.columnRegoCheck;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2882,7 +2942,13 @@ namespace QWS_Local {
                         int Compartments, 
                         int Vehicles, 
                         string VehicleDescription, 
-                        byte[] Schematic) {
+                        byte[] Schematic, 
+                        string TruckOwner, 
+                        string CardCode, 
+                        string CardType, 
+                        short GroupCode, 
+                        string CardStatus, 
+                        bool RegoCheck) {
                 ConfiguredTrucksRow rowConfiguredTrucksRow = ((ConfiguredTrucksRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RegoTk,
@@ -2904,7 +2970,13 @@ namespace QWS_Local {
                         Compartments,
                         Vehicles,
                         VehicleDescription,
-                        Schematic};
+                        Schematic,
+                        TruckOwner,
+                        CardCode,
+                        CardType,
+                        GroupCode,
+                        CardStatus,
+                        RegoCheck};
                 rowConfiguredTrucksRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowConfiguredTrucksRow);
                 return rowConfiguredTrucksRow;
@@ -2947,6 +3019,12 @@ namespace QWS_Local {
                 this.columnVehicles = base.Columns["Vehicles"];
                 this.columnVehicleDescription = base.Columns["VehicleDescription"];
                 this.columnSchematic = base.Columns["Schematic"];
+                this.columnTruckOwner = base.Columns["TruckOwner"];
+                this.columnCardCode = base.Columns["CardCode"];
+                this.columnCardType = base.Columns["CardType"];
+                this.columnGroupCode = base.Columns["GroupCode"];
+                this.columnCardStatus = base.Columns["CardStatus"];
+                this.columnRegoCheck = base.Columns["RegoCheck"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2992,6 +3070,18 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnVehicleDescription);
                 this.columnSchematic = new global::System.Data.DataColumn("Schematic", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSchematic);
+                this.columnTruckOwner = new global::System.Data.DataColumn("TruckOwner", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTruckOwner);
+                this.columnCardCode = new global::System.Data.DataColumn("CardCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCardCode);
+                this.columnCardType = new global::System.Data.DataColumn("CardType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCardType);
+                this.columnGroupCode = new global::System.Data.DataColumn("GroupCode", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGroupCode);
+                this.columnCardStatus = new global::System.Data.DataColumn("CardStatus", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCardStatus);
+                this.columnRegoCheck = new global::System.Data.DataColumn("RegoCheck", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRegoCheck);
                 this.columnRegoTk.AllowDBNull = false;
                 this.columnRegoTk.MaxLength = 6;
                 this.columnRegoTr1.MaxLength = 6;
@@ -3015,6 +3105,16 @@ namespace QWS_Local {
                 this.columnCompartments.AllowDBNull = false;
                 this.columnVehicles.AllowDBNull = false;
                 this.columnVehicleDescription.MaxLength = 100;
+                this.columnTruckOwner.AllowDBNull = false;
+                this.columnTruckOwner.MaxLength = 100;
+                this.columnCardCode.AllowDBNull = false;
+                this.columnCardCode.MaxLength = 15;
+                this.columnCardType.AllowDBNull = false;
+                this.columnCardType.MaxLength = 1;
+                this.columnGroupCode.AllowDBNull = false;
+                this.columnCardStatus.AllowDBNull = false;
+                this.columnCardStatus.MaxLength = 1;
+                this.columnRegoCheck.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5867,6 +5967,77 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string TruckOwner {
+                get {
+                    return ((string)(this[this.tableConfiguredTrucks.TruckOwnerColumn]));
+                }
+                set {
+                    this[this.tableConfiguredTrucks.TruckOwnerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CardCode {
+                get {
+                    return ((string)(this[this.tableConfiguredTrucks.CardCodeColumn]));
+                }
+                set {
+                    this[this.tableConfiguredTrucks.CardCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CardType {
+                get {
+                    return ((string)(this[this.tableConfiguredTrucks.CardTypeColumn]));
+                }
+                set {
+                    this[this.tableConfiguredTrucks.CardTypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public short GroupCode {
+                get {
+                    return ((short)(this[this.tableConfiguredTrucks.GroupCodeColumn]));
+                }
+                set {
+                    this[this.tableConfiguredTrucks.GroupCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CardStatus {
+                get {
+                    return ((string)(this[this.tableConfiguredTrucks.CardStatusColumn]));
+                }
+                set {
+                    this[this.tableConfiguredTrucks.CardStatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool RegoCheck {
+                get {
+                    try {
+                        return ((bool)(this[this.tableConfiguredTrucks.RegoCheckColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RegoCheck\' in table \'ConfiguredTrucks\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableConfiguredTrucks.RegoCheckColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsRegoTr1Null() {
                 return this.IsNull(this.tableConfiguredTrucks.RegoTr1Column);
             }
@@ -6019,6 +6190,18 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetSchematicNull() {
                 this[this.tableConfiguredTrucks.SchematicColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRegoCheckNull() {
+                return this.IsNull(this.tableConfiguredTrucks.RegoCheckColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRegoCheckNull() {
+                this[this.tableConfiguredTrucks.RegoCheckColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8074,6 +8257,12 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)";
             tableMapping.ColumnMappings.Add("Vehicles", "Vehicles");
             tableMapping.ColumnMappings.Add("VehicleDescription", "VehicleDescription");
             tableMapping.ColumnMappings.Add("Schematic", "Schematic");
+            tableMapping.ColumnMappings.Add("TruckOwner", "TruckOwner");
+            tableMapping.ColumnMappings.Add("CardCode", "CardCode");
+            tableMapping.ColumnMappings.Add("CardType", "CardType");
+            tableMapping.ColumnMappings.Add("GroupCode", "GroupCode");
+            tableMapping.ColumnMappings.Add("CardStatus", "CardStatus");
+            tableMapping.ColumnMappings.Add("RegoCheck", "RegoCheck");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

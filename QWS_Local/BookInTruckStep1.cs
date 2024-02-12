@@ -26,11 +26,36 @@ namespace QWS_Local
         {
             try
             {
-                taConfiguredTrucks.FillByRego(dsTruckConfig.ConfiguredTrucks, Rego);
+                int iCount = taConfiguredTrucks.FillByRego(dsTruckConfig.ConfiguredTrucks, Rego);
+                if (iCount > 0)
+                {
+                    UpdateOwnerGUI();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void UpdateOwnerGUI()
+        {
+            if ( CurrentConfigTruck().CardStatus != "A")
+            {
+                txtCardStatus.BackColor = Color.Salmon;
+            }
+            else
+            {
+                txtCardStatus.BackColor = Color.PaleGreen;
+            }
+
+            if (CurrentConfigTruck().GroupCode == 117 )
+            {
+                chkACC.Checked = true;
+            }
+            else
+            {
+                chkACC.Checked = false;
             }
         }
 
@@ -72,6 +97,11 @@ namespace QWS_Local
             BookInTruck frmBookInTruck = new BookInTruck();
             frmBookInTruck.MdiParent = this.MdiParent;
             frmBookInTruck.Show();
+        }
+
+        private void BookInTruckStep1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
