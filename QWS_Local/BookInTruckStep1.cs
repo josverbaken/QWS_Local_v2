@@ -12,6 +12,8 @@ namespace QWS_Local
 {
     public partial class BookInTruckStep1 : Form
     {
+        private static bool FormLoaded = false;
+
         public BookInTruckStep1()
         {
             InitializeComponent();
@@ -57,12 +59,7 @@ namespace QWS_Local
             {
                 chkACC.Checked = false;
             }
-        }
-
-        private void btnNextStep_Click(object sender, EventArgs e)
-        {
-            GetConfiguredTrucksGVM();
-        }
+        }  
 
         private dsTruckConfig.ConfiguredTrucksRow CurrentConfigTruck()
         {
@@ -82,9 +79,12 @@ namespace QWS_Local
         {
             try
             {
-                int myTruckConfigID = 26;
-                myTruckConfigID = CurrentConfigTruck().TruckConfigID;
-                taConfiguredTruckGVM.Fill(dsTruckConfig.ConfiguredTruckGVM, "", myTruckConfigID);
+                if (FormLoaded == true && bsConfiguredTrucks.Count > 0)
+                {
+                    int myTruckConfigID = 26;
+                    myTruckConfigID = CurrentConfigTruck().TruckConfigID;
+                    taConfiguredTruckGVM.Fill(dsTruckConfig.ConfiguredTruckGVM, "", myTruckConfigID);
+                }
             }
             catch (Exception ex)
             {
@@ -101,7 +101,15 @@ namespace QWS_Local
 
         private void BookInTruckStep1_Load(object sender, EventArgs e)
         {
+            FormLoaded = true;
+        }
 
+        private void bsConfiguredTrucks_CurrentChanged(object sender, EventArgs e)
+        {
+            if (FormLoaded)
+            {
+                GetConfiguredTrucksGVM();
+            }
         }
     }
 }
