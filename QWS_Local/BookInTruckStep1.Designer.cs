@@ -63,6 +63,8 @@ namespace QWS_Local
             this.taConfiguredTrucks = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
             this.taConfiguredTruckGVM = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTruckGVMTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
+            this.txtFeeCode = new System.Windows.Forms.TextBox();
+            this.txtFeeCodeConditions = new System.Windows.Forms.TextBox();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -347,11 +349,29 @@ namespace QWS_Local
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // txtFeeCode
+            // 
+            this.txtFeeCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "FeeCode", true));
+            this.txtFeeCode.Location = new System.Drawing.Point(544, 212);
+            this.txtFeeCode.Name = "txtFeeCode";
+            this.txtFeeCode.Size = new System.Drawing.Size(76, 23);
+            this.txtFeeCode.TabIndex = 20;
+            // 
+            // txtFeeCodeConditions
+            // 
+            this.txtFeeCodeConditions.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "FeeConditions", true));
+            this.txtFeeCodeConditions.Location = new System.Drawing.Point(626, 212);
+            this.txtFeeCodeConditions.Name = "txtFeeCodeConditions";
+            this.txtFeeCodeConditions.Size = new System.Drawing.Size(374, 23);
+            this.txtFeeCodeConditions.TabIndex = 21;
+            // 
             // BookInTruckStep1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 658);
+            this.Controls.Add(this.txtFeeCodeConditions);
+            this.Controls.Add(this.txtFeeCode);
             this.Controls.Add(this.chkACC);
             this.Controls.Add(cardStatusLabel);
             this.Controls.Add(this.txtCardStatus);
@@ -415,5 +435,7 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn schemeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pBSLevelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bridgeAssessmentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox txtFeeCode;
+        private System.Windows.Forms.TextBox txtFeeCodeConditions;
     }
 }

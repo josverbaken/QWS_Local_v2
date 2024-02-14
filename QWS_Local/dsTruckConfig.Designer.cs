@@ -2645,6 +2645,10 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnRegoCheck;
             
+            private global::System.Data.DataColumn columnFeeCode;
+            
+            private global::System.Data.DataColumn columnFeeConditions;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ConfiguredTrucksDataTable() {
@@ -2888,6 +2892,22 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FeeCodeColumn {
+                get {
+                    return this.columnFeeCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FeeConditionsColumn {
+                get {
+                    return this.columnFeeConditions;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2948,7 +2968,9 @@ namespace QWS_Local {
                         string CardType, 
                         short GroupCode, 
                         string CardStatus, 
-                        bool RegoCheck) {
+                        bool RegoCheck, 
+                        string FeeCode, 
+                        string FeeConditions) {
                 ConfiguredTrucksRow rowConfiguredTrucksRow = ((ConfiguredTrucksRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RegoTk,
@@ -2976,7 +2998,9 @@ namespace QWS_Local {
                         CardType,
                         GroupCode,
                         CardStatus,
-                        RegoCheck};
+                        RegoCheck,
+                        FeeCode,
+                        FeeConditions};
                 rowConfiguredTrucksRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowConfiguredTrucksRow);
                 return rowConfiguredTrucksRow;
@@ -3025,6 +3049,8 @@ namespace QWS_Local {
                 this.columnGroupCode = base.Columns["GroupCode"];
                 this.columnCardStatus = base.Columns["CardStatus"];
                 this.columnRegoCheck = base.Columns["RegoCheck"];
+                this.columnFeeCode = base.Columns["FeeCode"];
+                this.columnFeeConditions = base.Columns["FeeConditions"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3082,6 +3108,10 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnCardStatus);
                 this.columnRegoCheck = new global::System.Data.DataColumn("RegoCheck", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRegoCheck);
+                this.columnFeeCode = new global::System.Data.DataColumn("FeeCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFeeCode);
+                this.columnFeeConditions = new global::System.Data.DataColumn("FeeConditions", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFeeConditions);
                 this.columnRegoTk.AllowDBNull = false;
                 this.columnRegoTk.MaxLength = 6;
                 this.columnRegoTr1.MaxLength = 6;
@@ -3115,6 +3145,10 @@ namespace QWS_Local {
                 this.columnCardStatus.AllowDBNull = false;
                 this.columnCardStatus.MaxLength = 1;
                 this.columnRegoCheck.ReadOnly = true;
+                this.columnFeeCode.AllowDBNull = false;
+                this.columnFeeCode.MaxLength = 50;
+                this.columnFeeConditions.AllowDBNull = false;
+                this.columnFeeConditions.MaxLength = 5000;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6038,6 +6072,28 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string FeeCode {
+                get {
+                    return ((string)(this[this.tableConfiguredTrucks.FeeCodeColumn]));
+                }
+                set {
+                    this[this.tableConfiguredTrucks.FeeCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string FeeConditions {
+                get {
+                    return ((string)(this[this.tableConfiguredTrucks.FeeConditionsColumn]));
+                }
+                set {
+                    this[this.tableConfiguredTrucks.FeeConditionsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsRegoTr1Null() {
                 return this.IsNull(this.tableConfiguredTrucks.RegoTr1Column);
             }
@@ -8263,6 +8319,8 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)";
             tableMapping.ColumnMappings.Add("GroupCode", "GroupCode");
             tableMapping.ColumnMappings.Add("CardStatus", "CardStatus");
             tableMapping.ColumnMappings.Add("RegoCheck", "RegoCheck");
+            tableMapping.ColumnMappings.Add("FeeCode", "FeeCode");
+            tableMapping.ColumnMappings.Add("FeeConditions", "FeeConditions");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
