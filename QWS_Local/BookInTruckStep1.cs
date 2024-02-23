@@ -94,6 +94,9 @@ namespace QWS_Local
 
         private void btnNextForm_Click(object sender, EventArgs e)
         {
+            DataRow myDR = ((DataRowView)bsConfiguredTruckGVM.Current).Row;
+            dsTruckConfig.ConfiguredTruckGVMRow truckConfigRow = (dsTruckConfig.ConfiguredTruckGVMRow)myDR;
+            // TODO create new form similar to BookInTruck but accepting ConfiguredTruckGVMRow
             BookInTruck frmBookInTruck = new BookInTruck();
             frmBookInTruck.MdiParent = this.MdiParent;
             frmBookInTruck.Show();
@@ -111,5 +114,6 @@ namespace QWS_Local
                 GetConfiguredTrucksGVM();
             }
         }
+
     }
 }

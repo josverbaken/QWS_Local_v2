@@ -139,6 +139,8 @@ AND SAPCode like @SAPCode</CommandText>
               <Mapping SourceColumn="BridgeAssessment" DataSetColumn="BridgeAssessment" />
               <Mapping SourceColumn="Compartments" DataSetColumn="Compartments" />
               <Mapping SourceColumn="RegoCheck" DataSetColumn="RegoCheck" />
+              <Mapping SourceColumn="FeeCode" DataSetColumn="FeeCode" />
+              <Mapping SourceColumn="FeeConditions" DataSetColumn="FeeConditions" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -270,6 +272,9 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)</CommandText>
               <Mapping SourceColumn="TrTkRatio" DataSetColumn="TrTkRatio" />
               <Mapping SourceColumn="Schematic" DataSetColumn="Schematic" />
               <Mapping SourceColumn="Compartments" DataSetColumn="Compartments" />
+              <Mapping SourceColumn="FeeCode" DataSetColumn="FeeCode" />
+              <Mapping SourceColumn="FeeConditions" DataSetColumn="FeeConditions" />
+              <Mapping SourceColumn="RoadAccess" DataSetColumn="RoadAccess" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -551,6 +556,20 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)</CommandText>
               </xs:element>
               <xs:element name="Compartments" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCompartments" msprop:Generator_ColumnPropNameInRow="Compartments" msprop:Generator_ColumnPropNameInTable="CompartmentsColumn" msprop:Generator_UserColumnName="Compartments" type="xs:int" minOccurs="0" />
               <xs:element name="RegoCheck" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRegoCheck" msprop:Generator_ColumnPropNameInRow="RegoCheck" msprop:Generator_ColumnPropNameInTable="RegoCheckColumn" msprop:Generator_UserColumnName="RegoCheck" type="xs:boolean" minOccurs="0" />
+              <xs:element name="FeeCode" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFeeCode" msprop:Generator_ColumnPropNameInRow="FeeCode" msprop:Generator_ColumnPropNameInTable="FeeCodeColumn" msprop:Generator_UserColumnName="FeeCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FeeConditions" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFeeConditions" msprop:Generator_ColumnPropNameInRow="FeeConditions" msprop:Generator_ColumnPropNameInTable="FeeConditionsColumn" msprop:Generator_UserColumnName="FeeConditions" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -848,7 +867,7 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)</CommandText>
               <xs:element name="Scheme" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnScheme" msprop:Generator_ColumnPropNameInRow="Scheme" msprop:Generator_ColumnPropNameInTable="SchemeColumn" msprop:Generator_UserColumnName="Scheme" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -865,6 +884,27 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)</CommandText>
               <xs:element name="TrTkRatio" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTrTkRatio" msprop:Generator_ColumnPropNameInRow="TrTkRatio" msprop:Generator_ColumnPropNameInTable="TrTkRatioColumn" msprop:Generator_UserColumnName="TrTkRatio" type="xs:decimal" minOccurs="0" />
               <xs:element name="Schematic" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSchematic" msprop:Generator_ColumnPropNameInRow="Schematic" msprop:Generator_ColumnPropNameInTable="SchematicColumn" msprop:Generator_UserColumnName="Schematic" type="xs:base64Binary" minOccurs="0" />
               <xs:element name="Compartments" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCompartments" msprop:Generator_ColumnPropNameInRow="Compartments" msprop:Generator_ColumnPropNameInTable="CompartmentsColumn" msprop:Generator_UserColumnName="Compartments" type="xs:int" minOccurs="0" />
+              <xs:element name="FeeCode" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFeeCode" msprop:Generator_ColumnPropNameInRow="FeeCode" msprop:Generator_ColumnPropNameInTable="FeeCodeColumn" msprop:Generator_UserColumnName="FeeCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FeeConditions" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFeeConditions" msprop:Generator_ColumnPropNameInRow="FeeConditions" msprop:Generator_ColumnPropNameInTable="FeeConditionsColumn" msprop:Generator_UserColumnName="FeeConditions" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RoadAccess" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRoadAccess" msprop:Generator_ColumnPropNameInRow="RoadAccess" msprop:Generator_ColumnPropNameInTable="RoadAccessColumn" msprop:Generator_UserColumnName="RoadAccess" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

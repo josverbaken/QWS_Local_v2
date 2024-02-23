@@ -1398,6 +1398,10 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnRegoCheck;
             
+            private global::System.Data.DataColumn columnFeeCode;
+            
+            private global::System.Data.DataColumn columnFeeConditions;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ConfiguredTnTDataTable() {
@@ -1681,6 +1685,22 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FeeCodeColumn {
+                get {
+                    return this.columnFeeCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FeeConditionsColumn {
+                get {
+                    return this.columnFeeConditions;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1747,7 +1767,9 @@ namespace QWS_Local {
                         int PBS_Level, 
                         string BridgeAssessment, 
                         int Compartments, 
-                        bool RegoCheck) {
+                        bool RegoCheck, 
+                        string FeeCode, 
+                        string FeeConditions) {
                 ConfiguredTnTRow rowConfiguredTnTRow = ((ConfiguredTnTRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TruckConfigID,
@@ -1780,7 +1802,9 @@ namespace QWS_Local {
                         PBS_Level,
                         BridgeAssessment,
                         Compartments,
-                        RegoCheck};
+                        RegoCheck,
+                        FeeCode,
+                        FeeConditions};
                 rowConfiguredTnTRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowConfiguredTnTRow);
                 return rowConfiguredTnTRow;
@@ -1834,6 +1858,8 @@ namespace QWS_Local {
                 this.columnBridgeAssessment = base.Columns["BridgeAssessment"];
                 this.columnCompartments = base.Columns["Compartments"];
                 this.columnRegoCheck = base.Columns["RegoCheck"];
+                this.columnFeeCode = base.Columns["FeeCode"];
+                this.columnFeeConditions = base.Columns["FeeConditions"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1901,6 +1927,10 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnCompartments);
                 this.columnRegoCheck = new global::System.Data.DataColumn("RegoCheck", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRegoCheck);
+                this.columnFeeCode = new global::System.Data.DataColumn("FeeCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFeeCode);
+                this.columnFeeConditions = new global::System.Data.DataColumn("FeeConditions", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFeeConditions);
                 this.columnTruckConfigID.ReadOnly = true;
                 this.columnRegoTk.ReadOnly = true;
                 this.columnRegoTk.MaxLength = 6;
@@ -1949,6 +1979,10 @@ namespace QWS_Local {
                 this.columnBridgeAssessment.MaxLength = 50;
                 this.columnCompartments.ReadOnly = true;
                 this.columnRegoCheck.ReadOnly = true;
+                this.columnFeeCode.ReadOnly = true;
+                this.columnFeeCode.MaxLength = 50;
+                this.columnFeeConditions.ReadOnly = true;
+                this.columnFeeConditions.MaxLength = 5000;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3340,6 +3374,12 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnCompartments;
             
+            private global::System.Data.DataColumn columnFeeCode;
+            
+            private global::System.Data.DataColumn columnFeeConditions;
+            
+            private global::System.Data.DataColumn columnRoadAccess;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ConfiguredTruckGVMDataTable() {
@@ -3607,6 +3647,30 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FeeCodeColumn {
+                get {
+                    return this.columnFeeCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FeeConditionsColumn {
+                get {
+                    return this.columnFeeConditions;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn RoadAccessColumn {
+                get {
+                    return this.columnRoadAccess;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3671,7 +3735,10 @@ namespace QWS_Local {
                         string DriveAxleLoadUOM, 
                         decimal TrTkRatio, 
                         byte[] Schematic, 
-                        int Compartments) {
+                        int Compartments, 
+                        string FeeCode, 
+                        string FeeConditions, 
+                        string RoadAccess) {
                 ConfiguredTruckGVMRow rowConfiguredTruckGVMRow = ((ConfiguredTruckGVMRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TruckConfigID,
@@ -3702,7 +3769,10 @@ namespace QWS_Local {
                         DriveAxleLoadUOM,
                         TrTkRatio,
                         Schematic,
-                        Compartments};
+                        Compartments,
+                        FeeCode,
+                        FeeConditions,
+                        RoadAccess};
                 rowConfiguredTruckGVMRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowConfiguredTruckGVMRow);
                 return rowConfiguredTruckGVMRow;
@@ -3754,6 +3824,9 @@ namespace QWS_Local {
                 this.columnTrTkRatio = base.Columns["TrTkRatio"];
                 this.columnSchematic = base.Columns["Schematic"];
                 this.columnCompartments = base.Columns["Compartments"];
+                this.columnFeeCode = base.Columns["FeeCode"];
+                this.columnFeeConditions = base.Columns["FeeConditions"];
+                this.columnRoadAccess = base.Columns["RoadAccess"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3817,6 +3890,12 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnSchematic);
                 this.columnCompartments = new global::System.Data.DataColumn("Compartments", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCompartments);
+                this.columnFeeCode = new global::System.Data.DataColumn("FeeCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFeeCode);
+                this.columnFeeConditions = new global::System.Data.DataColumn("FeeConditions", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFeeConditions);
+                this.columnRoadAccess = new global::System.Data.DataColumn("RoadAccess", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRoadAccess);
                 this.columnTruckConfigID.ReadOnly = true;
                 this.columnRegoTk.ReadOnly = true;
                 this.columnRegoTk.MaxLength = 6;
@@ -3852,7 +3931,7 @@ namespace QWS_Local {
                 this.columnSchemeCode.ReadOnly = true;
                 this.columnSchemeCode.MaxLength = 10;
                 this.columnScheme.ReadOnly = true;
-                this.columnScheme.MaxLength = 50;
+                this.columnScheme.MaxLength = 150;
                 this.columnGCM.ReadOnly = true;
                 this.columnGVMTruck.ReadOnly = true;
                 this.columnDriveAxleLoad.ReadOnly = true;
@@ -3861,6 +3940,12 @@ namespace QWS_Local {
                 this.columnTrTkRatio.ReadOnly = true;
                 this.columnSchematic.ReadOnly = true;
                 this.columnCompartments.ReadOnly = true;
+                this.columnFeeCode.ReadOnly = true;
+                this.columnFeeCode.MaxLength = 50;
+                this.columnFeeConditions.ReadOnly = true;
+                this.columnFeeConditions.MaxLength = 5000;
+                this.columnRoadAccess.ReadOnly = true;
+                this.columnRoadAccess.MaxLength = 150;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5110,6 +5195,38 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string FeeCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableConfiguredTnT.FeeCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FeeCode\' in table \'ConfiguredTnT\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableConfiguredTnT.FeeCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string FeeConditions {
+                get {
+                    try {
+                        return ((string)(this[this.tableConfiguredTnT.FeeConditionsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FeeConditions\' in table \'ConfiguredTnT\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableConfiguredTnT.FeeConditionsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsTruckConfigIDNull() {
                 return this.IsNull(this.tableConfiguredTnT.TruckConfigIDColumn);
             }
@@ -5478,6 +5595,30 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetRegoCheckNull() {
                 this[this.tableConfiguredTnT.RegoCheckColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFeeCodeNull() {
+                return this.IsNull(this.tableConfiguredTnT.FeeCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFeeCodeNull() {
+                this[this.tableConfiguredTnT.FeeCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFeeConditionsNull() {
+                return this.IsNull(this.tableConfiguredTnT.FeeConditionsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFeeConditionsNull() {
+                this[this.tableConfiguredTnT.FeeConditionsColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6743,6 +6884,54 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string FeeCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableConfiguredTruckGVM.FeeCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FeeCode\' in table \'ConfiguredTruckGVM\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableConfiguredTruckGVM.FeeCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string FeeConditions {
+                get {
+                    try {
+                        return ((string)(this[this.tableConfiguredTruckGVM.FeeConditionsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FeeConditions\' in table \'ConfiguredTruckGVM\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableConfiguredTruckGVM.FeeConditionsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string RoadAccess {
+                get {
+                    try {
+                        return ((string)(this[this.tableConfiguredTruckGVM.RoadAccessColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RoadAccess\' in table \'ConfiguredTruckGVM\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableConfiguredTruckGVM.RoadAccessColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsTruckConfigIDNull() {
                 return this.IsNull(this.tableConfiguredTruckGVM.TruckConfigIDColumn);
             }
@@ -7087,6 +7276,42 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetCompartmentsNull() {
                 this[this.tableConfiguredTruckGVM.CompartmentsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFeeCodeNull() {
+                return this.IsNull(this.tableConfiguredTruckGVM.FeeCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFeeCodeNull() {
+                this[this.tableConfiguredTruckGVM.FeeCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFeeConditionsNull() {
+                return this.IsNull(this.tableConfiguredTruckGVM.FeeConditionsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFeeConditionsNull() {
+                this[this.tableConfiguredTruckGVM.FeeConditionsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRoadAccessNull() {
+                return this.IsNull(this.tableConfiguredTruckGVM.RoadAccessColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRoadAccessNull() {
+                this[this.tableConfiguredTruckGVM.RoadAccessColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7898,6 +8123,8 @@ namespace QWS_Local.dsTruckConfigTableAdapters {
             tableMapping.ColumnMappings.Add("BridgeAssessment", "BridgeAssessment");
             tableMapping.ColumnMappings.Add("Compartments", "Compartments");
             tableMapping.ColumnMappings.Add("RegoCheck", "RegoCheck");
+            tableMapping.ColumnMappings.Add("FeeCode", "FeeCode");
+            tableMapping.ColumnMappings.Add("FeeConditions", "FeeConditions");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -8530,6 +8757,9 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)";
             tableMapping.ColumnMappings.Add("TrTkRatio", "TrTkRatio");
             tableMapping.ColumnMappings.Add("Schematic", "Schematic");
             tableMapping.ColumnMappings.Add("Compartments", "Compartments");
+            tableMapping.ColumnMappings.Add("FeeCode", "FeeCode");
+            tableMapping.ColumnMappings.Add("FeeConditions", "FeeConditions");
+            tableMapping.ColumnMappings.Add("RoadAccess", "RoadAccess");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
