@@ -224,6 +224,8 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)</CommandText>
               <Mapping SourceColumn="RegoCheck" DataSetColumn="RegoCheck" />
               <Mapping SourceColumn="FeeCode" DataSetColumn="FeeCode" />
               <Mapping SourceColumn="FeeConditions" DataSetColumn="FeeConditions" />
+              <Mapping SourceColumn="MaxGVM" DataSetColumn="MaxGVM" />
+              <Mapping SourceColumn="MaxAxles" DataSetColumn="MaxAxles" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -275,6 +277,8 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)</CommandText>
               <Mapping SourceColumn="FeeCode" DataSetColumn="FeeCode" />
               <Mapping SourceColumn="FeeConditions" DataSetColumn="FeeConditions" />
               <Mapping SourceColumn="RoadAccess" DataSetColumn="RoadAccess" />
+              <Mapping SourceColumn="MaxAxles" DataSetColumn="MaxAxles" />
+              <Mapping SourceColumn="MaxGVM" DataSetColumn="MaxGVM" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -286,7 +290,7 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)</CommandText>
   <xs:element name="dsTruckConfig" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="dsTruckConfig" msprop:Generator_UserDSName="dsTruckConfig">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="TruckConfigTrailer" msprop:Generator_TableClassName="TruckConfigTrailerDataTable" msprop:Generator_TableVarName="tableTruckConfigTrailer" msprop:Generator_TablePropName="TruckConfigTrailer" msprop:Generator_RowDeletingName="TruckConfigTrailerRowDeleting" msprop:Generator_RowChangingName="TruckConfigTrailerRowChanging" msprop:Generator_RowEvHandlerName="TruckConfigTrailerRowChangeEventHandler" msprop:Generator_RowDeletedName="TruckConfigTrailerRowDeleted" msprop:Generator_UserTableName="TruckConfigTrailer" msprop:Generator_RowChangedName="TruckConfigTrailerRowChanged" msprop:Generator_RowEvArgName="TruckConfigTrailerRowChangeEvent" msprop:Generator_RowClassName="TruckConfigTrailerRow">
+        <xs:element name="TruckConfigTrailer" msprop:Generator_TableClassName="TruckConfigTrailerDataTable" msprop:Generator_TableVarName="tableTruckConfigTrailer" msprop:Generator_RowChangedName="TruckConfigTrailerRowChanged" msprop:Generator_TablePropName="TruckConfigTrailer" msprop:Generator_RowDeletingName="TruckConfigTrailerRowDeleting" msprop:Generator_RowChangingName="TruckConfigTrailerRowChanging" msprop:Generator_RowEvHandlerName="TruckConfigTrailerRowChangeEventHandler" msprop:Generator_RowDeletedName="TruckConfigTrailerRowDeleted" msprop:Generator_RowClassName="TruckConfigTrailerRow" msprop:Generator_UserTableName="TruckConfigTrailer" msprop:Generator_RowEvArgName="TruckConfigTrailerRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Rego" msprop:Generator_ColumnVarNameInTable="columnRego" msprop:Generator_ColumnPropNameInRow="Rego" msprop:Generator_ColumnPropNameInTable="RegoColumn" msprop:Generator_UserColumnName="Rego">
@@ -344,7 +348,7 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TruckConfigTruck" msprop:Generator_TableClassName="TruckConfigTruckDataTable" msprop:Generator_TableVarName="tableTruckConfigTruck" msprop:Generator_TablePropName="TruckConfigTruck" msprop:Generator_RowDeletingName="TruckConfigTruckRowDeleting" msprop:Generator_RowChangingName="TruckConfigTruckRowChanging" msprop:Generator_RowEvHandlerName="TruckConfigTruckRowChangeEventHandler" msprop:Generator_RowDeletedName="TruckConfigTruckRowDeleted" msprop:Generator_UserTableName="TruckConfigTruck" msprop:Generator_RowChangedName="TruckConfigTruckRowChanged" msprop:Generator_RowEvArgName="TruckConfigTruckRowChangeEvent" msprop:Generator_RowClassName="TruckConfigTruckRow">
+        <xs:element name="TruckConfigTruck" msprop:Generator_TableClassName="TruckConfigTruckDataTable" msprop:Generator_TableVarName="tableTruckConfigTruck" msprop:Generator_RowChangedName="TruckConfigTruckRowChanged" msprop:Generator_TablePropName="TruckConfigTruck" msprop:Generator_RowDeletingName="TruckConfigTruckRowDeleting" msprop:Generator_RowChangingName="TruckConfigTruckRowChanging" msprop:Generator_RowEvHandlerName="TruckConfigTruckRowChangeEventHandler" msprop:Generator_RowDeletedName="TruckConfigTruckRowDeleted" msprop:Generator_RowClassName="TruckConfigTruckRow" msprop:Generator_UserTableName="TruckConfigTruck" msprop:Generator_RowEvArgName="TruckConfigTruckRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Rego" msprop:Generator_ColumnVarNameInTable="columnRego" msprop:Generator_ColumnPropNameInRow="Rego" msprop:Generator_ColumnPropNameInTable="RegoColumn" msprop:Generator_UserColumnName="Rego">
@@ -420,7 +424,7 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ConfiguredTnT" msprop:Generator_TableClassName="ConfiguredTnTDataTable" msprop:Generator_TableVarName="tableConfiguredTnT" msprop:Generator_TablePropName="ConfiguredTnT" msprop:Generator_RowDeletingName="ConfiguredTnTRowDeleting" msprop:Generator_RowChangingName="ConfiguredTnTRowChanging" msprop:Generator_RowEvHandlerName="ConfiguredTnTRowChangeEventHandler" msprop:Generator_RowDeletedName="ConfiguredTnTRowDeleted" msprop:Generator_UserTableName="ConfiguredTnT" msprop:Generator_RowChangedName="ConfiguredTnTRowChanged" msprop:Generator_RowEvArgName="ConfiguredTnTRowChangeEvent" msprop:Generator_RowClassName="ConfiguredTnTRow">
+        <xs:element name="ConfiguredTnT" msprop:Generator_TableClassName="ConfiguredTnTDataTable" msprop:Generator_TableVarName="tableConfiguredTnT" msprop:Generator_RowChangedName="ConfiguredTnTRowChanged" msprop:Generator_TablePropName="ConfiguredTnT" msprop:Generator_RowDeletingName="ConfiguredTnTRowDeleting" msprop:Generator_RowChangingName="ConfiguredTnTRowChanging" msprop:Generator_RowEvHandlerName="ConfiguredTnTRowChangeEventHandler" msprop:Generator_RowDeletedName="ConfiguredTnTRowDeleted" msprop:Generator_RowClassName="ConfiguredTnTRow" msprop:Generator_UserTableName="ConfiguredTnT" msprop:Generator_RowEvArgName="ConfiguredTnTRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TruckConfigID" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTruckConfigID" msprop:Generator_ColumnPropNameInRow="TruckConfigID" msprop:Generator_ColumnPropNameInTable="TruckConfigIDColumn" msprop:Generator_UserColumnName="TruckConfigID" type="xs:int" minOccurs="0" />
@@ -573,7 +577,7 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="NHVLDetails" msprop:Generator_TableClassName="NHVLDetailsDataTable" msprop:Generator_TableVarName="tableNHVLDetails" msprop:Generator_RowChangedName="NHVLDetailsRowChanged" msprop:Generator_TablePropName="NHVLDetails" msprop:Generator_RowDeletingName="NHVLDetailsRowDeleting" msprop:Generator_RowChangingName="NHVLDetailsRowChanging" msprop:Generator_RowEvHandlerName="NHVLDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="NHVLDetailsRowDeleted" msprop:Generator_RowClassName="NHVLDetailsRow" msprop:Generator_UserTableName="NHVLDetails" msprop:Generator_RowEvArgName="NHVLDetailsRowChangeEvent">
+        <xs:element name="NHVLDetails" msprop:Generator_TableClassName="NHVLDetailsDataTable" msprop:Generator_TableVarName="tableNHVLDetails" msprop:Generator_TablePropName="NHVLDetails" msprop:Generator_RowDeletingName="NHVLDetailsRowDeleting" msprop:Generator_RowChangingName="NHVLDetailsRowChanging" msprop:Generator_RowEvHandlerName="NHVLDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="NHVLDetailsRowDeleted" msprop:Generator_UserTableName="NHVLDetails" msprop:Generator_RowChangedName="NHVLDetailsRowChanged" msprop:Generator_RowEvArgName="NHVLDetailsRowChangeEvent" msprop:Generator_RowClassName="NHVLDetailsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TruckTypeID" msprop:Generator_ColumnVarNameInTable="columnTruckTypeID" msprop:Generator_ColumnPropNameInRow="TruckTypeID" msprop:Generator_ColumnPropNameInTable="TruckTypeIDColumn" msprop:Generator_UserColumnName="TruckTypeID" type="xs:int" />
@@ -638,7 +642,7 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ConfiguredTrucks" msprop:Generator_TableClassName="ConfiguredTrucksDataTable" msprop:Generator_TableVarName="tableConfiguredTrucks" msprop:Generator_RowChangedName="ConfiguredTrucksRowChanged" msprop:Generator_TablePropName="ConfiguredTrucks" msprop:Generator_RowDeletingName="ConfiguredTrucksRowDeleting" msprop:Generator_RowChangingName="ConfiguredTrucksRowChanging" msprop:Generator_RowEvHandlerName="ConfiguredTrucksRowChangeEventHandler" msprop:Generator_RowDeletedName="ConfiguredTrucksRowDeleted" msprop:Generator_RowClassName="ConfiguredTrucksRow" msprop:Generator_UserTableName="ConfiguredTrucks" msprop:Generator_RowEvArgName="ConfiguredTrucksRowChangeEvent">
+        <xs:element name="ConfiguredTrucks" msprop:Generator_TableClassName="ConfiguredTrucksDataTable" msprop:Generator_TableVarName="tableConfiguredTrucks" msprop:Generator_TablePropName="ConfiguredTrucks" msprop:Generator_RowDeletingName="ConfiguredTrucksRowDeleting" msprop:Generator_RowChangingName="ConfiguredTrucksRowChanging" msprop:Generator_RowEvHandlerName="ConfiguredTrucksRowChangeEventHandler" msprop:Generator_RowDeletedName="ConfiguredTrucksRowDeleted" msprop:Generator_UserTableName="ConfiguredTrucks" msprop:Generator_RowChangedName="ConfiguredTrucksRowChanged" msprop:Generator_RowEvArgName="ConfiguredTrucksRowChangeEvent" msprop:Generator_RowClassName="ConfiguredTrucksRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="RegoTk" msprop:Generator_ColumnVarNameInTable="columnRegoTk" msprop:Generator_ColumnPropNameInRow="RegoTk" msprop:Generator_ColumnPropNameInTable="RegoTkColumn" msprop:Generator_UserColumnName="RegoTk">
@@ -759,10 +763,12 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="MaxGVM" msprop:Generator_ColumnVarNameInTable="columnMaxGVM" msprop:Generator_ColumnPropNameInRow="MaxGVM" msprop:Generator_ColumnPropNameInTable="MaxGVMColumn" msprop:Generator_UserColumnName="MaxGVM" type="xs:decimal" />
+              <xs:element name="MaxAxles" msprop:Generator_ColumnVarNameInTable="columnMaxAxles" msprop:Generator_ColumnPropNameInRow="MaxAxles" msprop:Generator_ColumnPropNameInTable="MaxAxlesColumn" msprop:Generator_UserColumnName="MaxAxles" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ConfiguredTruckGVM" msprop:Generator_TableClassName="ConfiguredTruckGVMDataTable" msprop:Generator_TableVarName="tableConfiguredTruckGVM" msprop:Generator_RowChangedName="ConfiguredTruckGVMRowChanged" msprop:Generator_TablePropName="ConfiguredTruckGVM" msprop:Generator_RowDeletingName="ConfiguredTruckGVMRowDeleting" msprop:Generator_RowChangingName="ConfiguredTruckGVMRowChanging" msprop:Generator_RowEvHandlerName="ConfiguredTruckGVMRowChangeEventHandler" msprop:Generator_RowDeletedName="ConfiguredTruckGVMRowDeleted" msprop:Generator_RowClassName="ConfiguredTruckGVMRow" msprop:Generator_UserTableName="ConfiguredTruckGVM" msprop:Generator_RowEvArgName="ConfiguredTruckGVMRowChangeEvent">
+        <xs:element name="ConfiguredTruckGVM" msprop:Generator_TableClassName="ConfiguredTruckGVMDataTable" msprop:Generator_TableVarName="tableConfiguredTruckGVM" msprop:Generator_TablePropName="ConfiguredTruckGVM" msprop:Generator_RowDeletingName="ConfiguredTruckGVMRowDeleting" msprop:Generator_RowChangingName="ConfiguredTruckGVMRowChanging" msprop:Generator_RowEvHandlerName="ConfiguredTruckGVMRowChangeEventHandler" msprop:Generator_RowDeletedName="ConfiguredTruckGVMRowDeleted" msprop:Generator_UserTableName="ConfiguredTruckGVM" msprop:Generator_RowChangedName="ConfiguredTruckGVMRowChanged" msprop:Generator_RowEvArgName="ConfiguredTruckGVMRowChangeEvent" msprop:Generator_RowClassName="ConfiguredTruckGVMRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TruckConfigID" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTruckConfigID" msprop:Generator_ColumnPropNameInRow="TruckConfigID" msprop:Generator_ColumnPropNameInTable="TruckConfigIDColumn" msprop:Generator_UserColumnName="TruckConfigID" type="xs:int" minOccurs="0" />
@@ -905,6 +911,8 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="MaxAxles" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMaxAxles" msprop:Generator_ColumnPropNameInRow="MaxAxles" msprop:Generator_ColumnPropNameInTable="MaxAxlesColumn" msprop:Generator_UserColumnName="MaxAxles" type="xs:int" minOccurs="0" />
+              <xs:element name="MaxGVM" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMaxGVM" msprop:Generator_ColumnPropNameInRow="MaxGVM" msprop:Generator_ColumnPropNameInTable="MaxGVMColumn" msprop:Generator_UserColumnName="MaxGVM" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -913,7 +921,7 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="Truck2Trailer" msdata:parent="TruckConfigTruck" msdata:child="TruckConfigTrailer" msdata:parentkey="TruckConfigID" msdata:childkey="TruckConfigID" msprop:Generator_UserChildTable="TruckConfigTrailer" msprop:Generator_ChildPropName="GetTruckConfigTrailerRows" msprop:Generator_UserRelationName="Truck2Trailer" msprop:Generator_RelationVarName="relationTruck2Trailer" msprop:Generator_UserParentTable="TruckConfigTruck" msprop:Generator_ParentPropName="TruckConfigTruckRow" />
+      <msdata:Relationship name="Truck2Trailer" msdata:parent="TruckConfigTruck" msdata:child="TruckConfigTrailer" msdata:parentkey="TruckConfigID" msdata:childkey="TruckConfigID" msprop:Generator_UserChildTable="TruckConfigTrailer" msprop:Generator_ChildPropName="GetTruckConfigTrailerRows" msprop:Generator_UserRelationName="Truck2Trailer" msprop:Generator_ParentPropName="TruckConfigTruckRow" msprop:Generator_RelationVarName="relationTruck2Trailer" msprop:Generator_UserParentTable="TruckConfigTruck" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

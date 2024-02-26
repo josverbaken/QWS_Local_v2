@@ -96,6 +96,13 @@ namespace QWS_Local
         {
             DataRow myDR = ((DataRowView)bsConfiguredTruckGVM.Current).Row;
             dsTruckConfig.ConfiguredTruckGVMRow truckConfigRow = (dsTruckConfig.ConfiguredTruckGVMRow)myDR;
+            // Check if SR conditon applies and handle GVM before proceeding
+
+            if (truckConfigRow.GCM > truckConfigRow.MaxGVM)
+            {
+                MessageBox.Show("GCM will be reduced to " + truckConfigRow.MaxGVM.ToString() + " due to Fee Code conditions");
+            }
+
             // TODO create new form similar to BookInTruck but accepting ConfiguredTruckGVMRow
             BookInTruck frmBookInTruck = new BookInTruck();
             frmBookInTruck.MdiParent = this.MdiParent;
@@ -111,9 +118,45 @@ namespace QWS_Local
         {
             if (FormLoaded)
             {
-                GetConfiguredTrucksGVM();
+                bool OKAY2Proceed = true;
+                // test if SR conditions might apply
+                if (CurrentConfigTruck().Axles > CurrentConfigTruck().MaxAxles)
+                {
+                    OKAY2Proceed = false;
+                    MessageBox.Show("Unable to proceed, due to Fee Code axle restriction!");
+                }
+                if (OKAY2Proceed)
+                {
+                    GetConfiguredTrucksGVM();
+                    // TODO check GVM vs MaxGVM once config chosen
+                }
             }
         }
 
+        private void btnSelectCombinaton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dsTruckConfig.ConfiguredTruckGVM.Clear();
+                bool OKAY2Proceed = true;
+                // test if SR conditions might apply
+                int myAxles = CurrentConfigTruck().Axles;
+                int myMaxAxles = CurrentConfigTruck().MaxAxles;
+                if (myAxles > myMaxAxles )
+                {
+                    OKAY2Proceed = false;
+                    MessageBox.Show("Unable to proceed, due to Fee Code axle restriction!");
+                }
+                if (OKAY2Proceed)
+                {
+                    GetConfiguredTrucksGVM();
+                    // TODO check GVM vs MaxGVM once config chosen
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

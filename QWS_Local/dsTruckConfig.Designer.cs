@@ -2683,6 +2683,10 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnFeeConditions;
             
+            private global::System.Data.DataColumn columnMaxGVM;
+            
+            private global::System.Data.DataColumn columnMaxAxles;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ConfiguredTrucksDataTable() {
@@ -2942,6 +2946,22 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn MaxGVMColumn {
+                get {
+                    return this.columnMaxGVM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn MaxAxlesColumn {
+                get {
+                    return this.columnMaxAxles;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3004,7 +3024,9 @@ namespace QWS_Local {
                         string CardStatus, 
                         bool RegoCheck, 
                         string FeeCode, 
-                        string FeeConditions) {
+                        string FeeConditions, 
+                        decimal MaxGVM, 
+                        int MaxAxles) {
                 ConfiguredTrucksRow rowConfiguredTrucksRow = ((ConfiguredTrucksRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RegoTk,
@@ -3034,7 +3056,9 @@ namespace QWS_Local {
                         CardStatus,
                         RegoCheck,
                         FeeCode,
-                        FeeConditions};
+                        FeeConditions,
+                        MaxGVM,
+                        MaxAxles};
                 rowConfiguredTrucksRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowConfiguredTrucksRow);
                 return rowConfiguredTrucksRow;
@@ -3085,6 +3109,8 @@ namespace QWS_Local {
                 this.columnRegoCheck = base.Columns["RegoCheck"];
                 this.columnFeeCode = base.Columns["FeeCode"];
                 this.columnFeeConditions = base.Columns["FeeConditions"];
+                this.columnMaxGVM = base.Columns["MaxGVM"];
+                this.columnMaxAxles = base.Columns["MaxAxles"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3146,6 +3172,10 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnFeeCode);
                 this.columnFeeConditions = new global::System.Data.DataColumn("FeeConditions", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFeeConditions);
+                this.columnMaxGVM = new global::System.Data.DataColumn("MaxGVM", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaxGVM);
+                this.columnMaxAxles = new global::System.Data.DataColumn("MaxAxles", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaxAxles);
                 this.columnRegoTk.AllowDBNull = false;
                 this.columnRegoTk.MaxLength = 6;
                 this.columnRegoTr1.MaxLength = 6;
@@ -3183,6 +3213,8 @@ namespace QWS_Local {
                 this.columnFeeCode.MaxLength = 50;
                 this.columnFeeConditions.AllowDBNull = false;
                 this.columnFeeConditions.MaxLength = 5000;
+                this.columnMaxGVM.AllowDBNull = false;
+                this.columnMaxAxles.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3379,6 +3411,10 @@ namespace QWS_Local {
             private global::System.Data.DataColumn columnFeeConditions;
             
             private global::System.Data.DataColumn columnRoadAccess;
+            
+            private global::System.Data.DataColumn columnMaxAxles;
+            
+            private global::System.Data.DataColumn columnMaxGVM;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -3671,6 +3707,22 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn MaxAxlesColumn {
+                get {
+                    return this.columnMaxAxles;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn MaxGVMColumn {
+                get {
+                    return this.columnMaxGVM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3738,7 +3790,9 @@ namespace QWS_Local {
                         int Compartments, 
                         string FeeCode, 
                         string FeeConditions, 
-                        string RoadAccess) {
+                        string RoadAccess, 
+                        int MaxAxles, 
+                        decimal MaxGVM) {
                 ConfiguredTruckGVMRow rowConfiguredTruckGVMRow = ((ConfiguredTruckGVMRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TruckConfigID,
@@ -3772,7 +3826,9 @@ namespace QWS_Local {
                         Compartments,
                         FeeCode,
                         FeeConditions,
-                        RoadAccess};
+                        RoadAccess,
+                        MaxAxles,
+                        MaxGVM};
                 rowConfiguredTruckGVMRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowConfiguredTruckGVMRow);
                 return rowConfiguredTruckGVMRow;
@@ -3827,6 +3883,8 @@ namespace QWS_Local {
                 this.columnFeeCode = base.Columns["FeeCode"];
                 this.columnFeeConditions = base.Columns["FeeConditions"];
                 this.columnRoadAccess = base.Columns["RoadAccess"];
+                this.columnMaxAxles = base.Columns["MaxAxles"];
+                this.columnMaxGVM = base.Columns["MaxGVM"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3896,6 +3954,10 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnFeeConditions);
                 this.columnRoadAccess = new global::System.Data.DataColumn("RoadAccess", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRoadAccess);
+                this.columnMaxAxles = new global::System.Data.DataColumn("MaxAxles", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaxAxles);
+                this.columnMaxGVM = new global::System.Data.DataColumn("MaxGVM", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaxGVM);
                 this.columnTruckConfigID.ReadOnly = true;
                 this.columnRegoTk.ReadOnly = true;
                 this.columnRegoTk.MaxLength = 6;
@@ -3946,6 +4008,8 @@ namespace QWS_Local {
                 this.columnFeeConditions.MaxLength = 5000;
                 this.columnRoadAccess.ReadOnly = true;
                 this.columnRoadAccess.MaxLength = 150;
+                this.columnMaxAxles.ReadOnly = true;
+                this.columnMaxGVM.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6235,6 +6299,28 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal MaxGVM {
+                get {
+                    return ((decimal)(this[this.tableConfiguredTrucks.MaxGVMColumn]));
+                }
+                set {
+                    this[this.tableConfiguredTrucks.MaxGVMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int MaxAxles {
+                get {
+                    return ((int)(this[this.tableConfiguredTrucks.MaxAxlesColumn]));
+                }
+                set {
+                    this[this.tableConfiguredTrucks.MaxAxlesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsRegoTr1Null() {
                 return this.IsNull(this.tableConfiguredTrucks.RegoTr1Column);
             }
@@ -6932,6 +7018,38 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int MaxAxles {
+                get {
+                    try {
+                        return ((int)(this[this.tableConfiguredTruckGVM.MaxAxlesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MaxAxles\' in table \'ConfiguredTruckGVM\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableConfiguredTruckGVM.MaxAxlesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal MaxGVM {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableConfiguredTruckGVM.MaxGVMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MaxGVM\' in table \'ConfiguredTruckGVM\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableConfiguredTruckGVM.MaxGVMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsTruckConfigIDNull() {
                 return this.IsNull(this.tableConfiguredTruckGVM.TruckConfigIDColumn);
             }
@@ -7312,6 +7430,30 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetRoadAccessNull() {
                 this[this.tableConfiguredTruckGVM.RoadAccessColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMaxAxlesNull() {
+                return this.IsNull(this.tableConfiguredTruckGVM.MaxAxlesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMaxAxlesNull() {
+                this[this.tableConfiguredTruckGVM.MaxAxlesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMaxGVMNull() {
+                return this.IsNull(this.tableConfiguredTruckGVM.MaxGVMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMaxGVMNull() {
+                this[this.tableConfiguredTruckGVM.MaxGVMColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8548,6 +8690,8 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)";
             tableMapping.ColumnMappings.Add("RegoCheck", "RegoCheck");
             tableMapping.ColumnMappings.Add("FeeCode", "FeeCode");
             tableMapping.ColumnMappings.Add("FeeConditions", "FeeConditions");
+            tableMapping.ColumnMappings.Add("MaxGVM", "MaxGVM");
+            tableMapping.ColumnMappings.Add("MaxAxles", "MaxAxles");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -8760,6 +8904,8 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)";
             tableMapping.ColumnMappings.Add("FeeCode", "FeeCode");
             tableMapping.ColumnMappings.Add("FeeConditions", "FeeConditions");
             tableMapping.ColumnMappings.Add("RoadAccess", "RoadAccess");
+            tableMapping.ColumnMappings.Add("MaxAxles", "MaxAxles");
+            tableMapping.ColumnMappings.Add("MaxGVM", "MaxGVM");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
