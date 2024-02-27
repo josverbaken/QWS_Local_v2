@@ -260,7 +260,9 @@ namespace QWS_Local
 
                 if (OK2BookIn == true)
                 {
-                    BookInTruck frmBookInTruck = new BookInTruck(truckConfigRow);
+                    //BookInTruck frmBookInTruck = new BookInTruck(truckConfigRow);
+                    // TODO deprecate this form 
+                    BookInTruck frmBookInTruck = new BookInTruck();
                     frmBookInTruck.MdiParent = this.MdiParent;
                     frmBookInTruck.Show();
                 }

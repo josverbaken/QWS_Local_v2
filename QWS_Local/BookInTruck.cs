@@ -17,11 +17,19 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public BookInTruck (dsTruckConfig.ConfiguredTnTRow configuredTnTRow)
+        public BookInTruck(dsTruckConfig.ConfiguredTnTRow configuredTnTRow)
         {
             InitializeComponent();
             dsTruckConfig.ConfiguredTnT.Clear();
             dsTruckConfig.ConfiguredTnT.ImportRow(configuredTnTRow);
+        }
+
+        public BookInTruck (dsTruckConfig.ConfiguredTruckGVMRow configuredTruckGVMRow)
+        {
+            InitializeComponent();
+            dsTruckConfig.ConfiguredTruckGVM.Clear();
+            dsTruckConfig.ConfiguredTruckGVM.ImportRow(configuredTruckGVMRow);
+            //pictureBox1.Image = 
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -92,15 +100,15 @@ namespace QWS_Local
             }
         }
 
-        private dsTruckConfig.ConfiguredTnTRow CurrentTNT()
+        private dsTruckConfig.ConfiguredTruckGVMRow CurrentTNT()
         {
             try
             {
-                if (bsConfiguredTnT.Count > 0)
+                if (bsConfiguredTruckGVM.Count > 0)
                 {
-                    DataRow myRow = ((DataRowView)bsConfiguredTnT.Current).Row;
-                    dsTruckConfig.ConfiguredTnTRow configuredTnTRow = (dsTruckConfig.ConfiguredTnTRow)myRow;
-                    return configuredTnTRow;
+                    DataRow myRow = ((DataRowView)bsConfiguredTruckGVM.Current).Row;
+                    dsTruckConfig.ConfiguredTruckGVMRow configuredTruckGVMRow = (dsTruckConfig.ConfiguredTruckGVMRow)myRow;
+                    return configuredTruckGVMRow;
                 }
                 return null;
             }
@@ -113,47 +121,52 @@ namespace QWS_Local
 
         private void BookInTruck_Load(object sender, EventArgs e)
         {
-            if (bsConfiguredTnT.Count > 0)
+        }
+
+        private void UpdateGUI()
+        {
+            if (bsConfiguredTruckGVM.Count > 0)
             {
-            if (CurrentTNT().GroupCode == 117)
-            {
-                chkACC.Checked = true;
-            }
-            else
-            {
-                chkACC.Checked = false;
-            }
-            if (CurrentTNT().CardStatus == "A") // A = Active, I = Inactive, H = On Hold
-            {
-                txtCardStatus.BackColor = Color.PaleGreen;
-            }
-            else
-            {
-                txtCardStatus.BackColor = Color.Salmon;
-            }
-            if (CurrentTNT().Compartments > 1)
-            {
-                btnTnT.Enabled = true;
-                btnSplitLoad.Enabled = true;
-                btnTrailerOnly.Enabled = true;
-            }
-            else
-            {
-                btnTnT.Enabled = false;
-                btnSplitLoad.Enabled = false;
-                btnTrailerOnly.Enabled = false;
-            }
-            if (CurrentTNT().TareDT < DateTime.Now)
-            {
-                btnRetare.Enabled = true;
-                btnRetare.BackColor = Color.Orange;
-            }
-            else
-            {
-                btnRetare.Enabled = false;
-                btnRetare.BackColor = SystemColors.Control;
+                if (CurrentTNT().GroupCode == 117)
+                {
+                    chkACC.Checked = true;
+                }
+                else
+                {
+                    chkACC.Checked = false;
+                }
+                if (CurrentTNT().CardStatus == "A") // A = Active, I = Inactive, H = On Hold
+                {
+                    txtCardStatus.BackColor = Color.PaleGreen;
+                }
+                else
+                {
+                    txtCardStatus.BackColor = Color.Salmon;
+                }
+                if (CurrentTNT().Compartments > 1)
+                {
+                    btnTnT.Enabled = true;
+                    btnSplitLoad.Enabled = true;
+                    btnTrailerOnly.Enabled = true;
+                }
+                else
+                {
+                    btnTnT.Enabled = false;
+                    btnSplitLoad.Enabled = false;
+                    btnTrailerOnly.Enabled = false;
+                }
+                if (CurrentTNT().TareDT < DateTime.Now)
+                {
+                    btnRetare.Enabled = true;
+                    btnRetare.BackColor = Color.Orange;
+                }
+                else
+                {
+                    btnRetare.Enabled = false;
+                    btnRetare.BackColor = SystemColors.Control;
                 }
             }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -167,6 +180,11 @@ namespace QWS_Local
             PreferredCustomers frmPrefCust = new PreferredCustomers(myRego);
             DialogResult dr = frmPrefCust.ShowDialog();
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            UpdateGUI();
         }
     }
 }

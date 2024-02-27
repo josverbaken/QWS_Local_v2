@@ -94,6 +94,7 @@ namespace QWS_Local
 
         private void btnNextForm_Click(object sender, EventArgs e)
         {
+            bool OK2Proceed = true;
             DataRow myDR = ((DataRowView)bsConfiguredTruckGVM.Current).Row;
             dsTruckConfig.ConfiguredTruckGVMRow truckConfigRow = (dsTruckConfig.ConfiguredTruckGVMRow)myDR;
             // Check if SR conditon applies and handle GVM before proceeding
@@ -103,10 +104,24 @@ namespace QWS_Local
                 MessageBox.Show("GCM will be reduced to " + truckConfigRow.MaxGVM.ToString() + " due to Fee Code conditions");
             }
 
-            // TODO create new form similar to BookInTruck but accepting ConfiguredTruckGVMRow
-            BookInTruck frmBookInTruck = new BookInTruck();
-            frmBookInTruck.MdiParent = this.MdiParent;
-            frmBookInTruck.Show();
+            if (truckConfigRow.RegoCheck == false)
+            {
+                OK2Proceed = false;
+                MessageBox.Show("Registration has expired, cannot proceed!");
+            }
+
+            if (truckConfigRow.CardStatus != "A")
+            {
+                OK2Proceed = false;
+                MessageBox.Show("Account NOT Active, cannot proceed!");
+            }
+
+            if (OK2Proceed)
+            {
+                BookInTruck frmBookInTruck = new BookInTruck(truckConfigRow);
+                frmBookInTruck.MdiParent = this.MdiParent;
+                frmBookInTruck.Show();
+            }
         }
 
         private void BookInTruckStep1_Load(object sender, EventArgs e)

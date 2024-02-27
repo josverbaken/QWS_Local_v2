@@ -48,14 +48,6 @@ namespace QWS_Local
             this.txtVehicleDescription = new System.Windows.Forms.TextBox();
             this.btnNextForm = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.gCMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gVMTruckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.configSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoadAccess = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schemeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pBSLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bridgeAssessmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
             this.cardCodeTextBox = new System.Windows.Forms.TextBox();
             this.truckOwnerTextBox = new System.Windows.Forms.TextBox();
@@ -67,6 +59,15 @@ namespace QWS_Local
             this.txtFeeCode = new System.Windows.Forms.TextBox();
             this.txtFeeCodeConditions = new System.Windows.Forms.TextBox();
             this.btnSelectCombinaton = new System.Windows.Forms.Button();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.gCMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gVMTruckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.configSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoadAccess = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schemeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pBSLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bridgeAssessmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -232,6 +233,7 @@ namespace QWS_Local
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewCheckBoxColumn1,
             this.gCMDataGridViewTextBoxColumn,
             this.gVMTruckDataGridViewTextBoxColumn,
             this.configSourceDataGridViewTextBoxColumn,
@@ -246,64 +248,6 @@ namespace QWS_Local
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(979, 150);
             this.dataGridView2.TabIndex = 8;
-            // 
-            // gCMDataGridViewTextBoxColumn
-            // 
-            this.gCMDataGridViewTextBoxColumn.DataPropertyName = "GCM";
-            this.gCMDataGridViewTextBoxColumn.HeaderText = "GCM";
-            this.gCMDataGridViewTextBoxColumn.Name = "gCMDataGridViewTextBoxColumn";
-            this.gCMDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // gVMTruckDataGridViewTextBoxColumn
-            // 
-            this.gVMTruckDataGridViewTextBoxColumn.DataPropertyName = "GVMTruck";
-            this.gVMTruckDataGridViewTextBoxColumn.HeaderText = "GVMTruck";
-            this.gVMTruckDataGridViewTextBoxColumn.Name = "gVMTruckDataGridViewTextBoxColumn";
-            this.gVMTruckDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // configSourceDataGridViewTextBoxColumn
-            // 
-            this.configSourceDataGridViewTextBoxColumn.DataPropertyName = "ConfigSource";
-            this.configSourceDataGridViewTextBoxColumn.HeaderText = "ConfigSource";
-            this.configSourceDataGridViewTextBoxColumn.Name = "configSourceDataGridViewTextBoxColumn";
-            this.configSourceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.configSourceDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // schemeCodeDataGridViewTextBoxColumn
-            // 
-            this.schemeCodeDataGridViewTextBoxColumn.DataPropertyName = "SchemeCode";
-            this.schemeCodeDataGridViewTextBoxColumn.HeaderText = "SchemeCode";
-            this.schemeCodeDataGridViewTextBoxColumn.Name = "schemeCodeDataGridViewTextBoxColumn";
-            this.schemeCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // RoadAccess
-            // 
-            this.RoadAccess.DataPropertyName = "RoadAccess";
-            this.RoadAccess.HeaderText = "RoadAccess";
-            this.RoadAccess.Name = "RoadAccess";
-            this.RoadAccess.ReadOnly = true;
-            // 
-            // schemeDataGridViewTextBoxColumn
-            // 
-            this.schemeDataGridViewTextBoxColumn.DataPropertyName = "Scheme";
-            this.schemeDataGridViewTextBoxColumn.HeaderText = "Scheme";
-            this.schemeDataGridViewTextBoxColumn.Name = "schemeDataGridViewTextBoxColumn";
-            this.schemeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.schemeDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // pBSLevelDataGridViewTextBoxColumn
-            // 
-            this.pBSLevelDataGridViewTextBoxColumn.DataPropertyName = "PBS_Level";
-            this.pBSLevelDataGridViewTextBoxColumn.HeaderText = "PBS_Level";
-            this.pBSLevelDataGridViewTextBoxColumn.Name = "pBSLevelDataGridViewTextBoxColumn";
-            this.pBSLevelDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bridgeAssessmentDataGridViewTextBoxColumn
-            // 
-            this.bridgeAssessmentDataGridViewTextBoxColumn.DataPropertyName = "BridgeAssessment";
-            this.bridgeAssessmentDataGridViewTextBoxColumn.HeaderText = "BridgeAssessment";
-            this.bridgeAssessmentDataGridViewTextBoxColumn.Name = "bridgeAssessmentDataGridViewTextBoxColumn";
-            this.bridgeAssessmentDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // bsConfiguredTruckGVM
             // 
@@ -384,6 +328,71 @@ namespace QWS_Local
             this.btnSelectCombinaton.UseVisualStyleBackColor = true;
             this.btnSelectCombinaton.Click += new System.EventHandler(this.btnSelectCombinaton_Click);
             // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "RegoCheck";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "RegoCheck";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            // 
+            // gCMDataGridViewTextBoxColumn
+            // 
+            this.gCMDataGridViewTextBoxColumn.DataPropertyName = "GCM";
+            this.gCMDataGridViewTextBoxColumn.HeaderText = "GCM";
+            this.gCMDataGridViewTextBoxColumn.Name = "gCMDataGridViewTextBoxColumn";
+            this.gCMDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // gVMTruckDataGridViewTextBoxColumn
+            // 
+            this.gVMTruckDataGridViewTextBoxColumn.DataPropertyName = "GVMTruck";
+            this.gVMTruckDataGridViewTextBoxColumn.HeaderText = "GVMTruck";
+            this.gVMTruckDataGridViewTextBoxColumn.Name = "gVMTruckDataGridViewTextBoxColumn";
+            this.gVMTruckDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // configSourceDataGridViewTextBoxColumn
+            // 
+            this.configSourceDataGridViewTextBoxColumn.DataPropertyName = "ConfigSource";
+            this.configSourceDataGridViewTextBoxColumn.HeaderText = "ConfigSource";
+            this.configSourceDataGridViewTextBoxColumn.Name = "configSourceDataGridViewTextBoxColumn";
+            this.configSourceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.configSourceDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // schemeCodeDataGridViewTextBoxColumn
+            // 
+            this.schemeCodeDataGridViewTextBoxColumn.DataPropertyName = "SchemeCode";
+            this.schemeCodeDataGridViewTextBoxColumn.HeaderText = "SchemeCode";
+            this.schemeCodeDataGridViewTextBoxColumn.Name = "schemeCodeDataGridViewTextBoxColumn";
+            this.schemeCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // RoadAccess
+            // 
+            this.RoadAccess.DataPropertyName = "RoadAccess";
+            this.RoadAccess.HeaderText = "RoadAccess";
+            this.RoadAccess.Name = "RoadAccess";
+            this.RoadAccess.ReadOnly = true;
+            // 
+            // schemeDataGridViewTextBoxColumn
+            // 
+            this.schemeDataGridViewTextBoxColumn.DataPropertyName = "Scheme";
+            this.schemeDataGridViewTextBoxColumn.HeaderText = "Scheme";
+            this.schemeDataGridViewTextBoxColumn.Name = "schemeDataGridViewTextBoxColumn";
+            this.schemeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.schemeDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // pBSLevelDataGridViewTextBoxColumn
+            // 
+            this.pBSLevelDataGridViewTextBoxColumn.DataPropertyName = "PBS_Level";
+            this.pBSLevelDataGridViewTextBoxColumn.HeaderText = "PBS_Level";
+            this.pBSLevelDataGridViewTextBoxColumn.Name = "pBSLevelDataGridViewTextBoxColumn";
+            this.pBSLevelDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bridgeAssessmentDataGridViewTextBoxColumn
+            // 
+            this.bridgeAssessmentDataGridViewTextBoxColumn.DataPropertyName = "BridgeAssessment";
+            this.bridgeAssessmentDataGridViewTextBoxColumn.HeaderText = "BridgeAssessment";
+            this.bridgeAssessmentDataGridViewTextBoxColumn.Name = "bridgeAssessmentDataGridViewTextBoxColumn";
+            this.bridgeAssessmentDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // BookInTruckStep1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -450,6 +459,8 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewCheckBoxColumn PBS;
         private System.Windows.Forms.TextBox txtFeeCode;
         private System.Windows.Forms.TextBox txtFeeCodeConditions;
+        private System.Windows.Forms.Button btnSelectCombinaton;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn gCMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gVMTruckDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn configSourceDataGridViewTextBoxColumn;
@@ -458,6 +469,5 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn schemeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pBSLevelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bridgeAssessmentDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnSelectCombinaton;
     }
 }
