@@ -100,7 +100,7 @@ namespace QWS_Local
             }
         }
 
-        private dsTruckConfig.ConfiguredTruckGVMRow CurrentTNT()
+        private dsTruckConfig.ConfiguredTruckGVMRow CurrentTruckGVM()
         {
             try
             {
@@ -121,13 +121,14 @@ namespace QWS_Local
 
         private void BookInTruck_Load(object sender, EventArgs e)
         {
+            UpdateGUI();
         }
 
         private void UpdateGUI()
         {
             if (bsConfiguredTruckGVM.Count > 0)
             {
-                if (CurrentTNT().GroupCode == 117)
+                if (CurrentTruckGVM().GroupCode == 117)
                 {
                     chkACC.Checked = true;
                 }
@@ -135,7 +136,7 @@ namespace QWS_Local
                 {
                     chkACC.Checked = false;
                 }
-                if (CurrentTNT().CardStatus == "A") // A = Active, I = Inactive, H = On Hold
+                if (CurrentTruckGVM().CardStatus == "A") // A = Active, I = Inactive, H = On Hold
                 {
                     txtCardStatus.BackColor = Color.PaleGreen;
                 }
@@ -143,7 +144,7 @@ namespace QWS_Local
                 {
                     txtCardStatus.BackColor = Color.Salmon;
                 }
-                if (CurrentTNT().Compartments > 1)
+                if (CurrentTruckGVM().Compartments > 1)
                 {
                     btnTnT.Enabled = true;
                     btnSplitLoad.Enabled = true;
@@ -155,7 +156,7 @@ namespace QWS_Local
                     btnSplitLoad.Enabled = false;
                     btnTrailerOnly.Enabled = false;
                 }
-                if (CurrentTNT().TareDT < DateTime.Now)
+                if (CurrentTruckGVM().TareDT < DateTime.Now)
                 {
                     btnRetare.Enabled = true;
                     btnRetare.BackColor = Color.Orange;
@@ -176,7 +177,7 @@ namespace QWS_Local
 
         private void GetPrefCustomer()
         {
-            string myRego = CurrentTNT().RegoTk;
+            string myRego = CurrentTruckGVM().RegoTk;
             PreferredCustomers frmPrefCust = new PreferredCustomers(myRego);
             DialogResult dr = frmPrefCust.ShowDialog();
 

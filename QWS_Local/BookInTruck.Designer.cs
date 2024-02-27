@@ -52,7 +52,6 @@ namespace QWS_Local
             this.regoTkTextBox = new System.Windows.Forms.TextBox();
             this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
-            this.bsConfiguredTnT = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.txtCardCode = new System.Windows.Forms.TextBox();
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
@@ -89,7 +88,6 @@ namespace QWS_Local
             this.btnImported = new System.Windows.Forms.Button();
             this.chkACC = new System.Windows.Forms.CheckBox();
             this.chkDriverACC = new System.Windows.Forms.CheckBox();
-            this.taConfiguredTnT = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTnTTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnSplitLoad = new System.Windows.Forms.Button();
@@ -98,7 +96,6 @@ namespace QWS_Local
             this.button2 = new System.Windows.Forms.Button();
             this.taConfiguredTruckGVM = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTruckGVMTableAdapter();
             this.txtCardStatus = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
             regoTkLabel = new System.Windows.Forms.Label();
             personLabel = new System.Windows.Forms.Label();
             positionLabel = new System.Windows.Forms.Label();
@@ -120,7 +117,6 @@ namespace QWS_Local
             cardStatusLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -290,6 +286,15 @@ namespace QWS_Local
             regoTrailerLabel.TabIndex = 49;
             regoTrailerLabel.Text = "Rego Trailer:";
             // 
+            // cardStatusLabel
+            // 
+            cardStatusLabel.AutoSize = true;
+            cardStatusLabel.Location = new System.Drawing.Point(44, 223);
+            cardStatusLabel.Name = "cardStatusLabel";
+            cardStatusLabel.Size = new System.Drawing.Size(65, 13);
+            cardStatusLabel.TabIndex = 61;
+            cardStatusLabel.Text = "Card Status:";
+            // 
             // regoTkTextBox
             // 
             this.regoTkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "RegoTk", true));
@@ -308,11 +313,6 @@ namespace QWS_Local
             // 
             this.dsTruckConfig.DataSetName = "dsTruckConfig";
             this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bsConfiguredTnT
-            // 
-            this.bsConfiguredTnT.DataMember = "ConfiguredTnT";
-            this.bsConfiguredTnT.DataSource = this.dsTruckConfig;
             // 
             // button1
             // 
@@ -636,10 +636,6 @@ namespace QWS_Local
             this.chkDriverACC.Text = "ACC";
             this.chkDriverACC.UseVisualStyleBackColor = true;
             // 
-            // taConfiguredTnT
-            // 
-            this.taConfiguredTnT.ClearBeforeFill = true;
-            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
@@ -702,15 +698,6 @@ namespace QWS_Local
             // 
             this.taConfiguredTruckGVM.ClearBeforeFill = true;
             // 
-            // cardStatusLabel
-            // 
-            cardStatusLabel.AutoSize = true;
-            cardStatusLabel.Location = new System.Drawing.Point(44, 223);
-            cardStatusLabel.Name = "cardStatusLabel";
-            cardStatusLabel.Size = new System.Drawing.Size(65, 13);
-            cardStatusLabel.TabIndex = 61;
-            cardStatusLabel.Text = "Card Status:";
-            // 
             // txtCardStatus
             // 
             this.txtCardStatus.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "CardStatus", true));
@@ -719,22 +706,11 @@ namespace QWS_Local
             this.txtCardStatus.Size = new System.Drawing.Size(67, 20);
             this.txtCardStatus.TabIndex = 62;
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(646, 27);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 63;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // BookInTruck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(876, 467);
-            this.Controls.Add(this.button3);
             this.Controls.Add(cardStatusLabel);
             this.Controls.Add(this.txtCardStatus);
             this.Controls.Add(this.button2);
@@ -788,7 +764,6 @@ namespace QWS_Local
             this.Load += new System.EventHandler(this.BookInTruck_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -803,8 +778,6 @@ namespace QWS_Local
         #endregion
 
         private dsTruckConfig dsTruckConfig;
-        private System.Windows.Forms.BindingSource bsConfiguredTnT;
-        private dsTruckConfigTableAdapters.ConfiguredTnTTableAdapter taConfiguredTnT;
         private dsTruckConfigTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.TextBox regoTkTextBox;
         private System.Windows.Forms.Button button1;
@@ -851,6 +824,5 @@ namespace QWS_Local
         private System.Windows.Forms.BindingSource bsConfiguredTruckGVM;
         private dsTruckConfigTableAdapters.ConfiguredTruckGVMTableAdapter taConfiguredTruckGVM;
         private System.Windows.Forms.TextBox txtCardStatus;
-        private System.Windows.Forms.Button button3;
     }
 }

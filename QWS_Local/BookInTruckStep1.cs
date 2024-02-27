@@ -99,7 +99,7 @@ namespace QWS_Local
             dsTruckConfig.ConfiguredTruckGVMRow truckConfigRow = (dsTruckConfig.ConfiguredTruckGVMRow)myDR;
             // Check if SR conditon applies and handle GVM before proceeding
 
-            if (truckConfigRow.GCM > truckConfigRow.MaxGVM)
+            if (truckConfigRow.MaxGVM > 0 && truckConfigRow.GCM > truckConfigRow.MaxGVM)
             {
                 MessageBox.Show("GCM will be reduced to " + truckConfigRow.MaxGVM.ToString() + " due to Fee Code conditions");
             }
@@ -157,7 +157,7 @@ namespace QWS_Local
                 // test if SR conditions might apply
                 int myAxles = CurrentConfigTruck().Axles;
                 int myMaxAxles = CurrentConfigTruck().MaxAxles;
-                if (myAxles > myMaxAxles )
+                if (myMaxAxles > 0 && myAxles > myMaxAxles )
                 {
                     OKAY2Proceed = false;
                     MessageBox.Show("Unable to proceed, due to Fee Code axle restriction!");
