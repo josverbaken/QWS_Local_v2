@@ -28,6 +28,7 @@ namespace QWS_Local
         {
             try
             {
+                dsTruckConfig.ConfiguredTruckGVM.Clear();
                 int iCount = taConfiguredTrucks.FillByRego(dsTruckConfig.ConfiguredTrucks, Rego);
                 if (iCount > 0)
                 {

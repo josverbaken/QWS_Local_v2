@@ -172,7 +172,21 @@ namespace QWS_Local
 
         private void button2_Click(object sender, EventArgs e)
         {
-            GetPrefCustomer();
+            SetExBinCustomer();
+        }
+
+        private void SetExBinCustomer()
+        {
+            int iCust = taPrefCustomers.FillBy(dsQWSLocal.VehiclePrefCustomers, CurrentTruckGVM().RegoTk);
+            if (iCust > 0)
+            {
+                GetPrefCustomer();
+            }
+            else
+            {
+                //search customers
+                MessageBox.Show("TODO - search customers");
+            }
         }
 
         private void GetPrefCustomer()
@@ -180,12 +194,37 @@ namespace QWS_Local
             string myRego = CurrentTruckGVM().RegoTk;
             PreferredCustomers frmPrefCust = new PreferredCustomers(myRego);
             DialogResult dr = frmPrefCust.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                // set pref cust
+                MessageBox.Show("TODO - set pref customer to " + frmPrefCust.customersRow.PrefCustomer);
+
+            }
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnPayload_Click(object sender, EventArgs e)
         {
-            UpdateGUI();
+            CalcPayload();
+        }
+
+        private void CalcPayload()
+        {
+            decimal myPayload = 0.0M;
+            decimal myPayloadTk = 0.0M;
+            decimal myPayloadTr = 0.0M;
+            txtPayloadTk.Text = "";
+            txtPayloadTr.Text = "";
+            myPayload = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
+            txtPayload.Text = myPayload.ToString();
+            nudPayload.Value = myPayload;
+            if (CurrentTruckGVM().GCM != CurrentTruckGVM().GVMTruck)
+            {
+                myPayloadTk = CurrentTruckGVM().GVMTruck - CurrentTruckGVM().TareTk;
+                myPayloadTr = myPayload - myPayloadTk;
+                txtPayloadTk.Text = myPayloadTk.ToString();
+                txtPayloadTr.Text = myPayloadTr.ToString();
+            }
         }
     }
 }
