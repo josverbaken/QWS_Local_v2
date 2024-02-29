@@ -216,7 +216,6 @@ namespace QWS_Local
             txtPayloadTk.Text = "";
             txtPayloadTr.Text = "";
             myPayload = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
-            txtPayload.Text = myPayload.ToString();
             nudPayload.Value = myPayload;
             if (CurrentTruckGVM().GCM != CurrentTruckGVM().GVMTruck)
             {
@@ -224,6 +223,22 @@ namespace QWS_Local
                 myPayloadTr = myPayload - myPayloadTk;
                 txtPayloadTk.Text = myPayloadTk.ToString();
                 txtPayloadTr.Text = myPayloadTr.ToString();
+            }
+        }
+
+        private void nudPayload_ValueChanged(object sender, EventArgs e)
+        {
+            PayloadNUDLimit();
+        }
+
+        private void PayloadNUDLimit()
+        {
+            decimal PayloadLimit = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
+
+            if ( nudPayload.Value > PayloadLimit)
+            {
+                nudPayload.Value = PayloadLimit;
+                MessageBox.Show("Sorry - can only reduce payload!");
             }
         }
     }
