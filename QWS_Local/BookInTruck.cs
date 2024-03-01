@@ -17,19 +17,11 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public BookInTruck(dsTruckConfig.ConfiguredTnTRow configuredTnTRow)
-        {
-            InitializeComponent();
-            dsTruckConfig.ConfiguredTnT.Clear();
-            dsTruckConfig.ConfiguredTnT.ImportRow(configuredTnTRow);
-        }
-
         public BookInTruck (dsTruckConfig.ConfiguredTruckGVMRow configuredTruckGVMRow)
         {
             InitializeComponent();
             dsTruckConfig.ConfiguredTruckGVM.Clear();
             dsTruckConfig.ConfiguredTruckGVM.ImportRow(configuredTruckGVMRow);
-            //pictureBox1.Image = 
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -166,6 +158,24 @@ namespace QWS_Local
                     btnRetare.Enabled = false;
                     btnRetare.BackColor = SystemColors.Control;
                 }
+                if (CurrentTruckGVM().GCM == CurrentTruckGVM().GVMTruck) //Truck only config
+                {
+                    nudPayload.Value = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
+                    nudPayloadTk.Value = 0.0M;
+                    nudPayloadTk.Enabled = false;
+                    nudPayloadTr.Value = 0.0M;
+                    nudPayloadTr.Enabled = false;
+                }
+                else
+                {
+                    decimal _Payload = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
+                    decimal _PayloadTk = CurrentTruckGVM().GVMTruck - CurrentTruckGVM().TareTk;
+                    nudPayload.Value = _Payload;
+                    nudPayloadTk.Value = _PayloadTk;
+                    nudPayloadTk.Enabled = true;
+                    nudPayloadTr.Value = _Payload - _PayloadTk;
+                    nudPayloadTr.Enabled = true;
+                }
             }
 
         }
@@ -213,16 +223,14 @@ namespace QWS_Local
             decimal myPayload = 0.0M;
             decimal myPayloadTk = 0.0M;
             decimal myPayloadTr = 0.0M;
-            txtPayloadTk.Text = "";
-            txtPayloadTr.Text = "";
             myPayload = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
             nudPayload.Value = myPayload;
             if (CurrentTruckGVM().GCM != CurrentTruckGVM().GVMTruck)
             {
                 myPayloadTk = CurrentTruckGVM().GVMTruck - CurrentTruckGVM().TareTk;
                 myPayloadTr = myPayload - myPayloadTk;
-                txtPayloadTk.Text = myPayloadTk.ToString();
-                txtPayloadTr.Text = myPayloadTr.ToString();
+                nudPayloadTk.Value = myPayloadTk;
+                nudPayloadTr.Value = myPayloadTr;
             }
         }
 
@@ -239,6 +247,19 @@ namespace QWS_Local
             {
                 nudPayload.Value = PayloadLimit;
                 MessageBox.Show("Sorry - can only reduce payload!");
+            }
+        }
+
+        private void btnPayloadValidate_Click(object sender, EventArgs e)
+        {
+            PayloadValidate();
+        }
+
+        private void PayloadValidate()
+        {
+            if ((nudPayloadTk.Value + nudPayloadTr.Value) > nudPayload.Value)
+            {
+                MessageBox.Show("Payload split > total Payload!");
             }
         }
     }

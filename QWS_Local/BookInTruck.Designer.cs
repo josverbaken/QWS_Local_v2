@@ -39,11 +39,9 @@ namespace QWS_Local
             System.Windows.Forms.Label inductionExpLabel;
             System.Windows.Forms.Label activeLabel;
             System.Windows.Forms.Label ownerLabel;
-            System.Windows.Forms.Label registrationExpiryDTLabel;
             System.Windows.Forms.Label gCMLabel;
             System.Windows.Forms.Label gVMTruckLabel;
             System.Windows.Forms.Label tareLabel;
-            System.Windows.Forms.Label tareTkLabel;
             System.Windows.Forms.Label tareDTLabel;
             System.Windows.Forms.Label axleConfigurationLabel;
             System.Windows.Forms.Label cardStatusLabel;
@@ -66,7 +64,6 @@ namespace QWS_Local
             this.txtLicenseExp = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ownerTextBox = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.gCMTextBox = new System.Windows.Forms.TextBox();
             this.gVMTruckTextBox = new System.Windows.Forms.TextBox();
             this.tareTextBox = new System.Windows.Forms.TextBox();
@@ -95,11 +92,12 @@ namespace QWS_Local
             this.txtCardStatus = new System.Windows.Forms.TextBox();
             this.bsPrefCustomers = new System.Windows.Forms.BindingSource(this.components);
             this.taPrefCustomers = new QWS_Local.dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter();
-            this.txtPayloadTk = new System.Windows.Forms.TextBox();
-            this.txtPayloadTr = new System.Windows.Forms.TextBox();
             this.btnPayload = new System.Windows.Forms.Button();
             this.nudPayload = new System.Windows.Forms.NumericUpDown();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.nudPayloadTr = new System.Windows.Forms.NumericUpDown();
+            this.nudPayloadTk = new System.Windows.Forms.NumericUpDown();
+            this.btnPayloadValidate = new System.Windows.Forms.Button();
             personLabel = new System.Windows.Forms.Label();
             positionLabel = new System.Windows.Forms.Label();
             mobLabel = new System.Windows.Forms.Label();
@@ -109,11 +107,9 @@ namespace QWS_Local
             inductionExpLabel = new System.Windows.Forms.Label();
             activeLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
-            registrationExpiryDTLabel = new System.Windows.Forms.Label();
             gCMLabel = new System.Windows.Forms.Label();
             gVMTruckLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
-            tareTkLabel = new System.Windows.Forms.Label();
             tareDTLabel = new System.Windows.Forms.Label();
             axleConfigurationLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -127,6 +123,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).BeginInit();
             this.SuspendLayout();
             // 
             // personLabel
@@ -210,19 +208,10 @@ namespace QWS_Local
             ownerLabel.TabIndex = 28;
             ownerLabel.Text = "Owner:";
             // 
-            // registrationExpiryDTLabel
-            // 
-            registrationExpiryDTLabel.AutoSize = true;
-            registrationExpiryDTLabel.Location = new System.Drawing.Point(75, 30);
-            registrationExpiryDTLabel.Name = "registrationExpiryDTLabel";
-            registrationExpiryDTLabel.Size = new System.Drawing.Size(115, 13);
-            registrationExpiryDTLabel.TabIndex = 31;
-            registrationExpiryDTLabel.Text = "Registration Expiry DT:";
-            // 
             // gCMLabel
             // 
             gCMLabel.AutoSize = true;
-            gCMLabel.Location = new System.Drawing.Point(34, 56);
+            gCMLabel.Location = new System.Drawing.Point(66, 47);
             gCMLabel.Name = "gCMLabel";
             gCMLabel.Size = new System.Drawing.Size(34, 13);
             gCMLabel.TabIndex = 32;
@@ -231,7 +220,7 @@ namespace QWS_Local
             // gVMTruckLabel
             // 
             gVMTruckLabel.AutoSize = true;
-            gVMTruckLabel.Location = new System.Drawing.Point(6, 82);
+            gVMTruckLabel.Location = new System.Drawing.Point(38, 73);
             gVMTruckLabel.Name = "gVMTruckLabel";
             gVMTruckLabel.Size = new System.Drawing.Size(62, 13);
             gVMTruckLabel.TabIndex = 33;
@@ -240,25 +229,16 @@ namespace QWS_Local
             // tareLabel
             // 
             tareLabel.AutoSize = true;
-            tareLabel.Location = new System.Drawing.Point(163, 56);
+            tareLabel.Location = new System.Drawing.Point(217, 21);
             tareLabel.Name = "tareLabel";
             tareLabel.Size = new System.Drawing.Size(32, 13);
             tareLabel.TabIndex = 35;
             tareLabel.Text = "Tare:";
             // 
-            // tareTkLabel
-            // 
-            tareTkLabel.AutoSize = true;
-            tareTkLabel.Location = new System.Drawing.Point(147, 82);
-            tareTkLabel.Name = "tareTkLabel";
-            tareTkLabel.Size = new System.Drawing.Size(48, 13);
-            tareTkLabel.TabIndex = 37;
-            tareTkLabel.Text = "Tare Tk:";
-            // 
             // tareDTLabel
             // 
             tareDTLabel.AutoSize = true;
-            tareDTLabel.Location = new System.Drawing.Point(145, 109);
+            tareDTLabel.Location = new System.Drawing.Point(50, 122);
             tareDTLabel.Name = "tareDTLabel";
             tareDTLabel.Size = new System.Drawing.Size(50, 13);
             tareDTLabel.TabIndex = 39;
@@ -435,19 +415,10 @@ namespace QWS_Local
             this.ownerTextBox.Size = new System.Drawing.Size(351, 20);
             this.ownerTextBox.TabIndex = 29;
             // 
-            // textBox2
-            // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "RegistrationExpiryDT", true));
-            this.textBox2.Location = new System.Drawing.Point(200, 27);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(72, 20);
-            this.textBox2.TabIndex = 32;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // gCMTextBox
             // 
             this.gCMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "GCM", true));
-            this.gCMTextBox.Location = new System.Drawing.Point(74, 53);
+            this.gCMTextBox.Location = new System.Drawing.Point(106, 44);
             this.gCMTextBox.Name = "gCMTextBox";
             this.gCMTextBox.Size = new System.Drawing.Size(72, 20);
             this.gCMTextBox.TabIndex = 33;
@@ -456,7 +427,7 @@ namespace QWS_Local
             // gVMTruckTextBox
             // 
             this.gVMTruckTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "GVMTruck", true));
-            this.gVMTruckTextBox.Location = new System.Drawing.Point(74, 79);
+            this.gVMTruckTextBox.Location = new System.Drawing.Point(106, 70);
             this.gVMTruckTextBox.Name = "gVMTruckTextBox";
             this.gVMTruckTextBox.Size = new System.Drawing.Size(72, 20);
             this.gVMTruckTextBox.TabIndex = 34;
@@ -465,7 +436,7 @@ namespace QWS_Local
             // tareTextBox
             // 
             this.tareTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "Tare", true));
-            this.tareTextBox.Location = new System.Drawing.Point(201, 53);
+            this.tareTextBox.Location = new System.Drawing.Point(201, 44);
             this.tareTextBox.Name = "tareTextBox";
             this.tareTextBox.Size = new System.Drawing.Size(72, 20);
             this.tareTextBox.TabIndex = 36;
@@ -474,7 +445,7 @@ namespace QWS_Local
             // tareTkTextBox
             // 
             this.tareTkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "TareTk", true));
-            this.tareTkTextBox.Location = new System.Drawing.Point(201, 79);
+            this.tareTkTextBox.Location = new System.Drawing.Point(201, 70);
             this.tareTkTextBox.Name = "tareTkTextBox";
             this.tareTkTextBox.Size = new System.Drawing.Size(72, 20);
             this.tareTkTextBox.TabIndex = 38;
@@ -501,9 +472,9 @@ namespace QWS_Local
             // textBox1
             // 
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "TareDT", true));
-            this.textBox1.Location = new System.Drawing.Point(201, 108);
+            this.textBox1.Location = new System.Drawing.Point(106, 121);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(72, 20);
+            this.textBox1.Size = new System.Drawing.Size(97, 20);
             this.textBox1.TabIndex = 51;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -698,25 +669,9 @@ namespace QWS_Local
             // 
             this.taPrefCustomers.ClearBeforeFill = true;
             // 
-            // txtPayloadTk
-            // 
-            this.txtPayloadTk.Location = new System.Drawing.Point(280, 79);
-            this.txtPayloadTk.Name = "txtPayloadTk";
-            this.txtPayloadTk.Size = new System.Drawing.Size(75, 20);
-            this.txtPayloadTk.TabIndex = 64;
-            this.txtPayloadTk.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtPayloadTr
-            // 
-            this.txtPayloadTr.Location = new System.Drawing.Point(280, 109);
-            this.txtPayloadTr.Name = "txtPayloadTr";
-            this.txtPayloadTr.Size = new System.Drawing.Size(75, 20);
-            this.txtPayloadTr.TabIndex = 65;
-            this.txtPayloadTr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // btnPayload
             // 
-            this.btnPayload.Location = new System.Drawing.Point(280, 26);
+            this.btnPayload.Location = new System.Drawing.Point(280, 17);
             this.btnPayload.Name = "btnPayload";
             this.btnPayload.Size = new System.Drawing.Size(75, 20);
             this.btnPayload.TabIndex = 61;
@@ -727,7 +682,7 @@ namespace QWS_Local
             // nudPayload
             // 
             this.nudPayload.DecimalPlaces = 2;
-            this.nudPayload.Location = new System.Drawing.Point(280, 53);
+            this.nudPayload.Location = new System.Drawing.Point(280, 44);
             this.nudPayload.Name = "nudPayload";
             this.nudPayload.Size = new System.Drawing.Size(76, 20);
             this.nudPayload.TabIndex = 66;
@@ -736,20 +691,18 @@ namespace QWS_Local
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.btnPayloadValidate);
+            this.groupBox3.Controls.Add(this.nudPayloadTk);
+            this.groupBox3.Controls.Add(this.nudPayloadTr);
             this.groupBox3.Controls.Add(this.nudPayload);
-            this.groupBox3.Controls.Add(registrationExpiryDTLabel);
             this.groupBox3.Controls.Add(this.btnPayload);
             this.groupBox3.Controls.Add(this.gCMTextBox);
-            this.groupBox3.Controls.Add(this.txtPayloadTr);
             this.groupBox3.Controls.Add(gCMLabel);
-            this.groupBox3.Controls.Add(this.txtPayloadTk);
             this.groupBox3.Controls.Add(this.gVMTruckTextBox);
             this.groupBox3.Controls.Add(gVMTruckLabel);
             this.groupBox3.Controls.Add(this.tareTextBox);
             this.groupBox3.Controls.Add(tareLabel);
             this.groupBox3.Controls.Add(this.tareTkTextBox);
-            this.groupBox3.Controls.Add(tareTkLabel);
             this.groupBox3.Controls.Add(tareDTLabel);
             this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Location = new System.Drawing.Point(583, 39);
@@ -758,6 +711,36 @@ namespace QWS_Local
             this.groupBox3.TabIndex = 67;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Truck Details";
+            // 
+            // nudPayloadTr
+            // 
+            this.nudPayloadTr.DecimalPlaces = 2;
+            this.nudPayloadTr.Enabled = false;
+            this.nudPayloadTr.Location = new System.Drawing.Point(280, 97);
+            this.nudPayloadTr.Name = "nudPayloadTr";
+            this.nudPayloadTr.Size = new System.Drawing.Size(76, 20);
+            this.nudPayloadTr.TabIndex = 67;
+            this.nudPayloadTr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // nudPayloadTk
+            // 
+            this.nudPayloadTk.DecimalPlaces = 2;
+            this.nudPayloadTk.Enabled = false;
+            this.nudPayloadTk.Location = new System.Drawing.Point(279, 71);
+            this.nudPayloadTk.Name = "nudPayloadTk";
+            this.nudPayloadTk.Size = new System.Drawing.Size(76, 20);
+            this.nudPayloadTk.TabIndex = 68;
+            this.nudPayloadTk.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btnPayloadValidate
+            // 
+            this.btnPayloadValidate.Location = new System.Drawing.Point(280, 121);
+            this.btnPayloadValidate.Name = "btnPayloadValidate";
+            this.btnPayloadValidate.Size = new System.Drawing.Size(75, 20);
+            this.btnPayloadValidate.TabIndex = 69;
+            this.btnPayloadValidate.Text = "Validate";
+            this.btnPayloadValidate.UseVisualStyleBackColor = true;
+            this.btnPayloadValidate.Click += new System.EventHandler(this.btnPayloadValidate_Click);
             // 
             // BookInTruck
             // 
@@ -813,6 +796,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -839,7 +824,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox txtLicenseExp;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox ownerTextBox;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox gCMTextBox;
         private System.Windows.Forms.TextBox gVMTruckTextBox;
         private System.Windows.Forms.TextBox tareTextBox;
@@ -868,10 +852,11 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox txtCardStatus;
         private System.Windows.Forms.BindingSource bsPrefCustomers;
         private dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter taPrefCustomers;
-        private System.Windows.Forms.TextBox txtPayloadTk;
-        private System.Windows.Forms.TextBox txtPayloadTr;
         private System.Windows.Forms.Button btnPayload;
         private System.Windows.Forms.NumericUpDown nudPayload;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.NumericUpDown nudPayloadTk;
+        private System.Windows.Forms.NumericUpDown nudPayloadTr;
+        private System.Windows.Forms.Button btnPayloadValidate;
     }
 }
