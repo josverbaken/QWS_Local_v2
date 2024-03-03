@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsBookIn" targetNamespace="http://tempuri.org/dsBookIn.xsd" xmlns:mstns="http://tempuri.org/dsBookIn.xsd" xmlns="http://tempuri.org/dsBookIn.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="cnQWSLocal" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="cnQWSLocal (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.QWS_Local.Properties.Settings.GlobalReference.Default.cnQWSLocal" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DeliveryOrdersAllTableAdapter" GeneratorDataComponentClassName="DeliveryOrdersAllTableAdapter" Name="DeliveryOrdersAll" UserDataComponentName="DeliveryOrdersAllTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.DeliveryOrdersAll" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DocNum, DocEntry, DocDate, CardCode, Customer, PurchaseOrder, CntctCode, ContactName, ContactMobile, DeliveryDate, DeliveryAddress, MapRef, Distance, SAPComments, MaterialCode, Material, ItmsGrpCod, ItemQA, Quantity, OpenQty, Supplied, CartageCode, Cartage, SAPUpdateDTTM FROM DeliveryOrdersAll</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="DocNum" DataSetColumn="DocNum" />
+              <Mapping SourceColumn="DocEntry" DataSetColumn="DocEntry" />
+              <Mapping SourceColumn="DocDate" DataSetColumn="DocDate" />
+              <Mapping SourceColumn="CardCode" DataSetColumn="CardCode" />
+              <Mapping SourceColumn="Customer" DataSetColumn="Customer" />
+              <Mapping SourceColumn="PurchaseOrder" DataSetColumn="PurchaseOrder" />
+              <Mapping SourceColumn="CntctCode" DataSetColumn="CntctCode" />
+              <Mapping SourceColumn="ContactName" DataSetColumn="ContactName" />
+              <Mapping SourceColumn="ContactMobile" DataSetColumn="ContactMobile" />
+              <Mapping SourceColumn="DeliveryDate" DataSetColumn="DeliveryDate" />
+              <Mapping SourceColumn="DeliveryAddress" DataSetColumn="DeliveryAddress" />
+              <Mapping SourceColumn="MapRef" DataSetColumn="MapRef" />
+              <Mapping SourceColumn="Distance" DataSetColumn="Distance" />
+              <Mapping SourceColumn="SAPComments" DataSetColumn="SAPComments" />
+              <Mapping SourceColumn="MaterialCode" DataSetColumn="MaterialCode" />
+              <Mapping SourceColumn="Material" DataSetColumn="Material" />
+              <Mapping SourceColumn="ItmsGrpCod" DataSetColumn="ItmsGrpCod" />
+              <Mapping SourceColumn="ItemQA" DataSetColumn="ItemQA" />
+              <Mapping SourceColumn="Quantity" DataSetColumn="Quantity" />
+              <Mapping SourceColumn="OpenQty" DataSetColumn="OpenQty" />
+              <Mapping SourceColumn="Supplied" DataSetColumn="Supplied" />
+              <Mapping SourceColumn="CartageCode" DataSetColumn="CartageCode" />
+              <Mapping SourceColumn="Cartage" DataSetColumn="Cartage" />
+              <Mapping SourceColumn="SAPUpdateDTTM" DataSetColumn="SAPUpdateDTTM" />
+              <Mapping SourceColumn="OrderStatus" DataSetColumn="OrderStatus" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.DeliveryOrdersAll" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByOpenQty" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillByOpenQty" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByOpenQty">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT CardCode, Cartage, CartageCode, CntctCode, ContactMobile, ContactName, Customer, DeliveryAddress, DeliveryDate, Distance, DocDate, DocEntry, DocNum, ItemQA, ItmsGrpCod, MapRef, Material, MaterialCode, OpenQty, PurchaseOrder, Quantity, SAPComments, SAPUpdateDTTM, Supplied FROM DeliveryOrdersAll WHERE (1 = 1) AND (OpenQty &gt; 0)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ExBinOrdersTableAdapter" GeneratorDataComponentClassName="ExBinOrdersTableAdapter" Name="ExBinOrders" UserDataComponentName="ExBinOrdersTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.ExBinOrders" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DocNum, DocEntry, DocDate, CardCode, Customer, PurchaseOrder, CntctCode, ContactName, ContactMobile, DeliveryDate, DeliveryAddress, SAPComments, MaterialCode, Material, ItmsGrpCod, ItemQA, Quantity, OpenQty, Supplied, SAPUpdateDTTM FROM ExBinOrders</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="DocNum" DataSetColumn="DocNum" />
+              <Mapping SourceColumn="DocEntry" DataSetColumn="DocEntry" />
+              <Mapping SourceColumn="DocDate" DataSetColumn="DocDate" />
+              <Mapping SourceColumn="CardCode" DataSetColumn="CardCode" />
+              <Mapping SourceColumn="Customer" DataSetColumn="Customer" />
+              <Mapping SourceColumn="PurchaseOrder" DataSetColumn="PurchaseOrder" />
+              <Mapping SourceColumn="CntctCode" DataSetColumn="CntctCode" />
+              <Mapping SourceColumn="ContactName" DataSetColumn="ContactName" />
+              <Mapping SourceColumn="ContactMobile" DataSetColumn="ContactMobile" />
+              <Mapping SourceColumn="DeliveryDate" DataSetColumn="DeliveryDate" />
+              <Mapping SourceColumn="DeliveryAddress" DataSetColumn="DeliveryAddress" />
+              <Mapping SourceColumn="SAPComments" DataSetColumn="SAPComments" />
+              <Mapping SourceColumn="MaterialCode" DataSetColumn="MaterialCode" />
+              <Mapping SourceColumn="Material" DataSetColumn="Material" />
+              <Mapping SourceColumn="ItmsGrpCod" DataSetColumn="ItmsGrpCod" />
+              <Mapping SourceColumn="ItemQA" DataSetColumn="ItemQA" />
+              <Mapping SourceColumn="Quantity" DataSetColumn="Quantity" />
+              <Mapping SourceColumn="OpenQty" DataSetColumn="OpenQty" />
+              <Mapping SourceColumn="Supplied" DataSetColumn="Supplied" />
+              <Mapping SourceColumn="SAPUpdateDTTM" DataSetColumn="SAPUpdateDTTM" />
+              <Mapping SourceColumn="OrderStatus" DataSetColumn="OrderStatus" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.ExBinOrders" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT CardCode, CntctCode, ContactMobile, ContactName, Customer, DeliveryAddress, DeliveryDate, DocDate, DocEntry, DocNum, ItemQA, ItmsGrpCod, Material, MaterialCode, OpenQty, PurchaseOrder, Quantity, SAPComments, SAPUpdateDTTM, Supplied FROM ExBinOrders WHERE (1 = 1) AND (OpenQty &gt; 0) AND (CardCode LIKE @CardCode)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CardCode" ColumnName="CardCode" DataSourceName="QWSLocal.dbo.ExBinOrders" DataTypeServer="nvarchar(15)" DbType="String" Direction="Input" ParameterName="@CardCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="15" SourceColumn="CardCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsBookIn" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="dsBookIn" msprop:Generator_UserDSName="dsBookIn">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DeliveryOrdersAll" msprop:Generator_TableClassName="DeliveryOrdersAllDataTable" msprop:Generator_TableVarName="tableDeliveryOrdersAll" msprop:Generator_RowChangedName="DeliveryOrdersAllRowChanged" msprop:Generator_TablePropName="DeliveryOrdersAll" msprop:Generator_RowDeletingName="DeliveryOrdersAllRowDeleting" msprop:Generator_RowChangingName="DeliveryOrdersAllRowChanging" msprop:Generator_RowEvHandlerName="DeliveryOrdersAllRowChangeEventHandler" msprop:Generator_RowDeletedName="DeliveryOrdersAllRowDeleted" msprop:Generator_RowClassName="DeliveryOrdersAllRow" msprop:Generator_UserTableName="DeliveryOrdersAll" msprop:Generator_RowEvArgName="DeliveryOrdersAllRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DocNum" msprop:Generator_ColumnVarNameInTable="columnDocNum" msprop:Generator_ColumnPropNameInRow="DocNum" msprop:Generator_ColumnPropNameInTable="DocNumColumn" msprop:Generator_UserColumnName="DocNum" type="xs:int" />
+              <xs:element name="DocEntry" msprop:Generator_ColumnVarNameInTable="columnDocEntry" msprop:Generator_ColumnPropNameInRow="DocEntry" msprop:Generator_ColumnPropNameInTable="DocEntryColumn" msprop:Generator_UserColumnName="DocEntry" type="xs:int" />
+              <xs:element name="DocDate" msprop:Generator_ColumnVarNameInTable="columnDocDate" msprop:Generator_ColumnPropNameInRow="DocDate" msprop:Generator_ColumnPropNameInTable="DocDateColumn" msprop:Generator_UserColumnName="DocDate" type="xs:dateTime" />
+              <xs:element name="CardCode" msprop:Generator_ColumnVarNameInTable="columnCardCode" msprop:Generator_ColumnPropNameInRow="CardCode" msprop:Generator_ColumnPropNameInTable="CardCodeColumn" msprop:Generator_UserColumnName="CardCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Customer" msprop:Generator_ColumnVarNameInTable="columnCustomer" msprop:Generator_ColumnPropNameInRow="Customer" msprop:Generator_ColumnPropNameInTable="CustomerColumn" msprop:Generator_UserColumnName="Customer">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PurchaseOrder" msprop:Generator_ColumnVarNameInTable="columnPurchaseOrder" msprop:Generator_ColumnPropNameInRow="PurchaseOrder" msprop:Generator_ColumnPropNameInTable="PurchaseOrderColumn" msprop:Generator_UserColumnName="PurchaseOrder">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CntctCode" msprop:Generator_ColumnVarNameInTable="columnCntctCode" msprop:Generator_ColumnPropNameInRow="CntctCode" msprop:Generator_ColumnPropNameInTable="CntctCodeColumn" msprop:Generator_UserColumnName="CntctCode" type="xs:int" />
+              <xs:element name="ContactName" msprop:Generator_ColumnVarNameInTable="columnContactName" msprop:Generator_ColumnPropNameInRow="ContactName" msprop:Generator_ColumnPropNameInTable="ContactNameColumn" msprop:Generator_UserColumnName="ContactName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ContactMobile" msprop:Generator_ColumnVarNameInTable="columnContactMobile" msprop:Generator_ColumnPropNameInRow="ContactMobile" msprop:Generator_ColumnPropNameInTable="ContactMobileColumn" msprop:Generator_UserColumnName="ContactMobile">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DeliveryDate" msprop:Generator_ColumnVarNameInTable="columnDeliveryDate" msprop:Generator_ColumnPropNameInRow="DeliveryDate" msprop:Generator_ColumnPropNameInTable="DeliveryDateColumn" msprop:Generator_UserColumnName="DeliveryDate" type="xs:dateTime" />
+              <xs:element name="DeliveryAddress" msprop:Generator_ColumnVarNameInTable="columnDeliveryAddress" msprop:Generator_ColumnPropNameInRow="DeliveryAddress" msprop:Generator_ColumnPropNameInTable="DeliveryAddressColumn" msprop:Generator_UserColumnName="DeliveryAddress">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="254" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MapRef" msprop:Generator_ColumnVarNameInTable="columnMapRef" msprop:Generator_ColumnPropNameInRow="MapRef" msprop:Generator_ColumnPropNameInTable="MapRefColumn" msprop:Generator_UserColumnName="MapRef">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Distance" msprop:Generator_ColumnVarNameInTable="columnDistance" msprop:Generator_ColumnPropNameInRow="Distance" msprop:Generator_ColumnPropNameInTable="DistanceColumn" msprop:Generator_UserColumnName="Distance" type="xs:int" />
+              <xs:element name="SAPComments" msprop:Generator_ColumnVarNameInTable="columnSAPComments" msprop:Generator_ColumnPropNameInRow="SAPComments" msprop:Generator_ColumnPropNameInTable="SAPCommentsColumn" msprop:Generator_UserColumnName="SAPComments">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="254" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaterialCode" msprop:Generator_ColumnVarNameInTable="columnMaterialCode" msprop:Generator_ColumnPropNameInRow="MaterialCode" msprop:Generator_ColumnPropNameInTable="MaterialCodeColumn" msprop:Generator_UserColumnName="MaterialCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Material" msprop:Generator_ColumnVarNameInTable="columnMaterial" msprop:Generator_ColumnPropNameInRow="Material" msprop:Generator_ColumnPropNameInTable="MaterialColumn" msprop:Generator_UserColumnName="Material">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItmsGrpCod" msprop:Generator_ColumnVarNameInTable="columnItmsGrpCod" msprop:Generator_ColumnPropNameInRow="ItmsGrpCod" msprop:Generator_ColumnPropNameInTable="ItmsGrpCodColumn" msprop:Generator_UserColumnName="ItmsGrpCod" type="xs:short" minOccurs="0" />
+              <xs:element name="ItemQA" msprop:Generator_ColumnVarNameInTable="columnItemQA" msprop:Generator_ColumnPropNameInRow="ItemQA" msprop:Generator_ColumnPropNameInTable="ItemQAColumn" msprop:Generator_UserColumnName="ItemQA">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" msprop:Generator_UserColumnName="Quantity" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OpenQty" msprop:Generator_ColumnVarNameInTable="columnOpenQty" msprop:Generator_ColumnPropNameInRow="OpenQty" msprop:Generator_ColumnPropNameInTable="OpenQtyColumn" msprop:Generator_UserColumnName="OpenQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Supplied" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSupplied" msprop:Generator_ColumnPropNameInRow="Supplied" msprop:Generator_ColumnPropNameInTable="SuppliedColumn" msprop:Generator_UserColumnName="Supplied" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CartageCode" msprop:Generator_ColumnVarNameInTable="columnCartageCode" msprop:Generator_ColumnPropNameInRow="CartageCode" msprop:Generator_ColumnPropNameInTable="CartageCodeColumn" msprop:Generator_UserColumnName="CartageCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cartage" msprop:Generator_ColumnVarNameInTable="columnCartage" msprop:Generator_ColumnPropNameInRow="Cartage" msprop:Generator_ColumnPropNameInTable="CartageColumn" msprop:Generator_UserColumnName="Cartage">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SAPUpdateDTTM" msprop:Generator_ColumnVarNameInTable="columnSAPUpdateDTTM" msprop:Generator_ColumnPropNameInRow="SAPUpdateDTTM" msprop:Generator_ColumnPropNameInTable="SAPUpdateDTTMColumn" msprop:Generator_UserColumnName="SAPUpdateDTTM" type="xs:dateTime" />
+              <xs:element name="OrderStatus" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOrderStatus" msprop:Generator_ColumnPropNameInRow="OrderStatus" msprop:Generator_ColumnPropNameInTable="OrderStatusColumn" msprop:Generator_UserColumnName="OrderStatus" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ExBinOrders" msprop:Generator_TableClassName="ExBinOrdersDataTable" msprop:Generator_TableVarName="tableExBinOrders" msprop:Generator_RowChangedName="ExBinOrdersRowChanged" msprop:Generator_TablePropName="ExBinOrders" msprop:Generator_RowDeletingName="ExBinOrdersRowDeleting" msprop:Generator_RowChangingName="ExBinOrdersRowChanging" msprop:Generator_RowEvHandlerName="ExBinOrdersRowChangeEventHandler" msprop:Generator_RowDeletedName="ExBinOrdersRowDeleted" msprop:Generator_RowClassName="ExBinOrdersRow" msprop:Generator_UserTableName="ExBinOrders" msprop:Generator_RowEvArgName="ExBinOrdersRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DocNum" msprop:Generator_ColumnVarNameInTable="columnDocNum" msprop:Generator_ColumnPropNameInRow="DocNum" msprop:Generator_ColumnPropNameInTable="DocNumColumn" msprop:Generator_UserColumnName="DocNum" type="xs:int" />
+              <xs:element name="DocEntry" msprop:Generator_ColumnVarNameInTable="columnDocEntry" msprop:Generator_ColumnPropNameInRow="DocEntry" msprop:Generator_ColumnPropNameInTable="DocEntryColumn" msprop:Generator_UserColumnName="DocEntry" type="xs:int" />
+              <xs:element name="DocDate" msprop:Generator_ColumnVarNameInTable="columnDocDate" msprop:Generator_ColumnPropNameInRow="DocDate" msprop:Generator_ColumnPropNameInTable="DocDateColumn" msprop:Generator_UserColumnName="DocDate" type="xs:dateTime" />
+              <xs:element name="CardCode" msprop:Generator_ColumnVarNameInTable="columnCardCode" msprop:Generator_ColumnPropNameInRow="CardCode" msprop:Generator_ColumnPropNameInTable="CardCodeColumn" msprop:Generator_UserColumnName="CardCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Customer" msprop:Generator_ColumnVarNameInTable="columnCustomer" msprop:Generator_ColumnPropNameInRow="Customer" msprop:Generator_ColumnPropNameInTable="CustomerColumn" msprop:Generator_UserColumnName="Customer">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PurchaseOrder" msprop:Generator_ColumnVarNameInTable="columnPurchaseOrder" msprop:Generator_ColumnPropNameInRow="PurchaseOrder" msprop:Generator_ColumnPropNameInTable="PurchaseOrderColumn" msprop:Generator_UserColumnName="PurchaseOrder">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CntctCode" msprop:Generator_ColumnVarNameInTable="columnCntctCode" msprop:Generator_ColumnPropNameInRow="CntctCode" msprop:Generator_ColumnPropNameInTable="CntctCodeColumn" msprop:Generator_UserColumnName="CntctCode" type="xs:int" />
+              <xs:element name="ContactName" msprop:Generator_ColumnVarNameInTable="columnContactName" msprop:Generator_ColumnPropNameInRow="ContactName" msprop:Generator_ColumnPropNameInTable="ContactNameColumn" msprop:Generator_UserColumnName="ContactName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ContactMobile" msprop:Generator_ColumnVarNameInTable="columnContactMobile" msprop:Generator_ColumnPropNameInRow="ContactMobile" msprop:Generator_ColumnPropNameInTable="ContactMobileColumn" msprop:Generator_UserColumnName="ContactMobile">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DeliveryDate" msprop:Generator_ColumnVarNameInTable="columnDeliveryDate" msprop:Generator_ColumnPropNameInRow="DeliveryDate" msprop:Generator_ColumnPropNameInTable="DeliveryDateColumn" msprop:Generator_UserColumnName="DeliveryDate" type="xs:dateTime" />
+              <xs:element name="DeliveryAddress" msprop:Generator_ColumnVarNameInTable="columnDeliveryAddress" msprop:Generator_ColumnPropNameInRow="DeliveryAddress" msprop:Generator_ColumnPropNameInTable="DeliveryAddressColumn" msprop:Generator_UserColumnName="DeliveryAddress">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="254" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SAPComments" msprop:Generator_ColumnVarNameInTable="columnSAPComments" msprop:Generator_ColumnPropNameInRow="SAPComments" msprop:Generator_ColumnPropNameInTable="SAPCommentsColumn" msprop:Generator_UserColumnName="SAPComments">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="254" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaterialCode" msprop:Generator_ColumnVarNameInTable="columnMaterialCode" msprop:Generator_ColumnPropNameInRow="MaterialCode" msprop:Generator_ColumnPropNameInTable="MaterialCodeColumn" msprop:Generator_UserColumnName="MaterialCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Material" msprop:Generator_ColumnVarNameInTable="columnMaterial" msprop:Generator_ColumnPropNameInRow="Material" msprop:Generator_ColumnPropNameInTable="MaterialColumn" msprop:Generator_UserColumnName="Material">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItmsGrpCod" msprop:Generator_ColumnVarNameInTable="columnItmsGrpCod" msprop:Generator_ColumnPropNameInRow="ItmsGrpCod" msprop:Generator_ColumnPropNameInTable="ItmsGrpCodColumn" msprop:Generator_UserColumnName="ItmsGrpCod" type="xs:short" minOccurs="0" />
+              <xs:element name="ItemQA" msprop:Generator_ColumnVarNameInTable="columnItemQA" msprop:Generator_ColumnPropNameInRow="ItemQA" msprop:Generator_ColumnPropNameInTable="ItemQAColumn" msprop:Generator_UserColumnName="ItemQA">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" msprop:Generator_UserColumnName="Quantity" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OpenQty" msprop:Generator_ColumnVarNameInTable="columnOpenQty" msprop:Generator_ColumnPropNameInRow="OpenQty" msprop:Generator_ColumnPropNameInTable="OpenQtyColumn" msprop:Generator_UserColumnName="OpenQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Supplied" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSupplied" msprop:Generator_ColumnPropNameInRow="Supplied" msprop:Generator_ColumnPropNameInTable="SuppliedColumn" msprop:Generator_UserColumnName="Supplied" type="xs:decimal" minOccurs="0" />
+              <xs:element name="SAPUpdateDTTM" msprop:Generator_ColumnVarNameInTable="columnSAPUpdateDTTM" msprop:Generator_ColumnPropNameInRow="SAPUpdateDTTM" msprop:Generator_ColumnPropNameInTable="SAPUpdateDTTMColumn" msprop:Generator_UserColumnName="SAPUpdateDTTM" type="xs:dateTime" />
+              <xs:element name="OrderStatus" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOrderStatus" msprop:Generator_ColumnPropNameInRow="OrderStatus" msprop:Generator_ColumnPropNameInTable="OrderStatusColumn" msprop:Generator_UserColumnName="OrderStatus" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DeliveryOrdersAll" />
+      <xs:field xpath="mstns:DocEntry" />
+    </xs:unique>
+    <xs:unique name="ExBinOrders_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ExBinOrders" />
+      <xs:field xpath="mstns:DocEntry" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -262,5 +262,24 @@ namespace QWS_Local
                 MessageBox.Show("Payload split > total Payload!");
             }
         }
+
+        private void btnBookInExBin_Click(object sender, EventArgs e)
+        {
+            BookInExBin();
+        }
+
+        private void BookInExBin()
+        {
+            BookInExBin frmBookInExBin = new BookInExBin();
+            frmBookInExBin.MdiParent = this.MdiParent;
+            frmBookInExBin.Show();
+        }
+
+        private void btnBookInDelivery_Click(object sender, EventArgs e)
+        {
+            BookInDelivery frmBookInDelivery = new BookInDelivery();
+            frmBookInDelivery.MdiParent = this.MdiParent;
+            frmBookInDelivery.Show();
+        }
     }
 }

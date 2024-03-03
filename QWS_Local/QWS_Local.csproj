@@ -62,6 +62,18 @@
     <Compile Include="AxleConfiguration.Designer.cs">
       <DependentUpon>AxleConfiguration.cs</DependentUpon>
     </Compile>
+    <Compile Include="BookInDelivery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookInDelivery.Designer.cs">
+      <DependentUpon>BookInDelivery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BookInExBin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookInExBin.Designer.cs">
+      <DependentUpon>BookInExBin.cs</DependentUpon>
+    </Compile>
     <Compile Include="BookInTruck.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +98,11 @@
     </Compile>
     <Compile Include="BusinessSearch.Designer.cs">
       <DependentUpon>BusinessSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dsBookIn.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsBookIn.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsQWSLocal.cs">
       <DependentUpon>dsQWSLocal.xsd</DependentUpon>
@@ -191,6 +208,12 @@
     <EmbeddedResource Include="AxleConfiguration.resx">
       <DependentUpon>AxleConfiguration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BookInDelivery.resx">
+      <DependentUpon>BookInDelivery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookInExBin.resx">
+      <DependentUpon>BookInExBin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BookInTruck.resx">
       <DependentUpon>BookInTruck.cs</DependentUpon>
     </EmbeddedResource>
@@ -253,6 +276,17 @@
     <EmbeddedResource Include="VehicleMaintenance.resx">
       <DependentUpon>VehicleMaintenance.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="dsBookIn.xsc">
+      <DependentUpon>dsBookIn.xsd</DependentUpon>
+    </None>
+    <None Include="dsBookIn.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsBookIn.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsBookIn.xss">
+      <DependentUpon>dsBookIn.xsd</DependentUpon>
+    </None>
     <None Include="dsQWSLocal.xsc">
       <DependentUpon>dsQWSLocal.xsd</DependentUpon>
     </None>

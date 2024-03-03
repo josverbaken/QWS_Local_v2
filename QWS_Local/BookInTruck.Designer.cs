@@ -95,9 +95,11 @@ namespace QWS_Local
             this.btnPayload = new System.Windows.Forms.Button();
             this.nudPayload = new System.Windows.Forms.NumericUpDown();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.nudPayloadTr = new System.Windows.Forms.NumericUpDown();
-            this.nudPayloadTk = new System.Windows.Forms.NumericUpDown();
             this.btnPayloadValidate = new System.Windows.Forms.Button();
+            this.nudPayloadTk = new System.Windows.Forms.NumericUpDown();
+            this.nudPayloadTr = new System.Windows.Forms.NumericUpDown();
+            this.btnBookInExBin = new System.Windows.Forms.Button();
+            this.btnBookInDelivery = new System.Windows.Forms.Button();
             personLabel = new System.Windows.Forms.Label();
             positionLabel = new System.Windows.Forms.Label();
             mobLabel = new System.Windows.Forms.Label();
@@ -123,8 +125,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).BeginInit();
             this.SuspendLayout();
             // 
             // personLabel
@@ -712,15 +714,15 @@ namespace QWS_Local
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Truck Details";
             // 
-            // nudPayloadTr
+            // btnPayloadValidate
             // 
-            this.nudPayloadTr.DecimalPlaces = 2;
-            this.nudPayloadTr.Enabled = false;
-            this.nudPayloadTr.Location = new System.Drawing.Point(280, 97);
-            this.nudPayloadTr.Name = "nudPayloadTr";
-            this.nudPayloadTr.Size = new System.Drawing.Size(76, 20);
-            this.nudPayloadTr.TabIndex = 67;
-            this.nudPayloadTr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnPayloadValidate.Location = new System.Drawing.Point(280, 121);
+            this.btnPayloadValidate.Name = "btnPayloadValidate";
+            this.btnPayloadValidate.Size = new System.Drawing.Size(75, 20);
+            this.btnPayloadValidate.TabIndex = 69;
+            this.btnPayloadValidate.Text = "Validate";
+            this.btnPayloadValidate.UseVisualStyleBackColor = true;
+            this.btnPayloadValidate.Click += new System.EventHandler(this.btnPayloadValidate_Click);
             // 
             // nudPayloadTk
             // 
@@ -732,21 +734,43 @@ namespace QWS_Local
             this.nudPayloadTk.TabIndex = 68;
             this.nudPayloadTk.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // btnPayloadValidate
+            // nudPayloadTr
             // 
-            this.btnPayloadValidate.Location = new System.Drawing.Point(280, 121);
-            this.btnPayloadValidate.Name = "btnPayloadValidate";
-            this.btnPayloadValidate.Size = new System.Drawing.Size(75, 20);
-            this.btnPayloadValidate.TabIndex = 69;
-            this.btnPayloadValidate.Text = "Validate";
-            this.btnPayloadValidate.UseVisualStyleBackColor = true;
-            this.btnPayloadValidate.Click += new System.EventHandler(this.btnPayloadValidate_Click);
+            this.nudPayloadTr.DecimalPlaces = 2;
+            this.nudPayloadTr.Enabled = false;
+            this.nudPayloadTr.Location = new System.Drawing.Point(280, 97);
+            this.nudPayloadTr.Name = "nudPayloadTr";
+            this.nudPayloadTr.Size = new System.Drawing.Size(76, 20);
+            this.nudPayloadTr.TabIndex = 67;
+            this.nudPayloadTr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btnBookInExBin
+            // 
+            this.btnBookInExBin.Location = new System.Drawing.Point(748, 197);
+            this.btnBookInExBin.Name = "btnBookInExBin";
+            this.btnBookInExBin.Size = new System.Drawing.Size(75, 20);
+            this.btnBookInExBin.TabIndex = 70;
+            this.btnBookInExBin.Text = "ExBin";
+            this.btnBookInExBin.UseVisualStyleBackColor = true;
+            this.btnBookInExBin.Click += new System.EventHandler(this.btnBookInExBin_Click);
+            // 
+            // btnBookInDelivery
+            // 
+            this.btnBookInDelivery.Location = new System.Drawing.Point(862, 197);
+            this.btnBookInDelivery.Name = "btnBookInDelivery";
+            this.btnBookInDelivery.Size = new System.Drawing.Size(75, 20);
+            this.btnBookInDelivery.TabIndex = 71;
+            this.btnBookInDelivery.Text = "Delivery";
+            this.btnBookInDelivery.UseVisualStyleBackColor = true;
+            this.btnBookInDelivery.Click += new System.EventHandler(this.btnBookInDelivery_Click);
             // 
             // BookInTruck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(992, 467);
+            this.Controls.Add(this.btnBookInExBin);
+            this.Controls.Add(this.btnBookInDelivery);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(cardStatusLabel);
             this.Controls.Add(this.txtCardStatus);
@@ -796,8 +820,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -858,5 +882,7 @@ namespace QWS_Local
         private System.Windows.Forms.NumericUpDown nudPayloadTk;
         private System.Windows.Forms.NumericUpDown nudPayloadTr;
         private System.Windows.Forms.Button btnPayloadValidate;
+        private System.Windows.Forms.Button btnBookInExBin;
+        private System.Windows.Forms.Button btnBookInDelivery;
     }
 }
