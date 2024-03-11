@@ -13,6 +13,7 @@ namespace QWS_Local
     public partial class BookInTruckStep1 : Form
     {
         private static bool FormLoaded = false;
+        private static DateTime EntryDTTM;
 
         public BookInTruckStep1()
         {
@@ -32,6 +33,7 @@ namespace QWS_Local
                 int iCount = taConfiguredTrucks.FillByRego(dsTruckConfig.ConfiguredTrucks, Rego);
                 if (iCount > 0)
                 {
+                    EntryDTTM = DateTime.Now;
                     UpdateOwnerGUI();
                 }
             }
@@ -119,7 +121,7 @@ namespace QWS_Local
 
             if (OK2Proceed)
             {
-                BookInTruck frmBookInTruck = new BookInTruck(truckConfigRow);
+                BookInTruck frmBookInTruck = new BookInTruck(truckConfigRow, EntryDTTM);
                 frmBookInTruck.MdiParent = this.MdiParent;
                 frmBookInTruck.Show();
             }

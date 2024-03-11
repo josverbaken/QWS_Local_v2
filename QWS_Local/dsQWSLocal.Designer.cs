@@ -5549,6 +5549,20 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnGVM;
             
+            private global::System.Data.DataColumn columnTruckConfig;
+            
+            private global::System.Data.DataColumn columnDriverID;
+            
+            private global::System.Data.DataColumn columnGross;
+            
+            private global::System.Data.DataColumn columnTare;
+            
+            private global::System.Data.DataColumn columnNett;
+            
+            private global::System.Data.DataColumn columnDocNum;
+            
+            private global::System.Data.DataColumn columnOverloadPoints;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public TrucksInQuarryDataTable() {
@@ -5728,6 +5742,62 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TruckConfigColumn {
+                get {
+                    return this.columnTruckConfig;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DriverIDColumn {
+                get {
+                    return this.columnDriverID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn GrossColumn {
+                get {
+                    return this.columnGross;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TareColumn {
+                get {
+                    return this.columnTare;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NettColumn {
+                get {
+                    return this.columnNett;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DocNumColumn {
+                get {
+                    return this.columnDocNum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn OverloadPointsColumn {
+                get {
+                    return this.columnOverloadPoints;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5781,7 +5851,14 @@ namespace QWS_Local {
                         string MaterialDesc, 
                         string Driver, 
                         decimal Payload, 
-                        decimal GVM) {
+                        decimal GVM, 
+                        string TruckConfig, 
+                        int DriverID, 
+                        decimal Gross, 
+                        decimal Tare, 
+                        decimal Nett, 
+                        int DocNum, 
+                        int OverloadPoints) {
                 TrucksInQuarryRow rowTrucksInQuarryRow = ((TrucksInQuarryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TIQID,
@@ -5801,7 +5878,14 @@ namespace QWS_Local {
                         MaterialDesc,
                         Driver,
                         Payload,
-                        GVM};
+                        GVM,
+                        TruckConfig,
+                        DriverID,
+                        Gross,
+                        Tare,
+                        Nett,
+                        DocNum,
+                        OverloadPoints};
                 rowTrucksInQuarryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTrucksInQuarryRow);
                 return rowTrucksInQuarryRow;
@@ -5849,6 +5933,13 @@ namespace QWS_Local {
                 this.columnDriver = base.Columns["Driver"];
                 this.columnPayload = base.Columns["Payload"];
                 this.columnGVM = base.Columns["GVM"];
+                this.columnTruckConfig = base.Columns["TruckConfig"];
+                this.columnDriverID = base.Columns["DriverID"];
+                this.columnGross = base.Columns["Gross"];
+                this.columnTare = base.Columns["Tare"];
+                this.columnNett = base.Columns["Nett"];
+                this.columnDocNum = base.Columns["DocNum"];
+                this.columnOverloadPoints = base.Columns["OverloadPoints"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5890,6 +5981,20 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnPayload);
                 this.columnGVM = new global::System.Data.DataColumn("GVM", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGVM);
+                this.columnTruckConfig = new global::System.Data.DataColumn("TruckConfig", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTruckConfig);
+                this.columnDriverID = new global::System.Data.DataColumn("DriverID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDriverID);
+                this.columnGross = new global::System.Data.DataColumn("Gross", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGross);
+                this.columnTare = new global::System.Data.DataColumn("Tare", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTare);
+                this.columnNett = new global::System.Data.DataColumn("Nett", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNett);
+                this.columnDocNum = new global::System.Data.DataColumn("DocNum", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDocNum);
+                this.columnOverloadPoints = new global::System.Data.DataColumn("OverloadPoints", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOverloadPoints);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTIQID}, true));
                 this.columnTIQID.AllowDBNull = false;
@@ -5910,6 +6015,8 @@ namespace QWS_Local {
                 this.columnDriver.MaxLength = 50;
                 this.columnPayload.AllowDBNull = false;
                 this.columnGVM.AllowDBNull = false;
+                this.columnTruckConfig.AllowDBNull = false;
+                this.columnTruckConfig.MaxLength = 5;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11843,6 +11950,113 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string TruckConfig {
+                get {
+                    return ((string)(this[this.tableTrucksInQuarry.TruckConfigColumn]));
+                }
+                set {
+                    this[this.tableTrucksInQuarry.TruckConfigColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int DriverID {
+                get {
+                    try {
+                        return ((int)(this[this.tableTrucksInQuarry.DriverIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DriverID\' in table \'TrucksInQuarry\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrucksInQuarry.DriverIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal Gross {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTrucksInQuarry.GrossColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Gross\' in table \'TrucksInQuarry\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrucksInQuarry.GrossColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal Tare {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTrucksInQuarry.TareColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Tare\' in table \'TrucksInQuarry\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrucksInQuarry.TareColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal Nett {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTrucksInQuarry.NettColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Nett\' in table \'TrucksInQuarry\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrucksInQuarry.NettColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int DocNum {
+                get {
+                    try {
+                        return ((int)(this[this.tableTrucksInQuarry.DocNumColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DocNum\' in table \'TrucksInQuarry\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrucksInQuarry.DocNumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int OverloadPoints {
+                get {
+                    try {
+                        return ((int)(this[this.tableTrucksInQuarry.OverloadPointsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'OverloadPoints\' in table \'TrucksInQuarry\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrucksInQuarry.OverloadPointsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsParentTIQIDNull() {
                 return this.IsNull(this.tableTrucksInQuarry.ParentTIQIDColumn);
             }
@@ -11911,6 +12125,78 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetExitDTTMNull() {
                 this[this.tableTrucksInQuarry.ExitDTTMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDriverIDNull() {
+                return this.IsNull(this.tableTrucksInQuarry.DriverIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDriverIDNull() {
+                this[this.tableTrucksInQuarry.DriverIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsGrossNull() {
+                return this.IsNull(this.tableTrucksInQuarry.GrossColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetGrossNull() {
+                this[this.tableTrucksInQuarry.GrossColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTareNull() {
+                return this.IsNull(this.tableTrucksInQuarry.TareColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTareNull() {
+                this[this.tableTrucksInQuarry.TareColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNettNull() {
+                return this.IsNull(this.tableTrucksInQuarry.NettColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNettNull() {
+                this[this.tableTrucksInQuarry.NettColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDocNumNull() {
+                return this.IsNull(this.tableTrucksInQuarry.DocNumColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDocNumNull() {
+                this[this.tableTrucksInQuarry.DocNumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsOverloadPointsNull() {
+                return this.IsNull(this.tableTrucksInQuarry.OverloadPointsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetOverloadPointsNull() {
+                this[this.tableTrucksInQuarry.OverloadPointsColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -18086,126 +18372,33 @@ FROM            VehicleDetails";
             tableMapping.ColumnMappings.Add("Driver", "Driver");
             tableMapping.ColumnMappings.Add("Payload", "Payload");
             tableMapping.ColumnMappings.Add("GVM", "GVM");
+            tableMapping.ColumnMappings.Add("TruckConfig", "TruckConfig");
+            tableMapping.ColumnMappings.Add("DriverID", "DriverID");
+            tableMapping.ColumnMappings.Add("Gross", "Gross");
+            tableMapping.ColumnMappings.Add("Tare", "Tare");
+            tableMapping.ColumnMappings.Add("Nett", "Nett");
+            tableMapping.ColumnMappings.Add("DocNum", "DocNum");
+            tableMapping.ColumnMappings.Add("OverloadPoints", "OverloadPoints");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [TrucksInQuarry] WHERE (([TIQID] = @Original_TIQID) AND ((@IsNull_ParentTIQID = 1 AND [ParentTIQID] IS NULL) OR ([ParentTIQID] = @Original_ParentTIQID)) AND ([SiteID] = @Original_SiteID) AND ([Rego] = @Original_Rego) AND ([EntryDTTM] = @Original_EntryDTTM) AND ((@IsNull_AllocateDTTM = 1 AND [AllocateDTTM] IS NULL) OR ([AllocateDTTM] = @Original_AllocateDTTM)) AND ((@IsNull_ReleaseDTTM = 1 AND [ReleaseDTTM] IS NULL) OR ([ReleaseDTTM] = @Original_ReleaseDTTM)) AND ((@IsNull_WeightDTTM = 1 AND [WeightDTTM] IS NULL) OR ([WeightDTTM] = @Original_WeightDTTM)) AND ((@IsNull_AcceptanceDTTM = 1 AND [AcceptanceDTTM] IS NULL) OR ([AcceptanceDTTM] = @Original_AcceptanceDTTM)) AND ((@IsNull_ExitDTTM = 1 AND [ExitDTTM] IS NULL) OR ([ExitDTTM] = @Original_ExitDTTM)) AND ([QueueStatus] = @Original_QueueStatus) AND ([WeighbridgeID] = @Original_WeighbridgeID) AND ([SAPOrder] = @Original_SAPOrder) AND ([Material] = @Original_Material) AND ([MaterialDesc] = @Original_MaterialDesc) AND ([Driver] = @Original_Driver) AND ([Payload] = @Original_Payload) AND ([GVM] = @Original_GVM))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TIQID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TIQID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ParentTIQID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ParentTIQID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ParentTIQID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ParentTIQID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SiteID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SiteID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rego", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EntryDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EntryDTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AllocateDTTM", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllocateDTTM", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AllocateDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllocateDTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ReleaseDTTM", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReleaseDTTM", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReleaseDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReleaseDTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_WeightDTTM", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeightDTTM", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WeightDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeightDTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AcceptanceDTTM", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AcceptanceDTTM", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AcceptanceDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AcceptanceDTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ExitDTTM", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExitDTTM", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ExitDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExitDTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_QueueStatus", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "QueueStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WeighbridgeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeighbridgeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SAPOrder", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SAPOrder", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Material", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Material", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MaterialDesc", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaterialDesc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Driver", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Driver", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Payload", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Payload", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GVM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GVM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [TrucksInQuarry] ([TIQID], [ParentTIQID], [SiteID], [Rego], [EntryDTTM], [AllocateDTTM], [ReleaseDTTM], [WeightDTTM], [AcceptanceDTTM], [ExitDTTM], [QueueStatus], [WeighbridgeID], [SAPOrder], [Material], [MaterialDesc], [Driver], [Payload], [GVM]) VALUES (@TIQID, @ParentTIQID, @SiteID, @Rego, @EntryDTTM, @AllocateDTTM, @ReleaseDTTM, @WeightDTTM, @AcceptanceDTTM, @ExitDTTM, @QueueStatus, @WeighbridgeID, @SAPOrder, @Material, @MaterialDesc, @Driver, @Payload, @GVM);
-SELECT TIQID, ParentTIQID, SiteID, Rego, EntryDTTM, AllocateDTTM, ReleaseDTTM, WeightDTTM, AcceptanceDTTM, ExitDTTM, QueueStatus, WeighbridgeID, SAPOrder, Material, MaterialDesc, Driver, Payload, GVM FROM TrucksInQuarry WHERE (TIQID = @TIQID)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TIQID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TIQID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ParentTIQID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ParentTIQID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SiteID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SiteID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rego", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EntryDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EntryDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AllocateDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllocateDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReleaseDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReleaseDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeightDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeightDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AcceptanceDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AcceptanceDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ExitDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExitDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@QueueStatus", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "QueueStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeighbridgeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeighbridgeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SAPOrder", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SAPOrder", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Material", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Material", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaterialDesc", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaterialDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Driver", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Driver", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Payload", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Payload", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GVM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GVM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [TrucksInQuarry] SET [TIQID] = @TIQID, [ParentTIQID] = @ParentTIQID, [Site" +
-                "ID] = @SiteID, [Rego] = @Rego, [EntryDTTM] = @EntryDTTM, [AllocateDTTM] = @Alloc" +
-                "ateDTTM, [ReleaseDTTM] = @ReleaseDTTM, [WeightDTTM] = @WeightDTTM, [AcceptanceDT" +
-                "TM] = @AcceptanceDTTM, [ExitDTTM] = @ExitDTTM, [QueueStatus] = @QueueStatus, [We" +
-                "ighbridgeID] = @WeighbridgeID, [SAPOrder] = @SAPOrder, [Material] = @Material, [" +
-                "MaterialDesc] = @MaterialDesc, [Driver] = @Driver, [Payload] = @Payload, [GVM] =" +
-                " @GVM WHERE (([TIQID] = @Original_TIQID) AND ((@IsNull_ParentTIQID = 1 AND [Pare" +
-                "ntTIQID] IS NULL) OR ([ParentTIQID] = @Original_ParentTIQID)) AND ([SiteID] = @O" +
-                "riginal_SiteID) AND ([Rego] = @Original_Rego) AND ([EntryDTTM] = @Original_Entry" +
-                "DTTM) AND ((@IsNull_AllocateDTTM = 1 AND [AllocateDTTM] IS NULL) OR ([AllocateDT" +
-                "TM] = @Original_AllocateDTTM)) AND ((@IsNull_ReleaseDTTM = 1 AND [ReleaseDTTM] I" +
-                "S NULL) OR ([ReleaseDTTM] = @Original_ReleaseDTTM)) AND ((@IsNull_WeightDTTM = 1" +
-                " AND [WeightDTTM] IS NULL) OR ([WeightDTTM] = @Original_WeightDTTM)) AND ((@IsNu" +
-                "ll_AcceptanceDTTM = 1 AND [AcceptanceDTTM] IS NULL) OR ([AcceptanceDTTM] = @Orig" +
-                "inal_AcceptanceDTTM)) AND ((@IsNull_ExitDTTM = 1 AND [ExitDTTM] IS NULL) OR ([Ex" +
-                "itDTTM] = @Original_ExitDTTM)) AND ([QueueStatus] = @Original_QueueStatus) AND (" +
-                "[WeighbridgeID] = @Original_WeighbridgeID) AND ([SAPOrder] = @Original_SAPOrder)" +
-                " AND ([Material] = @Original_Material) AND ([MaterialDesc] = @Original_MaterialD" +
-                "esc) AND ([Driver] = @Original_Driver) AND ([Payload] = @Original_Payload) AND (" +
-                "[GVM] = @Original_GVM));\r\nSELECT TIQID, ParentTIQID, SiteID, Rego, EntryDTTM, Al" +
-                "locateDTTM, ReleaseDTTM, WeightDTTM, AcceptanceDTTM, ExitDTTM, QueueStatus, Weig" +
-                "hbridgeID, SAPOrder, Material, MaterialDesc, Driver, Payload, GVM FROM TrucksInQ" +
-                "uarry WHERE (TIQID = @TIQID)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TIQID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TIQID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ParentTIQID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ParentTIQID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SiteID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SiteID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rego", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EntryDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EntryDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AllocateDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllocateDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReleaseDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReleaseDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeightDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeightDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AcceptanceDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AcceptanceDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ExitDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExitDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@QueueStatus", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "QueueStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeighbridgeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeighbridgeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SAPOrder", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SAPOrder", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Material", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Material", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaterialDesc", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaterialDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Driver", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Driver", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Payload", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Payload", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GVM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GVM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TIQID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TIQID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ParentTIQID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ParentTIQID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ParentTIQID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ParentTIQID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SiteID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SiteID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rego", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EntryDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EntryDTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AllocateDTTM", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllocateDTTM", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AllocateDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllocateDTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ReleaseDTTM", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReleaseDTTM", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReleaseDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReleaseDTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_WeightDTTM", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeightDTTM", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WeightDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeightDTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AcceptanceDTTM", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AcceptanceDTTM", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AcceptanceDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AcceptanceDTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ExitDTTM", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExitDTTM", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ExitDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExitDTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_QueueStatus", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "QueueStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WeighbridgeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeighbridgeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SAPOrder", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SAPOrder", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Material", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Material", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MaterialDesc", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaterialDesc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Driver", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Driver", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Payload", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Payload", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GVM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GVM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand.CommandText = "dbo.TIQAdd";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ParentTIQID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "ParentTIQID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SiteID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "SiteID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rego", global::System.Data.SqlDbType.VarChar, 6, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckConfig", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "TruckConfig", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@QueueStatus", global::System.Data.SqlDbType.Char, 1, global::System.Data.ParameterDirection.Input, 0, 0, "QueueStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeighbridgeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "WeighbridgeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SAPOrder", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "SAPOrder", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Material", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Material", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaterialDesc", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "MaterialDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DriverID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "DriverID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Driver", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Driver", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Payload", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "Payload", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GVM", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "GVM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EntryDTTM", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, "EntryDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18221,25 +18414,16 @@ SELECT TIQID, ParentTIQID, SiteID, Rego, EntryDTTM, AllocateDTTM, ReleaseDTTM, W
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        TIQID, ParentTIQID, SiteID, Rego, EntryDTTM, AllocateDTTM, ReleaseDTTM, WeightDTTM, AcceptanceDTTM, ExitDTTM, QueueStatus, WeighbridgeID, SAPOrder, Material, MaterialDesc, Driver, Payload, 
-                         GVM
-FROM            TrucksInQuarry";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].CommandText = "dbo.TIQ";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        TIQID, ParentTIQID, SiteID, Rego, EntryDTTM, AllocateDTTM, ReleaseDTTM, WeightDTTM, AcceptanceDTTM, ExitDTTM, QueueStatus, WeighbridgeID, SAPOrder, Material, MaterialDesc, Driver, Payload, 
-                         GVM
-FROM            TrucksInQuarry
-WHERE 1=1
-and QueueStatus in ('Q','I')";
+            this._commandCollection[1].CommandText = @"SELECT AcceptanceDTTM, AllocateDTTM, Driver, EntryDTTM, ExitDTTM, GVM, Material, MaterialDesc, ParentTIQID, Payload, QueueStatus, Rego, ReleaseDTTM, SAPOrder, SiteID, TIQID, WeighbridgeID, WeightDTTM FROM TrucksInQuarry WHERE (1 = 1) AND (QueueStatus IN ('Q', 'I'))";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT        TIQID, ParentTIQID, SiteID, Rego, EntryDTTM, AllocateDTTM, ReleaseDTTM, WeightDTTM, AcceptanceDTTM, ExitDTTM, QueueStatus, WeighbridgeID, SAPOrder, Material, MaterialDesc, Driver, Payload, 
-                         GVM
-FROM            TrucksInQuarry
-WHERE 1=1
-and TIQID like @TIQID";
+            this._commandCollection[2].CommandText = @"SELECT AcceptanceDTTM, AllocateDTTM, Driver, EntryDTTM, ExitDTTM, GVM, Material, MaterialDesc, ParentTIQID, Payload, QueueStatus, Rego, ReleaseDTTM, SAPOrder, SiteID, TIQID, WeighbridgeID, WeightDTTM FROM TrucksInQuarry WHERE (1 = 1) AND (TIQID LIKE @TIQID)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TIQID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TIQID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -18345,500 +18529,6 @@ and TIQID like @TIQID";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(
-                    int Original_TIQID, 
-                    global::System.Nullable<int> Original_ParentTIQID, 
-                    int Original_SiteID, 
-                    string Original_Rego, 
-                    System.DateTime Original_EntryDTTM, 
-                    global::System.Nullable<global::System.DateTime> Original_AllocateDTTM, 
-                    global::System.Nullable<global::System.DateTime> Original_ReleaseDTTM, 
-                    global::System.Nullable<global::System.DateTime> Original_WeightDTTM, 
-                    global::System.Nullable<global::System.DateTime> Original_AcceptanceDTTM, 
-                    global::System.Nullable<global::System.DateTime> Original_ExitDTTM, 
-                    string Original_QueueStatus, 
-                    int Original_WeighbridgeID, 
-                    int Original_SAPOrder, 
-                    string Original_Material, 
-                    string Original_MaterialDesc, 
-                    string Original_Driver, 
-                    decimal Original_Payload, 
-                    decimal Original_GVM) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_TIQID));
-            if ((Original_ParentTIQID.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_ParentTIQID.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_SiteID));
-            if ((Original_Rego == null)) {
-                throw new global::System.ArgumentNullException("Original_Rego");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Rego));
-            }
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_EntryDTTM));
-            if ((Original_AllocateDTTM.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((System.DateTime)(Original_AllocateDTTM.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((Original_ReleaseDTTM.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((System.DateTime)(Original_ReleaseDTTM.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((Original_WeightDTTM.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((System.DateTime)(Original_WeightDTTM.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            if ((Original_AcceptanceDTTM.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((System.DateTime)(Original_AcceptanceDTTM.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            if ((Original_ExitDTTM.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((System.DateTime)(Original_ExitDTTM.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            if ((Original_QueueStatus == null)) {
-                throw new global::System.ArgumentNullException("Original_QueueStatus");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_QueueStatus));
-            }
-            this.Adapter.DeleteCommand.Parameters[17].Value = ((int)(Original_WeighbridgeID));
-            this.Adapter.DeleteCommand.Parameters[18].Value = ((int)(Original_SAPOrder));
-            if ((Original_Material == null)) {
-                throw new global::System.ArgumentNullException("Original_Material");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_Material));
-            }
-            if ((Original_MaterialDesc == null)) {
-                throw new global::System.ArgumentNullException("Original_MaterialDesc");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_MaterialDesc));
-            }
-            if ((Original_Driver == null)) {
-                throw new global::System.ArgumentNullException("Original_Driver");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_Driver));
-            }
-            this.Adapter.DeleteCommand.Parameters[22].Value = ((decimal)(Original_Payload));
-            this.Adapter.DeleteCommand.Parameters[23].Value = ((decimal)(Original_GVM));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(
-                    int TIQID, 
-                    global::System.Nullable<int> ParentTIQID, 
-                    int SiteID, 
-                    string Rego, 
-                    System.DateTime EntryDTTM, 
-                    global::System.Nullable<global::System.DateTime> AllocateDTTM, 
-                    global::System.Nullable<global::System.DateTime> ReleaseDTTM, 
-                    global::System.Nullable<global::System.DateTime> WeightDTTM, 
-                    global::System.Nullable<global::System.DateTime> AcceptanceDTTM, 
-                    global::System.Nullable<global::System.DateTime> ExitDTTM, 
-                    string QueueStatus, 
-                    int WeighbridgeID, 
-                    int SAPOrder, 
-                    string Material, 
-                    string MaterialDesc, 
-                    string Driver, 
-                    decimal Payload, 
-                    decimal GVM) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(TIQID));
-            if ((ParentTIQID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(ParentTIQID.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(SiteID));
-            if ((Rego == null)) {
-                throw new global::System.ArgumentNullException("Rego");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Rego));
-            }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(EntryDTTM));
-            if ((AllocateDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(AllocateDTTM.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((ReleaseDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(ReleaseDTTM.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((WeightDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((System.DateTime)(WeightDTTM.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((AcceptanceDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(AcceptanceDTTM.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((ExitDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((System.DateTime)(ExitDTTM.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((QueueStatus == null)) {
-                throw new global::System.ArgumentNullException("QueueStatus");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(QueueStatus));
-            }
-            this.Adapter.InsertCommand.Parameters[11].Value = ((int)(WeighbridgeID));
-            this.Adapter.InsertCommand.Parameters[12].Value = ((int)(SAPOrder));
-            if ((Material == null)) {
-                throw new global::System.ArgumentNullException("Material");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(Material));
-            }
-            if ((MaterialDesc == null)) {
-                throw new global::System.ArgumentNullException("MaterialDesc");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(MaterialDesc));
-            }
-            if ((Driver == null)) {
-                throw new global::System.ArgumentNullException("Driver");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(Driver));
-            }
-            this.Adapter.InsertCommand.Parameters[16].Value = ((decimal)(Payload));
-            this.Adapter.InsertCommand.Parameters[17].Value = ((decimal)(GVM));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int TIQID, 
-                    global::System.Nullable<int> ParentTIQID, 
-                    int SiteID, 
-                    string Rego, 
-                    System.DateTime EntryDTTM, 
-                    global::System.Nullable<global::System.DateTime> AllocateDTTM, 
-                    global::System.Nullable<global::System.DateTime> ReleaseDTTM, 
-                    global::System.Nullable<global::System.DateTime> WeightDTTM, 
-                    global::System.Nullable<global::System.DateTime> AcceptanceDTTM, 
-                    global::System.Nullable<global::System.DateTime> ExitDTTM, 
-                    string QueueStatus, 
-                    int WeighbridgeID, 
-                    int SAPOrder, 
-                    string Material, 
-                    string MaterialDesc, 
-                    string Driver, 
-                    decimal Payload, 
-                    decimal GVM, 
-                    int Original_TIQID, 
-                    global::System.Nullable<int> Original_ParentTIQID, 
-                    int Original_SiteID, 
-                    string Original_Rego, 
-                    System.DateTime Original_EntryDTTM, 
-                    global::System.Nullable<global::System.DateTime> Original_AllocateDTTM, 
-                    global::System.Nullable<global::System.DateTime> Original_ReleaseDTTM, 
-                    global::System.Nullable<global::System.DateTime> Original_WeightDTTM, 
-                    global::System.Nullable<global::System.DateTime> Original_AcceptanceDTTM, 
-                    global::System.Nullable<global::System.DateTime> Original_ExitDTTM, 
-                    string Original_QueueStatus, 
-                    int Original_WeighbridgeID, 
-                    int Original_SAPOrder, 
-                    string Original_Material, 
-                    string Original_MaterialDesc, 
-                    string Original_Driver, 
-                    decimal Original_Payload, 
-                    decimal Original_GVM) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(TIQID));
-            if ((ParentTIQID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(ParentTIQID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(SiteID));
-            if ((Rego == null)) {
-                throw new global::System.ArgumentNullException("Rego");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Rego));
-            }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(EntryDTTM));
-            if ((AllocateDTTM.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(AllocateDTTM.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((ReleaseDTTM.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(ReleaseDTTM.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((WeightDTTM.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(WeightDTTM.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((AcceptanceDTTM.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(AcceptanceDTTM.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((ExitDTTM.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(ExitDTTM.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((QueueStatus == null)) {
-                throw new global::System.ArgumentNullException("QueueStatus");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(QueueStatus));
-            }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(WeighbridgeID));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(SAPOrder));
-            if ((Material == null)) {
-                throw new global::System.ArgumentNullException("Material");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Material));
-            }
-            if ((MaterialDesc == null)) {
-                throw new global::System.ArgumentNullException("MaterialDesc");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(MaterialDesc));
-            }
-            if ((Driver == null)) {
-                throw new global::System.ArgumentNullException("Driver");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Driver));
-            }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(Payload));
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(GVM));
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_TIQID));
-            if ((Original_ParentTIQID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_ParentTIQID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_SiteID));
-            if ((Original_Rego == null)) {
-                throw new global::System.ArgumentNullException("Original_Rego");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_Rego));
-            }
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((System.DateTime)(Original_EntryDTTM));
-            if ((Original_AllocateDTTM.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((System.DateTime)(Original_AllocateDTTM.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            if ((Original_ReleaseDTTM.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((System.DateTime)(Original_ReleaseDTTM.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            if ((Original_WeightDTTM.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((System.DateTime)(Original_WeightDTTM.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
-            }
-            if ((Original_AcceptanceDTTM.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((System.DateTime)(Original_AcceptanceDTTM.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
-            }
-            if ((Original_ExitDTTM.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((System.DateTime)(Original_ExitDTTM.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
-            }
-            if ((Original_QueueStatus == null)) {
-                throw new global::System.ArgumentNullException("Original_QueueStatus");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_QueueStatus));
-            }
-            this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(Original_WeighbridgeID));
-            this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(Original_SAPOrder));
-            if ((Original_Material == null)) {
-                throw new global::System.ArgumentNullException("Original_Material");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_Material));
-            }
-            if ((Original_MaterialDesc == null)) {
-                throw new global::System.ArgumentNullException("Original_MaterialDesc");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_MaterialDesc));
-            }
-            if ((Original_Driver == null)) {
-                throw new global::System.ArgumentNullException("Original_Driver");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_Driver));
-            }
-            this.Adapter.UpdateCommand.Parameters[40].Value = ((decimal)(Original_Payload));
-            this.Adapter.UpdateCommand.Parameters[41].Value = ((decimal)(Original_GVM));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    global::System.Nullable<int> ParentTIQID, 
-                    int SiteID, 
-                    string Rego, 
-                    System.DateTime EntryDTTM, 
-                    global::System.Nullable<global::System.DateTime> AllocateDTTM, 
-                    global::System.Nullable<global::System.DateTime> ReleaseDTTM, 
-                    global::System.Nullable<global::System.DateTime> WeightDTTM, 
-                    global::System.Nullable<global::System.DateTime> AcceptanceDTTM, 
-                    global::System.Nullable<global::System.DateTime> ExitDTTM, 
-                    string QueueStatus, 
-                    int WeighbridgeID, 
-                    int SAPOrder, 
-                    string Material, 
-                    string MaterialDesc, 
-                    string Driver, 
-                    decimal Payload, 
-                    decimal GVM, 
-                    int Original_TIQID, 
-                    global::System.Nullable<int> Original_ParentTIQID, 
-                    int Original_SiteID, 
-                    string Original_Rego, 
-                    System.DateTime Original_EntryDTTM, 
-                    global::System.Nullable<global::System.DateTime> Original_AllocateDTTM, 
-                    global::System.Nullable<global::System.DateTime> Original_ReleaseDTTM, 
-                    global::System.Nullable<global::System.DateTime> Original_WeightDTTM, 
-                    global::System.Nullable<global::System.DateTime> Original_AcceptanceDTTM, 
-                    global::System.Nullable<global::System.DateTime> Original_ExitDTTM, 
-                    string Original_QueueStatus, 
-                    int Original_WeighbridgeID, 
-                    int Original_SAPOrder, 
-                    string Original_Material, 
-                    string Original_MaterialDesc, 
-                    string Original_Driver, 
-                    decimal Original_Payload, 
-                    decimal Original_GVM) {
-            return this.Update(Original_TIQID, ParentTIQID, SiteID, Rego, EntryDTTM, AllocateDTTM, ReleaseDTTM, WeightDTTM, AcceptanceDTTM, ExitDTTM, QueueStatus, WeighbridgeID, SAPOrder, Material, MaterialDesc, Driver, Payload, GVM, Original_TIQID, Original_ParentTIQID, Original_SiteID, Original_Rego, Original_EntryDTTM, Original_AllocateDTTM, Original_ReleaseDTTM, Original_WeightDTTM, Original_AcceptanceDTTM, Original_ExitDTTM, Original_QueueStatus, Original_WeighbridgeID, Original_SAPOrder, Original_Material, Original_MaterialDesc, Original_Driver, Original_Payload, Original_GVM);
         }
     }
     
