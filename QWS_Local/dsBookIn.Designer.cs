@@ -2486,11 +2486,16 @@ namespace QWS_Local.dsBookInTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT DocNum, DocEntry, DocDate, CardCode, Customer, PurchaseOrder, CntctCode, ContactName, ContactMobile, DeliveryDate, DeliveryAddress, MapRef, Distance, SAPComments, MaterialCode, Material, ItmsGrpCod, ItemQA, Quantity, OpenQty, Supplied, CartageCode, Cartage, SAPUpdateDTTM FROM DeliveryOrdersAll";
+            this._commandCollection[0].CommandText = @"SELECT        DocNum, DocEntry, DocDate, CardCode, Customer, PurchaseOrder, CntctCode, ContactName, ContactMobile, DeliveryDate, DeliveryAddress, MapRef, Distance, SAPComments, MaterialCode, Material, 
+                         ItmsGrpCod, ItemQA, Quantity, OpenQty, Supplied, CartageCode, Cartage, SAPUpdateDTTM, OrderStatus
+FROM            DeliveryOrdersAll";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT CardCode, Cartage, CartageCode, CntctCode, ContactMobile, ContactName, Customer, DeliveryAddress, DeliveryDate, Distance, DocDate, DocEntry, DocNum, ItemQA, ItmsGrpCod, MapRef, Material, MaterialCode, OpenQty, PurchaseOrder, Quantity, SAPComments, SAPUpdateDTTM, Supplied FROM DeliveryOrdersAll WHERE (1 = 1) AND (OpenQty > 0)";
+            this._commandCollection[1].CommandText = @"SELECT        CardCode, Cartage, CartageCode, CntctCode, ContactMobile, ContactName, Customer, DeliveryAddress, DeliveryDate, Distance, DocDate, DocEntry, DocNum, ItemQA, ItmsGrpCod, MapRef, Material, MaterialCode,
+                          OpenQty, OrderStatus, PurchaseOrder, Quantity, SAPComments, SAPUpdateDTTM, Supplied
+FROM            DeliveryOrdersAll
+WHERE        (1 = 1) AND (OpenQty > 0)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2701,14 +2706,13 @@ namespace QWS_Local.dsBookInTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT DocNum, DocEntry, DocDate, CardCode, Customer, PurchaseOrder, CntctCode, C" +
-                "ontactName, ContactMobile, DeliveryDate, DeliveryAddress, SAPComments, MaterialC" +
-                "ode, Material, ItmsGrpCod, ItemQA, Quantity, OpenQty, Supplied, SAPUpdateDTTM FR" +
-                "OM ExBinOrders";
+            this._commandCollection[0].CommandText = @"SELECT        DocNum, DocEntry, DocDate, CardCode, Customer, PurchaseOrder, CntctCode, ContactName, ContactMobile, DeliveryDate, DeliveryAddress, SAPComments, MaterialCode, Material, ItmsGrpCod, ItemQA, Quantity, 
+                         OpenQty, Supplied, SAPUpdateDTTM, OrderStatus
+FROM            ExBinOrders";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT CardCode, CntctCode, ContactMobile, ContactName, Customer, DeliveryAddress, DeliveryDate, DocDate, DocEntry, DocNum, ItemQA, ItmsGrpCod, Material, MaterialCode, OpenQty, PurchaseOrder, Quantity, SAPComments, SAPUpdateDTTM, Supplied FROM ExBinOrders WHERE (1 = 1) AND (OpenQty > 0) AND (CardCode LIKE @CardCode)";
+            this._commandCollection[1].CommandText = @"SELECT CardCode, CntctCode, ContactMobile, ContactName, Customer, DeliveryAddress, DeliveryDate, DocDate, DocEntry, DocNum, ItemQA, ItmsGrpCod, Material, MaterialCode, OpenQty, OrderStatus, PurchaseOrder, Quantity, SAPComments, SAPUpdateDTTM, Supplied FROM ExBinOrders WHERE (1 = 1) AND (OpenQty > 0) AND (CardCode LIKE @CardCode)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CardCode", global::System.Data.SqlDbType.NVarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, "CardCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

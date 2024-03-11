@@ -25,6 +25,7 @@ namespace QWS_Local
         private void btnLoad_Click(object sender, EventArgs e)
         {
             DeliveryOrdersLoad();
+            // TODO: add parameter for cartage type n6 or n7
         }
 
         private void DeliveryOrdersLoad()
