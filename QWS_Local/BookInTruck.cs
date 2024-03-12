@@ -36,7 +36,7 @@ namespace QWS_Local
         private void GetTruckDriver()
         {
             bool blOkay2Cart = true;
-            TruckDriverSearch frmTruckDriverSearch = new TruckDriverSearch(txtCardCode.Text);
+            TruckDriverSearch frmTruckDriverSearch = new TruckDriverSearch(CurrentTruckGVM().CardCode);
             DialogResult dr = frmTruckDriverSearch.ShowDialog();
             if (dr ==DialogResult.OK)
             {
@@ -115,10 +115,15 @@ namespace QWS_Local
             }
         }
 
-        private void BookInTruck_Load(object sender, EventArgs e)
+        private dsQWSLocal.TruckDriverRow CurrentTruckDriver()
         {
-            // TODO: This line of code loads data into the 'dsQWSLocal.TrucksInQuarry' table. You can move, or remove it, as needed.
-            this.taTIQ.Fill(this.dsQWSLocal.TrucksInQuarry);
+            DataRow myRow = ((DataRowView)bsTruckDriver.Current).Row;
+            dsQWSLocal.TruckDriverRow myTruckDriverRow = (dsQWSLocal.TruckDriverRow)myRow;
+            return myTruckDriverRow;
+        }
+
+        private void BookInTruck_Load(object sender, EventArgs e)
+        {   
             UpdateGUI();
         }
 
@@ -302,20 +307,26 @@ namespace QWS_Local
                 rowTIQ.TIQID = -1;
                 rowTIQ.ParentTIQID = 0;
                 rowTIQ.SiteID = SiteID;
-                rowTIQ.Rego = "abc123";
+                rowTIQ.Rego = CurrentTruckGVM().RegoTk;
                 rowTIQ.TruckConfig = "TK";
                 rowTIQ.QueueStatus = "T";
                 rowTIQ.WeighbridgeID = 1;
                 rowTIQ.SAPOrder = -9;
                 rowTIQ.Material = "Retare";
                 rowTIQ.MaterialDesc = "Retare Vehicle";
-                rowTIQ.DriverID = 123;
-                rowTIQ.Driver = "Fred";
+                rowTIQ.DriverID = CurrentTruckDriver().CntctCode;
+                rowTIQ.Driver = CurrentTruckDriver().Person;
                 rowTIQ.Payload = 0;
-                rowTIQ.GVM = 0;
+                rowTIQ.GVM = CurrentTruckGVM().GCM;
                 rowTIQ.EntryDTTM = EntryDTTM;
                 dsQWSLocal.TrucksInQuarry.AddTrucksInQuarryRow(rowTIQ);
-                this.taTIQ.Update(dsQWSLocal.TrucksInQuarry);
+                int iRow = this.taTIQ.Update(dsQWSLocal.TrucksInQuarry);
+                if (iRow == 1)
+                {
+                    TrucksInQuarry frmTIQ = new TrucksInQuarry();
+                    frmTIQ.MdiParent = this.MdiParent;
+                    frmTIQ.Show();
+                }
             }
             catch (Exception ex)
             {

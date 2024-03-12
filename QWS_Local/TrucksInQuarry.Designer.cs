@@ -30,18 +30,20 @@ namespace QWS_Local
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label regoLabel;
+            System.Windows.Forms.Label entryDTTMLabel;
+            System.Windows.Forms.Label queueStatusLabel;
+            System.Windows.Forms.Label weighbridgeIDLabel;
+            System.Windows.Forms.Label driverLabel;
+            System.Windows.Forms.Label sAPOrderLabel;
+            System.Windows.Forms.Label materialLabel;
+            System.Windows.Forms.Label materialDescLabel;
+            System.Windows.Forms.Label gVMLabel;
+            System.Windows.Forms.Label tareLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
-            this.trucksInQuarryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.trucksInQuarryTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter();
-            this.btnAddVehicle = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.queueStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.releaseDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.regoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,7 +52,39 @@ namespace QWS_Local
             this.materialDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.payloadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gVMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsTIQ = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
+            this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddVehicle = new System.Windows.Forms.Button();
+            this.taTIQ = new QWS_Local.dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tpList = new System.Windows.Forms.TabPage();
+            this.tpDetails = new System.Windows.Forms.TabPage();
+            this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
+            this.regoTextBox = new System.Windows.Forms.TextBox();
+            this.entryDTTMDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.queueStatusTextBox = new System.Windows.Forms.TextBox();
+            this.weighbridgeIDTextBox = new System.Windows.Forms.TextBox();
+            this.driverTextBox = new System.Windows.Forms.TextBox();
+            this.sAPOrderTextBox = new System.Windows.Forms.TextBox();
+            this.materialTextBox = new System.Windows.Forms.TextBox();
+            this.materialDescTextBox = new System.Windows.Forms.TextBox();
+            this.gVMTextBox = new System.Windows.Forms.TextBox();
+            this.tareTextBox = new System.Windows.Forms.TextBox();
+            regoLabel = new System.Windows.Forms.Label();
+            entryDTTMLabel = new System.Windows.Forms.Label();
+            queueStatusLabel = new System.Windows.Forms.Label();
+            weighbridgeIDLabel = new System.Windows.Forms.Label();
+            driverLabel = new System.Windows.Forms.Label();
+            sAPOrderLabel = new System.Windows.Forms.Label();
+            materialLabel = new System.Windows.Forms.Label();
+            materialDescLabel = new System.Windows.Forms.Label();
+            gVMLabel = new System.Windows.Forms.Label();
+            tareLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -60,8 +94,11 @@ namespace QWS_Local
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trucksInQuarryBindingSource)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tpList.SuspendLayout();
+            this.tpDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -94,7 +131,7 @@ namespace QWS_Local
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.dataGridView1);
+            this.splitContainer2.Panel1.Controls.Add(this.tabControl1);
             // 
             // splitContainer2.Panel2
             // 
@@ -118,98 +155,14 @@ namespace QWS_Local
             this.materialDescDataGridViewTextBoxColumn,
             this.payloadDataGridViewTextBoxColumn,
             this.gVMDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.trucksInQuarryBindingSource;
+            this.dataGridView1.DataSource = this.bsTIQ;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(922, 470);
+            this.dataGridView1.Size = new System.Drawing.Size(908, 431);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // dsQWSLocal
-            // 
-            this.dsQWSLocal.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // trucksInQuarryBindingSource
-            // 
-            this.trucksInQuarryBindingSource.DataMember = "TrucksInQuarry";
-            this.trucksInQuarryBindingSource.DataSource = this.dsQWSLocal;
-            // 
-            // trucksInQuarryTableAdapter
-            // 
-            this.trucksInQuarryTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnAddVehicle
-            // 
-            this.btnAddVehicle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnAddVehicle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddVehicle.Location = new System.Drawing.Point(36, 60);
-            this.btnAddVehicle.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAddVehicle.Name = "btnAddVehicle";
-            this.btnAddVehicle.Size = new System.Drawing.Size(86, 49);
-            this.btnAddVehicle.TabIndex = 50;
-            this.btnAddVehicle.Text = "+";
-            this.btnAddVehicle.UseVisualStyleBackColor = false;
-            this.btnAddVehicle.Click += new System.EventHandler(this.btnAddVehicle_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Aqua;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(36, 287);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 49);
-            this.button1.TabIndex = 51;
-            this.button1.Text = "info";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(36, 210);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(86, 49);
-            this.button2.TabIndex = 52;
-            this.button2.Text = "down";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(36, 139);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(86, 49);
-            this.button3.TabIndex = 53;
-            this.button3.Text = "up";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(54, 29);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(114, 49);
-            this.button4.TabIndex = 54;
-            this.button4.Text = "refresh";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // queueStatusDataGridViewTextBoxColumn
             // 
@@ -222,9 +175,9 @@ namespace QWS_Local
             // releaseDTTMDataGridViewTextBoxColumn
             // 
             this.releaseDTTMDataGridViewTextBoxColumn.DataPropertyName = "ReleaseDTTM";
-            dataGridViewCellStyle7.Format = "HH:mm";
-            dataGridViewCellStyle7.NullValue = null;
-            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Format = "HH:mm";
+            dataGridViewCellStyle2.NullValue = null;
+            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.releaseDTTMDataGridViewTextBoxColumn.HeaderText = "Release";
             this.releaseDTTMDataGridViewTextBoxColumn.Name = "releaseDTTMDataGridViewTextBoxColumn";
             this.releaseDTTMDataGridViewTextBoxColumn.ReadOnly = true;
@@ -275,6 +228,30 @@ namespace QWS_Local
             this.gVMDataGridViewTextBoxColumn.Name = "gVMDataGridViewTextBoxColumn";
             this.gVMDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // bsTIQ
+            // 
+            this.bsTIQ.DataMember = "TrucksInQuarry";
+            this.bsTIQ.DataSource = this.dsQWSLocal;
+            // 
+            // dsQWSLocal
+            // 
+            this.dsQWSLocal.DataSetName = "dsQWSLocal";
+            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(54, 29);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(114, 49);
+            this.button4.TabIndex = 54;
+            this.button4.Text = "refresh";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
@@ -289,6 +266,307 @@ namespace QWS_Local
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(36, 139);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(86, 49);
+            this.button3.TabIndex = 53;
+            this.button3.Text = "up";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(36, 210);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(86, 49);
+            this.button2.TabIndex = 52;
+            this.button2.Text = "down";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Aqua;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(36, 287);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(86, 49);
+            this.button1.TabIndex = 51;
+            this.button1.Text = "info";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnAddVehicle
+            // 
+            this.btnAddVehicle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnAddVehicle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddVehicle.Location = new System.Drawing.Point(36, 60);
+            this.btnAddVehicle.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddVehicle.Name = "btnAddVehicle";
+            this.btnAddVehicle.Size = new System.Drawing.Size(86, 49);
+            this.btnAddVehicle.TabIndex = 50;
+            this.btnAddVehicle.Text = "+";
+            this.btnAddVehicle.UseVisualStyleBackColor = false;
+            this.btnAddVehicle.Click += new System.EventHandler(this.btnAddVehicle_Click);
+            // 
+            // taTIQ
+            // 
+            this.taTIQ.ClearBeforeFill = true;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tpList);
+            this.tabControl1.Controls.Add(this.tpDetails);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(922, 470);
+            this.tabControl1.TabIndex = 1;
+            // 
+            // tpList
+            // 
+            this.tpList.Controls.Add(this.dataGridView1);
+            this.tpList.Location = new System.Drawing.Point(4, 29);
+            this.tpList.Name = "tpList";
+            this.tpList.Padding = new System.Windows.Forms.Padding(3);
+            this.tpList.Size = new System.Drawing.Size(914, 437);
+            this.tpList.TabIndex = 0;
+            this.tpList.Text = "List";
+            this.tpList.UseVisualStyleBackColor = true;
+            // 
+            // tpDetails
+            // 
+            this.tpDetails.Controls.Add(tareLabel);
+            this.tpDetails.Controls.Add(this.tareTextBox);
+            this.tpDetails.Controls.Add(gVMLabel);
+            this.tpDetails.Controls.Add(this.gVMTextBox);
+            this.tpDetails.Controls.Add(materialDescLabel);
+            this.tpDetails.Controls.Add(this.materialDescTextBox);
+            this.tpDetails.Controls.Add(materialLabel);
+            this.tpDetails.Controls.Add(this.materialTextBox);
+            this.tpDetails.Controls.Add(sAPOrderLabel);
+            this.tpDetails.Controls.Add(this.sAPOrderTextBox);
+            this.tpDetails.Controls.Add(driverLabel);
+            this.tpDetails.Controls.Add(this.driverTextBox);
+            this.tpDetails.Controls.Add(weighbridgeIDLabel);
+            this.tpDetails.Controls.Add(this.weighbridgeIDTextBox);
+            this.tpDetails.Controls.Add(queueStatusLabel);
+            this.tpDetails.Controls.Add(this.queueStatusTextBox);
+            this.tpDetails.Controls.Add(entryDTTMLabel);
+            this.tpDetails.Controls.Add(this.entryDTTMDateTimePicker);
+            this.tpDetails.Controls.Add(regoLabel);
+            this.tpDetails.Controls.Add(this.regoTextBox);
+            this.tpDetails.Location = new System.Drawing.Point(4, 29);
+            this.tpDetails.Name = "tpDetails";
+            this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
+            this.tpDetails.Size = new System.Drawing.Size(914, 437);
+            this.tpDetails.TabIndex = 1;
+            this.tpDetails.Text = "Details";
+            this.tpDetails.UseVisualStyleBackColor = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.AxleConfigurationTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.NHVLTableAdapter = null;
+            this.tableAdapterManager.PBS_ConfigSchemeTableAdapter = null;
+            this.tableAdapterManager.PBS_ConfigTableAdapter = null;
+            this.tableAdapterManager.PBSTableAdapter = null;
+            this.tableAdapterManager.SchemeCodesTableAdapter = null;
+            this.tableAdapterManager.TruckConfigTableAdapter = null;
+            this.tableAdapterManager.TruckConfigVehicleTableAdapter = null;
+            this.tableAdapterManager.TrucksInQuarryTableAdapter = this.taTIQ;
+            this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.VehiclePBSTableAdapter = null;
+            this.tableAdapterManager.VehiclePrefCustomersTableAdapter = null;
+            this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
+            this.tableAdapterManager.VehicleTableAdapter = null;
+            this.tableAdapterManager.VehicleTypeTableAdapter = null;
+            // 
+            // regoLabel
+            // 
+            regoLabel.AutoSize = true;
+            regoLabel.Location = new System.Drawing.Point(51, 39);
+            regoLabel.Name = "regoLabel";
+            regoLabel.Size = new System.Drawing.Size(52, 20);
+            regoLabel.TabIndex = 0;
+            regoLabel.Text = "Rego:";
+            // 
+            // regoTextBox
+            // 
+            this.regoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "Rego", true));
+            this.regoTextBox.Location = new System.Drawing.Point(109, 36);
+            this.regoTextBox.Name = "regoTextBox";
+            this.regoTextBox.Size = new System.Drawing.Size(100, 26);
+            this.regoTextBox.TabIndex = 1;
+            // 
+            // entryDTTMLabel
+            // 
+            entryDTTMLabel.AutoSize = true;
+            entryDTTMLabel.Location = new System.Drawing.Point(52, 76);
+            entryDTTMLabel.Name = "entryDTTMLabel";
+            entryDTTMLabel.Size = new System.Drawing.Size(97, 20);
+            entryDTTMLabel.TabIndex = 2;
+            entryDTTMLabel.Text = "Entry DTTM:";
+            // 
+            // entryDTTMDateTimePicker
+            // 
+            this.entryDTTMDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bsTIQ, "EntryDTTM", true));
+            this.entryDTTMDateTimePicker.Location = new System.Drawing.Point(155, 72);
+            this.entryDTTMDateTimePicker.Name = "entryDTTMDateTimePicker";
+            this.entryDTTMDateTimePicker.Size = new System.Drawing.Size(200, 26);
+            this.entryDTTMDateTimePicker.TabIndex = 3;
+            // 
+            // queueStatusLabel
+            // 
+            queueStatusLabel.AutoSize = true;
+            queueStatusLabel.Location = new System.Drawing.Point(53, 114);
+            queueStatusLabel.Name = "queueStatusLabel";
+            queueStatusLabel.Size = new System.Drawing.Size(112, 20);
+            queueStatusLabel.TabIndex = 4;
+            queueStatusLabel.Text = "Queue Status:";
+            // 
+            // queueStatusTextBox
+            // 
+            this.queueStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "QueueStatus", true));
+            this.queueStatusTextBox.Location = new System.Drawing.Point(171, 111);
+            this.queueStatusTextBox.Name = "queueStatusTextBox";
+            this.queueStatusTextBox.Size = new System.Drawing.Size(100, 26);
+            this.queueStatusTextBox.TabIndex = 5;
+            // 
+            // weighbridgeIDLabel
+            // 
+            weighbridgeIDLabel.AutoSize = true;
+            weighbridgeIDLabel.Location = new System.Drawing.Point(311, 114);
+            weighbridgeIDLabel.Name = "weighbridgeIDLabel";
+            weighbridgeIDLabel.Size = new System.Drawing.Size(123, 20);
+            weighbridgeIDLabel.TabIndex = 6;
+            weighbridgeIDLabel.Text = "Weighbridge ID:";
+            // 
+            // weighbridgeIDTextBox
+            // 
+            this.weighbridgeIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "WeighbridgeID", true));
+            this.weighbridgeIDTextBox.Location = new System.Drawing.Point(440, 111);
+            this.weighbridgeIDTextBox.Name = "weighbridgeIDTextBox";
+            this.weighbridgeIDTextBox.Size = new System.Drawing.Size(100, 26);
+            this.weighbridgeIDTextBox.TabIndex = 7;
+            // 
+            // driverLabel
+            // 
+            driverLabel.AutoSize = true;
+            driverLabel.Location = new System.Drawing.Point(230, 39);
+            driverLabel.Name = "driverLabel";
+            driverLabel.Size = new System.Drawing.Size(54, 20);
+            driverLabel.TabIndex = 8;
+            driverLabel.Text = "Driver:";
+            // 
+            // driverTextBox
+            // 
+            this.driverTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "Driver", true));
+            this.driverTextBox.Location = new System.Drawing.Point(290, 36);
+            this.driverTextBox.Name = "driverTextBox";
+            this.driverTextBox.Size = new System.Drawing.Size(100, 26);
+            this.driverTextBox.TabIndex = 9;
+            // 
+            // sAPOrderLabel
+            // 
+            sAPOrderLabel.AutoSize = true;
+            sAPOrderLabel.Location = new System.Drawing.Point(59, 164);
+            sAPOrderLabel.Name = "sAPOrderLabel";
+            sAPOrderLabel.Size = new System.Drawing.Size(85, 20);
+            sAPOrderLabel.TabIndex = 10;
+            sAPOrderLabel.Text = "SAPOrder:";
+            // 
+            // sAPOrderTextBox
+            // 
+            this.sAPOrderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "SAPOrder", true));
+            this.sAPOrderTextBox.Location = new System.Drawing.Point(150, 161);
+            this.sAPOrderTextBox.Name = "sAPOrderTextBox";
+            this.sAPOrderTextBox.Size = new System.Drawing.Size(100, 26);
+            this.sAPOrderTextBox.TabIndex = 11;
+            // 
+            // materialLabel
+            // 
+            materialLabel.AutoSize = true;
+            materialLabel.Location = new System.Drawing.Point(60, 203);
+            materialLabel.Name = "materialLabel";
+            materialLabel.Size = new System.Drawing.Size(69, 20);
+            materialLabel.TabIndex = 12;
+            materialLabel.Text = "Material:";
+            // 
+            // materialTextBox
+            // 
+            this.materialTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "Material", true));
+            this.materialTextBox.Location = new System.Drawing.Point(135, 200);
+            this.materialTextBox.Name = "materialTextBox";
+            this.materialTextBox.Size = new System.Drawing.Size(100, 26);
+            this.materialTextBox.TabIndex = 13;
+            // 
+            // materialDescLabel
+            // 
+            materialDescLabel.AutoSize = true;
+            materialDescLabel.Location = new System.Drawing.Point(61, 246);
+            materialDescLabel.Name = "materialDescLabel";
+            materialDescLabel.Size = new System.Drawing.Size(110, 20);
+            materialDescLabel.TabIndex = 14;
+            materialDescLabel.Text = "Material Desc:";
+            // 
+            // materialDescTextBox
+            // 
+            this.materialDescTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "MaterialDesc", true));
+            this.materialDescTextBox.Location = new System.Drawing.Point(177, 243);
+            this.materialDescTextBox.Name = "materialDescTextBox";
+            this.materialDescTextBox.Size = new System.Drawing.Size(100, 26);
+            this.materialDescTextBox.TabIndex = 15;
+            // 
+            // gVMLabel
+            // 
+            gVMLabel.AutoSize = true;
+            gVMLabel.Location = new System.Drawing.Point(498, 185);
+            gVMLabel.Name = "gVMLabel";
+            gVMLabel.Size = new System.Drawing.Size(50, 20);
+            gVMLabel.TabIndex = 16;
+            gVMLabel.Text = "GVM:";
+            // 
+            // gVMTextBox
+            // 
+            this.gVMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "GVM", true));
+            this.gVMTextBox.Location = new System.Drawing.Point(554, 182);
+            this.gVMTextBox.Name = "gVMTextBox";
+            this.gVMTextBox.Size = new System.Drawing.Size(100, 26);
+            this.gVMTextBox.TabIndex = 17;
+            // 
+            // tareLabel
+            // 
+            tareLabel.AutoSize = true;
+            tareLabel.Location = new System.Drawing.Point(497, 222);
+            tareLabel.Name = "tareLabel";
+            tareLabel.Size = new System.Drawing.Size(45, 20);
+            tareLabel.TabIndex = 18;
+            tareLabel.Text = "Tare:";
+            // 
+            // tareTextBox
+            // 
+            this.tareTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "Tare", true));
+            this.tareTextBox.Location = new System.Drawing.Point(548, 219);
+            this.tareTextBox.Name = "tareTextBox";
+            this.tareTextBox.Size = new System.Drawing.Size(100, 26);
+            this.tareTextBox.TabIndex = 19;
+            // 
             // TrucksInQuarry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -296,7 +574,7 @@ namespace QWS_Local
             this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "TrucksInQuarry";
             this.Text = "Trucks In Quarry";
             this.Load += new System.EventHandler(this.TrucksInQuarry_Load);
@@ -309,8 +587,12 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trucksInQuarryBindingSource)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tpList.ResumeLayout(false);
+            this.tpDetails.ResumeLayout(false);
+            this.tpDetails.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -321,8 +603,8 @@ namespace QWS_Local
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private dsQWSLocal dsQWSLocal;
-        private System.Windows.Forms.BindingSource trucksInQuarryBindingSource;
-        private dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter trucksInQuarryTableAdapter;
+        private System.Windows.Forms.BindingSource bsTIQ;
+        private dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter taTIQ;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
@@ -337,5 +619,19 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn payloadDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gVMDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tpList;
+        private System.Windows.Forms.TabPage tpDetails;
+        private System.Windows.Forms.TextBox tareTextBox;
+        private System.Windows.Forms.TextBox gVMTextBox;
+        private System.Windows.Forms.TextBox materialDescTextBox;
+        private System.Windows.Forms.TextBox materialTextBox;
+        private System.Windows.Forms.TextBox sAPOrderTextBox;
+        private System.Windows.Forms.TextBox driverTextBox;
+        private System.Windows.Forms.TextBox weighbridgeIDTextBox;
+        private System.Windows.Forms.TextBox queueStatusTextBox;
+        private System.Windows.Forms.DateTimePicker entryDTTMDateTimePicker;
+        private System.Windows.Forms.TextBox regoTextBox;
+        private dsQWSLocalTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }

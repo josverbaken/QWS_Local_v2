@@ -20,8 +20,9 @@ namespace QWS_Local
         private void TrucksInQuarry_Load(object sender, EventArgs e)
         {
             // set up and down arrows
-            button3.Text = ""+ (char)24;
-            button2.Text = ""+ (char)25;
+            //button3.Text = ""+ (char)24;
+            //button2.Text = ""+ (char)25;
+            // TODO: find a nicer solution, probably images/icons
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -33,7 +34,8 @@ namespace QWS_Local
         {
             try
             {
-                this.trucksInQuarryTableAdapter.FillBy(this.dsQWSLocal.TrucksInQuarry);
+                //this.taTIQ.FillBy(this.dsQWSLocal.TrucksInQuarry);
+                this.taTIQ.Fill(this.dsQWSLocal.TrucksInQuarry);
             }
             catch (Exception ex)
             {
@@ -52,9 +54,12 @@ namespace QWS_Local
             //BookInTruck frmBookIn = new BookInTruck();
             //frmBookIn.MdiParent = this.MdiParent;
             //frmBookIn.Show();
-            TruckConfiguration frmTruckConfig = new TruckConfiguration();
-            frmTruckConfig.MdiParent = this.MdiParent;
-            frmTruckConfig.Show();
+            //TruckConfiguration frmTruckConfig = new TruckConfiguration();
+            //frmTruckConfig.MdiParent = this.MdiParent;
+            //frmTruckConfig.Show();
+            BookInTruckStep1 frmBookIn = new BookInTruckStep1();
+            frmBookIn.MdiParent = this.MdiParent;
+            frmBookIn.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -64,20 +69,22 @@ namespace QWS_Local
 
         private void ShowTIQDetail()
         {
+            // 20240312 JV Swap to tabControl with List and Details tabs as elsewhere
+            tabControl1.SelectedTab = tpDetails;
             // get TIQID of selected row
             // test that a row is selected
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                DataRow dataRow = ((DataRowView)trucksInQuarryBindingSource.Current).Row;
-                dsQWSLocal.TrucksInQuarryRow trucksInQuarryRow = (dsQWSLocal.TrucksInQuarryRow)dataRow;
-                int TIQID = trucksInQuarryRow.TIQID;
-                TIQDetail frmTIQDetail = new TIQDetail(TIQID);
-                frmTIQDetail.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Please select a row!");
-            }
+            //if (dataGridView1.SelectedRows.Count > 0)
+            //{
+            //    DataRow dataRow = ((DataRowView)bsTIQ.Current).Row;
+            //    dsQWSLocal.TrucksInQuarryRow trucksInQuarryRow = (dsQWSLocal.TrucksInQuarryRow)dataRow;
+            //    int TIQID = trucksInQuarryRow.TIQID;
+            //    TIQDetail frmTIQDetail = new TIQDetail(TIQID);
+            //    frmTIQDetail.ShowDialog();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Please select a row!");
+            //}
         }
 
         private void button3_Click(object sender, EventArgs e)
