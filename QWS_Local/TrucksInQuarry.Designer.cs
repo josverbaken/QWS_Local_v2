@@ -849,7 +849,6 @@ namespace QWS_Local
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnAddVehicle;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gVMDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpList;
