@@ -5547,8 +5547,6 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnPayload;
             
-            private global::System.Data.DataColumn columnGVM;
-            
             private global::System.Data.DataColumn columnTruckConfig;
             
             private global::System.Data.DataColumn columnDriverID;
@@ -5559,9 +5557,27 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnNett;
             
-            private global::System.Data.DataColumn columnDocNum;
+            private global::System.Data.DataColumn columnTruckConfigID;
             
-            private global::System.Data.DataColumn columnOverloadPoints;
+            private global::System.Data.DataColumn columnFeeCode;
+            
+            private global::System.Data.DataColumn columnConfigSource;
+            
+            private global::System.Data.DataColumn columnRoadAccess;
+            
+            private global::System.Data.DataColumn columnTruckOwnerCode;
+            
+            private global::System.Data.DataColumn columnTruckOwner;
+            
+            private global::System.Data.DataColumn columnGCM;
+            
+            private global::System.Data.DataColumn columnGVMTruck;
+            
+            private global::System.Data.DataColumn columnTareTk;
+            
+            private global::System.Data.DataColumn columnAxleConfiguration;
+            
+            private global::System.Data.DataColumn columnSchemeCode;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -5734,14 +5750,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn GVMColumn {
-                get {
-                    return this.columnGVM;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn TruckConfigColumn {
                 get {
                     return this.columnTruckConfig;
@@ -5782,17 +5790,89 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DocNumColumn {
+            public global::System.Data.DataColumn TruckConfigIDColumn {
                 get {
-                    return this.columnDocNum;
+                    return this.columnTruckConfigID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn OverloadPointsColumn {
+            public global::System.Data.DataColumn FeeCodeColumn {
                 get {
-                    return this.columnOverloadPoints;
+                    return this.columnFeeCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ConfigSourceColumn {
+                get {
+                    return this.columnConfigSource;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn RoadAccessColumn {
+                get {
+                    return this.columnRoadAccess;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TruckOwnerCodeColumn {
+                get {
+                    return this.columnTruckOwnerCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TruckOwnerColumn {
+                get {
+                    return this.columnTruckOwner;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn GCMColumn {
+                get {
+                    return this.columnGCM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn GVMTruckColumn {
+                get {
+                    return this.columnGVMTruck;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TareTkColumn {
+                get {
+                    return this.columnTareTk;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AxleConfigurationColumn {
+                get {
+                    return this.columnAxleConfiguration;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SchemeCodeColumn {
+                get {
+                    return this.columnSchemeCode;
                 }
             }
             
@@ -5851,14 +5931,22 @@ namespace QWS_Local {
                         string MaterialDesc, 
                         string Driver, 
                         decimal Payload, 
-                        decimal GVM, 
                         string TruckConfig, 
                         int DriverID, 
                         decimal Gross, 
                         decimal Tare, 
                         decimal Nett, 
-                        int DocNum, 
-                        int OverloadPoints) {
+                        int TruckConfigID, 
+                        string FeeCode, 
+                        string ConfigSource, 
+                        string RoadAccess, 
+                        string TruckOwnerCode, 
+                        string TruckOwner, 
+                        decimal GCM, 
+                        decimal GVMTruck, 
+                        decimal TareTk, 
+                        string AxleConfiguration, 
+                        string SchemeCode) {
                 TrucksInQuarryRow rowTrucksInQuarryRow = ((TrucksInQuarryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TIQID,
@@ -5878,14 +5966,22 @@ namespace QWS_Local {
                         MaterialDesc,
                         Driver,
                         Payload,
-                        GVM,
                         TruckConfig,
                         DriverID,
                         Gross,
                         Tare,
                         Nett,
-                        DocNum,
-                        OverloadPoints};
+                        TruckConfigID,
+                        FeeCode,
+                        ConfigSource,
+                        RoadAccess,
+                        TruckOwnerCode,
+                        TruckOwner,
+                        GCM,
+                        GVMTruck,
+                        TareTk,
+                        AxleConfiguration,
+                        SchemeCode};
                 rowTrucksInQuarryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTrucksInQuarryRow);
                 return rowTrucksInQuarryRow;
@@ -5932,14 +6028,22 @@ namespace QWS_Local {
                 this.columnMaterialDesc = base.Columns["MaterialDesc"];
                 this.columnDriver = base.Columns["Driver"];
                 this.columnPayload = base.Columns["Payload"];
-                this.columnGVM = base.Columns["GVM"];
                 this.columnTruckConfig = base.Columns["TruckConfig"];
                 this.columnDriverID = base.Columns["DriverID"];
                 this.columnGross = base.Columns["Gross"];
                 this.columnTare = base.Columns["Tare"];
                 this.columnNett = base.Columns["Nett"];
-                this.columnDocNum = base.Columns["DocNum"];
-                this.columnOverloadPoints = base.Columns["OverloadPoints"];
+                this.columnTruckConfigID = base.Columns["TruckConfigID"];
+                this.columnFeeCode = base.Columns["FeeCode"];
+                this.columnConfigSource = base.Columns["ConfigSource"];
+                this.columnRoadAccess = base.Columns["RoadAccess"];
+                this.columnTruckOwnerCode = base.Columns["TruckOwnerCode"];
+                this.columnTruckOwner = base.Columns["TruckOwner"];
+                this.columnGCM = base.Columns["GCM"];
+                this.columnGVMTruck = base.Columns["GVMTruck"];
+                this.columnTareTk = base.Columns["TareTk"];
+                this.columnAxleConfiguration = base.Columns["AxleConfiguration"];
+                this.columnSchemeCode = base.Columns["SchemeCode"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5979,8 +6083,6 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnDriver);
                 this.columnPayload = new global::System.Data.DataColumn("Payload", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPayload);
-                this.columnGVM = new global::System.Data.DataColumn("GVM", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnGVM);
                 this.columnTruckConfig = new global::System.Data.DataColumn("TruckConfig", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTruckConfig);
                 this.columnDriverID = new global::System.Data.DataColumn("DriverID", typeof(int), null, global::System.Data.MappingType.Element);
@@ -5991,10 +6093,28 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnTare);
                 this.columnNett = new global::System.Data.DataColumn("Nett", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNett);
-                this.columnDocNum = new global::System.Data.DataColumn("DocNum", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDocNum);
-                this.columnOverloadPoints = new global::System.Data.DataColumn("OverloadPoints", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOverloadPoints);
+                this.columnTruckConfigID = new global::System.Data.DataColumn("TruckConfigID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTruckConfigID);
+                this.columnFeeCode = new global::System.Data.DataColumn("FeeCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFeeCode);
+                this.columnConfigSource = new global::System.Data.DataColumn("ConfigSource", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConfigSource);
+                this.columnRoadAccess = new global::System.Data.DataColumn("RoadAccess", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRoadAccess);
+                this.columnTruckOwnerCode = new global::System.Data.DataColumn("TruckOwnerCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTruckOwnerCode);
+                this.columnTruckOwner = new global::System.Data.DataColumn("TruckOwner", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTruckOwner);
+                this.columnGCM = new global::System.Data.DataColumn("GCM", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGCM);
+                this.columnGVMTruck = new global::System.Data.DataColumn("GVMTruck", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGVMTruck);
+                this.columnTareTk = new global::System.Data.DataColumn("TareTk", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTareTk);
+                this.columnAxleConfiguration = new global::System.Data.DataColumn("AxleConfiguration", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAxleConfiguration);
+                this.columnSchemeCode = new global::System.Data.DataColumn("SchemeCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSchemeCode);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTIQID}, true));
                 this.columnTIQID.AllowDBNull = false;
@@ -6014,9 +6134,16 @@ namespace QWS_Local {
                 this.columnDriver.AllowDBNull = false;
                 this.columnDriver.MaxLength = 50;
                 this.columnPayload.AllowDBNull = false;
-                this.columnGVM.AllowDBNull = false;
                 this.columnTruckConfig.AllowDBNull = false;
                 this.columnTruckConfig.MaxLength = 5;
+                this.columnFeeCode.MaxLength = 50;
+                this.columnConfigSource.MaxLength = 50;
+                this.columnRoadAccess.MaxLength = 50;
+                this.columnTruckOwnerCode.MaxLength = 15;
+                this.columnTruckOwner.MaxLength = 50;
+                this.columnGCM.AllowDBNull = false;
+                this.columnAxleConfiguration.MaxLength = 50;
+                this.columnSchemeCode.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11939,17 +12066,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal GVM {
-                get {
-                    return ((decimal)(this[this.tableTrucksInQuarry.GVMColumn]));
-                }
-                set {
-                    this[this.tableTrucksInQuarry.GVMColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string TruckConfig {
                 get {
                     return ((string)(this[this.tableTrucksInQuarry.TruckConfigColumn]));
@@ -12025,33 +12141,172 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int DocNum {
+            public int TruckConfigID {
                 get {
                     try {
-                        return ((int)(this[this.tableTrucksInQuarry.DocNumColumn]));
+                        return ((int)(this[this.tableTrucksInQuarry.TruckConfigIDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DocNum\' in table \'TrucksInQuarry\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TruckConfigID\' in table \'TrucksInQuarry\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTrucksInQuarry.DocNumColumn] = value;
+                    this[this.tableTrucksInQuarry.TruckConfigIDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int OverloadPoints {
+            public string FeeCode {
                 get {
                     try {
-                        return ((int)(this[this.tableTrucksInQuarry.OverloadPointsColumn]));
+                        return ((string)(this[this.tableTrucksInQuarry.FeeCodeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'OverloadPoints\' in table \'TrucksInQuarry\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'FeeCode\' in table \'TrucksInQuarry\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTrucksInQuarry.OverloadPointsColumn] = value;
+                    this[this.tableTrucksInQuarry.FeeCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ConfigSource {
+                get {
+                    try {
+                        return ((string)(this[this.tableTrucksInQuarry.ConfigSourceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ConfigSource\' in table \'TrucksInQuarry\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrucksInQuarry.ConfigSourceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string RoadAccess {
+                get {
+                    try {
+                        return ((string)(this[this.tableTrucksInQuarry.RoadAccessColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RoadAccess\' in table \'TrucksInQuarry\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrucksInQuarry.RoadAccessColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string TruckOwnerCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableTrucksInQuarry.TruckOwnerCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TruckOwnerCode\' in table \'TrucksInQuarry\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrucksInQuarry.TruckOwnerCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string TruckOwner {
+                get {
+                    try {
+                        return ((string)(this[this.tableTrucksInQuarry.TruckOwnerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TruckOwner\' in table \'TrucksInQuarry\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrucksInQuarry.TruckOwnerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal GCM {
+                get {
+                    return ((decimal)(this[this.tableTrucksInQuarry.GCMColumn]));
+                }
+                set {
+                    this[this.tableTrucksInQuarry.GCMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal GVMTruck {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTrucksInQuarry.GVMTruckColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GVMTruck\' in table \'TrucksInQuarry\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrucksInQuarry.GVMTruckColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal TareTk {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTrucksInQuarry.TareTkColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TareTk\' in table \'TrucksInQuarry\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrucksInQuarry.TareTkColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AxleConfiguration {
+                get {
+                    try {
+                        return ((string)(this[this.tableTrucksInQuarry.AxleConfigurationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AxleConfiguration\' in table \'TrucksInQuarry\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrucksInQuarry.AxleConfigurationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string SchemeCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableTrucksInQuarry.SchemeCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SchemeCode\' in table \'TrucksInQuarry\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrucksInQuarry.SchemeCodeColumn] = value;
                 }
             }
             
@@ -12177,26 +12432,122 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDocNumNull() {
-                return this.IsNull(this.tableTrucksInQuarry.DocNumColumn);
+            public bool IsTruckConfigIDNull() {
+                return this.IsNull(this.tableTrucksInQuarry.TruckConfigIDColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDocNumNull() {
-                this[this.tableTrucksInQuarry.DocNumColumn] = global::System.Convert.DBNull;
+            public void SetTruckConfigIDNull() {
+                this[this.tableTrucksInQuarry.TruckConfigIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsOverloadPointsNull() {
-                return this.IsNull(this.tableTrucksInQuarry.OverloadPointsColumn);
+            public bool IsFeeCodeNull() {
+                return this.IsNull(this.tableTrucksInQuarry.FeeCodeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetOverloadPointsNull() {
-                this[this.tableTrucksInQuarry.OverloadPointsColumn] = global::System.Convert.DBNull;
+            public void SetFeeCodeNull() {
+                this[this.tableTrucksInQuarry.FeeCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsConfigSourceNull() {
+                return this.IsNull(this.tableTrucksInQuarry.ConfigSourceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetConfigSourceNull() {
+                this[this.tableTrucksInQuarry.ConfigSourceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRoadAccessNull() {
+                return this.IsNull(this.tableTrucksInQuarry.RoadAccessColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRoadAccessNull() {
+                this[this.tableTrucksInQuarry.RoadAccessColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTruckOwnerCodeNull() {
+                return this.IsNull(this.tableTrucksInQuarry.TruckOwnerCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTruckOwnerCodeNull() {
+                this[this.tableTrucksInQuarry.TruckOwnerCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTruckOwnerNull() {
+                return this.IsNull(this.tableTrucksInQuarry.TruckOwnerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTruckOwnerNull() {
+                this[this.tableTrucksInQuarry.TruckOwnerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsGVMTruckNull() {
+                return this.IsNull(this.tableTrucksInQuarry.GVMTruckColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetGVMTruckNull() {
+                this[this.tableTrucksInQuarry.GVMTruckColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTareTkNull() {
+                return this.IsNull(this.tableTrucksInQuarry.TareTkColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTareTkNull() {
+                this[this.tableTrucksInQuarry.TareTkColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAxleConfigurationNull() {
+                return this.IsNull(this.tableTrucksInQuarry.AxleConfigurationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAxleConfigurationNull() {
+                this[this.tableTrucksInQuarry.AxleConfigurationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSchemeCodeNull() {
+                return this.IsNull(this.tableTrucksInQuarry.SchemeCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSchemeCodeNull() {
+                this[this.tableTrucksInQuarry.SchemeCodeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -18371,14 +18722,22 @@ FROM            VehicleDetails";
             tableMapping.ColumnMappings.Add("MaterialDesc", "MaterialDesc");
             tableMapping.ColumnMappings.Add("Driver", "Driver");
             tableMapping.ColumnMappings.Add("Payload", "Payload");
-            tableMapping.ColumnMappings.Add("GVM", "GVM");
             tableMapping.ColumnMappings.Add("TruckConfig", "TruckConfig");
             tableMapping.ColumnMappings.Add("DriverID", "DriverID");
             tableMapping.ColumnMappings.Add("Gross", "Gross");
             tableMapping.ColumnMappings.Add("Tare", "Tare");
             tableMapping.ColumnMappings.Add("Nett", "Nett");
-            tableMapping.ColumnMappings.Add("DocNum", "DocNum");
-            tableMapping.ColumnMappings.Add("OverloadPoints", "OverloadPoints");
+            tableMapping.ColumnMappings.Add("TruckConfigID", "TruckConfigID");
+            tableMapping.ColumnMappings.Add("FeeCode", "FeeCode");
+            tableMapping.ColumnMappings.Add("ConfigSource", "ConfigSource");
+            tableMapping.ColumnMappings.Add("RoadAccess", "RoadAccess");
+            tableMapping.ColumnMappings.Add("TruckOwnerCode", "TruckOwnerCode");
+            tableMapping.ColumnMappings.Add("TruckOwner", "TruckOwner");
+            tableMapping.ColumnMappings.Add("GCM", "GCM");
+            tableMapping.ColumnMappings.Add("GVMTruck", "GVMTruck");
+            tableMapping.ColumnMappings.Add("TareTk", "TareTk");
+            tableMapping.ColumnMappings.Add("AxleConfiguration", "AxleConfiguration");
+            tableMapping.ColumnMappings.Add("SchemeCode", "SchemeCode");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
@@ -18389,15 +18748,26 @@ FROM            VehicleDetails";
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SiteID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "SiteID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rego", global::System.Data.SqlDbType.VarChar, 6, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckConfig", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "TruckConfig", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckconfigID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "TruckConfigID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AxleConfiguration", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeCode", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "FeeCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ConfigSource", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ConfigSource", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SchemeCode", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "SchemeCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RoadAccess", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "RoadAccess", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@QueueStatus", global::System.Data.SqlDbType.Char, 1, global::System.Data.ParameterDirection.Input, 0, 0, "QueueStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeighbridgeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "WeighbridgeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SAPOrder", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "SAPOrder", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Material", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Material", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaterialDesc", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "MaterialDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckOwnerCode", global::System.Data.SqlDbType.VarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, "TruckOwnerCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckOwner", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TruckOwner", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DriverID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "DriverID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Driver", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Driver", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Payload", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "Payload", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GVM", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "GVM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GCM", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "GCM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GVMTruck", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "GVMTruck", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tare", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "Tare", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TareTk", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "TareTk", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EntryDTTM", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, "EntryDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
@@ -18439,12 +18809,11 @@ FROM            VehicleDetails";
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT t0.*\r\nFROM TrucksInQuarry t0\r\nWHERE (1 = 1) \r\nAND (QueueStatus IN (\'Q\', \'I" +
-                "\',\'T\'))";
+            this._commandCollection[1].CommandText = @"SELECT TIQID, ParentTIQID, SiteID, Rego, TruckConfig, TruckConfigID, FeeCode, ConfigSource, RoadAccess, EntryDTTM, AllocateDTTM, ReleaseDTTM, WeightDTTM, AcceptanceDTTM, ExitDTTM, QueueStatus, WeighbridgeID, SAPOrder, Material, MaterialDesc, TruckOwnerCode, TruckOwner, DriverID, Driver, Payload, GCM, GVMTruck, Gross, Tare, TareTk, Nett FROM TrucksInQuarry AS t0 WHERE (1 = 1) AND (QueueStatus IN ('Q', 'I', 'T'))";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT t0.*\r\nFROM TrucksInQuarry t0 \r\nWHERE (1 = 1) AND (TIQID LIKE @TIQID)";
+            this._commandCollection[2].CommandText = @"SELECT TIQID, ParentTIQID, SiteID, Rego, TruckConfig, TruckConfigID, FeeCode, ConfigSource, RoadAccess, EntryDTTM, AllocateDTTM, ReleaseDTTM, WeightDTTM, AcceptanceDTTM, ExitDTTM, QueueStatus, WeighbridgeID, SAPOrder, Material, MaterialDesc, TruckOwnerCode, TruckOwner, DriverID, Driver, Payload, GCM, GVMTruck, Gross, Tare, TareTk, Nett FROM TrucksInQuarry AS t0 WHERE (1 = 1) AND (TIQID LIKE @TIQID)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TIQID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TIQID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
