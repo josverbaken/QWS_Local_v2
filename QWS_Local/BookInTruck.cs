@@ -117,9 +117,13 @@ namespace QWS_Local
 
         private dsQWSLocal.TruckDriverRow CurrentTruckDriver()
         {
-            DataRow myRow = ((DataRowView)bsTruckDriver.Current).Row;
-            dsQWSLocal.TruckDriverRow myTruckDriverRow = (dsQWSLocal.TruckDriverRow)myRow;
-            return myTruckDriverRow;
+            if (bsTruckDriver.Count > 0)
+            {
+                DataRow myRow = ((DataRowView)bsTruckDriver.Current).Row;
+                dsQWSLocal.TruckDriverRow myTruckDriverRow = (dsQWSLocal.TruckDriverRow)myRow;
+                return myTruckDriverRow;
+            }
+            return null;
         }
 
         private void BookInTruck_Load(object sender, EventArgs e)
@@ -308,7 +312,7 @@ namespace QWS_Local
                 rowTIQ.ParentTIQID = 0;
                 rowTIQ.SiteID = SiteID;
                 rowTIQ.Rego = CurrentTruckGVM().RegoTk;
-                rowTIQ.TruckConfig = "TK";
+                rowTIQ.TruckConfig = "TK"; // TODO
                 rowTIQ.TruckConfigID = CurrentTruckGVM().TruckConfigID;
                 rowTIQ.AxleConfiguration = CurrentTruckGVM().AxleConfiguration;
                 rowTIQ.FeeCode = CurrentTruckGVM().FeeCode;
@@ -322,14 +326,16 @@ namespace QWS_Local
                 rowTIQ.MaterialDesc = "Retare Vehicle";
                 rowTIQ.TruckOwnerCode = CurrentTruckGVM().CardCode;
                 rowTIQ.TruckOwner = CurrentTruckGVM().Owner;
-                rowTIQ.DriverID = CurrentTruckDriver().CntctCode;
+                rowTIQ.DriverID = CurrentTruckDriver().CntctCode; // TODO: ensure driver selected before getting here!
                 rowTIQ.Driver = CurrentTruckDriver().Person;
-                rowTIQ.Payload = 0;
+                rowTIQ.Payload = nudPayload.Value;
                 rowTIQ.GCM = CurrentTruckGVM().GCM;
                 rowTIQ.GVMTruck = CurrentTruckGVM().GVMTruck;
                 rowTIQ.Tare = CurrentTruckGVM().Tare;
                 rowTIQ.TareTk = CurrentTruckGVM().TareTk;
                 rowTIQ.EntryDTTM = EntryDTTM;
+                rowTIQ.AllocateDTTM = DateTime.Now;
+                rowTIQ.ReleaseDTTM = DateTime.Now;
                 dsQWSLocal.TrucksInQuarry.AddTrucksInQuarryRow(rowTIQ);
                 int iRow = this.taTIQ.Update(dsQWSLocal.TrucksInQuarry);
                 if (iRow == 1)
