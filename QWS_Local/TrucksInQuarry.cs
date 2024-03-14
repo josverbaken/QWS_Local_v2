@@ -19,6 +19,8 @@ namespace QWS_Local
 
         private void TrucksInQuarry_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsQWSLocal.AxleConfiguration' table. You can move, or remove it, as needed.
+            this.taAxleConfig.Fill(this.dsQWSLocal.AxleConfiguration);
             // set up and down arrows
             //button3.Text = ""+ (char)24;
             //button2.Text = ""+ (char)25;
@@ -157,6 +159,41 @@ namespace QWS_Local
         private void button5_Click(object sender, EventArgs e)
         {
             dataGridView1.ClearSelection();
+        }
+
+        private dsQWSLocal.TrucksInQuarryRow CurrentTIQ()
+        {
+            if ( bsTIQ.Count > 0)
+            {
+                DataRow myRow = ((DataRowView)bsTIQ.Current).Row;
+                dsQWSLocal.TrucksInQuarryRow myTIQRow = (dsQWSLocal.TrucksInQuarryRow)myRow;
+                return myTIQRow;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private void bsTIQ_CurrentChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string AxleConfig = "12A3";
+                AxleConfig = CurrentTIQ().AxleConfiguration;
+
+                SyncAxleConfig(AxleConfig);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void SyncAxleConfig(string AxleConfig)
+        {
+           bsAxleConfig.Position = bsAxleConfig.Find("AxleConfiguration", AxleConfig);
         }
     }
 }
