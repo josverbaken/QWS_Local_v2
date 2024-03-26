@@ -34,7 +34,6 @@ namespace QWS_Local
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -46,8 +45,9 @@ namespace QWS_Local
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dsQWSLocal1 = new QWS_Local.dsQWSLocal();
             this.nHVLBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal1 = new QWS_Local.dsQWSLocal();
+            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.nHVLTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.NHVLTableAdapter();
             this.truckTypeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.axleConfigurationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +56,7 @@ namespace QWS_Local
             this.couplingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxLengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoadAccess = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.steerAxleAllowanceDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.trTkRatioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gCMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,10 +68,10 @@ namespace QWS_Local
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nHVLBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -131,11 +132,6 @@ namespace QWS_Local
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 24);
             this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // dsQWSLocal
-            // 
-            this.dsQWSLocal.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -226,6 +222,7 @@ namespace QWS_Local
             this.couplingDataGridViewTextBoxColumn,
             this.maxLengthDataGridViewTextBoxColumn,
             this.schemeCodeDataGridViewTextBoxColumn,
+            this.RoadAccess,
             this.steerAxleAllowanceDataGridViewCheckBoxColumn,
             this.trTkRatioDataGridViewTextBoxColumn,
             this.gCMDataGridViewTextBoxColumn,
@@ -238,15 +235,20 @@ namespace QWS_Local
             this.dataGridView1.Size = new System.Drawing.Size(1200, 558);
             this.dataGridView1.TabIndex = 0;
             // 
+            // nHVLBindingSource
+            // 
+            this.nHVLBindingSource.DataMember = "NHVL";
+            this.nHVLBindingSource.DataSource = this.dsQWSLocal1;
+            // 
             // dsQWSLocal1
             // 
             this.dsQWSLocal1.DataSetName = "dsQWSLocal";
             this.dsQWSLocal1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // nHVLBindingSource
+            // dsQWSLocal
             // 
-            this.nHVLBindingSource.DataMember = "NHVL";
-            this.nHVLBindingSource.DataSource = this.dsQWSLocal1;
+            this.dsQWSLocal.DataSetName = "dsQWSLocal";
+            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // nHVLTableAdapter
             // 
@@ -294,11 +296,17 @@ namespace QWS_Local
             this.schemeCodeDataGridViewTextBoxColumn.HeaderText = "SchemeCode";
             this.schemeCodeDataGridViewTextBoxColumn.Name = "schemeCodeDataGridViewTextBoxColumn";
             // 
+            // RoadAccess
+            // 
+            this.RoadAccess.DataPropertyName = "RoadAccess";
+            this.RoadAccess.HeaderText = "RoadAccess";
+            this.RoadAccess.Name = "RoadAccess";
+            // 
             // steerAxleAllowanceDataGridViewCheckBoxColumn
             // 
             this.steerAxleAllowanceDataGridViewCheckBoxColumn.DataPropertyName = "SteerAxleAllowance";
             this.steerAxleAllowanceDataGridViewCheckBoxColumn.HeaderText = "SteerAxleAllowance";
-            this.steerAxleAllowanceDataGridViewCheckBoxColumn.Name = "steerAxleAllowanceDataGridViewCheckBoxColumn";        
+            this.steerAxleAllowanceDataGridViewCheckBoxColumn.Name = "steerAxleAllowanceDataGridViewCheckBoxColumn";
             // 
             // trTkRatioDataGridViewTextBoxColumn
             // 
@@ -343,10 +351,10 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nHVLBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -378,6 +386,7 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn couplingDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maxLengthDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn schemeCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoadAccess;
         private System.Windows.Forms.DataGridViewCheckBoxColumn steerAxleAllowanceDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn trTkRatioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gCMDataGridViewTextBoxColumn;
