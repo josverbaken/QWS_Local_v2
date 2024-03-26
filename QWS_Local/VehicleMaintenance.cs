@@ -32,7 +32,11 @@ namespace QWS_Local
             }
         }
 
-        
+        public void FindVehicleByCallingRego(string Rego)
+        {
+            txtRego.Text = Rego;
+        }
+
         private void IdentificationSave()
         {
             try

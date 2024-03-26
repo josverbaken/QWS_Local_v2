@@ -81,6 +81,9 @@ namespace QWS_Local
             this.docNumTextBox = new System.Windows.Forms.TextBox();
             this.exBinOrdersTableAdapter = new QWS_Local.dsBookInTableAdapters.ExBinOrdersTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsBookInTableAdapters.TableAdapterManager();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tpExBinOrders = new System.Windows.Forms.TabPage();
+            this.tpExBinNoOrder = new System.Windows.Forms.TabPage();
             docNumLabel = new System.Windows.Forms.Label();
             docDateLabel = new System.Windows.Forms.Label();
             cardCodeLabel = new System.Windows.Forms.Label();
@@ -106,6 +109,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.exBinOrdersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsBookIn)).BeginInit();
             this.tpDetails.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.tpExBinOrders.SuspendLayout();
             this.SuspendLayout();
             // 
             // docNumLabel
@@ -257,7 +262,7 @@ namespace QWS_Local
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
+            this.splitContainer1.Panel2.Controls.Add(this.tabControl2);
             this.splitContainer1.Size = new System.Drawing.Size(1427, 554);
             this.splitContainer1.SplitterDistance = 181;
             this.splitContainer1.SplitterWidth = 5;
@@ -287,10 +292,10 @@ namespace QWS_Local
             this.tabControl1.Controls.Add(this.tpList);
             this.tabControl1.Controls.Add(this.tpDetails);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1241, 554);
+            this.tabControl1.Size = new System.Drawing.Size(1227, 519);
             this.tabControl1.TabIndex = 1;
             // 
             // tpList
@@ -299,7 +304,7 @@ namespace QWS_Local
             this.tpList.Location = new System.Drawing.Point(4, 25);
             this.tpList.Name = "tpList";
             this.tpList.Padding = new System.Windows.Forms.Padding(3);
-            this.tpList.Size = new System.Drawing.Size(1233, 525);
+            this.tpList.Size = new System.Drawing.Size(1219, 490);
             this.tpList.TabIndex = 0;
             this.tpList.Text = "List";
             this.tpList.UseVisualStyleBackColor = true;
@@ -326,7 +331,7 @@ namespace QWS_Local
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1227, 519);
+            this.dataGridView1.Size = new System.Drawing.Size(1213, 484);
             this.dataGridView1.TabIndex = 0;
             // 
             // deliveryDateDataGridViewTextBoxColumn
@@ -436,10 +441,10 @@ namespace QWS_Local
             this.tpDetails.Controls.Add(docDateLabel);
             this.tpDetails.Controls.Add(docNumLabel);
             this.tpDetails.Controls.Add(this.docNumTextBox);
-            this.tpDetails.Location = new System.Drawing.Point(4, 25);
+            this.tpDetails.Location = new System.Drawing.Point(4, 22);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(1233, 525);
+            this.tpDetails.Size = new System.Drawing.Size(1233, 528);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -584,6 +589,38 @@ namespace QWS_Local
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsBookInTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tpExBinOrders);
+            this.tabControl2.Controls.Add(this.tpExBinNoOrder);
+            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl2.Location = new System.Drawing.Point(0, 0);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(1241, 554);
+            this.tabControl2.TabIndex = 2;
+            // 
+            // tpExBinOrders
+            // 
+            this.tpExBinOrders.Controls.Add(this.tabControl1);
+            this.tpExBinOrders.Location = new System.Drawing.Point(4, 25);
+            this.tpExBinOrders.Name = "tpExBinOrders";
+            this.tpExBinOrders.Padding = new System.Windows.Forms.Padding(3);
+            this.tpExBinOrders.Size = new System.Drawing.Size(1233, 525);
+            this.tpExBinOrders.TabIndex = 0;
+            this.tpExBinOrders.Text = "Ex-Bin Orders";
+            this.tpExBinOrders.UseVisualStyleBackColor = true;
+            // 
+            // tpExBinNoOrder
+            // 
+            this.tpExBinNoOrder.Location = new System.Drawing.Point(4, 25);
+            this.tpExBinNoOrder.Name = "tpExBinNoOrder";
+            this.tpExBinNoOrder.Padding = new System.Windows.Forms.Padding(3);
+            this.tpExBinNoOrder.Size = new System.Drawing.Size(1233, 525);
+            this.tpExBinNoOrder.TabIndex = 1;
+            this.tpExBinNoOrder.Text = "Ex-Bin No Order";
+            this.tpExBinNoOrder.UseVisualStyleBackColor = true;
+            // 
             // BookInExBin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -607,6 +644,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dsBookIn)).EndInit();
             this.tpDetails.ResumeLayout(false);
             this.tpDetails.PerformLayout();
+            this.tabControl2.ResumeLayout(false);
+            this.tpExBinOrders.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -649,5 +688,8 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn materialCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn materialDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn openQtyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tpExBinOrders;
+        private System.Windows.Forms.TabPage tpExBinNoOrder;
     }
 }

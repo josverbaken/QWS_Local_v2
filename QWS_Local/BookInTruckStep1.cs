@@ -36,6 +36,17 @@ namespace QWS_Local
                     EntryDTTM = DateTime.Now;
                     UpdateOwnerGUI();
                 }
+                else
+                {
+                    DialogResult dr = MessageBox.Show("Configuration not found! Press Okay to go to vehicle search.","Configuration not found.",MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (dr == DialogResult.OK)
+                    {
+                        VehicleMaintenance vehicle = new VehicleMaintenance();
+                        vehicle.FindVehicleByCallingRego(Rego);
+                        vehicle.MdiParent = this.MdiParent;
+                        vehicle.Show();
+                    }
+                }
             }
             catch (Exception ex)
             {

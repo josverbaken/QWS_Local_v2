@@ -280,6 +280,7 @@ namespace QWS_Local
 
         private void btnBookInExBin_Click(object sender, EventArgs e)
         {
+            GetPrefCustomer();
             BookInExBin();
         }
 
