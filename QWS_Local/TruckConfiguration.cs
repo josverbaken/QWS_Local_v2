@@ -63,6 +63,9 @@ namespace QWS_Local
                 //    chkACC.Checked = false;
                 //}
                 //}
+                int iConfigTrucks = this.taConfiguredTrucks.FillByRego(dsTruckConfig.ConfiguredTrucks, myRego);
+                iConfigTrucks += 2;
+                MessageBox.Show("iConfigTrucks = " + iConfigTrucks.ToString());
             }
             catch (Exception ex)
             {

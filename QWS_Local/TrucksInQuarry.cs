@@ -19,7 +19,6 @@ namespace QWS_Local
 
         private void TrucksInQuarry_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsQWSLocal.AxleConfiguration' table. You can move, or remove it, as needed.
             this.taAxleConfig.Fill(this.dsQWSLocal.AxleConfiguration);
             // set up and down arrows
             //button3.Text = ""+ (char)24;
@@ -36,8 +35,8 @@ namespace QWS_Local
         {
             try
             {
-                //this.taTIQ.FillBy(this.dsQWSLocal.TrucksInQuarry);
-                this.taTIQ.Fill(this.dsQWSLocal.TrucksInQuarry);
+                int SiteID = Properties.Settings.Default.SiteID;
+                this.taTIQ.Fill(this.dsQWSLocal.TrucksInQuarry, SiteID);
             }
             catch (Exception ex)
             {
@@ -179,11 +178,11 @@ namespace QWS_Local
         {
             try
             {
-                string AxleConfig = "12A3";
-                AxleConfig = CurrentTIQ().AxleConfiguration;
-
-                SyncAxleConfig(AxleConfig);
-
+                if (bsTIQ.Count>0)
+                {
+                    string AxleConfig = CurrentTIQ().AxleConfiguration;
+                    SyncAxleConfig(AxleConfig);
+                }
             }
             catch (Exception ex)
             {
@@ -194,6 +193,18 @@ namespace QWS_Local
         private void SyncAxleConfig(string AxleConfig)
         {
            bsAxleConfig.Position = bsAxleConfig.Find("AxleConfiguration", AxleConfig);
+        }
+
+        private void btnTINRemove_Click(object sender, EventArgs e)
+        {
+            TINRemove();
+        }
+
+        private void TINRemove()
+        {
+            CurrentTIQ().TIQOpen = false;
+            bsTIQ.EndEdit();
+            taTIQ.Update(dsQWSLocal.TrucksInQuarry);
         }
     }
 }

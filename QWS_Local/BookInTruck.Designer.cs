@@ -609,6 +609,7 @@ namespace QWS_Local
             this.btnSplitLoad.TabIndex = 57;
             this.btnSplitLoad.Text = "Split Load";
             this.btnSplitLoad.UseVisualStyleBackColor = true;
+            this.btnSplitLoad.Click += new System.EventHandler(this.btnSplitLoad_Click);
             // 
             // btnTrailerOnly
             // 
@@ -619,6 +620,7 @@ namespace QWS_Local
             this.btnTrailerOnly.TabIndex = 56;
             this.btnTrailerOnly.Text = "Trailer Only";
             this.btnTrailerOnly.UseVisualStyleBackColor = true;
+            this.btnTrailerOnly.Click += new System.EventHandler(this.btnTrailerOnly_Click);
             // 
             // btnTnT
             // 
@@ -629,6 +631,7 @@ namespace QWS_Local
             this.btnTnT.TabIndex = 54;
             this.btnTnT.Text = "Truck and Trailer";
             this.btnTnT.UseVisualStyleBackColor = true;
+            this.btnTnT.Click += new System.EventHandler(this.btnTnT_Click);
             // 
             // taConfiguredTruckGVM
             // 

@@ -71,6 +71,17 @@ namespace QWS_Local
             this.taVehicle = new QWS_Local.dsQWSLocalTableAdapters.VehicleTableAdapter();
             this.taNHVL = new QWS_Local.dsQWSLocalTableAdapters.NHVLTableAdapter();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.RegoTk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegoTrailer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AxleConfiguration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GCM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.configSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegoCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Scheme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BridgeAssessment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsConfiguredTnt = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cardCodeTextBox = new System.Windows.Forms.TextBox();
             this.ownerTextBox = new System.Windows.Forms.TextBox();
@@ -96,6 +107,7 @@ namespace QWS_Local
             this.tareTextBox = new System.Windows.Forms.TextBox();
             this.btnBookIn = new System.Windows.Forms.Button();
             this.truckTypeIDTextBox = new System.Windows.Forms.TextBox();
+            this.bsNHVLDetails = new System.Windows.Forms.BindingSource(this.components);
             this.vehiclesTextBox = new System.Windows.Forms.TextBox();
             this.vehicleDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.vehicleTypeTextBox = new System.Windows.Forms.TextBox();
@@ -103,21 +115,42 @@ namespace QWS_Local
             this.schemeCodeTextBox1 = new System.Windows.Forms.TextBox();
             this.txtCardStatus = new System.Windows.Forms.TextBox();
             this.chkACC = new System.Windows.Forms.CheckBox();
-            this.bsConfiguredTnt = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTruckConfig = new QWS_Local.dsTruckConfig();
-            this.bsNHVLDetails = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager1 = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
             this.taConfiguredTnT = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTnTTableAdapter();
             this.taNHVLDetails = new QWS_Local.dsTruckConfigTableAdapters.NHVLDetailsTableAdapter();
-            this.RegoTk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RegoTrailer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AxleConfiguration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GCM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.configSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RegoCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Scheme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BridgeAssessment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bsConfiguredTrucks = new System.Windows.Forms.BindingSource(this.components);
+            this.taConfiguredTrucks = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
+            this.regoTkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.regoTr1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.regoTr2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.regoTr3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.regoTrailerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tareDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tareDTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.forceRetareDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.retareEverytimeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.truckConfigIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.truckTypeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nHVLDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.axleConfigurationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.axlesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.axleGroupsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.compartmentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehiclesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schematicDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.truckOwnerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.regoCheckDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.feeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.feeConditionsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maxGVMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maxAxlesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             tareLabel = new System.Windows.Forms.Label();
             regoTkLabel = new System.Windows.Forms.Label();
             tareTkLabel = new System.Windows.Forms.Label();
@@ -148,13 +181,15 @@ namespace QWS_Local
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsNHVL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
             this.tpDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsNHVLDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
             this.SuspendLayout();
             // 
             // tareLabel
@@ -533,8 +568,84 @@ namespace QWS_Local
             this.dataGridView2.Location = new System.Drawing.Point(3, 3);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(995, 347);
+            this.dataGridView2.Size = new System.Drawing.Size(995, 265);
             this.dataGridView2.TabIndex = 22;
+            // 
+            // RegoTk
+            // 
+            this.RegoTk.DataPropertyName = "RegoTk";
+            this.RegoTk.HeaderText = "Truck";
+            this.RegoTk.Name = "RegoTk";
+            this.RegoTk.ReadOnly = true;
+            // 
+            // RegoTrailer
+            // 
+            this.RegoTrailer.DataPropertyName = "RegoTrailer";
+            this.RegoTrailer.HeaderText = "Trailer";
+            this.RegoTrailer.Name = "RegoTrailer";
+            this.RegoTrailer.ReadOnly = true;
+            this.RegoTrailer.Width = 200;
+            // 
+            // AxleConfiguration
+            // 
+            this.AxleConfiguration.DataPropertyName = "AxleConfiguration";
+            this.AxleConfiguration.HeaderText = "Axle Cfg";
+            this.AxleConfiguration.Name = "AxleConfiguration";
+            this.AxleConfiguration.ReadOnly = true;
+            // 
+            // GCM
+            // 
+            this.GCM.DataPropertyName = "GCM";
+            this.GCM.HeaderText = "GCM";
+            this.GCM.Name = "GCM";
+            this.GCM.ReadOnly = true;
+            // 
+            // configSourceDataGridViewTextBoxColumn
+            // 
+            this.configSourceDataGridViewTextBoxColumn.DataPropertyName = "ConfigSource";
+            this.configSourceDataGridViewTextBoxColumn.HeaderText = "ConfigSource";
+            this.configSourceDataGridViewTextBoxColumn.Name = "configSourceDataGridViewTextBoxColumn";
+            this.configSourceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.configSourceDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // RegoCheck
+            // 
+            this.RegoCheck.DataPropertyName = "RegoCheck";
+            this.RegoCheck.HeaderText = "RegoCheck";
+            this.RegoCheck.Name = "RegoCheck";
+            this.RegoCheck.ReadOnly = true;
+            // 
+            // schemeCodeDataGridViewTextBoxColumn
+            // 
+            this.schemeCodeDataGridViewTextBoxColumn.DataPropertyName = "SchemeCode";
+            this.schemeCodeDataGridViewTextBoxColumn.HeaderText = "SchemeCode";
+            this.schemeCodeDataGridViewTextBoxColumn.Name = "schemeCodeDataGridViewTextBoxColumn";
+            this.schemeCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Scheme
+            // 
+            this.Scheme.DataPropertyName = "Scheme";
+            this.Scheme.HeaderText = "Scheme";
+            this.Scheme.Name = "Scheme";
+            this.Scheme.ReadOnly = true;
+            this.Scheme.Width = 200;
+            // 
+            // BridgeAssessment
+            // 
+            this.BridgeAssessment.DataPropertyName = "BridgeAssessment";
+            this.BridgeAssessment.HeaderText = "BridgeAssessment";
+            this.BridgeAssessment.Name = "BridgeAssessment";
+            this.BridgeAssessment.ReadOnly = true;
+            // 
+            // bsConfiguredTnt
+            // 
+            this.bsConfiguredTnt.DataMember = "ConfiguredTnT";
+            this.bsConfiguredTnt.DataSource = this.dsTruckConfig;
+            // 
+            // dsTruckConfig
+            // 
+            this.dsTruckConfig.DataSetName = "dsTruckConfig";
+            this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // pictureBox1
             // 
@@ -566,10 +677,10 @@ namespace QWS_Local
             // 
             this.tabControl1.Controls.Add(this.tpList);
             this.tabControl1.Controls.Add(this.tpDetails);
-            this.tabControl1.Location = new System.Drawing.Point(48, 319);
+            this.tabControl1.Location = new System.Drawing.Point(28, 522);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1009, 379);
+            this.tabControl1.Size = new System.Drawing.Size(1009, 297);
             this.tabControl1.TabIndex = 27;
             // 
             // tpList
@@ -578,7 +689,7 @@ namespace QWS_Local
             this.tpList.Location = new System.Drawing.Point(4, 22);
             this.tpList.Name = "tpList";
             this.tpList.Padding = new System.Windows.Forms.Padding(3);
-            this.tpList.Size = new System.Drawing.Size(1001, 353);
+            this.tpList.Size = new System.Drawing.Size(1001, 271);
             this.tpList.TabIndex = 0;
             this.tpList.Text = "List";
             this.tpList.UseVisualStyleBackColor = true;
@@ -782,6 +893,11 @@ namespace QWS_Local
             this.truckTypeIDTextBox.Size = new System.Drawing.Size(100, 20);
             this.truckTypeIDTextBox.TabIndex = 30;
             // 
+            // bsNHVLDetails
+            // 
+            this.bsNHVLDetails.DataMember = "NHVLDetails";
+            this.bsNHVLDetails.DataSource = this.dsTruckConfig;
+            // 
             // vehiclesTextBox
             // 
             this.vehiclesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsNHVLDetails, "Vehicles", true));
@@ -841,21 +957,6 @@ namespace QWS_Local
             this.chkACC.Text = "ACC";
             this.chkACC.UseVisualStyleBackColor = true;
             // 
-            // bsConfiguredTnt
-            // 
-            this.bsConfiguredTnt.DataMember = "ConfiguredTnT";
-            this.bsConfiguredTnt.DataSource = this.dsTruckConfig;
-            // 
-            // dsTruckConfig
-            // 
-            this.dsTruckConfig.DataSetName = "dsTruckConfig";
-            this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bsNHVLDetails
-            // 
-            this.bsNHVLDetails.DataMember = "NHVLDetails";
-            this.bsNHVLDetails.DataSource = this.dsTruckConfig;
-            // 
             // tableAdapterManager1
             // 
             this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
@@ -870,77 +971,248 @@ namespace QWS_Local
             // 
             this.taNHVLDetails.ClearBeforeFill = true;
             // 
-            // RegoTk
+            // dataGridView1
             // 
-            this.RegoTk.DataPropertyName = "RegoTk";
-            this.RegoTk.HeaderText = "Truck";
-            this.RegoTk.Name = "RegoTk";
-            this.RegoTk.ReadOnly = true;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.regoTkDataGridViewTextBoxColumn,
+            this.regoTr1DataGridViewTextBoxColumn,
+            this.regoTr2DataGridViewTextBoxColumn,
+            this.regoTr3DataGridViewTextBoxColumn,
+            this.regoTrailerDataGridViewTextBoxColumn,
+            this.tareDataGridViewTextBoxColumn,
+            this.tareDTDataGridViewTextBoxColumn,
+            this.forceRetareDataGridViewCheckBoxColumn,
+            this.retareEverytimeDataGridViewCheckBoxColumn,
+            this.truckConfigIDDataGridViewTextBoxColumn,
+            this.truckTypeIDDataGridViewTextBoxColumn,
+            this.nHVLDataGridViewTextBoxColumn,
+            this.axleConfigurationDataGridViewTextBoxColumn,
+            this.vehicleTypeDataGridViewTextBoxColumn,
+            this.axlesDataGridViewTextBoxColumn,
+            this.axleGroupsDataGridViewTextBoxColumn,
+            this.compartmentsDataGridViewTextBoxColumn,
+            this.vehiclesDataGridViewTextBoxColumn,
+            this.vehicleDescriptionDataGridViewTextBoxColumn,
+            this.schematicDataGridViewImageColumn,
+            this.truckOwnerDataGridViewTextBoxColumn,
+            this.cardCodeDataGridViewTextBoxColumn,
+            this.cardTypeDataGridViewTextBoxColumn,
+            this.groupCodeDataGridViewTextBoxColumn,
+            this.cardStatusDataGridViewTextBoxColumn,
+            this.regoCheckDataGridViewCheckBoxColumn,
+            this.feeCodeDataGridViewTextBoxColumn,
+            this.feeConditionsDataGridViewTextBoxColumn,
+            this.maxGVMDataGridViewTextBoxColumn,
+            this.maxAxlesDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.bsConfiguredTrucks;
+            this.dataGridView1.Location = new System.Drawing.Point(35, 353);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(944, 150);
+            this.dataGridView1.TabIndex = 38;
             // 
-            // RegoTrailer
+            // bsConfiguredTrucks
             // 
-            this.RegoTrailer.DataPropertyName = "RegoTrailer";
-            this.RegoTrailer.HeaderText = "Trailer";
-            this.RegoTrailer.Name = "RegoTrailer";
-            this.RegoTrailer.ReadOnly = true;
-            this.RegoTrailer.Width = 200;
+            this.bsConfiguredTrucks.DataMember = "ConfiguredTrucks";
+            this.bsConfiguredTrucks.DataSource = this.dsTruckConfig;
             // 
-            // AxleConfiguration
+            // taConfiguredTrucks
             // 
-            this.AxleConfiguration.DataPropertyName = "AxleConfiguration";
-            this.AxleConfiguration.HeaderText = "Axle Cfg";
-            this.AxleConfiguration.Name = "AxleConfiguration";
-            this.AxleConfiguration.ReadOnly = true;
+            this.taConfiguredTrucks.ClearBeforeFill = true;
             // 
-            // GCM
+            // regoTkDataGridViewTextBoxColumn
             // 
-            this.GCM.DataPropertyName = "GCM";
-            this.GCM.HeaderText = "GCM";
-            this.GCM.Name = "GCM";
-            this.GCM.ReadOnly = true;
+            this.regoTkDataGridViewTextBoxColumn.DataPropertyName = "RegoTk";
+            this.regoTkDataGridViewTextBoxColumn.HeaderText = "RegoTk";
+            this.regoTkDataGridViewTextBoxColumn.Name = "regoTkDataGridViewTextBoxColumn";
             // 
-            // configSourceDataGridViewTextBoxColumn
+            // regoTr1DataGridViewTextBoxColumn
             // 
-            this.configSourceDataGridViewTextBoxColumn.DataPropertyName = "ConfigSource";
-            this.configSourceDataGridViewTextBoxColumn.HeaderText = "ConfigSource";
-            this.configSourceDataGridViewTextBoxColumn.Name = "configSourceDataGridViewTextBoxColumn";
-            this.configSourceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.configSourceDataGridViewTextBoxColumn.Width = 200;
+            this.regoTr1DataGridViewTextBoxColumn.DataPropertyName = "RegoTr1";
+            this.regoTr1DataGridViewTextBoxColumn.HeaderText = "RegoTr1";
+            this.regoTr1DataGridViewTextBoxColumn.Name = "regoTr1DataGridViewTextBoxColumn";
             // 
-            // RegoCheck
+            // regoTr2DataGridViewTextBoxColumn
             // 
-            this.RegoCheck.DataPropertyName = "RegoCheck";
-            this.RegoCheck.HeaderText = "RegoCheck";
-            this.RegoCheck.Name = "RegoCheck";
-            this.RegoCheck.ReadOnly = true;
+            this.regoTr2DataGridViewTextBoxColumn.DataPropertyName = "RegoTr2";
+            this.regoTr2DataGridViewTextBoxColumn.HeaderText = "RegoTr2";
+            this.regoTr2DataGridViewTextBoxColumn.Name = "regoTr2DataGridViewTextBoxColumn";
             // 
-            // schemeCodeDataGridViewTextBoxColumn
+            // regoTr3DataGridViewTextBoxColumn
             // 
-            this.schemeCodeDataGridViewTextBoxColumn.DataPropertyName = "SchemeCode";
-            this.schemeCodeDataGridViewTextBoxColumn.HeaderText = "SchemeCode";
-            this.schemeCodeDataGridViewTextBoxColumn.Name = "schemeCodeDataGridViewTextBoxColumn";
-            this.schemeCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.regoTr3DataGridViewTextBoxColumn.DataPropertyName = "RegoTr3";
+            this.regoTr3DataGridViewTextBoxColumn.HeaderText = "RegoTr3";
+            this.regoTr3DataGridViewTextBoxColumn.Name = "regoTr3DataGridViewTextBoxColumn";
             // 
-            // Scheme
+            // regoTrailerDataGridViewTextBoxColumn
             // 
-            this.Scheme.DataPropertyName = "Scheme";
-            this.Scheme.HeaderText = "Scheme";
-            this.Scheme.Name = "Scheme";
-            this.Scheme.ReadOnly = true;
-            this.Scheme.Width = 200;
+            this.regoTrailerDataGridViewTextBoxColumn.DataPropertyName = "RegoTrailer";
+            this.regoTrailerDataGridViewTextBoxColumn.HeaderText = "RegoTrailer";
+            this.regoTrailerDataGridViewTextBoxColumn.Name = "regoTrailerDataGridViewTextBoxColumn";
+            this.regoTrailerDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // BridgeAssessment
+            // tareDataGridViewTextBoxColumn
             // 
-            this.BridgeAssessment.DataPropertyName = "BridgeAssessment";
-            this.BridgeAssessment.HeaderText = "BridgeAssessment";
-            this.BridgeAssessment.Name = "BridgeAssessment";
-            this.BridgeAssessment.ReadOnly = true;
+            this.tareDataGridViewTextBoxColumn.DataPropertyName = "Tare";
+            this.tareDataGridViewTextBoxColumn.HeaderText = "Tare";
+            this.tareDataGridViewTextBoxColumn.Name = "tareDataGridViewTextBoxColumn";
+            // 
+            // tareDTDataGridViewTextBoxColumn
+            // 
+            this.tareDTDataGridViewTextBoxColumn.DataPropertyName = "TareDT";
+            this.tareDTDataGridViewTextBoxColumn.HeaderText = "TareDT";
+            this.tareDTDataGridViewTextBoxColumn.Name = "tareDTDataGridViewTextBoxColumn";
+            // 
+            // forceRetareDataGridViewCheckBoxColumn
+            // 
+            this.forceRetareDataGridViewCheckBoxColumn.DataPropertyName = "ForceRetare";
+            this.forceRetareDataGridViewCheckBoxColumn.HeaderText = "ForceRetare";
+            this.forceRetareDataGridViewCheckBoxColumn.Name = "forceRetareDataGridViewCheckBoxColumn";
+            // 
+            // retareEverytimeDataGridViewCheckBoxColumn
+            // 
+            this.retareEverytimeDataGridViewCheckBoxColumn.DataPropertyName = "RetareEverytime";
+            this.retareEverytimeDataGridViewCheckBoxColumn.HeaderText = "RetareEverytime";
+            this.retareEverytimeDataGridViewCheckBoxColumn.Name = "retareEverytimeDataGridViewCheckBoxColumn";
+            // 
+            // truckConfigIDDataGridViewTextBoxColumn
+            // 
+            this.truckConfigIDDataGridViewTextBoxColumn.DataPropertyName = "TruckConfigID";
+            this.truckConfigIDDataGridViewTextBoxColumn.HeaderText = "TruckConfigID";
+            this.truckConfigIDDataGridViewTextBoxColumn.Name = "truckConfigIDDataGridViewTextBoxColumn";
+            this.truckConfigIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // truckTypeIDDataGridViewTextBoxColumn
+            // 
+            this.truckTypeIDDataGridViewTextBoxColumn.DataPropertyName = "TruckTypeID";
+            this.truckTypeIDDataGridViewTextBoxColumn.HeaderText = "TruckTypeID";
+            this.truckTypeIDDataGridViewTextBoxColumn.Name = "truckTypeIDDataGridViewTextBoxColumn";
+            this.truckTypeIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nHVLDataGridViewTextBoxColumn
+            // 
+            this.nHVLDataGridViewTextBoxColumn.DataPropertyName = "NHVL";
+            this.nHVLDataGridViewTextBoxColumn.HeaderText = "NHVL";
+            this.nHVLDataGridViewTextBoxColumn.Name = "nHVLDataGridViewTextBoxColumn";
+            this.nHVLDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // axleConfigurationDataGridViewTextBoxColumn
+            // 
+            this.axleConfigurationDataGridViewTextBoxColumn.DataPropertyName = "AxleConfiguration";
+            this.axleConfigurationDataGridViewTextBoxColumn.HeaderText = "AxleConfiguration";
+            this.axleConfigurationDataGridViewTextBoxColumn.Name = "axleConfigurationDataGridViewTextBoxColumn";
+            // 
+            // vehicleTypeDataGridViewTextBoxColumn
+            // 
+            this.vehicleTypeDataGridViewTextBoxColumn.DataPropertyName = "VehicleType";
+            this.vehicleTypeDataGridViewTextBoxColumn.HeaderText = "VehicleType";
+            this.vehicleTypeDataGridViewTextBoxColumn.Name = "vehicleTypeDataGridViewTextBoxColumn";
+            // 
+            // axlesDataGridViewTextBoxColumn
+            // 
+            this.axlesDataGridViewTextBoxColumn.DataPropertyName = "Axles";
+            this.axlesDataGridViewTextBoxColumn.HeaderText = "Axles";
+            this.axlesDataGridViewTextBoxColumn.Name = "axlesDataGridViewTextBoxColumn";
+            // 
+            // axleGroupsDataGridViewTextBoxColumn
+            // 
+            this.axleGroupsDataGridViewTextBoxColumn.DataPropertyName = "AxleGroups";
+            this.axleGroupsDataGridViewTextBoxColumn.HeaderText = "AxleGroups";
+            this.axleGroupsDataGridViewTextBoxColumn.Name = "axleGroupsDataGridViewTextBoxColumn";
+            // 
+            // compartmentsDataGridViewTextBoxColumn
+            // 
+            this.compartmentsDataGridViewTextBoxColumn.DataPropertyName = "Compartments";
+            this.compartmentsDataGridViewTextBoxColumn.HeaderText = "Compartments";
+            this.compartmentsDataGridViewTextBoxColumn.Name = "compartmentsDataGridViewTextBoxColumn";
+            // 
+            // vehiclesDataGridViewTextBoxColumn
+            // 
+            this.vehiclesDataGridViewTextBoxColumn.DataPropertyName = "Vehicles";
+            this.vehiclesDataGridViewTextBoxColumn.HeaderText = "Vehicles";
+            this.vehiclesDataGridViewTextBoxColumn.Name = "vehiclesDataGridViewTextBoxColumn";
+            // 
+            // vehicleDescriptionDataGridViewTextBoxColumn
+            // 
+            this.vehicleDescriptionDataGridViewTextBoxColumn.DataPropertyName = "VehicleDescription";
+            this.vehicleDescriptionDataGridViewTextBoxColumn.HeaderText = "VehicleDescription";
+            this.vehicleDescriptionDataGridViewTextBoxColumn.Name = "vehicleDescriptionDataGridViewTextBoxColumn";
+            // 
+            // schematicDataGridViewImageColumn
+            // 
+            this.schematicDataGridViewImageColumn.DataPropertyName = "Schematic";
+            this.schematicDataGridViewImageColumn.HeaderText = "Schematic";
+            this.schematicDataGridViewImageColumn.Name = "schematicDataGridViewImageColumn";
+            // 
+            // truckOwnerDataGridViewTextBoxColumn
+            // 
+            this.truckOwnerDataGridViewTextBoxColumn.DataPropertyName = "TruckOwner";
+            this.truckOwnerDataGridViewTextBoxColumn.HeaderText = "TruckOwner";
+            this.truckOwnerDataGridViewTextBoxColumn.Name = "truckOwnerDataGridViewTextBoxColumn";
+            // 
+            // cardCodeDataGridViewTextBoxColumn
+            // 
+            this.cardCodeDataGridViewTextBoxColumn.DataPropertyName = "CardCode";
+            this.cardCodeDataGridViewTextBoxColumn.HeaderText = "CardCode";
+            this.cardCodeDataGridViewTextBoxColumn.Name = "cardCodeDataGridViewTextBoxColumn";
+            // 
+            // cardTypeDataGridViewTextBoxColumn
+            // 
+            this.cardTypeDataGridViewTextBoxColumn.DataPropertyName = "CardType";
+            this.cardTypeDataGridViewTextBoxColumn.HeaderText = "CardType";
+            this.cardTypeDataGridViewTextBoxColumn.Name = "cardTypeDataGridViewTextBoxColumn";
+            // 
+            // groupCodeDataGridViewTextBoxColumn
+            // 
+            this.groupCodeDataGridViewTextBoxColumn.DataPropertyName = "GroupCode";
+            this.groupCodeDataGridViewTextBoxColumn.HeaderText = "GroupCode";
+            this.groupCodeDataGridViewTextBoxColumn.Name = "groupCodeDataGridViewTextBoxColumn";
+            // 
+            // cardStatusDataGridViewTextBoxColumn
+            // 
+            this.cardStatusDataGridViewTextBoxColumn.DataPropertyName = "CardStatus";
+            this.cardStatusDataGridViewTextBoxColumn.HeaderText = "CardStatus";
+            this.cardStatusDataGridViewTextBoxColumn.Name = "cardStatusDataGridViewTextBoxColumn";
+            // 
+            // regoCheckDataGridViewCheckBoxColumn
+            // 
+            this.regoCheckDataGridViewCheckBoxColumn.DataPropertyName = "RegoCheck";
+            this.regoCheckDataGridViewCheckBoxColumn.HeaderText = "RegoCheck";
+            this.regoCheckDataGridViewCheckBoxColumn.Name = "regoCheckDataGridViewCheckBoxColumn";
+            this.regoCheckDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // feeCodeDataGridViewTextBoxColumn
+            // 
+            this.feeCodeDataGridViewTextBoxColumn.DataPropertyName = "FeeCode";
+            this.feeCodeDataGridViewTextBoxColumn.HeaderText = "FeeCode";
+            this.feeCodeDataGridViewTextBoxColumn.Name = "feeCodeDataGridViewTextBoxColumn";
+            // 
+            // feeConditionsDataGridViewTextBoxColumn
+            // 
+            this.feeConditionsDataGridViewTextBoxColumn.DataPropertyName = "FeeConditions";
+            this.feeConditionsDataGridViewTextBoxColumn.HeaderText = "FeeConditions";
+            this.feeConditionsDataGridViewTextBoxColumn.Name = "feeConditionsDataGridViewTextBoxColumn";
+            // 
+            // maxGVMDataGridViewTextBoxColumn
+            // 
+            this.maxGVMDataGridViewTextBoxColumn.DataPropertyName = "MaxGVM";
+            this.maxGVMDataGridViewTextBoxColumn.HeaderText = "MaxGVM";
+            this.maxGVMDataGridViewTextBoxColumn.Name = "maxGVMDataGridViewTextBoxColumn";
+            // 
+            // maxAxlesDataGridViewTextBoxColumn
+            // 
+            this.maxAxlesDataGridViewTextBoxColumn.DataPropertyName = "MaxAxles";
+            this.maxAxlesDataGridViewTextBoxColumn.HeaderText = "MaxAxles";
+            this.maxAxlesDataGridViewTextBoxColumn.Name = "maxAxlesDataGridViewTextBoxColumn";
             // 
             // TruckConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1097, 831);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.chkACC);
             this.Controls.Add(cardStatusLabel);
             this.Controls.Add(this.txtCardStatus);
@@ -973,14 +1245,16 @@ namespace QWS_Local
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsNHVL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpList.ResumeLayout(false);
             this.tpDetails.ResumeLayout(false);
             this.tpDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTnt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsNHVLDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1051,5 +1325,38 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn schemeCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Scheme;
         private System.Windows.Forms.DataGridViewTextBoxColumn BridgeAssessment;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn regoTkDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn regoTr1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn regoTr2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn regoTr3DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn regoTrailerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tareDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tareDTDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn forceRetareDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn retareEverytimeDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn truckConfigIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn truckTypeIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nHVLDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn axleConfigurationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn axlesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn axleGroupsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn compartmentsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehiclesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleDescriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn schematicDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn truckOwnerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cardCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cardTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn groupCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cardStatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn regoCheckDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn feeCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn feeConditionsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maxGVMDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maxAxlesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource bsConfiguredTrucks;
+        private dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter taConfiguredTrucks;
     }
 }

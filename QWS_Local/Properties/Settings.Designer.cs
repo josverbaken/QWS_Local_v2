@@ -68,5 +68,14 @@ namespace QWS_Local.Properties {
                 return ((string)(this["defaultJurisdiction"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("7")]
+        public int SiteID {
+            get {
+                return ((int)(this["SiteID"]));
+            }
+        }
     }
 }

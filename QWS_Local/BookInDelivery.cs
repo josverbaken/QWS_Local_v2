@@ -19,6 +19,8 @@ namespace QWS_Local
 
         private void BookInDelivery_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsBookIn.ExBinOrders' table. You can move, or remove it, as needed.
+            this.exBinOrdersTableAdapter.Fill(this.dsBookIn.ExBinOrders);
             // nothing yet
         }
 

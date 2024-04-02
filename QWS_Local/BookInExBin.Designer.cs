@@ -45,28 +45,21 @@ namespace QWS_Local
             System.Windows.Forms.Label suppliedLabel;
             System.Windows.Forms.Label openQtyLabel;
             System.Windows.Forms.Label sAPUpdateDTTMLabel;
+            System.Windows.Forms.Label orderStatusLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnLoad = new System.Windows.Forms.Button();
             this.txtCardCode = new System.Windows.Forms.TextBox();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tpExBinOrders = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.deliveryDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.docNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderStatus = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.purchaseOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.openQtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.exBinOrdersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsBookIn = new QWS_Local.dsBookIn();
             this.tpDetails = new System.Windows.Forms.TabPage();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.txtDocDate = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.orderStatusCheckBox = new System.Windows.Forms.CheckBox();
             this.openQtyTextBox = new System.Windows.Forms.TextBox();
             this.suppliedTextBox = new System.Windows.Forms.TextBox();
             this.quantityTextBox = new System.Windows.Forms.TextBox();
@@ -79,11 +72,19 @@ namespace QWS_Local
             this.customerTextBox = new System.Windows.Forms.TextBox();
             this.cardCodeTextBox = new System.Windows.Forms.TextBox();
             this.docNumTextBox = new System.Windows.Forms.TextBox();
+            this.tpExBinNoOrder = new System.Windows.Forms.TabPage();
             this.exBinOrdersTableAdapter = new QWS_Local.dsBookInTableAdapters.ExBinOrdersTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsBookInTableAdapters.TableAdapterManager();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tpExBinOrders = new System.Windows.Forms.TabPage();
-            this.tpExBinNoOrder = new System.Windows.Forms.TabPage();
+            this.orderStatusTextBox = new System.Windows.Forms.TextBox();
+            this.deliveryDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.docNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.purchaseOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.openQtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             docNumLabel = new System.Windows.Forms.Label();
             docDateLabel = new System.Windows.Forms.Label();
             cardCodeLabel = new System.Windows.Forms.Label();
@@ -99,18 +100,19 @@ namespace QWS_Local
             suppliedLabel = new System.Windows.Forms.Label();
             openQtyLabel = new System.Windows.Forms.Label();
             sAPUpdateDTTMLabel = new System.Windows.Forms.Label();
+            orderStatusLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.tpExBinOrders.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exBinOrdersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsBookIn)).BeginInit();
             this.tpDetails.SuspendLayout();
-            this.tabControl2.SuspendLayout();
-            this.tpExBinOrders.SuspendLayout();
             this.SuspendLayout();
             // 
             // docNumLabel
@@ -287,6 +289,28 @@ namespace QWS_Local
             this.txtCardCode.Size = new System.Drawing.Size(132, 23);
             this.txtCardCode.TabIndex = 0;
             // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tpExBinOrders);
+            this.tabControl2.Controls.Add(this.tpExBinNoOrder);
+            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl2.Location = new System.Drawing.Point(0, 0);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(1241, 554);
+            this.tabControl2.TabIndex = 2;
+            // 
+            // tpExBinOrders
+            // 
+            this.tpExBinOrders.Controls.Add(this.tabControl1);
+            this.tpExBinOrders.Location = new System.Drawing.Point(4, 25);
+            this.tpExBinOrders.Name = "tpExBinOrders";
+            this.tpExBinOrders.Padding = new System.Windows.Forms.Padding(3);
+            this.tpExBinOrders.Size = new System.Drawing.Size(1233, 525);
+            this.tpExBinOrders.TabIndex = 0;
+            this.tpExBinOrders.Text = "Ex-Bin Orders";
+            this.tpExBinOrders.UseVisualStyleBackColor = true;
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tpList);
@@ -334,70 +358,6 @@ namespace QWS_Local
             this.dataGridView1.Size = new System.Drawing.Size(1213, 484);
             this.dataGridView1.TabIndex = 0;
             // 
-            // deliveryDateDataGridViewTextBoxColumn
-            // 
-            this.deliveryDateDataGridViewTextBoxColumn.DataPropertyName = "DeliveryDate";
-            this.deliveryDateDataGridViewTextBoxColumn.HeaderText = "DeliveryDate";
-            this.deliveryDateDataGridViewTextBoxColumn.Name = "deliveryDateDataGridViewTextBoxColumn";
-            this.deliveryDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // docNumDataGridViewTextBoxColumn
-            // 
-            this.docNumDataGridViewTextBoxColumn.DataPropertyName = "DocNum";
-            this.docNumDataGridViewTextBoxColumn.HeaderText = "DocNum";
-            this.docNumDataGridViewTextBoxColumn.Name = "docNumDataGridViewTextBoxColumn";
-            this.docNumDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // OrderStatus
-            // 
-            this.OrderStatus.DataPropertyName = "OrderStatus";
-            this.OrderStatus.HeaderText = "Open";
-            this.OrderStatus.Name = "OrderStatus";
-            this.OrderStatus.ReadOnly = true;
-            this.OrderStatus.Width = 70;
-            // 
-            // customerDataGridViewTextBoxColumn
-            // 
-            this.customerDataGridViewTextBoxColumn.DataPropertyName = "Customer";
-            this.customerDataGridViewTextBoxColumn.HeaderText = "Customer";
-            this.customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
-            this.customerDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // purchaseOrderDataGridViewTextBoxColumn
-            // 
-            this.purchaseOrderDataGridViewTextBoxColumn.DataPropertyName = "PurchaseOrder";
-            this.purchaseOrderDataGridViewTextBoxColumn.HeaderText = "PurchaseOrder";
-            this.purchaseOrderDataGridViewTextBoxColumn.Name = "purchaseOrderDataGridViewTextBoxColumn";
-            this.purchaseOrderDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // contactNameDataGridViewTextBoxColumn
-            // 
-            this.contactNameDataGridViewTextBoxColumn.DataPropertyName = "ContactName";
-            this.contactNameDataGridViewTextBoxColumn.HeaderText = "ContactName";
-            this.contactNameDataGridViewTextBoxColumn.Name = "contactNameDataGridViewTextBoxColumn";
-            this.contactNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // materialCodeDataGridViewTextBoxColumn
-            // 
-            this.materialCodeDataGridViewTextBoxColumn.DataPropertyName = "MaterialCode";
-            this.materialCodeDataGridViewTextBoxColumn.HeaderText = "MaterialCode";
-            this.materialCodeDataGridViewTextBoxColumn.Name = "materialCodeDataGridViewTextBoxColumn";
-            this.materialCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // materialDataGridViewTextBoxColumn
-            // 
-            this.materialDataGridViewTextBoxColumn.DataPropertyName = "Material";
-            this.materialDataGridViewTextBoxColumn.HeaderText = "Material";
-            this.materialDataGridViewTextBoxColumn.Name = "materialDataGridViewTextBoxColumn";
-            this.materialDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // openQtyDataGridViewTextBoxColumn
-            // 
-            this.openQtyDataGridViewTextBoxColumn.DataPropertyName = "OpenQty";
-            this.openQtyDataGridViewTextBoxColumn.HeaderText = "OpenQty";
-            this.openQtyDataGridViewTextBoxColumn.Name = "openQtyDataGridViewTextBoxColumn";
-            this.openQtyDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // exBinOrdersBindingSource
             // 
             this.exBinOrdersBindingSource.DataMember = "ExBinOrders";
@@ -410,10 +370,11 @@ namespace QWS_Local
             // 
             // tpDetails
             // 
+            this.tpDetails.Controls.Add(orderStatusLabel);
+            this.tpDetails.Controls.Add(this.orderStatusTextBox);
             this.tpDetails.Controls.Add(this.textBox3);
             this.tpDetails.Controls.Add(this.txtDocDate);
             this.tpDetails.Controls.Add(this.textBox1);
-            this.tpDetails.Controls.Add(this.orderStatusCheckBox);
             this.tpDetails.Controls.Add(sAPUpdateDTTMLabel);
             this.tpDetails.Controls.Add(openQtyLabel);
             this.tpDetails.Controls.Add(this.openQtyTextBox);
@@ -441,10 +402,10 @@ namespace QWS_Local
             this.tpDetails.Controls.Add(docDateLabel);
             this.tpDetails.Controls.Add(docNumLabel);
             this.tpDetails.Controls.Add(this.docNumTextBox);
-            this.tpDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpDetails.Location = new System.Drawing.Point(4, 25);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(1233, 528);
+            this.tpDetails.Size = new System.Drawing.Size(1219, 490);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -472,16 +433,6 @@ namespace QWS_Local
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 23);
             this.textBox1.TabIndex = 32;
-            // 
-            // orderStatusCheckBox
-            // 
-            this.orderStatusCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.exBinOrdersBindingSource, "OrderStatus", true));
-            this.orderStatusCheckBox.Location = new System.Drawing.Point(330, 14);
-            this.orderStatusCheckBox.Name = "orderStatusCheckBox";
-            this.orderStatusCheckBox.Size = new System.Drawing.Size(104, 24);
-            this.orderStatusCheckBox.TabIndex = 31;
-            this.orderStatusCheckBox.Text = "Open";
-            this.orderStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // openQtyTextBox
             // 
@@ -579,6 +530,16 @@ namespace QWS_Local
             this.docNumTextBox.Size = new System.Drawing.Size(100, 23);
             this.docNumTextBox.TabIndex = 1;
             // 
+            // tpExBinNoOrder
+            // 
+            this.tpExBinNoOrder.Location = new System.Drawing.Point(4, 22);
+            this.tpExBinNoOrder.Name = "tpExBinNoOrder";
+            this.tpExBinNoOrder.Padding = new System.Windows.Forms.Padding(3);
+            this.tpExBinNoOrder.Size = new System.Drawing.Size(1233, 528);
+            this.tpExBinNoOrder.TabIndex = 1;
+            this.tpExBinNoOrder.Text = "Ex-Bin No Order";
+            this.tpExBinNoOrder.UseVisualStyleBackColor = true;
+            // 
             // exBinOrdersTableAdapter
             // 
             this.exBinOrdersTableAdapter.ClearBeforeFill = true;
@@ -589,37 +550,85 @@ namespace QWS_Local
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsBookInTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // tabControl2
+            // orderStatusLabel
             // 
-            this.tabControl2.Controls.Add(this.tpExBinOrders);
-            this.tabControl2.Controls.Add(this.tpExBinNoOrder);
-            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl2.Location = new System.Drawing.Point(0, 0);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1241, 554);
-            this.tabControl2.TabIndex = 2;
+            orderStatusLabel.AutoSize = true;
+            orderStatusLabel.Location = new System.Drawing.Point(313, 21);
+            orderStatusLabel.Name = "orderStatusLabel";
+            orderStatusLabel.Size = new System.Drawing.Size(93, 17);
+            orderStatusLabel.TabIndex = 34;
+            orderStatusLabel.Text = "Order Status:";
             // 
-            // tpExBinOrders
+            // orderStatusTextBox
             // 
-            this.tpExBinOrders.Controls.Add(this.tabControl1);
-            this.tpExBinOrders.Location = new System.Drawing.Point(4, 25);
-            this.tpExBinOrders.Name = "tpExBinOrders";
-            this.tpExBinOrders.Padding = new System.Windows.Forms.Padding(3);
-            this.tpExBinOrders.Size = new System.Drawing.Size(1233, 525);
-            this.tpExBinOrders.TabIndex = 0;
-            this.tpExBinOrders.Text = "Ex-Bin Orders";
-            this.tpExBinOrders.UseVisualStyleBackColor = true;
+            this.orderStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.exBinOrdersBindingSource, "OrderStatus", true));
+            this.orderStatusTextBox.Location = new System.Drawing.Point(412, 18);
+            this.orderStatusTextBox.Name = "orderStatusTextBox";
+            this.orderStatusTextBox.Size = new System.Drawing.Size(100, 23);
+            this.orderStatusTextBox.TabIndex = 35;
             // 
-            // tpExBinNoOrder
+            // deliveryDateDataGridViewTextBoxColumn
             // 
-            this.tpExBinNoOrder.Location = new System.Drawing.Point(4, 25);
-            this.tpExBinNoOrder.Name = "tpExBinNoOrder";
-            this.tpExBinNoOrder.Padding = new System.Windows.Forms.Padding(3);
-            this.tpExBinNoOrder.Size = new System.Drawing.Size(1233, 525);
-            this.tpExBinNoOrder.TabIndex = 1;
-            this.tpExBinNoOrder.Text = "Ex-Bin No Order";
-            this.tpExBinNoOrder.UseVisualStyleBackColor = true;
+            this.deliveryDateDataGridViewTextBoxColumn.DataPropertyName = "DeliveryDate";
+            this.deliveryDateDataGridViewTextBoxColumn.HeaderText = "DeliveryDate";
+            this.deliveryDateDataGridViewTextBoxColumn.Name = "deliveryDateDataGridViewTextBoxColumn";
+            this.deliveryDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // docNumDataGridViewTextBoxColumn
+            // 
+            this.docNumDataGridViewTextBoxColumn.DataPropertyName = "DocNum";
+            this.docNumDataGridViewTextBoxColumn.HeaderText = "DocNum";
+            this.docNumDataGridViewTextBoxColumn.Name = "docNumDataGridViewTextBoxColumn";
+            this.docNumDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // OrderStatus
+            // 
+            this.OrderStatus.DataPropertyName = "OrderStatus";
+            this.OrderStatus.HeaderText = "Status";
+            this.OrderStatus.Name = "OrderStatus";
+            this.OrderStatus.ReadOnly = true;
+            // 
+            // customerDataGridViewTextBoxColumn
+            // 
+            this.customerDataGridViewTextBoxColumn.DataPropertyName = "Customer";
+            this.customerDataGridViewTextBoxColumn.HeaderText = "Customer";
+            this.customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
+            this.customerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // purchaseOrderDataGridViewTextBoxColumn
+            // 
+            this.purchaseOrderDataGridViewTextBoxColumn.DataPropertyName = "PurchaseOrder";
+            this.purchaseOrderDataGridViewTextBoxColumn.HeaderText = "Cust PO";
+            this.purchaseOrderDataGridViewTextBoxColumn.Name = "purchaseOrderDataGridViewTextBoxColumn";
+            this.purchaseOrderDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // contactNameDataGridViewTextBoxColumn
+            // 
+            this.contactNameDataGridViewTextBoxColumn.DataPropertyName = "ContactName";
+            this.contactNameDataGridViewTextBoxColumn.HeaderText = "Contact";
+            this.contactNameDataGridViewTextBoxColumn.Name = "contactNameDataGridViewTextBoxColumn";
+            this.contactNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // materialCodeDataGridViewTextBoxColumn
+            // 
+            this.materialCodeDataGridViewTextBoxColumn.DataPropertyName = "MaterialCode";
+            this.materialCodeDataGridViewTextBoxColumn.HeaderText = "Code";
+            this.materialCodeDataGridViewTextBoxColumn.Name = "materialCodeDataGridViewTextBoxColumn";
+            this.materialCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // materialDataGridViewTextBoxColumn
+            // 
+            this.materialDataGridViewTextBoxColumn.DataPropertyName = "Material";
+            this.materialDataGridViewTextBoxColumn.HeaderText = "Material ";
+            this.materialDataGridViewTextBoxColumn.Name = "materialDataGridViewTextBoxColumn";
+            this.materialDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // openQtyDataGridViewTextBoxColumn
+            // 
+            this.openQtyDataGridViewTextBoxColumn.DataPropertyName = "OpenQty";
+            this.openQtyDataGridViewTextBoxColumn.HeaderText = "Open Qty";
+            this.openQtyDataGridViewTextBoxColumn.Name = "openQtyDataGridViewTextBoxColumn";
+            this.openQtyDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // BookInExBin
             // 
@@ -637,6 +646,8 @@ namespace QWS_Local
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.tabControl2.ResumeLayout(false);
+            this.tpExBinOrders.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tpList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -644,8 +655,6 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dsBookIn)).EndInit();
             this.tpDetails.ResumeLayout(false);
             this.tpDetails.PerformLayout();
-            this.tabControl2.ResumeLayout(false);
-            this.tpExBinOrders.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -665,7 +674,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox txtDocDate;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.CheckBox orderStatusCheckBox;
         private System.Windows.Forms.TextBox openQtyTextBox;
         private System.Windows.Forms.TextBox suppliedTextBox;
         private System.Windows.Forms.TextBox quantityTextBox;
@@ -679,17 +687,18 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox cardCodeTextBox;
         private System.Windows.Forms.TextBox docNumTextBox;
         private dsBookInTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tpExBinOrders;
+        private System.Windows.Forms.TabPage tpExBinNoOrder;
+        private System.Windows.Forms.TextBox orderStatusTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn deliveryDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn docNumDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn OrderStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn purchaseOrderDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contactNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn materialCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn materialDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn openQtyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage tpExBinOrders;
-        private System.Windows.Forms.TabPage tpExBinNoOrder;
     }
 }

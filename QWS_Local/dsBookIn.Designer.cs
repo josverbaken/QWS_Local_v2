@@ -362,6 +362,16 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnSAPUpdateDTTM;
             
+            private global::System.Data.DataColumn columnNHVR_RouteID;
+            
+            private global::System.Data.DataColumn columnNHVR_Network;
+            
+            private global::System.Data.DataColumn columnNHVR_MassLimit;
+            
+            private global::System.Data.DataColumn columnNHVR_Condition;
+            
+            private global::System.Data.DataColumn columnNHVR_Comment;
+            
             private global::System.Data.DataColumn columnOrderStatus;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -591,6 +601,46 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NHVR_RouteIDColumn {
+                get {
+                    return this.columnNHVR_RouteID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NHVR_NetworkColumn {
+                get {
+                    return this.columnNHVR_Network;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NHVR_MassLimitColumn {
+                get {
+                    return this.columnNHVR_MassLimit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NHVR_ConditionColumn {
+                get {
+                    return this.columnNHVR_Condition;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NHVR_CommentColumn {
+                get {
+                    return this.columnNHVR_Comment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn OrderStatusColumn {
                 get {
                     return this.columnOrderStatus;
@@ -659,7 +709,12 @@ namespace QWS_Local {
                         string CartageCode, 
                         string Cartage, 
                         System.DateTime SAPUpdateDTTM, 
-                        bool OrderStatus) {
+                        string NHVR_RouteID, 
+                        string NHVR_Network, 
+                        decimal NHVR_MassLimit, 
+                        string NHVR_Condition, 
+                        string NHVR_Comment, 
+                        string OrderStatus) {
                 DeliveryOrdersAllRow rowDeliveryOrdersAllRow = ((DeliveryOrdersAllRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DocNum,
@@ -686,6 +741,11 @@ namespace QWS_Local {
                         CartageCode,
                         Cartage,
                         SAPUpdateDTTM,
+                        NHVR_RouteID,
+                        NHVR_Network,
+                        NHVR_MassLimit,
+                        NHVR_Condition,
+                        NHVR_Comment,
                         OrderStatus};
                 rowDeliveryOrdersAllRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDeliveryOrdersAllRow);
@@ -740,6 +800,11 @@ namespace QWS_Local {
                 this.columnCartageCode = base.Columns["CartageCode"];
                 this.columnCartage = base.Columns["Cartage"];
                 this.columnSAPUpdateDTTM = base.Columns["SAPUpdateDTTM"];
+                this.columnNHVR_RouteID = base.Columns["NHVR_RouteID"];
+                this.columnNHVR_Network = base.Columns["NHVR_Network"];
+                this.columnNHVR_MassLimit = base.Columns["NHVR_MassLimit"];
+                this.columnNHVR_Condition = base.Columns["NHVR_Condition"];
+                this.columnNHVR_Comment = base.Columns["NHVR_Comment"];
                 this.columnOrderStatus = base.Columns["OrderStatus"];
             }
             
@@ -794,7 +859,17 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnCartage);
                 this.columnSAPUpdateDTTM = new global::System.Data.DataColumn("SAPUpdateDTTM", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSAPUpdateDTTM);
-                this.columnOrderStatus = new global::System.Data.DataColumn("OrderStatus", typeof(bool), null, global::System.Data.MappingType.Element);
+                this.columnNHVR_RouteID = new global::System.Data.DataColumn("NHVR_RouteID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNHVR_RouteID);
+                this.columnNHVR_Network = new global::System.Data.DataColumn("NHVR_Network", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNHVR_Network);
+                this.columnNHVR_MassLimit = new global::System.Data.DataColumn("NHVR_MassLimit", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNHVR_MassLimit);
+                this.columnNHVR_Condition = new global::System.Data.DataColumn("NHVR_Condition", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNHVR_Condition);
+                this.columnNHVR_Comment = new global::System.Data.DataColumn("NHVR_Comment", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNHVR_Comment);
+                this.columnOrderStatus = new global::System.Data.DataColumn("OrderStatus", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOrderStatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnDocEntry}, true));
@@ -833,7 +908,12 @@ namespace QWS_Local {
                 this.columnCartage.AllowDBNull = false;
                 this.columnCartage.MaxLength = 200;
                 this.columnSAPUpdateDTTM.AllowDBNull = false;
+                this.columnNHVR_RouteID.MaxLength = 10;
+                this.columnNHVR_Network.MaxLength = 10;
+                this.columnNHVR_Condition.MaxLength = 15;
+                this.columnNHVR_Comment.MaxLength = 100;
                 this.columnOrderStatus.ReadOnly = true;
+                this.columnOrderStatus.MaxLength = 6;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1268,7 +1348,7 @@ namespace QWS_Local {
                         decimal OpenQty, 
                         decimal Supplied, 
                         System.DateTime SAPUpdateDTTM, 
-                        bool OrderStatus) {
+                        string OrderStatus) {
                 ExBinOrdersRow rowExBinOrdersRow = ((ExBinOrdersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DocNum,
@@ -1387,7 +1467,7 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnSupplied);
                 this.columnSAPUpdateDTTM = new global::System.Data.DataColumn("SAPUpdateDTTM", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSAPUpdateDTTM);
-                this.columnOrderStatus = new global::System.Data.DataColumn("OrderStatus", typeof(bool), null, global::System.Data.MappingType.Element);
+                this.columnOrderStatus = new global::System.Data.DataColumn("OrderStatus", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOrderStatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnDocEntry}, true));
@@ -1420,6 +1500,7 @@ namespace QWS_Local {
                 this.columnSupplied.ReadOnly = true;
                 this.columnSAPUpdateDTTM.AllowDBNull = false;
                 this.columnOrderStatus.ReadOnly = true;
+                this.columnOrderStatus.MaxLength = 6;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1846,10 +1927,90 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool OrderStatus {
+            public string NHVR_RouteID {
                 get {
                     try {
-                        return ((bool)(this[this.tableDeliveryOrdersAll.OrderStatusColumn]));
+                        return ((string)(this[this.tableDeliveryOrdersAll.NHVR_RouteIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NHVR_RouteID\' in table \'DeliveryOrdersAll\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDeliveryOrdersAll.NHVR_RouteIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string NHVR_Network {
+                get {
+                    try {
+                        return ((string)(this[this.tableDeliveryOrdersAll.NHVR_NetworkColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NHVR_Network\' in table \'DeliveryOrdersAll\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDeliveryOrdersAll.NHVR_NetworkColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal NHVR_MassLimit {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDeliveryOrdersAll.NHVR_MassLimitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NHVR_MassLimit\' in table \'DeliveryOrdersAll\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDeliveryOrdersAll.NHVR_MassLimitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string NHVR_Condition {
+                get {
+                    try {
+                        return ((string)(this[this.tableDeliveryOrdersAll.NHVR_ConditionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NHVR_Condition\' in table \'DeliveryOrdersAll\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDeliveryOrdersAll.NHVR_ConditionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string NHVR_Comment {
+                get {
+                    try {
+                        return ((string)(this[this.tableDeliveryOrdersAll.NHVR_CommentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NHVR_Comment\' in table \'DeliveryOrdersAll\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDeliveryOrdersAll.NHVR_CommentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string OrderStatus {
+                get {
+                    try {
+                        return ((string)(this[this.tableDeliveryOrdersAll.OrderStatusColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'OrderStatus\' in table \'DeliveryOrdersAll\' is DBNull.", e);
@@ -1906,6 +2067,66 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetSuppliedNull() {
                 this[this.tableDeliveryOrdersAll.SuppliedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNHVR_RouteIDNull() {
+                return this.IsNull(this.tableDeliveryOrdersAll.NHVR_RouteIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNHVR_RouteIDNull() {
+                this[this.tableDeliveryOrdersAll.NHVR_RouteIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNHVR_NetworkNull() {
+                return this.IsNull(this.tableDeliveryOrdersAll.NHVR_NetworkColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNHVR_NetworkNull() {
+                this[this.tableDeliveryOrdersAll.NHVR_NetworkColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNHVR_MassLimitNull() {
+                return this.IsNull(this.tableDeliveryOrdersAll.NHVR_MassLimitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNHVR_MassLimitNull() {
+                this[this.tableDeliveryOrdersAll.NHVR_MassLimitColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNHVR_ConditionNull() {
+                return this.IsNull(this.tableDeliveryOrdersAll.NHVR_ConditionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNHVR_ConditionNull() {
+                this[this.tableDeliveryOrdersAll.NHVR_ConditionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNHVR_CommentNull() {
+                return this.IsNull(this.tableDeliveryOrdersAll.NHVR_CommentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNHVR_CommentNull() {
+                this[this.tableDeliveryOrdersAll.NHVR_CommentColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2177,10 +2398,10 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool OrderStatus {
+            public string OrderStatus {
                 get {
                     try {
-                        return ((bool)(this[this.tableExBinOrders.OrderStatusColumn]));
+                        return ((string)(this[this.tableExBinOrders.OrderStatusColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'OrderStatus\' in table \'ExBinOrders\' is DBNull.", e);
@@ -2469,6 +2690,11 @@ namespace QWS_Local.dsBookInTableAdapters {
             tableMapping.ColumnMappings.Add("CartageCode", "CartageCode");
             tableMapping.ColumnMappings.Add("Cartage", "Cartage");
             tableMapping.ColumnMappings.Add("SAPUpdateDTTM", "SAPUpdateDTTM");
+            tableMapping.ColumnMappings.Add("NHVR_RouteID", "NHVR_RouteID");
+            tableMapping.ColumnMappings.Add("NHVR_Network", "NHVR_Network");
+            tableMapping.ColumnMappings.Add("NHVR_MassLimit", "NHVR_MassLimit");
+            tableMapping.ColumnMappings.Add("NHVR_Condition", "NHVR_Condition");
+            tableMapping.ColumnMappings.Add("NHVR_Comment", "NHVR_Comment");
             tableMapping.ColumnMappings.Add("OrderStatus", "OrderStatus");
             this._adapter.TableMappings.Add(tableMapping);
         }
@@ -2486,16 +2712,13 @@ namespace QWS_Local.dsBookInTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        DocNum, DocEntry, DocDate, CardCode, Customer, PurchaseOrder, CntctCode, ContactName, ContactMobile, DeliveryDate, DeliveryAddress, MapRef, Distance, SAPComments, MaterialCode, Material, 
-                         ItmsGrpCod, ItemQA, Quantity, OpenQty, Supplied, CartageCode, Cartage, SAPUpdateDTTM, OrderStatus
-FROM            DeliveryOrdersAll";
+            this._commandCollection[0].CommandText = @"SELECT        DocNum, DocEntry, DocDate, CardCode, Customer, PurchaseOrder, CntctCode, ContactName, ContactMobile, DeliveryDate, DeliveryAddress, MapRef, Distance, NHVR_RouteID, NHVR_Network, NHVR_MassLimit, 
+                         NHVR_Condition, NHVR_Comment, SAPComments, OrderStatus, MaterialCode, Material, ItmsGrpCod, ItemQA, Quantity, OpenQty, Supplied, CartageCode, Cartage, SAPUpdateDTTM
+FROM            DeliveryOrdersAll AS t0";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        CardCode, Cartage, CartageCode, CntctCode, ContactMobile, ContactName, Customer, DeliveryAddress, DeliveryDate, Distance, DocDate, DocEntry, DocNum, ItemQA, ItmsGrpCod, MapRef, Material, MaterialCode,
-                          OpenQty, OrderStatus, PurchaseOrder, Quantity, SAPComments, SAPUpdateDTTM, Supplied
-FROM            DeliveryOrdersAll
-WHERE        (1 = 1) AND (OpenQty > 0)";
+            this._commandCollection[1].CommandText = @"SELECT CardCode, Cartage, CartageCode, CntctCode, ContactMobile, ContactName, Customer, DeliveryAddress, DeliveryDate, Distance, DocDate, DocEntry, DocNum, ItemQA, ItmsGrpCod, MapRef, Material, MaterialCode, NHVR_Comment, NHVR_Condition, NHVR_MassLimit, NHVR_Network, NHVR_RouteID, OpenQty, OrderStatus, PurchaseOrder, Quantity, SAPComments, SAPUpdateDTTM, Supplied FROM DeliveryOrdersAll WHERE (1 = 1) AND (OpenQty > 0)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2706,9 +2929,9 @@ WHERE        (1 = 1) AND (OpenQty > 0)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        DocNum, DocEntry, DocDate, CardCode, Customer, PurchaseOrder, CntctCode, ContactName, ContactMobile, DeliveryDate, DeliveryAddress, SAPComments, MaterialCode, Material, ItmsGrpCod, ItemQA, Quantity, 
-                         OpenQty, Supplied, SAPUpdateDTTM, OrderStatus
-FROM            ExBinOrders";
+            this._commandCollection[0].CommandText = @"SELECT        DocNum, DocEntry, DocDate, CardCode, Customer, PurchaseOrder, CntctCode, ContactName, ContactMobile, DeliveryDate, DeliveryAddress, SAPComments, OrderStatus, MaterialCode, Material, ItmsGrpCod, 
+                         ItemQA, Quantity, OpenQty, Supplied, SAPUpdateDTTM
+FROM            ExBinOrders AS t0";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;

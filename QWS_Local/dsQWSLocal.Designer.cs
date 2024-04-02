@@ -5605,6 +5605,8 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnPayloadSplit;
             
+            private global::System.Data.DataColumn columnTIQOpen;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public TrucksInQuarryDataTable() {
@@ -5944,6 +5946,14 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TIQOpenColumn {
+                get {
+                    return this.columnTIQOpen;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -6017,7 +6027,8 @@ namespace QWS_Local {
                         string CustON, 
                         string CartageCode, 
                         int StockpileLotNo, 
-                        string PayloadSplit) {
+                        string PayloadSplit, 
+                        bool TIQOpen) {
                 TrucksInQuarryRow rowTrucksInQuarryRow = ((TrucksInQuarryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TIQID,
@@ -6057,7 +6068,8 @@ namespace QWS_Local {
                         CustON,
                         CartageCode,
                         StockpileLotNo,
-                        PayloadSplit};
+                        PayloadSplit,
+                        TIQOpen};
                 rowTrucksInQuarryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTrucksInQuarryRow);
                 return rowTrucksInQuarryRow;
@@ -6125,6 +6137,7 @@ namespace QWS_Local {
                 this.columnCartageCode = base.Columns["CartageCode"];
                 this.columnStockpileLotNo = base.Columns["StockpileLotNo"];
                 this.columnPayloadSplit = base.Columns["PayloadSplit"];
+                this.columnTIQOpen = base.Columns["TIQOpen"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6206,6 +6219,8 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnStockpileLotNo);
                 this.columnPayloadSplit = new global::System.Data.DataColumn("PayloadSplit", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPayloadSplit);
+                this.columnTIQOpen = new global::System.Data.DataColumn("TIQOpen", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTIQOpen);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTIQID}, true));
                 this.columnTIQID.AllowDBNull = false;
@@ -6239,6 +6254,7 @@ namespace QWS_Local {
                 this.columnCustON.MaxLength = 50;
                 this.columnCartageCode.MaxLength = 50;
                 this.columnPayloadSplit.MaxLength = 50;
+                this.columnTIQOpen.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12493,6 +12509,17 @@ namespace QWS_Local {
                 }
                 set {
                     this[this.tableTrucksInQuarry.PayloadSplitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool TIQOpen {
+                get {
+                    return ((bool)(this[this.tableTrucksInQuarry.TIQOpenColumn]));
+                }
+                set {
+                    this[this.tableTrucksInQuarry.TIQOpenColumn] = value;
                 }
             }
             
@@ -18992,6 +19019,7 @@ FROM            VehicleDetails";
             tableMapping.ColumnMappings.Add("CartageCode", "CartageCode");
             tableMapping.ColumnMappings.Add("StockpileLotNo", "StockpileLotNo");
             tableMapping.ColumnMappings.Add("PayloadSplit", "PayloadSplit");
+            tableMapping.ColumnMappings.Add("TIQOpen", "TIQOpen");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
@@ -18999,6 +19027,7 @@ FROM            VehicleDetails";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ParentTIQID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "ParentTIQID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TIQOpen", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, "TIQOpen", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SiteID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "SiteID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rego", global::System.Data.SqlDbType.VarChar, 6, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckConfig", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "TruckConfig", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -19031,6 +19060,7 @@ FROM            VehicleDetails";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TIQID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "TIQID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TIQOpen", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, "TIQOpen", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckConfig", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "TruckConfig", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AllocateDTTM", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, "AllocateDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@QueueStatus", global::System.Data.SqlDbType.Char, 1, global::System.Data.ParameterDirection.Input, 0, 0, "QueueStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -19068,6 +19098,7 @@ FROM            VehicleDetails";
             this._commandCollection[0].CommandText = "dbo.TIQ";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SiteID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = @"SELECT TIQID, ParentTIQID, SiteID, Rego, TruckConfig, TruckConfigID, FeeCode, ConfigSource, RoadAccess, EntryDTTM, AllocateDTTM, ReleaseDTTM, WeightDTTM, AcceptanceDTTM, ExitDTTM, QueueStatus, WeighbridgeID, SAPOrder, Material, MaterialDesc, TruckOwnerCode, TruckOwner, DriverID, Driver, Payload, GCM, GVMTruck, Gross, Tare, TareTk, Nett FROM TrucksInQuarry AS t0 WHERE (1 = 1) AND (QueueStatus IN ('Q', 'I', 'T'))";
@@ -19083,8 +19114,14 @@ FROM            VehicleDetails";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsQWSLocal.TrucksInQuarryDataTable dataTable) {
+        public virtual int Fill(dsQWSLocal.TrucksInQuarryDataTable dataTable, global::System.Nullable<int> SiteID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((SiteID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(SiteID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -19096,8 +19133,14 @@ FROM            VehicleDetails";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsQWSLocal.TrucksInQuarryDataTable GetData() {
+        public virtual dsQWSLocal.TrucksInQuarryDataTable GetData(global::System.Nullable<int> SiteID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((SiteID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(SiteID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             dsQWSLocal.TrucksInQuarryDataTable dataTable = new dsQWSLocal.TrucksInQuarryDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

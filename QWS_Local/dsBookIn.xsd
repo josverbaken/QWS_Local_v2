@@ -12,9 +12,9 @@
               <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.DeliveryOrdersAll" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        DocNum, DocEntry, DocDate, CardCode, Customer, PurchaseOrder, CntctCode, ContactName, ContactMobile, DeliveryDate, DeliveryAddress, MapRef, Distance, SAPComments, MaterialCode, Material, 
-                         ItmsGrpCod, ItemQA, Quantity, OpenQty, Supplied, CartageCode, Cartage, SAPUpdateDTTM, OrderStatus
-FROM            DeliveryOrdersAll</CommandText>
+                    <CommandText>SELECT        DocNum, DocEntry, DocDate, CardCode, Customer, PurchaseOrder, CntctCode, ContactName, ContactMobile, DeliveryDate, DeliveryAddress, MapRef, Distance, NHVR_RouteID, NHVR_Network, NHVR_MassLimit, 
+                         NHVR_Condition, NHVR_Comment, SAPComments, OrderStatus, MaterialCode, Material, ItmsGrpCod, ItemQA, Quantity, OpenQty, Supplied, CartageCode, Cartage, SAPUpdateDTTM
+FROM            DeliveryOrdersAll AS t0</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -45,16 +45,18 @@ FROM            DeliveryOrdersAll</CommandText>
               <Mapping SourceColumn="CartageCode" DataSetColumn="CartageCode" />
               <Mapping SourceColumn="Cartage" DataSetColumn="Cartage" />
               <Mapping SourceColumn="SAPUpdateDTTM" DataSetColumn="SAPUpdateDTTM" />
+              <Mapping SourceColumn="NHVR_RouteID" DataSetColumn="NHVR_RouteID" />
+              <Mapping SourceColumn="NHVR_Network" DataSetColumn="NHVR_Network" />
+              <Mapping SourceColumn="NHVR_MassLimit" DataSetColumn="NHVR_MassLimit" />
+              <Mapping SourceColumn="NHVR_Condition" DataSetColumn="NHVR_Condition" />
+              <Mapping SourceColumn="NHVR_Comment" DataSetColumn="NHVR_Comment" />
               <Mapping SourceColumn="OrderStatus" DataSetColumn="OrderStatus" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.DeliveryOrdersAll" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByOpenQty" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillByOpenQty" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByOpenQty">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        CardCode, Cartage, CartageCode, CntctCode, ContactMobile, ContactName, Customer, DeliveryAddress, DeliveryDate, Distance, DocDate, DocEntry, DocNum, ItemQA, ItmsGrpCod, MapRef, Material, MaterialCode,
-                          OpenQty, OrderStatus, PurchaseOrder, Quantity, SAPComments, SAPUpdateDTTM, Supplied
-FROM            DeliveryOrdersAll
-WHERE        (1 = 1) AND (OpenQty &gt; 0)</CommandText>
+                    <CommandText>SELECT CardCode, Cartage, CartageCode, CntctCode, ContactMobile, ContactName, Customer, DeliveryAddress, DeliveryDate, Distance, DocDate, DocEntry, DocNum, ItemQA, ItmsGrpCod, MapRef, Material, MaterialCode, NHVR_Comment, NHVR_Condition, NHVR_MassLimit, NHVR_Network, NHVR_RouteID, OpenQty, OrderStatus, PurchaseOrder, Quantity, SAPComments, SAPUpdateDTTM, Supplied FROM DeliveryOrdersAll WHERE (1 = 1) AND (OpenQty &gt; 0)</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -66,9 +68,9 @@ WHERE        (1 = 1) AND (OpenQty &gt; 0)</CommandText>
               <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.ExBinOrders" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        DocNum, DocEntry, DocDate, CardCode, Customer, PurchaseOrder, CntctCode, ContactName, ContactMobile, DeliveryDate, DeliveryAddress, SAPComments, MaterialCode, Material, ItmsGrpCod, ItemQA, Quantity, 
-                         OpenQty, Supplied, SAPUpdateDTTM, OrderStatus
-FROM            ExBinOrders</CommandText>
+                    <CommandText>SELECT        DocNum, DocEntry, DocDate, CardCode, Customer, PurchaseOrder, CntctCode, ContactName, ContactMobile, DeliveryDate, DeliveryAddress, SAPComments, OrderStatus, MaterialCode, Material, ItmsGrpCod, 
+                         ItemQA, Quantity, OpenQty, Supplied, SAPUpdateDTTM
+FROM            ExBinOrders AS t0</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -118,7 +120,7 @@ FROM            ExBinOrders</CommandText>
   <xs:element name="dsBookIn" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="dsBookIn" msprop:Generator_UserDSName="dsBookIn">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DeliveryOrdersAll" msprop:Generator_TableClassName="DeliveryOrdersAllDataTable" msprop:Generator_TableVarName="tableDeliveryOrdersAll" msprop:Generator_TablePropName="DeliveryOrdersAll" msprop:Generator_RowDeletingName="DeliveryOrdersAllRowDeleting" msprop:Generator_RowChangingName="DeliveryOrdersAllRowChanging" msprop:Generator_RowEvHandlerName="DeliveryOrdersAllRowChangeEventHandler" msprop:Generator_RowDeletedName="DeliveryOrdersAllRowDeleted" msprop:Generator_UserTableName="DeliveryOrdersAll" msprop:Generator_RowChangedName="DeliveryOrdersAllRowChanged" msprop:Generator_RowEvArgName="DeliveryOrdersAllRowChangeEvent" msprop:Generator_RowClassName="DeliveryOrdersAllRow">
+        <xs:element name="DeliveryOrdersAll" msprop:Generator_TableClassName="DeliveryOrdersAllDataTable" msprop:Generator_TableVarName="tableDeliveryOrdersAll" msprop:Generator_RowChangedName="DeliveryOrdersAllRowChanged" msprop:Generator_TablePropName="DeliveryOrdersAll" msprop:Generator_RowDeletingName="DeliveryOrdersAllRowDeleting" msprop:Generator_RowChangingName="DeliveryOrdersAllRowChanging" msprop:Generator_RowEvHandlerName="DeliveryOrdersAllRowChangeEventHandler" msprop:Generator_RowDeletedName="DeliveryOrdersAllRowDeleted" msprop:Generator_RowClassName="DeliveryOrdersAllRow" msprop:Generator_UserTableName="DeliveryOrdersAll" msprop:Generator_RowEvArgName="DeliveryOrdersAllRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="DocNum" msprop:Generator_ColumnVarNameInTable="columnDocNum" msprop:Generator_ColumnPropNameInRow="DocNum" msprop:Generator_ColumnPropNameInTable="DocNumColumn" msprop:Generator_UserColumnName="DocNum" type="xs:int" />
@@ -223,11 +225,46 @@ FROM            ExBinOrders</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="SAPUpdateDTTM" msprop:Generator_ColumnVarNameInTable="columnSAPUpdateDTTM" msprop:Generator_ColumnPropNameInRow="SAPUpdateDTTM" msprop:Generator_ColumnPropNameInTable="SAPUpdateDTTMColumn" msprop:Generator_UserColumnName="SAPUpdateDTTM" type="xs:dateTime" />
-              <xs:element name="OrderStatus" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOrderStatus" msprop:Generator_ColumnPropNameInRow="OrderStatus" msprop:Generator_ColumnPropNameInTable="OrderStatusColumn" msprop:Generator_UserColumnName="OrderStatus" type="xs:boolean" minOccurs="0" />
+              <xs:element name="NHVR_RouteID" msprop:Generator_ColumnVarNameInTable="columnNHVR_RouteID" msprop:Generator_ColumnPropNameInRow="NHVR_RouteID" msprop:Generator_ColumnPropNameInTable="NHVR_RouteIDColumn" msprop:Generator_UserColumnName="NHVR_RouteID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NHVR_Network" msprop:Generator_ColumnVarNameInTable="columnNHVR_Network" msprop:Generator_ColumnPropNameInRow="NHVR_Network" msprop:Generator_ColumnPropNameInTable="NHVR_NetworkColumn" msprop:Generator_UserColumnName="NHVR_Network" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NHVR_MassLimit" msprop:Generator_ColumnVarNameInTable="columnNHVR_MassLimit" msprop:Generator_ColumnPropNameInRow="NHVR_MassLimit" msprop:Generator_ColumnPropNameInTable="NHVR_MassLimitColumn" msprop:Generator_UserColumnName="NHVR_MassLimit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NHVR_Condition" msprop:Generator_ColumnVarNameInTable="columnNHVR_Condition" msprop:Generator_ColumnPropNameInRow="NHVR_Condition" msprop:Generator_ColumnPropNameInTable="NHVR_ConditionColumn" msprop:Generator_UserColumnName="NHVR_Condition" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NHVR_Comment" msprop:Generator_ColumnVarNameInTable="columnNHVR_Comment" msprop:Generator_ColumnPropNameInRow="NHVR_Comment" msprop:Generator_ColumnPropNameInTable="NHVR_CommentColumn" msprop:Generator_UserColumnName="NHVR_Comment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OrderStatus" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOrderStatus" msprop:Generator_ColumnPropNameInRow="OrderStatus" msprop:Generator_ColumnPropNameInTable="OrderStatusColumn" msprop:Generator_UserColumnName="OrderStatus" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ExBinOrders" msprop:Generator_TableClassName="ExBinOrdersDataTable" msprop:Generator_TableVarName="tableExBinOrders" msprop:Generator_TablePropName="ExBinOrders" msprop:Generator_RowDeletingName="ExBinOrdersRowDeleting" msprop:Generator_RowChangingName="ExBinOrdersRowChanging" msprop:Generator_RowEvHandlerName="ExBinOrdersRowChangeEventHandler" msprop:Generator_RowDeletedName="ExBinOrdersRowDeleted" msprop:Generator_UserTableName="ExBinOrders" msprop:Generator_RowChangedName="ExBinOrdersRowChanged" msprop:Generator_RowEvArgName="ExBinOrdersRowChangeEvent" msprop:Generator_RowClassName="ExBinOrdersRow">
+        <xs:element name="ExBinOrders" msprop:Generator_TableClassName="ExBinOrdersDataTable" msprop:Generator_TableVarName="tableExBinOrders" msprop:Generator_RowChangedName="ExBinOrdersRowChanged" msprop:Generator_TablePropName="ExBinOrders" msprop:Generator_RowDeletingName="ExBinOrdersRowDeleting" msprop:Generator_RowChangingName="ExBinOrdersRowChanging" msprop:Generator_RowEvHandlerName="ExBinOrdersRowChangeEventHandler" msprop:Generator_RowDeletedName="ExBinOrdersRowDeleted" msprop:Generator_RowClassName="ExBinOrdersRow" msprop:Generator_UserTableName="ExBinOrders" msprop:Generator_RowEvArgName="ExBinOrdersRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="DocNum" msprop:Generator_ColumnVarNameInTable="columnDocNum" msprop:Generator_ColumnPropNameInRow="DocNum" msprop:Generator_ColumnPropNameInTable="DocNumColumn" msprop:Generator_UserColumnName="DocNum" type="xs:int" />
@@ -310,7 +347,13 @@ FROM            ExBinOrders</CommandText>
               <xs:element name="OpenQty" msprop:Generator_ColumnVarNameInTable="columnOpenQty" msprop:Generator_ColumnPropNameInRow="OpenQty" msprop:Generator_ColumnPropNameInTable="OpenQtyColumn" msprop:Generator_UserColumnName="OpenQty" type="xs:decimal" minOccurs="0" />
               <xs:element name="Supplied" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSupplied" msprop:Generator_ColumnPropNameInRow="Supplied" msprop:Generator_ColumnPropNameInTable="SuppliedColumn" msprop:Generator_UserColumnName="Supplied" type="xs:decimal" minOccurs="0" />
               <xs:element name="SAPUpdateDTTM" msprop:Generator_ColumnVarNameInTable="columnSAPUpdateDTTM" msprop:Generator_ColumnPropNameInRow="SAPUpdateDTTM" msprop:Generator_ColumnPropNameInTable="SAPUpdateDTTMColumn" msprop:Generator_UserColumnName="SAPUpdateDTTM" type="xs:dateTime" />
-              <xs:element name="OrderStatus" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOrderStatus" msprop:Generator_ColumnPropNameInRow="OrderStatus" msprop:Generator_ColumnPropNameInTable="OrderStatusColumn" msprop:Generator_UserColumnName="OrderStatus" type="xs:boolean" minOccurs="0" />
+              <xs:element name="OrderStatus" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOrderStatus" msprop:Generator_ColumnPropNameInRow="OrderStatus" msprop:Generator_ColumnPropNameInTable="OrderStatusColumn" msprop:Generator_UserColumnName="OrderStatus" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

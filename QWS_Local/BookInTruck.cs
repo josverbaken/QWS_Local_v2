@@ -12,8 +12,9 @@ namespace QWS_Local
 {
     public partial class BookInTruck : Form
     {
-        private static int SiteID = 7;
+        private static int SiteID = Properties.Settings.Default.SiteID;
         private static DateTime EntryDTTM;
+        private static string TruckConfig = "TK";
 
         public BookInTruck()
         {
@@ -311,9 +312,10 @@ namespace QWS_Local
                 dsQWSLocal.TrucksInQuarryRow rowTIQ = (dsQWSLocal.TrucksInQuarryRow)dr;
                 rowTIQ.TIQID = -1;
                 rowTIQ.ParentTIQID = 0;
+                rowTIQ.TIQOpen = true;
                 rowTIQ.SiteID = SiteID;
                 rowTIQ.Rego = CurrentTruckGVM().RegoTk;
-                rowTIQ.TruckConfig = "TK"; // TODO
+                rowTIQ.TruckConfig = TruckConfig;
                 rowTIQ.TruckConfigID = CurrentTruckGVM().TruckConfigID;
                 rowTIQ.AxleConfiguration = CurrentTruckGVM().AxleConfiguration;
                 rowTIQ.FeeCode = CurrentTruckGVM().FeeCode;
@@ -350,6 +352,21 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnTnT_Click(object sender, EventArgs e)
+        {
+            TruckConfig = "TT";
+        }
+
+        private void btnSplitLoad_Click(object sender, EventArgs e)
+        {
+            TruckConfig = "TKs";
+        }
+
+        private void btnTrailerOnly_Click(object sender, EventArgs e)
+        {
+            TruckConfig = "TRs";
         }
     }
 }

@@ -34,7 +34,6 @@ namespace QWS_Local
             System.Windows.Forms.Label couplingLabel;
             System.Windows.Forms.Label maxLengthLabel;
             System.Windows.Forms.Label schemeCodeLabel;
-            System.Windows.Forms.Label steerAxleAllowanceLabel;
             System.Windows.Forms.Label trailersLabel;
             System.Windows.Forms.Label compartmentsLabel;
             System.Windows.Forms.Label trTkRatioLabel;
@@ -42,11 +41,17 @@ namespace QWS_Local
             System.Windows.Forms.Label gVMTruckLabel;
             System.Windows.Forms.Label truckTypeDescriptionLabel;
             System.Windows.Forms.Label axleConfigurationLabel;
+            System.Windows.Forms.Label roadAccessLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.txtAxleConfiguration = new System.Windows.Forms.TextBox();
+            this.bsAxleConfig = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.axleConfigurationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SteerAxleAllowance = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bsNHVL = new System.Windows.Forms.BindingSource(this.components);
             this.gbTruckPlusTrailer = new System.Windows.Forms.GroupBox();
             this.rbTruckAll = new System.Windows.Forms.RadioButton();
             this.rbTruckPlusTrailer = new System.Windows.Forms.RadioButton();
@@ -74,19 +79,14 @@ namespace QWS_Local
             this.maxLengthTextBox = new System.Windows.Forms.TextBox();
             this.couplingTextBox = new System.Windows.Forms.TextBox();
             this.axlesTextBox = new System.Windows.Forms.TextBox();
-            this.bsAxleConfig = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
-            this.axleConfigurationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsNHVL = new System.Windows.Forms.BindingSource(this.components);
             this.taNHVL = new QWS_Local.dsQWSLocalTableAdapters.NHVLTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taAxleConfig = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
+            this.roadAccessTextBox = new System.Windows.Forms.TextBox();
             axlesLabel = new System.Windows.Forms.Label();
             couplingLabel = new System.Windows.Forms.Label();
             maxLengthLabel = new System.Windows.Forms.Label();
             schemeCodeLabel = new System.Windows.Forms.Label();
-            steerAxleAllowanceLabel = new System.Windows.Forms.Label();
             trailersLabel = new System.Windows.Forms.Label();
             compartmentsLabel = new System.Windows.Forms.Label();
             trTkRatioLabel = new System.Windows.Forms.Label();
@@ -94,18 +94,19 @@ namespace QWS_Local
             gVMTruckLabel = new System.Windows.Forms.Label();
             truckTypeDescriptionLabel = new System.Windows.Forms.Label();
             axleConfigurationLabel = new System.Windows.Forms.Label();
+            roadAccessLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsNHVL)).BeginInit();
             this.gbTruckPlusTrailer.SuspendLayout();
             this.gbSteerAxle.SuspendLayout();
             this.gbSchemeCode.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsNHVL)).BeginInit();
             this.SuspendLayout();
             // 
             // axlesLabel
@@ -151,17 +152,6 @@ namespace QWS_Local
             schemeCodeLabel.TabIndex = 6;
             schemeCodeLabel.Text = "Scheme Code:";
             schemeCodeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // steerAxleAllowanceLabel
-            // 
-            steerAxleAllowanceLabel.AutoSize = true;
-            steerAxleAllowanceLabel.Location = new System.Drawing.Point(161, 502);
-            steerAxleAllowanceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            steerAxleAllowanceLabel.Name = "steerAxleAllowanceLabel";
-            steerAxleAllowanceLabel.Size = new System.Drawing.Size(149, 18);
-            steerAxleAllowanceLabel.TabIndex = 8;
-            steerAxleAllowanceLabel.Text = "Steer Axle Allowance:";
-            steerAxleAllowanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // trailersLabel
             // 
@@ -256,6 +246,8 @@ namespace QWS_Local
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(roadAccessLabel);
+            this.splitContainer1.Panel2.Controls.Add(this.roadAccessTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.gbTruckPlusTrailer);
             this.splitContainer1.Panel2.Controls.Add(this.gbSteerAxle);
             this.splitContainer1.Panel2.Controls.Add(this.gbSchemeCode);
@@ -276,7 +268,6 @@ namespace QWS_Local
             this.splitContainer1.Panel2.Controls.Add(this.compartmentsTextBox);
             this.splitContainer1.Panel2.Controls.Add(trailersLabel);
             this.splitContainer1.Panel2.Controls.Add(this.trailersTextBox);
-            this.splitContainer1.Panel2.Controls.Add(steerAxleAllowanceLabel);
             this.splitContainer1.Panel2.Controls.Add(this.steerAxleAllowanceCheckBox);
             this.splitContainer1.Panel2.Controls.Add(schemeCodeLabel);
             this.splitContainer1.Panel2.Controls.Add(this.schemeCodeTextBox);
@@ -298,6 +289,16 @@ namespace QWS_Local
             this.txtAxleConfiguration.Name = "txtAxleConfiguration";
             this.txtAxleConfiguration.Size = new System.Drawing.Size(132, 24);
             this.txtAxleConfiguration.TabIndex = 3;
+            // 
+            // bsAxleConfig
+            // 
+            this.bsAxleConfig.DataMember = "AxleConfiguration";
+            this.bsAxleConfig.DataSource = this.dsQWSLocal;
+            // 
+            // dsQWSLocal
+            // 
+            this.dsQWSLocal.DataSetName = "dsQWSLocal";
+            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // pictureBox1
             // 
@@ -329,12 +330,32 @@ namespace QWS_Local
             this.dataGridView1.Size = new System.Drawing.Size(310, 411);
             this.dataGridView1.TabIndex = 0;
             // 
+            // axleConfigurationDataGridViewTextBoxColumn
+            // 
+            this.axleConfigurationDataGridViewTextBoxColumn.DataPropertyName = "AxleConfiguration";
+            this.axleConfigurationDataGridViewTextBoxColumn.HeaderText = "AxleConfiguration";
+            this.axleConfigurationDataGridViewTextBoxColumn.Name = "axleConfigurationDataGridViewTextBoxColumn";
+            this.axleConfigurationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // schemeCodeDataGridViewTextBoxColumn
+            // 
+            this.schemeCodeDataGridViewTextBoxColumn.DataPropertyName = "SchemeCode";
+            this.schemeCodeDataGridViewTextBoxColumn.HeaderText = "SchemeCode";
+            this.schemeCodeDataGridViewTextBoxColumn.Name = "schemeCodeDataGridViewTextBoxColumn";
+            this.schemeCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // SteerAxleAllowance
             // 
             this.SteerAxleAllowance.DataPropertyName = "SteerAxleAllowance";
             this.SteerAxleAllowance.HeaderText = "SteerAxleAllowance";
             this.SteerAxleAllowance.Name = "SteerAxleAllowance";
             this.SteerAxleAllowance.ReadOnly = true;
+            // 
+            // bsNHVL
+            // 
+            this.bsNHVL.DataMember = "NHVL";
+            this.bsNHVL.DataSource = this.dsQWSLocal;
+            this.bsNHVL.CurrentChanged += new System.EventHandler(this.bsNHVL_CurrentChanged);
             // 
             // gbTruckPlusTrailer
             // 
@@ -584,12 +605,12 @@ namespace QWS_Local
             // 
             this.steerAxleAllowanceCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bsNHVL, "SteerAxleAllowance", true));
             this.steerAxleAllowanceCheckBox.Enabled = false;
-            this.steerAxleAllowanceCheckBox.Location = new System.Drawing.Point(318, 496);
+            this.steerAxleAllowanceCheckBox.Location = new System.Drawing.Point(52, 301);
             this.steerAxleAllowanceCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.steerAxleAllowanceCheckBox.Name = "steerAxleAllowanceCheckBox";
-            this.steerAxleAllowanceCheckBox.Size = new System.Drawing.Size(156, 33);
+            this.steerAxleAllowanceCheckBox.Size = new System.Drawing.Size(107, 33);
             this.steerAxleAllowanceCheckBox.TabIndex = 9;
-            this.steerAxleAllowanceCheckBox.Text = " ";
+            this.steerAxleAllowanceCheckBox.Text = "Steer Axle";
             this.steerAxleAllowanceCheckBox.UseVisualStyleBackColor = true;
             // 
             // schemeCodeTextBox
@@ -632,36 +653,6 @@ namespace QWS_Local
             this.axlesTextBox.Size = new System.Drawing.Size(148, 24);
             this.axlesTextBox.TabIndex = 1;
             // 
-            // bsAxleConfig
-            // 
-            this.bsAxleConfig.DataMember = "AxleConfiguration";
-            this.bsAxleConfig.DataSource = this.dsQWSLocal;
-            // 
-            // dsQWSLocal
-            // 
-            this.dsQWSLocal.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // axleConfigurationDataGridViewTextBoxColumn
-            // 
-            this.axleConfigurationDataGridViewTextBoxColumn.DataPropertyName = "AxleConfiguration";
-            this.axleConfigurationDataGridViewTextBoxColumn.HeaderText = "AxleConfiguration";
-            this.axleConfigurationDataGridViewTextBoxColumn.Name = "axleConfigurationDataGridViewTextBoxColumn";
-            this.axleConfigurationDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // schemeCodeDataGridViewTextBoxColumn
-            // 
-            this.schemeCodeDataGridViewTextBoxColumn.DataPropertyName = "SchemeCode";
-            this.schemeCodeDataGridViewTextBoxColumn.HeaderText = "SchemeCode";
-            this.schemeCodeDataGridViewTextBoxColumn.Name = "schemeCodeDataGridViewTextBoxColumn";
-            this.schemeCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bsNHVL
-            // 
-            this.bsNHVL.DataMember = "NHVL";
-            this.bsNHVL.DataSource = this.dsQWSLocal;
-            this.bsNHVL.CurrentChanged += new System.EventHandler(this.bsNHVL_CurrentChanged);
-            // 
             // taNHVL
             // 
             this.taNHVL.ClearBeforeFill = true;
@@ -689,6 +680,24 @@ namespace QWS_Local
             // 
             this.taAxleConfig.ClearBeforeFill = true;
             // 
+            // roadAccessLabel
+            // 
+            roadAccessLabel.AutoSize = true;
+            roadAccessLabel.Location = new System.Drawing.Point(76, 506);
+            roadAccessLabel.Name = "roadAccessLabel";
+            roadAccessLabel.Size = new System.Drawing.Size(101, 18);
+            roadAccessLabel.TabIndex = 31;
+            roadAccessLabel.Text = "Road Access:";
+            // 
+            // roadAccessTextBox
+            // 
+            this.roadAccessTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsNHVL, "RoadAccess", true));
+            this.roadAccessTextBox.Location = new System.Drawing.Point(182, 503);
+            this.roadAccessTextBox.Name = "roadAccessTextBox";
+            this.roadAccessTextBox.ReadOnly = true;
+            this.roadAccessTextBox.Size = new System.Drawing.Size(284, 24);
+            this.roadAccessTextBox.TabIndex = 32;
+            // 
             // NHVR_GVM_Search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -706,17 +715,17 @@ namespace QWS_Local
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsNHVL)).EndInit();
             this.gbTruckPlusTrailer.ResumeLayout(false);
             this.gbTruckPlusTrailer.PerformLayout();
             this.gbSteerAxle.ResumeLayout(false);
             this.gbSteerAxle.PerformLayout();
             this.gbSchemeCode.ResumeLayout(false);
             this.gbSchemeCode.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsNHVL)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -763,5 +772,6 @@ namespace QWS_Local
         private System.Windows.Forms.BindingSource bsAxleConfig;
         private dsQWSLocalTableAdapters.AxleConfigurationTableAdapter taAxleConfig;
         private System.Windows.Forms.TextBox txtAxleConfiguration;
+        private System.Windows.Forms.TextBox roadAccessTextBox;
     }
 }
