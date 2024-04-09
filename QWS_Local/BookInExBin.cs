@@ -19,7 +19,7 @@ namespace QWS_Local
 
         private void BookInExBin_Load(object sender, EventArgs e)
         {
-            // nothing yet
+            LoadExBinItems();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -30,6 +30,12 @@ namespace QWS_Local
         private void ExBinOrdersLoad()
         {
             this.exBinOrdersTableAdapter.FillBy(this.dsBookIn.ExBinOrders,txtCardCode.Text);
+        }
+
+        private void LoadExBinItems()
+        {
+            string mySiteCode = Properties.Settings.Default.SiteCode;
+            taItem.Fill(dsBookIn.Item, mySiteCode);
         }
     }
 }
