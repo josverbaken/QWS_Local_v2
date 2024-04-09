@@ -94,6 +94,13 @@ namespace PBS
             frmBookIn1.MdiParent = this;
             frmBookIn1.Show();
         }
+
+        private void deliveryOrdersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BookInDelivery frmDeliveryOrders = new BookInDelivery();
+            frmDeliveryOrders.MdiParent = this;
+            frmDeliveryOrders.Show();
+        }
     }
 
 }

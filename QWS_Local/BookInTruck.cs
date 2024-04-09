@@ -164,7 +164,9 @@ namespace QWS_Local
                     btnSplitLoad.Enabled = false;
                     btnTrailerOnly.Enabled = false;
                 }
-                if (CurrentTruckGVM().TareDT < DateTime.Now)
+                double Days2Retare = 180;
+                DateTime RetareDate = CurrentTruckGVM().TareDT.AddDays(Days2Retare);
+                if (RetareDate < DateTime.Now)
                 {
                     btnRetare.Enabled = true;
                     btnRetare.BackColor = Color.Orange;
@@ -196,11 +198,7 @@ namespace QWS_Local
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            SetExBinCustomer();
-        }
-
+   
         private void SetExBinCustomer()
         {
             int iCust = taPrefCustomers.FillBy(dsQWSLocal.VehiclePrefCustomers, CurrentTruckGVM().RegoTk);
@@ -212,6 +210,16 @@ namespace QWS_Local
             {
                 //search customers
                 MessageBox.Show("TODO - search customers");
+                BusinessSearch frmBusinessSearch = new BusinessSearch();
+                DialogResult dr = frmBusinessSearch.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    MessageBox.Show("TODO - set customer to " + frmBusinessSearch.SAPCode);
+                }
+                else
+                {
+                    MessageBox.Show("Customer not found/set!");
+                }
             }
         }
 
@@ -224,7 +232,6 @@ namespace QWS_Local
             {
                 // set pref cust
                 MessageBox.Show("TODO - set pref customer to " + frmPrefCust.customersRow.PrefCustomer);
-
             }
 
         }
@@ -280,8 +287,9 @@ namespace QWS_Local
         }
 
         private void btnBookInExBin_Click(object sender, EventArgs e)
-        {
-            GetPrefCustomer();
+        {            
+            SetExBinCustomer();
+            //Calls GetPrefCustomer() if iCount > 0 else calls SearchCustomer ;
             BookInExBin();
         }
 

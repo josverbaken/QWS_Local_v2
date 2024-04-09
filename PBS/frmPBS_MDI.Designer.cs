@@ -39,10 +39,11 @@
             this.businessPlusPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trucksInQuarryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bookInTruckStep1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cascadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bookInTruckStep1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deliveryOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,7 +73,8 @@
             this.businessPlusPersonToolStripMenuItem,
             this.itemSearchToolStripMenuItem,
             this.trucksInQuarryToolStripMenuItem,
-            this.bookInTruckStep1ToolStripMenuItem});
+            this.bookInTruckStep1ToolStripMenuItem,
+            this.deliveryOrdersToolStripMenuItem});
             this.form1ToolStripMenuItem.Name = "form1ToolStripMenuItem";
             this.form1ToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
             this.form1ToolStripMenuItem.Text = "Menu";
@@ -140,6 +142,13 @@
             this.trucksInQuarryToolStripMenuItem.Text = "TrucksInQuarry";
             this.trucksInQuarryToolStripMenuItem.Click += new System.EventHandler(this.trucksInQuarryToolStripMenuItem_Click);
             // 
+            // bookInTruckStep1ToolStripMenuItem
+            // 
+            this.bookInTruckStep1ToolStripMenuItem.Name = "bookInTruckStep1ToolStripMenuItem";
+            this.bookInTruckStep1ToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
+            this.bookInTruckStep1ToolStripMenuItem.Text = "BookInTruckStep1";
+            this.bookInTruckStep1ToolStripMenuItem.Click += new System.EventHandler(this.bookInTruckStep1ToolStripMenuItem_Click);
+            // 
             // windowsToolStripMenuItem
             // 
             this.windowsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -161,12 +170,12 @@
             this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.closeAllToolStripMenuItem.Text = "Close All";
             // 
-            // bookInTruckStep1ToolStripMenuItem
+            // deliveryOrdersToolStripMenuItem
             // 
-            this.bookInTruckStep1ToolStripMenuItem.Name = "bookInTruckStep1ToolStripMenuItem";
-            this.bookInTruckStep1ToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
-            this.bookInTruckStep1ToolStripMenuItem.Text = "BookInTruckStep1";
-            this.bookInTruckStep1ToolStripMenuItem.Click += new System.EventHandler(this.bookInTruckStep1ToolStripMenuItem_Click);
+            this.deliveryOrdersToolStripMenuItem.Name = "deliveryOrdersToolStripMenuItem";
+            this.deliveryOrdersToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
+            this.deliveryOrdersToolStripMenuItem.Text = "Delivery Orders";
+            this.deliveryOrdersToolStripMenuItem.Click += new System.EventHandler(this.deliveryOrdersToolStripMenuItem_Click);
             // 
             // frmPBS_MDI
             // 
@@ -205,6 +214,7 @@
         private System.Windows.Forms.ToolStripMenuItem itemSearchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trucksInQuarryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bookInTruckStep1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deliveryOrdersToolStripMenuItem;
     }
 }
 
