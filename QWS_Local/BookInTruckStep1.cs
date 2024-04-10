@@ -178,8 +178,13 @@ namespace QWS_Local
                 }
                 if (OKAY2Proceed)
                 {
-                    GetConfiguredTrucksGVM();
+                    //GetConfiguredTrucksGVM(); // TODO not sure if required here 20240410
+                    // Check if TK or TT
+                    // Get driver now will determine whether can proceed to Deliver or just Ex Bin
                     // TODO check GVM vs MaxGVM once config chosen
+                    string msg = "Axle config: ";
+                    msg += CurrentConfigTruck().AxleConfiguration;
+                    MessageBox.Show(msg);
                 }
             }
             catch (Exception ex)
