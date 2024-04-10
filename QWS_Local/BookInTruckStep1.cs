@@ -140,6 +140,8 @@ namespace QWS_Local
 
         private void BookInTruckStep1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsQWSLocal.TruckDriver' table. You can move, or remove it, as needed.
+            //this.taTruckDriver.Fill(this.dsQWSLocal.TruckDriver);
             FormLoaded = true;
         }
 
@@ -191,6 +193,11 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnGetDriver_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("TODO - get truck driver");
         }
     }
 }
