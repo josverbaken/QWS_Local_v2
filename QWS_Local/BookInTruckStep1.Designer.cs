@@ -65,11 +65,12 @@ namespace QWS_Local
             this.tableAdapterManager = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
             this.txtFeeCode = new System.Windows.Forms.TextBox();
             this.txtFeeCodeConditions = new System.Windows.Forms.TextBox();
-            this.btnSelectCombinaton = new System.Windows.Forms.Button();
             this.chkDriverACC = new System.Windows.Forms.CheckBox();
             this.txtOkay2Cart = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtLicenseExp = new System.Windows.Forms.TextBox();
+            this.bsTruckDriver = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.txtInductionExp = new System.Windows.Forms.TextBox();
             this.txtActive = new System.Windows.Forms.TextBox();
             this.licenseTypeTextBox = new System.Windows.Forms.TextBox();
@@ -78,10 +79,16 @@ namespace QWS_Local
             this.positionTextBox = new System.Windows.Forms.TextBox();
             this.personTextBox = new System.Windows.Forms.TextBox();
             this.btnGetDriver = new System.Windows.Forms.Button();
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
-            this.bsTruckDriver = new System.Windows.Forms.BindingSource(this.components);
             this.taTruckDriver = new QWS_Local.dsQWSLocalTableAdapters.TruckDriverTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnCollected = new System.Windows.Forms.Button();
+            this.btnDelivery = new System.Windows.Forms.Button();
+            this.btnRetare = new System.Windows.Forms.Button();
+            this.btnImported = new System.Windows.Forms.Button();
+            this.btnExBin = new System.Windows.Forms.Button();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -98,8 +105,9 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cardCodeLabel
@@ -128,6 +136,78 @@ namespace QWS_Local
             cardStatusLabel.Size = new System.Drawing.Size(86, 17);
             cardStatusLabel.TabIndex = 17;
             cardStatusLabel.Text = "Card Status:";
+            // 
+            // activeLabel
+            // 
+            activeLabel.AutoSize = true;
+            activeLabel.Location = new System.Drawing.Point(291, 456);
+            activeLabel.Name = "activeLabel";
+            activeLabel.Size = new System.Drawing.Size(50, 17);
+            activeLabel.TabIndex = 71;
+            activeLabel.Text = "Active:";
+            // 
+            // inductionExpLabel
+            // 
+            inductionExpLabel.AutoSize = true;
+            inductionExpLabel.Location = new System.Drawing.Point(31, 590);
+            inductionExpLabel.Name = "inductionExpLabel";
+            inductionExpLabel.Size = new System.Drawing.Size(96, 17);
+            inductionExpLabel.TabIndex = 70;
+            inductionExpLabel.Text = "Induction Exp:";
+            // 
+            // licenseExpLabel
+            // 
+            licenseExpLabel.AutoSize = true;
+            licenseExpLabel.Location = new System.Drawing.Point(39, 564);
+            licenseExpLabel.Name = "licenseExpLabel";
+            licenseExpLabel.Size = new System.Drawing.Size(88, 17);
+            licenseExpLabel.TabIndex = 69;
+            licenseExpLabel.Text = "License Exp:";
+            // 
+            // licenseTypeLabel
+            // 
+            licenseTypeLabel.AutoSize = true;
+            licenseTypeLabel.Location = new System.Drawing.Point(30, 537);
+            licenseTypeLabel.Name = "licenseTypeLabel";
+            licenseTypeLabel.Size = new System.Drawing.Size(97, 17);
+            licenseTypeLabel.TabIndex = 67;
+            licenseTypeLabel.Text = "License Type:";
+            // 
+            // telLabel
+            // 
+            telLabel.AutoSize = true;
+            telLabel.Location = new System.Drawing.Point(95, 511);
+            telLabel.Name = "telLabel";
+            telLabel.Size = new System.Drawing.Size(32, 17);
+            telLabel.TabIndex = 65;
+            telLabel.Text = "Tel:";
+            // 
+            // mobLabel
+            // 
+            mobLabel.AutoSize = true;
+            mobLabel.Location = new System.Drawing.Point(237, 511);
+            mobLabel.Name = "mobLabel";
+            mobLabel.Size = new System.Drawing.Size(39, 17);
+            mobLabel.TabIndex = 63;
+            mobLabel.Text = "Mob:";
+            // 
+            // positionLabel
+            // 
+            positionLabel.AutoSize = true;
+            positionLabel.Location = new System.Drawing.Point(65, 485);
+            positionLabel.Name = "positionLabel";
+            positionLabel.Size = new System.Drawing.Size(62, 17);
+            positionLabel.TabIndex = 60;
+            positionLabel.Text = "Position:";
+            // 
+            // personLabel
+            // 
+            personLabel.AutoSize = true;
+            personLabel.Location = new System.Drawing.Point(70, 459);
+            personLabel.Name = "personLabel";
+            personLabel.Size = new System.Drawing.Size(57, 17);
+            personLabel.TabIndex = 59;
+            personLabel.Text = "Person:";
             // 
             // pictureSchematic
             // 
@@ -318,20 +398,10 @@ namespace QWS_Local
             this.txtFeeCodeConditions.Size = new System.Drawing.Size(374, 23);
             this.txtFeeCodeConditions.TabIndex = 21;
             // 
-            // btnSelectCombinaton
-            // 
-            this.btnSelectCombinaton.Location = new System.Drawing.Point(718, 406);
-            this.btnSelectCombinaton.Name = "btnSelectCombinaton";
-            this.btnSelectCombinaton.Size = new System.Drawing.Size(282, 31);
-            this.btnSelectCombinaton.TabIndex = 22;
-            this.btnSelectCombinaton.Text = "Check and get configuration";
-            this.btnSelectCombinaton.UseVisualStyleBackColor = true;
-            this.btnSelectCombinaton.Click += new System.EventHandler(this.btnSelectCombinaton_Click);
-            // 
             // chkDriverACC
             // 
             this.chkDriverACC.AutoSize = true;
-            this.chkDriverACC.Location = new System.Drawing.Point(329, 562);
+            this.chkDriverACC.Location = new System.Drawing.Point(343, 562);
             this.chkDriverACC.Name = "chkDriverACC";
             this.chkDriverACC.Size = new System.Drawing.Size(54, 21);
             this.chkDriverACC.TabIndex = 77;
@@ -340,7 +410,7 @@ namespace QWS_Local
             // 
             // txtOkay2Cart
             // 
-            this.txtOkay2Cart.Location = new System.Drawing.Point(330, 587);
+            this.txtOkay2Cart.Location = new System.Drawing.Point(344, 587);
             this.txtOkay2Cart.Name = "txtOkay2Cart";
             this.txtOkay2Cart.Size = new System.Drawing.Size(46, 23);
             this.txtOkay2Cart.TabIndex = 76;
@@ -348,7 +418,7 @@ namespace QWS_Local
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(259, 590);
+            this.label1.Location = new System.Drawing.Point(273, 590);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 17);
             this.label1.TabIndex = 75;
@@ -362,6 +432,16 @@ namespace QWS_Local
             this.txtLicenseExp.Size = new System.Drawing.Size(100, 23);
             this.txtLicenseExp.TabIndex = 74;
             // 
+            // bsTruckDriver
+            // 
+            this.bsTruckDriver.DataMember = "TruckDriver";
+            this.bsTruckDriver.DataSource = this.dsQWSLocal;
+            // 
+            // dsQWSLocal
+            // 
+            this.dsQWSLocal.DataSetName = "dsQWSLocal";
+            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // txtInductionExp
             // 
             this.txtInductionExp.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "InductionExp", true));
@@ -370,49 +450,13 @@ namespace QWS_Local
             this.txtInductionExp.Size = new System.Drawing.Size(100, 23);
             this.txtInductionExp.TabIndex = 73;
             // 
-            // activeLabel
-            // 
-            activeLabel.AutoSize = true;
-            activeLabel.Location = new System.Drawing.Point(277, 459);
-            activeLabel.Name = "activeLabel";
-            activeLabel.Size = new System.Drawing.Size(50, 17);
-            activeLabel.TabIndex = 71;
-            activeLabel.Text = "Active:";
-            // 
             // txtActive
             // 
             this.txtActive.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Active", true));
-            this.txtActive.Location = new System.Drawing.Point(330, 456);
+            this.txtActive.Location = new System.Drawing.Point(343, 453);
             this.txtActive.Name = "txtActive";
             this.txtActive.Size = new System.Drawing.Size(47, 23);
             this.txtActive.TabIndex = 72;
-            // 
-            // inductionExpLabel
-            // 
-            inductionExpLabel.AutoSize = true;
-            inductionExpLabel.Location = new System.Drawing.Point(31, 590);
-            inductionExpLabel.Name = "inductionExpLabel";
-            inductionExpLabel.Size = new System.Drawing.Size(96, 17);
-            inductionExpLabel.TabIndex = 70;
-            inductionExpLabel.Text = "Induction Exp:";
-            // 
-            // licenseExpLabel
-            // 
-            licenseExpLabel.AutoSize = true;
-            licenseExpLabel.Location = new System.Drawing.Point(39, 564);
-            licenseExpLabel.Name = "licenseExpLabel";
-            licenseExpLabel.Size = new System.Drawing.Size(88, 17);
-            licenseExpLabel.TabIndex = 69;
-            licenseExpLabel.Text = "License Exp:";
-            // 
-            // licenseTypeLabel
-            // 
-            licenseTypeLabel.AutoSize = true;
-            licenseTypeLabel.Location = new System.Drawing.Point(30, 537);
-            licenseTypeLabel.Name = "licenseTypeLabel";
-            licenseTypeLabel.Size = new System.Drawing.Size(97, 17);
-            licenseTypeLabel.TabIndex = 67;
-            licenseTypeLabel.Text = "License Type:";
             // 
             // licenseTypeTextBox
             // 
@@ -422,15 +466,6 @@ namespace QWS_Local
             this.licenseTypeTextBox.Size = new System.Drawing.Size(100, 23);
             this.licenseTypeTextBox.TabIndex = 68;
             // 
-            // telLabel
-            // 
-            telLabel.AutoSize = true;
-            telLabel.Location = new System.Drawing.Point(95, 511);
-            telLabel.Name = "telLabel";
-            telLabel.Size = new System.Drawing.Size(32, 17);
-            telLabel.TabIndex = 65;
-            telLabel.Text = "Tel:";
-            // 
             // telTextBox
             // 
             this.telTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Tel", true));
@@ -439,48 +474,21 @@ namespace QWS_Local
             this.telTextBox.Size = new System.Drawing.Size(100, 23);
             this.telTextBox.TabIndex = 66;
             // 
-            // mobLabel
-            // 
-            mobLabel.AutoSize = true;
-            mobLabel.Location = new System.Drawing.Point(240, 511);
-            mobLabel.Name = "mobLabel";
-            mobLabel.Size = new System.Drawing.Size(39, 17);
-            mobLabel.TabIndex = 63;
-            mobLabel.Text = "Mob:";
-            // 
             // mobTextBox
             // 
             this.mobTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Mob", true));
-            this.mobTextBox.Location = new System.Drawing.Point(277, 508);
+            this.mobTextBox.Location = new System.Drawing.Point(290, 508);
             this.mobTextBox.Name = "mobTextBox";
             this.mobTextBox.Size = new System.Drawing.Size(100, 23);
             this.mobTextBox.TabIndex = 64;
-            // 
-            // positionLabel
-            // 
-            positionLabel.AutoSize = true;
-            positionLabel.Location = new System.Drawing.Point(65, 485);
-            positionLabel.Name = "positionLabel";
-            positionLabel.Size = new System.Drawing.Size(62, 17);
-            positionLabel.TabIndex = 60;
-            positionLabel.Text = "Position:";
             // 
             // positionTextBox
             // 
             this.positionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Position", true));
             this.positionTextBox.Location = new System.Drawing.Point(132, 482);
             this.positionTextBox.Name = "positionTextBox";
-            this.positionTextBox.Size = new System.Drawing.Size(245, 23);
+            this.positionTextBox.Size = new System.Drawing.Size(258, 23);
             this.positionTextBox.TabIndex = 62;
-            // 
-            // personLabel
-            // 
-            personLabel.AutoSize = true;
-            personLabel.Location = new System.Drawing.Point(70, 459);
-            personLabel.Name = "personLabel";
-            personLabel.Size = new System.Drawing.Size(57, 17);
-            personLabel.TabIndex = 59;
-            personLabel.Text = "Person:";
             // 
             // personTextBox
             // 
@@ -494,21 +502,11 @@ namespace QWS_Local
             // 
             this.btnGetDriver.Location = new System.Drawing.Point(132, 427);
             this.btnGetDriver.Name = "btnGetDriver";
-            this.btnGetDriver.Size = new System.Drawing.Size(245, 23);
+            this.btnGetDriver.Size = new System.Drawing.Size(258, 23);
             this.btnGetDriver.TabIndex = 58;
             this.btnGetDriver.Text = "Get Truck Driver";
             this.btnGetDriver.UseVisualStyleBackColor = true;
             this.btnGetDriver.Click += new System.EventHandler(this.btnGetDriver_Click);
-            // 
-            // dsQWSLocal
-            // 
-            this.dsQWSLocal.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bsTruckDriver
-            // 
-            this.bsTruckDriver.DataMember = "TruckDriver";
-            this.bsTruckDriver.DataSource = this.dsQWSLocal;
             // 
             // taTruckDriver
             // 
@@ -534,11 +532,98 @@ namespace QWS_Local
             this.tableAdapterManager1.VehicleTableAdapter = null;
             this.tableAdapterManager1.VehicleTypeTableAdapter = null;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.btnCollected);
+            this.groupBox1.Controls.Add(this.btnDelivery);
+            this.groupBox1.Controls.Add(this.btnRetare);
+            this.groupBox1.Controls.Add(this.btnImported);
+            this.groupBox1.Controls.Add(this.btnExBin);
+            this.groupBox1.Location = new System.Drawing.Point(443, 427);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(283, 194);
+            this.groupBox1.TabIndex = 78;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Book In Mode";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(174, 30);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 17);
+            this.label3.TabIndex = 60;
+            this.label3.Text = "Inbound";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(41, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 17);
+            this.label2.TabIndex = 59;
+            this.label2.Text = "Outbound";
+            // 
+            // btnCollected
+            // 
+            this.btnCollected.Enabled = false;
+            this.btnCollected.Location = new System.Drawing.Point(145, 104);
+            this.btnCollected.Name = "btnCollected";
+            this.btnCollected.Size = new System.Drawing.Size(121, 38);
+            this.btnCollected.TabIndex = 58;
+            this.btnCollected.Text = "Collected";
+            this.btnCollected.UseVisualStyleBackColor = true;
+            // 
+            // btnDelivery
+            // 
+            this.btnDelivery.Enabled = false;
+            this.btnDelivery.Location = new System.Drawing.Point(15, 104);
+            this.btnDelivery.Name = "btnDelivery";
+            this.btnDelivery.Size = new System.Drawing.Size(121, 38);
+            this.btnDelivery.TabIndex = 57;
+            this.btnDelivery.Text = "Delivery";
+            this.btnDelivery.UseVisualStyleBackColor = true;
+            // 
+            // btnRetare
+            // 
+            this.btnRetare.Enabled = false;
+            this.btnRetare.Location = new System.Drawing.Point(15, 148);
+            this.btnRetare.Name = "btnRetare";
+            this.btnRetare.Size = new System.Drawing.Size(251, 38);
+            this.btnRetare.TabIndex = 56;
+            this.btnRetare.Text = "Retare";
+            this.btnRetare.UseVisualStyleBackColor = true;
+            // 
+            // btnImported
+            // 
+            this.btnImported.Enabled = false;
+            this.btnImported.Location = new System.Drawing.Point(145, 60);
+            this.btnImported.Name = "btnImported";
+            this.btnImported.Size = new System.Drawing.Size(121, 38);
+            this.btnImported.TabIndex = 55;
+            this.btnImported.Text = "Imported";
+            this.btnImported.UseVisualStyleBackColor = true;
+            // 
+            // btnExBin
+            // 
+            this.btnExBin.Enabled = false;
+            this.btnExBin.Location = new System.Drawing.Point(15, 60);
+            this.btnExBin.Name = "btnExBin";
+            this.btnExBin.Size = new System.Drawing.Size(121, 38);
+            this.btnExBin.TabIndex = 54;
+            this.btnExBin.Text = "Ex Bin";
+            this.btnExBin.UseVisualStyleBackColor = true;
+            // 
             // BookInTruckStep1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 658);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.chkDriverACC);
             this.Controls.Add(this.txtOkay2Cart);
             this.Controls.Add(this.label1);
@@ -559,7 +644,6 @@ namespace QWS_Local
             this.Controls.Add(personLabel);
             this.Controls.Add(this.personTextBox);
             this.Controls.Add(this.btnGetDriver);
-            this.Controls.Add(this.btnSelectCombinaton);
             this.Controls.Add(this.txtFeeCodeConditions);
             this.Controls.Add(this.txtFeeCode);
             this.Controls.Add(this.chkACC);
@@ -586,8 +670,10 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -619,7 +705,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewCheckBoxColumn PBS;
         private System.Windows.Forms.TextBox txtFeeCode;
         private System.Windows.Forms.TextBox txtFeeCodeConditions;
-        private System.Windows.Forms.Button btnSelectCombinaton;
         private System.Windows.Forms.CheckBox chkDriverACC;
         private System.Windows.Forms.TextBox txtOkay2Cart;
         private System.Windows.Forms.Label label1;
@@ -636,5 +721,13 @@ namespace QWS_Local
         private System.Windows.Forms.BindingSource bsTruckDriver;
         private dsQWSLocalTableAdapters.TruckDriverTableAdapter taTruckDriver;
         private dsQWSLocalTableAdapters.TableAdapterManager tableAdapterManager1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnCollected;
+        private System.Windows.Forms.Button btnDelivery;
+        private System.Windows.Forms.Button btnRetare;
+        private System.Windows.Forms.Button btnImported;
+        private System.Windows.Forms.Button btnExBin;
     }
 }

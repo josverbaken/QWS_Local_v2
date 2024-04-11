@@ -109,6 +109,7 @@ namespace QWS_Local
         private void btnNextForm_Click(object sender, EventArgs e)
         {
             bool OK2Proceed = true;
+            GetConfiguredTrucksGVM();
             DataRow myDR = ((DataRowView)bsConfiguredTruckGVM.Current).Row;
             dsTruckConfig.ConfiguredTruckGVMRow truckConfigRow = (dsTruckConfig.ConfiguredTruckGVMRow)myDR;
             // Check if SR conditon applies and handle GVM before proceeding
@@ -128,6 +129,12 @@ namespace QWS_Local
             {
                 OK2Proceed = false;
                 MessageBox.Show("Account NOT Active, cannot proceed!");
+            }
+
+            if (CheckFeeCode() == false)
+            {
+                OK2Proceed = false;
+                MessageBox.Show("Unable to proceed, due to Fee Code axle restriction!");
             }
 
             if (OK2Proceed)
@@ -164,40 +171,119 @@ namespace QWS_Local
             }
         }
 
-        private void btnSelectCombinaton_Click(object sender, EventArgs e)
+        private bool CheckFeeCode()
         {
-            try
+            int myAxles = CurrentConfigTruck().Axles;
+            int myMaxAxles = CurrentConfigTruck().MaxAxles;
+            if (myMaxAxles > 0 && myAxles > myMaxAxles)
             {
-                dsTruckConfig.ConfiguredTruckGVM.Clear();
-                bool OKAY2Proceed = true;
-                // test if SR conditions might apply
-                int myAxles = CurrentConfigTruck().Axles;
-                int myMaxAxles = CurrentConfigTruck().MaxAxles;
-                if (myMaxAxles > 0 && myAxles > myMaxAxles )
-                {
-                    OKAY2Proceed = false;
-                    MessageBox.Show("Unable to proceed, due to Fee Code axle restriction!");
-                }
-                if (OKAY2Proceed)
-                {
-                    //GetConfiguredTrucksGVM(); // TODO not sure if required here 20240410
-                    // Check if TK or TT
-                    // Get driver now will determine whether can proceed to Deliver or just Ex Bin
-                    // TODO check GVM vs MaxGVM once config chosen
-                    string msg = "Axle config: ";
-                    msg += CurrentConfigTruck().AxleConfiguration;
-                    MessageBox.Show(msg);
-                }
+                return false;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            return true;
         }
 
         private void btnGetDriver_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("TODO - get truck driver");
+            GetTruckDriver();
         }
+
+        private dsTruckConfig.ConfiguredTruckGVMRow CurrentTruckGVM()
+        {
+            try
+            {
+                if (bsConfiguredTruckGVM.Count > 0)
+                {
+                    DataRow myRow = ((DataRowView)bsConfiguredTruckGVM.Current).Row;
+                    dsTruckConfig.ConfiguredTruckGVMRow configuredTruckGVMRow = (dsTruckConfig.ConfiguredTruckGVMRow)myRow;
+                    return configuredTruckGVMRow;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
+        private dsQWSLocal.TruckDriverRow CurrentTruckDriver()
+        {
+            if (bsTruckDriver.Count > 0)
+            {
+                DataRow myRow = ((DataRowView)bsTruckDriver.Current).Row;
+                dsQWSLocal.TruckDriverRow myTruckDriverRow = (dsQWSLocal.TruckDriverRow)myRow;
+                return myTruckDriverRow;
+            }
+            return null;
+        }
+
+
+        private void GetTruckDriver()
+        {
+            bool blOkay2Cart = true;
+            TruckDriverSearch frmTruckDriverSearch = new TruckDriverSearch(CurrentConfigTruck().CardCode);  //(CurrentTruckGVM().CardCode);
+            DialogResult dr = frmTruckDriverSearch.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                dsQWSLocal.TruckDriver.Clear();
+                dsQWSLocal.TruckDriver.ImportRow(frmTruckDriverSearch.TruckDriverRow);
+                bsTruckDriver.Position = 0;
+                DataRow myRow = ((DataRowView)bsTruckDriver.Current).Row;
+                dsQWSLocal.TruckDriverRow myTruckDriverRow = (dsQWSLocal.TruckDriverRow)myRow;
+                if (myTruckDriverRow.LicenseExp < DateTime.Now)
+                {
+                    txtLicenseExp.BackColor = Color.Salmon;
+                    blOkay2Cart = false;
+                }
+                else
+                {
+                    txtLicenseExp.BackColor = Color.PaleGreen;
+                }
+                if (myTruckDriverRow.InductionExp < DateTime.Now)
+                {
+                    txtInductionExp.BackColor = Color.Salmon;
+                    blOkay2Cart = false;
+                }
+                else
+                {
+                    txtInductionExp.BackColor = Color.PaleGreen;
+                }
+                if (myTruckDriverRow.Active == "Y")
+                {
+                    txtActive.BackColor = Color.PaleGreen;
+                }
+                else
+                {
+                    txtActive.BackColor = Color.Salmon;
+                    blOkay2Cart = false;
+                }
+                if (blOkay2Cart)
+                {
+                    txtOkay2Cart.Text = "Y";
+                    txtOkay2Cart.BackColor = Color.PaleGreen;
+                    btnExBin.Enabled = true;
+                }
+                else
+                {
+                    txtOkay2Cart.Text = "N";
+                    txtOkay2Cart.BackColor = Color.Salmon;
+                    btnExBin.Enabled = false;
+                }
+                if (myTruckDriverRow.Position == "Authorised Cartage Contractor")
+                {
+                    chkDriverACC.Checked = true;
+                    if (chkACC.Checked == true)
+                    {
+                        btnDelivery.Enabled = true;
+                    }
+                }
+                else
+                {
+                    chkDriverACC.Checked = false;
+                    btnDelivery.Enabled = false; // TODO ? refactor
+                }
+            }
+        }
+
     }
 }

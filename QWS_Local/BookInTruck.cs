@@ -29,11 +29,7 @@ namespace QWS_Local
             dsTruckConfig.ConfiguredTruckGVM.ImportRow(configuredTruckGVMRow);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            GetTruckDriver();
-        }
-
+  
         private void GetTruckDriver()
         {
             bool blOkay2Cart = true;
@@ -48,21 +44,21 @@ namespace QWS_Local
                 dsQWSLocal.TruckDriverRow myTruckDriverRow = (dsQWSLocal.TruckDriverRow)myRow;
                 if (myTruckDriverRow.LicenseExp < DateTime.Now)
                 {
-                    txtLicenseExp.BackColor = Color.Salmon;
+                    //txtLicenseExp.BackColor = Color.Salmon;
                     blOkay2Cart = false;
                 }
                 else
                 {
-                    txtLicenseExp.BackColor = Color.PaleGreen;
+                    //txtLicenseExp.BackColor = Color.PaleGreen;
                 }
                 if (myTruckDriverRow.InductionExp < DateTime.Now)
                 {
-                    txtInductionExp.BackColor = Color.Salmon;
+                    //txtInductionExp.BackColor = Color.Salmon;
                     blOkay2Cart = false;
                 }
                 else
                 {
-                    txtInductionExp.BackColor = Color.PaleGreen;
+                    //txtInductionExp.BackColor = Color.PaleGreen;
                 }
                 if (myTruckDriverRow.Active == "Y")
                 {
@@ -72,18 +68,6 @@ namespace QWS_Local
                 {
                     txtActive.BackColor = Color.Salmon;
                     blOkay2Cart = false;
-                }
-                if (blOkay2Cart)
-                {
-                    txtOkay2Cart.Text = "Y";
-                    txtOkay2Cart.BackColor = Color.PaleGreen;
-                    btnExBin.Enabled = true;
-                }
-                else
-                {
-                    txtOkay2Cart.Text = "N";
-                    txtOkay2Cart.BackColor = Color.Salmon;
-                    btnExBin.Enabled = false;
                 }
                 if (myTruckDriverRow.Position == "Authorised Cartage Contractor")
                 {
@@ -163,18 +147,6 @@ namespace QWS_Local
                     btnTnT.Enabled = false;
                     btnSplitLoad.Enabled = false;
                     btnTrailerOnly.Enabled = false;
-                }
-                double Days2Retare = 180;
-                DateTime RetareDate = CurrentTruckGVM().TareDT.AddDays(Days2Retare);
-                if (RetareDate < DateTime.Now)
-                {
-                    btnRetare.Enabled = true;
-                    btnRetare.BackColor = Color.Orange;
-                }
-                else
-                {
-                    btnRetare.Enabled = false;
-                    btnRetare.BackColor = SystemColors.Control;
                 }
                 if (CurrentTruckGVM().GCM == CurrentTruckGVM().GVMTruck) //Truck only config
                 {
