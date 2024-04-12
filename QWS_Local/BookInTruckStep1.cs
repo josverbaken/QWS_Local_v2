@@ -29,7 +29,7 @@ namespace QWS_Local
         {
             try
             {
-                dsTruckConfig.ConfiguredTruckGVM.Clear();
+                dsTruckConfig.ConfiguredTrucks.Clear();
                 int iCount = taConfiguredTrucks.FillByRego(dsTruckConfig.ConfiguredTrucks, Rego);
                 if (iCount > 0)
                 {
@@ -221,7 +221,7 @@ namespace QWS_Local
         private void GetTruckDriver()
         {
             bool blOkay2Cart = true;
-            TruckDriverSearch frmTruckDriverSearch = new TruckDriverSearch(CurrentConfigTruck().CardCode);  //(CurrentTruckGVM().CardCode);
+            TruckDriverSearch frmTruckDriverSearch = new TruckDriverSearch(CurrentConfigTruck().CardCode);
             DialogResult dr = frmTruckDriverSearch.ShowDialog();
             if (dr == DialogResult.OK)
             {
