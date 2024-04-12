@@ -17,9 +17,19 @@ namespace QWS_Local
             InitializeComponent();
         }
 
+        public BookInExBin(int myTruckConfigID)
+        {
+            InitializeComponent();
+            //EntryDTTM = _EntryDTTM;
+            TruckConfigID = myTruckConfigID;
+        }
+
+        private int TruckConfigID;
+
         private void BookInExBin_Load(object sender, EventArgs e)
         {
             LoadExBinItems();
+            LoadConfiguredTruckGVM(TruckConfigID);
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -37,5 +47,13 @@ namespace QWS_Local
             string mySiteCode = Properties.Settings.Default.SiteCode;
             taItem.Fill(dsBookIn.Item, mySiteCode);
         }
+
+        private void LoadConfiguredTruckGVM(int myTruckConfigID)
+        {
+            taConfiguredTruckGVM.Fill(dsTruckConfig.ConfiguredTruckGVM, "", myTruckConfigID);
+
+        }
+
+
     }
 }

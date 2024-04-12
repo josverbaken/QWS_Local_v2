@@ -54,7 +54,6 @@ namespace QWS_Local
             this.PBS = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.txtAxleConfig = new System.Windows.Forms.TextBox();
             this.txtVehicleDescription = new System.Windows.Forms.TextBox();
-            this.btnNextForm = new System.Windows.Forms.Button();
             this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
             this.cardCodeTextBox = new System.Windows.Forms.TextBox();
             this.truckOwnerTextBox = new System.Windows.Forms.TextBox();
@@ -89,6 +88,11 @@ namespace QWS_Local
             this.btnRetare = new System.Windows.Forms.Button();
             this.btnImported = new System.Windows.Forms.Button();
             this.btnExBin = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSplitLoad = new System.Windows.Forms.Button();
+            this.btnTrailerOnly = new System.Windows.Forms.Button();
+            this.btnTnT = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -108,6 +112,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // cardCodeLabel
@@ -140,7 +146,7 @@ namespace QWS_Local
             // activeLabel
             // 
             activeLabel.AutoSize = true;
-            activeLabel.Location = new System.Drawing.Point(291, 456);
+            activeLabel.Location = new System.Drawing.Point(282, 114);
             activeLabel.Name = "activeLabel";
             activeLabel.Size = new System.Drawing.Size(50, 17);
             activeLabel.TabIndex = 71;
@@ -149,7 +155,7 @@ namespace QWS_Local
             // inductionExpLabel
             // 
             inductionExpLabel.AutoSize = true;
-            inductionExpLabel.Location = new System.Drawing.Point(31, 590);
+            inductionExpLabel.Location = new System.Drawing.Point(26, 167);
             inductionExpLabel.Name = "inductionExpLabel";
             inductionExpLabel.Size = new System.Drawing.Size(96, 17);
             inductionExpLabel.TabIndex = 70;
@@ -158,7 +164,7 @@ namespace QWS_Local
             // licenseExpLabel
             // 
             licenseExpLabel.AutoSize = true;
-            licenseExpLabel.Location = new System.Drawing.Point(39, 564);
+            licenseExpLabel.Location = new System.Drawing.Point(34, 141);
             licenseExpLabel.Name = "licenseExpLabel";
             licenseExpLabel.Size = new System.Drawing.Size(88, 17);
             licenseExpLabel.TabIndex = 69;
@@ -167,7 +173,7 @@ namespace QWS_Local
             // licenseTypeLabel
             // 
             licenseTypeLabel.AutoSize = true;
-            licenseTypeLabel.Location = new System.Drawing.Point(30, 537);
+            licenseTypeLabel.Location = new System.Drawing.Point(25, 114);
             licenseTypeLabel.Name = "licenseTypeLabel";
             licenseTypeLabel.Size = new System.Drawing.Size(97, 17);
             licenseTypeLabel.TabIndex = 67;
@@ -176,7 +182,7 @@ namespace QWS_Local
             // telLabel
             // 
             telLabel.AutoSize = true;
-            telLabel.Location = new System.Drawing.Point(95, 511);
+            telLabel.Location = new System.Drawing.Point(90, 88);
             telLabel.Name = "telLabel";
             telLabel.Size = new System.Drawing.Size(32, 17);
             telLabel.TabIndex = 65;
@@ -185,7 +191,7 @@ namespace QWS_Local
             // mobLabel
             // 
             mobLabel.AutoSize = true;
-            mobLabel.Location = new System.Drawing.Point(237, 511);
+            mobLabel.Location = new System.Drawing.Point(232, 88);
             mobLabel.Name = "mobLabel";
             mobLabel.Size = new System.Drawing.Size(39, 17);
             mobLabel.TabIndex = 63;
@@ -194,7 +200,7 @@ namespace QWS_Local
             // positionLabel
             // 
             positionLabel.AutoSize = true;
-            positionLabel.Location = new System.Drawing.Point(65, 485);
+            positionLabel.Location = new System.Drawing.Point(60, 62);
             positionLabel.Name = "positionLabel";
             positionLabel.Size = new System.Drawing.Size(62, 17);
             positionLabel.TabIndex = 60;
@@ -203,7 +209,7 @@ namespace QWS_Local
             // personLabel
             // 
             personLabel.AutoSize = true;
-            personLabel.Location = new System.Drawing.Point(70, 459);
+            personLabel.Location = new System.Drawing.Point(65, 28);
             personLabel.Name = "personLabel";
             personLabel.Size = new System.Drawing.Size(57, 17);
             personLabel.TabIndex = 59;
@@ -318,17 +324,6 @@ namespace QWS_Local
             this.txtVehicleDescription.Size = new System.Drawing.Size(344, 23);
             this.txtVehicleDescription.TabIndex = 5;
             // 
-            // btnNextForm
-            // 
-            this.btnNextForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNextForm.Location = new System.Drawing.Point(818, 599);
-            this.btnNextForm.Name = "btnNextForm";
-            this.btnNextForm.Size = new System.Drawing.Size(182, 27);
-            this.btnNextForm.TabIndex = 7;
-            this.btnNextForm.Text = "Next Form";
-            this.btnNextForm.UseVisualStyleBackColor = true;
-            this.btnNextForm.Click += new System.EventHandler(this.btnNextForm_Click);
-            // 
             // bsConfiguredTruckGVM
             // 
             this.bsConfiguredTruckGVM.DataMember = "ConfiguredTruckGVM";
@@ -401,7 +396,7 @@ namespace QWS_Local
             // chkDriverACC
             // 
             this.chkDriverACC.AutoSize = true;
-            this.chkDriverACC.Location = new System.Drawing.Point(343, 562);
+            this.chkDriverACC.Location = new System.Drawing.Point(338, 139);
             this.chkDriverACC.Name = "chkDriverACC";
             this.chkDriverACC.Size = new System.Drawing.Size(54, 21);
             this.chkDriverACC.TabIndex = 77;
@@ -410,7 +405,7 @@ namespace QWS_Local
             // 
             // txtOkay2Cart
             // 
-            this.txtOkay2Cart.Location = new System.Drawing.Point(344, 587);
+            this.txtOkay2Cart.Location = new System.Drawing.Point(339, 164);
             this.txtOkay2Cart.Name = "txtOkay2Cart";
             this.txtOkay2Cart.Size = new System.Drawing.Size(46, 23);
             this.txtOkay2Cart.TabIndex = 76;
@@ -418,7 +413,7 @@ namespace QWS_Local
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(273, 590);
+            this.label1.Location = new System.Drawing.Point(268, 167);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 17);
             this.label1.TabIndex = 75;
@@ -427,7 +422,7 @@ namespace QWS_Local
             // txtLicenseExp
             // 
             this.txtLicenseExp.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "LicenseExp", true));
-            this.txtLicenseExp.Location = new System.Drawing.Point(132, 560);
+            this.txtLicenseExp.Location = new System.Drawing.Point(127, 137);
             this.txtLicenseExp.Name = "txtLicenseExp";
             this.txtLicenseExp.Size = new System.Drawing.Size(100, 23);
             this.txtLicenseExp.TabIndex = 74;
@@ -445,7 +440,7 @@ namespace QWS_Local
             // txtInductionExp
             // 
             this.txtInductionExp.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "InductionExp", true));
-            this.txtInductionExp.Location = new System.Drawing.Point(132, 587);
+            this.txtInductionExp.Location = new System.Drawing.Point(127, 164);
             this.txtInductionExp.Name = "txtInductionExp";
             this.txtInductionExp.Size = new System.Drawing.Size(100, 23);
             this.txtInductionExp.TabIndex = 73;
@@ -453,7 +448,7 @@ namespace QWS_Local
             // txtActive
             // 
             this.txtActive.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Active", true));
-            this.txtActive.Location = new System.Drawing.Point(343, 453);
+            this.txtActive.Location = new System.Drawing.Point(338, 111);
             this.txtActive.Name = "txtActive";
             this.txtActive.Size = new System.Drawing.Size(47, 23);
             this.txtActive.TabIndex = 72;
@@ -461,7 +456,7 @@ namespace QWS_Local
             // licenseTypeTextBox
             // 
             this.licenseTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "LicenseType", true));
-            this.licenseTypeTextBox.Location = new System.Drawing.Point(132, 534);
+            this.licenseTypeTextBox.Location = new System.Drawing.Point(127, 111);
             this.licenseTypeTextBox.Name = "licenseTypeTextBox";
             this.licenseTypeTextBox.Size = new System.Drawing.Size(100, 23);
             this.licenseTypeTextBox.TabIndex = 68;
@@ -469,7 +464,7 @@ namespace QWS_Local
             // telTextBox
             // 
             this.telTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Tel", true));
-            this.telTextBox.Location = new System.Drawing.Point(132, 508);
+            this.telTextBox.Location = new System.Drawing.Point(127, 85);
             this.telTextBox.Name = "telTextBox";
             this.telTextBox.Size = new System.Drawing.Size(100, 23);
             this.telTextBox.TabIndex = 66;
@@ -477,7 +472,7 @@ namespace QWS_Local
             // mobTextBox
             // 
             this.mobTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Mob", true));
-            this.mobTextBox.Location = new System.Drawing.Point(290, 508);
+            this.mobTextBox.Location = new System.Drawing.Point(285, 85);
             this.mobTextBox.Name = "mobTextBox";
             this.mobTextBox.Size = new System.Drawing.Size(100, 23);
             this.mobTextBox.TabIndex = 64;
@@ -485,7 +480,7 @@ namespace QWS_Local
             // positionTextBox
             // 
             this.positionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Position", true));
-            this.positionTextBox.Location = new System.Drawing.Point(132, 482);
+            this.positionTextBox.Location = new System.Drawing.Point(127, 59);
             this.positionTextBox.Name = "positionTextBox";
             this.positionTextBox.Size = new System.Drawing.Size(258, 23);
             this.positionTextBox.TabIndex = 62;
@@ -493,18 +488,18 @@ namespace QWS_Local
             // personTextBox
             // 
             this.personTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Person", true));
-            this.personTextBox.Location = new System.Drawing.Point(132, 456);
+            this.personTextBox.Location = new System.Drawing.Point(127, 28);
             this.personTextBox.Name = "personTextBox";
-            this.personTextBox.Size = new System.Drawing.Size(100, 23);
+            this.personTextBox.Size = new System.Drawing.Size(156, 23);
             this.personTextBox.TabIndex = 61;
             // 
             // btnGetDriver
             // 
-            this.btnGetDriver.Location = new System.Drawing.Point(132, 427);
+            this.btnGetDriver.Location = new System.Drawing.Point(301, 28);
             this.btnGetDriver.Name = "btnGetDriver";
-            this.btnGetDriver.Size = new System.Drawing.Size(258, 23);
+            this.btnGetDriver.Size = new System.Drawing.Size(84, 23);
             this.btnGetDriver.TabIndex = 58;
-            this.btnGetDriver.Text = "Get Truck Driver";
+            this.btnGetDriver.Text = "Get";
             this.btnGetDriver.UseVisualStyleBackColor = true;
             this.btnGetDriver.Click += new System.EventHandler(this.btnGetDriver_Click);
             // 
@@ -541,9 +536,9 @@ namespace QWS_Local
             this.groupBox1.Controls.Add(this.btnRetare);
             this.groupBox1.Controls.Add(this.btnImported);
             this.groupBox1.Controls.Add(this.btnExBin);
-            this.groupBox1.Location = new System.Drawing.Point(443, 427);
+            this.groupBox1.Location = new System.Drawing.Point(717, 427);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(283, 194);
+            this.groupBox1.Size = new System.Drawing.Size(283, 200);
             this.groupBox1.TabIndex = 78;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Book In Mode";
@@ -617,33 +612,87 @@ namespace QWS_Local
             this.btnExBin.TabIndex = 54;
             this.btnExBin.Text = "Ex Bin";
             this.btnExBin.UseVisualStyleBackColor = true;
+            this.btnExBin.Click += new System.EventHandler(this.btnExBin_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnSplitLoad);
+            this.groupBox2.Controls.Add(this.btnTrailerOnly);
+            this.groupBox2.Controls.Add(this.btnTnT);
+            this.groupBox2.Location = new System.Drawing.Point(506, 427);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(154, 200);
+            this.groupBox2.TabIndex = 79;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Truck Configuration";
+            // 
+            // btnSplitLoad
+            // 
+            this.btnSplitLoad.Enabled = false;
+            this.btnSplitLoad.Location = new System.Drawing.Point(15, 75);
+            this.btnSplitLoad.Name = "btnSplitLoad";
+            this.btnSplitLoad.Size = new System.Drawing.Size(121, 44);
+            this.btnSplitLoad.TabIndex = 57;
+            this.btnSplitLoad.Text = "Split Load";
+            this.btnSplitLoad.UseVisualStyleBackColor = true;
+            // 
+            // btnTrailerOnly
+            // 
+            this.btnTrailerOnly.Enabled = false;
+            this.btnTrailerOnly.Location = new System.Drawing.Point(15, 125);
+            this.btnTrailerOnly.Name = "btnTrailerOnly";
+            this.btnTrailerOnly.Size = new System.Drawing.Size(121, 44);
+            this.btnTrailerOnly.TabIndex = 56;
+            this.btnTrailerOnly.Text = "Trailer Only";
+            this.btnTrailerOnly.UseVisualStyleBackColor = true;
+            // 
+            // btnTnT
+            // 
+            this.btnTnT.Enabled = false;
+            this.btnTnT.Location = new System.Drawing.Point(15, 25);
+            this.btnTnT.Name = "btnTnT";
+            this.btnTnT.Size = new System.Drawing.Size(121, 44);
+            this.btnTnT.TabIndex = 54;
+            this.btnTnT.Text = "Truck and Trailer";
+            this.btnTnT.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.personTextBox);
+            this.groupBox3.Controls.Add(this.btnGetDriver);
+            this.groupBox3.Controls.Add(personLabel);
+            this.groupBox3.Controls.Add(this.chkDriverACC);
+            this.groupBox3.Controls.Add(this.positionTextBox);
+            this.groupBox3.Controls.Add(this.txtOkay2Cart);
+            this.groupBox3.Controls.Add(positionLabel);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.mobTextBox);
+            this.groupBox3.Controls.Add(this.txtLicenseExp);
+            this.groupBox3.Controls.Add(mobLabel);
+            this.groupBox3.Controls.Add(this.txtInductionExp);
+            this.groupBox3.Controls.Add(this.telTextBox);
+            this.groupBox3.Controls.Add(activeLabel);
+            this.groupBox3.Controls.Add(telLabel);
+            this.groupBox3.Controls.Add(this.txtActive);
+            this.groupBox3.Controls.Add(this.licenseTypeTextBox);
+            this.groupBox3.Controls.Add(inductionExpLabel);
+            this.groupBox3.Controls.Add(licenseTypeLabel);
+            this.groupBox3.Controls.Add(licenseExpLabel);
+            this.groupBox3.Location = new System.Drawing.Point(21, 427);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(411, 200);
+            this.groupBox3.TabIndex = 80;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Truck Driver";
             // 
             // BookInTruckStep1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 658);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.chkDriverACC);
-            this.Controls.Add(this.txtOkay2Cart);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtLicenseExp);
-            this.Controls.Add(this.txtInductionExp);
-            this.Controls.Add(activeLabel);
-            this.Controls.Add(this.txtActive);
-            this.Controls.Add(inductionExpLabel);
-            this.Controls.Add(licenseExpLabel);
-            this.Controls.Add(licenseTypeLabel);
-            this.Controls.Add(this.licenseTypeTextBox);
-            this.Controls.Add(telLabel);
-            this.Controls.Add(this.telTextBox);
-            this.Controls.Add(mobLabel);
-            this.Controls.Add(this.mobTextBox);
-            this.Controls.Add(positionLabel);
-            this.Controls.Add(this.positionTextBox);
-            this.Controls.Add(personLabel);
-            this.Controls.Add(this.personTextBox);
-            this.Controls.Add(this.btnGetDriver);
             this.Controls.Add(this.txtFeeCodeConditions);
             this.Controls.Add(this.txtFeeCode);
             this.Controls.Add(this.chkACC);
@@ -653,7 +702,6 @@ namespace QWS_Local
             this.Controls.Add(this.truckOwnerTextBox);
             this.Controls.Add(cardCodeLabel);
             this.Controls.Add(this.cardCodeTextBox);
-            this.Controls.Add(this.btnNextForm);
             this.Controls.Add(this.txtVehicleDescription);
             this.Controls.Add(this.txtAxleConfig);
             this.Controls.Add(this.dataGridView1);
@@ -674,6 +722,9 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -690,7 +741,6 @@ namespace QWS_Local
         private dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter taConfiguredTrucks;
         private System.Windows.Forms.TextBox txtAxleConfig;
         private System.Windows.Forms.TextBox txtVehicleDescription;
-        private System.Windows.Forms.Button btnNextForm;
         private System.Windows.Forms.BindingSource bsConfiguredTruckGVM;
         private dsTruckConfigTableAdapters.ConfiguredTruckGVMTableAdapter taConfiguredTruckGVM;
         private dsTruckConfigTableAdapters.TableAdapterManager tableAdapterManager;
@@ -729,5 +779,10 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnRetare;
         private System.Windows.Forms.Button btnImported;
         private System.Windows.Forms.Button btnExBin;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnSplitLoad;
+        private System.Windows.Forms.Button btnTrailerOnly;
+        private System.Windows.Forms.Button btnTnT;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

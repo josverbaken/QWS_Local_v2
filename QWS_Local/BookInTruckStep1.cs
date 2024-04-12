@@ -285,5 +285,16 @@ namespace QWS_Local
             }
         }
 
+        private void btnExBin_Click(object sender, EventArgs e)
+        {
+            GoToBookInExBin();
+        }
+
+        private void GoToBookInExBin()
+        {
+            BookInExBin frmExBin = new BookInExBin(CurrentConfigTruck().TruckConfigID);
+            frmExBin.MdiParent = this.MdiParent;
+            frmExBin.Show();
+        }
     }
 }
