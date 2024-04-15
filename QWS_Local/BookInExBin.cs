@@ -35,11 +35,6 @@ namespace QWS_Local
             ExBinOrdersLoad(CardCode);
         }
 
-        private void btnLoad_Click(object sender, EventArgs e)
-        {
-            ExBinOrdersLoad(txtCardCode.Text);
-        }
-
         private void ExBinOrdersLoad(string CardCode)
         {
             this.exBinOrdersTableAdapter.FillBy(this.dsBookIn.ExBinOrders,CardCode);
@@ -54,7 +49,6 @@ namespace QWS_Local
         private void LoadConfiguredTruckGVM(int myTruckConfigID)
         {
             taConfiguredTruckGVM.Fill(dsTruckConfig.ConfiguredTruckGVM, "", myTruckConfigID);
-
         }
 
         private dsTruckConfig.ConfiguredTruckGVMRow CurrentTruckGVM()

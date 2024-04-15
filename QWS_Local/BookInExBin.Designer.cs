@@ -56,8 +56,6 @@ namespace QWS_Local
             System.Windows.Forms.Label axleConfigurationLabel;
             System.Windows.Forms.Label feeCodeLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btnLoad = new System.Windows.Forms.Button();
-            this.txtCardCode = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.feeCodeTextBox = new System.Windows.Forms.TextBox();
             this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
@@ -191,7 +189,6 @@ namespace QWS_Local
             axleConfigurationLabel = new System.Windows.Forms.Label();
             feeCodeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -453,37 +450,13 @@ namespace QWS_Local
             this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.btnLoad);
-            this.splitContainer1.Panel1.Controls.Add(this.txtCardCode);
-            // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(1427, 554);
-            this.splitContainer1.SplitterDistance = 181;
+            this.splitContainer1.SplitterDistance = 25;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // btnLoad
-            // 
-            this.btnLoad.Location = new System.Drawing.Point(31, 108);
-            this.btnLoad.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(100, 28);
-            this.btnLoad.TabIndex = 1;
-            this.btnLoad.Text = "Load";
-            this.btnLoad.UseVisualStyleBackColor = true;
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
-            // 
-            // txtCardCode
-            // 
-            this.txtCardCode.Location = new System.Drawing.Point(31, 48);
-            this.txtCardCode.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCardCode.Name = "txtCardCode";
-            this.txtCardCode.Size = new System.Drawing.Size(132, 23);
-            this.txtCardCode.TabIndex = 0;
             // 
             // splitContainer2
             // 
@@ -512,7 +485,7 @@ namespace QWS_Local
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tabControl2);
-            this.splitContainer2.Size = new System.Drawing.Size(1241, 554);
+            this.splitContainer2.Size = new System.Drawing.Size(1397, 554);
             this.splitContainer2.SplitterDistance = 342;
             this.splitContainer2.TabIndex = 3;
             // 
@@ -836,7 +809,7 @@ namespace QWS_Local
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1241, 208);
+            this.tabControl2.Size = new System.Drawing.Size(1397, 208);
             this.tabControl2.TabIndex = 2;
             // 
             // tpExBinOrders
@@ -846,7 +819,7 @@ namespace QWS_Local
             this.tpExBinOrders.Location = new System.Drawing.Point(4, 25);
             this.tpExBinOrders.Name = "tpExBinOrders";
             this.tpExBinOrders.Padding = new System.Windows.Forms.Padding(3);
-            this.tpExBinOrders.Size = new System.Drawing.Size(1233, 179);
+            this.tpExBinOrders.Size = new System.Drawing.Size(1389, 179);
             this.tpExBinOrders.TabIndex = 0;
             this.tpExBinOrders.Text = "Ex-Bin Orders";
             this.tpExBinOrders.UseVisualStyleBackColor = true;
@@ -884,7 +857,7 @@ namespace QWS_Local
             this.dataGridView4.Location = new System.Drawing.Point(3, 3);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
-            this.dataGridView4.Size = new System.Drawing.Size(1227, 173);
+            this.dataGridView4.Size = new System.Drawing.Size(1383, 173);
             this.dataGridView4.TabIndex = 2;
             // 
             // docNumDataGridViewTextBoxColumn1
@@ -1445,8 +1418,6 @@ namespace QWS_Local
             this.Name = "BookInExBin";
             this.Text = "BookInExBin";
             this.Load += new System.EventHandler(this.BookInExBin_Load);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -1489,8 +1460,6 @@ namespace QWS_Local
         private dsBookIn dsBookIn;
         private System.Windows.Forms.BindingSource exBinOrdersBindingSource;
         private dsBookInTableAdapters.ExBinOrdersTableAdapter exBinOrdersTableAdapter;
-        private System.Windows.Forms.Button btnLoad;
-        private System.Windows.Forms.TextBox txtCardCode;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpList;
         private System.Windows.Forms.TabPage tpDetails;

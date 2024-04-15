@@ -14,7 +14,7 @@ namespace QWS_Local
     {
         private static bool FormLoaded = false;
         private static DateTime EntryDTTM;
-        private static string PrefCustCardCode;
+        private static string CustCardCode;
 
         public BookInTruckStep1()
         {
@@ -288,44 +288,52 @@ namespace QWS_Local
             }
         }
 
-        private void SetExBinCustomer()
+        private bool SetExBinCustomer()
         {
             int iCust = taPrefCustomers.FillBy(dsQWSLocal.VehiclePrefCustomers, CurrentConfigTruck().RegoTk);
             if (iCust > 0)
             {
-                GetPrefCustomer();
-            }
-            else
-            {
-                //search customers
-                MessageBox.Show("TODO - search customers");
-                BusinessSearch frmBusinessSearch = new BusinessSearch();
-                DialogResult dr = frmBusinessSearch.ShowDialog();
-                if (dr == DialogResult.OK)
+                if (GetPrefCustomer() == true)
                 {
-                    MessageBox.Show("TODO - set customer to " + frmBusinessSearch.SAPCode);
+                    // CardCode has been set
+                    return true;
                 }
                 else
                 {
-                    MessageBox.Show("Customer not found/set!");
-                }
+                    // Search customers
+                    BusinessSearch frmBusinessSearch = new BusinessSearch();
+                    DialogResult dr = frmBusinessSearch.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        CustCardCode = frmBusinessSearch.SAPCode;
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Customer not found/set. Cannot proceed!");
+                        return false;
+                    }
+                }            
             }
+            return false;
         }
 
-        private void GetPrefCustomer()
+        private bool GetPrefCustomer()
         {
             string myRego = CurrentConfigTruck().RegoTk;
             PreferredCustomers frmPrefCust = new PreferredCustomers(myRego);
             DialogResult dr = frmPrefCust.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                // set pref cust
-                PrefCustCardCode = frmPrefCust.customersRow.PrefCustomer;
-                MessageBox.Show("TODO - set pref customer to " + frmPrefCust.customersRow.CardCode);
+                CustCardCode = frmPrefCust.customersRow.CardCode;
+                return true;
+            }
+            else
+            {
+                return false;
             }
 
         }
-
 
         private void btnExBin_Click(object sender, EventArgs e)
         {
@@ -334,15 +342,15 @@ namespace QWS_Local
 
         private void GoToBookInExBin()
         {
-            SetExBinCustomer();
-            BookInExBin();
+           if( SetExBinCustomer() == true)
+            {
+                BookInExBin();
+            }
         }
-
-
 
         private void BookInExBin()
         {
-            BookInExBin frmExBin = new BookInExBin(CurrentConfigTruck().TruckConfigID, PrefCustCardCode);
+            BookInExBin frmExBin = new BookInExBin(CurrentConfigTruck().TruckConfigID, CustCardCode);
             frmExBin.MdiParent = this.MdiParent;
             frmExBin.Show();
         }
