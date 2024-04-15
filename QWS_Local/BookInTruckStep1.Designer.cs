@@ -41,6 +41,7 @@ namespace QWS_Local
             System.Windows.Forms.Label mobLabel;
             System.Windows.Forms.Label positionLabel;
             System.Windows.Forms.Label personLabel;
+            System.Windows.Forms.Label prefCustomerLabel;
             this.pictureSchematic = new System.Windows.Forms.PictureBox();
             this.bsConfiguredTrucks = new System.Windows.Forms.BindingSource(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
@@ -93,6 +94,9 @@ namespace QWS_Local
             this.btnTrailerOnly = new System.Windows.Forms.Button();
             this.btnTnT = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.bsPrefCustomers = new System.Windows.Forms.BindingSource(this.components);
+            this.taPrefCustomers = new QWS_Local.dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter();
+            this.prefCustomerTextBox = new System.Windows.Forms.TextBox();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -104,6 +108,7 @@ namespace QWS_Local
             mobLabel = new System.Windows.Forms.Label();
             positionLabel = new System.Windows.Forms.Label();
             personLabel = new System.Windows.Forms.Label();
+            prefCustomerLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSchematic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
@@ -114,6 +119,7 @@ namespace QWS_Local
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).BeginInit();
             this.SuspendLayout();
             // 
             // cardCodeLabel
@@ -685,11 +691,39 @@ namespace QWS_Local
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Truck Driver";
             // 
+            // bsPrefCustomers
+            // 
+            this.bsPrefCustomers.DataMember = "VehiclePrefCustomers";
+            this.bsPrefCustomers.DataSource = this.dsQWSLocal;
+            // 
+            // taPrefCustomers
+            // 
+            this.taPrefCustomers.ClearBeforeFill = true;
+            // 
+            // prefCustomerLabel
+            // 
+            prefCustomerLabel.AutoSize = true;
+            prefCustomerLabel.Location = new System.Drawing.Point(686, 179);
+            prefCustomerLabel.Name = "prefCustomerLabel";
+            prefCustomerLabel.Size = new System.Drawing.Size(102, 17);
+            prefCustomerLabel.TabIndex = 80;
+            prefCustomerLabel.Text = "Pref Customer:";
+            // 
+            // prefCustomerTextBox
+            // 
+            this.prefCustomerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPrefCustomers, "PrefCustomer", true));
+            this.prefCustomerTextBox.Location = new System.Drawing.Point(794, 176);
+            this.prefCustomerTextBox.Name = "prefCustomerTextBox";
+            this.prefCustomerTextBox.Size = new System.Drawing.Size(100, 23);
+            this.prefCustomerTextBox.TabIndex = 81;
+            // 
             // BookInTruckStep1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 658);
+            this.Controls.Add(prefCustomerLabel);
+            this.Controls.Add(this.prefCustomerTextBox);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -725,6 +759,7 @@ namespace QWS_Local
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -784,5 +819,8 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnTrailerOnly;
         private System.Windows.Forms.Button btnTnT;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.BindingSource bsPrefCustomers;
+        private dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter taPrefCustomers;
+        private System.Windows.Forms.TextBox prefCustomerTextBox;
     }
 }
