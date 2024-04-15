@@ -221,6 +221,15 @@ namespace QWS_Local
             personLabel.TabIndex = 59;
             personLabel.Text = "Person:";
             // 
+            // prefCustomerLabel
+            // 
+            prefCustomerLabel.AutoSize = true;
+            prefCustomerLabel.Location = new System.Drawing.Point(686, 179);
+            prefCustomerLabel.Name = "prefCustomerLabel";
+            prefCustomerLabel.Size = new System.Drawing.Size(102, 17);
+            prefCustomerLabel.TabIndex = 80;
+            prefCustomerLabel.Text = "Pref Customer:";
+            // 
             // pictureSchematic
             // 
             this.pictureSchematic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -588,6 +597,7 @@ namespace QWS_Local
             this.btnDelivery.TabIndex = 57;
             this.btnDelivery.Text = "Delivery";
             this.btnDelivery.UseVisualStyleBackColor = true;
+            this.btnDelivery.Click += new System.EventHandler(this.btnDelivery_Click);
             // 
             // btnRetare
             // 
@@ -699,15 +709,6 @@ namespace QWS_Local
             // taPrefCustomers
             // 
             this.taPrefCustomers.ClearBeforeFill = true;
-            // 
-            // prefCustomerLabel
-            // 
-            prefCustomerLabel.AutoSize = true;
-            prefCustomerLabel.Location = new System.Drawing.Point(686, 179);
-            prefCustomerLabel.Name = "prefCustomerLabel";
-            prefCustomerLabel.Size = new System.Drawing.Size(102, 17);
-            prefCustomerLabel.TabIndex = 80;
-            prefCustomerLabel.Text = "Pref Customer:";
             // 
             // prefCustomerTextBox
             // 

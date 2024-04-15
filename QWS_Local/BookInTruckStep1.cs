@@ -354,5 +354,17 @@ namespace QWS_Local
             frmExBin.MdiParent = this.MdiParent;
             frmExBin.Show();
         }
+
+        private void btnDelivery_Click(object sender, EventArgs e)
+        {
+            BookInDeliveryOrder();
+        }
+
+        private void BookInDeliveryOrder()
+        {
+            BookInDelivery frmDelivery = new BookInDelivery(CurrentConfigTruck().TruckConfigID);
+            frmDelivery.MdiParent = this.MdiParent;
+            frmDelivery.Show();
+        }
     }
 }

@@ -12,16 +12,23 @@ namespace QWS_Local
 {
     public partial class BookInDelivery : Form
     {
+        private static int TruckConfigID;
+
         public BookInDelivery()
         {
             InitializeComponent();
         }
 
+        public BookInDelivery(int myTruckConfigID)
+        {
+            InitializeComponent();
+            TruckConfigID = myTruckConfigID;
+        }
+
         private void BookInDelivery_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsBookIn.ExBinOrders' table. You can move, or remove it, as needed.
-            this.exBinOrdersTableAdapter.Fill(this.dsBookIn.ExBinOrders);
-            // nothing yet
+            taConfiguredTruckGVM.Fill(this.dsTruckConfig.ConfiguredTruckGVM, "", TruckConfigID);
+            DeliveryOrdersLoad();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -34,5 +41,6 @@ namespace QWS_Local
         {
             this.taDeliveryOrders.FillByOpenQty(this.dsBookIn.DeliveryOrdersAll);
         }
+
     }
 }

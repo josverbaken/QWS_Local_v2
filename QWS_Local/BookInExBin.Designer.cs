@@ -419,7 +419,7 @@ namespace QWS_Local
             // ownerLabel
             // 
             ownerLabel.AutoSize = true;
-            ownerLabel.Location = new System.Drawing.Point(109, 73);
+            ownerLabel.Location = new System.Drawing.Point(12, 73);
             ownerLabel.Name = "ownerLabel";
             ownerLabel.Size = new System.Drawing.Size(53, 17);
             ownerLabel.TabIndex = 72;
@@ -449,6 +449,7 @@ namespace QWS_Local
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Panel1Collapsed = true;
             // 
             // splitContainer1.Panel2
             // 
@@ -485,7 +486,7 @@ namespace QWS_Local
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tabControl2);
-            this.splitContainer2.Size = new System.Drawing.Size(1397, 554);
+            this.splitContainer2.Size = new System.Drawing.Size(1427, 554);
             this.splitContainer2.SplitterDistance = 342;
             this.splitContainer2.TabIndex = 3;
             // 
@@ -518,9 +519,9 @@ namespace QWS_Local
             // ownerTextBox
             // 
             this.ownerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "Owner", true));
-            this.ownerTextBox.Location = new System.Drawing.Point(168, 70);
+            this.ownerTextBox.Location = new System.Drawing.Point(74, 70);
             this.ownerTextBox.Name = "ownerTextBox";
-            this.ownerTextBox.Size = new System.Drawing.Size(100, 23);
+            this.ownerTextBox.Size = new System.Drawing.Size(194, 23);
             this.ownerTextBox.TabIndex = 73;
             // 
             // regoTrailerTextBox
@@ -809,7 +810,7 @@ namespace QWS_Local
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1397, 208);
+            this.tabControl2.Size = new System.Drawing.Size(1427, 208);
             this.tabControl2.TabIndex = 2;
             // 
             // tpExBinOrders
@@ -819,7 +820,7 @@ namespace QWS_Local
             this.tpExBinOrders.Location = new System.Drawing.Point(4, 25);
             this.tpExBinOrders.Name = "tpExBinOrders";
             this.tpExBinOrders.Padding = new System.Windows.Forms.Padding(3);
-            this.tpExBinOrders.Size = new System.Drawing.Size(1389, 179);
+            this.tpExBinOrders.Size = new System.Drawing.Size(1419, 179);
             this.tpExBinOrders.TabIndex = 0;
             this.tpExBinOrders.Text = "Ex-Bin Orders";
             this.tpExBinOrders.UseVisualStyleBackColor = true;
@@ -857,7 +858,7 @@ namespace QWS_Local
             this.dataGridView4.Location = new System.Drawing.Point(3, 3);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
-            this.dataGridView4.Size = new System.Drawing.Size(1383, 173);
+            this.dataGridView4.Size = new System.Drawing.Size(1413, 173);
             this.dataGridView4.TabIndex = 2;
             // 
             // docNumDataGridViewTextBoxColumn1
