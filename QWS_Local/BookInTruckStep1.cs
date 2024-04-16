@@ -287,11 +287,11 @@ namespace QWS_Local
                     btnDelivery.Enabled = false; // TODO ? refactor
                 }
                 // check if Truck or Truck and Trailer, also if Semi-trailer or B-Double or A-Double
-                SetTruckConfigRadioButtons(CurrentConfigTruck().Compartments);
+                //SetTruckConfigRadioButtons(CurrentConfigTruck().Compartments);
             }
             else
             {
-                SetTruckConfigRadioButtons(1);
+                //SetTruckConfigRadioButtons(1);
             }
         }
 
@@ -427,6 +427,14 @@ namespace QWS_Local
                 return true;
             }
             return false;
+        }
+
+        private void bsConfiguredTrucks_CurrentChanged_1(object sender, EventArgs e)
+        {
+            if (bsConfiguredTrucks.Count > 0)
+            {
+                SetTruckConfigRadioButtons(CurrentConfigTruck().Compartments);
+            }
         }
     }
 }
