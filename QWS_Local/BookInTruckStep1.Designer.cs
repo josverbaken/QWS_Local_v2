@@ -42,6 +42,7 @@ namespace QWS_Local
             System.Windows.Forms.Label positionLabel;
             System.Windows.Forms.Label personLabel;
             System.Windows.Forms.Label prefCustomerLabel;
+            System.Windows.Forms.Label compartmentsLabel;
             this.pictureSchematic = new System.Windows.Forms.PictureBox();
             this.bsConfiguredTrucks = new System.Windows.Forms.BindingSource(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
@@ -90,13 +91,14 @@ namespace QWS_Local
             this.btnImported = new System.Windows.Forms.Button();
             this.btnExBin = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnSplitLoad = new System.Windows.Forms.Button();
-            this.btnTrailerOnly = new System.Windows.Forms.Button();
-            this.btnTnT = new System.Windows.Forms.Button();
+            this.rbTrailerOnly = new System.Windows.Forms.RadioButton();
+            this.rbSplitLoad = new System.Windows.Forms.RadioButton();
+            this.rbTnT = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.bsPrefCustomers = new System.Windows.Forms.BindingSource(this.components);
             this.taPrefCustomers = new QWS_Local.dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter();
             this.prefCustomerTextBox = new System.Windows.Forms.TextBox();
+            this.compartmentsTextBox = new System.Windows.Forms.TextBox();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -109,6 +111,7 @@ namespace QWS_Local
             positionLabel = new System.Windows.Forms.Label();
             personLabel = new System.Windows.Forms.Label();
             prefCustomerLabel = new System.Windows.Forms.Label();
+            compartmentsLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSchematic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
@@ -229,6 +232,15 @@ namespace QWS_Local
             prefCustomerLabel.Size = new System.Drawing.Size(102, 17);
             prefCustomerLabel.TabIndex = 80;
             prefCustomerLabel.Text = "Pref Customer:";
+            // 
+            // compartmentsLabel
+            // 
+            compartmentsLabel.AutoSize = true;
+            compartmentsLabel.Location = new System.Drawing.Point(791, 145);
+            compartmentsLabel.Name = "compartmentsLabel";
+            compartmentsLabel.Size = new System.Drawing.Size(103, 17);
+            compartmentsLabel.TabIndex = 81;
+            compartmentsLabel.Text = "Compartments:";
             // 
             // pictureSchematic
             // 
@@ -632,45 +644,48 @@ namespace QWS_Local
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnSplitLoad);
-            this.groupBox2.Controls.Add(this.btnTrailerOnly);
-            this.groupBox2.Controls.Add(this.btnTnT);
+            this.groupBox2.Controls.Add(this.rbTrailerOnly);
+            this.groupBox2.Controls.Add(this.rbSplitLoad);
+            this.groupBox2.Controls.Add(this.rbTnT);
             this.groupBox2.Location = new System.Drawing.Point(506, 427);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(154, 200);
+            this.groupBox2.Size = new System.Drawing.Size(188, 200);
             this.groupBox2.TabIndex = 79;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Truck Configuration";
             // 
-            // btnSplitLoad
+            // rbTrailerOnly
             // 
-            this.btnSplitLoad.Enabled = false;
-            this.btnSplitLoad.Location = new System.Drawing.Point(15, 75);
-            this.btnSplitLoad.Name = "btnSplitLoad";
-            this.btnSplitLoad.Size = new System.Drawing.Size(121, 44);
-            this.btnSplitLoad.TabIndex = 57;
-            this.btnSplitLoad.Text = "Split Load";
-            this.btnSplitLoad.UseVisualStyleBackColor = true;
+            this.rbTrailerOnly.AutoSize = true;
+            this.rbTrailerOnly.Location = new System.Drawing.Point(24, 111);
+            this.rbTrailerOnly.Name = "rbTrailerOnly";
+            this.rbTrailerOnly.Size = new System.Drawing.Size(100, 21);
+            this.rbTrailerOnly.TabIndex = 2;
+            this.rbTrailerOnly.TabStop = true;
+            this.rbTrailerOnly.Text = "Trailer Only";
+            this.rbTrailerOnly.UseVisualStyleBackColor = true;
             // 
-            // btnTrailerOnly
+            // rbSplitLoad
             // 
-            this.btnTrailerOnly.Enabled = false;
-            this.btnTrailerOnly.Location = new System.Drawing.Point(15, 125);
-            this.btnTrailerOnly.Name = "btnTrailerOnly";
-            this.btnTrailerOnly.Size = new System.Drawing.Size(121, 44);
-            this.btnTrailerOnly.TabIndex = 56;
-            this.btnTrailerOnly.Text = "Trailer Only";
-            this.btnTrailerOnly.UseVisualStyleBackColor = true;
+            this.rbSplitLoad.AutoSize = true;
+            this.rbSplitLoad.Location = new System.Drawing.Point(24, 80);
+            this.rbSplitLoad.Name = "rbSplitLoad";
+            this.rbSplitLoad.Size = new System.Drawing.Size(89, 21);
+            this.rbSplitLoad.TabIndex = 1;
+            this.rbSplitLoad.TabStop = true;
+            this.rbSplitLoad.Text = "Split Load";
+            this.rbSplitLoad.UseVisualStyleBackColor = true;
             // 
-            // btnTnT
+            // rbTnT
             // 
-            this.btnTnT.Enabled = false;
-            this.btnTnT.Location = new System.Drawing.Point(15, 25);
-            this.btnTnT.Name = "btnTnT";
-            this.btnTnT.Size = new System.Drawing.Size(121, 44);
-            this.btnTnT.TabIndex = 54;
-            this.btnTnT.Text = "Truck and Trailer";
-            this.btnTnT.UseVisualStyleBackColor = true;
+            this.rbTnT.AutoSize = true;
+            this.rbTnT.Location = new System.Drawing.Point(24, 47);
+            this.rbTnT.Name = "rbTnT";
+            this.rbTnT.Size = new System.Drawing.Size(135, 21);
+            this.rbTnT.TabIndex = 0;
+            this.rbTnT.TabStop = true;
+            this.rbTnT.Text = "Truck and Trailer";
+            this.rbTnT.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -715,14 +730,24 @@ namespace QWS_Local
             this.prefCustomerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPrefCustomers, "PrefCustomer", true));
             this.prefCustomerTextBox.Location = new System.Drawing.Point(794, 176);
             this.prefCustomerTextBox.Name = "prefCustomerTextBox";
-            this.prefCustomerTextBox.Size = new System.Drawing.Size(100, 23);
+            this.prefCustomerTextBox.Size = new System.Drawing.Size(206, 23);
             this.prefCustomerTextBox.TabIndex = 81;
+            // 
+            // compartmentsTextBox
+            // 
+            this.compartmentsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "Compartments", true));
+            this.compartmentsTextBox.Location = new System.Drawing.Point(900, 142);
+            this.compartmentsTextBox.Name = "compartmentsTextBox";
+            this.compartmentsTextBox.Size = new System.Drawing.Size(100, 23);
+            this.compartmentsTextBox.TabIndex = 82;
             // 
             // BookInTruckStep1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 658);
+            this.Controls.Add(compartmentsLabel);
+            this.Controls.Add(this.compartmentsTextBox);
             this.Controls.Add(prefCustomerLabel);
             this.Controls.Add(this.prefCustomerTextBox);
             this.Controls.Add(this.groupBox3);
@@ -758,6 +783,7 @@ namespace QWS_Local
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).EndInit();
@@ -816,12 +842,13 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnImported;
         private System.Windows.Forms.Button btnExBin;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnSplitLoad;
-        private System.Windows.Forms.Button btnTrailerOnly;
-        private System.Windows.Forms.Button btnTnT;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.BindingSource bsPrefCustomers;
         private dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter taPrefCustomers;
         private System.Windows.Forms.TextBox prefCustomerTextBox;
+        private System.Windows.Forms.RadioButton rbTrailerOnly;
+        private System.Windows.Forms.RadioButton rbSplitLoad;
+        private System.Windows.Forms.RadioButton rbTnT;
+        private System.Windows.Forms.TextBox compartmentsTextBox;
     }
 }

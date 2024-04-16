@@ -30,6 +30,7 @@ namespace QWS_Local
         {
             try
             {
+                SetTruckConfigRadioButtons(1);
                 dsTruckConfig.ConfiguredTrucks.Clear();
                 int iCount = taConfiguredTrucks.FillByRego(dsTruckConfig.ConfiguredTrucks, Rego);
                 if (iCount > 0)
@@ -149,7 +150,7 @@ namespace QWS_Local
         private void BookInTruckStep1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dsQWSLocal.VehiclePrefCustomers' table. You can move, or remove it, as needed.
-            this.taPrefCustomers.Fill(this.dsQWSLocal.VehiclePrefCustomers);
+            //this.taPrefCustomers.Fill(this.dsQWSLocal.VehiclePrefCustomers);
             // TODO: This line of code loads data into the 'dsQWSLocal.TruckDriver' table. You can move, or remove it, as needed.
             //this.taTruckDriver.Fill(this.dsQWSLocal.TruckDriver);
             FormLoaded = true;
@@ -285,6 +286,12 @@ namespace QWS_Local
                     chkDriverACC.Checked = false;
                     btnDelivery.Enabled = false; // TODO ? refactor
                 }
+                // check if Truck or Truck and Trailer, also if Semi-trailer or B-Double or A-Double
+                SetTruckConfigRadioButtons(CurrentConfigTruck().Compartments);
+            }
+            else
+            {
+                SetTruckConfigRadioButtons(1);
             }
         }
 
@@ -344,7 +351,24 @@ namespace QWS_Local
         {
            if( SetExBinCustomer() == true)
             {
-                BookInExBin();
+                int CompartmentCount = CurrentConfigTruck().Compartments;
+                switch (CompartmentCount)
+                {
+                    case 1:
+                        BookInExBin();
+                        break;
+                    case 2:
+                        if(TruckConfigRBSet())
+                        {
+                            BookInExBin();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please set truck config!");
+                        }
+                        break;
+                }
+
             }
         }
 
@@ -365,6 +389,44 @@ namespace QWS_Local
             BookInDelivery frmDelivery = new BookInDelivery(CurrentConfigTruck().TruckConfigID);
             frmDelivery.MdiParent = this.MdiParent;
             frmDelivery.Show();
+        }
+
+        private void SetTruckConfigRadioButtons(int Compartments)
+        {
+            switch (Compartments)
+            {
+                case 2:
+                    rbTnT.Enabled = true;
+                    rbSplitLoad.Enabled = true;
+                    rbTrailerOnly.Enabled = true;
+                    break;
+                case 1:
+                    rbTnT.Enabled = false;
+                    rbSplitLoad.Enabled = false;
+                    rbTrailerOnly.Enabled = false;
+                    break;
+                default:
+                    MessageBox.Show("Unexpected number of compartments: " + Compartments.ToString());
+                    break;
+
+            }
+        }
+
+        private bool TruckConfigRBSet()
+        {
+            if (rbTnT.Enabled && rbTnT.Checked)
+            {
+                return true;
+            }
+            if(rbSplitLoad.Enabled && rbSplitLoad.Checked)
+            {
+                return true;
+            }
+            if (rbTrailerOnly.Enabled && rbTrailerOnly.Checked)
+            { 
+                return true;
+            }
+            return false;
         }
     }
 }
