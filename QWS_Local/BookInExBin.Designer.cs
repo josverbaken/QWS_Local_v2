@@ -163,6 +163,7 @@ namespace QWS_Local
             this.bsConfiguredTrucks = new System.Windows.Forms.BindingSource(this.components);
             this.taConfiguredTrucks = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
+            this.label1 = new System.Windows.Forms.Label();
             docNumLabel = new System.Windows.Forms.Label();
             docDateLabel = new System.Windows.Forms.Label();
             cardCodeLabel = new System.Windows.Forms.Label();
@@ -469,6 +470,7 @@ namespace QWS_Local
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
+            this.splitContainer2.Panel1.Controls.Add(this.label1);
             this.splitContainer2.Panel1.Controls.Add(feeCodeLabel);
             this.splitContainer2.Panel1.Controls.Add(this.feeCodeTextBox);
             this.splitContainer2.Panel1.Controls.Add(axleConfigurationLabel);
@@ -1302,7 +1304,7 @@ namespace QWS_Local
             this.tpExBinNoOrder.Location = new System.Drawing.Point(4, 22);
             this.tpExBinNoOrder.Name = "tpExBinNoOrder";
             this.tpExBinNoOrder.Padding = new System.Windows.Forms.Padding(3);
-            this.tpExBinNoOrder.Size = new System.Drawing.Size(1233, 182);
+            this.tpExBinNoOrder.Size = new System.Drawing.Size(1419, 182);
             this.tpExBinNoOrder.TabIndex = 1;
             this.tpExBinNoOrder.Text = "Ex-Bin No Order";
             this.tpExBinNoOrder.UseVisualStyleBackColor = true;
@@ -1325,7 +1327,7 @@ namespace QWS_Local
             this.dataGridView2.Location = new System.Drawing.Point(3, 3);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(1227, 176);
+            this.dataGridView2.Size = new System.Drawing.Size(1413, 176);
             this.dataGridView2.TabIndex = 0;
             // 
             // itemCodeDataGridViewTextBoxColumn
@@ -1407,6 +1409,15 @@ namespace QWS_Local
             this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager1.Connection = null;
             this.tableAdapterManager1.UpdateOrder = QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 154);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 76;
+            this.label1.Text = "label1";
             // 
             // BookInExBin
             // 
@@ -1564,5 +1575,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn driveAxleLoadUOMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn trTkRatioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maxGVMDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label1;
     }
 }

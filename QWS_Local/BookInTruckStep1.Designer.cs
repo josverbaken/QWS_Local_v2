@@ -256,7 +256,7 @@ namespace QWS_Local
             // 
             this.bsConfiguredTrucks.DataMember = "ConfiguredTrucks";
             this.bsConfiguredTrucks.DataSource = this.dsTruckConfig;
-            this.bsConfiguredTrucks.CurrentChanged += new System.EventHandler(this.bsConfiguredTrucks_CurrentChanged_1);
+            this.bsConfiguredTrucks.CurrentChanged += new System.EventHandler(this.bsConfiguredTrucks_CurrentChanged);
             // 
             // dsTruckConfig
             // 

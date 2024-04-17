@@ -17,22 +17,25 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public BookInExBin(int myTruckConfigID, string myCardCode)
+        public BookInExBin(int myTruckConfigID, string myCardCode, string myCustomerName)
         {
             InitializeComponent();
             //EntryDTTM = _EntryDTTM;
             TruckConfigID = myTruckConfigID;
             CardCode = myCardCode;
+            CustomerName = myCustomerName;
         }
 
         private int TruckConfigID;
         private string CardCode;
+        private string CustomerName;
 
         private void BookInExBin_Load(object sender, EventArgs e)
         {
             LoadExBinItems();
             LoadConfiguredTruckGVM(TruckConfigID);
             ExBinOrdersLoad(CardCode);
+            label1.Text = "Customer  = " + CardCode + " " + CustomerName;
         }
 
         private void ExBinOrdersLoad(string CardCode)

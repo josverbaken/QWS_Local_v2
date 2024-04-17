@@ -15,6 +15,7 @@ namespace QWS_Local
         private static bool FormLoaded = false;
         private static DateTime EntryDTTM;
         private static string CustCardCode;
+        private static string ExBinCustomer;
 
         public BookInTruckStep1()
         {
@@ -97,8 +98,7 @@ namespace QWS_Local
             {
                 if (FormLoaded == true && bsConfiguredTrucks.Count > 0)
                 {
-                    int myTruckConfigID = 26;
-                    myTruckConfigID = CurrentConfigTruck().TruckConfigID;
+                    int myTruckConfigID = CurrentConfigTruck().TruckConfigID;
                     taConfiguredTruckGVM.Fill(dsTruckConfig.ConfiguredTruckGVM, "", myTruckConfigID);
                 }
             }
@@ -149,29 +149,26 @@ namespace QWS_Local
 
         private void BookInTruckStep1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsQWSLocal.VehiclePrefCustomers' table. You can move, or remove it, as needed.
-            //this.taPrefCustomers.Fill(this.dsQWSLocal.VehiclePrefCustomers);
-            // TODO: This line of code loads data into the 'dsQWSLocal.TruckDriver' table. You can move, or remove it, as needed.
-            //this.taTruckDriver.Fill(this.dsQWSLocal.TruckDriver);
             FormLoaded = true;
         }
 
         private void bsConfiguredTrucks_CurrentChanged(object sender, EventArgs e)
         {
-            if (FormLoaded)
+            if (FormLoaded && bsConfiguredTrucks.Count > 0)
             {
-                bool OKAY2Proceed = true;
-                // test if SR conditions might apply
-                if (CurrentConfigTruck().Axles > CurrentConfigTruck().MaxAxles)
-                {
-                    OKAY2Proceed = false;
-                    MessageBox.Show("Unable to proceed, due to Fee Code axle restriction!");
-                }
-                if (OKAY2Proceed)
-                {
-                    GetConfiguredTrucksGVM();
-                    // TODO check GVM vs MaxGVM once config chosen
-                }
+                SetTruckConfigRadioButtons(CurrentConfigTruck().Compartments);
+                //bool OKAY2Proceed = true;
+                //// test if SR conditions might apply
+                //if (CurrentConfigTruck().Axles > CurrentConfigTruck().MaxAxles)
+                //{
+                //    OKAY2Proceed = false;
+                //    MessageBox.Show("Unable to proceed, due to Fee Code axle restriction!");
+                //}
+                //if (OKAY2Proceed)
+                //{
+                //    GetConfiguredTrucksGVM();
+                //    // TODO check GVM vs MaxGVM once config chosen
+                //}
             }
         }
 
@@ -308,19 +305,15 @@ namespace QWS_Local
                 else
                 {
                     // Search customers
-                    BusinessSearch frmBusinessSearch = new BusinessSearch();
-                    DialogResult dr = frmBusinessSearch.ShowDialog();
-                    if (dr == DialogResult.OK)
-                    {
-                        CustCardCode = frmBusinessSearch.SAPCode;
-                        return true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Customer not found/set. Cannot proceed!");
-                        return false;
-                    }
+                    bool CustomerFound = GetExBinCustomer();
+                    return CustomerFound;
                 }            
+            }
+            else
+            {
+                // Search customers
+                bool CustomerFound = GetExBinCustomer();
+                return CustomerFound;
             }
             return false;
         }
@@ -333,13 +326,30 @@ namespace QWS_Local
             if (dr == DialogResult.OK)
             {
                 CustCardCode = frmPrefCust.customersRow.CardCode;
+                ExBinCustomer = frmPrefCust.customersRow.PrefCustomer;
                 return true;
             }
             else
             {
                 return false;
             }
+        }
 
+        private bool GetExBinCustomer()
+        {
+            BusinessSearch frmBusinessSearch = new BusinessSearch();
+            DialogResult dr = frmBusinessSearch.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                CustCardCode = frmBusinessSearch.SAPCode;
+                ExBinCustomer = frmBusinessSearch.BusinessName;
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Customer not found/set. Cannot proceed!");
+                return false;
+            }
         }
 
         private void btnExBin_Click(object sender, EventArgs e)
@@ -349,16 +359,18 @@ namespace QWS_Local
 
         private void GoToBookInExBin()
         {
-           if( SetExBinCustomer() == true)
+            if (SetExBinCustomer() == true)
             {
                 int CompartmentCount = CurrentConfigTruck().Compartments;
                 switch (CompartmentCount)
                 {
                     case 1:
-                        BookInExBin();
+                        {
+                            BookInExBin();
+                        }
                         break;
                     case 2:
-                        if(TruckConfigRBSet())
+                        if (TruckConfigRBSet())
                         {
                             BookInExBin();
                         }
@@ -368,13 +380,12 @@ namespace QWS_Local
                         }
                         break;
                 }
-
-            }
+            }            
         }
 
         private void BookInExBin()
         {
-            BookInExBin frmExBin = new BookInExBin(CurrentConfigTruck().TruckConfigID, CustCardCode);
+            BookInExBin frmExBin = new BookInExBin(CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer);
             frmExBin.MdiParent = this.MdiParent;
             frmExBin.Show();
         }
@@ -404,6 +415,9 @@ namespace QWS_Local
                     rbTnT.Enabled = false;
                     rbSplitLoad.Enabled = false;
                     rbTrailerOnly.Enabled = false;
+                    rbTnT.Checked = false;
+                    rbSplitLoad.Checked = false;
+                    rbTrailerOnly.Checked = false;
                     break;
                 default:
                     MessageBox.Show("Unexpected number of compartments: " + Compartments.ToString());
@@ -427,14 +441,6 @@ namespace QWS_Local
                 return true;
             }
             return false;
-        }
-
-        private void bsConfiguredTrucks_CurrentChanged_1(object sender, EventArgs e)
-        {
-            if (bsConfiguredTrucks.Count > 0)
-            {
-                SetTruckConfigRadioButtons(CurrentConfigTruck().Compartments);
-            }
         }
     }
 }
