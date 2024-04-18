@@ -43,10 +43,19 @@ namespace QWS_Local
             System.Windows.Forms.Label personLabel;
             System.Windows.Forms.Label prefCustomerLabel;
             System.Windows.Forms.Label compartmentsLabel;
+            System.Windows.Forms.Label tIQIDLabel;
             this.pictureSchematic = new System.Windows.Forms.PictureBox();
+            this.bsConfiguredTrucks = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.txtTruckRego = new System.Windows.Forms.TextBox();
             this.btnFindTruck = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.regoTkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.regoTrailerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegoCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.nHVLDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PBS = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.TareDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtAxleConfig = new System.Windows.Forms.TextBox();
             this.txtVehicleDescription = new System.Windows.Forms.TextBox();
             this.cardCodeTextBox = new System.Windows.Forms.TextBox();
@@ -59,6 +68,8 @@ namespace QWS_Local
             this.txtOkay2Cart = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtLicenseExp = new System.Windows.Forms.TextBox();
+            this.bsTruckDriver = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.txtInductionExp = new System.Windows.Forms.TextBox();
             this.txtActive = new System.Windows.Forms.TextBox();
             this.licenseTypeTextBox = new System.Windows.Forms.TextBox();
@@ -81,18 +92,8 @@ namespace QWS_Local
             this.rbTnT = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.prefCustomerTextBox = new System.Windows.Forms.TextBox();
-            this.compartmentsTextBox = new System.Windows.Forms.TextBox();
-            this.RegoCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.PBS = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.TareDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsConfiguredTrucks = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.bsPrefCustomers = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
-            this.bsTruckDriver = new System.Windows.Forms.BindingSource(this.components);
-            this.regoTkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.regoTrailerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nHVLDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.compartmentsTextBox = new System.Windows.Forms.TextBox();
             this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
             this.taConfiguredTrucks = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
             this.taConfiguredTruckGVM = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTruckGVMTableAdapter();
@@ -100,6 +101,9 @@ namespace QWS_Local
             this.taTruckDriver = new QWS_Local.dsQWSLocalTableAdapters.TruckDriverTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taPrefCustomers = new QWS_Local.dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter();
+            this.bsTIQ = new System.Windows.Forms.BindingSource(this.components);
+            this.taTIQ = new QWS_Local.dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter();
+            this.tIQIDTextBox = new System.Windows.Forms.TextBox();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -113,17 +117,19 @@ namespace QWS_Local
             personLabel = new System.Windows.Forms.Label();
             prefCustomerLabel = new System.Windows.Forms.Label();
             compartmentsLabel = new System.Windows.Forms.Label();
+            tIQIDLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSchematic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).BeginInit();
             this.SuspendLayout();
             // 
             // cardCodeLabel
@@ -253,6 +259,17 @@ namespace QWS_Local
             this.pictureSchematic.TabIndex = 0;
             this.pictureSchematic.TabStop = false;
             // 
+            // bsConfiguredTrucks
+            // 
+            this.bsConfiguredTrucks.DataMember = "ConfiguredTrucks";
+            this.bsConfiguredTrucks.DataSource = this.dsTruckConfig;
+            this.bsConfiguredTrucks.CurrentChanged += new System.EventHandler(this.bsConfiguredTrucks_CurrentChanged);
+            // 
+            // dsTruckConfig
+            // 
+            this.dsTruckConfig.DataSetName = "dsTruckConfig";
+            this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // txtTruckRego
             // 
             this.txtTruckRego.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -291,6 +308,48 @@ namespace QWS_Local
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(979, 150);
             this.dataGridView1.TabIndex = 3;
+            // 
+            // regoTkDataGridViewTextBoxColumn
+            // 
+            this.regoTkDataGridViewTextBoxColumn.DataPropertyName = "RegoTk";
+            this.regoTkDataGridViewTextBoxColumn.HeaderText = "RegoTk";
+            this.regoTkDataGridViewTextBoxColumn.Name = "regoTkDataGridViewTextBoxColumn";
+            this.regoTkDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // regoTrailerDataGridViewTextBoxColumn
+            // 
+            this.regoTrailerDataGridViewTextBoxColumn.DataPropertyName = "RegoTrailer";
+            this.regoTrailerDataGridViewTextBoxColumn.HeaderText = "RegoTrailer";
+            this.regoTrailerDataGridViewTextBoxColumn.Name = "regoTrailerDataGridViewTextBoxColumn";
+            this.regoTrailerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // RegoCheck
+            // 
+            this.RegoCheck.DataPropertyName = "RegoCheck";
+            this.RegoCheck.HeaderText = "RegoCheck";
+            this.RegoCheck.Name = "RegoCheck";
+            this.RegoCheck.ReadOnly = true;
+            // 
+            // nHVLDataGridViewTextBoxColumn
+            // 
+            this.nHVLDataGridViewTextBoxColumn.DataPropertyName = "NHVL";
+            this.nHVLDataGridViewTextBoxColumn.HeaderText = "NHVL";
+            this.nHVLDataGridViewTextBoxColumn.Name = "nHVLDataGridViewTextBoxColumn";
+            this.nHVLDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nHVLDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // PBS
+            // 
+            this.PBS.HeaderText = "PBS Applies";
+            this.PBS.Name = "PBS";
+            this.PBS.ReadOnly = true;
+            // 
+            // TareDT
+            // 
+            this.TareDT.DataPropertyName = "TareDT";
+            this.TareDT.HeaderText = "TareDT";
+            this.TareDT.Name = "TareDT";
+            this.TareDT.ReadOnly = true;
             // 
             // txtAxleConfig
             // 
@@ -391,6 +450,16 @@ namespace QWS_Local
             this.txtLicenseExp.Name = "txtLicenseExp";
             this.txtLicenseExp.Size = new System.Drawing.Size(100, 23);
             this.txtLicenseExp.TabIndex = 74;
+            // 
+            // bsTruckDriver
+            // 
+            this.bsTruckDriver.DataMember = "TruckDriver";
+            this.bsTruckDriver.DataSource = this.dsQWSLocal;
+            // 
+            // dsQWSLocal
+            // 
+            this.dsQWSLocal.DataSetName = "dsQWSLocal";
+            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtInductionExp
             // 
@@ -629,6 +698,11 @@ namespace QWS_Local
             this.prefCustomerTextBox.Size = new System.Drawing.Size(206, 23);
             this.prefCustomerTextBox.TabIndex = 81;
             // 
+            // bsPrefCustomers
+            // 
+            this.bsPrefCustomers.DataMember = "VehiclePrefCustomers";
+            this.bsPrefCustomers.DataSource = this.dsQWSLocal;
+            // 
             // compartmentsTextBox
             // 
             this.compartmentsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "Compartments", true));
@@ -636,74 +710,6 @@ namespace QWS_Local
             this.compartmentsTextBox.Name = "compartmentsTextBox";
             this.compartmentsTextBox.Size = new System.Drawing.Size(100, 23);
             this.compartmentsTextBox.TabIndex = 82;
-            // 
-            // RegoCheck
-            // 
-            this.RegoCheck.DataPropertyName = "RegoCheck";
-            this.RegoCheck.HeaderText = "RegoCheck";
-            this.RegoCheck.Name = "RegoCheck";
-            this.RegoCheck.ReadOnly = true;
-            // 
-            // PBS
-            // 
-            this.PBS.HeaderText = "PBS Applies";
-            this.PBS.Name = "PBS";
-            this.PBS.ReadOnly = true;
-            // 
-            // TareDT
-            // 
-            this.TareDT.DataPropertyName = "TareDT";
-            this.TareDT.HeaderText = "TareDT";
-            this.TareDT.Name = "TareDT";
-            this.TareDT.ReadOnly = true;
-            // 
-            // bsConfiguredTrucks
-            // 
-            this.bsConfiguredTrucks.DataMember = "ConfiguredTrucks";
-            this.bsConfiguredTrucks.DataSource = this.dsTruckConfig;
-            this.bsConfiguredTrucks.CurrentChanged += new System.EventHandler(this.bsConfiguredTrucks_CurrentChanged);
-            // 
-            // dsTruckConfig
-            // 
-            this.dsTruckConfig.DataSetName = "dsTruckConfig";
-            this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bsPrefCustomers
-            // 
-            this.bsPrefCustomers.DataMember = "VehiclePrefCustomers";
-            this.bsPrefCustomers.DataSource = this.dsQWSLocal;
-            // 
-            // dsQWSLocal
-            // 
-            this.dsQWSLocal.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bsTruckDriver
-            // 
-            this.bsTruckDriver.DataMember = "TruckDriver";
-            this.bsTruckDriver.DataSource = this.dsQWSLocal;
-            // 
-            // regoTkDataGridViewTextBoxColumn
-            // 
-            this.regoTkDataGridViewTextBoxColumn.DataPropertyName = "RegoTk";
-            this.regoTkDataGridViewTextBoxColumn.HeaderText = "RegoTk";
-            this.regoTkDataGridViewTextBoxColumn.Name = "regoTkDataGridViewTextBoxColumn";
-            this.regoTkDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // regoTrailerDataGridViewTextBoxColumn
-            // 
-            this.regoTrailerDataGridViewTextBoxColumn.DataPropertyName = "RegoTrailer";
-            this.regoTrailerDataGridViewTextBoxColumn.HeaderText = "RegoTrailer";
-            this.regoTrailerDataGridViewTextBoxColumn.Name = "regoTrailerDataGridViewTextBoxColumn";
-            this.regoTrailerDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nHVLDataGridViewTextBoxColumn
-            // 
-            this.nHVLDataGridViewTextBoxColumn.DataPropertyName = "NHVL";
-            this.nHVLDataGridViewTextBoxColumn.HeaderText = "NHVL";
-            this.nHVLDataGridViewTextBoxColumn.Name = "nHVLDataGridViewTextBoxColumn";
-            this.nHVLDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nHVLDataGridViewTextBoxColumn.Width = 200;
             // 
             // bsConfiguredTruckGVM
             // 
@@ -752,11 +758,39 @@ namespace QWS_Local
             // 
             this.taPrefCustomers.ClearBeforeFill = true;
             // 
+            // bsTIQ
+            // 
+            this.bsTIQ.DataMember = "TrucksInQuarry";
+            this.bsTIQ.DataSource = this.dsQWSLocal;
+            // 
+            // taTIQ
+            // 
+            this.taTIQ.ClearBeforeFill = true;
+            // 
+            // tIQIDLabel
+            // 
+            tIQIDLabel.AutoSize = true;
+            tIQIDLabel.Location = new System.Drawing.Point(846, 56);
+            tIQIDLabel.Name = "tIQIDLabel";
+            tIQIDLabel.Size = new System.Drawing.Size(48, 17);
+            tIQIDLabel.TabIndex = 83;
+            tIQIDLabel.Text = "TIQID:";
+            // 
+            // tIQIDTextBox
+            // 
+            this.tIQIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "TIQID", true));
+            this.tIQIDTextBox.Location = new System.Drawing.Point(900, 53);
+            this.tIQIDTextBox.Name = "tIQIDTextBox";
+            this.tIQIDTextBox.Size = new System.Drawing.Size(100, 23);
+            this.tIQIDTextBox.TabIndex = 84;
+            // 
             // BookInTruckStep1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 658);
+            this.Controls.Add(tIQIDLabel);
+            this.Controls.Add(this.tIQIDTextBox);
             this.Controls.Add(compartmentsLabel);
             this.Controls.Add(this.compartmentsTextBox);
             this.Controls.Add(prefCustomerLabel);
@@ -785,19 +819,20 @@ namespace QWS_Local
             this.Text = "BookInTruckStep1";
             this.Load += new System.EventHandler(this.BookInTruckStep1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureSchematic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -862,5 +897,8 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn nHVLDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn PBS;
         private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
+        private System.Windows.Forms.BindingSource bsTIQ;
+        private dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter taTIQ;
+        private System.Windows.Forms.TextBox tIQIDTextBox;
     }
 }

@@ -80,7 +80,7 @@ namespace QWS_Local.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("180")]
         public int RetareInterval {
             get {
                 return ((int)(this["RetareInterval"]));

@@ -475,6 +475,59 @@ namespace QWS_Local
         private void btnRetare_Click(object sender, EventArgs e)
         {
             MessageBox.Show("TODO implement retare and add to trucks in quarry queue.");
+            BookInRetare();
         }
+
+
+        private void BookInRetare()
+        {
+            try
+            {
+                DataRow dr = dsQWSLocal.TrucksInQuarry.NewRow();
+                dsQWSLocal.TrucksInQuarryRow rowTIQ = (dsQWSLocal.TrucksInQuarryRow)dr;
+                rowTIQ.TIQID = -1;
+                rowTIQ.ParentTIQID = 0;
+                rowTIQ.TIQOpen = true;
+                rowTIQ.SiteID = Properties.Settings.Default.SiteID;
+                rowTIQ.Rego = CurrentConfigTruck().RegoTk;
+                rowTIQ.TruckConfig = "TK"; //TODO  TruckConfig;
+                rowTIQ.TruckConfigID = CurrentConfigTruck().TruckConfigID;
+                rowTIQ.AxleConfiguration = CurrentConfigTruck().AxleConfiguration;
+                rowTIQ.FeeCode = CurrentConfigTruck().FeeCode;
+                rowTIQ.ConfigSource = "n/a";// CurrentConfigTruck().ConfigSource;
+                rowTIQ.SchemeCode = "n/a";// CurrentConfigTruck().SchemeCode;
+                rowTIQ.RoadAccess = "n/a";// CurrentConfigTruck().RoadAccess;
+                rowTIQ.QueueStatus = "T";
+                rowTIQ.WeighbridgeID = 1;
+                rowTIQ.SAPOrder = -9;
+                rowTIQ.Material = "Retare";
+                rowTIQ.MaterialDesc = "Retare Vehicle";
+                rowTIQ.TruckOwnerCode = CurrentConfigTruck().CardCode;
+                rowTIQ.TruckOwner = CurrentConfigTruck().TruckOwner;
+                rowTIQ.DriverID = CurrentTruckDriver().CntctCode; 
+                rowTIQ.Driver = CurrentTruckDriver().Person;
+                rowTIQ.Payload = 0;
+                rowTIQ.GCM = 0; // CurrentConfigTruck().GCM;
+                rowTIQ.GVMTruck = 0; // CurrentConfigTruck().GVMTruck;
+                rowTIQ.Tare = CurrentConfigTruck().Tare;
+                rowTIQ.TareTk = 0; // CurrentConfigTruck().TareTk;
+                rowTIQ.EntryDTTM = EntryDTTM;
+                rowTIQ.AllocateDTTM = DateTime.Now;
+                rowTIQ.ReleaseDTTM = DateTime.Now;
+                dsQWSLocal.TrucksInQuarry.AddTrucksInQuarryRow(rowTIQ);
+                int iRow = this.taTIQ.Update(dsQWSLocal.TrucksInQuarry);
+                if (iRow == 1)
+                {
+                    TrucksInQuarry frmTIQ = new TrucksInQuarry();
+                    frmTIQ.MdiParent = this.MdiParent;
+                    frmTIQ.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 }
