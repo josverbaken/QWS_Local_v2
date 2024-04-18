@@ -159,18 +159,7 @@ namespace QWS_Local
             if (FormLoaded && bsConfiguredTrucks.Count > 0)
             {
                 SetTruckConfigRadioButtons(CurrentConfigTruck().Compartments);
-                //bool OKAY2Proceed = true;
-                //// test if SR conditions might apply
-                //if (CurrentConfigTruck().Axles > CurrentConfigTruck().MaxAxles)
-                //{
-                //    OKAY2Proceed = false;
-                //    MessageBox.Show("Unable to proceed, due to Fee Code axle restriction!");
-                //}
-                //if (OKAY2Proceed)
-                //{
-                //    GetConfiguredTrucksGVM();
-                //    // TODO check GVM vs MaxGVM once config chosen
-                //}
+                // TODO check GVM vs MaxGVM once config chosen
             }
         }
 
@@ -233,7 +222,6 @@ namespace QWS_Local
             }
             int myAxles = CurrentConfigTruck().Axles;
             int myMaxAxles = CurrentConfigTruck().MaxAxles;
-            //if (CurrentConfigTruck().Axles > CurrentConfigTruck().MaxAxles)
             if (myMaxAxles > 0 && myAxles > myMaxAxles)
             {
                 OK2Proceed = false;
@@ -245,10 +233,26 @@ namespace QWS_Local
             }
         }
 
+        private bool CheckRetareDue()
+        {
+            double TareInterval = Properties.Settings.Default.RetareInterval;
+            DateTime RetareDT = CurrentConfigTruck().TareDT.AddDays(TareInterval);
+            if (RetareDT < DateTime.Today)
+            {
+                btnRetare.BackColor = Color.Orange;
+                return true;
+            }
+            else
+            {
+                btnRetare.BackColor = SystemColors.Control;
+                return false;
+            }
+        }
 
         private void GetTruckDriver()
         {
             bool blOkay2Cart = true;
+            bool RetareDue = CheckRetareDue();
             TruckDriverSearch frmTruckDriverSearch = new TruckDriverSearch(CurrentConfigTruck().CardCode);
             DialogResult dr = frmTruckDriverSearch.ShowDialog();
             if (dr == DialogResult.OK)
@@ -308,14 +312,13 @@ namespace QWS_Local
                 else
                 {
                     chkDriverACC.Checked = false;
-                    btnDelivery.Enabled = false; // TODO ? refactor
+                    btnDelivery.Enabled = false;
                 }
-                // check if Truck or Truck and Trailer, also if Semi-trailer or B-Double or A-Double
-                //SetTruckConfigRadioButtons(CurrentConfigTruck().Compartments);
-            }
-            else
-            {
-                //SetTruckConfigRadioButtons(1);
+                if(RetareDue)
+                {
+                    btnExBin.Enabled = false;
+                    btnDelivery.Enabled = false;
+                }
             }
         }
 
@@ -342,7 +345,6 @@ namespace QWS_Local
                 bool CustomerFound = GetExBinCustomer();
                 return CustomerFound;
             }
-            return false;
         }
 
         private bool GetPrefCustomer()
@@ -468,6 +470,11 @@ namespace QWS_Local
                 return true;
             }
             return false;
+        }
+
+        private void btnRetare_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("TODO implement retare and add to trucks in quarry queue.");
         }
     }
 }

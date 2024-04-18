@@ -77,5 +77,14 @@ namespace QWS_Local.Properties {
                 return ((int)(this["SiteID"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("30")]
+        public int RetareInterval {
+            get {
+                return ((int)(this["RetareInterval"]));
+            }
+        }
     }
 }
