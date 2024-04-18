@@ -32,6 +32,7 @@ namespace QWS_Local
             try
             {
                 SetTruckConfigRadioButtons(1);
+                dsQWSLocal.TruckDriver.Clear();
                 dsTruckConfig.ConfiguredTrucks.Clear();
                 int iCount = taConfiguredTrucks.FillByRego(dsTruckConfig.ConfiguredTrucks, Rego);
                 if (iCount > 0)
@@ -150,6 +151,7 @@ namespace QWS_Local
         private void BookInTruckStep1_Load(object sender, EventArgs e)
         {
             FormLoaded = true;
+            SetTruckConfigRadioButtons(1);
         }
 
         private void bsConfiguredTrucks_CurrentChanged(object sender, EventArgs e)
@@ -185,7 +187,7 @@ namespace QWS_Local
 
         private void btnGetDriver_Click(object sender, EventArgs e)
         {
-            GetTruckDriver();
+            GotoGetTruckDriver();
         }
 
         private dsTruckConfig.ConfiguredTruckGVMRow CurrentTruckGVM()
@@ -216,6 +218,31 @@ namespace QWS_Local
                 return myTruckDriverRow;
             }
             return null;
+        }
+
+        private void GotoGetTruckDriver()
+        {
+            bool OK2Proceed = false;
+            if(CurrentConfigTruck().RegoCheck == true)
+            {
+                OK2Proceed = true;
+            }
+            else
+            {
+                MessageBox.Show("Rego expired - unable to proceed!");
+            }
+            int myAxles = CurrentConfigTruck().Axles;
+            int myMaxAxles = CurrentConfigTruck().MaxAxles;
+            //if (CurrentConfigTruck().Axles > CurrentConfigTruck().MaxAxles)
+            if (myMaxAxles > 0 && myAxles > myMaxAxles)
+            {
+                OK2Proceed = false;
+                MessageBox.Show("Unable to proceed, due to Fee Code axle restriction!");
+            }
+            if (OK2Proceed)
+            {
+                GetTruckDriver();
+            }
         }
 
 
