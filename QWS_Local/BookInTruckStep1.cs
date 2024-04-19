@@ -32,6 +32,8 @@ namespace QWS_Local
             try
             {
                 SetTruckConfigRadioButtons(1);
+                btnRetare.Enabled = false;
+                btnRetare.BackColor = SystemColors.Control;
                 dsQWSLocal.TruckDriver.Clear();
                 dsTruckConfig.ConfiguredTrucks.Clear();
                 int iCount = taConfiguredTrucks.FillByRego(dsTruckConfig.ConfiguredTrucks, Rego);
@@ -319,6 +321,7 @@ namespace QWS_Local
                     btnExBin.Enabled = false;
                     btnDelivery.Enabled = false;
                 }
+                btnRetare.Enabled = true;
             }
         }
 

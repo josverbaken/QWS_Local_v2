@@ -41,10 +41,6 @@ namespace QWS_Local
             System.Windows.Forms.Label mobLabel;
             System.Windows.Forms.Label positionLabel;
             System.Windows.Forms.Label personLabel;
-            System.Windows.Forms.Label prefCustomerLabel;
-            System.Windows.Forms.Label compartmentsLabel;
-            System.Windows.Forms.Label tIQIDLabel;
-            this.pictureSchematic = new System.Windows.Forms.PictureBox();
             this.bsConfiguredTrucks = new System.Windows.Forms.BindingSource(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.txtTruckRego = new System.Windows.Forms.TextBox();
@@ -91,9 +87,7 @@ namespace QWS_Local
             this.rbSplitLoad = new System.Windows.Forms.RadioButton();
             this.rbTnT = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.prefCustomerTextBox = new System.Windows.Forms.TextBox();
             this.bsPrefCustomers = new System.Windows.Forms.BindingSource(this.components);
-            this.compartmentsTextBox = new System.Windows.Forms.TextBox();
             this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
             this.taConfiguredTrucks = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
             this.taConfiguredTruckGVM = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTruckGVMTableAdapter();
@@ -103,7 +97,7 @@ namespace QWS_Local
             this.taPrefCustomers = new QWS_Local.dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter();
             this.bsTIQ = new System.Windows.Forms.BindingSource(this.components);
             this.taTIQ = new QWS_Local.dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter();
-            this.tIQIDTextBox = new System.Windows.Forms.TextBox();
+            this.pictureSchematic = new System.Windows.Forms.PictureBox();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -115,10 +109,6 @@ namespace QWS_Local
             mobLabel = new System.Windows.Forms.Label();
             positionLabel = new System.Windows.Forms.Label();
             personLabel = new System.Windows.Forms.Label();
-            prefCustomerLabel = new System.Windows.Forms.Label();
-            compartmentsLabel = new System.Windows.Forms.Label();
-            tIQIDLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureSchematic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -130,6 +120,7 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureSchematic)).BeginInit();
             this.SuspendLayout();
             // 
             // cardCodeLabel
@@ -231,34 +222,6 @@ namespace QWS_Local
             personLabel.TabIndex = 59;
             personLabel.Text = "Person:";
             // 
-            // prefCustomerLabel
-            // 
-            prefCustomerLabel.AutoSize = true;
-            prefCustomerLabel.Location = new System.Drawing.Point(686, 179);
-            prefCustomerLabel.Name = "prefCustomerLabel";
-            prefCustomerLabel.Size = new System.Drawing.Size(102, 17);
-            prefCustomerLabel.TabIndex = 80;
-            prefCustomerLabel.Text = "Pref Customer:";
-            // 
-            // compartmentsLabel
-            // 
-            compartmentsLabel.AutoSize = true;
-            compartmentsLabel.Location = new System.Drawing.Point(791, 145);
-            compartmentsLabel.Name = "compartmentsLabel";
-            compartmentsLabel.Size = new System.Drawing.Size(103, 17);
-            compartmentsLabel.TabIndex = 81;
-            compartmentsLabel.Text = "Compartments:";
-            // 
-            // pictureSchematic
-            // 
-            this.pictureSchematic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureSchematic.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.bsConfiguredTrucks, "Schematic", true));
-            this.pictureSchematic.Location = new System.Drawing.Point(63, 56);
-            this.pictureSchematic.Name = "pictureSchematic";
-            this.pictureSchematic.Size = new System.Drawing.Size(450, 150);
-            this.pictureSchematic.TabIndex = 0;
-            this.pictureSchematic.TabStop = false;
-            // 
             // bsConfiguredTrucks
             // 
             this.bsConfiguredTrucks.DataMember = "ConfiguredTrucks";
@@ -300,8 +263,8 @@ namespace QWS_Local
             this.regoTrailerDataGridViewTextBoxColumn,
             this.RegoCheck,
             this.nHVLDataGridViewTextBoxColumn,
-            this.PBS,
-            this.TareDT});
+            this.TareDT,
+            this.PBS});
             this.dataGridView1.DataSource = this.bsConfiguredTrucks;
             this.dataGridView1.Location = new System.Drawing.Point(21, 250);
             this.dataGridView1.Name = "dataGridView1";
@@ -587,6 +550,7 @@ namespace QWS_Local
             // btnRetare
             // 
             this.btnRetare.BackColor = System.Drawing.SystemColors.Control;
+            this.btnRetare.Enabled = false;
             this.btnRetare.Location = new System.Drawing.Point(15, 148);
             this.btnRetare.Name = "btnRetare";
             this.btnRetare.Size = new System.Drawing.Size(251, 38);
@@ -690,26 +654,10 @@ namespace QWS_Local
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Truck Driver";
             // 
-            // prefCustomerTextBox
-            // 
-            this.prefCustomerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPrefCustomers, "PrefCustomer", true));
-            this.prefCustomerTextBox.Location = new System.Drawing.Point(794, 176);
-            this.prefCustomerTextBox.Name = "prefCustomerTextBox";
-            this.prefCustomerTextBox.Size = new System.Drawing.Size(206, 23);
-            this.prefCustomerTextBox.TabIndex = 81;
-            // 
             // bsPrefCustomers
             // 
             this.bsPrefCustomers.DataMember = "VehiclePrefCustomers";
             this.bsPrefCustomers.DataSource = this.dsQWSLocal;
-            // 
-            // compartmentsTextBox
-            // 
-            this.compartmentsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "Compartments", true));
-            this.compartmentsTextBox.Location = new System.Drawing.Point(900, 142);
-            this.compartmentsTextBox.Name = "compartmentsTextBox";
-            this.compartmentsTextBox.Size = new System.Drawing.Size(100, 23);
-            this.compartmentsTextBox.TabIndex = 82;
             // 
             // bsConfiguredTruckGVM
             // 
@@ -767,34 +715,21 @@ namespace QWS_Local
             // 
             this.taTIQ.ClearBeforeFill = true;
             // 
-            // tIQIDLabel
+            // pictureSchematic
             // 
-            tIQIDLabel.AutoSize = true;
-            tIQIDLabel.Location = new System.Drawing.Point(846, 56);
-            tIQIDLabel.Name = "tIQIDLabel";
-            tIQIDLabel.Size = new System.Drawing.Size(48, 17);
-            tIQIDLabel.TabIndex = 83;
-            tIQIDLabel.Text = "TIQID:";
-            // 
-            // tIQIDTextBox
-            // 
-            this.tIQIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "TIQID", true));
-            this.tIQIDTextBox.Location = new System.Drawing.Point(900, 53);
-            this.tIQIDTextBox.Name = "tIQIDTextBox";
-            this.tIQIDTextBox.Size = new System.Drawing.Size(100, 23);
-            this.tIQIDTextBox.TabIndex = 84;
+            this.pictureSchematic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureSchematic.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.bsConfiguredTrucks, "Schematic", true));
+            this.pictureSchematic.Location = new System.Drawing.Point(63, 56);
+            this.pictureSchematic.Name = "pictureSchematic";
+            this.pictureSchematic.Size = new System.Drawing.Size(450, 150);
+            this.pictureSchematic.TabIndex = 0;
+            this.pictureSchematic.TabStop = false;
             // 
             // BookInTruckStep1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 658);
-            this.Controls.Add(tIQIDLabel);
-            this.Controls.Add(this.tIQIDTextBox);
-            this.Controls.Add(compartmentsLabel);
-            this.Controls.Add(this.compartmentsTextBox);
-            this.Controls.Add(prefCustomerLabel);
-            this.Controls.Add(this.prefCustomerTextBox);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -818,7 +753,6 @@ namespace QWS_Local
             this.Name = "BookInTruckStep1";
             this.Text = "BookInTruckStep1";
             this.Load += new System.EventHandler(this.BookInTruckStep1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureSchematic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -833,6 +767,7 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureSchematic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -886,11 +821,9 @@ namespace QWS_Local
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.BindingSource bsPrefCustomers;
         private dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter taPrefCustomers;
-        private System.Windows.Forms.TextBox prefCustomerTextBox;
         private System.Windows.Forms.RadioButton rbTrailerOnly;
         private System.Windows.Forms.RadioButton rbSplitLoad;
         private System.Windows.Forms.RadioButton rbTnT;
-        private System.Windows.Forms.TextBox compartmentsTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn regoTkDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn regoTrailerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn RegoCheck;
@@ -899,6 +832,5 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
         private System.Windows.Forms.BindingSource bsTIQ;
         private dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter taTIQ;
-        private System.Windows.Forms.TextBox tIQIDTextBox;
     }
 }

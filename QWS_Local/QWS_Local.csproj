@@ -99,6 +99,12 @@
     <Compile Include="BusinessSearch.Designer.cs">
       <DependentUpon>BusinessSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeliveryOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeliveryOrders.Designer.cs">
+      <DependentUpon>DeliveryOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="dsBookIn.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -225,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BusinessSearch.resx">
       <DependentUpon>BusinessSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeliveryOrders.resx">
+      <DependentUpon>DeliveryOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FeeCodeSearch.resx">
       <DependentUpon>FeeCodeSearch.cs</DependentUpon>

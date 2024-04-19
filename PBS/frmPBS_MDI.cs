@@ -97,7 +97,7 @@ namespace PBS
 
         private void deliveryOrdersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BookInDelivery frmDeliveryOrders = new BookInDelivery();
+            DeliveryOrders frmDeliveryOrders = new DeliveryOrders();
             frmDeliveryOrders.MdiParent = this;
             frmDeliveryOrders.Show();
         }
