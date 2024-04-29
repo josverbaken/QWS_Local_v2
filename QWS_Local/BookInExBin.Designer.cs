@@ -55,13 +55,23 @@ namespace QWS_Local
             System.Windows.Forms.Label label2;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.label1 = new System.Windows.Forms.Label();
-            this.feeCodeTextBox = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.feeCodeTextBox = new System.Windows.Forms.TextBox();
             this.ownerTextBox = new System.Windows.Forms.TextBox();
             this.regoTkTextBox = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.regoTkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gCMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maxGVMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.configSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roadAccessDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pBSLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schemeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnPayloadValidate = new System.Windows.Forms.Button();
             this.nudPayloadTk = new System.Windows.Forms.NumericUpDown();
@@ -72,30 +82,14 @@ namespace QWS_Local
             this.gVMTruckTextBox = new System.Windows.Forms.TextBox();
             this.tareTextBox = new System.Windows.Forms.TextBox();
             this.tareTkTextBox = new System.Windows.Forms.TextBox();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tpExBinOrders = new System.Windows.Forms.TabPage();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.docNumDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.docEntryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.docDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cardCodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.purchaseOrderDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cntctCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactMobileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deliveryDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deliveryAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sAPCommentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialCodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itmsGrpCodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemQADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.openQtyDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sAPUpdateDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.exBinOrdersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsBookIn = new QWS_Local.dsBookIn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -143,21 +137,25 @@ namespace QWS_Local
             this.bsConfiguredTrucks = new System.Windows.Forms.BindingSource(this.components);
             this.taConfiguredTrucks = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.regoTkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gCMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxGVMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.configSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roadAccessDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pBSLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schemeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tpTruckconfig = new System.Windows.Forms.TabPage();
+            this.tpPayload = new System.Windows.Forms.TabPage();
+            this.docNumDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.docDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.purchaseOrderDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactMobileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deliveryDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deliveryAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sAPCommentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialCodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itmsGrpCodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemQADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.openQtyDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sAPUpdateDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             docNumLabel = new System.Windows.Forms.Label();
             docDateLabel = new System.Windows.Forms.Label();
             cardCodeLabel = new System.Windows.Forms.Label();
@@ -190,11 +188,16 @@ namespace QWS_Local
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tpExBinOrders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
@@ -208,11 +211,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
-            this.splitContainer3.Panel1.SuspendLayout();
-            this.splitContainer3.Panel2.SuspendLayout();
-            this.splitContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tpTruckconfig.SuspendLayout();
+            this.tpPayload.SuspendLayout();
             this.SuspendLayout();
             // 
             // docNumLabel
@@ -413,6 +413,15 @@ namespace QWS_Local
             feeCodeLabel.TabIndex = 74;
             feeCodeLabel.Text = "Fee Code:";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(12, 58);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(50, 17);
+            label2.TabIndex = 77;
+            label2.Text = "Driver:";
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -449,32 +458,21 @@ namespace QWS_Local
             this.splitContainer2.Panel1.Controls.Add(regoTkLabel);
             this.splitContainer2.Panel1.Controls.Add(this.regoTkTextBox);
             this.splitContainer2.Panel1.Controls.Add(this.pictureBox1);
-            this.splitContainer2.Panel1.Controls.Add(this.dataGridView3);
-            this.splitContainer2.Panel1.Controls.Add(this.groupBox3);
             // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
             this.splitContainer2.Size = new System.Drawing.Size(1427, 554);
-            this.splitContainer2.SplitterDistance = 342;
+            this.splitContainer2.SplitterDistance = 228;
             this.splitContainer2.TabIndex = 3;
             // 
-            // label1
+            // textBox4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(108, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 76;
-            this.label1.Text = "label1";
-            // 
-            // feeCodeTextBox
-            // 
-            this.feeCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "FeeCode", true));
-            this.feeCodeTextBox.Location = new System.Drawing.Point(327, 128);
-            this.feeCodeTextBox.Name = "feeCodeTextBox";
-            this.feeCodeTextBox.Size = new System.Drawing.Size(100, 23);
-            this.feeCodeTextBox.TabIndex = 75;
+            this.textBox4.Location = new System.Drawing.Point(74, 85);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(91, 23);
+            this.textBox4.TabIndex = 78;
+            this.textBox4.Text = "0419 123 456";
             // 
             // bsConfiguredTruckGVM
             // 
@@ -485,6 +483,22 @@ namespace QWS_Local
             // 
             this.dsTruckConfig.DataSetName = "dsTruckConfig";
             this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(74, 53);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(353, 23);
+            this.textBox2.TabIndex = 76;
+            this.textBox2.Text = "Driver";
+            // 
+            // feeCodeTextBox
+            // 
+            this.feeCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "FeeCode", true));
+            this.feeCodeTextBox.Location = new System.Drawing.Point(327, 128);
+            this.feeCodeTextBox.Name = "feeCodeTextBox";
+            this.feeCodeTextBox.Size = new System.Drawing.Size(100, 23);
+            this.feeCodeTextBox.TabIndex = 75;
             // 
             // ownerTextBox
             // 
@@ -502,6 +516,16 @@ namespace QWS_Local
             this.regoTkTextBox.Size = new System.Drawing.Size(100, 23);
             this.regoTkTextBox.TabIndex = 71;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.bsConfiguredTruckGVM, "Schematic", true));
+            this.pictureBox1.Location = new System.Drawing.Point(471, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(450, 150);
+            this.pictureBox1.TabIndex = 70;
+            this.pictureBox1.TabStop = false;
+            // 
             // dataGridView3
             // 
             this.dataGridView3.AllowUserToAddRows = false;
@@ -518,11 +542,67 @@ namespace QWS_Local
             this.schemeCodeDataGridViewTextBoxColumn,
             this.schemeDataGridViewTextBoxColumn});
             this.dataGridView3.DataSource = this.bsConfiguredTruckGVM;
-            this.dataGridView3.Location = new System.Drawing.Point(7, 190);
+            this.dataGridView3.Location = new System.Drawing.Point(11, 18);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.Size = new System.Drawing.Size(1408, 129);
+            this.dataGridView3.Size = new System.Drawing.Size(864, 129);
             this.dataGridView3.TabIndex = 69;
+            // 
+            // regoTkDataGridViewTextBoxColumn
+            // 
+            this.regoTkDataGridViewTextBoxColumn.DataPropertyName = "RegoTk";
+            this.regoTkDataGridViewTextBoxColumn.HeaderText = "RegoTk";
+            this.regoTkDataGridViewTextBoxColumn.Name = "regoTkDataGridViewTextBoxColumn";
+            this.regoTkDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // gCMDataGridViewTextBoxColumn
+            // 
+            this.gCMDataGridViewTextBoxColumn.DataPropertyName = "GCM";
+            this.gCMDataGridViewTextBoxColumn.HeaderText = "GCM";
+            this.gCMDataGridViewTextBoxColumn.Name = "gCMDataGridViewTextBoxColumn";
+            this.gCMDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // maxGVMDataGridViewTextBoxColumn
+            // 
+            this.maxGVMDataGridViewTextBoxColumn.DataPropertyName = "MaxGVM";
+            this.maxGVMDataGridViewTextBoxColumn.HeaderText = "MaxGVM";
+            this.maxGVMDataGridViewTextBoxColumn.Name = "maxGVMDataGridViewTextBoxColumn";
+            this.maxGVMDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // configSourceDataGridViewTextBoxColumn
+            // 
+            this.configSourceDataGridViewTextBoxColumn.DataPropertyName = "ConfigSource";
+            this.configSourceDataGridViewTextBoxColumn.HeaderText = "ConfigSource";
+            this.configSourceDataGridViewTextBoxColumn.Name = "configSourceDataGridViewTextBoxColumn";
+            this.configSourceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // roadAccessDataGridViewTextBoxColumn
+            // 
+            this.roadAccessDataGridViewTextBoxColumn.DataPropertyName = "RoadAccess";
+            this.roadAccessDataGridViewTextBoxColumn.HeaderText = "RoadAccess";
+            this.roadAccessDataGridViewTextBoxColumn.Name = "roadAccessDataGridViewTextBoxColumn";
+            this.roadAccessDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pBSLevelDataGridViewTextBoxColumn
+            // 
+            this.pBSLevelDataGridViewTextBoxColumn.DataPropertyName = "PBS_Level";
+            this.pBSLevelDataGridViewTextBoxColumn.HeaderText = "PBS_Level";
+            this.pBSLevelDataGridViewTextBoxColumn.Name = "pBSLevelDataGridViewTextBoxColumn";
+            this.pBSLevelDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // schemeCodeDataGridViewTextBoxColumn
+            // 
+            this.schemeCodeDataGridViewTextBoxColumn.DataPropertyName = "SchemeCode";
+            this.schemeCodeDataGridViewTextBoxColumn.HeaderText = "SchemeCode";
+            this.schemeCodeDataGridViewTextBoxColumn.Name = "schemeCodeDataGridViewTextBoxColumn";
+            this.schemeCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // schemeDataGridViewTextBoxColumn
+            // 
+            this.schemeDataGridViewTextBoxColumn.DataPropertyName = "Scheme";
+            this.schemeDataGridViewTextBoxColumn.HeaderText = "Scheme";
+            this.schemeDataGridViewTextBoxColumn.Name = "schemeDataGridViewTextBoxColumn";
+            this.schemeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // groupBox3
             // 
@@ -538,7 +618,7 @@ namespace QWS_Local
             this.groupBox3.Controls.Add(this.tareTextBox);
             this.groupBox3.Controls.Add(tareLabel);
             this.groupBox3.Controls.Add(this.tareTkTextBox);
-            this.groupBox3.Location = new System.Drawing.Point(942, 12);
+            this.groupBox3.Location = new System.Drawing.Point(11, 21);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(473, 150);
             this.groupBox3.TabIndex = 68;
@@ -631,15 +711,74 @@ namespace QWS_Local
             this.tareTkTextBox.TabIndex = 38;
             this.tareTkTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.button3);
+            this.splitContainer3.Panel1.Controls.Add(this.button2);
+            this.splitContainer3.Panel1.Controls.Add(this.button1);
+            this.splitContainer3.Panel1.Controls.Add(this.label1);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.tabControl2);
+            this.splitContainer3.Size = new System.Drawing.Size(1427, 322);
+            this.splitContainer3.SplitterDistance = 80;
+            this.splitContainer3.TabIndex = 3;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(862, 13);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(160, 30);
+            this.button3.TabIndex = 79;
+            this.button3.Text = "Book In";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(666, 11);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(160, 30);
+            this.button2.TabIndex = 78;
+            this.button2.Text = "Refresh";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(471, 13);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(160, 30);
+            this.button1.TabIndex = 77;
+            this.button1.Text = "Change Customer";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(108, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 76;
+            this.label1.Text = "label1";
+            // 
             // tabControl2
             // 
             this.tabControl2.Controls.Add(this.tpExBinOrders);
             this.tabControl2.Controls.Add(this.tpExBinNoOrder);
+            this.tabControl2.Controls.Add(this.tpTruckconfig);
+            this.tabControl2.Controls.Add(this.tpPayload);
             this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1427, 152);
+            this.tabControl2.Size = new System.Drawing.Size(1427, 238);
             this.tabControl2.TabIndex = 2;
             // 
             // tpExBinOrders
@@ -649,7 +788,7 @@ namespace QWS_Local
             this.tpExBinOrders.Location = new System.Drawing.Point(4, 25);
             this.tpExBinOrders.Name = "tpExBinOrders";
             this.tpExBinOrders.Padding = new System.Windows.Forms.Padding(3);
-            this.tpExBinOrders.Size = new System.Drawing.Size(1419, 123);
+            this.tpExBinOrders.Size = new System.Drawing.Size(1419, 209);
             this.tpExBinOrders.TabIndex = 0;
             this.tpExBinOrders.Text = "Ex-Bin Orders";
             this.tpExBinOrders.UseVisualStyleBackColor = true;
@@ -662,12 +801,8 @@ namespace QWS_Local
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.docNumDataGridViewTextBoxColumn1,
-            this.docEntryDataGridViewTextBoxColumn,
             this.docDateDataGridViewTextBoxColumn,
-            this.cardCodeDataGridViewTextBoxColumn1,
-            this.customerDataGridViewTextBoxColumn1,
             this.purchaseOrderDataGridViewTextBoxColumn1,
-            this.cntctCodeDataGridViewTextBoxColumn,
             this.contactNameDataGridViewTextBoxColumn1,
             this.contactMobileDataGridViewTextBoxColumn,
             this.deliveryDateDataGridViewTextBoxColumn1,
@@ -687,155 +822,8 @@ namespace QWS_Local
             this.dataGridView4.Location = new System.Drawing.Point(3, 3);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
-            this.dataGridView4.Size = new System.Drawing.Size(1413, 117);
+            this.dataGridView4.Size = new System.Drawing.Size(1413, 203);
             this.dataGridView4.TabIndex = 2;
-            // 
-            // docNumDataGridViewTextBoxColumn1
-            // 
-            this.docNumDataGridViewTextBoxColumn1.DataPropertyName = "DocNum";
-            this.docNumDataGridViewTextBoxColumn1.HeaderText = "DocNum";
-            this.docNumDataGridViewTextBoxColumn1.Name = "docNumDataGridViewTextBoxColumn1";
-            this.docNumDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // docEntryDataGridViewTextBoxColumn
-            // 
-            this.docEntryDataGridViewTextBoxColumn.DataPropertyName = "DocEntry";
-            this.docEntryDataGridViewTextBoxColumn.HeaderText = "DocEntry";
-            this.docEntryDataGridViewTextBoxColumn.Name = "docEntryDataGridViewTextBoxColumn";
-            this.docEntryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // docDateDataGridViewTextBoxColumn
-            // 
-            this.docDateDataGridViewTextBoxColumn.DataPropertyName = "DocDate";
-            this.docDateDataGridViewTextBoxColumn.HeaderText = "DocDate";
-            this.docDateDataGridViewTextBoxColumn.Name = "docDateDataGridViewTextBoxColumn";
-            this.docDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cardCodeDataGridViewTextBoxColumn1
-            // 
-            this.cardCodeDataGridViewTextBoxColumn1.DataPropertyName = "CardCode";
-            this.cardCodeDataGridViewTextBoxColumn1.HeaderText = "CardCode";
-            this.cardCodeDataGridViewTextBoxColumn1.Name = "cardCodeDataGridViewTextBoxColumn1";
-            this.cardCodeDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // customerDataGridViewTextBoxColumn1
-            // 
-            this.customerDataGridViewTextBoxColumn1.DataPropertyName = "Customer";
-            this.customerDataGridViewTextBoxColumn1.HeaderText = "Customer";
-            this.customerDataGridViewTextBoxColumn1.Name = "customerDataGridViewTextBoxColumn1";
-            this.customerDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // purchaseOrderDataGridViewTextBoxColumn1
-            // 
-            this.purchaseOrderDataGridViewTextBoxColumn1.DataPropertyName = "PurchaseOrder";
-            this.purchaseOrderDataGridViewTextBoxColumn1.HeaderText = "PurchaseOrder";
-            this.purchaseOrderDataGridViewTextBoxColumn1.Name = "purchaseOrderDataGridViewTextBoxColumn1";
-            this.purchaseOrderDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // cntctCodeDataGridViewTextBoxColumn
-            // 
-            this.cntctCodeDataGridViewTextBoxColumn.DataPropertyName = "CntctCode";
-            this.cntctCodeDataGridViewTextBoxColumn.HeaderText = "CntctCode";
-            this.cntctCodeDataGridViewTextBoxColumn.Name = "cntctCodeDataGridViewTextBoxColumn";
-            this.cntctCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // contactNameDataGridViewTextBoxColumn1
-            // 
-            this.contactNameDataGridViewTextBoxColumn1.DataPropertyName = "ContactName";
-            this.contactNameDataGridViewTextBoxColumn1.HeaderText = "ContactName";
-            this.contactNameDataGridViewTextBoxColumn1.Name = "contactNameDataGridViewTextBoxColumn1";
-            this.contactNameDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // contactMobileDataGridViewTextBoxColumn
-            // 
-            this.contactMobileDataGridViewTextBoxColumn.DataPropertyName = "ContactMobile";
-            this.contactMobileDataGridViewTextBoxColumn.HeaderText = "ContactMobile";
-            this.contactMobileDataGridViewTextBoxColumn.Name = "contactMobileDataGridViewTextBoxColumn";
-            this.contactMobileDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // deliveryDateDataGridViewTextBoxColumn1
-            // 
-            this.deliveryDateDataGridViewTextBoxColumn1.DataPropertyName = "DeliveryDate";
-            this.deliveryDateDataGridViewTextBoxColumn1.HeaderText = "DeliveryDate";
-            this.deliveryDateDataGridViewTextBoxColumn1.Name = "deliveryDateDataGridViewTextBoxColumn1";
-            this.deliveryDateDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // deliveryAddressDataGridViewTextBoxColumn
-            // 
-            this.deliveryAddressDataGridViewTextBoxColumn.DataPropertyName = "DeliveryAddress";
-            this.deliveryAddressDataGridViewTextBoxColumn.HeaderText = "DeliveryAddress";
-            this.deliveryAddressDataGridViewTextBoxColumn.Name = "deliveryAddressDataGridViewTextBoxColumn";
-            this.deliveryAddressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sAPCommentsDataGridViewTextBoxColumn
-            // 
-            this.sAPCommentsDataGridViewTextBoxColumn.DataPropertyName = "SAPComments";
-            this.sAPCommentsDataGridViewTextBoxColumn.HeaderText = "SAPComments";
-            this.sAPCommentsDataGridViewTextBoxColumn.Name = "sAPCommentsDataGridViewTextBoxColumn";
-            this.sAPCommentsDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // materialCodeDataGridViewTextBoxColumn1
-            // 
-            this.materialCodeDataGridViewTextBoxColumn1.DataPropertyName = "MaterialCode";
-            this.materialCodeDataGridViewTextBoxColumn1.HeaderText = "MaterialCode";
-            this.materialCodeDataGridViewTextBoxColumn1.Name = "materialCodeDataGridViewTextBoxColumn1";
-            this.materialCodeDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // materialDataGridViewTextBoxColumn1
-            // 
-            this.materialDataGridViewTextBoxColumn1.DataPropertyName = "Material";
-            this.materialDataGridViewTextBoxColumn1.HeaderText = "Material";
-            this.materialDataGridViewTextBoxColumn1.Name = "materialDataGridViewTextBoxColumn1";
-            this.materialDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // itmsGrpCodDataGridViewTextBoxColumn
-            // 
-            this.itmsGrpCodDataGridViewTextBoxColumn.DataPropertyName = "ItmsGrpCod";
-            this.itmsGrpCodDataGridViewTextBoxColumn.HeaderText = "ItmsGrpCod";
-            this.itmsGrpCodDataGridViewTextBoxColumn.Name = "itmsGrpCodDataGridViewTextBoxColumn";
-            this.itmsGrpCodDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // itemQADataGridViewTextBoxColumn
-            // 
-            this.itemQADataGridViewTextBoxColumn.DataPropertyName = "ItemQA";
-            this.itemQADataGridViewTextBoxColumn.HeaderText = "ItemQA";
-            this.itemQADataGridViewTextBoxColumn.Name = "itemQADataGridViewTextBoxColumn";
-            this.itemQADataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // openQtyDataGridViewTextBoxColumn1
-            // 
-            this.openQtyDataGridViewTextBoxColumn1.DataPropertyName = "OpenQty";
-            this.openQtyDataGridViewTextBoxColumn1.HeaderText = "OpenQty";
-            this.openQtyDataGridViewTextBoxColumn1.Name = "openQtyDataGridViewTextBoxColumn1";
-            this.openQtyDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // suppliedDataGridViewTextBoxColumn
-            // 
-            this.suppliedDataGridViewTextBoxColumn.DataPropertyName = "Supplied";
-            this.suppliedDataGridViewTextBoxColumn.HeaderText = "Supplied";
-            this.suppliedDataGridViewTextBoxColumn.Name = "suppliedDataGridViewTextBoxColumn";
-            this.suppliedDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sAPUpdateDTTMDataGridViewTextBoxColumn
-            // 
-            this.sAPUpdateDTTMDataGridViewTextBoxColumn.DataPropertyName = "SAPUpdateDTTM";
-            this.sAPUpdateDTTMDataGridViewTextBoxColumn.HeaderText = "SAPUpdateDTTM";
-            this.sAPUpdateDTTMDataGridViewTextBoxColumn.Name = "sAPUpdateDTTMDataGridViewTextBoxColumn";
-            this.sAPUpdateDTTMDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // orderStatusDataGridViewTextBoxColumn
-            // 
-            this.orderStatusDataGridViewTextBoxColumn.DataPropertyName = "OrderStatus";
-            this.orderStatusDataGridViewTextBoxColumn.HeaderText = "OrderStatus";
-            this.orderStatusDataGridViewTextBoxColumn.Name = "orderStatusDataGridViewTextBoxColumn";
-            this.orderStatusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // exBinOrdersBindingSource
             // 
@@ -989,10 +977,10 @@ namespace QWS_Local
             this.tpDetails.Controls.Add(docDateLabel);
             this.tpDetails.Controls.Add(docNumLabel);
             this.tpDetails.Controls.Add(this.docNumTextBox);
-            this.tpDetails.Location = new System.Drawing.Point(4, 25);
+            this.tpDetails.Location = new System.Drawing.Point(4, 22);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(545, 190);
+            this.tpDetails.Size = new System.Drawing.Size(545, 193);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -1237,145 +1225,144 @@ namespace QWS_Local
             this.tableAdapterManager1.Connection = null;
             this.tableAdapterManager1.UpdateOrder = QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // splitContainer3
+            // tpTruckconfig
             // 
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer3.Name = "splitContainer3";
-            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.tpTruckconfig.Controls.Add(this.dataGridView3);
+            this.tpTruckconfig.Location = new System.Drawing.Point(4, 25);
+            this.tpTruckconfig.Name = "tpTruckconfig";
+            this.tpTruckconfig.Size = new System.Drawing.Size(1419, 209);
+            this.tpTruckconfig.TabIndex = 2;
+            this.tpTruckconfig.Text = "Truck config";
+            this.tpTruckconfig.UseVisualStyleBackColor = true;
             // 
-            // splitContainer3.Panel1
+            // tpPayload
             // 
-            this.splitContainer3.Panel1.Controls.Add(this.button3);
-            this.splitContainer3.Panel1.Controls.Add(this.button2);
-            this.splitContainer3.Panel1.Controls.Add(this.button1);
-            this.splitContainer3.Panel1.Controls.Add(this.label1);
+            this.tpPayload.Controls.Add(this.groupBox3);
+            this.tpPayload.Location = new System.Drawing.Point(4, 25);
+            this.tpPayload.Name = "tpPayload";
+            this.tpPayload.Size = new System.Drawing.Size(1419, 209);
+            this.tpPayload.TabIndex = 3;
+            this.tpPayload.Text = "Payload";
+            this.tpPayload.UseVisualStyleBackColor = true;
             // 
-            // splitContainer3.Panel2
+            // docNumDataGridViewTextBoxColumn1
             // 
-            this.splitContainer3.Panel2.Controls.Add(this.tabControl2);
-            this.splitContainer3.Size = new System.Drawing.Size(1427, 208);
-            this.splitContainer3.SplitterDistance = 52;
-            this.splitContainer3.TabIndex = 3;
+            this.docNumDataGridViewTextBoxColumn1.DataPropertyName = "DocNum";
+            this.docNumDataGridViewTextBoxColumn1.HeaderText = "DocNum";
+            this.docNumDataGridViewTextBoxColumn1.Name = "docNumDataGridViewTextBoxColumn1";
+            this.docNumDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // button1
+            // docDateDataGridViewTextBoxColumn
             // 
-            this.button1.Location = new System.Drawing.Point(471, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 30);
-            this.button1.TabIndex = 77;
-            this.button1.Text = "Change Customer";
-            this.button1.UseVisualStyleBackColor = true;
+            this.docDateDataGridViewTextBoxColumn.DataPropertyName = "DocDate";
+            this.docDateDataGridViewTextBoxColumn.HeaderText = "DocDate";
+            this.docDateDataGridViewTextBoxColumn.Name = "docDateDataGridViewTextBoxColumn";
+            this.docDateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // pictureBox1
+            // purchaseOrderDataGridViewTextBoxColumn1
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.bsConfiguredTruckGVM, "Schematic", true));
-            this.pictureBox1.Location = new System.Drawing.Point(471, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(450, 150);
-            this.pictureBox1.TabIndex = 70;
-            this.pictureBox1.TabStop = false;
+            this.purchaseOrderDataGridViewTextBoxColumn1.DataPropertyName = "PurchaseOrder";
+            this.purchaseOrderDataGridViewTextBoxColumn1.HeaderText = "PurchaseOrder";
+            this.purchaseOrderDataGridViewTextBoxColumn1.Name = "purchaseOrderDataGridViewTextBoxColumn1";
+            this.purchaseOrderDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // button2
+            // contactNameDataGridViewTextBoxColumn1
             // 
-            this.button2.Location = new System.Drawing.Point(666, 11);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(160, 30);
-            this.button2.TabIndex = 78;
-            this.button2.Text = "Refresh";
-            this.button2.UseVisualStyleBackColor = true;
+            this.contactNameDataGridViewTextBoxColumn1.DataPropertyName = "ContactName";
+            this.contactNameDataGridViewTextBoxColumn1.HeaderText = "ContactName";
+            this.contactNameDataGridViewTextBoxColumn1.Name = "contactNameDataGridViewTextBoxColumn1";
+            this.contactNameDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // button3
+            // contactMobileDataGridViewTextBoxColumn
             // 
-            this.button3.Location = new System.Drawing.Point(862, 13);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(160, 30);
-            this.button3.TabIndex = 79;
-            this.button3.Text = "Book In";
-            this.button3.UseVisualStyleBackColor = true;
+            this.contactMobileDataGridViewTextBoxColumn.DataPropertyName = "ContactMobile";
+            this.contactMobileDataGridViewTextBoxColumn.HeaderText = "ContactMobile";
+            this.contactMobileDataGridViewTextBoxColumn.Name = "contactMobileDataGridViewTextBoxColumn";
+            this.contactMobileDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // textBox2
+            // deliveryDateDataGridViewTextBoxColumn1
             // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "Owner", true));
-            this.textBox2.Location = new System.Drawing.Point(74, 53);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(353, 23);
-            this.textBox2.TabIndex = 76;
+            this.deliveryDateDataGridViewTextBoxColumn1.DataPropertyName = "DeliveryDate";
+            this.deliveryDateDataGridViewTextBoxColumn1.HeaderText = "DeliveryDate";
+            this.deliveryDateDataGridViewTextBoxColumn1.Name = "deliveryDateDataGridViewTextBoxColumn1";
+            this.deliveryDateDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // label2
+            // deliveryAddressDataGridViewTextBoxColumn
             // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(12, 58);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(50, 17);
-            label2.TabIndex = 77;
-            label2.Text = "Driver:";
+            this.deliveryAddressDataGridViewTextBoxColumn.DataPropertyName = "DeliveryAddress";
+            this.deliveryAddressDataGridViewTextBoxColumn.HeaderText = "DeliveryAddress";
+            this.deliveryAddressDataGridViewTextBoxColumn.Name = "deliveryAddressDataGridViewTextBoxColumn";
+            this.deliveryAddressDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // textBox4
+            // sAPCommentsDataGridViewTextBoxColumn
             // 
-            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "Owner", true));
-            this.textBox4.Location = new System.Drawing.Point(74, 85);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(91, 23);
-            this.textBox4.TabIndex = 78;
-            this.textBox4.Text = "0419 123 456";
+            this.sAPCommentsDataGridViewTextBoxColumn.DataPropertyName = "SAPComments";
+            this.sAPCommentsDataGridViewTextBoxColumn.HeaderText = "SAPComments";
+            this.sAPCommentsDataGridViewTextBoxColumn.Name = "sAPCommentsDataGridViewTextBoxColumn";
+            this.sAPCommentsDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // regoTkDataGridViewTextBoxColumn
+            // materialCodeDataGridViewTextBoxColumn1
             // 
-            this.regoTkDataGridViewTextBoxColumn.DataPropertyName = "RegoTk";
-            this.regoTkDataGridViewTextBoxColumn.HeaderText = "RegoTk";
-            this.regoTkDataGridViewTextBoxColumn.Name = "regoTkDataGridViewTextBoxColumn";
-            this.regoTkDataGridViewTextBoxColumn.ReadOnly = true;
+            this.materialCodeDataGridViewTextBoxColumn1.DataPropertyName = "MaterialCode";
+            this.materialCodeDataGridViewTextBoxColumn1.HeaderText = "MaterialCode";
+            this.materialCodeDataGridViewTextBoxColumn1.Name = "materialCodeDataGridViewTextBoxColumn1";
+            this.materialCodeDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // gCMDataGridViewTextBoxColumn
+            // materialDataGridViewTextBoxColumn1
             // 
-            this.gCMDataGridViewTextBoxColumn.DataPropertyName = "GCM";
-            this.gCMDataGridViewTextBoxColumn.HeaderText = "GCM";
-            this.gCMDataGridViewTextBoxColumn.Name = "gCMDataGridViewTextBoxColumn";
-            this.gCMDataGridViewTextBoxColumn.ReadOnly = true;
+            this.materialDataGridViewTextBoxColumn1.DataPropertyName = "Material";
+            this.materialDataGridViewTextBoxColumn1.HeaderText = "Material";
+            this.materialDataGridViewTextBoxColumn1.Name = "materialDataGridViewTextBoxColumn1";
+            this.materialDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // maxGVMDataGridViewTextBoxColumn
+            // itmsGrpCodDataGridViewTextBoxColumn
             // 
-            this.maxGVMDataGridViewTextBoxColumn.DataPropertyName = "MaxGVM";
-            this.maxGVMDataGridViewTextBoxColumn.HeaderText = "MaxGVM";
-            this.maxGVMDataGridViewTextBoxColumn.Name = "maxGVMDataGridViewTextBoxColumn";
-            this.maxGVMDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itmsGrpCodDataGridViewTextBoxColumn.DataPropertyName = "ItmsGrpCod";
+            this.itmsGrpCodDataGridViewTextBoxColumn.HeaderText = "ItmsGrpCod";
+            this.itmsGrpCodDataGridViewTextBoxColumn.Name = "itmsGrpCodDataGridViewTextBoxColumn";
+            this.itmsGrpCodDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // configSourceDataGridViewTextBoxColumn
+            // itemQADataGridViewTextBoxColumn
             // 
-            this.configSourceDataGridViewTextBoxColumn.DataPropertyName = "ConfigSource";
-            this.configSourceDataGridViewTextBoxColumn.HeaderText = "ConfigSource";
-            this.configSourceDataGridViewTextBoxColumn.Name = "configSourceDataGridViewTextBoxColumn";
-            this.configSourceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemQADataGridViewTextBoxColumn.DataPropertyName = "ItemQA";
+            this.itemQADataGridViewTextBoxColumn.HeaderText = "ItemQA";
+            this.itemQADataGridViewTextBoxColumn.Name = "itemQADataGridViewTextBoxColumn";
+            this.itemQADataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // roadAccessDataGridViewTextBoxColumn
+            // quantityDataGridViewTextBoxColumn
             // 
-            this.roadAccessDataGridViewTextBoxColumn.DataPropertyName = "RoadAccess";
-            this.roadAccessDataGridViewTextBoxColumn.HeaderText = "RoadAccess";
-            this.roadAccessDataGridViewTextBoxColumn.Name = "roadAccessDataGridViewTextBoxColumn";
-            this.roadAccessDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // pBSLevelDataGridViewTextBoxColumn
+            // openQtyDataGridViewTextBoxColumn1
             // 
-            this.pBSLevelDataGridViewTextBoxColumn.DataPropertyName = "PBS_Level";
-            this.pBSLevelDataGridViewTextBoxColumn.HeaderText = "PBS_Level";
-            this.pBSLevelDataGridViewTextBoxColumn.Name = "pBSLevelDataGridViewTextBoxColumn";
-            this.pBSLevelDataGridViewTextBoxColumn.ReadOnly = true;
+            this.openQtyDataGridViewTextBoxColumn1.DataPropertyName = "OpenQty";
+            this.openQtyDataGridViewTextBoxColumn1.HeaderText = "OpenQty";
+            this.openQtyDataGridViewTextBoxColumn1.Name = "openQtyDataGridViewTextBoxColumn1";
+            this.openQtyDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // schemeCodeDataGridViewTextBoxColumn
+            // suppliedDataGridViewTextBoxColumn
             // 
-            this.schemeCodeDataGridViewTextBoxColumn.DataPropertyName = "SchemeCode";
-            this.schemeCodeDataGridViewTextBoxColumn.HeaderText = "SchemeCode";
-            this.schemeCodeDataGridViewTextBoxColumn.Name = "schemeCodeDataGridViewTextBoxColumn";
-            this.schemeCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.suppliedDataGridViewTextBoxColumn.DataPropertyName = "Supplied";
+            this.suppliedDataGridViewTextBoxColumn.HeaderText = "Supplied";
+            this.suppliedDataGridViewTextBoxColumn.Name = "suppliedDataGridViewTextBoxColumn";
+            this.suppliedDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // schemeDataGridViewTextBoxColumn
+            // sAPUpdateDTTMDataGridViewTextBoxColumn
             // 
-            this.schemeDataGridViewTextBoxColumn.DataPropertyName = "Scheme";
-            this.schemeDataGridViewTextBoxColumn.HeaderText = "Scheme";
-            this.schemeDataGridViewTextBoxColumn.Name = "schemeDataGridViewTextBoxColumn";
-            this.schemeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sAPUpdateDTTMDataGridViewTextBoxColumn.DataPropertyName = "SAPUpdateDTTM";
+            this.sAPUpdateDTTMDataGridViewTextBoxColumn.HeaderText = "SAPUpdateDTTM";
+            this.sAPUpdateDTTMDataGridViewTextBoxColumn.Name = "sAPUpdateDTTMDataGridViewTextBoxColumn";
+            this.sAPUpdateDTTMDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // orderStatusDataGridViewTextBoxColumn
+            // 
+            this.orderStatusDataGridViewTextBoxColumn.DataPropertyName = "OrderStatus";
+            this.orderStatusDataGridViewTextBoxColumn.HeaderText = "OrderStatus";
+            this.orderStatusDataGridViewTextBoxColumn.Name = "orderStatusDataGridViewTextBoxColumn";
+            this.orderStatusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // BookInExBin
             // 
@@ -1398,12 +1385,18 @@ namespace QWS_Local
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).EndInit();
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel1.PerformLayout();
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tpExBinOrders.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
@@ -1418,12 +1411,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
-            this.splitContainer3.Panel1.ResumeLayout(false);
-            this.splitContainer3.Panel1.PerformLayout();
-            this.splitContainer3.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
-            this.splitContainer3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tpTruckconfig.ResumeLayout(false);
+            this.tpPayload.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1499,27 +1488,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox ownerTextBox;
         private System.Windows.Forms.TextBox regoTkTextBox;
         private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn docNumDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn docEntryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn docDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cardCodeDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn purchaseOrderDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cntctCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contactNameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contactMobileDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deliveryDateDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deliveryAddressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sAPCommentsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn materialCodeDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn materialDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itmsGrpCodDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemQADataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn openQtyDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn suppliedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sAPUpdateDTTMDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orderStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.Button button1;
@@ -1535,5 +1503,24 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn pBSLevelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn schemeCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn schemeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn docNumDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn docDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn purchaseOrderDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contactNameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contactMobileDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deliveryDateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deliveryAddressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sAPCommentsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materialCodeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materialDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itmsGrpCodDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemQADataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn openQtyDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn suppliedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sAPUpdateDTTMDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderStatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TabPage tpTruckconfig;
+        private System.Windows.Forms.TabPage tpPayload;
     }
 }
