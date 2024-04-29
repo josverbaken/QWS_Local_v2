@@ -417,7 +417,7 @@ namespace QWS_Local
 
         private void BookInExBin()
         {
-            BookInExBin frmExBin = new BookInExBin(CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer);
+            BookInExBin frmExBin = new BookInExBin(CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, CurrentTruckDriver());
             frmExBin.MdiParent = this.MdiParent;
             frmExBin.Show();
         }

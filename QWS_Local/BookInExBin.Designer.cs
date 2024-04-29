@@ -53,12 +53,11 @@ namespace QWS_Local
             System.Windows.Forms.Label ownerLabel;
             System.Windows.Forms.Label feeCodeLabel;
             System.Windows.Forms.Label label2;
+            System.Windows.Forms.Label mobLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.feeCodeTextBox = new System.Windows.Forms.TextBox();
             this.ownerTextBox = new System.Windows.Forms.TextBox();
             this.regoTkTextBox = new System.Windows.Forms.TextBox();
@@ -156,6 +155,12 @@ namespace QWS_Local
             this.suppliedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sAPUpdateDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
+            this.bsDriver = new System.Windows.Forms.BindingSource(this.components);
+            this.taDriver = new QWS_Local.dsQWSLocalTableAdapters.TruckDriverTableAdapter();
+            this.tableAdapterManager2 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
+            this.personTextBox = new System.Windows.Forms.TextBox();
+            this.mobTextBox = new System.Windows.Forms.TextBox();
             docNumLabel = new System.Windows.Forms.Label();
             docDateLabel = new System.Windows.Forms.Label();
             cardCodeLabel = new System.Windows.Forms.Label();
@@ -179,6 +184,7 @@ namespace QWS_Local
             ownerLabel = new System.Windows.Forms.Label();
             feeCodeLabel = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
+            mobLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -213,6 +219,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
             this.tpTruckconfig.SuspendLayout();
             this.tpPayload.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDriver)).BeginInit();
             this.SuspendLayout();
             // 
             // docNumLabel
@@ -416,7 +424,7 @@ namespace QWS_Local
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(12, 58);
+            label2.Location = new System.Drawing.Point(12, 47);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(50, 17);
             label2.TabIndex = 77;
@@ -448,9 +456,10 @@ namespace QWS_Local
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
-            this.splitContainer2.Panel1.Controls.Add(this.textBox4);
+            this.splitContainer2.Panel1.Controls.Add(mobLabel);
+            this.splitContainer2.Panel1.Controls.Add(this.mobTextBox);
+            this.splitContainer2.Panel1.Controls.Add(this.personTextBox);
             this.splitContainer2.Panel1.Controls.Add(label2);
-            this.splitContainer2.Panel1.Controls.Add(this.textBox2);
             this.splitContainer2.Panel1.Controls.Add(feeCodeLabel);
             this.splitContainer2.Panel1.Controls.Add(this.feeCodeTextBox);
             this.splitContainer2.Panel1.Controls.Add(ownerLabel);
@@ -466,14 +475,6 @@ namespace QWS_Local
             this.splitContainer2.SplitterDistance = 228;
             this.splitContainer2.TabIndex = 3;
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(74, 85);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(91, 23);
-            this.textBox4.TabIndex = 78;
-            this.textBox4.Text = "0419 123 456";
-            // 
             // bsConfiguredTruckGVM
             // 
             this.bsConfiguredTruckGVM.DataMember = "ConfiguredTruckGVM";
@@ -483,14 +484,6 @@ namespace QWS_Local
             // 
             this.dsTruckConfig.DataSetName = "dsTruckConfig";
             this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(74, 53);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(353, 23);
-            this.textBox2.TabIndex = 76;
-            this.textBox2.Text = "Driver";
             // 
             // feeCodeTextBox
             // 
@@ -1364,6 +1357,65 @@ namespace QWS_Local
             this.orderStatusDataGridViewTextBoxColumn.Name = "orderStatusDataGridViewTextBoxColumn";
             this.orderStatusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // dsQWSLocal
+            // 
+            this.dsQWSLocal.DataSetName = "dsQWSLocal";
+            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bsDriver
+            // 
+            this.bsDriver.DataMember = "TruckDriver";
+            this.bsDriver.DataSource = this.dsQWSLocal;
+            // 
+            // taDriver
+            // 
+            this.taDriver.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager2
+            // 
+            this.tableAdapterManager2.AxleConfigurationTableAdapter = null;
+            this.tableAdapterManager2.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager2.Connection = null;
+            this.tableAdapterManager2.NHVLTableAdapter = null;
+            this.tableAdapterManager2.PBS_ConfigSchemeTableAdapter = null;
+            this.tableAdapterManager2.PBS_ConfigTableAdapter = null;
+            this.tableAdapterManager2.PBSTableAdapter = null;
+            this.tableAdapterManager2.SchemeCodesTableAdapter = null;
+            this.tableAdapterManager2.TruckConfigTableAdapter = null;
+            this.tableAdapterManager2.TruckConfigVehicleTableAdapter = null;
+            this.tableAdapterManager2.TrucksInQuarryTableAdapter = null;
+            this.tableAdapterManager2.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager2.VehiclePBSTableAdapter = null;
+            this.tableAdapterManager2.VehiclePrefCustomersTableAdapter = null;
+            this.tableAdapterManager2.VehicleRegFeeCodesTableAdapter = null;
+            this.tableAdapterManager2.VehicleTableAdapter = null;
+            this.tableAdapterManager2.VehicleTypeTableAdapter = null;
+            // 
+            // personTextBox
+            // 
+            this.personTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDriver, "Person", true));
+            this.personTextBox.Location = new System.Drawing.Point(74, 44);
+            this.personTextBox.Name = "personTextBox";
+            this.personTextBox.Size = new System.Drawing.Size(247, 23);
+            this.personTextBox.TabIndex = 79;
+            // 
+            // mobLabel
+            // 
+            mobLabel.AutoSize = true;
+            mobLabel.Location = new System.Drawing.Point(29, 76);
+            mobLabel.Name = "mobLabel";
+            mobLabel.Size = new System.Drawing.Size(39, 17);
+            mobLabel.TabIndex = 79;
+            mobLabel.Text = "Mob:";
+            // 
+            // mobTextBox
+            // 
+            this.mobTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDriver, "Mob", true));
+            this.mobTextBox.Location = new System.Drawing.Point(74, 73);
+            this.mobTextBox.Name = "mobTextBox";
+            this.mobTextBox.Size = new System.Drawing.Size(100, 23);
+            this.mobTextBox.TabIndex = 80;
+            // 
             // BookInExBin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1413,6 +1465,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
             this.tpTruckconfig.ResumeLayout(false);
             this.tpPayload.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDriver)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1493,8 +1547,6 @@ namespace QWS_Local
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DataGridViewTextBoxColumn regoTkDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gCMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maxGVMDataGridViewTextBoxColumn;
@@ -1522,5 +1574,11 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn orderStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage tpTruckconfig;
         private System.Windows.Forms.TabPage tpPayload;
+        private dsQWSLocal dsQWSLocal;
+        private System.Windows.Forms.BindingSource bsDriver;
+        private dsQWSLocalTableAdapters.TruckDriverTableAdapter taDriver;
+        private dsQWSLocalTableAdapters.TableAdapterManager tableAdapterManager2;
+        private System.Windows.Forms.TextBox mobTextBox;
+        private System.Windows.Forms.TextBox personTextBox;
     }
 }

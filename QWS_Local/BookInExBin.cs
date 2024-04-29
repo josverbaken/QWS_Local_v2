@@ -17,23 +17,26 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public BookInExBin(int myTruckConfigID, string myCardCode, string myCustomerName)
+        public BookInExBin(int myTruckConfigID, string myCardCode, string myCustomerName, dsQWSLocal.TruckDriverRow driverRow)
         {
             InitializeComponent();
             //EntryDTTM = _EntryDTTM;
             TruckConfigID = myTruckConfigID;
             CardCode = myCardCode;
             CustomerName = myCustomerName;
+            DriverRow = driverRow;
         }
 
         private int TruckConfigID;
         private string CardCode;
         private string CustomerName;
+        private dsQWSLocal.TruckDriverRow DriverRow;
 
         private void BookInExBin_Load(object sender, EventArgs e)
         {
             LoadExBinItems();
             LoadConfiguredTruckGVM(TruckConfigID);
+            LoadDriver();
             ExBinOrdersLoad(CardCode);
             label1.Text = "Customer  = " + CardCode + " " + CustomerName;
         }
@@ -52,6 +55,15 @@ namespace QWS_Local
         private void LoadConfiguredTruckGVM(int myTruckConfigID)
         {
             taConfiguredTruckGVM.Fill(dsTruckConfig.ConfiguredTruckGVM, "", myTruckConfigID);
+        }
+
+        private void LoadDriver()
+        {
+            dsQWSLocal.TruckDriver.Clear();
+            dsQWSLocal.TruckDriver.ImportRow(DriverRow);
+            //bsDriver.Position = 0;
+            //DataRow myRow = ((DataRowView)bsDriver.Current).Row;
+            //dsQWSLocal.TruckDriverRow myDriverRow = (dsQWSLocal.TruckDriverRow)myRow;
         }
 
         private dsTruckConfig.ConfiguredTruckGVMRow CurrentTruckGVM()
