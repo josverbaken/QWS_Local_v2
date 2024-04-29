@@ -429,7 +429,7 @@ namespace QWS_Local
 
         private void BookInDeliveryOrder()
         {
-            BookInDelivery frmDelivery = new BookInDelivery(CurrentConfigTruck().TruckConfigID);
+            BookInDelivery frmDelivery = new BookInDelivery(CurrentConfigTruck().TruckConfigID, CurrentTruckDriver());
             frmDelivery.MdiParent = this.MdiParent;
             frmDelivery.Show();
         }

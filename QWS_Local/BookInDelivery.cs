@@ -13,22 +13,25 @@ namespace QWS_Local
     public partial class BookInDelivery : Form
     {
         private static int TruckConfigID;
+        private dsQWSLocal.TruckDriverRow DriverRow;
 
         public BookInDelivery()
         {
             InitializeComponent();
         }
 
-        public BookInDelivery(int myTruckConfigID)
+        public BookInDelivery(int myTruckConfigID, dsQWSLocal.TruckDriverRow driverRow)
         {
             InitializeComponent();
             TruckConfigID = myTruckConfigID;
+            DriverRow = driverRow;
         }
 
         private void BookInDelivery_Load(object sender, EventArgs e)
         {
             taConfiguredTruckGVM.Fill(this.dsTruckConfig.ConfiguredTruckGVM, "", TruckConfigID);
             DeliveryOrdersLoad();
+            LoadDriver();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -40,6 +43,15 @@ namespace QWS_Local
         private void DeliveryOrdersLoad()
         {
             this.taDeliveryOrders.FillByOpenQty(this.dsBookIn.DeliveryOrdersAll);
+        }
+
+        private void LoadDriver()
+        {
+            dsQWSLocal.TruckDriver.Clear();
+            dsQWSLocal.TruckDriver.ImportRow(DriverRow);
+            //bsDriver.Position = 0;
+            //DataRow myRow = ((DataRowView)bsDriver.Current).Row;
+            //dsQWSLocal.TruckDriverRow myDriverRow = (dsQWSLocal.TruckDriverRow)myRow;
         }
 
     }

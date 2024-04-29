@@ -54,16 +54,15 @@ namespace QWS_Local
             System.Windows.Forms.Label feeCodeLabel;
             System.Windows.Forms.Label axleConfigurationLabel;
             System.Windows.Forms.Label ownerLabel;
-            System.Windows.Forms.Label regoTrailerLabel;
             System.Windows.Forms.Label regoTkLabel;
-            System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label personLabel;
+            System.Windows.Forms.Label mobLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.feeCodeTextBox = new System.Windows.Forms.TextBox();
             this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.axleConfigurationTextBox = new System.Windows.Forms.TextBox();
             this.ownerTextBox = new System.Windows.Forms.TextBox();
-            this.regoTrailerTextBox = new System.Windows.Forms.TextBox();
             this.regoTkTextBox = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnPayloadValidate = new System.Windows.Forms.Button();
@@ -122,8 +121,12 @@ namespace QWS_Local
             this.taConfiguredTruckGVM = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTruckGVMTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
             this.tpPayload = new System.Windows.Forms.TabPage();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
+            this.bsDriver = new System.Windows.Forms.BindingSource(this.components);
+            this.taDriver = new QWS_Local.dsQWSLocalTableAdapters.TruckDriverTableAdapter();
+            this.tableAdapterManager2 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
+            this.personTextBox = new System.Windows.Forms.TextBox();
+            this.mobTextBox = new System.Windows.Forms.TextBox();
             docNumLabel = new System.Windows.Forms.Label();
             docDateLabel = new System.Windows.Forms.Label();
             deliveryDateLabel = new System.Windows.Forms.Label();
@@ -148,9 +151,9 @@ namespace QWS_Local
             feeCodeLabel = new System.Windows.Forms.Label();
             axleConfigurationLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
-            regoTrailerLabel = new System.Windows.Forms.Label();
             regoTkLabel = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
+            personLabel = new System.Windows.Forms.Label();
+            mobLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -170,6 +173,8 @@ namespace QWS_Local
             this.tpDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.exBinOrdersBindingSource)).BeginInit();
             this.tpPayload.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDriver)).BeginInit();
             this.SuspendLayout();
             // 
             // docNumLabel
@@ -382,20 +387,11 @@ namespace QWS_Local
             // ownerLabel
             // 
             ownerLabel.AutoSize = true;
-            ownerLabel.Location = new System.Drawing.Point(120, 109);
+            ownerLabel.Location = new System.Drawing.Point(120, 80);
             ownerLabel.Name = "ownerLabel";
             ownerLabel.Size = new System.Drawing.Size(53, 17);
             ownerLabel.TabIndex = 79;
             ownerLabel.Text = "Owner:";
-            // 
-            // regoTrailerLabel
-            // 
-            regoTrailerLabel.AutoSize = true;
-            regoTrailerLabel.Location = new System.Drawing.Point(179, 80);
-            regoTrailerLabel.Name = "regoTrailerLabel";
-            regoTrailerLabel.Size = new System.Drawing.Size(91, 17);
-            regoTrailerLabel.TabIndex = 77;
-            regoTrailerLabel.Text = "Rego Trailer:";
             // 
             // regoTkLabel
             // 
@@ -417,17 +413,16 @@ namespace QWS_Local
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
-            this.splitContainer1.Panel1.Controls.Add(label1);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox6);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox5);
+            this.splitContainer1.Panel1.Controls.Add(mobLabel);
+            this.splitContainer1.Panel1.Controls.Add(this.mobTextBox);
+            this.splitContainer1.Panel1.Controls.Add(personLabel);
+            this.splitContainer1.Panel1.Controls.Add(this.personTextBox);
             this.splitContainer1.Panel1.Controls.Add(feeCodeLabel);
             this.splitContainer1.Panel1.Controls.Add(this.feeCodeTextBox);
             this.splitContainer1.Panel1.Controls.Add(axleConfigurationLabel);
             this.splitContainer1.Panel1.Controls.Add(this.axleConfigurationTextBox);
             this.splitContainer1.Panel1.Controls.Add(ownerLabel);
             this.splitContainer1.Panel1.Controls.Add(this.ownerTextBox);
-            this.splitContainer1.Panel1.Controls.Add(regoTrailerLabel);
-            this.splitContainer1.Panel1.Controls.Add(this.regoTrailerTextBox);
             this.splitContainer1.Panel1.Controls.Add(regoTkLabel);
             this.splitContainer1.Panel1.Controls.Add(this.regoTkTextBox);
             this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
@@ -470,18 +465,10 @@ namespace QWS_Local
             // ownerTextBox
             // 
             this.ownerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "Owner", true));
-            this.ownerTextBox.Location = new System.Drawing.Point(182, 106);
+            this.ownerTextBox.Location = new System.Drawing.Point(182, 77);
             this.ownerTextBox.Name = "ownerTextBox";
             this.ownerTextBox.Size = new System.Drawing.Size(194, 23);
             this.ownerTextBox.TabIndex = 82;
-            // 
-            // regoTrailerTextBox
-            // 
-            this.regoTrailerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "RegoTrailer", true));
-            this.regoTrailerTextBox.Location = new System.Drawing.Point(276, 77);
-            this.regoTrailerTextBox.Name = "regoTrailerTextBox";
-            this.regoTrailerTextBox.Size = new System.Drawing.Size(100, 23);
-            this.regoTrailerTextBox.TabIndex = 80;
             // 
             // regoTkTextBox
             // 
@@ -1010,29 +997,73 @@ namespace QWS_Local
             this.tpPayload.Text = "Payload";
             this.tpPayload.UseVisualStyleBackColor = true;
             // 
-            // textBox5
+            // dsQWSLocal
             // 
-            this.textBox5.Location = new System.Drawing.Point(182, 135);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(194, 23);
-            this.textBox5.TabIndex = 86;
+            this.dsQWSLocal.DataSetName = "dsQWSLocal";
+            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // textBox6
+            // bsDriver
             // 
-            this.textBox6.Location = new System.Drawing.Point(276, 164);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 23);
-            this.textBox6.TabIndex = 87;
-            this.textBox6.Text = "0411 258 963";
+            this.bsDriver.DataMember = "TruckDriver";
+            this.bsDriver.DataSource = this.dsQWSLocal;
             // 
-            // label1
+            // taDriver
             // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(120, 138);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(50, 17);
-            label1.TabIndex = 88;
-            label1.Text = "Driver:";
+            this.taDriver.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager2
+            // 
+            this.tableAdapterManager2.AxleConfigurationTableAdapter = null;
+            this.tableAdapterManager2.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager2.Connection = null;
+            this.tableAdapterManager2.NHVLTableAdapter = null;
+            this.tableAdapterManager2.PBS_ConfigSchemeTableAdapter = null;
+            this.tableAdapterManager2.PBS_ConfigTableAdapter = null;
+            this.tableAdapterManager2.PBSTableAdapter = null;
+            this.tableAdapterManager2.SchemeCodesTableAdapter = null;
+            this.tableAdapterManager2.TruckConfigTableAdapter = null;
+            this.tableAdapterManager2.TruckConfigVehicleTableAdapter = null;
+            this.tableAdapterManager2.TrucksInQuarryTableAdapter = null;
+            this.tableAdapterManager2.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager2.VehiclePBSTableAdapter = null;
+            this.tableAdapterManager2.VehiclePrefCustomersTableAdapter = null;
+            this.tableAdapterManager2.VehicleRegFeeCodesTableAdapter = null;
+            this.tableAdapterManager2.VehicleTableAdapter = null;
+            this.tableAdapterManager2.VehicleTypeTableAdapter = null;
+            // 
+            // personLabel
+            // 
+            personLabel.AutoSize = true;
+            personLabel.Location = new System.Drawing.Point(119, 109);
+            personLabel.Name = "personLabel";
+            personLabel.Size = new System.Drawing.Size(50, 17);
+            personLabel.TabIndex = 85;
+            personLabel.Text = "Driver:";
+            // 
+            // personTextBox
+            // 
+            this.personTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDriver, "Person", true));
+            this.personTextBox.Location = new System.Drawing.Point(182, 106);
+            this.personTextBox.Name = "personTextBox";
+            this.personTextBox.Size = new System.Drawing.Size(194, 23);
+            this.personTextBox.TabIndex = 86;
+            // 
+            // mobLabel
+            // 
+            mobLabel.AutoSize = true;
+            mobLabel.Location = new System.Drawing.Point(137, 138);
+            mobLabel.Name = "mobLabel";
+            mobLabel.Size = new System.Drawing.Size(39, 17);
+            mobLabel.TabIndex = 86;
+            mobLabel.Text = "Mob:";
+            // 
+            // mobTextBox
+            // 
+            this.mobTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDriver, "Mob", true));
+            this.mobTextBox.Location = new System.Drawing.Point(182, 135);
+            this.mobTextBox.Name = "mobTextBox";
+            this.mobTextBox.Size = new System.Drawing.Size(100, 23);
+            this.mobTextBox.TabIndex = 87;
             // 
             // BookInDelivery
             // 
@@ -1067,6 +1098,8 @@ namespace QWS_Local
             this.tpDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.exBinOrdersBindingSource)).EndInit();
             this.tpPayload.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDriver)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1134,11 +1167,14 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox feeCodeTextBox;
         private System.Windows.Forms.TextBox axleConfigurationTextBox;
         private System.Windows.Forms.TextBox ownerTextBox;
-        private System.Windows.Forms.TextBox regoTrailerTextBox;
         private System.Windows.Forms.TextBox regoTkTextBox;
         private System.Windows.Forms.Button btnLoad;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TabPage tpPayload;
+        private dsQWSLocal dsQWSLocal;
+        private System.Windows.Forms.BindingSource bsDriver;
+        private dsQWSLocalTableAdapters.TruckDriverTableAdapter taDriver;
+        private dsQWSLocalTableAdapters.TableAdapterManager tableAdapterManager2;
+        private System.Windows.Forms.TextBox mobTextBox;
+        private System.Windows.Forms.TextBox personTextBox;
     }
 }
