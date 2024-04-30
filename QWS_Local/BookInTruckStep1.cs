@@ -551,6 +551,7 @@ namespace QWS_Local
                 // TODO retrieve TIQID for ExBin and Delivery
                 // stored procedure has been updated
                 int iRow = this.taTIQ.Update(dsQWSLocal.TrucksInQuarry);
+                MessageBox.Show("taTIQ.Update - iRow, hopefully next TIQID = " + iRow.ToString());
                 if (iRow >0 && myTIQType == TIQType.Retare)
                 {
                     TrucksInQuarry frmTIQ = new TrucksInQuarry();
