@@ -301,8 +301,8 @@
     </None>
     <None Include="dsQWSLocal.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsQWSLocal.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>dsQWSLocal1.Designer.cs</LastGenOutput>
     </None>
     <None Include="dsQWSLocal.xss">
       <DependentUpon>dsQWSLocal.xsd</DependentUpon>

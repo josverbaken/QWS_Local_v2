@@ -16,6 +16,12 @@ namespace QWS_Local
         private static DateTime EntryDTTM;
         private static string CustCardCode;
         private static string ExBinCustomer;
+        private enum TIQType
+        {
+            Retare,
+            ExBin,
+            Delivery
+        }
 
         public BookInTruckStep1()
         {
@@ -417,9 +423,12 @@ namespace QWS_Local
 
         private void BookInExBin()
         {
-            BookInExBin frmExBin = new BookInExBin(CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, CurrentTruckDriver());
-            frmExBin.MdiParent = this.MdiParent;
-            frmExBin.Show();
+            if (NewTIQ(TIQType.ExBin) > 0)
+            {
+                BookInExBin frmExBin = new BookInExBin(CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, CurrentTruckDriver());
+                frmExBin.MdiParent = this.MdiParent;
+                frmExBin.Show();
+            }
         }
 
         private void btnDelivery_Click(object sender, EventArgs e)
@@ -429,9 +438,12 @@ namespace QWS_Local
 
         private void BookInDeliveryOrder()
         {
-            BookInDelivery frmDelivery = new BookInDelivery(CurrentConfigTruck().TruckConfigID, CurrentTruckDriver());
-            frmDelivery.MdiParent = this.MdiParent;
-            frmDelivery.Show();
+            if (NewTIQ(TIQType.Delivery) > 0)
+            {
+                BookInDelivery frmDelivery = new BookInDelivery(CurrentConfigTruck().TruckConfigID, CurrentTruckDriver());
+                frmDelivery.MdiParent = this.MdiParent;
+                frmDelivery.Show();
+            }
         }
 
         private void SetTruckConfigRadioButtons(int Compartments)
@@ -477,10 +489,86 @@ namespace QWS_Local
 
         private void btnRetare_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("TODO implement retare and add to trucks in quarry queue.");
-            BookInRetare();
+            //MessageBox.Show("TODO implement retare and add to trucks in quarry queue.");
+            //BookInRetare();
+            NewTIQ(TIQType.Retare);
         }
 
+        private int NewTIQ(TIQType myTIQType)
+        {
+            try
+            {
+                dsQWSLocal.TrucksInQuarry.Clear();
+                DataRow dr = dsQWSLocal.TrucksInQuarry.NewRow();
+                dsQWSLocal.TrucksInQuarryRow rowTIQ = (dsQWSLocal.TrucksInQuarryRow)dr;
+                rowTIQ.TIQID = -1;
+                rowTIQ.ParentTIQID = 0;
+                rowTIQ.TIQOpen = true;
+                rowTIQ.SiteID = Properties.Settings.Default.SiteID;
+                rowTIQ.Rego = CurrentConfigTruck().RegoTk;
+                rowTIQ.TruckConfig = "TK"; //TODO  TruckConfig;
+                rowTIQ.TruckConfigID = CurrentConfigTruck().TruckConfigID;
+                rowTIQ.AxleConfiguration = CurrentConfigTruck().AxleConfiguration;
+                rowTIQ.FeeCode = CurrentConfigTruck().FeeCode;
+                rowTIQ.ConfigSource = "n/a";// CurrentConfigTruck().ConfigSource;
+                rowTIQ.SchemeCode = "n/a";// CurrentConfigTruck().SchemeCode;
+                rowTIQ.RoadAccess = "n/a";// CurrentConfigTruck().RoadAccess;
+                rowTIQ.WeighbridgeID = 1;
+                rowTIQ.SAPOrder = -9;
+                switch (myTIQType)
+                {
+                    case TIQType.Retare:
+                        rowTIQ.QueueStatus = "T";
+                        rowTIQ.Material = "Retare";
+                        rowTIQ.MaterialDesc = "Retare Vehicle";
+                        break;
+                    case TIQType.ExBin:
+                        rowTIQ.QueueStatus = "P";
+                        rowTIQ.Material = "ExBin";
+                        rowTIQ.MaterialDesc = "tba";
+                        break;
+                    case TIQType.Delivery:
+                        rowTIQ.QueueStatus = "P";
+                        rowTIQ.Material = "Delivery";
+                        rowTIQ.MaterialDesc = "tba";
+                        break;
+                    default:
+                        break;
+                }
+                rowTIQ.TruckOwnerCode = CurrentConfigTruck().CardCode;
+                rowTIQ.TruckOwner = CurrentConfigTruck().TruckOwner;
+                rowTIQ.DriverID = CurrentTruckDriver().CntctCode;
+                rowTIQ.Driver = CurrentTruckDriver().Person;
+                rowTIQ.Payload = 0;
+                rowTIQ.GCM = 0; // CurrentConfigTruck().GCM;
+                rowTIQ.GVMTruck = 0; // CurrentConfigTruck().GVMTruck;
+                rowTIQ.Tare = CurrentConfigTruck().Tare;
+                rowTIQ.TareTk = 0; // CurrentConfigTruck().TareTk;
+                rowTIQ.EntryDTTM = EntryDTTM;
+                rowTIQ.AllocateDTTM = DateTime.Now;
+                rowTIQ.ReleaseDTTM = DateTime.Now;
+                dsQWSLocal.TrucksInQuarry.AddTrucksInQuarryRow(rowTIQ);
+                // TODO retrieve TIQID for ExBin and Delivery
+                // stored procedure has been updated
+                int iRow = this.taTIQ.Update(dsQWSLocal.TrucksInQuarry);
+                if (iRow >0 && myTIQType == TIQType.Retare)
+                {
+                    TrucksInQuarry frmTIQ = new TrucksInQuarry();
+                    frmTIQ.MdiParent = this.MdiParent;
+                    frmTIQ.Show();
+                }
+                else
+                {
+                    MessageBox.Show("iRow, hopefully next TIQID = " + iRow.ToString());
+                }
+                return iRow;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return -9;
+            }
+        }
 
         private void BookInRetare()
         {
