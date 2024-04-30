@@ -17,10 +17,11 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public BookInExBin(int myTruckConfigID, string myCardCode, string myCustomerName, dsQWSLocal.TruckDriverRow driverRow)
+        public BookInExBin(int myTIQID,int myTruckConfigID, string myCardCode, string myCustomerName, dsQWSLocal.TruckDriverRow driverRow)
         {
             InitializeComponent();
             //EntryDTTM = _EntryDTTM;
+            TIQID = myTIQID;
             TruckConfigID = myTruckConfigID;
             CardCode = myCardCode;
             CustomerName = myCustomerName;
@@ -28,6 +29,7 @@ namespace QWS_Local
         }
 
         private int TruckConfigID;
+        private int TIQID;
         private string CardCode;
         private string CustomerName;
         private dsQWSLocal.TruckDriverRow DriverRow;

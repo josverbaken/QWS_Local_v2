@@ -424,9 +424,10 @@ namespace QWS_Local
 
         private void BookInExBin()
         {
-            if (NewTIQ(TIQType.ExBin) > 0)
+            int iTIQID = NewTIQ(TIQType.ExBin);
+            if (iTIQID > 0)
             {
-                BookInExBin frmExBin = new BookInExBin(CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, CurrentTruckDriver());
+                BookInExBin frmExBin = new BookInExBin(iTIQID,CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, CurrentTruckDriver());
                 frmExBin.MdiParent = this.MdiParent;
                 frmExBin.Show();
             }
@@ -439,9 +440,10 @@ namespace QWS_Local
 
         private void BookInDeliveryOrder()
         {
-            if (NewTIQ(TIQType.Delivery) > 0)
+            int iTIQID = NewTIQ(TIQType.Delivery);
+            if ( iTIQID > 0)
             {
-                BookInDelivery frmDelivery = new BookInDelivery(CurrentConfigTruck().TruckConfigID, CurrentTruckDriver());
+                BookInDelivery frmDelivery = new BookInDelivery(iTIQID, CurrentConfigTruck().TruckConfigID, CurrentTruckDriver());
                 frmDelivery.MdiParent = this.MdiParent;
                 frmDelivery.Show();
             }
@@ -490,9 +492,13 @@ namespace QWS_Local
 
         private void btnRetare_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("TODO implement retare and add to trucks in quarry queue.");
-            //BookInRetare();
-            NewTIQ(TIQType.Retare);
+            int iTIQID = NewTIQ(TIQType.Retare);
+            if (iTIQID > 0)
+            {
+                TrucksInQuarry frmTIQ = new TrucksInQuarry();
+                frmTIQ.MdiParent = this.MdiParent;
+                frmTIQ.Show();
+            }
         }
 
         private int NewTIQ(TIQType myTIQType)

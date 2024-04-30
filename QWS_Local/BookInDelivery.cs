@@ -13,6 +13,7 @@ namespace QWS_Local
     public partial class BookInDelivery : Form
     {
         private static int TruckConfigID;
+        private static int TIQID;
         private dsQWSLocal.TruckDriverRow DriverRow;
 
         public BookInDelivery()
@@ -20,9 +21,10 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public BookInDelivery(int myTruckConfigID, dsQWSLocal.TruckDriverRow driverRow)
+        public BookInDelivery(int myTIQID, int myTruckConfigID, dsQWSLocal.TruckDriverRow driverRow)
         {
             InitializeComponent();
+            TIQID = myTIQID;
             TruckConfigID = myTruckConfigID;
             DriverRow = driverRow;
         }
