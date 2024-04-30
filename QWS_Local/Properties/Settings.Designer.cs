@@ -26,7 +26,8 @@ namespace QWS_Local.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ch-sql02;Initial Catalog=QWSLocal;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ch-sql02;Initial Catalog=QWSLocal;Integrated Security=True;TrustServe" +
+            "rCertificate=True")]
         public string cnQWSLocal {
             get {
                 return ((string)(this["cnQWSLocal"]));

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 
 namespace QWS_Local
 {
@@ -497,72 +498,65 @@ namespace QWS_Local
         private int NewTIQ(TIQType myTIQType)
         {
             try
-            {
-                dsQWSLocal.TrucksInQuarry.Clear();
-                DataRow dr = dsQWSLocal.TrucksInQuarry.NewRow();
-                dsQWSLocal.TrucksInQuarryRow rowTIQ = (dsQWSLocal.TrucksInQuarryRow)dr;
-                rowTIQ.TIQID = -1;
-                rowTIQ.ParentTIQID = 0;
-                rowTIQ.TIQOpen = true;
-                rowTIQ.SiteID = Properties.Settings.Default.SiteID;
-                rowTIQ.Rego = CurrentConfigTruck().RegoTk;
-                rowTIQ.TruckConfig = "TK"; //TODO  TruckConfig;
-                rowTIQ.TruckConfigID = CurrentConfigTruck().TruckConfigID;
-                rowTIQ.AxleConfiguration = CurrentConfigTruck().AxleConfiguration;
-                rowTIQ.FeeCode = CurrentConfigTruck().FeeCode;
-                rowTIQ.ConfigSource = "n/a";// CurrentConfigTruck().ConfigSource;
-                rowTIQ.SchemeCode = "n/a";// CurrentConfigTruck().SchemeCode;
-                rowTIQ.RoadAccess = "n/a";// CurrentConfigTruck().RoadAccess;
-                rowTIQ.WeighbridgeID = 1;
-                rowTIQ.SAPOrder = -9;
+            {                
+                int iTIQID = 0;
+                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "TIQAdd";
+                cmd.Parameters.AddWithValue("@ParentTIQID", 0);
+                cmd.Parameters.AddWithValue("@TIQOpen", true);
+                cmd.Parameters.AddWithValue("@SiteID", Properties.Settings.Default.SiteID);
+                cmd.Parameters.AddWithValue("@Rego", CurrentConfigTruck().RegoTk);
+                cmd.Parameters.AddWithValue("@TruckConfig", "TK");
+                cmd.Parameters.AddWithValue("@TruckConfigID", CurrentConfigTruck().TruckConfigID);
+                cmd.Parameters.AddWithValue("@AxleConfiguration", CurrentConfigTruck().AxleConfiguration);
+                cmd.Parameters.AddWithValue("@FeeCode", CurrentConfigTruck().FeeCode);
+                cmd.Parameters.AddWithValue("@ConfigSource", "n/a");
+                cmd.Parameters.AddWithValue("@SchemeCode", "n/a");
+                cmd.Parameters.AddWithValue("@RoadAccess", "n/a");
+                cmd.Parameters.AddWithValue("@WeighbridgeID", 1);
+                cmd.Parameters.AddWithValue("@SAPOrder", -9);
                 switch (myTIQType)
                 {
                     case TIQType.Retare:
-                        rowTIQ.QueueStatus = "T";
-                        rowTIQ.Material = "Retare";
-                        rowTIQ.MaterialDesc = "Retare Vehicle";
+                        cmd.Parameters.AddWithValue("@QueueStatus", "T");
+                        cmd.Parameters.AddWithValue("@Material", "Retare");
+                        cmd.Parameters.AddWithValue("@MaterialDesc", "Retare Vehicle");
                         break;
                     case TIQType.ExBin:
-                        rowTIQ.QueueStatus = "P";
-                        rowTIQ.Material = "ExBin";
-                        rowTIQ.MaterialDesc = "tba";
+                        cmd.Parameters.AddWithValue("@QueueStatus", "P");
+ 
+                         cmd.Parameters.AddWithValue("@Material", "ExBin");
+ 
+                         cmd.Parameters.AddWithValue("@MaterialDesc", "tba");
                         break;
                     case TIQType.Delivery:
-                        rowTIQ.QueueStatus = "P";
-                        rowTIQ.Material = "Delivery";
-                        rowTIQ.MaterialDesc = "tba";
+                        cmd.Parameters.AddWithValue("@QueueStatus", "P");
+                        cmd.Parameters.AddWithValue("@Material", "Delivery");
+                        cmd.Parameters.AddWithValue("@MaterialDesc", "tba");
                         break;
                     default:
                         break;
                 }
-                rowTIQ.TruckOwnerCode = CurrentConfigTruck().CardCode;
-                rowTIQ.TruckOwner = CurrentConfigTruck().TruckOwner;
-                rowTIQ.DriverID = CurrentTruckDriver().CntctCode;
-                rowTIQ.Driver = CurrentTruckDriver().Person;
-                rowTIQ.Payload = 0;
-                rowTIQ.GCM = 0; // CurrentConfigTruck().GCM;
-                rowTIQ.GVMTruck = 0; // CurrentConfigTruck().GVMTruck;
-                rowTIQ.Tare = CurrentConfigTruck().Tare;
-                rowTIQ.TareTk = 0; // CurrentConfigTruck().TareTk;
-                rowTIQ.EntryDTTM = EntryDTTM;
-                rowTIQ.AllocateDTTM = DateTime.Now;
-                rowTIQ.ReleaseDTTM = DateTime.Now;
-                dsQWSLocal.TrucksInQuarry.AddTrucksInQuarryRow(rowTIQ);
-                // TODO retrieve TIQID for ExBin and Delivery
-                // stored procedure has been updated
-                int iRow = this.taTIQ.Update(dsQWSLocal.TrucksInQuarry);
-                MessageBox.Show("taTIQ.Update - iRow, hopefully next TIQID = " + iRow.ToString());
-                if (iRow >0 && myTIQType == TIQType.Retare)
-                {
-                    TrucksInQuarry frmTIQ = new TrucksInQuarry();
-                    frmTIQ.MdiParent = this.MdiParent;
-                    frmTIQ.Show();
-                }
-                else
-                {
-                    MessageBox.Show("iRow, hopefully next TIQID = " + iRow.ToString());
-                }
-                return iRow;
+                cmd.Parameters.AddWithValue("@TruckOwnerCode", CurrentConfigTruck().CardCode);
+                cmd.Parameters.AddWithValue("@TruckOwner", CurrentConfigTruck().TruckOwner);
+                cmd.Parameters.AddWithValue("@DriverID", CurrentTruckDriver().CntctCode);
+                cmd.Parameters.AddWithValue("@Driver", CurrentTruckDriver().Person);
+                cmd.Parameters.AddWithValue("@Payload", 0);
+                cmd.Parameters.AddWithValue("@GCM", 0);
+                cmd.Parameters.AddWithValue("@GVMTruck", 0);
+                cmd.Parameters.AddWithValue("@Tare", CurrentConfigTruck().Tare);
+                cmd.Parameters.AddWithValue("@TareTk", 0); 
+                cmd.Parameters.AddWithValue("@EntryDTTM", EntryDTTM);
+                cmd.Parameters.AddWithValue("@AllocateDTTM", DateTime.Now);
+                cmd.Parameters.AddWithValue("@ReleaseDTTM", DateTime.Now);
+                sqlConnection.Open();
+                iTIQID = System.Convert.ToInt32( cmd.ExecuteScalar());
+                MessageBox.Show("iTIQID = " + iTIQID.ToString());
+                sqlConnection.Close();
+                return iTIQID;
             }
             catch (Exception ex)
             {
