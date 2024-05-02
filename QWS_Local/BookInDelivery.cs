@@ -56,5 +56,36 @@ namespace QWS_Local
             //dsQWSLocal.TruckDriverRow myDriverRow = (dsQWSLocal.TruckDriverRow)myRow;
         }
 
+        private void btnBookIn_Click(object sender, EventArgs e)
+        {
+            AddDelivery2TIQ();
+        }
+
+        private void AddDelivery2TIQ()
+        {
+            try
+            {
+                taTIQ.FillByTIQID(dsQWSLocal.TrucksInQuarry, TIQID);
+                DataRow myRow = ((DataRowView)bsTIQ.Current).Row;
+                dsQWSLocal.TrucksInQuarryRow myTIQRow = (dsQWSLocal.TrucksInQuarryRow)myRow;
+                myTIQRow.AllocateDTTM = DateTime.Now;
+                // TODO update other fields
+                myTIQRow.Material = "Allocated";
+                bsTIQ.EndEdit();
+                int iRow = taTIQ.Update(dsQWSLocal.TrucksInQuarry);
+                if (iRow == 1)
+                {
+                    TrucksInQuarry frmTIQ = new TrucksInQuarry();
+                    frmTIQ.MdiParent = this.MdiParent;
+                    frmTIQ.Show();
+                }
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "AddDelivery2TIQ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
