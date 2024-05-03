@@ -66,6 +66,8 @@ namespace QWS_Local
             try
             {
                 taTIQ.FillByTIQID(dsQWSLocal.TrucksInQuarry, TIQID);
+                // TODO resolve issue with dsQWSLocal !@#
+                //taTIQ.FillByID()
                 DataRow myRow = ((DataRowView)bsTIQ.Current).Row;
                 dsQWSLocal.TrucksInQuarryRow myTIQRow = (dsQWSLocal.TrucksInQuarryRow)myRow;
                 myTIQRow.AllocateDTTM = DateTime.Now;

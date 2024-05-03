@@ -59,9 +59,12 @@ namespace QWS_Local
             System.Windows.Forms.Label mobLabel;
             System.Windows.Forms.Label tIQIDLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tIQIDTextBox = new System.Windows.Forms.TextBox();
+            this.bsTIQ = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
+            this.btnBookIn = new System.Windows.Forms.Button();
             this.mobTextBox = new System.Windows.Forms.TextBox();
             this.bsDriver = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.personTextBox = new System.Windows.Forms.TextBox();
             this.feeCodeTextBox = new System.Windows.Forms.TextBox();
             this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
@@ -138,10 +141,7 @@ namespace QWS_Local
             this.tableAdapterManager1 = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
             this.taDriver = new QWS_Local.dsQWSLocalTableAdapters.TruckDriverTableAdapter();
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
-            this.btnBookIn = new System.Windows.Forms.Button();
-            this.bsTIQ = new System.Windows.Forms.BindingSource(this.components);
             this.taTIQ = new QWS_Local.dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter();
-            this.tIQIDTextBox = new System.Windows.Forms.TextBox();
             docNumLabel = new System.Windows.Forms.Label();
             docDateLabel = new System.Windows.Forms.Label();
             deliveryDateLabel = new System.Windows.Forms.Label();
@@ -174,8 +174,9 @@ namespace QWS_Local
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsDriver)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDriver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -193,7 +194,6 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).BeginInit();
             this.SuspendLayout();
             // 
             // docNumLabel
@@ -439,6 +439,15 @@ namespace QWS_Local
             mobLabel.TabIndex = 86;
             mobLabel.Text = "Mob:";
             // 
+            // tIQIDLabel
+            // 
+            tIQIDLabel.AutoSize = true;
+            tIQIDLabel.Location = new System.Drawing.Point(927, 158);
+            tIQIDLabel.Name = "tIQIDLabel";
+            tIQIDLabel.Size = new System.Drawing.Size(48, 17);
+            tIQIDLabel.TabIndex = 88;
+            tIQIDLabel.Text = "TIQID:";
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -476,6 +485,35 @@ namespace QWS_Local
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
+            // tIQIDTextBox
+            // 
+            this.tIQIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "TIQID", true));
+            this.tIQIDTextBox.Location = new System.Drawing.Point(981, 155);
+            this.tIQIDTextBox.Name = "tIQIDTextBox";
+            this.tIQIDTextBox.Size = new System.Drawing.Size(100, 23);
+            this.tIQIDTextBox.TabIndex = 89;
+            // 
+            // bsTIQ
+            // 
+            this.bsTIQ.DataMember = "TrucksInQuarry";
+            this.bsTIQ.DataSource = this.dsQWSLocal;
+            // 
+            // dsQWSLocal
+            // 
+            this.dsQWSLocal.DataSetName = "dsQWSLocal";
+            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // btnBookIn
+            // 
+            this.btnBookIn.Location = new System.Drawing.Point(914, 205);
+            this.btnBookIn.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBookIn.Name = "btnBookIn";
+            this.btnBookIn.Size = new System.Drawing.Size(203, 28);
+            this.btnBookIn.TabIndex = 88;
+            this.btnBookIn.Text = "Book In";
+            this.btnBookIn.UseVisualStyleBackColor = true;
+            this.btnBookIn.Click += new System.EventHandler(this.btnBookIn_Click);
+            // 
             // mobTextBox
             // 
             this.mobTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDriver, "Mob", true));
@@ -488,11 +526,6 @@ namespace QWS_Local
             // 
             this.bsDriver.DataMember = "TruckDriver";
             this.bsDriver.DataSource = this.dsQWSLocal;
-            // 
-            // dsQWSLocal
-            // 
-            this.dsQWSLocal.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // personTextBox
             // 
@@ -1176,42 +1209,9 @@ namespace QWS_Local
             this.tableAdapterManager2.VehicleTableAdapter = null;
             this.tableAdapterManager2.VehicleTypeTableAdapter = null;
             // 
-            // btnBookIn
-            // 
-            this.btnBookIn.Location = new System.Drawing.Point(914, 205);
-            this.btnBookIn.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBookIn.Name = "btnBookIn";
-            this.btnBookIn.Size = new System.Drawing.Size(203, 28);
-            this.btnBookIn.TabIndex = 88;
-            this.btnBookIn.Text = "Book In";
-            this.btnBookIn.UseVisualStyleBackColor = true;
-            this.btnBookIn.Click += new System.EventHandler(this.btnBookIn_Click);
-            // 
-            // bsTIQ
-            // 
-            this.bsTIQ.DataMember = "TrucksInQuarry";
-            this.bsTIQ.DataSource = this.dsQWSLocal;
-            // 
             // taTIQ
             // 
             this.taTIQ.ClearBeforeFill = true;
-            // 
-            // tIQIDLabel
-            // 
-            tIQIDLabel.AutoSize = true;
-            tIQIDLabel.Location = new System.Drawing.Point(927, 158);
-            tIQIDLabel.Name = "tIQIDLabel";
-            tIQIDLabel.Size = new System.Drawing.Size(48, 17);
-            tIQIDLabel.TabIndex = 88;
-            tIQIDLabel.Text = "TIQID:";
-            // 
-            // tIQIDTextBox
-            // 
-            this.tIQIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "TIQID", true));
-            this.tIQIDTextBox.Location = new System.Drawing.Point(981, 155);
-            this.tIQIDTextBox.Name = "tIQIDTextBox";
-            this.tIQIDTextBox.Size = new System.Drawing.Size(100, 23);
-            this.tIQIDTextBox.TabIndex = 89;
             // 
             // BookInDelivery
             // 
@@ -1229,8 +1229,9 @@ namespace QWS_Local
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bsDriver)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDriver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1250,7 +1251,6 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).EndInit();
             this.ResumeLayout(false);
 
         }
