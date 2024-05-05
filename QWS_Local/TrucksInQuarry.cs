@@ -36,7 +36,7 @@ namespace QWS_Local
             try
             {
                 int SiteID = Properties.Settings.Default.SiteID;
-                this.taTIQ.Fill(this.dsQWSLocal.TrucksInQuarry, SiteID);
+                this.taTIQ2.Fill(dsTIQ2.TIQ, SiteID);
             }
             catch (Exception ex)
             {
@@ -160,12 +160,12 @@ namespace QWS_Local
             dataGridView1.ClearSelection();
         }
 
-        private dsQWSLocal.TrucksInQuarryRow CurrentTIQ()
+        private dsTIQ2.TIQRow CurrentTIQ()
         {
-            if ( bsTIQ.Count > 0)
+            if ( bsTIQ2.Count > 0)
             {
-                DataRow myRow = ((DataRowView)bsTIQ.Current).Row;
-                dsQWSLocal.TrucksInQuarryRow myTIQRow = (dsQWSLocal.TrucksInQuarryRow)myRow;
+                DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
+                dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
                 return myTIQRow;
             }
             else
@@ -174,23 +174,7 @@ namespace QWS_Local
             }
         }
 
-        private void bsTIQ_CurrentChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (bsTIQ.Count>0)
-                {
-                    string AxleConfig = CurrentTIQ().AxleConfiguration;
-                    SyncAxleConfig(AxleConfig);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void SyncAxleConfig(string AxleConfig)
+           private void SyncAxleConfig(string AxleConfig)
         {
            bsAxleConfig.Position = bsAxleConfig.Find("AxleConfiguration", AxleConfig);
         }
@@ -202,9 +186,32 @@ namespace QWS_Local
 
         private void TINRemove()
         {
+            try 
+            { 
             CurrentTIQ().TIQOpen = false;
-            bsTIQ.EndEdit();
-            taTIQ.Update(dsQWSLocal.TrucksInQuarry);
+            bsTIQ2.EndEdit();
+            taTIQ2.Update(dsTIQ2.TIQ);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+}
+
+        private void bsTIQ2_CurrentChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (bsTIQ2.Count > 0)
+                {
+                    string AxleConfig = CurrentTIQ().AxleConfiguration;
+                    SyncAxleConfig(AxleConfig);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

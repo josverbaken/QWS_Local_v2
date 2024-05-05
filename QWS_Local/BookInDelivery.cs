@@ -67,23 +67,20 @@ namespace QWS_Local
             {
                 int iRow =taTIQ2.FillBy(dsTIQ2.TIQ, 7, TIQID);
                 MessageBox.Show("TIQ2.FillBy iRow = " + iRow.ToString());
-                //taTIQ.FillByTIQID(dsQWSLocal.TrucksInQuarry, TIQID);
-                // TODO resolve issue with dsQWSLocal !@#
-                //tIQTableAdapter.FillBy(dsTIQ2.TIQ, 7, TIQID);
-                //DataRow myRow = ((DataRowView)bsTIQ.Current).Row;
-                //dsQWSLocal.TrucksInQuarryRow myTIQRow = (dsQWSLocal.TrucksInQuarryRow)myRow;
-                //myTIQRow.AllocateDTTM = DateTime.Now;
-                //// TODO update other fields
-                //myTIQRow.Material = "Allocated";
-                //bsTIQ.EndEdit();
-                //int iRow = taTIQ.Update(dsQWSLocal.TrucksInQuarry);
-                //if (iRow == 1)
-                //{
-                //    TrucksInQuarry frmTIQ = new TrucksInQuarry();
-                //    frmTIQ.MdiParent = this.MdiParent;
-                //    frmTIQ.Show();
-                //}
-                //this.Close();
+                DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
+                dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
+                myTIQRow.AllocateDTTM = DateTime.Now;
+                // TODO update other fields
+                myTIQRow.Material = "Allocated";
+                bsTIQ2.EndEdit();
+                iRow = taTIQ2.Update(dsTIQ2.TIQ);
+                if (iRow == 1)
+                {
+                    TrucksInQuarry frmTIQ = new TrucksInQuarry();
+                    frmTIQ.MdiParent = this.MdiParent;
+                    frmTIQ.Show();
+                }
+                this.Close();
             }
             catch (Exception ex)
             {

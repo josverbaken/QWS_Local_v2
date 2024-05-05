@@ -58,7 +58,7 @@ namespace QWS_Local
             System.Windows.Forms.Label tareTkLabel1;
             System.Windows.Forms.Label tareLabel1;
             System.Windows.Forms.Label custONLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.button5 = new System.Windows.Forms.Button();
@@ -76,7 +76,6 @@ namespace QWS_Local
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnTINReleaseHold = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.bsTIQ = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.mtxtWeight = new System.Windows.Forms.MaskedTextBox();
@@ -129,9 +128,12 @@ namespace QWS_Local
             this.queueStatusTextBox = new System.Windows.Forms.TextBox();
             this.entryDTTMDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.regoTextBox = new System.Windows.Forms.TextBox();
-            this.taTIQ = new QWS_Local.dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taAxleConfig = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
+            this.dsTIQ2 = new QWS_Local.dsTIQ2();
+            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
+            this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
+            this.tableAdapterManager1 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             regoLabel = new System.Windows.Forms.Label();
             entryDTTMLabel = new System.Windows.Forms.Label();
             queueStatusLabel = new System.Windows.Forms.Label();
@@ -168,7 +170,6 @@ namespace QWS_Local
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -177,6 +178,8 @@ namespace QWS_Local
             this.tpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tpDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
             this.SuspendLayout();
             // 
             // regoLabel
@@ -453,6 +456,7 @@ namespace QWS_Local
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.AutoScroll = true;
             this.splitContainer2.Panel1.Controls.Add(this.button5);
             this.splitContainer2.Panel1.Controls.Add(this.groupBox2);
             this.splitContainer2.Panel1.Controls.Add(this.button1);
@@ -652,17 +656,10 @@ namespace QWS_Local
             // 
             // textBox1
             // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "AxleConfiguration", true));
             this.textBox1.Location = new System.Drawing.Point(767, 225);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 26);
             this.textBox1.TabIndex = 59;
-            // 
-            // bsTIQ
-            // 
-            this.bsTIQ.DataMember = "TrucksInQuarry";
-            this.bsTIQ.DataSource = this.dsQWSLocal;
-            this.bsTIQ.CurrentChanged += new System.EventHandler(this.bsTIQ_CurrentChanged);
             // 
             // dsQWSLocal
             // 
@@ -713,7 +710,6 @@ namespace QWS_Local
             // 
             // regoTextBox1
             // 
-            this.regoTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "Rego", true));
             this.regoTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.regoTextBox1.Location = new System.Drawing.Point(417, 28);
             this.regoTextBox1.Name = "regoTextBox1";
@@ -790,7 +786,7 @@ namespace QWS_Local
             this.GVMTruck,
             this.TruckOwner,
             this.materialDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.bsTIQ;
+            this.dataGridView1.DataSource = this.bsTIQ2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.MultiSelect = false;
@@ -810,9 +806,9 @@ namespace QWS_Local
             // releaseDTTMDataGridViewTextBoxColumn
             // 
             this.releaseDTTMDataGridViewTextBoxColumn.DataPropertyName = "ReleaseDTTM";
-            dataGridViewCellStyle1.Format = "HH:mm";
-            dataGridViewCellStyle1.NullValue = null;
-            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Format = "HH:mm";
+            dataGridViewCellStyle3.NullValue = null;
+            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.releaseDTTMDataGridViewTextBoxColumn.HeaderText = "Release";
             this.releaseDTTMDataGridViewTextBoxColumn.Name = "releaseDTTMDataGridViewTextBoxColumn";
             this.releaseDTTMDataGridViewTextBoxColumn.ReadOnly = true;
@@ -954,7 +950,6 @@ namespace QWS_Local
             // 
             // custONTextBox
             // 
-            this.custONTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "CustON", true));
             this.custONTextBox.Location = new System.Drawing.Point(413, 129);
             this.custONTextBox.Name = "custONTextBox";
             this.custONTextBox.Size = new System.Drawing.Size(173, 26);
@@ -962,7 +957,6 @@ namespace QWS_Local
             // 
             // tareTextBox1
             // 
-            this.tareTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "Tare", true));
             this.tareTextBox1.Location = new System.Drawing.Point(686, 226);
             this.tareTextBox1.Name = "tareTextBox1";
             this.tareTextBox1.Size = new System.Drawing.Size(100, 26);
@@ -970,7 +964,6 @@ namespace QWS_Local
             // 
             // tareTkTextBox1
             // 
-            this.tareTkTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "TareTk", true));
             this.tareTkTextBox1.Location = new System.Drawing.Point(686, 258);
             this.tareTkTextBox1.Name = "tareTkTextBox1";
             this.tareTkTextBox1.Size = new System.Drawing.Size(100, 26);
@@ -978,7 +971,6 @@ namespace QWS_Local
             // 
             // schemeCodeTextBox1
             // 
-            this.schemeCodeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "SchemeCode", true));
             this.schemeCodeTextBox1.Location = new System.Drawing.Point(885, 93);
             this.schemeCodeTextBox1.Name = "schemeCodeTextBox1";
             this.schemeCodeTextBox1.Size = new System.Drawing.Size(100, 26);
@@ -986,7 +978,6 @@ namespace QWS_Local
             // 
             // payloadSplitTextBox
             // 
-            this.payloadSplitTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "PayloadSplit", true));
             this.payloadSplitTextBox.Location = new System.Drawing.Point(884, 190);
             this.payloadSplitTextBox.Name = "payloadSplitTextBox";
             this.payloadSplitTextBox.Size = new System.Drawing.Size(100, 26);
@@ -994,7 +985,6 @@ namespace QWS_Local
             // 
             // cartageCodeTextBox
             // 
-            this.cartageCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "CartageCode", true));
             this.cartageCodeTextBox.Location = new System.Drawing.Point(884, 157);
             this.cartageCodeTextBox.Name = "cartageCodeTextBox";
             this.cartageCodeTextBox.Size = new System.Drawing.Size(100, 26);
@@ -1002,7 +992,6 @@ namespace QWS_Local
             // 
             // stockpileLotNoTextBox
             // 
-            this.stockpileLotNoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "StockpileLotNo", true));
             this.stockpileLotNoTextBox.Location = new System.Drawing.Point(413, 189);
             this.stockpileLotNoTextBox.Name = "stockpileLotNoTextBox";
             this.stockpileLotNoTextBox.Size = new System.Drawing.Size(100, 26);
@@ -1010,7 +999,6 @@ namespace QWS_Local
             // 
             // deliveryAddressTextBox
             // 
-            this.deliveryAddressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "DeliveryAddress", true));
             this.deliveryAddressTextBox.Location = new System.Drawing.Point(413, 161);
             this.deliveryAddressTextBox.Name = "deliveryAddressTextBox";
             this.deliveryAddressTextBox.Size = new System.Drawing.Size(279, 26);
@@ -1018,7 +1006,6 @@ namespace QWS_Local
             // 
             // payloadTextBox
             // 
-            this.payloadTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "Payload", true));
             this.payloadTextBox.Location = new System.Drawing.Point(884, 222);
             this.payloadTextBox.Name = "payloadTextBox";
             this.payloadTextBox.Size = new System.Drawing.Size(100, 26);
@@ -1026,7 +1013,6 @@ namespace QWS_Local
             // 
             // truckConfigTextBox
             // 
-            this.truckConfigTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "TruckConfig", true));
             this.truckConfigTextBox.Location = new System.Drawing.Point(884, 125);
             this.truckConfigTextBox.Name = "truckConfigTextBox";
             this.truckConfigTextBox.Size = new System.Drawing.Size(100, 26);
@@ -1034,7 +1020,6 @@ namespace QWS_Local
             // 
             // feeCodeTextBox
             // 
-            this.feeCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "FeeCode", true));
             this.feeCodeTextBox.Location = new System.Drawing.Point(171, 316);
             this.feeCodeTextBox.Name = "feeCodeTextBox";
             this.feeCodeTextBox.Size = new System.Drawing.Size(100, 26);
@@ -1042,7 +1027,6 @@ namespace QWS_Local
             // 
             // roadAccessTextBox
             // 
-            this.roadAccessTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "RoadAccess", true));
             this.roadAccessTextBox.Location = new System.Drawing.Point(171, 348);
             this.roadAccessTextBox.Name = "roadAccessTextBox";
             this.roadAccessTextBox.Size = new System.Drawing.Size(100, 26);
@@ -1050,7 +1034,6 @@ namespace QWS_Local
             // 
             // truckOwnerCodeTextBox
             // 
-            this.truckOwnerCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "TruckOwnerCode", true));
             this.truckOwnerCodeTextBox.Location = new System.Drawing.Point(884, 33);
             this.truckOwnerCodeTextBox.Name = "truckOwnerCodeTextBox";
             this.truckOwnerCodeTextBox.Size = new System.Drawing.Size(100, 26);
@@ -1058,7 +1041,6 @@ namespace QWS_Local
             // 
             // truckOwnerTextBox
             // 
-            this.truckOwnerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "TruckOwner", true));
             this.truckOwnerTextBox.Location = new System.Drawing.Point(592, 65);
             this.truckOwnerTextBox.Name = "truckOwnerTextBox";
             this.truckOwnerTextBox.Size = new System.Drawing.Size(392, 26);
@@ -1066,7 +1048,6 @@ namespace QWS_Local
             // 
             // schemeCodeTextBox
             // 
-            this.schemeCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "SchemeCode", true));
             this.schemeCodeTextBox.Location = new System.Drawing.Point(592, 30);
             this.schemeCodeTextBox.Name = "schemeCodeTextBox";
             this.schemeCodeTextBox.Size = new System.Drawing.Size(100, 26);
@@ -1074,7 +1055,6 @@ namespace QWS_Local
             // 
             // axleConfigurationTextBox
             // 
-            this.axleConfigurationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "AxleConfiguration", true));
             this.axleConfigurationTextBox.Location = new System.Drawing.Point(364, 30);
             this.axleConfigurationTextBox.Name = "axleConfigurationTextBox";
             this.axleConfigurationTextBox.Size = new System.Drawing.Size(100, 26);
@@ -1082,7 +1062,6 @@ namespace QWS_Local
             // 
             // tareTkTextBox
             // 
-            this.tareTkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "TareTk", true));
             this.tareTkTextBox.Location = new System.Drawing.Point(768, 319);
             this.tareTkTextBox.Name = "tareTkTextBox";
             this.tareTkTextBox.Size = new System.Drawing.Size(100, 26);
@@ -1090,7 +1069,6 @@ namespace QWS_Local
             // 
             // gVMTruckTextBox
             // 
-            this.gVMTruckTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "GVMTruck", true));
             this.gVMTruckTextBox.Location = new System.Drawing.Point(501, 258);
             this.gVMTruckTextBox.Name = "gVMTruckTextBox";
             this.gVMTruckTextBox.Size = new System.Drawing.Size(100, 26);
@@ -1098,7 +1076,6 @@ namespace QWS_Local
             // 
             // tareTextBox
             // 
-            this.tareTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "Tare", true));
             this.tareTextBox.Location = new System.Drawing.Point(548, 324);
             this.tareTextBox.Name = "tareTextBox";
             this.tareTextBox.Size = new System.Drawing.Size(100, 26);
@@ -1106,7 +1083,6 @@ namespace QWS_Local
             // 
             // gVMTextBox
             // 
-            this.gVMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "GCM", true));
             this.gVMTextBox.Location = new System.Drawing.Point(501, 226);
             this.gVMTextBox.Name = "gVMTextBox";
             this.gVMTextBox.Size = new System.Drawing.Size(100, 26);
@@ -1114,7 +1090,6 @@ namespace QWS_Local
             // 
             // materialDescTextBox
             // 
-            this.materialDescTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "MaterialDesc", true));
             this.materialDescTextBox.Location = new System.Drawing.Point(150, 225);
             this.materialDescTextBox.Name = "materialDescTextBox";
             this.materialDescTextBox.Size = new System.Drawing.Size(271, 26);
@@ -1122,7 +1097,6 @@ namespace QWS_Local
             // 
             // materialTextBox
             // 
-            this.materialTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "Material", true));
             this.materialTextBox.Location = new System.Drawing.Point(150, 193);
             this.materialTextBox.Name = "materialTextBox";
             this.materialTextBox.Size = new System.Drawing.Size(100, 26);
@@ -1130,7 +1104,6 @@ namespace QWS_Local
             // 
             // sAPOrderTextBox
             // 
-            this.sAPOrderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "SAPOrder", true));
             this.sAPOrderTextBox.Location = new System.Drawing.Point(150, 161);
             this.sAPOrderTextBox.Name = "sAPOrderTextBox";
             this.sAPOrderTextBox.Size = new System.Drawing.Size(100, 26);
@@ -1138,7 +1111,6 @@ namespace QWS_Local
             // 
             // driverTextBox
             // 
-            this.driverTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "Driver", true));
             this.driverTextBox.Location = new System.Drawing.Point(151, 61);
             this.driverTextBox.Name = "driverTextBox";
             this.driverTextBox.Size = new System.Drawing.Size(256, 26);
@@ -1146,7 +1118,6 @@ namespace QWS_Local
             // 
             // weighbridgeIDTextBox
             // 
-            this.weighbridgeIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "WeighbridgeID", true));
             this.weighbridgeIDTextBox.Location = new System.Drawing.Point(151, 258);
             this.weighbridgeIDTextBox.Name = "weighbridgeIDTextBox";
             this.weighbridgeIDTextBox.Size = new System.Drawing.Size(100, 26);
@@ -1154,7 +1125,6 @@ namespace QWS_Local
             // 
             // queueStatusTextBox
             // 
-            this.queueStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "QueueStatus", true));
             this.queueStatusTextBox.Location = new System.Drawing.Point(150, 125);
             this.queueStatusTextBox.Name = "queueStatusTextBox";
             this.queueStatusTextBox.Size = new System.Drawing.Size(100, 26);
@@ -1162,7 +1132,6 @@ namespace QWS_Local
             // 
             // entryDTTMDateTimePicker
             // 
-            this.entryDTTMDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bsTIQ, "EntryDTTM", true));
             this.entryDTTMDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.entryDTTMDateTimePicker.Location = new System.Drawing.Point(150, 93);
             this.entryDTTMDateTimePicker.Name = "entryDTTMDateTimePicker";
@@ -1171,15 +1140,10 @@ namespace QWS_Local
             // 
             // regoTextBox
             // 
-            this.regoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "Rego", true));
             this.regoTextBox.Location = new System.Drawing.Point(150, 30);
             this.regoTextBox.Name = "regoTextBox";
             this.regoTextBox.Size = new System.Drawing.Size(100, 26);
             this.regoTextBox.TabIndex = 1;
-            // 
-            // taTIQ
-            // 
-            this.taTIQ.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
@@ -1192,7 +1156,6 @@ namespace QWS_Local
             this.tableAdapterManager.SchemeCodesTableAdapter = null;
             this.tableAdapterManager.TruckConfigTableAdapter = null;
             this.tableAdapterManager.TruckConfigVehicleTableAdapter = null;
-            this.tableAdapterManager.TrucksInQuarryTableAdapter = this.taTIQ;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VehiclePBSTableAdapter = null;
             this.tableAdapterManager.VehiclePrefCustomersTableAdapter = null;
@@ -1203,6 +1166,27 @@ namespace QWS_Local
             // taAxleConfig
             // 
             this.taAxleConfig.ClearBeforeFill = true;
+            // 
+            // dsTIQ2
+            // 
+            this.dsTIQ2.DataSetName = "dsTIQ2";
+            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bsTIQ2
+            // 
+            this.bsTIQ2.DataMember = "TIQ";
+            this.bsTIQ2.DataSource = this.dsTIQ2;
+            this.bsTIQ2.CurrentChanged += new System.EventHandler(this.bsTIQ2_CurrentChanged);
+            // 
+            // taTIQ2
+            // 
+            this.taTIQ2.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager1
+            // 
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.TIQTableAdapter = this.taTIQ2;
+            this.tableAdapterManager1.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // TrucksInQuarry
             // 
@@ -1225,7 +1209,6 @@ namespace QWS_Local
             this.splitContainer2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -1236,6 +1219,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tpDetails.ResumeLayout(false);
             this.tpDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1246,8 +1231,6 @@ namespace QWS_Local
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private dsQWSLocal dsQWSLocal;
-        private System.Windows.Forms.BindingSource bsTIQ;
-        private dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter taTIQ;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
@@ -1315,5 +1298,9 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox stockpileLotNoTextBox;
         private System.Windows.Forms.TextBox deliveryAddressTextBox;
         private System.Windows.Forms.TextBox custONTextBox;
+        private dsTIQ2 dsTIQ2;
+        private System.Windows.Forms.BindingSource bsTIQ2;
+        private dsTIQ2TableAdapters.TIQTableAdapter taTIQ2;
+        private dsTIQ2TableAdapters.TableAdapterManager tableAdapterManager1;
     }
 }
