@@ -65,9 +65,11 @@ namespace QWS_Local
         {
             try
             {
+                int iRow =taTIQ2.FillBy(dsTIQ2.TIQ, 7, TIQID);
+                MessageBox.Show("TIQ2.FillBy iRow = " + iRow.ToString());
                 //taTIQ.FillByTIQID(dsQWSLocal.TrucksInQuarry, TIQID);
                 // TODO resolve issue with dsQWSLocal !@#
-                tIQTableAdapter.FillBy(dsTrucksInQuarry.TIQ, 7, TIQID);
+                //tIQTableAdapter.FillBy(dsTIQ2.TIQ, 7, TIQID);
                 //DataRow myRow = ((DataRowView)bsTIQ.Current).Row;
                 //dsQWSLocal.TrucksInQuarryRow myTIQRow = (dsQWSLocal.TrucksInQuarryRow)myRow;
                 //myTIQRow.AllocateDTTM = DateTime.Now;

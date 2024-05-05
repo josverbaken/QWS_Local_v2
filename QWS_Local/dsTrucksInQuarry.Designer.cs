@@ -20,9 +20,9 @@ namespace QWS_Local {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("dsTrucksInQuarry")]
+    [global::System.Xml.Serialization.XmlRootAttribute("dsTIQ2")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class dsTrucksInQuarry : global::System.Data.DataSet {
+    public partial class dsTIQ2 : global::System.Data.DataSet {
         
         private TIQDataTable tableTIQ;
         
@@ -30,7 +30,7 @@ namespace QWS_Local {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public dsTrucksInQuarry() {
+        public dsTIQ2() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace QWS_Local {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected dsTrucksInQuarry(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected dsTIQ2(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace QWS_Local {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            dsTrucksInQuarry cln = ((dsTrucksInQuarry)(base.Clone()));
+            dsTIQ2 cln = ((dsTIQ2)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,7 +199,7 @@ namespace QWS_Local {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "dsTrucksInQuarry";
+            this.DataSetName = "dsTIQ2";
             this.Prefix = "";
             this.Namespace = "http://tempuri.org/dsTrucksInQuarry.xsd";
             this.EnforceConstraints = true;
@@ -225,7 +225,7 @@ namespace QWS_Local {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            dsTrucksInQuarry ds = new dsTrucksInQuarry();
+            dsTIQ2 ds = new dsTIQ2();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -1073,7 +1073,7 @@ namespace QWS_Local {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dsTrucksInQuarry ds = new dsTrucksInQuarry();
+                dsTIQ2 ds = new dsTIQ2();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2036,7 +2036,7 @@ namespace QWS_Local {
         }
     }
 }
-namespace QWS_Local.dsTrucksInQuarryTableAdapters {
+namespace QWS_Local.dsTIQ2TableAdapters {
     
     
     /// <summary>
@@ -2291,7 +2291,7 @@ namespace QWS_Local.dsTrucksInQuarryTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsTrucksInQuarry.TIQDataTable dataTable, global::System.Nullable<int> SiteID) {
+        public virtual int Fill(dsTIQ2.TIQDataTable dataTable, global::System.Nullable<int> SiteID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((SiteID.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(SiteID.Value));
@@ -2310,7 +2310,7 @@ namespace QWS_Local.dsTrucksInQuarryTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsTrucksInQuarry.TIQDataTable GetData(global::System.Nullable<int> SiteID) {
+        public virtual dsTIQ2.TIQDataTable GetData(global::System.Nullable<int> SiteID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((SiteID.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(SiteID.Value));
@@ -2318,7 +2318,7 @@ namespace QWS_Local.dsTrucksInQuarryTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            dsTrucksInQuarry.TIQDataTable dataTable = new dsTrucksInQuarry.TIQDataTable();
+            dsTIQ2.TIQDataTable dataTable = new dsTIQ2.TIQDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2327,7 +2327,7 @@ namespace QWS_Local.dsTrucksInQuarryTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(dsTrucksInQuarry.TIQDataTable dataTable, global::System.Nullable<int> SiteID, global::System.Nullable<int> TIQID) {
+        public virtual int FillBy(dsTIQ2.TIQDataTable dataTable, global::System.Nullable<int> SiteID, global::System.Nullable<int> TIQID) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((SiteID.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(SiteID.Value));
@@ -2352,7 +2352,7 @@ namespace QWS_Local.dsTrucksInQuarryTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual dsTrucksInQuarry.TIQDataTable GetDataBy(global::System.Nullable<int> SiteID, global::System.Nullable<int> TIQID) {
+        public virtual dsTIQ2.TIQDataTable GetDataBy(global::System.Nullable<int> SiteID, global::System.Nullable<int> TIQID) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((SiteID.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(SiteID.Value));
@@ -2366,7 +2366,7 @@ namespace QWS_Local.dsTrucksInQuarryTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            dsTrucksInQuarry.TIQDataTable dataTable = new dsTrucksInQuarry.TIQDataTable();
+            dsTIQ2.TIQDataTable dataTable = new dsTIQ2.TIQDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2374,14 +2374,14 @@ namespace QWS_Local.dsTrucksInQuarryTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(dsTrucksInQuarry.TIQDataTable dataTable) {
+        public virtual int Update(dsTIQ2.TIQDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(dsTrucksInQuarry dataSet) {
+        public virtual int Update(dsTIQ2 dataSet) {
             return this.Adapter.Update(dataSet, "TIQ");
         }
         
@@ -2877,7 +2877,7 @@ namespace QWS_Local.dsTrucksInQuarryTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(dsTrucksInQuarry dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(dsTIQ2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._tIQTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.TIQ.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -2896,7 +2896,7 @@ namespace QWS_Local.dsTrucksInQuarryTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(dsTrucksInQuarry dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(dsTIQ2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._tIQTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.TIQ.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -2914,7 +2914,7 @@ namespace QWS_Local.dsTrucksInQuarryTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(dsTrucksInQuarry dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(dsTIQ2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._tIQTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.TIQ.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -2956,7 +2956,7 @@ namespace QWS_Local.dsTrucksInQuarryTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(dsTrucksInQuarry dataSet) {
+        public virtual int UpdateAll(dsTIQ2 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

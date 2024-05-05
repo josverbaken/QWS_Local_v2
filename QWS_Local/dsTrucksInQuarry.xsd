@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="dsTrucksInQuarry" targetNamespace="http://tempuri.org/dsTrucksInQuarry.xsd" xmlns:mstns="http://tempuri.org/dsTrucksInQuarry.xsd" xmlns="http://tempuri.org/dsTrucksInQuarry.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="dsTIQ2" targetNamespace="http://tempuri.org/dsTrucksInQuarry.xsd" xmlns:mstns="http://tempuri.org/dsTrucksInQuarry.xsd" xmlns="http://tempuri.org/dsTrucksInQuarry.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -147,10 +147,10 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="dsTrucksInQuarry" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="dsTrucksInQuarry" msprop:Generator_UserDSName="dsTrucksInQuarry">
+  <xs:element name="dsTIQ2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="dsTIQ2" msprop:Generator_UserDSName="dsTIQ2">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="TIQ" msprop:Generator_TableClassName="TIQDataTable" msprop:Generator_TableVarName="tableTIQ" msprop:Generator_RowChangedName="TIQRowChanged" msprop:Generator_TablePropName="TIQ" msprop:Generator_RowDeletingName="TIQRowDeleting" msprop:Generator_RowChangingName="TIQRowChanging" msprop:Generator_RowEvHandlerName="TIQRowChangeEventHandler" msprop:Generator_RowDeletedName="TIQRowDeleted" msprop:Generator_RowClassName="TIQRow" msprop:Generator_UserTableName="TIQ" msprop:Generator_RowEvArgName="TIQRowChangeEvent">
+        <xs:element name="TIQ" msprop:Generator_TableClassName="TIQDataTable" msprop:Generator_TableVarName="tableTIQ" msprop:Generator_TablePropName="TIQ" msprop:Generator_RowDeletingName="TIQRowDeleting" msprop:Generator_RowChangingName="TIQRowChanging" msprop:Generator_RowEvHandlerName="TIQRowChangeEventHandler" msprop:Generator_RowDeletedName="TIQRowDeleted" msprop:Generator_UserTableName="TIQ" msprop:Generator_RowChangedName="TIQRowChanged" msprop:Generator_RowEvArgName="TIQRowChangeEvent" msprop:Generator_RowClassName="TIQRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TIQID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnTIQID" msprop:Generator_ColumnPropNameInRow="TIQID" msprop:Generator_ColumnPropNameInTable="TIQIDColumn" msprop:Generator_UserColumnName="TIQID" type="xs:int" />
