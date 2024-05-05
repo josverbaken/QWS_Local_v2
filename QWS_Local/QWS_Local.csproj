@@ -230,6 +230,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsTruckConfig.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsTrucksInQuarry.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsTrucksInQuarry.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FeeCodeSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -430,6 +435,17 @@
     </None>
     <None Include="dsTruckConfig.xss">
       <DependentUpon>dsTruckConfig.xsd</DependentUpon>
+    </None>
+    <None Include="dsTrucksInQuarry.xsc">
+      <DependentUpon>dsTrucksInQuarry.xsd</DependentUpon>
+    </None>
+    <None Include="dsTrucksInQuarry.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsTrucksInQuarry.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsTrucksInQuarry.xss">
+      <DependentUpon>dsTrucksInQuarry.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

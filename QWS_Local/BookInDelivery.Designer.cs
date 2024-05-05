@@ -58,6 +58,7 @@ namespace QWS_Local
             System.Windows.Forms.Label personLabel;
             System.Windows.Forms.Label mobLabel;
             System.Windows.Forms.Label tIQIDLabel;
+            System.Windows.Forms.Label tIQIDLabel1;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tIQIDTextBox = new System.Windows.Forms.TextBox();
             this.bsTIQ = new System.Windows.Forms.BindingSource(this.components);
@@ -142,6 +143,11 @@ namespace QWS_Local
             this.taDriver = new QWS_Local.dsQWSLocalTableAdapters.TruckDriverTableAdapter();
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taTIQ = new QWS_Local.dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter();
+            this.dsTrucksInQuarry = new QWS_Local.dsTrucksInQuarry();
+            this.tIQBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tIQTableAdapter = new QWS_Local.dsTrucksInQuarryTableAdapters.TIQTableAdapter();
+            this.tableAdapterManager3 = new QWS_Local.dsTrucksInQuarryTableAdapters.TableAdapterManager();
+            this.tIQIDTextBox1 = new System.Windows.Forms.TextBox();
             docNumLabel = new System.Windows.Forms.Label();
             docDateLabel = new System.Windows.Forms.Label();
             deliveryDateLabel = new System.Windows.Forms.Label();
@@ -170,6 +176,7 @@ namespace QWS_Local
             personLabel = new System.Windows.Forms.Label();
             mobLabel = new System.Windows.Forms.Label();
             tIQIDLabel = new System.Windows.Forms.Label();
+            tIQIDLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -194,6 +201,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTrucksInQuarry)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tIQBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // docNumLabel
@@ -459,6 +468,8 @@ namespace QWS_Local
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
+            this.splitContainer1.Panel1.Controls.Add(tIQIDLabel1);
+            this.splitContainer1.Panel1.Controls.Add(this.tIQIDTextBox1);
             this.splitContainer1.Panel1.Controls.Add(tIQIDLabel);
             this.splitContainer1.Panel1.Controls.Add(this.tIQIDTextBox);
             this.splitContainer1.Panel1.Controls.Add(this.btnBookIn);
@@ -1213,6 +1224,43 @@ namespace QWS_Local
             // 
             this.taTIQ.ClearBeforeFill = true;
             // 
+            // dsTrucksInQuarry
+            // 
+            this.dsTrucksInQuarry.DataSetName = "dsTrucksInQuarry";
+            this.dsTrucksInQuarry.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tIQBindingSource
+            // 
+            this.tIQBindingSource.DataMember = "TIQ";
+            this.tIQBindingSource.DataSource = this.dsTrucksInQuarry;
+            // 
+            // tIQTableAdapter
+            // 
+            this.tIQTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager3
+            // 
+            this.tableAdapterManager3.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager3.TIQTableAdapter = this.tIQTableAdapter;
+            this.tableAdapterManager3.UpdateOrder = QWS_Local.dsTrucksInQuarryTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // tIQIDLabel1
+            // 
+            tIQIDLabel1.AutoSize = true;
+            tIQIDLabel1.Location = new System.Drawing.Point(925, 102);
+            tIQIDLabel1.Name = "tIQIDLabel1";
+            tIQIDLabel1.Size = new System.Drawing.Size(48, 17);
+            tIQIDLabel1.TabIndex = 89;
+            tIQIDLabel1.Text = "TIQID:";
+            // 
+            // tIQIDTextBox1
+            // 
+            this.tIQIDTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tIQBindingSource, "TIQID", true));
+            this.tIQIDTextBox1.Location = new System.Drawing.Point(979, 99);
+            this.tIQIDTextBox1.Name = "tIQIDTextBox1";
+            this.tIQIDTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.tIQIDTextBox1.TabIndex = 90;
+            // 
             // BookInDelivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1251,6 +1299,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTrucksInQuarry)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tIQBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1341,5 +1391,10 @@ namespace QWS_Local
         private System.Windows.Forms.BindingSource bsTIQ;
         private dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter taTIQ;
         private System.Windows.Forms.TextBox tIQIDTextBox;
+        private dsTrucksInQuarry dsTrucksInQuarry;
+        private System.Windows.Forms.BindingSource tIQBindingSource;
+        private dsTrucksInQuarryTableAdapters.TIQTableAdapter tIQTableAdapter;
+        private dsTrucksInQuarryTableAdapters.TableAdapterManager tableAdapterManager3;
+        private System.Windows.Forms.TextBox tIQIDTextBox1;
     }
 }
