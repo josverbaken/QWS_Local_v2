@@ -224,6 +224,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsQWSLocal.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsQWSLocal1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsQWSLocal.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsQWSViews.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
