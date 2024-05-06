@@ -570,7 +570,7 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@ExitDTTM", DateTime.Now);
                 sqlConnection.Open();
                 iTIQID = System.Convert.ToInt32( cmd.ExecuteScalar());
-                //MessageBox.Show("iTIQID = " + iTIQID.ToString());
+                MessageBox.Show("iTIQID = " + iTIQID.ToString());
                 sqlConnection.Close();
                 return iTIQID;
             }
