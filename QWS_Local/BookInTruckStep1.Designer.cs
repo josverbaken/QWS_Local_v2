@@ -95,12 +95,8 @@ namespace QWS_Local
             this.taTruckDriver = new QWS_Local.dsQWSLocalTableAdapters.TruckDriverTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taPrefCustomers = new QWS_Local.dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter();
-            this.bsTIQ = new System.Windows.Forms.BindingSource(this.components);
             this.taTIQ = new QWS_Local.dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter();
             this.pictureSchematic = new System.Windows.Forms.PictureBox();
-            this.dsTIQ2 = new QWS_Local.dsTIQ2();
-            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
-            this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager2 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
@@ -123,10 +119,7 @@ namespace QWS_Local
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSchematic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
             this.SuspendLayout();
             // 
             // cardCodeLabel
@@ -712,11 +705,6 @@ namespace QWS_Local
             // 
             this.taPrefCustomers.ClearBeforeFill = true;
             // 
-            // bsTIQ
-            // 
-            this.bsTIQ.DataMember = "TrucksInQuarry";
-            this.bsTIQ.DataSource = this.dsQWSLocal;
-            // 
             // taTIQ
             // 
             this.taTIQ.ClearBeforeFill = true;
@@ -731,24 +719,9 @@ namespace QWS_Local
             this.pictureSchematic.TabIndex = 0;
             this.pictureSchematic.TabStop = false;
             // 
-            // dsTIQ2
-            // 
-            this.dsTIQ2.DataSetName = "dsTIQ2";
-            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bsTIQ2
-            // 
-            this.bsTIQ2.DataMember = "TIQ";
-            this.bsTIQ2.DataSource = this.dsTIQ2;
-            // 
-            // taTIQ2
-            // 
-            this.taTIQ2.ClearBeforeFill = true;
-            // 
             // tableAdapterManager2
             // 
             this.tableAdapterManager2.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager2.TIQTableAdapter = this.taTIQ2;
             this.tableAdapterManager2.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // BookInTruckStep1
@@ -792,10 +765,7 @@ namespace QWS_Local
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSchematic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -858,11 +828,7 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn nHVLDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn PBS;
         private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
-        private System.Windows.Forms.BindingSource bsTIQ;
         private dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter taTIQ;
-        private dsTIQ2 dsTIQ2;
-        private System.Windows.Forms.BindingSource bsTIQ2;
-        private dsTIQ2TableAdapters.TIQTableAdapter taTIQ2;
         private dsTIQ2TableAdapters.TableAdapterManager tableAdapterManager2;
     }
 }
