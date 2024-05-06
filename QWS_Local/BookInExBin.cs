@@ -136,5 +136,24 @@ namespace QWS_Local
         {
             PayloadValidate();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            GetTIQRow();
+        }
+
+        private void GetTIQRow()
+        {
+            try
+            {
+                this.taTIQ2.Fill(this.dsTIQ2.TIQ, TIQID);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message, "GetTIQRow");
+            }
+
+        }
+        
     }
 }

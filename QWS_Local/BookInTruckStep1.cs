@@ -524,6 +524,9 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@RoadAccess", "n/a");
                 cmd.Parameters.AddWithValue("@WeighbridgeID", 1);
                 cmd.Parameters.AddWithValue("@SAPOrder", -9);
+                cmd.Parameters.AddWithValue("@DeliveryAddress", "tba");
+                cmd.Parameters.AddWithValue("@CustON", "tba");
+                cmd.Parameters.AddWithValue("@CartageCode", "tba");
                 switch (myTIQType)
                 {
                     case TIQType.Retare:
@@ -546,21 +549,28 @@ namespace QWS_Local
                     default:
                         break;
                 }
+                cmd.Parameters.AddWithValue("@StockpileLotNo", 0);
                 cmd.Parameters.AddWithValue("@TruckOwnerCode", CurrentConfigTruck().CardCode);
                 cmd.Parameters.AddWithValue("@TruckOwner", CurrentConfigTruck().TruckOwner);
                 cmd.Parameters.AddWithValue("@DriverID", CurrentTruckDriver().CntctCode);
                 cmd.Parameters.AddWithValue("@Driver", CurrentTruckDriver().Person);
                 cmd.Parameters.AddWithValue("@Payload", 0);
+                cmd.Parameters.AddWithValue("@PayloadSplit", "12.0/25.0");
                 cmd.Parameters.AddWithValue("@GCM", 0);
                 cmd.Parameters.AddWithValue("@GVMTruck", 0);
+                cmd.Parameters.AddWithValue("@Gross", 0.0M);
                 cmd.Parameters.AddWithValue("@Tare", CurrentConfigTruck().Tare);
-                cmd.Parameters.AddWithValue("@TareTk", 0); 
+                cmd.Parameters.AddWithValue("@TareTk", 0);
+                cmd.Parameters.AddWithValue("@Nett", 0.0M);
                 cmd.Parameters.AddWithValue("@EntryDTTM", EntryDTTM);
                 cmd.Parameters.AddWithValue("@AllocateDTTM", DateTime.Now);
                 cmd.Parameters.AddWithValue("@ReleaseDTTM", DateTime.Now);
+                cmd.Parameters.AddWithValue("@WeightDTTM", DateTime.Now);
+                cmd.Parameters.AddWithValue("@AcceptanceDTTM", DateTime.Now);
+                cmd.Parameters.AddWithValue("@ExitDTTM", DateTime.Now);
                 sqlConnection.Open();
                 iTIQID = System.Convert.ToInt32( cmd.ExecuteScalar());
-                //MessageBox.Show("iTIQID = " + iTIQID.ToString());
+                MessageBox.Show("iTIQID = " + iTIQID.ToString());
                 sqlConnection.Close();
                 return iTIQID;
             }
@@ -571,55 +581,5 @@ namespace QWS_Local
             }
         }
 
-        private void BookInRetare()
-        {
-            try
-            {
-                DataRow dr = dsQWSLocal.TrucksInQuarry.NewRow();
-                dsQWSLocal.TrucksInQuarryRow rowTIQ = (dsQWSLocal.TrucksInQuarryRow)dr;
-                rowTIQ.TIQID = -1;
-                rowTIQ.ParentTIQID = 0;
-                rowTIQ.TIQOpen = true;
-                rowTIQ.SiteID = Properties.Settings.Default.SiteID;
-                rowTIQ.Rego = CurrentConfigTruck().RegoTk;
-                rowTIQ.TruckConfig = "TK"; //TODO  TruckConfig;
-                rowTIQ.TruckConfigID = CurrentConfigTruck().TruckConfigID;
-                rowTIQ.AxleConfiguration = CurrentConfigTruck().AxleConfiguration;
-                rowTIQ.FeeCode = CurrentConfigTruck().FeeCode;
-                rowTIQ.ConfigSource = "n/a";// CurrentConfigTruck().ConfigSource;
-                rowTIQ.SchemeCode = "n/a";// CurrentConfigTruck().SchemeCode;
-                rowTIQ.RoadAccess = "n/a";// CurrentConfigTruck().RoadAccess;
-                rowTIQ.QueueStatus = "T";
-                rowTIQ.WeighbridgeID = 1;
-                rowTIQ.SAPOrder = -9;
-                rowTIQ.Material = "Retare";
-                rowTIQ.MaterialDesc = "Retare Vehicle";
-                rowTIQ.TruckOwnerCode = CurrentConfigTruck().CardCode;
-                rowTIQ.TruckOwner = CurrentConfigTruck().TruckOwner;
-                rowTIQ.DriverID = CurrentTruckDriver().CntctCode; 
-                rowTIQ.Driver = CurrentTruckDriver().Person;
-                rowTIQ.Payload = 0;
-                rowTIQ.GCM = 0; // CurrentConfigTruck().GCM;
-                rowTIQ.GVMTruck = 0; // CurrentConfigTruck().GVMTruck;
-                rowTIQ.Tare = CurrentConfigTruck().Tare;
-                rowTIQ.TareTk = 0; // CurrentConfigTruck().TareTk;
-                rowTIQ.EntryDTTM = EntryDTTM;
-                rowTIQ.AllocateDTTM = DateTime.Now;
-                rowTIQ.ReleaseDTTM = DateTime.Now;
-                dsQWSLocal.TrucksInQuarry.AddTrucksInQuarryRow(rowTIQ);
-                int iRow = this.taTIQ.Update(dsQWSLocal.TrucksInQuarry);
-                if (iRow == 1)
-                {
-                    TrucksInQuarry frmTIQ = new TrucksInQuarry();
-                    frmTIQ.MdiParent = this.MdiParent;
-                    frmTIQ.Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-    }
+      }
 }

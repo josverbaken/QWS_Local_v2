@@ -50,8 +50,8 @@ namespace QWS_Local
             this.regoTrailerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RegoCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nHVLDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PBS = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.TareDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PBS = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.txtAxleConfig = new System.Windows.Forms.TextBox();
             this.txtVehicleDescription = new System.Windows.Forms.TextBox();
             this.cardCodeTextBox = new System.Windows.Forms.TextBox();
@@ -98,6 +98,10 @@ namespace QWS_Local
             this.bsTIQ = new System.Windows.Forms.BindingSource(this.components);
             this.taTIQ = new QWS_Local.dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter();
             this.pictureSchematic = new System.Windows.Forms.PictureBox();
+            this.dsTIQ2 = new QWS_Local.dsTIQ2();
+            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
+            this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
+            this.tableAdapterManager2 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -121,6 +125,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSchematic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
             this.SuspendLayout();
             // 
             // cardCodeLabel
@@ -301,18 +307,18 @@ namespace QWS_Local
             this.nHVLDataGridViewTextBoxColumn.ReadOnly = true;
             this.nHVLDataGridViewTextBoxColumn.Width = 200;
             // 
-            // PBS
-            // 
-            this.PBS.HeaderText = "PBS Applies";
-            this.PBS.Name = "PBS";
-            this.PBS.ReadOnly = true;
-            // 
             // TareDT
             // 
             this.TareDT.DataPropertyName = "TareDT";
             this.TareDT.HeaderText = "TareDT";
             this.TareDT.Name = "TareDT";
             this.TareDT.ReadOnly = true;
+            // 
+            // PBS
+            // 
+            this.PBS.HeaderText = "PBS Applies";
+            this.PBS.Name = "PBS";
+            this.PBS.ReadOnly = true;
             // 
             // txtAxleConfig
             // 
@@ -725,6 +731,26 @@ namespace QWS_Local
             this.pictureSchematic.TabIndex = 0;
             this.pictureSchematic.TabStop = false;
             // 
+            // dsTIQ2
+            // 
+            this.dsTIQ2.DataSetName = "dsTIQ2";
+            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bsTIQ2
+            // 
+            this.bsTIQ2.DataMember = "TIQ";
+            this.bsTIQ2.DataSource = this.dsTIQ2;
+            // 
+            // taTIQ2
+            // 
+            this.taTIQ2.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager2
+            // 
+            this.tableAdapterManager2.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager2.TIQTableAdapter = this.taTIQ2;
+            this.tableAdapterManager2.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // BookInTruckStep1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -768,6 +794,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSchematic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -832,5 +860,9 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
         private System.Windows.Forms.BindingSource bsTIQ;
         private dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter taTIQ;
+        private dsTIQ2 dsTIQ2;
+        private System.Windows.Forms.BindingSource bsTIQ2;
+        private dsTIQ2TableAdapters.TIQTableAdapter taTIQ2;
+        private dsTIQ2TableAdapters.TableAdapterManager tableAdapterManager2;
     }
 }
