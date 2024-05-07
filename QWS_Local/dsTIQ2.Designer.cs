@@ -365,6 +365,8 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnRegoTrailers;
             
+            private global::System.Data.DataColumn columnTruckConfigDTTM;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public TIQDataTable() {
@@ -744,6 +746,14 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TruckConfigDTTMColumn {
+                get {
+                    return this.columnTruckConfigDTTM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -821,7 +831,8 @@ namespace QWS_Local {
                         string RegoTr1, 
                         string RegoTr2, 
                         string RegoTr3, 
-                        string RegoTrailers) {
+                        string RegoTrailers, 
+                        System.DateTime TruckConfigDTTM) {
                 TIQRow rowTIQRow = ((TIQRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -866,7 +877,8 @@ namespace QWS_Local {
                         RegoTr1,
                         RegoTr2,
                         RegoTr3,
-                        RegoTrailers};
+                        RegoTrailers,
+                        TruckConfigDTTM};
                 rowTIQRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTIQRow);
                 return rowTIQRow;
@@ -939,6 +951,7 @@ namespace QWS_Local {
                 this.columnRegoTr2 = base.Columns["RegoTr2"];
                 this.columnRegoTr3 = base.Columns["RegoTr3"];
                 this.columnRegoTrailers = base.Columns["RegoTrailers"];
+                this.columnTruckConfigDTTM = base.Columns["TruckConfigDTTM"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1030,6 +1043,8 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnRegoTr3);
                 this.columnRegoTrailers = new global::System.Data.DataColumn("RegoTrailers", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRegoTrailers);
+                this.columnTruckConfigDTTM = new global::System.Data.DataColumn("TruckConfigDTTM", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTruckConfigDTTM);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTIQID}, true));
                 this.columnTIQID.AutoIncrement = true;
@@ -1099,6 +1114,7 @@ namespace QWS_Local {
                 this.columnRegoTr3.MaxLength = 6;
                 this.columnRegoTrailers.AllowDBNull = false;
                 this.columnRegoTrailers.MaxLength = 50;
+                this.columnTruckConfigDTTM.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1711,6 +1727,17 @@ namespace QWS_Local {
                     this[this.tableTIQ.RegoTrailersColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime TruckConfigDTTM {
+                get {
+                    return ((global::System.DateTime)(this[this.tableTIQ.TruckConfigDTTMColumn]));
+                }
+                set {
+                    this[this.tableTIQ.TruckConfigDTTMColumn] = value;
+                }
+            }
         }
         
         /// <summary>
@@ -1915,6 +1942,7 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             tableMapping.ColumnMappings.Add("RegoTr2", "RegoTr2");
             tableMapping.ColumnMappings.Add("RegoTr3", "RegoTr3");
             tableMapping.ColumnMappings.Add("RegoTrailers", "RegoTrailers");
+            tableMapping.ColumnMappings.Add("TruckConfigDTTM", "TruckConfigDTTM");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
@@ -1958,6 +1986,7 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TareTk", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "TareTk", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nett", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "Nett", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EntryDTTM", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, "EntryDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckConfigDTTM", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, "TruckConfigDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AllocateDTTM", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, "AllocateDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReleaseDTTM", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, "ReleaseDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeightDTTM", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, "WeightDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2172,6 +2201,7 @@ namespace QWS_Local.dsTIQ2TableAdapters {
                     global::System.Nullable<decimal> TareTk, 
                     global::System.Nullable<decimal> Nett, 
                     global::System.Nullable<global::System.DateTime> EntryDTTM, 
+                    global::System.Nullable<global::System.DateTime> TruckConfigDTTM, 
                     global::System.Nullable<global::System.DateTime> AllocateDTTM, 
                     global::System.Nullable<global::System.DateTime> ReleaseDTTM, 
                     global::System.Nullable<global::System.DateTime> WeightDTTM, 
@@ -2399,35 +2429,41 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
-            if ((AllocateDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[38].Value = ((System.DateTime)(AllocateDTTM.Value));
+            if ((TruckConfigDTTM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[38].Value = ((System.DateTime)(TruckConfigDTTM.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[38].Value = global::System.DBNull.Value;
             }
-            if ((ReleaseDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[39].Value = ((System.DateTime)(ReleaseDTTM.Value));
+            if ((AllocateDTTM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[39].Value = ((System.DateTime)(AllocateDTTM.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[39].Value = global::System.DBNull.Value;
             }
-            if ((WeightDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[40].Value = ((System.DateTime)(WeightDTTM.Value));
+            if ((ReleaseDTTM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[40].Value = ((System.DateTime)(ReleaseDTTM.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[40].Value = global::System.DBNull.Value;
             }
-            if ((AcceptanceDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[41].Value = ((System.DateTime)(AcceptanceDTTM.Value));
+            if ((WeightDTTM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[41].Value = ((System.DateTime)(WeightDTTM.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[41].Value = global::System.DBNull.Value;
             }
-            if ((ExitDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[42].Value = ((System.DateTime)(ExitDTTM.Value));
+            if ((AcceptanceDTTM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[42].Value = ((System.DateTime)(AcceptanceDTTM.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[42].Value = global::System.DBNull.Value;
+            }
+            if ((ExitDTTM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[43].Value = ((System.DateTime)(ExitDTTM.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[43].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 

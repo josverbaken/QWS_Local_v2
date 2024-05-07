@@ -98,6 +98,7 @@ namespace QWS_Local
             this.taTIQ = new QWS_Local.dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter();
             this.pictureSchematic = new System.Windows.Forms.PictureBox();
             this.tableAdapterManager2 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
+            this.txtTruckConfig = new System.Windows.Forms.TextBox();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -581,6 +582,7 @@ namespace QWS_Local
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtTruckConfig);
             this.groupBox2.Controls.Add(this.rbTrailerOnly);
             this.groupBox2.Controls.Add(this.rbSplitLoad);
             this.groupBox2.Controls.Add(this.rbTnT);
@@ -722,7 +724,17 @@ namespace QWS_Local
             // tableAdapterManager2
             // 
             this.tableAdapterManager2.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager2.Connection = null;
+            this.tableAdapterManager2.TIQTableAdapter = null;
             this.tableAdapterManager2.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // txtTruckConfig
+            // 
+            this.txtTruckConfig.Location = new System.Drawing.Point(24, 148);
+            this.txtTruckConfig.Name = "txtTruckConfig";
+            this.txtTruckConfig.ReadOnly = true;
+            this.txtTruckConfig.Size = new System.Drawing.Size(100, 23);
+            this.txtTruckConfig.TabIndex = 3;
             // 
             // BookInTruckStep1
             // 
@@ -830,5 +842,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
         private dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter taTIQ;
         private dsTIQ2TableAdapters.TableAdapterManager tableAdapterManager2;
+        private System.Windows.Forms.TextBox txtTruckConfig;
     }
 }

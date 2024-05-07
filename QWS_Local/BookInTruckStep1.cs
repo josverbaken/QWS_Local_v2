@@ -23,6 +23,20 @@ namespace QWS_Local
             ExBin,
             Delivery
         }
+        private enum LoadType
+        {
+            TK,
+            TT,
+            TKs,
+            TRs,
+            ST,
+            BD,
+            BDa,
+            BDb,
+            AD,
+            ADa,
+            ADb
+        }
 
         public BookInTruckStep1()
         {
@@ -405,6 +419,7 @@ namespace QWS_Local
                 {
                     case 1:
                         {
+                            txtTruckConfig.Text = "TK";
                             BookInExBin();
                         }
                         break;
@@ -435,9 +450,32 @@ namespace QWS_Local
 
         private void btnDelivery_Click(object sender, EventArgs e)
         {
-            BookInDeliveryOrder();
+            GoToBookInDelivery();
         }
 
+        private void GoToBookInDelivery()
+        {
+                int CompartmentCount = CurrentConfigTruck().Compartments;
+                switch (CompartmentCount)
+                {
+                    case 1:
+                        {
+                        txtTruckConfig.Text = "TK";
+                        BookInDeliveryOrder();
+                        }
+                        break;
+                    case 2:
+                        if (TruckConfigRBSet())
+                        {
+                        BookInDeliveryOrder();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please set truck config!");
+                        }
+                        break;
+                }
+        }
         private void BookInDeliveryOrder()
         {
             int iTIQID = NewTIQ(TIQType.Delivery);
@@ -477,14 +515,17 @@ namespace QWS_Local
         {
             if (rbTnT.Enabled && rbTnT.Checked)
             {
+                txtTruckConfig.Text = LoadType.TT.ToString();
                 return true;
             }
             if(rbSplitLoad.Enabled && rbSplitLoad.Checked)
             {
+                txtTruckConfig.Text = LoadType.TKs.ToString();
                 return true;
             }
             if (rbTrailerOnly.Enabled && rbTrailerOnly.Checked)
-            { 
+            {
+                txtTruckConfig.Text = LoadType.TRs.ToString();
                 return true;
             }
             return false;
@@ -492,11 +533,13 @@ namespace QWS_Local
 
         private void btnRetare_Click(object sender, EventArgs e)
         {
+            txtTruckConfig.Text = LoadType.BD.ToString();
             int iTIQID = NewTIQ(TIQType.Retare);
             if (iTIQID > 0)
             {
                 TrucksInQuarry frmTIQ = new TrucksInQuarry();
                 frmTIQ.MdiParent = this.MdiParent;
+                // TODO consider refresh TIQ on form
                 frmTIQ.Show();
             }
         }
@@ -519,7 +562,7 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@RegoTr2", CurrentConfigTruck().RegoTr2);
                 cmd.Parameters.AddWithValue("@RegoTr3", CurrentConfigTruck().RegoTr3);
                 cmd.Parameters.AddWithValue("@RegoTrailers", CurrentConfigTruck().RegoTrailer);
-                cmd.Parameters.AddWithValue("@TruckConfig", "TK");
+                cmd.Parameters.AddWithValue("@TruckConfig", txtTruckConfig.Text);
                 cmd.Parameters.AddWithValue("@TruckConfigID", CurrentConfigTruck().TruckConfigID);
                 cmd.Parameters.AddWithValue("@AxleConfiguration", CurrentConfigTruck().AxleConfiguration);
                 cmd.Parameters.AddWithValue("@FeeCode", CurrentConfigTruck().FeeCode);
@@ -567,11 +610,12 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@TareTk", 0);
                 cmd.Parameters.AddWithValue("@Nett", 0.0M);
                 cmd.Parameters.AddWithValue("@EntryDTTM", EntryDTTM);
-                cmd.Parameters.AddWithValue("@AllocateDTTM", DateTime.Now);
-                cmd.Parameters.AddWithValue("@ReleaseDTTM", DateTime.Now);
-                cmd.Parameters.AddWithValue("@WeightDTTM", DateTime.Now);
-                cmd.Parameters.AddWithValue("@AcceptanceDTTM", DateTime.Now);
-                cmd.Parameters.AddWithValue("@ExitDTTM", DateTime.Now);
+                cmd.Parameters.AddWithValue("@TruckConfigDTTM", DateTime.Now);
+                cmd.Parameters.AddWithValue("@AllocateDTTM", EntryDTTM);
+                cmd.Parameters.AddWithValue("@ReleaseDTTM", EntryDTTM);
+                cmd.Parameters.AddWithValue("@WeightDTTM", EntryDTTM);
+                cmd.Parameters.AddWithValue("@AcceptanceDTTM", EntryDTTM);
+                cmd.Parameters.AddWithValue("@ExitDTTM", EntryDTTM);
                 sqlConnection.Open();
                 iTIQID = System.Convert.ToInt32( cmd.ExecuteScalar());
                 //MessageBox.Show("iTIQID = " + iTIQID.ToString());
