@@ -357,6 +357,14 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnNett;
             
+            private global::System.Data.DataColumn columnRegoTr1;
+            
+            private global::System.Data.DataColumn columnRegoTr2;
+            
+            private global::System.Data.DataColumn columnRegoTr3;
+            
+            private global::System.Data.DataColumn columnRegoTrailers;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public TIQDataTable() {
@@ -704,6 +712,38 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RegoTr1Column {
+                get {
+                    return this.columnRegoTr1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RegoTr2Column {
+                get {
+                    return this.columnRegoTr2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RegoTr3Column {
+                get {
+                    return this.columnRegoTr3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RegoTrailersColumn {
+                get {
+                    return this.columnRegoTrailers;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -777,7 +817,11 @@ namespace QWS_Local {
                         decimal Gross, 
                         decimal Tare, 
                         decimal TareTk, 
-                        decimal Nett) {
+                        decimal Nett, 
+                        string RegoTr1, 
+                        string RegoTr2, 
+                        string RegoTr3, 
+                        string RegoTrailers) {
                 TIQRow rowTIQRow = ((TIQRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -818,7 +862,11 @@ namespace QWS_Local {
                         Gross,
                         Tare,
                         TareTk,
-                        Nett};
+                        Nett,
+                        RegoTr1,
+                        RegoTr2,
+                        RegoTr3,
+                        RegoTrailers};
                 rowTIQRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTIQRow);
                 return rowTIQRow;
@@ -887,6 +935,10 @@ namespace QWS_Local {
                 this.columnTare = base.Columns["Tare"];
                 this.columnTareTk = base.Columns["TareTk"];
                 this.columnNett = base.Columns["Nett"];
+                this.columnRegoTr1 = base.Columns["RegoTr1"];
+                this.columnRegoTr2 = base.Columns["RegoTr2"];
+                this.columnRegoTr3 = base.Columns["RegoTr3"];
+                this.columnRegoTrailers = base.Columns["RegoTrailers"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -970,42 +1022,83 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnTareTk);
                 this.columnNett = new global::System.Data.DataColumn("Nett", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNett);
+                this.columnRegoTr1 = new global::System.Data.DataColumn("RegoTr1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRegoTr1);
+                this.columnRegoTr2 = new global::System.Data.DataColumn("RegoTr2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRegoTr2);
+                this.columnRegoTr3 = new global::System.Data.DataColumn("RegoTr3", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRegoTr3);
+                this.columnRegoTrailers = new global::System.Data.DataColumn("RegoTrailers", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRegoTrailers);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTIQID}, true));
                 this.columnTIQID.AutoIncrement = true;
                 this.columnTIQID.AllowDBNull = false;
                 this.columnTIQID.ReadOnly = true;
                 this.columnTIQID.Unique = true;
+                this.columnParentTIQID.AllowDBNull = false;
                 this.columnTIQOpen.AllowDBNull = false;
                 this.columnSiteID.AllowDBNull = false;
                 this.columnRego.AllowDBNull = false;
                 this.columnRego.MaxLength = 6;
                 this.columnTruckConfig.AllowDBNull = false;
                 this.columnTruckConfig.MaxLength = 5;
+                this.columnAxleConfiguration.AllowDBNull = false;
                 this.columnAxleConfiguration.MaxLength = 50;
+                this.columnTruckConfigID.AllowDBNull = false;
+                this.columnFeeCode.AllowDBNull = false;
                 this.columnFeeCode.MaxLength = 50;
+                this.columnConfigSource.AllowDBNull = false;
                 this.columnConfigSource.MaxLength = 50;
+                this.columnSchemeCode.AllowDBNull = false;
                 this.columnSchemeCode.MaxLength = 50;
+                this.columnRoadAccess.AllowDBNull = false;
                 this.columnRoadAccess.MaxLength = 50;
                 this.columnEntryDTTM.AllowDBNull = false;
+                this.columnAllocateDTTM.AllowDBNull = false;
+                this.columnReleaseDTTM.AllowDBNull = false;
+                this.columnWeightDTTM.AllowDBNull = false;
+                this.columnAcceptanceDTTM.AllowDBNull = false;
+                this.columnExitDTTM.AllowDBNull = false;
                 this.columnQueueStatus.AllowDBNull = false;
                 this.columnQueueStatus.MaxLength = 1;
                 this.columnWeighbridgeID.AllowDBNull = false;
                 this.columnSAPOrder.AllowDBNull = false;
+                this.columnDeliveryAddress.AllowDBNull = false;
                 this.columnDeliveryAddress.MaxLength = 100;
+                this.columnCustON.AllowDBNull = false;
                 this.columnCustON.MaxLength = 50;
+                this.columnCartageCode.AllowDBNull = false;
                 this.columnCartageCode.MaxLength = 50;
                 this.columnMaterial.AllowDBNull = false;
                 this.columnMaterial.MaxLength = 50;
                 this.columnMaterialDesc.AllowDBNull = false;
                 this.columnMaterialDesc.MaxLength = 50;
+                this.columnStockpileLotNo.AllowDBNull = false;
+                this.columnTruckOwnerCode.AllowDBNull = false;
                 this.columnTruckOwnerCode.MaxLength = 15;
+                this.columnTruckOwner.AllowDBNull = false;
                 this.columnTruckOwner.MaxLength = 50;
+                this.columnDriverID.AllowDBNull = false;
                 this.columnDriver.AllowDBNull = false;
                 this.columnDriver.MaxLength = 50;
                 this.columnPayload.AllowDBNull = false;
+                this.columnPayloadSplit.AllowDBNull = false;
                 this.columnPayloadSplit.MaxLength = 50;
                 this.columnGCM.AllowDBNull = false;
+                this.columnGVMTruck.AllowDBNull = false;
+                this.columnGross.AllowDBNull = false;
+                this.columnTare.AllowDBNull = false;
+                this.columnTareTk.AllowDBNull = false;
+                this.columnNett.AllowDBNull = false;
+                this.columnRegoTr1.AllowDBNull = false;
+                this.columnRegoTr1.MaxLength = 6;
+                this.columnRegoTr2.AllowDBNull = false;
+                this.columnRegoTr2.MaxLength = 6;
+                this.columnRegoTr3.AllowDBNull = false;
+                this.columnRegoTr3.MaxLength = 6;
+                this.columnRegoTrailers.AllowDBNull = false;
+                this.columnRegoTrailers.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1161,12 +1254,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int ParentTIQID {
                 get {
-                    try {
-                        return ((int)(this[this.tableTIQ.ParentTIQIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ParentTIQID\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableTIQ.ParentTIQIDColumn]));
                 }
                 set {
                     this[this.tableTIQ.ParentTIQIDColumn] = value;
@@ -1221,12 +1309,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string AxleConfiguration {
                 get {
-                    try {
-                        return ((string)(this[this.tableTIQ.AxleConfigurationColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AxleConfiguration\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableTIQ.AxleConfigurationColumn]));
                 }
                 set {
                     this[this.tableTIQ.AxleConfigurationColumn] = value;
@@ -1237,12 +1320,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int TruckConfigID {
                 get {
-                    try {
-                        return ((int)(this[this.tableTIQ.TruckConfigIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TruckConfigID\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableTIQ.TruckConfigIDColumn]));
                 }
                 set {
                     this[this.tableTIQ.TruckConfigIDColumn] = value;
@@ -1253,12 +1331,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string FeeCode {
                 get {
-                    try {
-                        return ((string)(this[this.tableTIQ.FeeCodeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FeeCode\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableTIQ.FeeCodeColumn]));
                 }
                 set {
                     this[this.tableTIQ.FeeCodeColumn] = value;
@@ -1269,12 +1342,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string ConfigSource {
                 get {
-                    try {
-                        return ((string)(this[this.tableTIQ.ConfigSourceColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ConfigSource\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableTIQ.ConfigSourceColumn]));
                 }
                 set {
                     this[this.tableTIQ.ConfigSourceColumn] = value;
@@ -1285,12 +1353,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string SchemeCode {
                 get {
-                    try {
-                        return ((string)(this[this.tableTIQ.SchemeCodeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SchemeCode\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableTIQ.SchemeCodeColumn]));
                 }
                 set {
                     this[this.tableTIQ.SchemeCodeColumn] = value;
@@ -1301,12 +1364,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string RoadAccess {
                 get {
-                    try {
-                        return ((string)(this[this.tableTIQ.RoadAccessColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RoadAccess\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableTIQ.RoadAccessColumn]));
                 }
                 set {
                     this[this.tableTIQ.RoadAccessColumn] = value;
@@ -1328,12 +1386,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime AllocateDTTM {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableTIQ.AllocateDTTMColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AllocateDTTM\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableTIQ.AllocateDTTMColumn]));
                 }
                 set {
                     this[this.tableTIQ.AllocateDTTMColumn] = value;
@@ -1344,12 +1397,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime ReleaseDTTM {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableTIQ.ReleaseDTTMColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ReleaseDTTM\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableTIQ.ReleaseDTTMColumn]));
                 }
                 set {
                     this[this.tableTIQ.ReleaseDTTMColumn] = value;
@@ -1360,12 +1408,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime WeightDTTM {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableTIQ.WeightDTTMColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WeightDTTM\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableTIQ.WeightDTTMColumn]));
                 }
                 set {
                     this[this.tableTIQ.WeightDTTMColumn] = value;
@@ -1376,12 +1419,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime AcceptanceDTTM {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableTIQ.AcceptanceDTTMColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AcceptanceDTTM\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableTIQ.AcceptanceDTTMColumn]));
                 }
                 set {
                     this[this.tableTIQ.AcceptanceDTTMColumn] = value;
@@ -1392,12 +1430,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime ExitDTTM {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableTIQ.ExitDTTMColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ExitDTTM\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableTIQ.ExitDTTMColumn]));
                 }
                 set {
                     this[this.tableTIQ.ExitDTTMColumn] = value;
@@ -1441,12 +1474,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string DeliveryAddress {
                 get {
-                    try {
-                        return ((string)(this[this.tableTIQ.DeliveryAddressColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DeliveryAddress\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableTIQ.DeliveryAddressColumn]));
                 }
                 set {
                     this[this.tableTIQ.DeliveryAddressColumn] = value;
@@ -1457,12 +1485,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string CustON {
                 get {
-                    try {
-                        return ((string)(this[this.tableTIQ.CustONColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CustON\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableTIQ.CustONColumn]));
                 }
                 set {
                     this[this.tableTIQ.CustONColumn] = value;
@@ -1473,12 +1496,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string CartageCode {
                 get {
-                    try {
-                        return ((string)(this[this.tableTIQ.CartageCodeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CartageCode\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableTIQ.CartageCodeColumn]));
                 }
                 set {
                     this[this.tableTIQ.CartageCodeColumn] = value;
@@ -1511,12 +1529,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int StockpileLotNo {
                 get {
-                    try {
-                        return ((int)(this[this.tableTIQ.StockpileLotNoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'StockpileLotNo\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableTIQ.StockpileLotNoColumn]));
                 }
                 set {
                     this[this.tableTIQ.StockpileLotNoColumn] = value;
@@ -1527,12 +1540,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string TruckOwnerCode {
                 get {
-                    try {
-                        return ((string)(this[this.tableTIQ.TruckOwnerCodeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TruckOwnerCode\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableTIQ.TruckOwnerCodeColumn]));
                 }
                 set {
                     this[this.tableTIQ.TruckOwnerCodeColumn] = value;
@@ -1543,12 +1551,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string TruckOwner {
                 get {
-                    try {
-                        return ((string)(this[this.tableTIQ.TruckOwnerColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TruckOwner\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableTIQ.TruckOwnerColumn]));
                 }
                 set {
                     this[this.tableTIQ.TruckOwnerColumn] = value;
@@ -1559,12 +1562,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int DriverID {
                 get {
-                    try {
-                        return ((int)(this[this.tableTIQ.DriverIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DriverID\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableTIQ.DriverIDColumn]));
                 }
                 set {
                     this[this.tableTIQ.DriverIDColumn] = value;
@@ -1597,12 +1595,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string PayloadSplit {
                 get {
-                    try {
-                        return ((string)(this[this.tableTIQ.PayloadSplitColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PayloadSplit\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableTIQ.PayloadSplitColumn]));
                 }
                 set {
                     this[this.tableTIQ.PayloadSplitColumn] = value;
@@ -1624,12 +1617,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal GVMTruck {
                 get {
-                    try {
-                        return ((decimal)(this[this.tableTIQ.GVMTruckColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'GVMTruck\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((decimal)(this[this.tableTIQ.GVMTruckColumn]));
                 }
                 set {
                     this[this.tableTIQ.GVMTruckColumn] = value;
@@ -1640,12 +1628,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal Gross {
                 get {
-                    try {
-                        return ((decimal)(this[this.tableTIQ.GrossColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Gross\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((decimal)(this[this.tableTIQ.GrossColumn]));
                 }
                 set {
                     this[this.tableTIQ.GrossColumn] = value;
@@ -1656,12 +1639,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal Tare {
                 get {
-                    try {
-                        return ((decimal)(this[this.tableTIQ.TareColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Tare\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((decimal)(this[this.tableTIQ.TareColumn]));
                 }
                 set {
                     this[this.tableTIQ.TareColumn] = value;
@@ -1672,12 +1650,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal TareTk {
                 get {
-                    try {
-                        return ((decimal)(this[this.tableTIQ.TareTkColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TareTk\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((decimal)(this[this.tableTIQ.TareTkColumn]));
                 }
                 set {
                     this[this.tableTIQ.TareTkColumn] = value;
@@ -1688,12 +1661,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal Nett {
                 get {
-                    try {
-                        return ((decimal)(this[this.tableTIQ.NettColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nett\' in table \'TIQ\' is DBNull.", e);
-                    }
+                    return ((decimal)(this[this.tableTIQ.NettColumn]));
                 }
                 set {
                     this[this.tableTIQ.NettColumn] = value;
@@ -1702,302 +1670,46 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsParentTIQIDNull() {
-                return this.IsNull(this.tableTIQ.ParentTIQIDColumn);
+            public string RegoTr1 {
+                get {
+                    return ((string)(this[this.tableTIQ.RegoTr1Column]));
+                }
+                set {
+                    this[this.tableTIQ.RegoTr1Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetParentTIQIDNull() {
-                this[this.tableTIQ.ParentTIQIDColumn] = global::System.Convert.DBNull;
+            public string RegoTr2 {
+                get {
+                    return ((string)(this[this.tableTIQ.RegoTr2Column]));
+                }
+                set {
+                    this[this.tableTIQ.RegoTr2Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsAxleConfigurationNull() {
-                return this.IsNull(this.tableTIQ.AxleConfigurationColumn);
+            public string RegoTr3 {
+                get {
+                    return ((string)(this[this.tableTIQ.RegoTr3Column]));
+                }
+                set {
+                    this[this.tableTIQ.RegoTr3Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetAxleConfigurationNull() {
-                this[this.tableTIQ.AxleConfigurationColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTruckConfigIDNull() {
-                return this.IsNull(this.tableTIQ.TruckConfigIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTruckConfigIDNull() {
-                this[this.tableTIQ.TruckConfigIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsFeeCodeNull() {
-                return this.IsNull(this.tableTIQ.FeeCodeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetFeeCodeNull() {
-                this[this.tableTIQ.FeeCodeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsConfigSourceNull() {
-                return this.IsNull(this.tableTIQ.ConfigSourceColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetConfigSourceNull() {
-                this[this.tableTIQ.ConfigSourceColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsSchemeCodeNull() {
-                return this.IsNull(this.tableTIQ.SchemeCodeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetSchemeCodeNull() {
-                this[this.tableTIQ.SchemeCodeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsRoadAccessNull() {
-                return this.IsNull(this.tableTIQ.RoadAccessColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetRoadAccessNull() {
-                this[this.tableTIQ.RoadAccessColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsAllocateDTTMNull() {
-                return this.IsNull(this.tableTIQ.AllocateDTTMColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetAllocateDTTMNull() {
-                this[this.tableTIQ.AllocateDTTMColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsReleaseDTTMNull() {
-                return this.IsNull(this.tableTIQ.ReleaseDTTMColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetReleaseDTTMNull() {
-                this[this.tableTIQ.ReleaseDTTMColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsWeightDTTMNull() {
-                return this.IsNull(this.tableTIQ.WeightDTTMColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetWeightDTTMNull() {
-                this[this.tableTIQ.WeightDTTMColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsAcceptanceDTTMNull() {
-                return this.IsNull(this.tableTIQ.AcceptanceDTTMColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetAcceptanceDTTMNull() {
-                this[this.tableTIQ.AcceptanceDTTMColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsExitDTTMNull() {
-                return this.IsNull(this.tableTIQ.ExitDTTMColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetExitDTTMNull() {
-                this[this.tableTIQ.ExitDTTMColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDeliveryAddressNull() {
-                return this.IsNull(this.tableTIQ.DeliveryAddressColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDeliveryAddressNull() {
-                this[this.tableTIQ.DeliveryAddressColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCustONNull() {
-                return this.IsNull(this.tableTIQ.CustONColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCustONNull() {
-                this[this.tableTIQ.CustONColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCartageCodeNull() {
-                return this.IsNull(this.tableTIQ.CartageCodeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCartageCodeNull() {
-                this[this.tableTIQ.CartageCodeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsStockpileLotNoNull() {
-                return this.IsNull(this.tableTIQ.StockpileLotNoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetStockpileLotNoNull() {
-                this[this.tableTIQ.StockpileLotNoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTruckOwnerCodeNull() {
-                return this.IsNull(this.tableTIQ.TruckOwnerCodeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTruckOwnerCodeNull() {
-                this[this.tableTIQ.TruckOwnerCodeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTruckOwnerNull() {
-                return this.IsNull(this.tableTIQ.TruckOwnerColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTruckOwnerNull() {
-                this[this.tableTIQ.TruckOwnerColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDriverIDNull() {
-                return this.IsNull(this.tableTIQ.DriverIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDriverIDNull() {
-                this[this.tableTIQ.DriverIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsPayloadSplitNull() {
-                return this.IsNull(this.tableTIQ.PayloadSplitColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetPayloadSplitNull() {
-                this[this.tableTIQ.PayloadSplitColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsGVMTruckNull() {
-                return this.IsNull(this.tableTIQ.GVMTruckColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetGVMTruckNull() {
-                this[this.tableTIQ.GVMTruckColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsGrossNull() {
-                return this.IsNull(this.tableTIQ.GrossColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetGrossNull() {
-                this[this.tableTIQ.GrossColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTareNull() {
-                return this.IsNull(this.tableTIQ.TareColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTareNull() {
-                this[this.tableTIQ.TareColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTareTkNull() {
-                return this.IsNull(this.tableTIQ.TareTkColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTareTkNull() {
-                this[this.tableTIQ.TareTkColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNettNull() {
-                return this.IsNull(this.tableTIQ.NettColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNettNull() {
-                this[this.tableTIQ.NettColumn] = global::System.Convert.DBNull;
+            public string RegoTrailers {
+                get {
+                    return ((string)(this[this.tableTIQ.RegoTrailersColumn]));
+                }
+                set {
+                    this[this.tableTIQ.RegoTrailersColumn] = value;
+                }
             }
         }
         
@@ -2199,6 +1911,10 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             tableMapping.ColumnMappings.Add("Tare", "Tare");
             tableMapping.ColumnMappings.Add("TareTk", "TareTk");
             tableMapping.ColumnMappings.Add("Nett", "Nett");
+            tableMapping.ColumnMappings.Add("RegoTr1", "RegoTr1");
+            tableMapping.ColumnMappings.Add("RegoTr2", "RegoTr2");
+            tableMapping.ColumnMappings.Add("RegoTr3", "RegoTr3");
+            tableMapping.ColumnMappings.Add("RegoTrailers", "RegoTrailers");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
@@ -2209,6 +1925,10 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TIQOpen", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, "TIQOpen", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SiteID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "SiteID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rego", global::System.Data.SqlDbType.VarChar, 6, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegoTr1", global::System.Data.SqlDbType.VarChar, 6, global::System.Data.ParameterDirection.Input, 0, 0, "RegoTr1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegoTr2", global::System.Data.SqlDbType.VarChar, 6, global::System.Data.ParameterDirection.Input, 0, 0, "RegoTr2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegoTr3", global::System.Data.SqlDbType.VarChar, 6, global::System.Data.ParameterDirection.Input, 0, 0, "RegoTr3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegoTrailers", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "RegoTrailers", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckConfig", global::System.Data.SqlDbType.VarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "TruckConfig", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckconfigID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "TruckConfigID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AxleConfiguration", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "AxleConfiguration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2419,6 +2139,10 @@ namespace QWS_Local.dsTIQ2TableAdapters {
                     global::System.Nullable<bool> TIQOpen, 
                     global::System.Nullable<int> SiteID, 
                     string Rego, 
+                    string RegoTr1, 
+                    string RegoTr2, 
+                    string RegoTr3, 
+                    string RegoTrailers, 
                     string TruckConfig, 
                     global::System.Nullable<int> TruckconfigID, 
                     string AxleConfiguration, 
@@ -2477,209 +2201,233 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Rego));
             }
-            if ((TruckConfig == null)) {
+            if ((RegoTr1 == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(TruckConfig));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(RegoTr1));
             }
-            if ((TruckconfigID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(TruckconfigID.Value));
-            }
-            else {
+            if ((RegoTr2 == null)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((AxleConfiguration == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(RegoTr2));
+            }
+            if ((RegoTr3 == null)) {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(AxleConfiguration));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(RegoTr3));
             }
-            if ((FeeCode == null)) {
+            if ((RegoTrailers == null)) {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(FeeCode));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(RegoTrailers));
             }
-            if ((ConfigSource == null)) {
+            if ((TruckConfig == null)) {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(ConfigSource));
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(TruckConfig));
             }
-            if ((SchemeCode == null)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            if ((TruckconfigID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((int)(TruckconfigID.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(SchemeCode));
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((RoadAccess == null)) {
+            if ((AxleConfiguration == null)) {
                 this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(RoadAccess));
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(AxleConfiguration));
             }
-            if ((QueueStatus == null)) {
+            if ((FeeCode == null)) {
                 this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(QueueStatus));
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(FeeCode));
             }
-            if ((WeighbridgeID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((int)(WeighbridgeID.Value));
-            }
-            else {
+            if ((ConfigSource == null)) {
                 this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            if ((SAPOrder.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((int)(SAPOrder.Value));
-            }
             else {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(ConfigSource));
+            }
+            if ((SchemeCode == null)) {
                 this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((DeliveryAddress == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(SchemeCode));
+            }
+            if ((RoadAccess == null)) {
                 this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(DeliveryAddress));
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(RoadAccess));
             }
-            if ((CustON == null)) {
+            if ((QueueStatus == null)) {
                 this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(CustON));
+                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(QueueStatus));
             }
-            if ((CartageCode == null)) {
+            if ((WeighbridgeID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[17].Value = ((int)(WeighbridgeID.Value));
+            }
+            else {
                 this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(CartageCode));
+            if ((SAPOrder.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[18].Value = ((int)(SAPOrder.Value));
             }
-            if ((Material == null)) {
+            else {
                 this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(Material));
-            }
-            if ((MaterialDesc == null)) {
+            if ((DeliveryAddress == null)) {
                 this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(MaterialDesc));
+                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(DeliveryAddress));
             }
-            if ((StockpileLotNo.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[20].Value = ((int)(StockpileLotNo.Value));
-            }
-            else {
+            if ((CustON == null)) {
                 this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
-            if ((TruckOwnerCode == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[20].Value = ((string)(CustON));
+            }
+            if ((CartageCode == null)) {
                 this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[21].Value = ((string)(TruckOwnerCode));
+                this.Adapter.InsertCommand.Parameters[21].Value = ((string)(CartageCode));
             }
-            if ((TruckOwner == null)) {
+            if ((Material == null)) {
                 this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[22].Value = ((string)(TruckOwner));
+                this.Adapter.InsertCommand.Parameters[22].Value = ((string)(Material));
             }
-            if ((DriverID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[23].Value = ((int)(DriverID.Value));
-            }
-            else {
+            if ((MaterialDesc == null)) {
                 this.Adapter.InsertCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
-            if ((Driver == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[23].Value = ((string)(MaterialDesc));
+            }
+            if ((StockpileLotNo.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[24].Value = ((int)(StockpileLotNo.Value));
+            }
+            else {
                 this.Adapter.InsertCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[24].Value = ((string)(Driver));
-            }
-            if ((Payload.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[25].Value = ((decimal)(Payload.Value));
-            }
-            else {
+            if ((TruckOwnerCode == null)) {
                 this.Adapter.InsertCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
-            if ((PayloadSplit == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[25].Value = ((string)(TruckOwnerCode));
+            }
+            if ((TruckOwner == null)) {
                 this.Adapter.InsertCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[26].Value = ((string)(PayloadSplit));
+                this.Adapter.InsertCommand.Parameters[26].Value = ((string)(TruckOwner));
             }
-            if ((GCM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[27].Value = ((decimal)(GCM.Value));
+            if ((DriverID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[27].Value = ((int)(DriverID.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
-            if ((GVMTruck.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[28].Value = ((decimal)(GVMTruck.Value));
-            }
-            else {
+            if ((Driver == null)) {
                 this.Adapter.InsertCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
-            if ((Gross.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[29].Value = ((decimal)(Gross.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[28].Value = ((string)(Driver));
+            }
+            if ((Payload.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[29].Value = ((decimal)(Payload.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
-            if ((Tare.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[30].Value = ((decimal)(Tare.Value));
-            }
-            else {
+            if ((PayloadSplit == null)) {
                 this.Adapter.InsertCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
-            if ((TareTk.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[31].Value = ((decimal)(TareTk.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[30].Value = ((string)(PayloadSplit));
+            }
+            if ((GCM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[31].Value = ((decimal)(GCM.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
-            if ((Nett.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[32].Value = ((decimal)(Nett.Value));
+            if ((GVMTruck.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[32].Value = ((decimal)(GVMTruck.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
-            if ((EntryDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[33].Value = ((System.DateTime)(EntryDTTM.Value));
+            if ((Gross.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[33].Value = ((decimal)(Gross.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
-            if ((AllocateDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[34].Value = ((System.DateTime)(AllocateDTTM.Value));
+            if ((Tare.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[34].Value = ((decimal)(Tare.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
-            if ((ReleaseDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[35].Value = ((System.DateTime)(ReleaseDTTM.Value));
+            if ((TareTk.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[35].Value = ((decimal)(TareTk.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[35].Value = global::System.DBNull.Value;
             }
-            if ((WeightDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[36].Value = ((System.DateTime)(WeightDTTM.Value));
+            if ((Nett.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[36].Value = ((decimal)(Nett.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[36].Value = global::System.DBNull.Value;
             }
-            if ((AcceptanceDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[37].Value = ((System.DateTime)(AcceptanceDTTM.Value));
+            if ((EntryDTTM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[37].Value = ((System.DateTime)(EntryDTTM.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
-            if ((ExitDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[38].Value = ((System.DateTime)(ExitDTTM.Value));
+            if ((AllocateDTTM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[38].Value = ((System.DateTime)(AllocateDTTM.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[38].Value = global::System.DBNull.Value;
+            }
+            if ((ReleaseDTTM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[39].Value = ((System.DateTime)(ReleaseDTTM.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            if ((WeightDTTM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[40].Value = ((System.DateTime)(WeightDTTM.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[40].Value = global::System.DBNull.Value;
+            }
+            if ((AcceptanceDTTM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[41].Value = ((System.DateTime)(AcceptanceDTTM.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[41].Value = global::System.DBNull.Value;
+            }
+            if ((ExitDTTM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[42].Value = ((System.DateTime)(ExitDTTM.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[42].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 

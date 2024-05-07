@@ -515,6 +515,10 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@TIQOpen", true);
                 cmd.Parameters.AddWithValue("@SiteID", Properties.Settings.Default.SiteID);
                 cmd.Parameters.AddWithValue("@Rego", CurrentConfigTruck().RegoTk);
+                cmd.Parameters.AddWithValue("@RegoTr1", CurrentConfigTruck().RegoTr1);
+                cmd.Parameters.AddWithValue("@RegoTr2", CurrentConfigTruck().RegoTr2);
+                cmd.Parameters.AddWithValue("@RegoTr3", CurrentConfigTruck().RegoTr3);
+                cmd.Parameters.AddWithValue("@RegoTrailers", CurrentConfigTruck().RegoTrailer);
                 cmd.Parameters.AddWithValue("@TruckConfig", "TK");
                 cmd.Parameters.AddWithValue("@TruckConfigID", CurrentConfigTruck().TruckConfigID);
                 cmd.Parameters.AddWithValue("@AxleConfiguration", CurrentConfigTruck().AxleConfiguration);
