@@ -66,12 +66,22 @@ namespace QWS_Local
             try
             {
                 int iRow =taTIQ2.FillBy(dsTIQ2.TIQ, 7, TIQID);
-                MessageBox.Show("TIQ2.FillBy iRow = " + iRow.ToString());
                 DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
                 dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
                 myTIQRow.AllocateDTTM = DateTime.Now;
-                // TODO update other fields
-                myTIQRow.Material = "Allocated";
+                myTIQRow.SAPOrder = CurrentDeliveryOrder().DocNum;
+                if (CurrentDeliveryOrder().ItemQA == "Y")
+                {
+                    myTIQRow.StockpileLotNo = -9;
+                }
+                else
+                {
+                    myTIQRow.StockpileLotNo = 0;
+                }
+                myTIQRow.CustON = CurrentDeliveryOrder().PurchaseOrder;
+                myTIQRow.Material = CurrentDeliveryOrder().MaterialCode;
+                myTIQRow.MaterialDesc = CurrentDeliveryOrder().Material;
+                myTIQRow.CartageCode = CurrentDeliveryOrder().CartageCode;
                 bsTIQ2.EndEdit();
                 iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 if (iRow == 1)
@@ -88,6 +98,19 @@ namespace QWS_Local
             }
         }
 
+        private dsBookIn.DeliveryOrdersAllRow CurrentDeliveryOrder()
+        {
+            if (bsDeliveryOrders.Count > 0)
+            {
+                DataRow myRow = ((DataRowView)bsDeliveryOrders.Current).Row;
+                dsBookIn.DeliveryOrdersAllRow deliveryRow = (dsBookIn.DeliveryOrdersAllRow)myRow;
+                return deliveryRow;
+            }
+            else
+            {
+                return null;
+            }
+        }
 
     }
 }

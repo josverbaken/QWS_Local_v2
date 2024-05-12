@@ -57,15 +57,13 @@ namespace QWS_Local
             System.Windows.Forms.Label regoTkLabel;
             System.Windows.Forms.Label personLabel;
             System.Windows.Forms.Label mobLabel;
-            System.Windows.Forms.Label tIQIDLabel1;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.tIQIDTextBox1 = new System.Windows.Forms.TextBox();
             this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.btnBookIn = new System.Windows.Forms.Button();
             this.mobTextBox = new System.Windows.Forms.TextBox();
             this.bsDriver = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.personTextBox = new System.Windows.Forms.TextBox();
             this.feeCodeTextBox = new System.Windows.Forms.TextBox();
             this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
@@ -171,15 +169,14 @@ namespace QWS_Local
             regoTkLabel = new System.Windows.Forms.Label();
             personLabel = new System.Windows.Forms.Label();
             mobLabel = new System.Windows.Forms.Label();
-            tIQIDLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDriver)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -442,15 +439,6 @@ namespace QWS_Local
             mobLabel.TabIndex = 86;
             mobLabel.Text = "Mob:";
             // 
-            // tIQIDLabel1
-            // 
-            tIQIDLabel1.AutoSize = true;
-            tIQIDLabel1.Location = new System.Drawing.Point(925, 102);
-            tIQIDLabel1.Name = "tIQIDLabel1";
-            tIQIDLabel1.Size = new System.Drawing.Size(48, 17);
-            tIQIDLabel1.TabIndex = 89;
-            tIQIDLabel1.Text = "TIQID:";
-            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -462,8 +450,6 @@ namespace QWS_Local
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
-            this.splitContainer1.Panel1.Controls.Add(tIQIDLabel1);
-            this.splitContainer1.Panel1.Controls.Add(this.tIQIDTextBox1);
             this.splitContainer1.Panel1.Controls.Add(this.btnBookIn);
             this.splitContainer1.Panel1.Controls.Add(mobLabel);
             this.splitContainer1.Panel1.Controls.Add(this.mobTextBox);
@@ -488,14 +474,6 @@ namespace QWS_Local
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
-            // tIQIDTextBox1
-            // 
-            this.tIQIDTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "TIQID", true));
-            this.tIQIDTextBox1.Location = new System.Drawing.Point(979, 99);
-            this.tIQIDTextBox1.Name = "tIQIDTextBox1";
-            this.tIQIDTextBox1.Size = new System.Drawing.Size(100, 23);
-            this.tIQIDTextBox1.TabIndex = 90;
-            // 
             // bsTIQ2
             // 
             this.bsTIQ2.DataMember = "TIQ";
@@ -505,11 +483,6 @@ namespace QWS_Local
             // 
             this.dsTIQ2.DataSetName = "dsTIQ2";
             this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dsQWSLocal
-            // 
-            this.dsQWSLocal.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnBookIn
             // 
@@ -534,6 +507,11 @@ namespace QWS_Local
             // 
             this.bsDriver.DataMember = "TruckDriver";
             this.bsDriver.DataSource = this.dsQWSLocal;
+            // 
+            // dsQWSLocal
+            // 
+            this.dsQWSLocal.DataSetName = "dsQWSLocal";
+            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // personTextBox
             // 
@@ -1245,8 +1223,8 @@ namespace QWS_Local
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDriver)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1357,6 +1335,5 @@ namespace QWS_Local
         private System.Windows.Forms.BindingSource bsTIQ2;
         private dsTIQ2TableAdapters.TIQTableAdapter taTIQ2;
         private dsTIQ2TableAdapters.TableAdapterManager tableAdapterManager3;
-        private System.Windows.Forms.TextBox tIQIDTextBox1;
     }
 }
