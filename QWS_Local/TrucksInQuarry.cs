@@ -182,6 +182,7 @@ namespace QWS_Local
         private void btnTINRemove_Click(object sender, EventArgs e)
         {
             TINRemove();
+            RefreshQueue();
         }
 
         private void TINRemove()

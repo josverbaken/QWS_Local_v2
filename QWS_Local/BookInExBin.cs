@@ -140,6 +140,7 @@ namespace QWS_Local
         private void button3_Click(object sender, EventArgs e)
         {
             GetTIQRow();
+            // TODO add order details to TIQ, data source depends on if from Order
         }
 
         private void GetTIQRow()
@@ -154,6 +155,45 @@ namespace QWS_Local
             }
 
         }
-        
+
+        private void AddExBinOrder2TIQ()
+        {
+            try
+            {
+                int iRow = taTIQ2.FillBy(dsTIQ2.TIQ, 7, TIQID);
+                DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
+                dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
+                myTIQRow.AllocateDTTM = DateTime.Now;
+                myTIQRow.SAPOrder = 7011; // CurrentDeliveryOrder().DocNum;
+                //if (CurrentDeliveryOrder().ItemQA == "Y")
+                //{
+                //    myTIQRow.StockpileLotNo = -9;
+                //}
+                //else
+                //{
+                //    myTIQRow.StockpileLotNo = 0;
+                //}
+                //myTIQRow.CustON = CurrentDeliveryOrder().PurchaseOrder;
+                //myTIQRow.Material = CurrentDeliveryOrder().MaterialCode;
+                //myTIQRow.MaterialDesc = CurrentDeliveryOrder().Material;
+                //myTIQRow.CartageCode = CurrentDeliveryOrder().CartageCode;
+                bsTIQ2.EndEdit();
+                iRow = taTIQ2.Update(dsTIQ2.TIQ);
+                if (iRow == 1)
+                {
+                    TrucksInQuarry frmTIQ = new TrucksInQuarry();
+                    frmTIQ.MdiParent = this.MdiParent;
+                    frmTIQ.Show();
+                }
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "AddDelivery2TIQ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
     }
 }
