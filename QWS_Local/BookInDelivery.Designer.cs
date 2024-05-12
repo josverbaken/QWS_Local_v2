@@ -58,8 +58,6 @@ namespace QWS_Local
             System.Windows.Forms.Label personLabel;
             System.Windows.Forms.Label mobLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.btnBookIn = new System.Windows.Forms.Button();
             this.mobTextBox = new System.Windows.Forms.TextBox();
             this.bsDriver = new System.Windows.Forms.BindingSource(this.components);
@@ -133,6 +131,8 @@ namespace QWS_Local
             this.tareTextBox = new System.Windows.Forms.TextBox();
             this.tareTkTextBox = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.taDeliveryOrders = new QWS_Local.dsBookInTableAdapters.DeliveryOrdersAllTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsBookInTableAdapters.TableAdapterManager();
             this.exBinOrdersTableAdapter = new QWS_Local.dsBookInTableAdapters.ExBinOrdersTableAdapter();
@@ -142,6 +142,7 @@ namespace QWS_Local
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager3 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             docNumLabel = new System.Windows.Forms.Label();
             docDateLabel = new System.Windows.Forms.Label();
             deliveryDateLabel = new System.Windows.Forms.Label();
@@ -173,8 +174,6 @@ namespace QWS_Local
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDriver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
@@ -194,6 +193,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             this.SuspendLayout();
             // 
             // docNumLabel
@@ -271,7 +272,7 @@ namespace QWS_Local
             // cartageCodeLabel
             // 
             cartageCodeLabel.AutoSize = true;
-            cartageCodeLabel.Location = new System.Drawing.Point(30, 290);
+            cartageCodeLabel.Location = new System.Drawing.Point(510, 57);
             cartageCodeLabel.Name = "cartageCodeLabel";
             cartageCodeLabel.Size = new System.Drawing.Size(99, 17);
             cartageCodeLabel.TabIndex = 16;
@@ -280,7 +281,7 @@ namespace QWS_Local
             // cartageLabel
             // 
             cartageLabel.AutoSize = true;
-            cartageLabel.Location = new System.Drawing.Point(67, 319);
+            cartageLabel.Location = new System.Drawing.Point(547, 86);
             cartageLabel.Name = "cartageLabel";
             cartageLabel.Size = new System.Drawing.Size(62, 17);
             cartageLabel.TabIndex = 18;
@@ -298,7 +299,7 @@ namespace QWS_Local
             // sAPCommentsLabel
             // 
             sAPCommentsLabel.AutoSize = true;
-            sAPCommentsLabel.Location = new System.Drawing.Point(24, 377);
+            sAPCommentsLabel.Location = new System.Drawing.Point(504, 144);
             sAPCommentsLabel.Name = "sAPCommentsLabel";
             sAPCommentsLabel.Size = new System.Drawing.Size(105, 17);
             sAPCommentsLabel.TabIndex = 22;
@@ -307,7 +308,7 @@ namespace QWS_Local
             // deliveryAddressLabel
             // 
             deliveryAddressLabel.AutoSize = true;
-            deliveryAddressLabel.Location = new System.Drawing.Point(10, 348);
+            deliveryAddressLabel.Location = new System.Drawing.Point(490, 115);
             deliveryAddressLabel.Name = "deliveryAddressLabel";
             deliveryAddressLabel.Size = new System.Drawing.Size(119, 17);
             deliveryAddressLabel.TabIndex = 24;
@@ -316,7 +317,7 @@ namespace QWS_Local
             // mapRefLabel
             // 
             mapRefLabel.AutoSize = true;
-            mapRefLabel.Location = new System.Drawing.Point(241, 290);
+            mapRefLabel.Location = new System.Drawing.Point(721, 57);
             mapRefLabel.Name = "mapRefLabel";
             mapRefLabel.Size = new System.Drawing.Size(65, 17);
             mapRefLabel.TabIndex = 26;
@@ -325,7 +326,7 @@ namespace QWS_Local
             // distanceLabel
             // 
             distanceLabel.AutoSize = true;
-            distanceLabel.Location = new System.Drawing.Point(62, 261);
+            distanceLabel.Location = new System.Drawing.Point(542, 28);
             distanceLabel.Name = "distanceLabel";
             distanceLabel.Size = new System.Drawing.Size(67, 17);
             distanceLabel.TabIndex = 28;
@@ -334,7 +335,7 @@ namespace QWS_Local
             // sAPUpdateDTTMLabel
             // 
             sAPUpdateDTTMLabel.AutoSize = true;
-            sAPUpdateDTTMLabel.Location = new System.Drawing.Point(7, 409);
+            sAPUpdateDTTMLabel.Location = new System.Drawing.Point(487, 176);
             sAPUpdateDTTMLabel.Name = "sAPUpdateDTTMLabel";
             sAPUpdateDTTMLabel.Size = new System.Drawing.Size(128, 17);
             sAPUpdateDTTMLabel.TabIndex = 30;
@@ -469,20 +470,10 @@ namespace QWS_Local
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1361, 554);
-            this.splitContainer1.SplitterDistance = 247;
+            this.splitContainer1.Size = new System.Drawing.Size(1361, 631);
+            this.splitContainer1.SplitterDistance = 281;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // bsTIQ2
-            // 
-            this.bsTIQ2.DataMember = "TIQ";
-            this.bsTIQ2.DataSource = this.dsTIQ2;
-            // 
-            // dsTIQ2
-            // 
-            this.dsTIQ2.DataSetName = "dsTIQ2";
-            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnBookIn
             // 
@@ -595,7 +586,7 @@ namespace QWS_Local
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1361, 302);
+            this.tabControl1.Size = new System.Drawing.Size(1361, 345);
             this.tabControl1.TabIndex = 1;
             // 
             // tpList
@@ -750,6 +741,7 @@ namespace QWS_Local
             // 
             // tpDetails
             // 
+            this.tpDetails.Controls.Add(this.textBox5);
             this.tpDetails.Controls.Add(orderStatusLabel);
             this.tpDetails.Controls.Add(this.orderStatusTextBox);
             this.tpDetails.Controls.Add(this.textBox3);
@@ -784,11 +776,11 @@ namespace QWS_Local
             this.tpDetails.Controls.Add(docDateLabel);
             this.tpDetails.Controls.Add(docNumLabel);
             this.tpDetails.Controls.Add(this.docNumTextBox);
-            this.tpDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpDetails.Location = new System.Drawing.Point(4, 25);
             this.tpDetails.Margin = new System.Windows.Forms.Padding(4);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(4);
-            this.tpDetails.Size = new System.Drawing.Size(1353, 276);
+            this.tpDetails.Size = new System.Drawing.Size(1353, 316);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -809,7 +801,7 @@ namespace QWS_Local
             // textBox3
             // 
             this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "SAPUpdateDTTM", true));
-            this.textBox3.Location = new System.Drawing.Point(136, 406);
+            this.textBox3.Location = new System.Drawing.Point(616, 173);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 23);
             this.textBox3.TabIndex = 33;
@@ -833,7 +825,7 @@ namespace QWS_Local
             // distanceTextBox
             // 
             this.distanceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "Distance", true));
-            this.distanceTextBox.Location = new System.Drawing.Point(135, 258);
+            this.distanceTextBox.Location = new System.Drawing.Point(615, 25);
             this.distanceTextBox.Name = "distanceTextBox";
             this.distanceTextBox.Size = new System.Drawing.Size(100, 23);
             this.distanceTextBox.TabIndex = 29;
@@ -841,7 +833,7 @@ namespace QWS_Local
             // mapRefTextBox
             // 
             this.mapRefTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "MapRef", true));
-            this.mapRefTextBox.Location = new System.Drawing.Point(312, 287);
+            this.mapRefTextBox.Location = new System.Drawing.Point(792, 54);
             this.mapRefTextBox.Name = "mapRefTextBox";
             this.mapRefTextBox.Size = new System.Drawing.Size(100, 23);
             this.mapRefTextBox.TabIndex = 27;
@@ -849,7 +841,7 @@ namespace QWS_Local
             // deliveryAddressTextBox
             // 
             this.deliveryAddressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "DeliveryAddress", true));
-            this.deliveryAddressTextBox.Location = new System.Drawing.Point(135, 345);
+            this.deliveryAddressTextBox.Location = new System.Drawing.Point(615, 112);
             this.deliveryAddressTextBox.Name = "deliveryAddressTextBox";
             this.deliveryAddressTextBox.Size = new System.Drawing.Size(688, 23);
             this.deliveryAddressTextBox.TabIndex = 25;
@@ -857,7 +849,7 @@ namespace QWS_Local
             // sAPCommentsTextBox
             // 
             this.sAPCommentsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "SAPComments", true));
-            this.sAPCommentsTextBox.Location = new System.Drawing.Point(135, 374);
+            this.sAPCommentsTextBox.Location = new System.Drawing.Point(615, 141);
             this.sAPCommentsTextBox.Name = "sAPCommentsTextBox";
             this.sAPCommentsTextBox.Size = new System.Drawing.Size(688, 23);
             this.sAPCommentsTextBox.TabIndex = 23;
@@ -873,7 +865,7 @@ namespace QWS_Local
             // cartageTextBox
             // 
             this.cartageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "Cartage", true));
-            this.cartageTextBox.Location = new System.Drawing.Point(135, 316);
+            this.cartageTextBox.Location = new System.Drawing.Point(615, 83);
             this.cartageTextBox.Name = "cartageTextBox";
             this.cartageTextBox.Size = new System.Drawing.Size(277, 23);
             this.cartageTextBox.TabIndex = 19;
@@ -881,7 +873,7 @@ namespace QWS_Local
             // cartageCodeTextBox
             // 
             this.cartageCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "CartageCode", true));
-            this.cartageCodeTextBox.Location = new System.Drawing.Point(135, 287);
+            this.cartageCodeTextBox.Location = new System.Drawing.Point(615, 54);
             this.cartageCodeTextBox.Name = "cartageCodeTextBox";
             this.cartageCodeTextBox.Size = new System.Drawing.Size(100, 23);
             this.cartageCodeTextBox.TabIndex = 17;
@@ -1025,9 +1017,9 @@ namespace QWS_Local
             // tpPayload
             // 
             this.tpPayload.Controls.Add(this.groupBox3);
-            this.tpPayload.Location = new System.Drawing.Point(4, 22);
+            this.tpPayload.Location = new System.Drawing.Point(4, 25);
             this.tpPayload.Name = "tpPayload";
-            this.tpPayload.Size = new System.Drawing.Size(1353, 276);
+            this.tpPayload.Size = new System.Drawing.Size(1353, 273);
             this.tpPayload.TabIndex = 2;
             this.tpPayload.Text = "Payload";
             this.tpPayload.UseVisualStyleBackColor = true;
@@ -1063,6 +1055,7 @@ namespace QWS_Local
             this.btnPayloadValidate.TabIndex = 69;
             this.btnPayloadValidate.Text = "Validate";
             this.btnPayloadValidate.UseVisualStyleBackColor = true;
+            this.btnPayloadValidate.Click += new System.EventHandler(this.btnPayloadValidate_Click);
             // 
             // nudPayloadTk
             // 
@@ -1101,6 +1094,7 @@ namespace QWS_Local
             this.btnPayload.TabIndex = 61;
             this.btnPayload.Text = "Payload";
             this.btnPayload.UseVisualStyleBackColor = true;
+            this.btnPayload.Click += new System.EventHandler(this.btnPayload_Click);
             // 
             // gCMTextBox
             // 
@@ -1146,6 +1140,16 @@ namespace QWS_Local
             this.textBox4.Size = new System.Drawing.Size(97, 23);
             this.textBox4.TabIndex = 51;
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // bsTIQ2
+            // 
+            this.bsTIQ2.DataMember = "TIQ";
+            this.bsTIQ2.DataSource = this.dsTIQ2;
+            // 
+            // dsTIQ2
+            // 
+            this.dsTIQ2.DataSetName = "dsTIQ2";
+            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // taDeliveryOrders
             // 
@@ -1205,11 +1209,19 @@ namespace QWS_Local
             this.tableAdapterManager3.TIQTableAdapter = this.taTIQ2;
             this.tableAdapterManager3.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // textBox5
+            // 
+            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "ItmsGrpCod", true));
+            this.textBox5.Location = new System.Drawing.Point(243, 112);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(53, 23);
+            this.textBox5.TabIndex = 35;
+            // 
             // BookInDelivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1361, 554);
+            this.ClientSize = new System.Drawing.Size(1361, 631);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -1221,8 +1233,6 @@ namespace QWS_Local
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDriver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).EndInit();
@@ -1244,6 +1254,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1335,5 +1347,6 @@ namespace QWS_Local
         private System.Windows.Forms.BindingSource bsTIQ2;
         private dsTIQ2TableAdapters.TIQTableAdapter taTIQ2;
         private dsTIQ2TableAdapters.TableAdapterManager tableAdapterManager3;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }

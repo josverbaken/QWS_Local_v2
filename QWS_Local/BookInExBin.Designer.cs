@@ -54,7 +54,6 @@ namespace QWS_Local
             System.Windows.Forms.Label feeCodeLabel;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label mobLabel;
-            System.Windows.Forms.Label tIQIDLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.mobTextBox = new System.Windows.Forms.TextBox();
@@ -68,6 +67,8 @@ namespace QWS_Local
             this.regoTkTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -162,11 +163,8 @@ namespace QWS_Local
             this.tableAdapterManager1 = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
             this.taDriver = new QWS_Local.dsQWSLocalTableAdapters.TruckDriverTableAdapter();
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
-            this.dsTIQ2 = new QWS_Local.dsTIQ2();
-            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager3 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
-            this.txtTIQID = new System.Windows.Forms.TextBox();
             docNumLabel = new System.Windows.Forms.Label();
             docDateLabel = new System.Windows.Forms.Label();
             cardCodeLabel = new System.Windows.Forms.Label();
@@ -191,7 +189,6 @@ namespace QWS_Local
             feeCodeLabel = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             mobLabel = new System.Windows.Forms.Label();
-            tIQIDLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -208,6 +205,8 @@ namespace QWS_Local
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tpExBinOrders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
@@ -228,8 +227,6 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
             this.SuspendLayout();
             // 
             // docNumLabel
@@ -572,8 +569,6 @@ namespace QWS_Local
             // 
             // splitContainer3.Panel1
             // 
-            this.splitContainer3.Panel1.Controls.Add(tIQIDLabel);
-            this.splitContainer3.Panel1.Controls.Add(this.txtTIQID);
             this.splitContainer3.Panel1.Controls.Add(this.button3);
             this.splitContainer3.Panel1.Controls.Add(this.button2);
             this.splitContainer3.Panel1.Controls.Add(this.button1);
@@ -585,6 +580,16 @@ namespace QWS_Local
             this.splitContainer3.Size = new System.Drawing.Size(1427, 322);
             this.splitContainer3.SplitterDistance = 80;
             this.splitContainer3.TabIndex = 3;
+            // 
+            // bsTIQ2
+            // 
+            this.bsTIQ2.DataMember = "TIQ";
+            this.bsTIQ2.DataSource = this.dsTIQ2;
+            // 
+            // dsTIQ2
+            // 
+            this.dsTIQ2.DataSetName = "dsTIQ2";
+            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button3
             // 
@@ -1257,9 +1262,9 @@ namespace QWS_Local
             // tpPayload
             // 
             this.tpPayload.Controls.Add(this.groupBox3);
-            this.tpPayload.Location = new System.Drawing.Point(4, 22);
+            this.tpPayload.Location = new System.Drawing.Point(4, 25);
             this.tpPayload.Name = "tpPayload";
-            this.tpPayload.Size = new System.Drawing.Size(1419, 212);
+            this.tpPayload.Size = new System.Drawing.Size(1419, 209);
             this.tpPayload.TabIndex = 3;
             this.tpPayload.Text = "Payload";
             this.tpPayload.UseVisualStyleBackColor = true;
@@ -1428,16 +1433,6 @@ namespace QWS_Local
             this.tableAdapterManager2.VehicleTableAdapter = null;
             this.tableAdapterManager2.VehicleTypeTableAdapter = null;
             // 
-            // dsTIQ2
-            // 
-            this.dsTIQ2.DataSetName = "dsTIQ2";
-            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bsTIQ2
-            // 
-            this.bsTIQ2.DataMember = "TIQ";
-            this.bsTIQ2.DataSource = this.dsTIQ2;
-            // 
             // taTIQ2
             // 
             this.taTIQ2.ClearBeforeFill = true;
@@ -1447,23 +1442,6 @@ namespace QWS_Local
             this.tableAdapterManager3.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager3.TIQTableAdapter = this.taTIQ2;
             this.tableAdapterManager3.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // tIQIDLabel
-            // 
-            tIQIDLabel.AutoSize = true;
-            tIQIDLabel.Location = new System.Drawing.Point(1056, 20);
-            tIQIDLabel.Name = "tIQIDLabel";
-            tIQIDLabel.Size = new System.Drawing.Size(48, 17);
-            tIQIDLabel.TabIndex = 79;
-            tIQIDLabel.Text = "TIQID:";
-            // 
-            // txtTIQID
-            // 
-            this.txtTIQID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "TIQID", true));
-            this.txtTIQID.Location = new System.Drawing.Point(1110, 17);
-            this.txtTIQID.Name = "txtTIQID";
-            this.txtTIQID.Size = new System.Drawing.Size(100, 23);
-            this.txtTIQID.TabIndex = 80;
             // 
             // BookInExBin
             // 
@@ -1494,6 +1472,8 @@ namespace QWS_Local
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.tpExBinOrders.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
@@ -1516,8 +1496,6 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1635,6 +1613,5 @@ namespace QWS_Local
         private System.Windows.Forms.BindingSource bsTIQ2;
         private dsTIQ2TableAdapters.TIQTableAdapter taTIQ2;
         private dsTIQ2TableAdapters.TableAdapterManager tableAdapterManager3;
-        private System.Windows.Forms.TextBox txtTIQID;
     }
 }

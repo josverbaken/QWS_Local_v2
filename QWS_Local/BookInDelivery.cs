@@ -82,6 +82,7 @@ namespace QWS_Local
                 myTIQRow.Material = CurrentDeliveryOrder().MaterialCode;
                 myTIQRow.MaterialDesc = CurrentDeliveryOrder().Material;
                 myTIQRow.CartageCode = CurrentDeliveryOrder().CartageCode;
+                myTIQRow.QueueStatus = "Q";
                 bsTIQ2.EndEdit();
                 iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 if (iRow == 1)
@@ -112,5 +113,68 @@ namespace QWS_Local
             }
         }
 
+        private void btnPayload_Click(object sender, EventArgs e)
+        {
+            CalcPayload();
+        }
+
+        private dsTruckConfig.ConfiguredTruckGVMRow CurrentTruckGVM()
+        {
+            try
+            {
+                if (bsConfiguredTruckGVM.Count > 0)
+                {
+                    DataRow myRow = ((DataRowView)bsConfiguredTruckGVM.Current).Row;
+                    dsTruckConfig.ConfiguredTruckGVMRow configuredTruckGVMRow = (dsTruckConfig.ConfiguredTruckGVMRow)myRow;
+                    return configuredTruckGVMRow;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
+        private void CalcPayload()
+        {
+            decimal myPayload = 0.0M;
+            decimal myPayloadTk = 0.0M;
+            decimal myPayloadTr = 0.0M;
+            myPayload = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
+            nudPayload.Value = myPayload;
+            if (CurrentTruckGVM().GCM != CurrentTruckGVM().GVMTruck)
+            {
+                myPayloadTk = CurrentTruckGVM().GVMTruck - CurrentTruckGVM().TareTk;
+                myPayloadTr = myPayload - myPayloadTk;
+                nudPayloadTk.Value = myPayloadTk;
+                nudPayloadTr.Value = myPayloadTr;
+            }
+        }
+
+        private void PayloadNUDLimit()
+        {
+            decimal PayloadLimit = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
+
+            if (nudPayload.Value > PayloadLimit)
+            {
+                nudPayload.Value = PayloadLimit;
+                MessageBox.Show("Sorry - can only reduce payload!");
+            }
+        }
+
+        private void PayloadValidate()
+        {
+            if ((nudPayloadTk.Value + nudPayloadTr.Value) > nudPayload.Value)
+            {
+                MessageBox.Show("Payload split > total Payload!");
+            }
+        }
+
+        private void btnPayloadValidate_Click(object sender, EventArgs e)
+        {
+            PayloadValidate();
+        }
     }
 }

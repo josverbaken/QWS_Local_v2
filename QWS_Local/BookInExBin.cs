@@ -177,6 +177,7 @@ namespace QWS_Local
                 //myTIQRow.Material = CurrentDeliveryOrder().MaterialCode;
                 //myTIQRow.MaterialDesc = CurrentDeliveryOrder().Material;
                 //myTIQRow.CartageCode = CurrentDeliveryOrder().CartageCode;
+                myTIQRow.QueueStatus = "Q";
                 bsTIQ2.EndEdit();
                 iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 if (iRow == 1)
