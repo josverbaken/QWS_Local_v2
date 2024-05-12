@@ -100,6 +100,7 @@ namespace QWS_Local
             {
                 chkACC.Checked = false;
             }
+
         }  
 
         private dsTruckConfig.ConfiguredTrucksRow CurrentConfigTruck()
@@ -182,6 +183,23 @@ namespace QWS_Local
             if (FormLoaded && bsConfiguredTrucks.Count > 0)
             {
                 SetTruckConfigRadioButtons(CurrentConfigTruck().Compartments);
+                // Check LoadType
+                string myAxles = CurrentConfigTruck().AxleConfiguration;
+                switch (myAxles)
+                {
+                    case "12A":
+                        txtTruckConfig.Text = "ST";
+                        break;
+                    case "12R":
+                        txtTruckConfig.Text = "TK";
+                        break;
+                    case "12A3A3":
+                        txtTruckConfig.Text = "BD";
+                        break;
+                    default:
+                        txtTruckConfig.Text = "tba";
+                        break;
+                }
                 // TODO check GVM vs MaxGVM once config chosen
             }
         }
@@ -629,5 +647,37 @@ namespace QWS_Local
             }
         }
 
-      }
+        private void rbTnT_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbTnT.Enabled)
+            {
+                if(rbTnT.Checked)
+                {
+                    txtTruckConfig.Text = "TT";
+                }
+            }
+        }
+
+        private void rbSplitLoad_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbSplitLoad.Enabled)
+            {
+                if (rbSplitLoad.Checked)
+                {
+                    txtTruckConfig.Text = "TKs";
+                }
+            }
+        }
+
+        private void rbTrailerOnly_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbTrailerOnly.Enabled)
+            { 
+                if (rbTrailerOnly.Checked)
+                {
+                    txtTruckConfig.Text = "TRs";
+                }
+                    }
+        }
+    }
 }

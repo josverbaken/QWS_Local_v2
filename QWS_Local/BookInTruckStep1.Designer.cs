@@ -83,6 +83,7 @@ namespace QWS_Local
             this.btnImported = new System.Windows.Forms.Button();
             this.btnExBin = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtTruckConfig = new System.Windows.Forms.TextBox();
             this.rbTrailerOnly = new System.Windows.Forms.RadioButton();
             this.rbSplitLoad = new System.Windows.Forms.RadioButton();
             this.rbTnT = new System.Windows.Forms.RadioButton();
@@ -98,7 +99,6 @@ namespace QWS_Local
             this.taTIQ = new QWS_Local.dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter();
             this.pictureSchematic = new System.Windows.Forms.PictureBox();
             this.tableAdapterManager2 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
-            this.txtTruckConfig = new System.Windows.Forms.TextBox();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -593,6 +593,14 @@ namespace QWS_Local
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Truck Configuration";
             // 
+            // txtTruckConfig
+            // 
+            this.txtTruckConfig.Location = new System.Drawing.Point(24, 148);
+            this.txtTruckConfig.Name = "txtTruckConfig";
+            this.txtTruckConfig.ReadOnly = true;
+            this.txtTruckConfig.Size = new System.Drawing.Size(100, 23);
+            this.txtTruckConfig.TabIndex = 3;
+            // 
             // rbTrailerOnly
             // 
             this.rbTrailerOnly.AutoSize = true;
@@ -603,6 +611,7 @@ namespace QWS_Local
             this.rbTrailerOnly.TabStop = true;
             this.rbTrailerOnly.Text = "Trailer Only";
             this.rbTrailerOnly.UseVisualStyleBackColor = true;
+            this.rbTrailerOnly.CheckedChanged += new System.EventHandler(this.rbTrailerOnly_CheckedChanged);
             // 
             // rbSplitLoad
             // 
@@ -614,6 +623,7 @@ namespace QWS_Local
             this.rbSplitLoad.TabStop = true;
             this.rbSplitLoad.Text = "Split Load";
             this.rbSplitLoad.UseVisualStyleBackColor = true;
+            this.rbSplitLoad.CheckedChanged += new System.EventHandler(this.rbSplitLoad_CheckedChanged);
             // 
             // rbTnT
             // 
@@ -625,6 +635,7 @@ namespace QWS_Local
             this.rbTnT.TabStop = true;
             this.rbTnT.Text = "Truck and Trailer";
             this.rbTnT.UseVisualStyleBackColor = true;
+            this.rbTnT.CheckedChanged += new System.EventHandler(this.rbTnT_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -727,14 +738,6 @@ namespace QWS_Local
             this.tableAdapterManager2.Connection = null;
             this.tableAdapterManager2.TIQTableAdapter = null;
             this.tableAdapterManager2.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // txtTruckConfig
-            // 
-            this.txtTruckConfig.Location = new System.Drawing.Point(24, 148);
-            this.txtTruckConfig.Name = "txtTruckConfig";
-            this.txtTruckConfig.ReadOnly = true;
-            this.txtTruckConfig.Size = new System.Drawing.Size(100, 23);
-            this.txtTruckConfig.TabIndex = 3;
             // 
             // BookInTruckStep1
             // 
