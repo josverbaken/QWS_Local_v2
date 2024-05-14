@@ -45,7 +45,15 @@ namespace QWS_Local
 
         private void ExBinOrdersLoad(string CardCode)
         {
-            this.exBinOrdersTableAdapter.FillBy(this.dsBookIn.ExBinOrders,CardCode);
+            int iOrders = this.taExBinOrders.FillBy(this.dsBookIn.ExBinOrders,CardCode);
+            if (iOrders == 0) { 
+                this.tabControl2.SelectedTab = tpExBinNoOrder; 
+                rbExBinNoOrder.Checked = true;
+            }
+            else
+            {
+                rbExBinSAPOrder.Checked = true;
+            }
         }
 
         private void LoadExBinItems()
@@ -139,21 +147,8 @@ namespace QWS_Local
 
         private void button3_Click(object sender, EventArgs e)
         {
-            GetTIQRow();
+            AddExBinOrder2TIQ();
             // TODO add order details to TIQ, data source depends on if from Order
-        }
-
-        private void GetTIQRow()
-        {
-            try
-            {
-                this.taTIQ2.Fill(this.dsTIQ2.TIQ, TIQID);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message, "GetTIQRow");
-            }
-
         }
 
         private void AddExBinOrder2TIQ()

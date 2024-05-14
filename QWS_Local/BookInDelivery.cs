@@ -82,6 +82,7 @@ namespace QWS_Local
                 myTIQRow.Material = CurrentDeliveryOrder().MaterialCode;
                 myTIQRow.MaterialDesc = CurrentDeliveryOrder().Material;
                 myTIQRow.CartageCode = CurrentDeliveryOrder().CartageCode;
+                myTIQRow.Payload = nudPayload.Value;
                 myTIQRow.QueueStatus = "Q";
                 bsTIQ2.EndEdit();
                 iRow = taTIQ2.Update(dsTIQ2.TIQ);
@@ -144,12 +145,20 @@ namespace QWS_Local
             decimal myPayloadTr = 0.0M;
             myPayload = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
             nudPayload.Value = myPayload;
+            txtPayload.Text = myPayload.ToString();
             if (CurrentTruckGVM().GCM != CurrentTruckGVM().GVMTruck)
             {
                 myPayloadTk = CurrentTruckGVM().GVMTruck - CurrentTruckGVM().TareTk;
                 myPayloadTr = myPayload - myPayloadTk;
                 nudPayloadTk.Value = myPayloadTk;
                 nudPayloadTr.Value = myPayloadTr;
+                txtPayloadTk.Text = myPayloadTk.ToString();
+                txtPayloadTr.Text = myPayloadTr.ToString();
+            }
+            else
+            {
+                txtPayloadTk.Text = string.Empty;
+                txtPayloadTr.Text = string.Empty;   
             }
         }
 
@@ -175,6 +184,29 @@ namespace QWS_Local
         private void btnPayloadValidate_Click(object sender, EventArgs e)
         {
             PayloadValidate();
+        }
+
+        private void btnPayload_Click_1(object sender, EventArgs e)
+        {
+            CalcPayload();
+        }
+
+        private void btnPayloadValidate_Click_1(object sender, EventArgs e)
+        {
+            PayloadValidate();
+        }
+
+        private void nudPayload_ValueChanged(object sender, EventArgs e)
+        {
+            PayloadNUDLimit();
+        }
+
+        private void bsConfiguredTruckGVM_CurrentChanged(object sender, EventArgs e)
+        {
+            if (bsConfiguredTruckGVM != null)
+            {
+                CalcPayload();
+            }
         }
     }
 }

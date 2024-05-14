@@ -620,7 +620,7 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@DriverID", CurrentTruckDriver().CntctCode);
                 cmd.Parameters.AddWithValue("@Driver", CurrentTruckDriver().Person);
                 cmd.Parameters.AddWithValue("@Payload", 0);
-                cmd.Parameters.AddWithValue("@PayloadSplit", "12.0/25.0");
+                cmd.Parameters.AddWithValue("@PayloadSplit", ""); // text 12.5/20.5
                 cmd.Parameters.AddWithValue("@GCM", 0);
                 cmd.Parameters.AddWithValue("@GVMTruck", 0);
                 cmd.Parameters.AddWithValue("@Gross", 0.0M);

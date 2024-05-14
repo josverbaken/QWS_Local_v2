@@ -67,8 +67,6 @@ namespace QWS_Local
             this.regoTkTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -93,7 +91,7 @@ namespace QWS_Local
             this.suppliedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sAPUpdateDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.exBinOrdersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bsExBinOrders = new System.Windows.Forms.BindingSource(this.components);
             this.dsBookIn = new QWS_Local.dsBookIn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
@@ -154,7 +152,9 @@ namespace QWS_Local
             this.gVMTruckTextBox = new System.Windows.Forms.TextBox();
             this.tareTextBox = new System.Windows.Forms.TextBox();
             this.tareTkTextBox = new System.Windows.Forms.TextBox();
-            this.exBinOrdersTableAdapter = new QWS_Local.dsBookInTableAdapters.ExBinOrdersTableAdapter();
+            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTIQ2 = new QWS_Local.dsTIQ2();
+            this.taExBinOrders = new QWS_Local.dsBookInTableAdapters.ExBinOrdersTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsBookInTableAdapters.TableAdapterManager();
             this.taItem = new QWS_Local.dsBookInTableAdapters.ItemTableAdapter();
             this.taConfiguredTruckGVM = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTruckGVMTableAdapter();
@@ -165,6 +165,8 @@ namespace QWS_Local
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager3 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
+            this.rbExBinNoOrder = new System.Windows.Forms.RadioButton();
+            this.rbExBinSAPOrder = new System.Windows.Forms.RadioButton();
             docNumLabel = new System.Windows.Forms.Label();
             docDateLabel = new System.Windows.Forms.Label();
             cardCodeLabel = new System.Windows.Forms.Label();
@@ -205,12 +207,10 @@ namespace QWS_Local
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tpExBinOrders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.exBinOrdersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsExBinOrders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsBookIn)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
@@ -226,6 +226,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
             this.SuspendLayout();
             // 
@@ -569,6 +571,8 @@ namespace QWS_Local
             // 
             // splitContainer3.Panel1
             // 
+            this.splitContainer3.Panel1.Controls.Add(this.rbExBinSAPOrder);
+            this.splitContainer3.Panel1.Controls.Add(this.rbExBinNoOrder);
             this.splitContainer3.Panel1.Controls.Add(this.button3);
             this.splitContainer3.Panel1.Controls.Add(this.button2);
             this.splitContainer3.Panel1.Controls.Add(this.button1);
@@ -581,19 +585,9 @@ namespace QWS_Local
             this.splitContainer3.SplitterDistance = 80;
             this.splitContainer3.TabIndex = 3;
             // 
-            // bsTIQ2
-            // 
-            this.bsTIQ2.DataMember = "TIQ";
-            this.bsTIQ2.DataSource = this.dsTIQ2;
-            // 
-            // dsTIQ2
-            // 
-            this.dsTIQ2.DataSetName = "dsTIQ2";
-            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(862, 13);
+            this.button3.Location = new System.Drawing.Point(1025, 11);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(160, 30);
             this.button3.TabIndex = 79;
@@ -677,7 +671,7 @@ namespace QWS_Local
             this.suppliedDataGridViewTextBoxColumn,
             this.sAPUpdateDTTMDataGridViewTextBoxColumn,
             this.orderStatusDataGridViewTextBoxColumn});
-            this.dataGridView4.DataSource = this.exBinOrdersBindingSource;
+            this.dataGridView4.DataSource = this.bsExBinOrders;
             this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView4.Location = new System.Drawing.Point(3, 3);
             this.dataGridView4.Name = "dataGridView4";
@@ -804,10 +798,10 @@ namespace QWS_Local
             this.orderStatusDataGridViewTextBoxColumn.Name = "orderStatusDataGridViewTextBoxColumn";
             this.orderStatusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // exBinOrdersBindingSource
+            // bsExBinOrders
             // 
-            this.exBinOrdersBindingSource.DataMember = "ExBinOrders";
-            this.exBinOrdersBindingSource.DataSource = this.dsBookIn;
+            this.bsExBinOrders.DataMember = "ExBinOrders";
+            this.bsExBinOrders.DataSource = this.dsBookIn;
             // 
             // dsBookIn
             // 
@@ -851,7 +845,7 @@ namespace QWS_Local
             this.materialCodeDataGridViewTextBoxColumn,
             this.materialDataGridViewTextBoxColumn,
             this.openQtyDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.exBinOrdersBindingSource;
+            this.dataGridView1.DataSource = this.bsExBinOrders;
             this.dataGridView1.Location = new System.Drawing.Point(3, 154);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
@@ -966,7 +960,7 @@ namespace QWS_Local
             // 
             // orderStatusTextBox
             // 
-            this.orderStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.exBinOrdersBindingSource, "OrderStatus", true));
+            this.orderStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "OrderStatus", true));
             this.orderStatusTextBox.Location = new System.Drawing.Point(412, 18);
             this.orderStatusTextBox.Name = "orderStatusTextBox";
             this.orderStatusTextBox.Size = new System.Drawing.Size(100, 23);
@@ -974,7 +968,7 @@ namespace QWS_Local
             // 
             // textBox3
             // 
-            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.exBinOrdersBindingSource, "SAPUpdateDTTM", true));
+            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "SAPUpdateDTTM", true));
             this.textBox3.Location = new System.Drawing.Point(157, 339);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(171, 23);
@@ -982,7 +976,7 @@ namespace QWS_Local
             // 
             // txtDocDate
             // 
-            this.txtDocDate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.exBinOrdersBindingSource, "DocDate", true));
+            this.txtDocDate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "DocDate", true));
             this.txtDocDate.Location = new System.Drawing.Point(157, 47);
             this.txtDocDate.Name = "txtDocDate";
             this.txtDocDate.Size = new System.Drawing.Size(155, 23);
@@ -990,7 +984,7 @@ namespace QWS_Local
             // 
             // textBox1
             // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.exBinOrdersBindingSource, "DeliveryDate", true));
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "DeliveryDate", true));
             this.textBox1.Location = new System.Drawing.Point(412, 47);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 23);
@@ -998,7 +992,7 @@ namespace QWS_Local
             // 
             // openQtyTextBox
             // 
-            this.openQtyTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.exBinOrdersBindingSource, "OpenQty", true));
+            this.openQtyTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "OpenQty", true));
             this.openQtyTextBox.Location = new System.Drawing.Point(157, 310);
             this.openQtyTextBox.Name = "openQtyTextBox";
             this.openQtyTextBox.Size = new System.Drawing.Size(100, 23);
@@ -1006,7 +1000,7 @@ namespace QWS_Local
             // 
             // suppliedTextBox
             // 
-            this.suppliedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.exBinOrdersBindingSource, "Supplied", true));
+            this.suppliedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "Supplied", true));
             this.suppliedTextBox.Location = new System.Drawing.Point(157, 281);
             this.suppliedTextBox.Name = "suppliedTextBox";
             this.suppliedTextBox.Size = new System.Drawing.Size(100, 23);
@@ -1014,7 +1008,7 @@ namespace QWS_Local
             // 
             // quantityTextBox
             // 
-            this.quantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.exBinOrdersBindingSource, "Quantity", true));
+            this.quantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "Quantity", true));
             this.quantityTextBox.Location = new System.Drawing.Point(157, 252);
             this.quantityTextBox.Name = "quantityTextBox";
             this.quantityTextBox.Size = new System.Drawing.Size(100, 23);
@@ -1022,7 +1016,7 @@ namespace QWS_Local
             // 
             // itemQATextBox
             // 
-            this.itemQATextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.exBinOrdersBindingSource, "ItemQA", true));
+            this.itemQATextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "ItemQA", true));
             this.itemQATextBox.Location = new System.Drawing.Point(334, 197);
             this.itemQATextBox.Name = "itemQATextBox";
             this.itemQATextBox.Size = new System.Drawing.Size(72, 23);
@@ -1030,7 +1024,7 @@ namespace QWS_Local
             // 
             // materialTextBox
             // 
-            this.materialTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.exBinOrdersBindingSource, "Material", true));
+            this.materialTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "Material", true));
             this.materialTextBox.Location = new System.Drawing.Point(157, 223);
             this.materialTextBox.Name = "materialTextBox";
             this.materialTextBox.Size = new System.Drawing.Size(355, 23);
@@ -1038,7 +1032,7 @@ namespace QWS_Local
             // 
             // materialCodeTextBox
             // 
-            this.materialCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.exBinOrdersBindingSource, "MaterialCode", true));
+            this.materialCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "MaterialCode", true));
             this.materialCodeTextBox.Location = new System.Drawing.Point(157, 194);
             this.materialCodeTextBox.Name = "materialCodeTextBox";
             this.materialCodeTextBox.Size = new System.Drawing.Size(100, 23);
@@ -1046,7 +1040,7 @@ namespace QWS_Local
             // 
             // contactMobileTextBox
             // 
-            this.contactMobileTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.exBinOrdersBindingSource, "ContactMobile", true));
+            this.contactMobileTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "ContactMobile", true));
             this.contactMobileTextBox.Location = new System.Drawing.Point(412, 161);
             this.contactMobileTextBox.Name = "contactMobileTextBox";
             this.contactMobileTextBox.Size = new System.Drawing.Size(100, 23);
@@ -1054,7 +1048,7 @@ namespace QWS_Local
             // 
             // contactNameTextBox
             // 
-            this.contactNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.exBinOrdersBindingSource, "ContactName", true));
+            this.contactNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "ContactName", true));
             this.contactNameTextBox.Location = new System.Drawing.Point(412, 132);
             this.contactNameTextBox.Name = "contactNameTextBox";
             this.contactNameTextBox.Size = new System.Drawing.Size(100, 23);
@@ -1062,7 +1056,7 @@ namespace QWS_Local
             // 
             // purchaseOrderTextBox
             // 
-            this.purchaseOrderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.exBinOrdersBindingSource, "PurchaseOrder", true));
+            this.purchaseOrderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "PurchaseOrder", true));
             this.purchaseOrderTextBox.Location = new System.Drawing.Point(157, 134);
             this.purchaseOrderTextBox.Name = "purchaseOrderTextBox";
             this.purchaseOrderTextBox.Size = new System.Drawing.Size(100, 23);
@@ -1070,7 +1064,7 @@ namespace QWS_Local
             // 
             // customerTextBox
             // 
-            this.customerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.exBinOrdersBindingSource, "Customer", true));
+            this.customerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "Customer", true));
             this.customerTextBox.Location = new System.Drawing.Point(158, 105);
             this.customerTextBox.Name = "customerTextBox";
             this.customerTextBox.Size = new System.Drawing.Size(354, 23);
@@ -1078,7 +1072,7 @@ namespace QWS_Local
             // 
             // cardCodeTextBox
             // 
-            this.cardCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.exBinOrdersBindingSource, "CardCode", true));
+            this.cardCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "CardCode", true));
             this.cardCodeTextBox.Location = new System.Drawing.Point(158, 76);
             this.cardCodeTextBox.Name = "cardCodeTextBox";
             this.cardCodeTextBox.Size = new System.Drawing.Size(100, 23);
@@ -1086,7 +1080,7 @@ namespace QWS_Local
             // 
             // docNumTextBox
             // 
-            this.docNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.exBinOrdersBindingSource, "DocNum", true));
+            this.docNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "DocNum", true));
             this.docNumTextBox.Location = new System.Drawing.Point(158, 18);
             this.docNumTextBox.Name = "docNumTextBox";
             this.docNumTextBox.Size = new System.Drawing.Size(100, 23);
@@ -1262,9 +1256,9 @@ namespace QWS_Local
             // tpPayload
             // 
             this.tpPayload.Controls.Add(this.groupBox3);
-            this.tpPayload.Location = new System.Drawing.Point(4, 25);
+            this.tpPayload.Location = new System.Drawing.Point(4, 22);
             this.tpPayload.Name = "tpPayload";
-            this.tpPayload.Size = new System.Drawing.Size(1419, 209);
+            this.tpPayload.Size = new System.Drawing.Size(1419, 212);
             this.tpPayload.TabIndex = 3;
             this.tpPayload.Text = "Payload";
             this.tpPayload.UseVisualStyleBackColor = true;
@@ -1376,9 +1370,19 @@ namespace QWS_Local
             this.tareTkTextBox.TabIndex = 38;
             this.tareTkTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // exBinOrdersTableAdapter
+            // bsTIQ2
             // 
-            this.exBinOrdersTableAdapter.ClearBeforeFill = true;
+            this.bsTIQ2.DataMember = "TIQ";
+            this.bsTIQ2.DataSource = this.dsTIQ2;
+            // 
+            // dsTIQ2
+            // 
+            this.dsTIQ2.DataSetName = "dsTIQ2";
+            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // taExBinOrders
+            // 
+            this.taExBinOrders.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
@@ -1443,6 +1447,28 @@ namespace QWS_Local
             this.tableAdapterManager3.TIQTableAdapter = this.taTIQ2;
             this.tableAdapterManager3.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // rbExBinNoOrder
+            // 
+            this.rbExBinNoOrder.AutoSize = true;
+            this.rbExBinNoOrder.Location = new System.Drawing.Point(860, 16);
+            this.rbExBinNoOrder.Name = "rbExBinNoOrder";
+            this.rbExBinNoOrder.Size = new System.Drawing.Size(119, 21);
+            this.rbExBinNoOrder.TabIndex = 80;
+            this.rbExBinNoOrder.TabStop = true;
+            this.rbExBinNoOrder.Text = "ExBin no order";
+            this.rbExBinNoOrder.UseVisualStyleBackColor = true;
+            // 
+            // rbExBinSAPOrder
+            // 
+            this.rbExBinSAPOrder.AutoSize = true;
+            this.rbExBinSAPOrder.Location = new System.Drawing.Point(860, 48);
+            this.rbExBinSAPOrder.Name = "rbExBinSAPOrder";
+            this.rbExBinSAPOrder.Size = new System.Drawing.Size(165, 21);
+            this.rbExBinSAPOrder.TabIndex = 81;
+            this.rbExBinSAPOrder.TabStop = true;
+            this.rbExBinSAPOrder.Text = "ExBin from SAP Order";
+            this.rbExBinSAPOrder.UseVisualStyleBackColor = true;
+            // 
             // BookInExBin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1472,12 +1498,10 @@ namespace QWS_Local
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.tpExBinOrders.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.exBinOrdersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsExBinOrders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsBookIn)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpList.ResumeLayout(false);
@@ -1495,6 +1519,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
             this.ResumeLayout(false);
 
@@ -1505,8 +1531,8 @@ namespace QWS_Local
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private dsBookIn dsBookIn;
-        private System.Windows.Forms.BindingSource exBinOrdersBindingSource;
-        private dsBookInTableAdapters.ExBinOrdersTableAdapter exBinOrdersTableAdapter;
+        private System.Windows.Forms.BindingSource bsExBinOrders;
+        private dsBookInTableAdapters.ExBinOrdersTableAdapter taExBinOrders;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpList;
         private System.Windows.Forms.TabPage tpDetails;
@@ -1613,5 +1639,7 @@ namespace QWS_Local
         private System.Windows.Forms.BindingSource bsTIQ2;
         private dsTIQ2TableAdapters.TIQTableAdapter taTIQ2;
         private dsTIQ2TableAdapters.TableAdapterManager tableAdapterManager3;
+        private System.Windows.Forms.RadioButton rbExBinSAPOrder;
+        private System.Windows.Forms.RadioButton rbExBinNoOrder;
     }
 }
