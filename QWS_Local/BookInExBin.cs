@@ -159,19 +159,20 @@ namespace QWS_Local
                 DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
                 dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
                 myTIQRow.AllocateDTTM = DateTime.Now;
-                myTIQRow.SAPOrder = 7011; // CurrentDeliveryOrder().DocNum;
-                //if (CurrentDeliveryOrder().ItemQA == "Y")
-                //{
-                //    myTIQRow.StockpileLotNo = -9;
-                //}
-                //else
-                //{
-                //    myTIQRow.StockpileLotNo = 0;
-                //}
-                //myTIQRow.CustON = CurrentDeliveryOrder().PurchaseOrder;
-                //myTIQRow.Material = CurrentDeliveryOrder().MaterialCode;
-                //myTIQRow.MaterialDesc = CurrentDeliveryOrder().Material;
-                //myTIQRow.CartageCode = CurrentDeliveryOrder().CartageCode;
+                myTIQRow.SAPOrder = CurrentExBinOrder().DocNum;
+                if (CurrentExBinOrder().ItemQA == "Y")
+                {
+                    myTIQRow.StockpileLotNo = -9;
+                }
+                else
+                {
+                    myTIQRow.StockpileLotNo = 0;
+                }
+                myTIQRow.CustON = CurrentExBinOrder().PurchaseOrder;
+                myTIQRow.Material = CurrentExBinOrder().MaterialCode;
+                myTIQRow.MaterialDesc = CurrentExBinOrder().Material;
+                myTIQRow.DeliveryAddress = "Ex-Bin";
+                myTIQRow.CartageCode = "";
                 myTIQRow.QueueStatus = "Q";
                 bsTIQ2.EndEdit();
                 iRow = taTIQ2.Update(dsTIQ2.TIQ);
@@ -189,7 +190,23 @@ namespace QWS_Local
             }
         }
 
+        private dsBookIn.ExBinOrdersRow CurrentExBinOrder()
+        {
+            if (bsExBinOrders.Count >0)
+            {
+                DataRow myRow = ((DataRowView)bsExBinOrders.Current).Row;
+                dsBookIn.ExBinOrdersRow ExBinRow = (dsBookIn.ExBinOrdersRow)myRow;
+                return ExBinRow;
+            }
+            else
+            {
+                return null;
+            }
+        }
 
-
+        private void bsConfiguredTruckGVM_CurrentChanged(object sender, EventArgs e)
+        {
+            CalcPayload();
+        }
     }
 }
