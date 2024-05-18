@@ -32,6 +32,7 @@ namespace QWS_Local
         private void BookInDelivery_Load(object sender, EventArgs e)
         {
             taConfiguredTruckGVM.Fill(this.dsTruckConfig.ConfiguredTruckGVM, "", TruckConfigID);
+            LoadTIQ();
             DeliveryOrdersLoad();
             LoadDriver();
         }
@@ -40,6 +41,15 @@ namespace QWS_Local
         {
             DeliveryOrdersLoad();
             // TODO: add parameter for cartage type n6 or n7
+        }
+
+        private void LoadTIQ()
+        {
+            int iRow = taTIQ2.FillBy(dsTIQ2.TIQ, 7, TIQID);
+            if (iRow != 1)
+            {
+                MessageBox.Show("Error loading TIQ row!");
+            }
         }
 
         private void DeliveryOrdersLoad()
@@ -64,8 +74,7 @@ namespace QWS_Local
         private void AddDelivery2TIQ()
         {
             try
-            {
-                int iRow =taTIQ2.FillBy(dsTIQ2.TIQ, 7, TIQID);
+            {                
                 DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
                 dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
                 myTIQRow.AllocateDTTM = DateTime.Now;
@@ -85,7 +94,7 @@ namespace QWS_Local
                 myTIQRow.Payload = nudPayload.Value;
                 myTIQRow.QueueStatus = "Q";
                 bsTIQ2.EndEdit();
-                iRow = taTIQ2.Update(dsTIQ2.TIQ);
+                int iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 if (iRow == 1)
                 {
                     TrucksInQuarry frmTIQ = new TrucksInQuarry();
