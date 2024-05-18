@@ -588,6 +588,8 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@SchemeCode", "n/a");
                 cmd.Parameters.AddWithValue("@RoadAccess", "n/a");
                 cmd.Parameters.AddWithValue("@WeighbridgeID", 1);
+                cmd.Parameters.AddWithValue("@CustomerCode", "tba");
+                cmd.Parameters.AddWithValue("@Customer", "tba");
                 cmd.Parameters.AddWithValue("@SAPOrder", -9);
                 cmd.Parameters.AddWithValue("@DeliveryAddress", "tba");
                 cmd.Parameters.AddWithValue("@CustON", "tba");

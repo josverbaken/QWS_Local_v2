@@ -367,6 +367,10 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnTruckConfigDTTM;
             
+            private global::System.Data.DataColumn columnCustomerCode;
+            
+            private global::System.Data.DataColumn columnCustomer;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public TIQDataTable() {
@@ -754,6 +758,22 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CustomerCodeColumn {
+                get {
+                    return this.columnCustomerCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CustomerColumn {
+                get {
+                    return this.columnCustomer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -832,7 +852,9 @@ namespace QWS_Local {
                         string RegoTr2, 
                         string RegoTr3, 
                         string RegoTrailers, 
-                        System.DateTime TruckConfigDTTM) {
+                        System.DateTime TruckConfigDTTM, 
+                        string CustomerCode, 
+                        string Customer) {
                 TIQRow rowTIQRow = ((TIQRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -878,7 +900,9 @@ namespace QWS_Local {
                         RegoTr2,
                         RegoTr3,
                         RegoTrailers,
-                        TruckConfigDTTM};
+                        TruckConfigDTTM,
+                        CustomerCode,
+                        Customer};
                 rowTIQRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTIQRow);
                 return rowTIQRow;
@@ -952,6 +976,8 @@ namespace QWS_Local {
                 this.columnRegoTr3 = base.Columns["RegoTr3"];
                 this.columnRegoTrailers = base.Columns["RegoTrailers"];
                 this.columnTruckConfigDTTM = base.Columns["TruckConfigDTTM"];
+                this.columnCustomerCode = base.Columns["CustomerCode"];
+                this.columnCustomer = base.Columns["Customer"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1045,6 +1071,10 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnRegoTrailers);
                 this.columnTruckConfigDTTM = new global::System.Data.DataColumn("TruckConfigDTTM", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTruckConfigDTTM);
+                this.columnCustomerCode = new global::System.Data.DataColumn("CustomerCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomerCode);
+                this.columnCustomer = new global::System.Data.DataColumn("Customer", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomer);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTIQID}, true));
                 this.columnTIQID.AutoIncrement = true;
@@ -1115,6 +1145,10 @@ namespace QWS_Local {
                 this.columnRegoTrailers.AllowDBNull = false;
                 this.columnRegoTrailers.MaxLength = 50;
                 this.columnTruckConfigDTTM.AllowDBNull = false;
+                this.columnCustomerCode.AllowDBNull = false;
+                this.columnCustomerCode.MaxLength = 15;
+                this.columnCustomer.AllowDBNull = false;
+                this.columnCustomer.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1738,6 +1772,28 @@ namespace QWS_Local {
                     this[this.tableTIQ.TruckConfigDTTMColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string CustomerCode {
+                get {
+                    return ((string)(this[this.tableTIQ.CustomerCodeColumn]));
+                }
+                set {
+                    this[this.tableTIQ.CustomerCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Customer {
+                get {
+                    return ((string)(this[this.tableTIQ.CustomerColumn]));
+                }
+                set {
+                    this[this.tableTIQ.CustomerColumn] = value;
+                }
+            }
         }
         
         /// <summary>
@@ -1943,6 +1999,8 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             tableMapping.ColumnMappings.Add("RegoTr3", "RegoTr3");
             tableMapping.ColumnMappings.Add("RegoTrailers", "RegoTrailers");
             tableMapping.ColumnMappings.Add("TruckConfigDTTM", "TruckConfigDTTM");
+            tableMapping.ColumnMappings.Add("CustomerCode", "CustomerCode");
+            tableMapping.ColumnMappings.Add("Customer", "Customer");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
@@ -1966,6 +2024,8 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RoadAccess", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "RoadAccess", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@QueueStatus", global::System.Data.SqlDbType.Char, 1, global::System.Data.ParameterDirection.Input, 0, 0, "QueueStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeighbridgeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "WeighbridgeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerCode", global::System.Data.SqlDbType.VarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SAPOrder", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "SAPOrder", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DeliveryAddress", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "DeliveryAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustON", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CustON", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2003,6 +2063,8 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AllocateDTTM", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, "AllocateDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@QueueStatus", global::System.Data.SqlDbType.Char, 1, global::System.Data.ParameterDirection.Input, 0, 0, "QueueStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeighbridgeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "WeighbridgeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerCode", global::System.Data.SqlDbType.VarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Customer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SAPOrder", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "SAPOrder", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DeliveryAddress", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "DeliveryAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustON", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CustON", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2181,6 +2243,8 @@ namespace QWS_Local.dsTIQ2TableAdapters {
                     string RoadAccess, 
                     string QueueStatus, 
                     global::System.Nullable<int> WeighbridgeID, 
+                    string CustomerCode, 
+                    string Customer, 
                     global::System.Nullable<int> SAPOrder, 
                     string DeliveryAddress, 
                     string CustON, 
@@ -2309,161 +2373,173 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
-            if ((SAPOrder.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((int)(SAPOrder.Value));
-            }
-            else {
+            if ((CustomerCode == null)) {
                 this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            if ((DeliveryAddress == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(CustomerCode));
+            }
+            if ((Customer == null)) {
                 this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(DeliveryAddress));
+                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(Customer));
             }
-            if ((CustON == null)) {
-                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
+            if ((SAPOrder.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[20].Value = ((int)(SAPOrder.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[20].Value = ((string)(CustON));
+                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
-            if ((CartageCode == null)) {
+            if ((DeliveryAddress == null)) {
                 this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[21].Value = ((string)(CartageCode));
+                this.Adapter.InsertCommand.Parameters[21].Value = ((string)(DeliveryAddress));
             }
-            if ((Material == null)) {
+            if ((CustON == null)) {
                 this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[22].Value = ((string)(Material));
+                this.Adapter.InsertCommand.Parameters[22].Value = ((string)(CustON));
             }
-            if ((MaterialDesc == null)) {
+            if ((CartageCode == null)) {
                 this.Adapter.InsertCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[23].Value = ((string)(MaterialDesc));
+                this.Adapter.InsertCommand.Parameters[23].Value = ((string)(CartageCode));
             }
-            if ((StockpileLotNo.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[24].Value = ((int)(StockpileLotNo.Value));
-            }
-            else {
+            if ((Material == null)) {
                 this.Adapter.InsertCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
-            if ((TruckOwnerCode == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[24].Value = ((string)(Material));
+            }
+            if ((MaterialDesc == null)) {
                 this.Adapter.InsertCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[25].Value = ((string)(TruckOwnerCode));
+                this.Adapter.InsertCommand.Parameters[25].Value = ((string)(MaterialDesc));
             }
-            if ((TruckOwner == null)) {
+            if ((StockpileLotNo.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[26].Value = ((int)(StockpileLotNo.Value));
+            }
+            else {
                 this.Adapter.InsertCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[26].Value = ((string)(TruckOwner));
-            }
-            if ((DriverID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[27].Value = ((int)(DriverID.Value));
-            }
-            else {
+            if ((TruckOwnerCode == null)) {
                 this.Adapter.InsertCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
-            if ((Driver == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[27].Value = ((string)(TruckOwnerCode));
+            }
+            if ((TruckOwner == null)) {
                 this.Adapter.InsertCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[28].Value = ((string)(Driver));
+                this.Adapter.InsertCommand.Parameters[28].Value = ((string)(TruckOwner));
             }
-            if ((Payload.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[29].Value = ((decimal)(Payload.Value));
+            if ((DriverID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[29].Value = ((int)(DriverID.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
-            if ((PayloadSplit == null)) {
+            if ((Driver == null)) {
                 this.Adapter.InsertCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[30].Value = ((string)(PayloadSplit));
+                this.Adapter.InsertCommand.Parameters[30].Value = ((string)(Driver));
             }
-            if ((GCM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[31].Value = ((decimal)(GCM.Value));
+            if ((Payload.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[31].Value = ((decimal)(Payload.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
-            if ((GVMTruck.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[32].Value = ((decimal)(GVMTruck.Value));
-            }
-            else {
+            if ((PayloadSplit == null)) {
                 this.Adapter.InsertCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
-            if ((Gross.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[33].Value = ((decimal)(Gross.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[32].Value = ((string)(PayloadSplit));
+            }
+            if ((GCM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[33].Value = ((decimal)(GCM.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
-            if ((Tare.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[34].Value = ((decimal)(Tare.Value));
+            if ((GVMTruck.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[34].Value = ((decimal)(GVMTruck.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
-            if ((TareTk.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[35].Value = ((decimal)(TareTk.Value));
+            if ((Gross.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[35].Value = ((decimal)(Gross.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[35].Value = global::System.DBNull.Value;
             }
-            if ((Nett.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[36].Value = ((decimal)(Nett.Value));
+            if ((Tare.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[36].Value = ((decimal)(Tare.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[36].Value = global::System.DBNull.Value;
             }
-            if ((EntryDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[37].Value = ((System.DateTime)(EntryDTTM.Value));
+            if ((TareTk.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[37].Value = ((decimal)(TareTk.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
-            if ((TruckConfigDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[38].Value = ((System.DateTime)(TruckConfigDTTM.Value));
+            if ((Nett.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[38].Value = ((decimal)(Nett.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[38].Value = global::System.DBNull.Value;
             }
-            if ((AllocateDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[39].Value = ((System.DateTime)(AllocateDTTM.Value));
+            if ((EntryDTTM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[39].Value = ((System.DateTime)(EntryDTTM.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[39].Value = global::System.DBNull.Value;
             }
-            if ((ReleaseDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[40].Value = ((System.DateTime)(ReleaseDTTM.Value));
+            if ((TruckConfigDTTM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[40].Value = ((System.DateTime)(TruckConfigDTTM.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[40].Value = global::System.DBNull.Value;
             }
-            if ((WeightDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[41].Value = ((System.DateTime)(WeightDTTM.Value));
+            if ((AllocateDTTM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[41].Value = ((System.DateTime)(AllocateDTTM.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[41].Value = global::System.DBNull.Value;
             }
-            if ((AcceptanceDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[42].Value = ((System.DateTime)(AcceptanceDTTM.Value));
+            if ((ReleaseDTTM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[42].Value = ((System.DateTime)(ReleaseDTTM.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[42].Value = global::System.DBNull.Value;
             }
-            if ((ExitDTTM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[43].Value = ((System.DateTime)(ExitDTTM.Value));
+            if ((WeightDTTM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[43].Value = ((System.DateTime)(WeightDTTM.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[43].Value = global::System.DBNull.Value;
+            }
+            if ((AcceptanceDTTM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[44].Value = ((System.DateTime)(AcceptanceDTTM.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[44].Value = global::System.DBNull.Value;
+            }
+            if ((ExitDTTM.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[45].Value = ((System.DateTime)(ExitDTTM.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[45].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2492,6 +2568,8 @@ namespace QWS_Local.dsTIQ2TableAdapters {
                     global::System.Nullable<global::System.DateTime> AllocateDTTM, 
                     string QueueStatus, 
                     global::System.Nullable<int> WeighbridgeID, 
+                    string CustomerCode, 
+                    string Customer, 
                     global::System.Nullable<int> SAPOrder, 
                     string DeliveryAddress, 
                     string CustON, 
@@ -2543,95 +2621,107 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((SAPOrder.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(SAPOrder.Value));
-            }
-            else {
+            if ((CustomerCode == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((DeliveryAddress == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(CustomerCode));
+            }
+            if ((Customer == null)) {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(DeliveryAddress));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Customer));
             }
-            if ((CustON == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            if ((SAPOrder.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(SAPOrder.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(CustON));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((CartageCode == null)) {
+            if ((DeliveryAddress == null)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(CartageCode));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(DeliveryAddress));
             }
-            if ((Material == null)) {
+            if ((CustON == null)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Material));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(CustON));
             }
-            if ((MaterialDesc == null)) {
+            if ((CartageCode == null)) {
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(MaterialDesc));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(CartageCode));
             }
-            if ((StockpileLotNo.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(StockpileLotNo.Value));
-            }
-            else {
+            if ((Material == null)) {
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            if ((DriverID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(DriverID.Value));
-            }
             else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Material));
+            }
+            if ((MaterialDesc == null)) {
                 this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((Driver == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(MaterialDesc));
+            }
+            if ((StockpileLotNo.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(StockpileLotNo.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Driver));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
-            if ((Payload.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(Payload.Value));
+            if ((DriverID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(DriverID.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            if ((PayloadSplit == null)) {
+            if ((Driver == null)) {
                 this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(PayloadSplit));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Driver));
             }
-            if ((GCM.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(GCM.Value));
+            if ((Payload.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(Payload.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            if ((Gross.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(Gross.Value));
-            }
-            else {
+            if ((PayloadSplit == null)) {
                 this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
-            if ((Tare.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(Tare.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(PayloadSplit));
+            }
+            if ((GCM.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(GCM.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
-            if ((Nett.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(Nett.Value));
+            if ((Gross.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(Gross.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((Tare.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((decimal)(Tare.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((Nett.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((decimal)(Nett.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
