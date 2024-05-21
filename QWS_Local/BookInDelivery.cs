@@ -78,7 +78,7 @@ namespace QWS_Local
                 DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
                 dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
                 myTIQRow.AllocateDTTM = DateTime.Now;
-                myTIQRow.SAPOrder = CurrentDeliveryOrder().DocNum;
+                //myTIQRow.SAPOrder = CurrentDeliveryOrder().DocNum;
                 if (CurrentDeliveryOrder().ItemQA == "Y")
                 {
                     myTIQRow.StockpileLotNo = -9;
@@ -87,11 +87,11 @@ namespace QWS_Local
                 {
                     myTIQRow.StockpileLotNo = 0;
                 }
-                myTIQRow.CustON = CurrentDeliveryOrder().PurchaseOrder;
-                myTIQRow.Material = CurrentDeliveryOrder().MaterialCode;
-                myTIQRow.MaterialDesc = CurrentDeliveryOrder().Material;
-                myTIQRow.CartageCode = CurrentDeliveryOrder().CartageCode;
-                myTIQRow.Payload = nudPayload.Value;
+                //myTIQRow.CustON = CurrentDeliveryOrder().PurchaseOrder;
+                //myTIQRow.Material = CurrentDeliveryOrder().MaterialCode;
+                //myTIQRow.MaterialDesc = CurrentDeliveryOrder().Material;
+                //myTIQRow.CartageCode = CurrentDeliveryOrder().CartageCode;
+                //myTIQRow.Payload = nudPayload.Value;
                 myTIQRow.QueueStatus = "Q";
                 bsTIQ2.EndEdit();
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
@@ -216,6 +216,61 @@ namespace QWS_Local
             {
                 CalcPayload();
             }
+        }
+
+        private void btnSelectOrder_Click(object sender, EventArgs e)
+        {
+            SetTIQOrderDetails();
+        }
+
+        private void SetTIQOrderDetails()
+        {
+            try
+            {
+                DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
+                dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
+                myTIQRow.SAPOrder = CurrentDeliveryOrder().DocNum;
+                myTIQRow.CustomerCode = CurrentDeliveryOrder().CardCode;
+                myTIQRow.Customer = CurrentDeliveryOrder().Customer;
+                myTIQRow.CustON = CurrentDeliveryOrder().PurchaseOrder;
+                myTIQRow.Material = CurrentDeliveryOrder().MaterialCode;
+                myTIQRow.MaterialDesc = CurrentDeliveryOrder().Material;
+                myTIQRow.CartageCode = CurrentDeliveryOrder().CartageCode;
+                //myTIQRow.Payload = nudPayload.Value;
+                bsTIQ2.EndEdit();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnSetTruckConfig_Click(object sender, EventArgs e)
+        {
+            SetTIQTruckconfig();
+        }
+
+        private void SetTIQTruckconfig()
+        {
+            DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
+            dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
+            myTIQRow.GCM = CurrentTruckGVM().GCM;
+            myTIQRow.GVMTruck =  CurrentTruckGVM().GVMTruck;
+            bsTIQ2.EndEdit();
+        }
+
+        private void btnSetPayload_Click(object sender, EventArgs e)
+        {
+            SetTIQPayload();
+        }
+
+        private void SetTIQPayload()
+        {
+            DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
+            dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
+            myTIQRow.Payload = nudPayload.Value;
+
+            bsTIQ2.EndEdit();
         }
     }
 }

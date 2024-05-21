@@ -591,7 +591,7 @@ namespace QWS_Local
             this.groupBox2.Size = new System.Drawing.Size(188, 200);
             this.groupBox2.TabIndex = 79;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Truck Configuration";
+            this.groupBox2.Text = "Load Type";
             // 
             // txtTruckConfig
             // 
