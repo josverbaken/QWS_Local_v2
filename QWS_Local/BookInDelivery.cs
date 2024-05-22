@@ -161,14 +161,14 @@ namespace QWS_Local
                 myPayloadTr = myPayload - myPayloadTk;
                 nudPayloadTk.Value = myPayloadTk;
                 nudPayloadTr.Value = myPayloadTr;
-                txtPayloadTk.Text = myPayloadTk.ToString();
-                txtPayloadTr.Text = myPayloadTr.ToString();
+                //txtPayloadTk.Text = myPayloadTk.ToString();
+                //txtPayloadTr.Text = myPayloadTr.ToString();
             }
-            else
-            {
-                txtPayloadTk.Text = string.Empty;
-                txtPayloadTr.Text = string.Empty;   
-            }
+            //else
+            //{
+            //    txtPayloadTk.Text = string.Empty;
+            //    txtPayloadTr.Text = string.Empty;   
+            //}
         }
 
         private void PayloadNUDLimit()
@@ -272,5 +272,60 @@ namespace QWS_Local
 
             bsTIQ2.EndEdit();
         }
+
+        //private bool TruckConfigRBSet()
+        //{
+        //    if (rbTnT.Enabled && rbTnT.Checked)
+        //    {
+        //        txtTruckConfig.Text = LoadType.TT.ToString();
+        //        return true;
+        //    }
+        //    if(rbSplitLoad.Enabled && rbSplitLoad.Checked)
+        //    {
+        //        txtTruckConfig.Text = LoadType.TKs.ToString();
+        //        return true;
+        //    }
+        //    if (rbTrailerOnly.Enabled && rbTrailerOnly.Checked)
+        //    {
+        //        txtTruckConfig.Text = LoadType.TRs.ToString();
+        //        return true;
+        //    }
+        //    return false;
+        //}
+
+        private void rbTnT_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbTnT.Enabled)
+            {
+                if (rbTnT.Checked)
+                {
+                    txtTruckConfig.Text = "TT";
+                }
+            }
+        }
+
+        private void rbSplitLoad_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbSplitLoad.Enabled)
+            {
+                if (rbSplitLoad.Checked)
+                {
+                    txtTruckConfig.Text = "TKs";
+                }
+            }
+        }
+
+        private void rbTrailerOnly_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbTrailerOnly.Enabled)
+            {
+                if (rbTrailerOnly.Checked)
+                {
+                    txtTruckConfig.Text = "TRs";
+                }
+            }
+        }
+
+
     }
 }

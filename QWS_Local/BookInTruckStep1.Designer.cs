@@ -82,11 +82,6 @@ namespace QWS_Local
             this.btnRetare = new System.Windows.Forms.Button();
             this.btnImported = new System.Windows.Forms.Button();
             this.btnExBin = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtTruckConfig = new System.Windows.Forms.TextBox();
-            this.rbTrailerOnly = new System.Windows.Forms.RadioButton();
-            this.rbSplitLoad = new System.Windows.Forms.RadioButton();
-            this.rbTnT = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.bsPrefCustomers = new System.Windows.Forms.BindingSource(this.components);
             this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
@@ -99,6 +94,7 @@ namespace QWS_Local
             this.taTIQ = new QWS_Local.dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter();
             this.pictureSchematic = new System.Windows.Forms.PictureBox();
             this.tableAdapterManager2 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
+            this.txtTruckConfig = new System.Windows.Forms.TextBox();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -116,7 +112,6 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
@@ -327,7 +322,7 @@ namespace QWS_Local
             this.txtVehicleDescription.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "VehicleDescription", true));
             this.txtVehicleDescription.Location = new System.Drawing.Point(169, 212);
             this.txtVehicleDescription.Name = "txtVehicleDescription";
-            this.txtVehicleDescription.Size = new System.Drawing.Size(344, 23);
+            this.txtVehicleDescription.Size = new System.Drawing.Size(304, 23);
             this.txtVehicleDescription.TabIndex = 5;
             // 
             // cardCodeTextBox
@@ -580,63 +575,6 @@ namespace QWS_Local
             this.btnExBin.UseVisualStyleBackColor = true;
             this.btnExBin.Click += new System.EventHandler(this.btnExBin_Click);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.txtTruckConfig);
-            this.groupBox2.Controls.Add(this.rbTrailerOnly);
-            this.groupBox2.Controls.Add(this.rbSplitLoad);
-            this.groupBox2.Controls.Add(this.rbTnT);
-            this.groupBox2.Location = new System.Drawing.Point(506, 427);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(188, 200);
-            this.groupBox2.TabIndex = 79;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Load Type";
-            // 
-            // txtTruckConfig
-            // 
-            this.txtTruckConfig.Location = new System.Drawing.Point(24, 148);
-            this.txtTruckConfig.Name = "txtTruckConfig";
-            this.txtTruckConfig.ReadOnly = true;
-            this.txtTruckConfig.Size = new System.Drawing.Size(100, 23);
-            this.txtTruckConfig.TabIndex = 3;
-            // 
-            // rbTrailerOnly
-            // 
-            this.rbTrailerOnly.AutoSize = true;
-            this.rbTrailerOnly.Location = new System.Drawing.Point(24, 111);
-            this.rbTrailerOnly.Name = "rbTrailerOnly";
-            this.rbTrailerOnly.Size = new System.Drawing.Size(100, 21);
-            this.rbTrailerOnly.TabIndex = 2;
-            this.rbTrailerOnly.TabStop = true;
-            this.rbTrailerOnly.Text = "Trailer Only";
-            this.rbTrailerOnly.UseVisualStyleBackColor = true;
-            this.rbTrailerOnly.CheckedChanged += new System.EventHandler(this.rbTrailerOnly_CheckedChanged);
-            // 
-            // rbSplitLoad
-            // 
-            this.rbSplitLoad.AutoSize = true;
-            this.rbSplitLoad.Location = new System.Drawing.Point(24, 80);
-            this.rbSplitLoad.Name = "rbSplitLoad";
-            this.rbSplitLoad.Size = new System.Drawing.Size(89, 21);
-            this.rbSplitLoad.TabIndex = 1;
-            this.rbSplitLoad.TabStop = true;
-            this.rbSplitLoad.Text = "Split Load";
-            this.rbSplitLoad.UseVisualStyleBackColor = true;
-            this.rbSplitLoad.CheckedChanged += new System.EventHandler(this.rbSplitLoad_CheckedChanged);
-            // 
-            // rbTnT
-            // 
-            this.rbTnT.AutoSize = true;
-            this.rbTnT.Location = new System.Drawing.Point(24, 47);
-            this.rbTnT.Name = "rbTnT";
-            this.rbTnT.Size = new System.Drawing.Size(135, 21);
-            this.rbTnT.TabIndex = 0;
-            this.rbTnT.TabStop = true;
-            this.rbTnT.Text = "Truck and Trailer";
-            this.rbTnT.UseVisualStyleBackColor = true;
-            this.rbTnT.CheckedChanged += new System.EventHandler(this.rbTnT_CheckedChanged);
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.personTextBox);
@@ -739,13 +677,21 @@ namespace QWS_Local
             this.tableAdapterManager2.TIQTableAdapter = null;
             this.tableAdapterManager2.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // txtTruckConfig
+            // 
+            this.txtTruckConfig.Location = new System.Drawing.Point(479, 212);
+            this.txtTruckConfig.Name = "txtTruckConfig";
+            this.txtTruckConfig.Size = new System.Drawing.Size(34, 23);
+            this.txtTruckConfig.TabIndex = 81;
+            this.txtTruckConfig.Text = "TK";
+            // 
             // BookInTruckStep1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 658);
+            this.Controls.Add(this.txtTruckConfig);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtFeeCodeConditions);
             this.Controls.Add(this.txtFeeCode);
@@ -774,8 +720,6 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).EndInit();
@@ -830,13 +774,9 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnRetare;
         private System.Windows.Forms.Button btnImported;
         private System.Windows.Forms.Button btnExBin;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.BindingSource bsPrefCustomers;
         private dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter taPrefCustomers;
-        private System.Windows.Forms.RadioButton rbTrailerOnly;
-        private System.Windows.Forms.RadioButton rbSplitLoad;
-        private System.Windows.Forms.RadioButton rbTnT;
         private System.Windows.Forms.DataGridViewTextBoxColumn regoTkDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn regoTrailerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn RegoCheck;

@@ -52,7 +52,7 @@ namespace QWS_Local
         {
             try
             {
-                SetTruckConfigRadioButtons(1);
+                //SetTruckConfigRadioButtons(1);
                 btnRetare.Enabled = false;
                 btnRetare.BackColor = SystemColors.Control;
                 dsQWSLocal.TruckDriver.Clear();
@@ -175,14 +175,14 @@ namespace QWS_Local
         private void BookInTruckStep1_Load(object sender, EventArgs e)
         {
             FormLoaded = true;
-            SetTruckConfigRadioButtons(1);
+            //SetTruckConfigRadioButtons(1);
         }
 
         private void bsConfiguredTrucks_CurrentChanged(object sender, EventArgs e)
         {
             if (FormLoaded && bsConfiguredTrucks.Count > 0)
             {
-                SetTruckConfigRadioButtons(CurrentConfigTruck().Compartments);
+                //SetTruckConfigRadioButtons(CurrentConfigTruck().Compartments);
                 // Check LoadType
                 string myAxles = CurrentConfigTruck().AxleConfiguration;
                 switch (myAxles)
@@ -437,19 +437,19 @@ namespace QWS_Local
                 {
                     case 1:
                         {
-                            txtTruckConfig.Text = "TK";
+                            //txtTruckConfig.Text = "TK";
                             BookInExBin();
                         }
                         break;
                     case 2:
-                        if (TruckConfigRBSet())
-                        {
+                        //if (TruckConfigRBSet())
+                        //{
                             BookInExBin();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Please set truck config!");
-                        }
+                        //}
+                        //else
+                        //{
+                        //    MessageBox.Show("Please set truck config!");
+                        //}
                         break;
                 }
             }            
@@ -478,19 +478,19 @@ namespace QWS_Local
                 {
                     case 1:
                         {
-                        txtTruckConfig.Text = "TK";
+                        //txtTruckConfig.Text = "TK";
                         BookInDeliveryOrder();
                         }
                         break;
                     case 2:
-                        if (TruckConfigRBSet())
-                        {
+                        //if (TruckConfigRBSet())
+                        //{
                         BookInDeliveryOrder();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Please set truck config!");
-                        }
+                        //}
+                        //else
+                        //{
+                        //    MessageBox.Show("Please set truck config!");
+                        //}
                         break;
                 }
         }
@@ -507,47 +507,48 @@ namespace QWS_Local
 
         private void SetTruckConfigRadioButtons(int Compartments)
         {
-            switch (Compartments)
-            {
-                case 2:
-                    rbTnT.Enabled = true;
-                    rbSplitLoad.Enabled = true;
-                    rbTrailerOnly.Enabled = true;
-                    break;
-                case 1:
-                    rbTnT.Enabled = false;
-                    rbSplitLoad.Enabled = false;
-                    rbTrailerOnly.Enabled = false;
-                    rbTnT.Checked = false;
-                    rbSplitLoad.Checked = false;
-                    rbTrailerOnly.Checked = false;
-                    break;
-                default:
-                    MessageBox.Show("Unexpected number of compartments: " + Compartments.ToString());
-                    break;
+            // move to bookindelivery / exbin forms
+            //switch (Compartments)
+            //{
+            //    case 2:
+            //        rbTnT.Enabled = true;
+            //        rbSplitLoad.Enabled = true;
+            //        rbTrailerOnly.Enabled = true;
+            //        break;
+            //    case 1:
+            //        rbTnT.Enabled = false;
+            //        rbSplitLoad.Enabled = false;
+            //        rbTrailerOnly.Enabled = false;
+            //        rbTnT.Checked = false;
+            //        rbSplitLoad.Checked = false;
+            //        rbTrailerOnly.Checked = false;
+            //        break;
+            //    default:
+            //        MessageBox.Show("Unexpected number of compartments: " + Compartments.ToString());
+            //        break;
 
-            }
+            //}
         }
 
-        private bool TruckConfigRBSet()
-        {
-            if (rbTnT.Enabled && rbTnT.Checked)
-            {
-                txtTruckConfig.Text = LoadType.TT.ToString();
-                return true;
-            }
-            if(rbSplitLoad.Enabled && rbSplitLoad.Checked)
-            {
-                txtTruckConfig.Text = LoadType.TKs.ToString();
-                return true;
-            }
-            if (rbTrailerOnly.Enabled && rbTrailerOnly.Checked)
-            {
-                txtTruckConfig.Text = LoadType.TRs.ToString();
-                return true;
-            }
-            return false;
-        }
+        //private bool TruckConfigRBSet()
+        //{
+        //    if (rbTnT.Enabled && rbTnT.Checked)
+        //    {
+        //        txtTruckConfig.Text = LoadType.TT.ToString();
+        //        return true;
+        //    }
+        //    if(rbSplitLoad.Enabled && rbSplitLoad.Checked)
+        //    {
+        //        txtTruckConfig.Text = LoadType.TKs.ToString();
+        //        return true;
+        //    }
+        //    if (rbTrailerOnly.Enabled && rbTrailerOnly.Checked)
+        //    {
+        //        txtTruckConfig.Text = LoadType.TRs.ToString();
+        //        return true;
+        //    }
+        //    return false;
+        //}
 
         private void btnRetare_Click(object sender, EventArgs e)
         {
@@ -649,37 +650,6 @@ namespace QWS_Local
             }
         }
 
-        private void rbTnT_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbTnT.Enabled)
-            {
-                if(rbTnT.Checked)
-                {
-                    txtTruckConfig.Text = "TT";
-                }
-            }
-        }
-
-        private void rbSplitLoad_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbSplitLoad.Enabled)
-            {
-                if (rbSplitLoad.Checked)
-                {
-                    txtTruckConfig.Text = "TKs";
-                }
-            }
-        }
-
-        private void rbTrailerOnly_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbTrailerOnly.Enabled)
-            { 
-                if (rbTrailerOnly.Checked)
-                {
-                    txtTruckConfig.Text = "TRs";
-                }
-                    }
-        }
+    
     }
 }
