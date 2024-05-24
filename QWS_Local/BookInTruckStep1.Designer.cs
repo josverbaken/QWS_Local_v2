@@ -51,7 +51,6 @@ namespace QWS_Local
             this.RegoCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nHVLDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TareDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PBS = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.txtAxleConfig = new System.Windows.Forms.TextBox();
             this.txtVehicleDescription = new System.Windows.Forms.TextBox();
             this.cardCodeTextBox = new System.Windows.Forms.TextBox();
@@ -258,8 +257,7 @@ namespace QWS_Local
             this.regoTrailerDataGridViewTextBoxColumn,
             this.RegoCheck,
             this.nHVLDataGridViewTextBoxColumn,
-            this.TareDT,
-            this.PBS});
+            this.TareDT});
             this.dataGridView1.DataSource = this.bsConfiguredTrucks;
             this.dataGridView1.Location = new System.Drawing.Point(21, 250);
             this.dataGridView1.Name = "dataGridView1";
@@ -280,6 +278,7 @@ namespace QWS_Local
             this.regoTrailerDataGridViewTextBoxColumn.HeaderText = "RegoTrailer";
             this.regoTrailerDataGridViewTextBoxColumn.Name = "regoTrailerDataGridViewTextBoxColumn";
             this.regoTrailerDataGridViewTextBoxColumn.ReadOnly = true;
+            this.regoTrailerDataGridViewTextBoxColumn.Width = 150;
             // 
             // RegoCheck
             // 
@@ -294,7 +293,7 @@ namespace QWS_Local
             this.nHVLDataGridViewTextBoxColumn.HeaderText = "NHVL";
             this.nHVLDataGridViewTextBoxColumn.Name = "nHVLDataGridViewTextBoxColumn";
             this.nHVLDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nHVLDataGridViewTextBoxColumn.Width = 200;
+            this.nHVLDataGridViewTextBoxColumn.Width = 300;
             // 
             // TareDT
             // 
@@ -302,12 +301,6 @@ namespace QWS_Local
             this.TareDT.HeaderText = "TareDT";
             this.TareDT.Name = "TareDT";
             this.TareDT.ReadOnly = true;
-            // 
-            // PBS
-            // 
-            this.PBS.HeaderText = "PBS Applies";
-            this.PBS.Name = "PBS";
-            this.PBS.ReadOnly = true;
             // 
             // txtAxleConfig
             // 
@@ -679,11 +672,11 @@ namespace QWS_Local
             // 
             // txtTruckConfig
             // 
-            this.txtTruckConfig.Location = new System.Drawing.Point(479, 212);
+            this.txtTruckConfig.Location = new System.Drawing.Point(480, 212);
             this.txtTruckConfig.Name = "txtTruckConfig";
-            this.txtTruckConfig.Size = new System.Drawing.Size(34, 23);
+            this.txtTruckConfig.Size = new System.Drawing.Size(33, 23);
             this.txtTruckConfig.TabIndex = 81;
-            this.txtTruckConfig.Text = "TK";
+            this.txtTruckConfig.Text = "..";
             // 
             // BookInTruckStep1
             // 
@@ -777,14 +770,13 @@ namespace QWS_Local
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.BindingSource bsPrefCustomers;
         private dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter taPrefCustomers;
+        private dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter taTIQ;
+        private dsTIQ2TableAdapters.TableAdapterManager tableAdapterManager2;
         private System.Windows.Forms.DataGridViewTextBoxColumn regoTkDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn regoTrailerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn RegoCheck;
         private System.Windows.Forms.DataGridViewTextBoxColumn nHVLDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn PBS;
         private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
-        private dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter taTIQ;
-        private dsTIQ2TableAdapters.TableAdapterManager tableAdapterManager2;
         private System.Windows.Forms.TextBox txtTruckConfig;
     }
 }

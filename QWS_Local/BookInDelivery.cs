@@ -99,7 +99,9 @@ namespace QWS_Local
                 {
                     TrucksInQuarry frmTIQ = new TrucksInQuarry();
                     frmTIQ.MdiParent = this.MdiParent;
+                    frmTIQ.RefreshQueue();
                     frmTIQ.Show();
+                    frmTIQ.ClearTIQ(); // sequence is important
                 }
                 this.Close();
             }

@@ -283,6 +283,12 @@
     <Compile Include="TIQDetail.Designer.cs">
       <DependentUpon>TIQDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="TIQRemove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TIQRemove.Designer.cs">
+      <DependentUpon>TIQRemove.cs</DependentUpon>
+    </Compile>
     <Compile Include="TruckConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -377,6 +383,9 @@
     </Compile>
     <EmbeddedResource Include="TIQDetail.resx">
       <DependentUpon>TIQDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TIQRemove.resx">
+      <DependentUpon>TIQRemove.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TruckConfiguration.resx">
       <DependentUpon>TruckConfiguration.cs</DependentUpon>

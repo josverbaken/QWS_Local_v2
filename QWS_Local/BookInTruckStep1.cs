@@ -180,27 +180,25 @@ namespace QWS_Local
 
         private void bsConfiguredTrucks_CurrentChanged(object sender, EventArgs e)
         {
-            if (FormLoaded && bsConfiguredTrucks.Count > 0)
+            try
             {
-                //SetTruckConfigRadioButtons(CurrentConfigTruck().Compartments);
-                // Check LoadType
-                string myAxles = CurrentConfigTruck().AxleConfiguration;
-                switch (myAxles)
+                string myAxleConfig = CurrentConfigTruck().AxleConfiguration;
+                if (myAxleConfig != null)
                 {
-                    case "12A":
-                        txtTruckConfig.Text = "ST";
-                        break;
-                    case "12R":
-                        txtTruckConfig.Text = "TK";
-                        break;
-                    case "12A3A3":
-                        txtTruckConfig.Text = "BD";
-                        break;
-                    default:
-                        txtTruckConfig.Text = "tba";
-                        break;
+                    switch (myAxleConfig)
+                    {
+                        case "12R":
+                            txtAxleConfig.Text = "TK";
+                            break;
+                            default:
+                            txtAxleConfig.Text = "tba";
+                            break;
+                    }
                 }
-                // TODO check GVM vs MaxGVM once config chosen
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -432,26 +430,7 @@ namespace QWS_Local
         {
             if (SetExBinCustomer() == true)
             {
-                int CompartmentCount = CurrentConfigTruck().Compartments;
-                switch (CompartmentCount)
-                {
-                    case 1:
-                        {
-                            //txtTruckConfig.Text = "TK";
-                            BookInExBin();
-                        }
-                        break;
-                    case 2:
-                        //if (TruckConfigRBSet())
-                        //{
-                            BookInExBin();
-                        //}
-                        //else
-                        //{
-                        //    MessageBox.Show("Please set truck config!");
-                        //}
-                        break;
-                }
+                BookInExBin();
             }            
         }
 
@@ -473,26 +452,7 @@ namespace QWS_Local
 
         private void GoToBookInDelivery()
         {
-                int CompartmentCount = CurrentConfigTruck().Compartments;
-                switch (CompartmentCount)
-                {
-                    case 1:
-                        {
-                        //txtTruckConfig.Text = "TK";
-                        BookInDeliveryOrder();
-                        }
-                        break;
-                    case 2:
-                        //if (TruckConfigRBSet())
-                        //{
-                        BookInDeliveryOrder();
-                        //}
-                        //else
-                        //{
-                        //    MessageBox.Show("Please set truck config!");
-                        //}
-                        break;
-                }
+            BookInDeliveryOrder();
         }
         private void BookInDeliveryOrder()
         {
@@ -505,52 +465,7 @@ namespace QWS_Local
             }
         }
 
-        private void SetTruckConfigRadioButtons(int Compartments)
-        {
-            // move to bookindelivery / exbin forms
-            //switch (Compartments)
-            //{
-            //    case 2:
-            //        rbTnT.Enabled = true;
-            //        rbSplitLoad.Enabled = true;
-            //        rbTrailerOnly.Enabled = true;
-            //        break;
-            //    case 1:
-            //        rbTnT.Enabled = false;
-            //        rbSplitLoad.Enabled = false;
-            //        rbTrailerOnly.Enabled = false;
-            //        rbTnT.Checked = false;
-            //        rbSplitLoad.Checked = false;
-            //        rbTrailerOnly.Checked = false;
-            //        break;
-            //    default:
-            //        MessageBox.Show("Unexpected number of compartments: " + Compartments.ToString());
-            //        break;
-
-            //}
-        }
-
-        //private bool TruckConfigRBSet()
-        //{
-        //    if (rbTnT.Enabled && rbTnT.Checked)
-        //    {
-        //        txtTruckConfig.Text = LoadType.TT.ToString();
-        //        return true;
-        //    }
-        //    if(rbSplitLoad.Enabled && rbSplitLoad.Checked)
-        //    {
-        //        txtTruckConfig.Text = LoadType.TKs.ToString();
-        //        return true;
-        //    }
-        //    if (rbTrailerOnly.Enabled && rbTrailerOnly.Checked)
-        //    {
-        //        txtTruckConfig.Text = LoadType.TRs.ToString();
-        //        return true;
-        //    }
-        //    return false;
-        //}
-
-        private void btnRetare_Click(object sender, EventArgs e)
+          private void btnRetare_Click(object sender, EventArgs e)
         {
             txtTruckConfig.Text = LoadType.BD.ToString();
             int iTIQID = NewTIQ(TIQType.Retare);
@@ -558,7 +473,7 @@ namespace QWS_Local
             {
                 TrucksInQuarry frmTIQ = new TrucksInQuarry();
                 frmTIQ.MdiParent = this.MdiParent;
-                // TODO consider refresh TIQ on form
+                frmTIQ.RefreshQueue();
                 frmTIQ.Show();
             }
         }
@@ -639,7 +554,6 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@ExitDTTM", EntryDTTM);
                 sqlConnection.Open();
                 iTIQID = System.Convert.ToInt32( cmd.ExecuteScalar());
-                //MessageBox.Show("iTIQID = " + iTIQID.ToString());
                 sqlConnection.Close();
                 return iTIQID;
             }
@@ -648,8 +562,6 @@ namespace QWS_Local
                 MessageBox.Show(ex.Message);
                 return -9;
             }
-        }
-
-    
+        }    
     }
 }

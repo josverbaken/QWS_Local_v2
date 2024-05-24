@@ -26,12 +26,17 @@ namespace QWS_Local
             // TODO: find a nicer solution, probably images/icons
         }
 
+        public void ClearTIQ()
+        {
+            dataGridView1.ClearSelection();
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
             RefreshQueue();
         }
 
-        private void RefreshQueue()
+        public void RefreshQueue()
         {
             try
             {
@@ -157,7 +162,7 @@ namespace QWS_Local
 
         private void button5_Click(object sender, EventArgs e)
         {
-            dataGridView1.ClearSelection();
+            ClearTIQ();
         }
 
         private dsTIQ2.TIQRow CurrentTIQ()
@@ -189,6 +194,9 @@ namespace QWS_Local
         {
             try 
             { 
+               TIQRemove frmTIQRemove = new TIQRemove();
+                frmTIQRemove.ShowDialog();
+                // TODO show dialogue and only remove if OK
             CurrentTIQ().TIQOpen = false;
             bsTIQ2.EndEdit();
             taTIQ2.Update(dsTIQ2.TIQ);
