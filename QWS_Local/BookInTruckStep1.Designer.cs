@@ -220,7 +220,6 @@ namespace QWS_Local
             // 
             this.bsConfiguredTrucks.DataMember = "ConfiguredTrucks";
             this.bsConfiguredTrucks.DataSource = this.dsTruckConfig;
-            this.bsConfiguredTrucks.CurrentChanged += new System.EventHandler(this.bsConfiguredTrucks_CurrentChanged);
             // 
             // dsTruckConfig
             // 
@@ -672,11 +671,11 @@ namespace QWS_Local
             // 
             // txtTruckConfig
             // 
+            this.txtTruckConfig.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "VehicleType", true));
             this.txtTruckConfig.Location = new System.Drawing.Point(480, 212);
             this.txtTruckConfig.Name = "txtTruckConfig";
             this.txtTruckConfig.Size = new System.Drawing.Size(33, 23);
             this.txtTruckConfig.TabIndex = 81;
-            this.txtTruckConfig.Text = "..";
             // 
             // BookInTruckStep1
             // 

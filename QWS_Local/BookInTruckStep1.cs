@@ -175,31 +175,6 @@ namespace QWS_Local
         private void BookInTruckStep1_Load(object sender, EventArgs e)
         {
             FormLoaded = true;
-            //SetTruckConfigRadioButtons(1);
-        }
-
-        private void bsConfiguredTrucks_CurrentChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                string myAxleConfig = CurrentConfigTruck().AxleConfiguration;
-                if (myAxleConfig != null)
-                {
-                    switch (myAxleConfig)
-                    {
-                        case "12R":
-                            txtAxleConfig.Text = "TK";
-                            break;
-                            default:
-                            txtAxleConfig.Text = "tba";
-                            break;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private bool CheckFeeCode()
@@ -496,7 +471,7 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@RegoTr2", CurrentConfigTruck().RegoTr2);
                 cmd.Parameters.AddWithValue("@RegoTr3", CurrentConfigTruck().RegoTr3);
                 cmd.Parameters.AddWithValue("@RegoTrailers", CurrentConfigTruck().RegoTrailer);
-                cmd.Parameters.AddWithValue("@TruckConfig", txtTruckConfig.Text);
+                cmd.Parameters.AddWithValue("@TruckConfig", CurrentConfigTruck().VehicleType);
                 cmd.Parameters.AddWithValue("@TruckConfigID", CurrentConfigTruck().TruckConfigID);
                 cmd.Parameters.AddWithValue("@AxleConfiguration", CurrentConfigTruck().AxleConfiguration);
                 cmd.Parameters.AddWithValue("@FeeCode", CurrentConfigTruck().FeeCode);

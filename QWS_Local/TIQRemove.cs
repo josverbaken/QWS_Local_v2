@@ -22,7 +22,7 @@ namespace QWS_Local
         private void btnRemove_Click(object sender, EventArgs e)
         {
             TIQRemoveReason = txtReason.Text;
-            DialogResult dr = DialogResult.OK;
+            this.DialogResult = DialogResult.OK;
             this.Close();   
         }
     }
