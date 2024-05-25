@@ -35,6 +35,7 @@ namespace QWS_Local
             LoadTIQ();
             DeliveryOrdersLoad();
             LoadDriver();
+            CalcPayload(); // initialise so WBO can reduce if required
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -154,28 +155,45 @@ namespace QWS_Local
             decimal myPayload = 0.0M;
             decimal myPayloadTk = 0.0M;
             decimal myPayloadTr = 0.0M;
-            myPayload = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
+
+            decimal PayloadLimit;
+            if (CurrentTruckGVM().GCM > CurrentTruckGVM().MaxGVM && CurrentTruckGVM().MaxGVM > 0)
+            {
+                PayloadLimit = CurrentTruckGVM().MaxGVM - CurrentTruckGVM().Tare;
+            }
+            else
+            {
+                PayloadLimit = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
+            }
+
+            myPayload = PayloadLimit;
             nudPayload.Value = myPayload;
-            txtPayload.Text = myPayload.ToString();
+            txtPayload.Text = myPayload.ToString(); // display only
             if (CurrentTruckGVM().GCM != CurrentTruckGVM().GVMTruck)
             {
                 myPayloadTk = CurrentTruckGVM().GVMTruck - CurrentTruckGVM().TareTk;
                 myPayloadTr = myPayload - myPayloadTk;
                 nudPayloadTk.Value = myPayloadTk;
                 nudPayloadTr.Value = myPayloadTr;
-                //txtPayloadTk.Text = myPayloadTk.ToString();
-                //txtPayloadTr.Text = myPayloadTr.ToString();
+                txtPayloadSplit.Text = myPayloadTk.ToString() + "/" + myPayloadTr.ToString();
             }
-            //else
-            //{
-            //    txtPayloadTk.Text = string.Empty;
-            //    txtPayloadTr.Text = string.Empty;   
-            //}
+            else
+            {
+                txtPayloadSplit.Text = string.Empty;
+            }
         }
 
         private void PayloadNUDLimit()
         {
-            decimal PayloadLimit = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
+            decimal PayloadLimit;
+            if (CurrentTruckGVM().GCM > CurrentTruckGVM().MaxGVM && CurrentTruckGVM().MaxGVM > 0 )
+            {
+                PayloadLimit = CurrentTruckGVM().MaxGVM - CurrentTruckGVM().Tare;
+            }
+            else
+            {
+                PayloadLimit = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
+            }
 
             if (nudPayload.Value > PayloadLimit)
             {
@@ -238,7 +256,6 @@ namespace QWS_Local
                 myTIQRow.Material = CurrentDeliveryOrder().MaterialCode;
                 myTIQRow.MaterialDesc = CurrentDeliveryOrder().Material;
                 myTIQRow.CartageCode = CurrentDeliveryOrder().CartageCode;
-                //myTIQRow.Payload = nudPayload.Value;
                 bsTIQ2.EndEdit();
             }
             catch (Exception ex)
@@ -256,7 +273,13 @@ namespace QWS_Local
         {
             DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
             dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
-            myTIQRow.GCM = CurrentTruckGVM().GCM;
+            decimal myGCM = CurrentTruckGVM().GCM;
+            decimal myMaxGVM = CurrentTruckGVM().MaxGVM;
+            if (myGCM > myMaxGVM)
+            {
+                myGCM = myMaxGVM;
+            }
+            myTIQRow.GCM = myGCM;
             myTIQRow.GVMTruck =  CurrentTruckGVM().GVMTruck;
             bsTIQ2.EndEdit();
         }
