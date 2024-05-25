@@ -222,5 +222,23 @@ namespace QWS_Local
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnWeigh_Click(object sender, EventArgs e)
+        {
+            GoToWeighTruck();
+        }
+
+        private void GoToWeighTruck()
+        {
+            if (dataGridView1.SelectedRows.Count == 1) 
+            {
+                //okay to proceed
+                MessageBox.Show("Ready to capture weight!");
+            }
+            else
+            {
+                MessageBox.Show("Please select a truck to weigh!");
+            }
+        }
     }
 }

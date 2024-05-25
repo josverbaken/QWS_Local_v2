@@ -31,21 +31,16 @@ namespace QWS_Local
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label docNumLabel;
-            System.Windows.Forms.Label docDateLabel;
             System.Windows.Forms.Label deliveryDateLabel;
-            System.Windows.Forms.Label materialCodeLabel;
             System.Windows.Forms.Label materialLabel;
             System.Windows.Forms.Label quantityLabel;
             System.Windows.Forms.Label openQtyLabel;
             System.Windows.Forms.Label suppliedLabel;
-            System.Windows.Forms.Label cartageCodeLabel;
             System.Windows.Forms.Label cartageLabel;
             System.Windows.Forms.Label itemQALabel;
-            System.Windows.Forms.Label sAPCommentsLabel;
             System.Windows.Forms.Label deliveryAddressLabel;
             System.Windows.Forms.Label mapRefLabel;
             System.Windows.Forms.Label distanceLabel;
-            System.Windows.Forms.Label sAPUpdateDTTMLabel;
             System.Windows.Forms.Label orderStatusLabel;
             System.Windows.Forms.Label ownerLabel;
             System.Windows.Forms.Label personLabel;
@@ -53,36 +48,24 @@ namespace QWS_Local
             System.Windows.Forms.Label gCMLabel;
             System.Windows.Forms.Label gVMTruckLabel;
             System.Windows.Forms.Label tareLabel;
-            System.Windows.Forms.Label customerLabel;
-            System.Windows.Forms.Label materialLabel1;
-            System.Windows.Forms.Label openQtyLabel1;
             System.Windows.Forms.Label label1;
-            System.Windows.Forms.Label deliveryAddressLabel1;
-            System.Windows.Forms.Label cartageLabel1;
             System.Windows.Forms.Label truckConfigLabel;
             System.Windows.Forms.Label gCMLabel1;
-            System.Windows.Forms.Label nHVR_NetworkLabel;
+            System.Windows.Forms.Label customerLabel;
+            System.Windows.Forms.Label contactNameLabel;
+            System.Windows.Forms.Label purchaseOrderLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.nHVR_NetworkTextBox = new System.Windows.Forms.TextBox();
             this.bsDeliveryOrders = new System.Windows.Forms.BindingSource(this.components);
             this.dsBookIn = new QWS_Local.dsBookIn();
             this.gCMTextBox1 = new System.Windows.Forms.TextBox();
             this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.truckConfigTextBox = new System.Windows.Forms.TextBox();
-            this.cartageTextBox1 = new System.Windows.Forms.TextBox();
-            this.deliveryAddressTextBox1 = new System.Windows.Forms.TextBox();
             this.btnSetPayload = new System.Windows.Forms.Button();
             this.btnSetTruckConfig = new System.Windows.Forms.Button();
             this.txtPayloadSplit = new System.Windows.Forms.TextBox();
             this.btnSelectOrder = new System.Windows.Forms.Button();
             this.txtPayload = new System.Windows.Forms.TextBox();
-            this.cartageCodeTextBox1 = new System.Windows.Forms.TextBox();
-            this.openQtyTextBox1 = new System.Windows.Forms.TextBox();
-            this.materialTextBox1 = new System.Windows.Forms.TextBox();
-            this.materialCodeTextBox1 = new System.Windows.Forms.TextBox();
-            this.customerTextBox = new System.Windows.Forms.TextBox();
-            this.cardCodeTextBox = new System.Windows.Forms.TextBox();
             this.btnBookIn = new System.Windows.Forms.Button();
             this.mobTextBox = new System.Windows.Forms.TextBox();
             this.bsDriver = new System.Windows.Forms.BindingSource(this.components);
@@ -112,15 +95,11 @@ namespace QWS_Local
             this.cartageCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NHVR_Network = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpDetails = new System.Windows.Forms.TabPage();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.orderStatusTextBox = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.distanceTextBox = new System.Windows.Forms.TextBox();
             this.mapRefTextBox = new System.Windows.Forms.TextBox();
             this.deliveryAddressTextBox = new System.Windows.Forms.TextBox();
-            this.sAPCommentsTextBox = new System.Windows.Forms.TextBox();
             this.itemQATextBox = new System.Windows.Forms.TextBox();
             this.cartageTextBox = new System.Windows.Forms.TextBox();
             this.cartageCodeTextBox = new System.Windows.Forms.TextBox();
@@ -163,22 +142,23 @@ namespace QWS_Local
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager3 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
+            this.button1 = new System.Windows.Forms.Button();
+            this.customerTextBox = new System.Windows.Forms.TextBox();
+            this.cardCodeTextBox = new System.Windows.Forms.TextBox();
+            this.contactNameTextBox = new System.Windows.Forms.TextBox();
+            this.contactMobileTextBox = new System.Windows.Forms.TextBox();
+            this.purchaseOrderTextBox = new System.Windows.Forms.TextBox();
             docNumLabel = new System.Windows.Forms.Label();
-            docDateLabel = new System.Windows.Forms.Label();
             deliveryDateLabel = new System.Windows.Forms.Label();
-            materialCodeLabel = new System.Windows.Forms.Label();
             materialLabel = new System.Windows.Forms.Label();
             quantityLabel = new System.Windows.Forms.Label();
             openQtyLabel = new System.Windows.Forms.Label();
             suppliedLabel = new System.Windows.Forms.Label();
-            cartageCodeLabel = new System.Windows.Forms.Label();
             cartageLabel = new System.Windows.Forms.Label();
             itemQALabel = new System.Windows.Forms.Label();
-            sAPCommentsLabel = new System.Windows.Forms.Label();
             deliveryAddressLabel = new System.Windows.Forms.Label();
             mapRefLabel = new System.Windows.Forms.Label();
             distanceLabel = new System.Windows.Forms.Label();
-            sAPUpdateDTTMLabel = new System.Windows.Forms.Label();
             orderStatusLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
             personLabel = new System.Windows.Forms.Label();
@@ -186,15 +166,12 @@ namespace QWS_Local
             gCMLabel = new System.Windows.Forms.Label();
             gVMTruckLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
-            customerLabel = new System.Windows.Forms.Label();
-            materialLabel1 = new System.Windows.Forms.Label();
-            openQtyLabel1 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
-            deliveryAddressLabel1 = new System.Windows.Forms.Label();
-            cartageLabel1 = new System.Windows.Forms.Label();
             truckConfigLabel = new System.Windows.Forms.Label();
             gCMLabel1 = new System.Windows.Forms.Label();
-            nHVR_NetworkLabel = new System.Windows.Forms.Label();
+            customerLabel = new System.Windows.Forms.Label();
+            contactNameLabel = new System.Windows.Forms.Label();
+            purchaseOrderLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -225,20 +202,11 @@ namespace QWS_Local
             // docNumLabel
             // 
             docNumLabel.AutoSize = true;
-            docNumLabel.Location = new System.Drawing.Point(61, 28);
+            docNumLabel.Location = new System.Drawing.Point(59, 28);
             docNumLabel.Name = "docNumLabel";
             docNumLabel.Size = new System.Drawing.Size(70, 17);
             docNumLabel.TabIndex = 0;
             docNumLabel.Text = "Doc Num:";
-            // 
-            // docDateLabel
-            // 
-            docDateLabel.AutoSize = true;
-            docDateLabel.Location = new System.Drawing.Point(293, 57);
-            docDateLabel.Name = "docDateLabel";
-            docDateLabel.Size = new System.Drawing.Size(71, 17);
-            docDateLabel.TabIndex = 2;
-            docDateLabel.Text = "Doc Date:";
             // 
             // deliveryDateLabel
             // 
@@ -248,15 +216,6 @@ namespace QWS_Local
             deliveryDateLabel.Size = new System.Drawing.Size(97, 17);
             deliveryDateLabel.TabIndex = 4;
             deliveryDateLabel.Text = "Delivery Date:";
-            // 
-            // materialCodeLabel
-            // 
-            materialCodeLabel.AutoSize = true;
-            materialCodeLabel.Location = new System.Drawing.Point(32, 116);
-            materialCodeLabel.Name = "materialCodeLabel";
-            materialCodeLabel.Size = new System.Drawing.Size(99, 17);
-            materialCodeLabel.TabIndex = 6;
-            materialCodeLabel.Text = "Material Code:";
             // 
             // materialLabel
             // 
@@ -270,7 +229,7 @@ namespace QWS_Local
             // quantityLabel
             // 
             quantityLabel.AutoSize = true;
-            quantityLabel.Location = new System.Drawing.Point(64, 174);
+            quantityLabel.Location = new System.Drawing.Point(652, 116);
             quantityLabel.Name = "quantityLabel";
             quantityLabel.Size = new System.Drawing.Size(65, 17);
             quantityLabel.TabIndex = 10;
@@ -279,7 +238,7 @@ namespace QWS_Local
             // openQtyLabel
             // 
             openQtyLabel.AutoSize = true;
-            openQtyLabel.Location = new System.Drawing.Point(56, 232);
+            openQtyLabel.Location = new System.Drawing.Point(644, 174);
             openQtyLabel.Name = "openQtyLabel";
             openQtyLabel.Size = new System.Drawing.Size(73, 17);
             openQtyLabel.TabIndex = 12;
@@ -288,25 +247,16 @@ namespace QWS_Local
             // suppliedLabel
             // 
             suppliedLabel.AutoSize = true;
-            suppliedLabel.Location = new System.Drawing.Point(62, 203);
+            suppliedLabel.Location = new System.Drawing.Point(650, 145);
             suppliedLabel.Name = "suppliedLabel";
             suppliedLabel.Size = new System.Drawing.Size(67, 17);
             suppliedLabel.TabIndex = 14;
             suppliedLabel.Text = "Supplied:";
             // 
-            // cartageCodeLabel
-            // 
-            cartageCodeLabel.AutoSize = true;
-            cartageCodeLabel.Location = new System.Drawing.Point(510, 57);
-            cartageCodeLabel.Name = "cartageCodeLabel";
-            cartageCodeLabel.Size = new System.Drawing.Size(99, 17);
-            cartageCodeLabel.TabIndex = 16;
-            cartageCodeLabel.Text = "Cartage Code:";
-            // 
             // cartageLabel
             // 
             cartageLabel.AutoSize = true;
-            cartageLabel.Location = new System.Drawing.Point(547, 86);
+            cartageLabel.Location = new System.Drawing.Point(67, 204);
             cartageLabel.Name = "cartageLabel";
             cartageLabel.Size = new System.Drawing.Size(62, 17);
             cartageLabel.TabIndex = 18;
@@ -315,25 +265,16 @@ namespace QWS_Local
             // itemQALabel
             // 
             itemQALabel.AutoSize = true;
-            itemQALabel.Location = new System.Drawing.Point(302, 116);
+            itemQALabel.Location = new System.Drawing.Point(408, 174);
             itemQALabel.Name = "itemQALabel";
             itemQALabel.Size = new System.Drawing.Size(62, 17);
             itemQALabel.TabIndex = 20;
             itemQALabel.Text = "Item QA:";
             // 
-            // sAPCommentsLabel
-            // 
-            sAPCommentsLabel.AutoSize = true;
-            sAPCommentsLabel.Location = new System.Drawing.Point(504, 144);
-            sAPCommentsLabel.Name = "sAPCommentsLabel";
-            sAPCommentsLabel.Size = new System.Drawing.Size(105, 17);
-            sAPCommentsLabel.TabIndex = 22;
-            sAPCommentsLabel.Text = "SAPComments:";
-            // 
             // deliveryAddressLabel
             // 
             deliveryAddressLabel.AutoSize = true;
-            deliveryAddressLabel.Location = new System.Drawing.Point(490, 115);
+            deliveryAddressLabel.Location = new System.Drawing.Point(10, 233);
             deliveryAddressLabel.Name = "deliveryAddressLabel";
             deliveryAddressLabel.Size = new System.Drawing.Size(119, 17);
             deliveryAddressLabel.TabIndex = 24;
@@ -342,7 +283,7 @@ namespace QWS_Local
             // mapRefLabel
             // 
             mapRefLabel.AutoSize = true;
-            mapRefLabel.Location = new System.Drawing.Point(721, 57);
+            mapRefLabel.Location = new System.Drawing.Point(241, 175);
             mapRefLabel.Name = "mapRefLabel";
             mapRefLabel.Size = new System.Drawing.Size(65, 17);
             mapRefLabel.TabIndex = 26;
@@ -351,25 +292,16 @@ namespace QWS_Local
             // distanceLabel
             // 
             distanceLabel.AutoSize = true;
-            distanceLabel.Location = new System.Drawing.Point(542, 28);
+            distanceLabel.Location = new System.Drawing.Point(62, 175);
             distanceLabel.Name = "distanceLabel";
             distanceLabel.Size = new System.Drawing.Size(67, 17);
             distanceLabel.TabIndex = 28;
             distanceLabel.Text = "Distance:";
             // 
-            // sAPUpdateDTTMLabel
-            // 
-            sAPUpdateDTTMLabel.AutoSize = true;
-            sAPUpdateDTTMLabel.Location = new System.Drawing.Point(487, 176);
-            sAPUpdateDTTMLabel.Name = "sAPUpdateDTTMLabel";
-            sAPUpdateDTTMLabel.Size = new System.Drawing.Size(128, 17);
-            sAPUpdateDTTMLabel.TabIndex = 30;
-            sAPUpdateDTTMLabel.Text = "SAPUpdate DTTM:";
-            // 
             // orderStatusLabel
             // 
             orderStatusLabel.AutoSize = true;
-            orderStatusLabel.Location = new System.Drawing.Point(271, 28);
+            orderStatusLabel.Location = new System.Drawing.Point(377, 28);
             orderStatusLabel.Name = "orderStatusLabel";
             orderStatusLabel.Size = new System.Drawing.Size(93, 17);
             orderStatusLabel.TabIndex = 33;
@@ -429,36 +361,6 @@ namespace QWS_Local
             tareLabel.TabIndex = 35;
             tareLabel.Text = "Tare:";
             // 
-            // customerLabel
-            // 
-            customerLabel.AutoSize = true;
-            customerLabel.Location = new System.Drawing.Point(793, 46);
-            customerLabel.Name = "customerLabel";
-            customerLabel.Size = new System.Drawing.Size(72, 17);
-            customerLabel.TabIndex = 89;
-            customerLabel.Text = "Customer:";
-            customerLabel.Visible = false;
-            // 
-            // materialLabel1
-            // 
-            materialLabel1.AutoSize = true;
-            materialLabel1.Location = new System.Drawing.Point(803, 102);
-            materialLabel1.Name = "materialLabel1";
-            materialLabel1.Size = new System.Drawing.Size(62, 17);
-            materialLabel1.TabIndex = 91;
-            materialLabel1.Text = "Material:";
-            materialLabel1.Visible = false;
-            // 
-            // openQtyLabel1
-            // 
-            openQtyLabel1.AutoSize = true;
-            openQtyLabel1.Location = new System.Drawing.Point(792, 157);
-            openQtyLabel1.Name = "openQtyLabel1";
-            openQtyLabel1.Size = new System.Drawing.Size(73, 17);
-            openQtyLabel1.TabIndex = 92;
-            openQtyLabel1.Text = "Open Qty:";
-            openQtyLabel1.Visible = false;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -467,26 +369,6 @@ namespace QWS_Local
             label1.Size = new System.Drawing.Size(67, 17);
             label1.TabIndex = 98;
             label1.Text = "Payload :";
-            // 
-            // deliveryAddressLabel1
-            // 
-            deliveryAddressLabel1.AutoSize = true;
-            deliveryAddressLabel1.Location = new System.Drawing.Point(746, 73);
-            deliveryAddressLabel1.Name = "deliveryAddressLabel1";
-            deliveryAddressLabel1.Size = new System.Drawing.Size(119, 17);
-            deliveryAddressLabel1.TabIndex = 102;
-            deliveryAddressLabel1.Text = "Delivery Address:";
-            deliveryAddressLabel1.Visible = false;
-            // 
-            // cartageLabel1
-            // 
-            cartageLabel1.AutoSize = true;
-            cartageLabel1.Location = new System.Drawing.Point(803, 128);
-            cartageLabel1.Name = "cartageLabel1";
-            cartageLabel1.Size = new System.Drawing.Size(62, 17);
-            cartageLabel1.TabIndex = 103;
-            cartageLabel1.Text = "Cartage:";
-            cartageLabel1.Visible = false;
             // 
             // truckConfigLabel
             // 
@@ -506,16 +388,6 @@ namespace QWS_Local
             gCMLabel1.TabIndex = 105;
             gCMLabel1.Text = "GCM:";
             // 
-            // nHVR_NetworkLabel
-            // 
-            nHVR_NetworkLabel.AutoSize = true;
-            nHVR_NetworkLabel.Location = new System.Drawing.Point(971, 157);
-            nHVR_NetworkLabel.Name = "nHVR_NetworkLabel";
-            nHVR_NetworkLabel.Size = new System.Drawing.Size(106, 17);
-            nHVR_NetworkLabel.TabIndex = 106;
-            nHVR_NetworkLabel.Text = "NHVR Network:";
-            nHVR_NetworkLabel.Visible = false;
-            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -527,31 +399,17 @@ namespace QWS_Local
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
-            this.splitContainer1.Panel1.Controls.Add(nHVR_NetworkLabel);
-            this.splitContainer1.Panel1.Controls.Add(this.nHVR_NetworkTextBox);
+            this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(gCMLabel1);
             this.splitContainer1.Panel1.Controls.Add(this.gCMTextBox1);
             this.splitContainer1.Panel1.Controls.Add(truckConfigLabel);
             this.splitContainer1.Panel1.Controls.Add(this.truckConfigTextBox);
-            this.splitContainer1.Panel1.Controls.Add(cartageLabel1);
-            this.splitContainer1.Panel1.Controls.Add(this.cartageTextBox1);
-            this.splitContainer1.Panel1.Controls.Add(deliveryAddressLabel1);
-            this.splitContainer1.Panel1.Controls.Add(this.deliveryAddressTextBox1);
             this.splitContainer1.Panel1.Controls.Add(this.btnSetPayload);
             this.splitContainer1.Panel1.Controls.Add(this.btnSetTruckConfig);
             this.splitContainer1.Panel1.Controls.Add(this.txtPayloadSplit);
             this.splitContainer1.Panel1.Controls.Add(this.btnSelectOrder);
             this.splitContainer1.Panel1.Controls.Add(label1);
             this.splitContainer1.Panel1.Controls.Add(this.txtPayload);
-            this.splitContainer1.Panel1.Controls.Add(this.cartageCodeTextBox1);
-            this.splitContainer1.Panel1.Controls.Add(openQtyLabel1);
-            this.splitContainer1.Panel1.Controls.Add(this.openQtyTextBox1);
-            this.splitContainer1.Panel1.Controls.Add(materialLabel1);
-            this.splitContainer1.Panel1.Controls.Add(this.materialTextBox1);
-            this.splitContainer1.Panel1.Controls.Add(this.materialCodeTextBox1);
-            this.splitContainer1.Panel1.Controls.Add(customerLabel);
-            this.splitContainer1.Panel1.Controls.Add(this.customerTextBox);
-            this.splitContainer1.Panel1.Controls.Add(this.cardCodeTextBox);
             this.splitContainer1.Panel1.Controls.Add(this.btnBookIn);
             this.splitContainer1.Panel1.Controls.Add(mobLabel);
             this.splitContainer1.Panel1.Controls.Add(this.mobTextBox);
@@ -570,15 +428,6 @@ namespace QWS_Local
             this.splitContainer1.SplitterDistance = 281;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // nHVR_NetworkTextBox
-            // 
-            this.nHVR_NetworkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "NHVR_Network", true));
-            this.nHVR_NetworkTextBox.Location = new System.Drawing.Point(1083, 154);
-            this.nHVR_NetworkTextBox.Name = "nHVR_NetworkTextBox";
-            this.nHVR_NetworkTextBox.Size = new System.Drawing.Size(100, 23);
-            this.nHVR_NetworkTextBox.TabIndex = 107;
-            this.nHVR_NetworkTextBox.Visible = false;
             // 
             // bsDeliveryOrders
             // 
@@ -615,24 +464,6 @@ namespace QWS_Local
             this.truckConfigTextBox.Name = "truckConfigTextBox";
             this.truckConfigTextBox.Size = new System.Drawing.Size(100, 23);
             this.truckConfigTextBox.TabIndex = 105;
-            // 
-            // cartageTextBox1
-            // 
-            this.cartageTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "Cartage", true));
-            this.cartageTextBox1.Location = new System.Drawing.Point(871, 125);
-            this.cartageTextBox1.Name = "cartageTextBox1";
-            this.cartageTextBox1.Size = new System.Drawing.Size(206, 23);
-            this.cartageTextBox1.TabIndex = 104;
-            this.cartageTextBox1.Visible = false;
-            // 
-            // deliveryAddressTextBox1
-            // 
-            this.deliveryAddressTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "DeliveryAddress", true));
-            this.deliveryAddressTextBox1.Location = new System.Drawing.Point(871, 70);
-            this.deliveryAddressTextBox1.Name = "deliveryAddressTextBox1";
-            this.deliveryAddressTextBox1.Size = new System.Drawing.Size(312, 23);
-            this.deliveryAddressTextBox1.TabIndex = 103;
-            this.deliveryAddressTextBox1.Visible = false;
             // 
             // btnSetPayload
             // 
@@ -681,60 +512,6 @@ namespace QWS_Local
             this.txtPayload.Name = "txtPayload";
             this.txtPayload.Size = new System.Drawing.Size(100, 23);
             this.txtPayload.TabIndex = 95;
-            // 
-            // cartageCodeTextBox1
-            // 
-            this.cartageCodeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "CartageCode", true));
-            this.cartageCodeTextBox1.Location = new System.Drawing.Point(1083, 125);
-            this.cartageCodeTextBox1.Name = "cartageCodeTextBox1";
-            this.cartageCodeTextBox1.Size = new System.Drawing.Size(100, 23);
-            this.cartageCodeTextBox1.TabIndex = 94;
-            this.cartageCodeTextBox1.Visible = false;
-            // 
-            // openQtyTextBox1
-            // 
-            this.openQtyTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "OpenQty", true));
-            this.openQtyTextBox1.Location = new System.Drawing.Point(871, 154);
-            this.openQtyTextBox1.Name = "openQtyTextBox1";
-            this.openQtyTextBox1.Size = new System.Drawing.Size(100, 23);
-            this.openQtyTextBox1.TabIndex = 93;
-            this.openQtyTextBox1.Visible = false;
-            // 
-            // materialTextBox1
-            // 
-            this.materialTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "MaterialDesc", true));
-            this.materialTextBox1.Location = new System.Drawing.Point(871, 99);
-            this.materialTextBox1.Name = "materialTextBox1";
-            this.materialTextBox1.Size = new System.Drawing.Size(240, 23);
-            this.materialTextBox1.TabIndex = 92;
-            this.materialTextBox1.Visible = false;
-            // 
-            // materialCodeTextBox1
-            // 
-            this.materialCodeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Material", true));
-            this.materialCodeTextBox1.Location = new System.Drawing.Point(1117, 99);
-            this.materialCodeTextBox1.Name = "materialCodeTextBox1";
-            this.materialCodeTextBox1.Size = new System.Drawing.Size(66, 23);
-            this.materialCodeTextBox1.TabIndex = 91;
-            this.materialCodeTextBox1.Visible = false;
-            // 
-            // customerTextBox
-            // 
-            this.customerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Customer", true));
-            this.customerTextBox.Location = new System.Drawing.Point(871, 41);
-            this.customerTextBox.Name = "customerTextBox";
-            this.customerTextBox.Size = new System.Drawing.Size(249, 23);
-            this.customerTextBox.TabIndex = 90;
-            this.customerTextBox.Visible = false;
-            // 
-            // cardCodeTextBox
-            // 
-            this.cardCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "CustomerCode", true));
-            this.cardCodeTextBox.Location = new System.Drawing.Point(1126, 40);
-            this.cardCodeTextBox.Name = "cardCodeTextBox";
-            this.cardCodeTextBox.Size = new System.Drawing.Size(57, 23);
-            this.cardCodeTextBox.TabIndex = 89;
-            this.cardCodeTextBox.Visible = false;
             // 
             // btnBookIn
             // 
@@ -977,26 +754,27 @@ namespace QWS_Local
             // 
             // tpDetails
             // 
-            this.tpDetails.Controls.Add(this.textBox5);
+            this.tpDetails.Controls.Add(purchaseOrderLabel);
+            this.tpDetails.Controls.Add(this.purchaseOrderTextBox);
+            this.tpDetails.Controls.Add(this.contactMobileTextBox);
+            this.tpDetails.Controls.Add(contactNameLabel);
+            this.tpDetails.Controls.Add(this.contactNameTextBox);
+            this.tpDetails.Controls.Add(this.cardCodeTextBox);
+            this.tpDetails.Controls.Add(customerLabel);
+            this.tpDetails.Controls.Add(this.customerTextBox);
             this.tpDetails.Controls.Add(orderStatusLabel);
             this.tpDetails.Controls.Add(this.orderStatusTextBox);
-            this.tpDetails.Controls.Add(this.textBox3);
             this.tpDetails.Controls.Add(this.textBox2);
-            this.tpDetails.Controls.Add(this.textBox1);
-            this.tpDetails.Controls.Add(sAPUpdateDTTMLabel);
             this.tpDetails.Controls.Add(distanceLabel);
             this.tpDetails.Controls.Add(this.distanceTextBox);
             this.tpDetails.Controls.Add(mapRefLabel);
             this.tpDetails.Controls.Add(this.mapRefTextBox);
             this.tpDetails.Controls.Add(deliveryAddressLabel);
             this.tpDetails.Controls.Add(this.deliveryAddressTextBox);
-            this.tpDetails.Controls.Add(sAPCommentsLabel);
-            this.tpDetails.Controls.Add(this.sAPCommentsTextBox);
             this.tpDetails.Controls.Add(itemQALabel);
             this.tpDetails.Controls.Add(this.itemQATextBox);
             this.tpDetails.Controls.Add(cartageLabel);
             this.tpDetails.Controls.Add(this.cartageTextBox);
-            this.tpDetails.Controls.Add(cartageCodeLabel);
             this.tpDetails.Controls.Add(this.cartageCodeTextBox);
             this.tpDetails.Controls.Add(suppliedLabel);
             this.tpDetails.Controls.Add(this.suppliedTextBox);
@@ -1006,44 +784,26 @@ namespace QWS_Local
             this.tpDetails.Controls.Add(this.quantityTextBox);
             this.tpDetails.Controls.Add(materialLabel);
             this.tpDetails.Controls.Add(this.materialTextBox);
-            this.tpDetails.Controls.Add(materialCodeLabel);
             this.tpDetails.Controls.Add(this.materialCodeTextBox);
             this.tpDetails.Controls.Add(deliveryDateLabel);
-            this.tpDetails.Controls.Add(docDateLabel);
             this.tpDetails.Controls.Add(docNumLabel);
             this.tpDetails.Controls.Add(this.docNumTextBox);
-            this.tpDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpDetails.Location = new System.Drawing.Point(4, 25);
             this.tpDetails.Margin = new System.Windows.Forms.Padding(4);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(4);
-            this.tpDetails.Size = new System.Drawing.Size(1353, 319);
+            this.tpDetails.Size = new System.Drawing.Size(1353, 316);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
             // 
-            // textBox5
-            // 
-            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "ItmsGrpCod", true));
-            this.textBox5.Location = new System.Drawing.Point(243, 112);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(53, 23);
-            this.textBox5.TabIndex = 35;
-            // 
             // orderStatusTextBox
             // 
             this.orderStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "OrderStatus", true));
-            this.orderStatusTextBox.Location = new System.Drawing.Point(370, 25);
+            this.orderStatusTextBox.Location = new System.Drawing.Point(476, 25);
             this.orderStatusTextBox.Name = "orderStatusTextBox";
             this.orderStatusTextBox.Size = new System.Drawing.Size(100, 23);
             this.orderStatusTextBox.TabIndex = 34;
-            // 
-            // textBox3
-            // 
-            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "SAPUpdateDTTM", true));
-            this.textBox3.Location = new System.Drawing.Point(616, 173);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 23);
-            this.textBox3.TabIndex = 33;
             // 
             // textBox2
             // 
@@ -1053,18 +813,10 @@ namespace QWS_Local
             this.textBox2.Size = new System.Drawing.Size(100, 23);
             this.textBox2.TabIndex = 32;
             // 
-            // textBox1
-            // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "DocDate", true));
-            this.textBox1.Location = new System.Drawing.Point(370, 54);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 31;
-            // 
             // distanceTextBox
             // 
             this.distanceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "Distance", true));
-            this.distanceTextBox.Location = new System.Drawing.Point(615, 25);
+            this.distanceTextBox.Location = new System.Drawing.Point(135, 172);
             this.distanceTextBox.Name = "distanceTextBox";
             this.distanceTextBox.Size = new System.Drawing.Size(100, 23);
             this.distanceTextBox.TabIndex = 29;
@@ -1072,31 +824,23 @@ namespace QWS_Local
             // mapRefTextBox
             // 
             this.mapRefTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "MapRef", true));
-            this.mapRefTextBox.Location = new System.Drawing.Point(792, 54);
+            this.mapRefTextBox.Location = new System.Drawing.Point(312, 172);
             this.mapRefTextBox.Name = "mapRefTextBox";
-            this.mapRefTextBox.Size = new System.Drawing.Size(100, 23);
+            this.mapRefTextBox.Size = new System.Drawing.Size(90, 23);
             this.mapRefTextBox.TabIndex = 27;
             // 
             // deliveryAddressTextBox
             // 
             this.deliveryAddressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "DeliveryAddress", true));
-            this.deliveryAddressTextBox.Location = new System.Drawing.Point(615, 112);
+            this.deliveryAddressTextBox.Location = new System.Drawing.Point(135, 230);
             this.deliveryAddressTextBox.Name = "deliveryAddressTextBox";
             this.deliveryAddressTextBox.Size = new System.Drawing.Size(688, 23);
             this.deliveryAddressTextBox.TabIndex = 25;
             // 
-            // sAPCommentsTextBox
-            // 
-            this.sAPCommentsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "SAPComments", true));
-            this.sAPCommentsTextBox.Location = new System.Drawing.Point(615, 141);
-            this.sAPCommentsTextBox.Name = "sAPCommentsTextBox";
-            this.sAPCommentsTextBox.Size = new System.Drawing.Size(688, 23);
-            this.sAPCommentsTextBox.TabIndex = 23;
-            // 
             // itemQATextBox
             // 
             this.itemQATextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "ItemQA", true));
-            this.itemQATextBox.Location = new System.Drawing.Point(370, 113);
+            this.itemQATextBox.Location = new System.Drawing.Point(476, 171);
             this.itemQATextBox.Name = "itemQATextBox";
             this.itemQATextBox.Size = new System.Drawing.Size(100, 23);
             this.itemQATextBox.TabIndex = 21;
@@ -1104,15 +848,15 @@ namespace QWS_Local
             // cartageTextBox
             // 
             this.cartageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "Cartage", true));
-            this.cartageTextBox.Location = new System.Drawing.Point(615, 83);
+            this.cartageTextBox.Location = new System.Drawing.Point(135, 201);
             this.cartageTextBox.Name = "cartageTextBox";
-            this.cartageTextBox.Size = new System.Drawing.Size(277, 23);
+            this.cartageTextBox.Size = new System.Drawing.Size(335, 23);
             this.cartageTextBox.TabIndex = 19;
             // 
             // cartageCodeTextBox
             // 
             this.cartageCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "CartageCode", true));
-            this.cartageCodeTextBox.Location = new System.Drawing.Point(615, 54);
+            this.cartageCodeTextBox.Location = new System.Drawing.Point(476, 201);
             this.cartageCodeTextBox.Name = "cartageCodeTextBox";
             this.cartageCodeTextBox.Size = new System.Drawing.Size(100, 23);
             this.cartageCodeTextBox.TabIndex = 17;
@@ -1120,7 +864,7 @@ namespace QWS_Local
             // suppliedTextBox
             // 
             this.suppliedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "Supplied", true));
-            this.suppliedTextBox.Location = new System.Drawing.Point(135, 200);
+            this.suppliedTextBox.Location = new System.Drawing.Point(723, 142);
             this.suppliedTextBox.Name = "suppliedTextBox";
             this.suppliedTextBox.Size = new System.Drawing.Size(100, 23);
             this.suppliedTextBox.TabIndex = 15;
@@ -1128,7 +872,7 @@ namespace QWS_Local
             // openQtyTextBox
             // 
             this.openQtyTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "OpenQty", true));
-            this.openQtyTextBox.Location = new System.Drawing.Point(135, 229);
+            this.openQtyTextBox.Location = new System.Drawing.Point(723, 171);
             this.openQtyTextBox.Name = "openQtyTextBox";
             this.openQtyTextBox.Size = new System.Drawing.Size(100, 23);
             this.openQtyTextBox.TabIndex = 13;
@@ -1136,13 +880,14 @@ namespace QWS_Local
             // quantityTextBox
             // 
             this.quantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "Quantity", true));
-            this.quantityTextBox.Location = new System.Drawing.Point(135, 171);
+            this.quantityTextBox.Location = new System.Drawing.Point(723, 113);
             this.quantityTextBox.Name = "quantityTextBox";
             this.quantityTextBox.Size = new System.Drawing.Size(100, 23);
             this.quantityTextBox.TabIndex = 11;
             // 
             // materialTextBox
             // 
+            this.materialTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.materialTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "Material", true));
             this.materialTextBox.Location = new System.Drawing.Point(135, 142);
             this.materialTextBox.Name = "materialTextBox";
@@ -1152,7 +897,7 @@ namespace QWS_Local
             // materialCodeTextBox
             // 
             this.materialCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "MaterialCode", true));
-            this.materialCodeTextBox.Location = new System.Drawing.Point(137, 113);
+            this.materialCodeTextBox.Location = new System.Drawing.Point(476, 142);
             this.materialCodeTextBox.Name = "materialCodeTextBox";
             this.materialCodeTextBox.Size = new System.Drawing.Size(100, 23);
             this.materialCodeTextBox.TabIndex = 7;
@@ -1160,7 +905,7 @@ namespace QWS_Local
             // docNumTextBox
             // 
             this.docNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "DocNum", true));
-            this.docNumTextBox.Location = new System.Drawing.Point(137, 25);
+            this.docNumTextBox.Location = new System.Drawing.Point(135, 25);
             this.docNumTextBox.Name = "docNumTextBox";
             this.docNumTextBox.Size = new System.Drawing.Size(100, 23);
             this.docNumTextBox.TabIndex = 1;
@@ -1266,9 +1011,9 @@ namespace QWS_Local
             this.tpLoading.Controls.Add(gCMLabel);
             this.tpLoading.Controls.Add(this.nudPayload);
             this.tpLoading.Controls.Add(this.gCMTextBox);
-            this.tpLoading.Location = new System.Drawing.Point(4, 22);
+            this.tpLoading.Location = new System.Drawing.Point(4, 25);
             this.tpLoading.Name = "tpLoading";
-            this.tpLoading.Size = new System.Drawing.Size(1353, 319);
+            this.tpLoading.Size = new System.Drawing.Size(1353, 316);
             this.tpLoading.TabIndex = 4;
             this.tpLoading.Text = "Loading";
             this.tpLoading.UseVisualStyleBackColor = true;
@@ -1304,6 +1049,7 @@ namespace QWS_Local
             this.rbTrailerOnly.TabStop = true;
             this.rbTrailerOnly.Text = "Trailer Only";
             this.rbTrailerOnly.UseVisualStyleBackColor = true;
+            this.rbTrailerOnly.CheckedChanged += new System.EventHandler(this.rbTrailerOnly_CheckedChanged_1);
             // 
             // rbSplitLoad
             // 
@@ -1315,6 +1061,7 @@ namespace QWS_Local
             this.rbSplitLoad.TabStop = true;
             this.rbSplitLoad.Text = "Split Load";
             this.rbSplitLoad.UseVisualStyleBackColor = true;
+            this.rbSplitLoad.CheckedChanged += new System.EventHandler(this.rbSplitLoad_CheckedChanged_1);
             // 
             // rbTnT
             // 
@@ -1326,6 +1073,7 @@ namespace QWS_Local
             this.rbTnT.TabStop = true;
             this.rbTnT.Text = "Truck and Trailer";
             this.rbTnT.UseVisualStyleBackColor = true;
+            this.rbTnT.CheckedChanged += new System.EventHandler(this.rbTnT_CheckedChanged_1);
             // 
             // nudPayloadTr
             // 
@@ -1457,6 +1205,85 @@ namespace QWS_Local
             this.tableAdapterManager3.TIQTableAdapter = this.taTIQ2;
             this.tableAdapterManager3.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(721, 249);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(158, 28);
+            this.button1.TabIndex = 107;
+            this.button1.Text = "Calc Payload";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // customerLabel
+            // 
+            customerLabel.AutoSize = true;
+            customerLabel.Location = new System.Drawing.Point(57, 86);
+            customerLabel.Name = "customerLabel";
+            customerLabel.Size = new System.Drawing.Size(72, 17);
+            customerLabel.TabIndex = 35;
+            customerLabel.Text = "Customer:";
+            // 
+            // customerTextBox
+            // 
+            this.customerTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.customerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "Customer", true));
+            this.customerTextBox.Location = new System.Drawing.Point(135, 83);
+            this.customerTextBox.Name = "customerTextBox";
+            this.customerTextBox.Size = new System.Drawing.Size(335, 23);
+            this.customerTextBox.TabIndex = 36;
+            // 
+            // cardCodeTextBox
+            // 
+            this.cardCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "CardCode", true));
+            this.cardCodeTextBox.Location = new System.Drawing.Point(476, 83);
+            this.cardCodeTextBox.Name = "cardCodeTextBox";
+            this.cardCodeTextBox.Size = new System.Drawing.Size(100, 23);
+            this.cardCodeTextBox.TabIndex = 37;
+            // 
+            // contactNameLabel
+            // 
+            contactNameLabel.AutoSize = true;
+            contactNameLabel.Location = new System.Drawing.Point(69, 116);
+            contactNameLabel.Name = "contactNameLabel";
+            contactNameLabel.Size = new System.Drawing.Size(60, 17);
+            contactNameLabel.TabIndex = 37;
+            contactNameLabel.Text = "Contact:";
+            // 
+            // contactNameTextBox
+            // 
+            this.contactNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "ContactName", true));
+            this.contactNameTextBox.Location = new System.Drawing.Point(135, 112);
+            this.contactNameTextBox.Name = "contactNameTextBox";
+            this.contactNameTextBox.Size = new System.Drawing.Size(335, 23);
+            this.contactNameTextBox.TabIndex = 38;
+            // 
+            // contactMobileTextBox
+            // 
+            this.contactMobileTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "ContactMobile", true));
+            this.contactMobileTextBox.Location = new System.Drawing.Point(476, 113);
+            this.contactMobileTextBox.Name = "contactMobileTextBox";
+            this.contactMobileTextBox.Size = new System.Drawing.Size(100, 23);
+            this.contactMobileTextBox.TabIndex = 39;
+            // 
+            // purchaseOrderLabel
+            // 
+            purchaseOrderLabel.AutoSize = true;
+            purchaseOrderLabel.Location = new System.Drawing.Point(409, 57);
+            purchaseOrderLabel.Name = "purchaseOrderLabel";
+            purchaseOrderLabel.Size = new System.Drawing.Size(61, 17);
+            purchaseOrderLabel.TabIndex = 39;
+            purchaseOrderLabel.Text = "Cust ON";
+            // 
+            // purchaseOrderTextBox
+            // 
+            this.purchaseOrderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "PurchaseOrder", true));
+            this.purchaseOrderTextBox.Location = new System.Drawing.Point(476, 54);
+            this.purchaseOrderTextBox.Name = "purchaseOrderTextBox";
+            this.purchaseOrderTextBox.Size = new System.Drawing.Size(100, 23);
+            this.purchaseOrderTextBox.TabIndex = 40;
+            // 
             // BookInDelivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1511,13 +1338,10 @@ namespace QWS_Local
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpList;
         private System.Windows.Forms.TabPage tpDetails;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox distanceTextBox;
         private System.Windows.Forms.TextBox mapRefTextBox;
         private System.Windows.Forms.TextBox deliveryAddressTextBox;
-        private System.Windows.Forms.TextBox sAPCommentsTextBox;
         private System.Windows.Forms.TextBox itemQATextBox;
         private System.Windows.Forms.TextBox cartageTextBox;
         private System.Windows.Forms.TextBox cartageCodeTextBox;
@@ -1574,7 +1398,6 @@ namespace QWS_Local
         private System.Windows.Forms.BindingSource bsTIQ2;
         private dsTIQ2TableAdapters.TIQTableAdapter taTIQ2;
         private dsTIQ2TableAdapters.TableAdapterManager tableAdapterManager3;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.NumericUpDown nudPayloadTk;
         private System.Windows.Forms.NumericUpDown nudPayloadTr;
         private System.Windows.Forms.NumericUpDown nudPayload;
@@ -1582,12 +1405,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox gVMTruckTextBox;
         private System.Windows.Forms.TextBox tareTextBox;
         private System.Windows.Forms.TextBox tareTkTextBox;
-        private System.Windows.Forms.TextBox cartageCodeTextBox1;
-        private System.Windows.Forms.TextBox openQtyTextBox1;
-        private System.Windows.Forms.TextBox materialTextBox1;
-        private System.Windows.Forms.TextBox materialCodeTextBox1;
-        private System.Windows.Forms.TextBox customerTextBox;
-        private System.Windows.Forms.TextBox cardCodeTextBox;
         private System.Windows.Forms.TextBox txtPayload;
         private System.Windows.Forms.Button btnSelectOrder;
         private System.Windows.Forms.TextBox txtPayloadSplit;
@@ -1601,8 +1418,11 @@ namespace QWS_Local
         private System.Windows.Forms.RadioButton rbTnT;
         private System.Windows.Forms.TextBox gCMTextBox1;
         private System.Windows.Forms.TextBox truckConfigTextBox;
-        private System.Windows.Forms.TextBox cartageTextBox1;
-        private System.Windows.Forms.TextBox deliveryAddressTextBox1;
-        private System.Windows.Forms.TextBox nHVR_NetworkTextBox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox contactMobileTextBox;
+        private System.Windows.Forms.TextBox contactNameTextBox;
+        private System.Windows.Forms.TextBox cardCodeTextBox;
+        private System.Windows.Forms.TextBox customerTextBox;
+        private System.Windows.Forms.TextBox purchaseOrderTextBox;
     }
 }

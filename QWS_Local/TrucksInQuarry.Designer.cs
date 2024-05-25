@@ -55,7 +55,7 @@ namespace QWS_Local
             System.Windows.Forms.Label materialLabel;
             System.Windows.Forms.Label materialDescLabel;
             System.Windows.Forms.Label weighbridgeIDLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.button5 = new System.Windows.Forms.Button();
@@ -121,7 +121,7 @@ namespace QWS_Local
             this.releaseDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.regoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TruckConfig = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.payloadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PayloadSplit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.driverDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GCM = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -129,6 +129,7 @@ namespace QWS_Local
             this.TruckOwner = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CartageCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.payloadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             entryDTTMLabel = new System.Windows.Forms.Label();
             queueStatusLabel = new System.Windows.Forms.Label();
             sAPOrderLabel = new System.Windows.Forms.Label();
@@ -582,6 +583,7 @@ namespace QWS_Local
             this.btnWeigh.TabIndex = 62;
             this.btnWeigh.Text = "Weigh";
             this.btnWeigh.UseVisualStyleBackColor = false;
+            this.btnWeigh.Click += new System.EventHandler(this.btnWeigh_Click);
             // 
             // btnAddVehicle
             // 
@@ -758,14 +760,15 @@ namespace QWS_Local
             this.releaseDTTMDataGridViewTextBoxColumn,
             this.regoDataGridViewTextBoxColumn,
             this.TruckConfig,
-            this.payloadDataGridViewTextBoxColumn,
+            this.PayloadSplit,
             this.materialDescDataGridViewTextBoxColumn,
             this.driverDataGridViewTextBoxColumn,
             this.GCM,
             this.GVMTruck,
             this.TruckOwner,
             this.materialDataGridViewTextBoxColumn,
-            this.CartageCode});
+            this.CartageCode,
+            this.payloadDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.bsTIQ2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
@@ -1081,9 +1084,9 @@ namespace QWS_Local
             // releaseDTTMDataGridViewTextBoxColumn
             // 
             this.releaseDTTMDataGridViewTextBoxColumn.DataPropertyName = "ReleaseDTTM";
-            dataGridViewCellStyle1.Format = "HH:mm";
-            dataGridViewCellStyle1.NullValue = null;
-            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "HH:mm";
+            dataGridViewCellStyle2.NullValue = null;
+            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.releaseDTTMDataGridViewTextBoxColumn.HeaderText = "Release";
             this.releaseDTTMDataGridViewTextBoxColumn.Name = "releaseDTTMDataGridViewTextBoxColumn";
             this.releaseDTTMDataGridViewTextBoxColumn.ReadOnly = true;
@@ -1104,12 +1107,13 @@ namespace QWS_Local
             this.TruckConfig.ReadOnly = true;
             this.TruckConfig.Width = 70;
             // 
-            // payloadDataGridViewTextBoxColumn
+            // PayloadSplit
             // 
-            this.payloadDataGridViewTextBoxColumn.DataPropertyName = "Payload";
-            this.payloadDataGridViewTextBoxColumn.HeaderText = "Payload";
-            this.payloadDataGridViewTextBoxColumn.Name = "payloadDataGridViewTextBoxColumn";
-            this.payloadDataGridViewTextBoxColumn.ReadOnly = true;
+            this.PayloadSplit.DataPropertyName = "PayloadSplit";
+            this.PayloadSplit.HeaderText = "PayloadSplit";
+            this.PayloadSplit.Name = "PayloadSplit";
+            this.PayloadSplit.ReadOnly = true;
+            this.PayloadSplit.Width = 120;
             // 
             // materialDescDataGridViewTextBoxColumn
             // 
@@ -1161,6 +1165,13 @@ namespace QWS_Local
             this.CartageCode.HeaderText = "Cartage";
             this.CartageCode.Name = "CartageCode";
             this.CartageCode.ReadOnly = true;
+            // 
+            // payloadDataGridViewTextBoxColumn
+            // 
+            this.payloadDataGridViewTextBoxColumn.DataPropertyName = "Payload";
+            this.payloadDataGridViewTextBoxColumn.HeaderText = "Payload";
+            this.payloadDataGridViewTextBoxColumn.Name = "payloadDataGridViewTextBoxColumn";
+            this.payloadDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // TrucksInQuarry
             // 
@@ -1266,7 +1277,7 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn releaseDTTMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn regoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TruckConfig;
-        private System.Windows.Forms.DataGridViewTextBoxColumn payloadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PayloadSplit;
         private System.Windows.Forms.DataGridViewTextBoxColumn materialDescDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn driverDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn GCM;
@@ -1274,5 +1285,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn TruckOwner;
         private System.Windows.Forms.DataGridViewTextBoxColumn materialDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CartageCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn payloadDataGridViewTextBoxColumn;
     }
 }

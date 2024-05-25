@@ -14,6 +14,7 @@ namespace QWS_Local
     {
         private static int TruckConfigID;
         private static int TIQID;
+        private string LoadType = "TK";
         private dsQWSLocal.TruckDriverRow DriverRow;
 
         public BookInDelivery()
@@ -35,7 +36,6 @@ namespace QWS_Local
             LoadTIQ();
             DeliveryOrdersLoad();
             LoadDriver();
-            CalcPayload(); // initialise so WBO can reduce if required
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -174,12 +174,16 @@ namespace QWS_Local
                 myPayloadTk = CurrentTruckGVM().GVMTruck - CurrentTruckGVM().TareTk;
                 myPayloadTr = myPayload - myPayloadTk;
                 nudPayloadTk.Value = myPayloadTk;
+                nudPayloadTk.Enabled = true;
                 nudPayloadTr.Value = myPayloadTr;
-                txtPayloadSplit.Text = myPayloadTk.ToString() + "/" + myPayloadTr.ToString();
+                nudPayloadTr.Enabled= true;
+                txtPayloadSplit.Text = myPayloadTk.ToString() + "/" + myPayloadTr.ToString() + "(" + myPayload.ToString() + ")";
             }
             else
             {
                 txtPayloadSplit.Text = string.Empty;
+                nudPayloadTk.Enabled = false;
+                nudPayloadTr.Enabled = false;
             }
         }
 
@@ -294,7 +298,11 @@ namespace QWS_Local
             DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
             dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
             myTIQRow.Payload = nudPayload.Value;
-
+            myTIQRow.PayloadSplit = txtPayloadSplit.Text;
+            if(LoadType.Length == 3)
+            {
+                myTIQRow.TruckConfig = LoadType;
+            }
             bsTIQ2.EndEdit();
         }
 
@@ -351,6 +359,35 @@ namespace QWS_Local
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CalcPayload();
+        }
 
+        private void rbTnT_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if(rbTnT.Enabled)
+            {
+                LoadType = "TT";
+            }
+        }
+
+        private void rbSplitLoad_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (rbSplitLoad.Enabled)
+            {
+                LoadType = "TKs"; // TODO check if BD
+                txtTruckConfig.Text = "TKs";
+            }
+        }
+
+        private void rbTrailerOnly_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (rbTrailerOnly.Checked)
+            {
+                LoadType = "TRs";
+                txtTruckConfig.Text = "TRs";
+            }
+        }
     }
 }
