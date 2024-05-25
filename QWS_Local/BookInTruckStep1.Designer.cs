@@ -83,9 +83,7 @@ namespace QWS_Local
             this.btnExBin = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.bsPrefCustomers = new System.Windows.Forms.BindingSource(this.components);
-            this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
             this.taConfiguredTrucks = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
-            this.taConfiguredTruckGVM = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTruckGVMTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
             this.taTruckDriver = new QWS_Local.dsQWSLocalTableAdapters.TruckDriverTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
@@ -113,7 +111,6 @@ namespace QWS_Local
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSchematic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -601,18 +598,9 @@ namespace QWS_Local
             this.bsPrefCustomers.DataMember = "VehiclePrefCustomers";
             this.bsPrefCustomers.DataSource = this.dsQWSLocal;
             // 
-            // bsConfiguredTruckGVM
-            // 
-            this.bsConfiguredTruckGVM.DataMember = "ConfiguredTruckGVM";
-            this.bsConfiguredTruckGVM.DataSource = this.dsTruckConfig;
-            // 
             // taConfiguredTrucks
             // 
             this.taConfiguredTrucks.ClearBeforeFill = true;
-            // 
-            // taConfiguredTruckGVM
-            // 
-            this.taConfiguredTruckGVM.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
@@ -715,7 +703,6 @@ namespace QWS_Local
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSchematic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -733,8 +720,6 @@ namespace QWS_Local
         private dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter taConfiguredTrucks;
         private System.Windows.Forms.TextBox txtAxleConfig;
         private System.Windows.Forms.TextBox txtVehicleDescription;
-        private System.Windows.Forms.BindingSource bsConfiguredTruckGVM;
-        private dsTruckConfigTableAdapters.ConfiguredTruckGVMTableAdapter taConfiguredTruckGVM;
         private dsTruckConfigTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.TextBox cardCodeTextBox;
         private System.Windows.Forms.TextBox truckOwnerTextBox;
