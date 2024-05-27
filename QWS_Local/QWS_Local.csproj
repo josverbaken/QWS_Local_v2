@@ -277,6 +277,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplitLoadType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplitLoadType.Designer.cs">
+      <DependentUpon>SplitLoadType.cs</DependentUpon>
+    </Compile>
     <Compile Include="TIQDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -381,6 +387,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SplitLoadType.resx">
+      <DependentUpon>SplitLoadType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TIQDetail.resx">
       <DependentUpon>TIQDetail.cs</DependentUpon>
     </EmbeddedResource>

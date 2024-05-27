@@ -168,7 +168,6 @@ namespace QWS_Local
 
             myPayload = PayloadLimit;
             nudPayload.Value = myPayload;
-            txtPayload.Text = myPayload.ToString(); // display only
             if (CurrentTruckGVM().GCM != CurrentTruckGVM().GVMTruck)
             {
                 myPayloadTk = CurrentTruckGVM().GVMTruck - CurrentTruckGVM().TareTk;
@@ -306,87 +305,27 @@ namespace QWS_Local
             bsTIQ2.EndEdit();
         }
 
-        //private bool TruckConfigRBSet()
-        //{
-        //    if (rbTnT.Enabled && rbTnT.Checked)
-        //    {
-        //        txtTruckConfig.Text = LoadType.TT.ToString();
-        //        return true;
-        //    }
-        //    if(rbSplitLoad.Enabled && rbSplitLoad.Checked)
-        //    {
-        //        txtTruckConfig.Text = LoadType.TKs.ToString();
-        //        return true;
-        //    }
-        //    if (rbTrailerOnly.Enabled && rbTrailerOnly.Checked)
-        //    {
-        //        txtTruckConfig.Text = LoadType.TRs.ToString();
-        //        return true;
-        //    }
-        //    return false;
-        //}
-
-        private void rbTnT_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbTnT.Enabled)
-            {
-                if (rbTnT.Checked)
-                {
-                    txtTruckConfig.Text = "TT";
-                }
-            }
-        }
-
-        private void rbSplitLoad_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbSplitLoad.Enabled)
-            {
-                if (rbSplitLoad.Checked)
-                {
-                    txtTruckConfig.Text = "TKs";
-                }
-            }
-        }
-
-        private void rbTrailerOnly_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbTrailerOnly.Enabled)
-            {
-                if (rbTrailerOnly.Checked)
-                {
-                    txtTruckConfig.Text = "TRs";
-                }
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+         private void button1_Click(object sender, EventArgs e)
         {
             CalcPayload();
         }
-
-        private void rbTnT_CheckedChanged_1(object sender, EventArgs e)
+     
+        private void button2_Click(object sender, EventArgs e)
         {
-            if(rbTnT.Enabled)
-            {
-                LoadType = "TT";
-            }
+            SetSplitLoadType();
         }
 
-        private void rbSplitLoad_CheckedChanged_1(object sender, EventArgs e)
+        private void SetSplitLoadType()
         {
-            if (rbSplitLoad.Enabled)
+            SplitLoadType frmLoadType = new SplitLoadType();
+            DialogResult dr = frmLoadType.ShowDialog();
+            if (dr == DialogResult.OK)
             {
-                LoadType = "TKs"; // TODO check if BD
-                txtTruckConfig.Text = "TKs";
+                txtTruckConfig.Text = frmLoadType.LoadType;
             }
-        }
-
-        private void rbTrailerOnly_CheckedChanged_1(object sender, EventArgs e)
-        {
-            if (rbTrailerOnly.Checked)
+            else
             {
-                LoadType = "TRs";
-                txtTruckConfig.Text = "TRs";
+                txtTruckConfig.Text = "Cancelled!";
             }
         }
     }
