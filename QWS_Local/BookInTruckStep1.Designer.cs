@@ -37,7 +37,6 @@ namespace QWS_Local
             System.Windows.Forms.Label inductionExpLabel;
             System.Windows.Forms.Label licenseExpLabel;
             System.Windows.Forms.Label licenseTypeLabel;
-            System.Windows.Forms.Label telLabel;
             System.Windows.Forms.Label mobLabel;
             System.Windows.Forms.Label positionLabel;
             System.Windows.Forms.Label personLabel;
@@ -68,7 +67,6 @@ namespace QWS_Local
             this.txtInductionExp = new System.Windows.Forms.TextBox();
             this.txtActive = new System.Windows.Forms.TextBox();
             this.licenseTypeTextBox = new System.Windows.Forms.TextBox();
-            this.telTextBox = new System.Windows.Forms.TextBox();
             this.mobTextBox = new System.Windows.Forms.TextBox();
             this.positionTextBox = new System.Windows.Forms.TextBox();
             this.personTextBox = new System.Windows.Forms.TextBox();
@@ -99,7 +97,6 @@ namespace QWS_Local
             inductionExpLabel = new System.Windows.Forms.Label();
             licenseExpLabel = new System.Windows.Forms.Label();
             licenseTypeLabel = new System.Windows.Forms.Label();
-            telLabel = new System.Windows.Forms.Label();
             mobLabel = new System.Windows.Forms.Label();
             positionLabel = new System.Windows.Forms.Label();
             personLabel = new System.Windows.Forms.Label();
@@ -177,19 +174,10 @@ namespace QWS_Local
             licenseTypeLabel.TabIndex = 67;
             licenseTypeLabel.Text = "License Type:";
             // 
-            // telLabel
-            // 
-            telLabel.AutoSize = true;
-            telLabel.Location = new System.Drawing.Point(90, 88);
-            telLabel.Name = "telLabel";
-            telLabel.Size = new System.Drawing.Size(32, 17);
-            telLabel.TabIndex = 65;
-            telLabel.Text = "Tel:";
-            // 
             // mobLabel
             // 
             mobLabel.AutoSize = true;
-            mobLabel.Location = new System.Drawing.Point(232, 88);
+            mobLabel.Location = new System.Drawing.Point(74, 85);
             mobLabel.Name = "mobLabel";
             mobLabel.Size = new System.Drawing.Size(39, 17);
             mobLabel.TabIndex = 63;
@@ -198,7 +186,7 @@ namespace QWS_Local
             // positionLabel
             // 
             positionLabel.AutoSize = true;
-            positionLabel.Location = new System.Drawing.Point(60, 62);
+            positionLabel.Location = new System.Drawing.Point(60, 56);
             positionLabel.Name = "positionLabel";
             positionLabel.Size = new System.Drawing.Size(62, 17);
             positionLabel.TabIndex = 60;
@@ -207,7 +195,7 @@ namespace QWS_Local
             // personLabel
             // 
             personLabel.AutoSize = true;
-            personLabel.Location = new System.Drawing.Point(65, 28);
+            personLabel.Location = new System.Drawing.Point(65, 24);
             personLabel.Name = "personLabel";
             personLabel.Size = new System.Drawing.Size(57, 17);
             personLabel.TabIndex = 59;
@@ -432,18 +420,10 @@ namespace QWS_Local
             this.licenseTypeTextBox.Size = new System.Drawing.Size(100, 23);
             this.licenseTypeTextBox.TabIndex = 68;
             // 
-            // telTextBox
-            // 
-            this.telTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Tel", true));
-            this.telTextBox.Location = new System.Drawing.Point(127, 85);
-            this.telTextBox.Name = "telTextBox";
-            this.telTextBox.Size = new System.Drawing.Size(100, 23);
-            this.telTextBox.TabIndex = 66;
-            // 
             // mobTextBox
             // 
             this.mobTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Mob", true));
-            this.mobTextBox.Location = new System.Drawing.Point(285, 85);
+            this.mobTextBox.Location = new System.Drawing.Point(127, 82);
             this.mobTextBox.Name = "mobTextBox";
             this.mobTextBox.Size = new System.Drawing.Size(100, 23);
             this.mobTextBox.TabIndex = 64;
@@ -451,7 +431,7 @@ namespace QWS_Local
             // positionTextBox
             // 
             this.positionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Position", true));
-            this.positionTextBox.Location = new System.Drawing.Point(127, 59);
+            this.positionTextBox.Location = new System.Drawing.Point(127, 53);
             this.positionTextBox.Name = "positionTextBox";
             this.positionTextBox.Size = new System.Drawing.Size(258, 23);
             this.positionTextBox.TabIndex = 62;
@@ -459,14 +439,14 @@ namespace QWS_Local
             // personTextBox
             // 
             this.personTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Person", true));
-            this.personTextBox.Location = new System.Drawing.Point(127, 28);
+            this.personTextBox.Location = new System.Drawing.Point(127, 24);
             this.personTextBox.Name = "personTextBox";
             this.personTextBox.Size = new System.Drawing.Size(156, 23);
             this.personTextBox.TabIndex = 61;
             // 
             // btnGetDriver
             // 
-            this.btnGetDriver.Location = new System.Drawing.Point(301, 28);
+            this.btnGetDriver.Location = new System.Drawing.Point(301, 24);
             this.btnGetDriver.Name = "btnGetDriver";
             this.btnGetDriver.Size = new System.Drawing.Size(84, 23);
             this.btnGetDriver.TabIndex = 58;
@@ -578,9 +558,7 @@ namespace QWS_Local
             this.groupBox3.Controls.Add(this.txtLicenseExp);
             this.groupBox3.Controls.Add(mobLabel);
             this.groupBox3.Controls.Add(this.txtInductionExp);
-            this.groupBox3.Controls.Add(this.telTextBox);
             this.groupBox3.Controls.Add(activeLabel);
-            this.groupBox3.Controls.Add(telLabel);
             this.groupBox3.Controls.Add(this.txtActive);
             this.groupBox3.Controls.Add(this.licenseTypeTextBox);
             this.groupBox3.Controls.Add(inductionExpLabel);
@@ -734,7 +712,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox txtInductionExp;
         private System.Windows.Forms.TextBox txtActive;
         private System.Windows.Forms.TextBox licenseTypeTextBox;
-        private System.Windows.Forms.TextBox telTextBox;
         private System.Windows.Forms.TextBox mobTextBox;
         private System.Windows.Forms.TextBox positionTextBox;
         private System.Windows.Forms.TextBox personTextBox;

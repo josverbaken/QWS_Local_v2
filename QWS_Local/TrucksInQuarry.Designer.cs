@@ -31,31 +31,23 @@ namespace QWS_Local
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label entryDTTMLabel;
-            System.Windows.Forms.Label queueStatusLabel;
             System.Windows.Forms.Label sAPOrderLabel;
             System.Windows.Forms.Label roadAccessLabel;
-            System.Windows.Forms.Label feeCodeLabel;
             System.Windows.Forms.Label deliveryAddressLabel;
             System.Windows.Forms.Label stockpileLotNoLabel;
             System.Windows.Forms.Label custONLabel;
             System.Windows.Forms.Label regoLabel;
             System.Windows.Forms.Label driverLabel;
-            System.Windows.Forms.Label axleConfigurationLabel;
-            System.Windows.Forms.Label schemeCodeLabel;
             System.Windows.Forms.Label truckOwnerLabel;
-            System.Windows.Forms.Label truckOwnerCodeLabel;
-            System.Windows.Forms.Label truckConfigLabel;
             System.Windows.Forms.Label cartageCodeLabel;
-            System.Windows.Forms.Label payloadLabel;
             System.Windows.Forms.Label payloadSplitLabel;
             System.Windows.Forms.Label tareLabel1;
             System.Windows.Forms.Label tareTkLabel1;
             System.Windows.Forms.Label gCMLabel;
             System.Windows.Forms.Label gVMTruckLabel;
             System.Windows.Forms.Label materialLabel;
-            System.Windows.Forms.Label materialDescLabel;
-            System.Windows.Forms.Label weighbridgeIDLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label schemeCodeLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.button5 = new System.Windows.Forms.Button();
@@ -102,7 +94,6 @@ namespace QWS_Local
             this.payloadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpDetails = new System.Windows.Forms.TabPage();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.weighbridgeIDTextBox = new System.Windows.Forms.TextBox();
             this.materialDescTextBox = new System.Windows.Forms.TextBox();
             this.materialTextBox = new System.Windows.Forms.TextBox();
             this.gVMTruckTextBox = new System.Windows.Forms.TextBox();
@@ -110,7 +101,6 @@ namespace QWS_Local
             this.tareTkTextBox1 = new System.Windows.Forms.TextBox();
             this.tareTextBox1 = new System.Windows.Forms.TextBox();
             this.payloadSplitTextBox = new System.Windows.Forms.TextBox();
-            this.payloadTextBox = new System.Windows.Forms.TextBox();
             this.cartageCodeTextBox = new System.Windows.Forms.TextBox();
             this.truckConfigTextBox = new System.Windows.Forms.TextBox();
             this.truckOwnerCodeTextBox = new System.Windows.Forms.TextBox();
@@ -131,30 +121,22 @@ namespace QWS_Local
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             entryDTTMLabel = new System.Windows.Forms.Label();
-            queueStatusLabel = new System.Windows.Forms.Label();
             sAPOrderLabel = new System.Windows.Forms.Label();
             roadAccessLabel = new System.Windows.Forms.Label();
-            feeCodeLabel = new System.Windows.Forms.Label();
             deliveryAddressLabel = new System.Windows.Forms.Label();
             stockpileLotNoLabel = new System.Windows.Forms.Label();
             custONLabel = new System.Windows.Forms.Label();
             regoLabel = new System.Windows.Forms.Label();
             driverLabel = new System.Windows.Forms.Label();
-            axleConfigurationLabel = new System.Windows.Forms.Label();
-            schemeCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
-            truckOwnerCodeLabel = new System.Windows.Forms.Label();
-            truckConfigLabel = new System.Windows.Forms.Label();
             cartageCodeLabel = new System.Windows.Forms.Label();
-            payloadLabel = new System.Windows.Forms.Label();
             payloadSplitLabel = new System.Windows.Forms.Label();
             tareLabel1 = new System.Windows.Forms.Label();
             tareTkLabel1 = new System.Windows.Forms.Label();
             gCMLabel = new System.Windows.Forms.Label();
             gVMTruckLabel = new System.Windows.Forms.Label();
             materialLabel = new System.Windows.Forms.Label();
-            materialDescLabel = new System.Windows.Forms.Label();
-            weighbridgeIDLabel = new System.Windows.Forms.Label();
+            schemeCodeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -178,25 +160,16 @@ namespace QWS_Local
             // entryDTTMLabel
             // 
             entryDTTMLabel.AutoSize = true;
-            entryDTTMLabel.Location = new System.Drawing.Point(48, 81);
+            entryDTTMLabel.Location = new System.Drawing.Point(789, 17);
             entryDTTMLabel.Name = "entryDTTMLabel";
             entryDTTMLabel.Size = new System.Drawing.Size(97, 20);
             entryDTTMLabel.TabIndex = 2;
             entryDTTMLabel.Text = "Entry DTTM:";
             // 
-            // queueStatusLabel
-            // 
-            queueStatusLabel.AutoSize = true;
-            queueStatusLabel.Location = new System.Drawing.Point(32, 128);
-            queueStatusLabel.Name = "queueStatusLabel";
-            queueStatusLabel.Size = new System.Drawing.Size(112, 20);
-            queueStatusLabel.TabIndex = 4;
-            queueStatusLabel.Text = "Queue Status:";
-            // 
             // sAPOrderLabel
             // 
             sAPOrderLabel.AutoSize = true;
-            sAPOrderLabel.Location = new System.Drawing.Point(59, 164);
+            sAPOrderLabel.Location = new System.Drawing.Point(59, 113);
             sAPOrderLabel.Name = "sAPOrderLabel";
             sAPOrderLabel.Size = new System.Drawing.Size(85, 20);
             sAPOrderLabel.TabIndex = 10;
@@ -205,25 +178,16 @@ namespace QWS_Local
             // roadAccessLabel
             // 
             roadAccessLabel.AutoSize = true;
-            roadAccessLabel.Location = new System.Drawing.Point(770, 264);
+            roadAccessLabel.Location = new System.Drawing.Point(439, 209);
             roadAccessLabel.Name = "roadAccessLabel";
             roadAccessLabel.Size = new System.Drawing.Size(108, 20);
             roadAccessLabel.TabIndex = 32;
             roadAccessLabel.Text = "Road Access:";
             // 
-            // feeCodeLabel
-            // 
-            feeCodeLabel.AutoSize = true;
-            feeCodeLabel.Location = new System.Drawing.Point(324, 91);
-            feeCodeLabel.Name = "feeCodeLabel";
-            feeCodeLabel.Size = new System.Drawing.Size(83, 20);
-            feeCodeLabel.TabIndex = 34;
-            feeCodeLabel.Text = "Fee Code:";
-            // 
             // deliveryAddressLabel
             // 
             deliveryAddressLabel.AutoSize = true;
-            deliveryAddressLabel.Location = new System.Drawing.Point(276, 164);
+            deliveryAddressLabel.Location = new System.Drawing.Point(13, 145);
             deliveryAddressLabel.Name = "deliveryAddressLabel";
             deliveryAddressLabel.Size = new System.Drawing.Size(131, 20);
             deliveryAddressLabel.TabIndex = 40;
@@ -232,16 +196,16 @@ namespace QWS_Local
             // stockpileLotNoLabel
             // 
             stockpileLotNoLabel.AutoSize = true;
-            stockpileLotNoLabel.Location = new System.Drawing.Point(278, 192);
+            stockpileLotNoLabel.Location = new System.Drawing.Point(693, 177);
             stockpileLotNoLabel.Name = "stockpileLotNoLabel";
-            stockpileLotNoLabel.Size = new System.Drawing.Size(129, 20);
+            stockpileLotNoLabel.Size = new System.Drawing.Size(78, 20);
             stockpileLotNoLabel.TabIndex = 42;
-            stockpileLotNoLabel.Text = "Stockpile Lot No:";
+            stockpileLotNoLabel.Text = "Stockpile:";
             // 
             // custONLabel
             // 
             custONLabel.AutoSize = true;
-            custONLabel.Location = new System.Drawing.Point(334, 132);
+            custONLabel.Location = new System.Drawing.Point(391, 116);
             custONLabel.Name = "custONLabel";
             custONLabel.Size = new System.Drawing.Size(73, 20);
             custONLabel.TabIndex = 54;
@@ -259,79 +223,34 @@ namespace QWS_Local
             // driverLabel
             // 
             driverLabel.AutoSize = true;
-            driverLabel.Location = new System.Drawing.Point(91, 49);
+            driverLabel.Location = new System.Drawing.Point(90, 81);
             driverLabel.Name = "driverLabel";
             driverLabel.Size = new System.Drawing.Size(54, 20);
             driverLabel.TabIndex = 56;
             driverLabel.Text = "Driver:";
             // 
-            // axleConfigurationLabel
-            // 
-            axleConfigurationLabel.AutoSize = true;
-            axleConfigurationLabel.Location = new System.Drawing.Point(265, 17);
-            axleConfigurationLabel.Name = "axleConfigurationLabel";
-            axleConfigurationLabel.Size = new System.Drawing.Size(142, 20);
-            axleConfigurationLabel.TabIndex = 57;
-            axleConfigurationLabel.Text = "Axle Configuration:";
-            // 
-            // schemeCodeLabel
-            // 
-            schemeCodeLabel.AutoSize = true;
-            schemeCodeLabel.Location = new System.Drawing.Point(764, 94);
-            schemeCodeLabel.Name = "schemeCodeLabel";
-            schemeCodeLabel.Size = new System.Drawing.Size(114, 20);
-            schemeCodeLabel.TabIndex = 58;
-            schemeCodeLabel.Text = "Scheme Code:";
-            // 
             // truckOwnerLabel
             // 
             truckOwnerLabel.AutoSize = true;
-            truckOwnerLabel.Location = new System.Drawing.Point(590, 66);
+            truckOwnerLabel.Location = new System.Drawing.Point(42, 49);
             truckOwnerLabel.Name = "truckOwnerLabel";
             truckOwnerLabel.Size = new System.Drawing.Size(102, 20);
             truckOwnerLabel.TabIndex = 59;
             truckOwnerLabel.Text = "Truck Owner:";
             // 
-            // truckOwnerCodeLabel
-            // 
-            truckOwnerCodeLabel.AutoSize = true;
-            truckOwnerCodeLabel.Location = new System.Drawing.Point(734, 34);
-            truckOwnerCodeLabel.Name = "truckOwnerCodeLabel";
-            truckOwnerCodeLabel.Size = new System.Drawing.Size(144, 20);
-            truckOwnerCodeLabel.TabIndex = 60;
-            truckOwnerCodeLabel.Text = "Truck Owner Code:";
-            // 
-            // truckConfigLabel
-            // 
-            truckConfigLabel.AutoSize = true;
-            truckConfigLabel.Location = new System.Drawing.Point(776, 129);
-            truckConfigLabel.Name = "truckConfigLabel";
-            truckConfigLabel.Size = new System.Drawing.Size(102, 20);
-            truckConfigLabel.TabIndex = 61;
-            truckConfigLabel.Text = "Truck Config:";
-            // 
             // cartageCodeLabel
             // 
             cartageCodeLabel.AutoSize = true;
-            cartageCodeLabel.Location = new System.Drawing.Point(766, 161);
+            cartageCodeLabel.Location = new System.Drawing.Point(32, 209);
             cartageCodeLabel.Name = "cartageCodeLabel";
             cartageCodeLabel.Size = new System.Drawing.Size(112, 20);
             cartageCodeLabel.TabIndex = 62;
             cartageCodeLabel.Text = "Cartage Code:";
             // 
-            // payloadLabel
-            // 
-            payloadLabel.AutoSize = true;
-            payloadLabel.Location = new System.Drawing.Point(809, 196);
-            payloadLabel.Name = "payloadLabel";
-            payloadLabel.Size = new System.Drawing.Size(69, 20);
-            payloadLabel.TabIndex = 63;
-            payloadLabel.Text = "Payload:";
-            // 
             // payloadSplitLabel
             // 
             payloadSplitLabel.AutoSize = true;
-            payloadSplitLabel.Location = new System.Drawing.Point(774, 232);
+            payloadSplitLabel.Location = new System.Drawing.Point(845, 116);
             payloadSplitLabel.Name = "payloadSplitLabel";
             payloadSplitLabel.Size = new System.Drawing.Size(104, 20);
             payloadSplitLabel.TabIndex = 64;
@@ -340,7 +259,7 @@ namespace QWS_Local
             // tareLabel1
             // 
             tareLabel1.AutoSize = true;
-            tareLabel1.Location = new System.Drawing.Point(611, 232);
+            tareLabel1.Location = new System.Drawing.Point(974, 49);
             tareLabel1.Name = "tareLabel1";
             tareLabel1.Size = new System.Drawing.Size(45, 20);
             tareLabel1.TabIndex = 65;
@@ -349,7 +268,7 @@ namespace QWS_Local
             // tareTkLabel1
             // 
             tareTkLabel1.AutoSize = true;
-            tareTkLabel1.Location = new System.Drawing.Point(590, 264);
+            tareTkLabel1.Location = new System.Drawing.Point(953, 81);
             tareTkLabel1.Name = "tareTkLabel1";
             tareTkLabel1.Size = new System.Drawing.Size(66, 20);
             tareTkLabel1.TabIndex = 66;
@@ -358,7 +277,7 @@ namespace QWS_Local
             // gCMLabel
             // 
             gCMLabel.AutoSize = true;
-            gCMLabel.Location = new System.Drawing.Point(430, 232);
+            gCMLabel.Location = new System.Drawing.Point(793, 49);
             gCMLabel.Name = "gCMLabel";
             gCMLabel.Size = new System.Drawing.Size(50, 20);
             gCMLabel.TabIndex = 67;
@@ -367,7 +286,7 @@ namespace QWS_Local
             // gVMTruckLabel
             // 
             gVMTruckLabel.AutoSize = true;
-            gVMTruckLabel.Location = new System.Drawing.Point(389, 264);
+            gVMTruckLabel.Location = new System.Drawing.Point(752, 81);
             gVMTruckLabel.Name = "gVMTruckLabel";
             gVMTruckLabel.Size = new System.Drawing.Size(89, 20);
             gVMTruckLabel.TabIndex = 68;
@@ -376,29 +295,11 @@ namespace QWS_Local
             // materialLabel
             // 
             materialLabel.AutoSize = true;
-            materialLabel.Location = new System.Drawing.Point(75, 203);
+            materialLabel.Location = new System.Drawing.Point(75, 177);
             materialLabel.Name = "materialLabel";
             materialLabel.Size = new System.Drawing.Size(69, 20);
             materialLabel.TabIndex = 69;
             materialLabel.Text = "Material:";
-            // 
-            // materialDescLabel
-            // 
-            materialDescLabel.AutoSize = true;
-            materialDescLabel.Location = new System.Drawing.Point(35, 235);
-            materialDescLabel.Name = "materialDescLabel";
-            materialDescLabel.Size = new System.Drawing.Size(110, 20);
-            materialDescLabel.TabIndex = 70;
-            materialDescLabel.Text = "Material Desc:";
-            // 
-            // weighbridgeIDLabel
-            // 
-            weighbridgeIDLabel.AutoSize = true;
-            weighbridgeIDLabel.Location = new System.Drawing.Point(21, 264);
-            weighbridgeIDLabel.Name = "weighbridgeIDLabel";
-            weighbridgeIDLabel.Size = new System.Drawing.Size(123, 20);
-            weighbridgeIDLabel.TabIndex = 71;
-            weighbridgeIDLabel.Text = "Weighbridge ID:";
             // 
             // splitContainer1
             // 
@@ -791,9 +692,9 @@ namespace QWS_Local
             // releaseDTTMDataGridViewTextBoxColumn
             // 
             this.releaseDTTMDataGridViewTextBoxColumn.DataPropertyName = "ReleaseDTTM";
-            dataGridViewCellStyle1.Format = "HH:mm";
-            dataGridViewCellStyle1.NullValue = null;
-            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "HH:mm";
+            dataGridViewCellStyle2.NullValue = null;
+            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.releaseDTTMDataGridViewTextBoxColumn.HeaderText = "Release";
             this.releaseDTTMDataGridViewTextBoxColumn.Name = "releaseDTTMDataGridViewTextBoxColumn";
             this.releaseDTTMDataGridViewTextBoxColumn.ReadOnly = true;
@@ -884,9 +785,6 @@ namespace QWS_Local
             // 
             this.tpDetails.AutoScroll = true;
             this.tpDetails.Controls.Add(this.textBox4);
-            this.tpDetails.Controls.Add(weighbridgeIDLabel);
-            this.tpDetails.Controls.Add(this.weighbridgeIDTextBox);
-            this.tpDetails.Controls.Add(materialDescLabel);
             this.tpDetails.Controls.Add(this.materialDescTextBox);
             this.tpDetails.Controls.Add(materialLabel);
             this.tpDetails.Controls.Add(this.materialTextBox);
@@ -900,19 +798,14 @@ namespace QWS_Local
             this.tpDetails.Controls.Add(this.tareTextBox1);
             this.tpDetails.Controls.Add(payloadSplitLabel);
             this.tpDetails.Controls.Add(this.payloadSplitTextBox);
-            this.tpDetails.Controls.Add(payloadLabel);
-            this.tpDetails.Controls.Add(this.payloadTextBox);
             this.tpDetails.Controls.Add(cartageCodeLabel);
             this.tpDetails.Controls.Add(this.cartageCodeTextBox);
-            this.tpDetails.Controls.Add(truckConfigLabel);
             this.tpDetails.Controls.Add(this.truckConfigTextBox);
-            this.tpDetails.Controls.Add(truckOwnerCodeLabel);
             this.tpDetails.Controls.Add(this.truckOwnerCodeTextBox);
             this.tpDetails.Controls.Add(truckOwnerLabel);
             this.tpDetails.Controls.Add(this.truckOwnerTextBox);
             this.tpDetails.Controls.Add(schemeCodeLabel);
             this.tpDetails.Controls.Add(this.schemeCodeTextBox);
-            this.tpDetails.Controls.Add(axleConfigurationLabel);
             this.tpDetails.Controls.Add(this.axleConfigurationTextBox);
             this.tpDetails.Controls.Add(driverLabel);
             this.tpDetails.Controls.Add(this.driverTextBox);
@@ -924,19 +817,17 @@ namespace QWS_Local
             this.tpDetails.Controls.Add(this.stockpileLotNoTextBox);
             this.tpDetails.Controls.Add(deliveryAddressLabel);
             this.tpDetails.Controls.Add(this.deliveryAddressTextBox);
-            this.tpDetails.Controls.Add(feeCodeLabel);
             this.tpDetails.Controls.Add(this.feeCodeTextBox);
             this.tpDetails.Controls.Add(roadAccessLabel);
             this.tpDetails.Controls.Add(this.roadAccessTextBox);
             this.tpDetails.Controls.Add(sAPOrderLabel);
             this.tpDetails.Controls.Add(this.sAPOrderTextBox);
-            this.tpDetails.Controls.Add(queueStatusLabel);
             this.tpDetails.Controls.Add(this.queueStatusTextBox);
             this.tpDetails.Controls.Add(entryDTTMLabel);
-            this.tpDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpDetails.Location = new System.Drawing.Point(4, 29);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(1162, 315);
+            this.tpDetails.Size = new System.Drawing.Size(1162, 308);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -944,136 +835,135 @@ namespace QWS_Local
             // textBox4
             // 
             this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "EntryDTTM", true));
-            this.textBox4.Location = new System.Drawing.Point(150, 78);
+            this.textBox4.Location = new System.Drawing.Point(894, 14);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 26);
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(178, 26);
             this.textBox4.TabIndex = 73;
-            // 
-            // weighbridgeIDTextBox
-            // 
-            this.weighbridgeIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "WeighbridgeID", true));
-            this.weighbridgeIDTextBox.Location = new System.Drawing.Point(150, 261);
-            this.weighbridgeIDTextBox.Name = "weighbridgeIDTextBox";
-            this.weighbridgeIDTextBox.Size = new System.Drawing.Size(100, 26);
-            this.weighbridgeIDTextBox.TabIndex = 72;
             // 
             // materialDescTextBox
             // 
             this.materialDescTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "MaterialDesc", true));
-            this.materialDescTextBox.Location = new System.Drawing.Point(151, 232);
+            this.materialDescTextBox.Location = new System.Drawing.Point(150, 174);
             this.materialDescTextBox.Name = "materialDescTextBox";
-            this.materialDescTextBox.Size = new System.Drawing.Size(241, 26);
+            this.materialDescTextBox.ReadOnly = true;
+            this.materialDescTextBox.Size = new System.Drawing.Size(392, 26);
             this.materialDescTextBox.TabIndex = 71;
             // 
             // materialTextBox
             // 
             this.materialTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Material", true));
-            this.materialTextBox.Location = new System.Drawing.Point(150, 200);
+            this.materialTextBox.Location = new System.Drawing.Point(553, 174);
             this.materialTextBox.Name = "materialTextBox";
+            this.materialTextBox.ReadOnly = true;
             this.materialTextBox.Size = new System.Drawing.Size(100, 26);
             this.materialTextBox.TabIndex = 70;
             // 
             // gVMTruckTextBox
             // 
             this.gVMTruckTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "GVMTruck", true));
-            this.gVMTruckTextBox.Location = new System.Drawing.Point(484, 261);
+            this.gVMTruckTextBox.Location = new System.Drawing.Point(849, 78);
             this.gVMTruckTextBox.Name = "gVMTruckTextBox";
+            this.gVMTruckTextBox.ReadOnly = true;
             this.gVMTruckTextBox.Size = new System.Drawing.Size(100, 26);
             this.gVMTruckTextBox.TabIndex = 69;
             // 
             // gCMTextBox
             // 
             this.gCMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "GCM", true));
-            this.gCMTextBox.Location = new System.Drawing.Point(486, 229);
+            this.gCMTextBox.Location = new System.Drawing.Point(849, 46);
             this.gCMTextBox.Name = "gCMTextBox";
+            this.gCMTextBox.ReadOnly = true;
             this.gCMTextBox.Size = new System.Drawing.Size(100, 26);
             this.gCMTextBox.TabIndex = 68;
             // 
             // tareTkTextBox1
             // 
             this.tareTkTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "TareTk", true));
-            this.tareTkTextBox1.Location = new System.Drawing.Point(662, 261);
+            this.tareTkTextBox1.Location = new System.Drawing.Point(1025, 78);
             this.tareTkTextBox1.Name = "tareTkTextBox1";
+            this.tareTkTextBox1.ReadOnly = true;
             this.tareTkTextBox1.Size = new System.Drawing.Size(100, 26);
             this.tareTkTextBox1.TabIndex = 67;
             // 
             // tareTextBox1
             // 
             this.tareTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Tare", true));
-            this.tareTextBox1.Location = new System.Drawing.Point(662, 229);
+            this.tareTextBox1.Location = new System.Drawing.Point(1025, 46);
             this.tareTextBox1.Name = "tareTextBox1";
+            this.tareTextBox1.ReadOnly = true;
             this.tareTextBox1.Size = new System.Drawing.Size(100, 26);
             this.tareTextBox1.TabIndex = 66;
             // 
             // payloadSplitTextBox
             // 
             this.payloadSplitTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "PayloadSplit", true));
-            this.payloadSplitTextBox.Location = new System.Drawing.Point(884, 229);
+            this.payloadSplitTextBox.Location = new System.Drawing.Point(957, 110);
             this.payloadSplitTextBox.Name = "payloadSplitTextBox";
-            this.payloadSplitTextBox.Size = new System.Drawing.Size(100, 26);
+            this.payloadSplitTextBox.ReadOnly = true;
+            this.payloadSplitTextBox.Size = new System.Drawing.Size(168, 26);
             this.payloadSplitTextBox.TabIndex = 65;
-            // 
-            // payloadTextBox
-            // 
-            this.payloadTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Payload", true));
-            this.payloadTextBox.Location = new System.Drawing.Point(884, 193);
-            this.payloadTextBox.Name = "payloadTextBox";
-            this.payloadTextBox.Size = new System.Drawing.Size(100, 26);
-            this.payloadTextBox.TabIndex = 64;
             // 
             // cartageCodeTextBox
             // 
             this.cartageCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "CartageCode", true));
-            this.cartageCodeTextBox.Location = new System.Drawing.Point(884, 158);
+            this.cartageCodeTextBox.Location = new System.Drawing.Point(150, 206);
             this.cartageCodeTextBox.Name = "cartageCodeTextBox";
+            this.cartageCodeTextBox.ReadOnly = true;
             this.cartageCodeTextBox.Size = new System.Drawing.Size(100, 26);
             this.cartageCodeTextBox.TabIndex = 63;
             // 
             // truckConfigTextBox
             // 
             this.truckConfigTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "TruckConfig", true));
-            this.truckConfigTextBox.Location = new System.Drawing.Point(884, 126);
+            this.truckConfigTextBox.Location = new System.Drawing.Point(515, 14);
             this.truckConfigTextBox.Name = "truckConfigTextBox";
-            this.truckConfigTextBox.Size = new System.Drawing.Size(100, 26);
+            this.truckConfigTextBox.ReadOnly = true;
+            this.truckConfigTextBox.Size = new System.Drawing.Size(68, 26);
             this.truckConfigTextBox.TabIndex = 62;
             // 
             // truckOwnerCodeTextBox
             // 
             this.truckOwnerCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "TruckOwnerCode", true));
-            this.truckOwnerCodeTextBox.Location = new System.Drawing.Point(884, 31);
+            this.truckOwnerCodeTextBox.Location = new System.Drawing.Point(553, 46);
             this.truckOwnerCodeTextBox.Name = "truckOwnerCodeTextBox";
+            this.truckOwnerCodeTextBox.ReadOnly = true;
             this.truckOwnerCodeTextBox.Size = new System.Drawing.Size(100, 26);
             this.truckOwnerCodeTextBox.TabIndex = 61;
             // 
             // truckOwnerTextBox
             // 
             this.truckOwnerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "TruckOwner", true));
-            this.truckOwnerTextBox.Location = new System.Drawing.Point(698, 63);
+            this.truckOwnerTextBox.Location = new System.Drawing.Point(150, 46);
             this.truckOwnerTextBox.Name = "truckOwnerTextBox";
-            this.truckOwnerTextBox.Size = new System.Drawing.Size(286, 26);
+            this.truckOwnerTextBox.ReadOnly = true;
+            this.truckOwnerTextBox.Size = new System.Drawing.Size(392, 26);
             this.truckOwnerTextBox.TabIndex = 60;
             // 
             // schemeCodeTextBox
             // 
             this.schemeCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "SchemeCode", true));
-            this.schemeCodeTextBox.Location = new System.Drawing.Point(884, 91);
+            this.schemeCodeTextBox.Location = new System.Drawing.Point(553, 238);
             this.schemeCodeTextBox.Name = "schemeCodeTextBox";
+            this.schemeCodeTextBox.ReadOnly = true;
             this.schemeCodeTextBox.Size = new System.Drawing.Size(100, 26);
             this.schemeCodeTextBox.TabIndex = 59;
             // 
             // axleConfigurationTextBox
             // 
             this.axleConfigurationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "AxleConfiguration", true));
-            this.axleConfigurationTextBox.Location = new System.Drawing.Point(413, 14);
+            this.axleConfigurationTextBox.Location = new System.Drawing.Point(454, 14);
             this.axleConfigurationTextBox.Name = "axleConfigurationTextBox";
-            this.axleConfigurationTextBox.Size = new System.Drawing.Size(100, 26);
+            this.axleConfigurationTextBox.ReadOnly = true;
+            this.axleConfigurationTextBox.Size = new System.Drawing.Size(55, 26);
             this.axleConfigurationTextBox.TabIndex = 58;
             // 
             // driverTextBox
             // 
             this.driverTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Driver", true));
-            this.driverTextBox.Location = new System.Drawing.Point(151, 46);
+            this.driverTextBox.Location = new System.Drawing.Point(150, 78);
             this.driverTextBox.Name = "driverTextBox";
+            this.driverTextBox.ReadOnly = true;
             this.driverTextBox.Size = new System.Drawing.Size(224, 26);
             this.driverTextBox.TabIndex = 57;
             // 
@@ -1082,64 +972,74 @@ namespace QWS_Local
             this.regoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Rego", true));
             this.regoTextBox.Location = new System.Drawing.Point(150, 14);
             this.regoTextBox.Name = "regoTextBox";
+            this.regoTextBox.ReadOnly = true;
             this.regoTextBox.Size = new System.Drawing.Size(100, 26);
             this.regoTextBox.TabIndex = 56;
             // 
             // custONTextBox
             // 
             this.custONTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "CustON", true));
-            this.custONTextBox.Location = new System.Drawing.Point(413, 129);
+            this.custONTextBox.Location = new System.Drawing.Point(480, 113);
             this.custONTextBox.Name = "custONTextBox";
+            this.custONTextBox.ReadOnly = true;
             this.custONTextBox.Size = new System.Drawing.Size(173, 26);
             this.custONTextBox.TabIndex = 55;
             // 
             // stockpileLotNoTextBox
             // 
             this.stockpileLotNoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "StockpileLotNo", true));
-            this.stockpileLotNoTextBox.Location = new System.Drawing.Point(413, 189);
+            this.stockpileLotNoTextBox.Location = new System.Drawing.Point(785, 174);
             this.stockpileLotNoTextBox.Name = "stockpileLotNoTextBox";
-            this.stockpileLotNoTextBox.Size = new System.Drawing.Size(100, 26);
+            this.stockpileLotNoTextBox.ReadOnly = true;
+            this.stockpileLotNoTextBox.Size = new System.Drawing.Size(78, 26);
             this.stockpileLotNoTextBox.TabIndex = 43;
             // 
             // deliveryAddressTextBox
             // 
             this.deliveryAddressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "DeliveryAddress", true));
-            this.deliveryAddressTextBox.Location = new System.Drawing.Point(413, 161);
+            this.deliveryAddressTextBox.Location = new System.Drawing.Point(150, 142);
             this.deliveryAddressTextBox.Name = "deliveryAddressTextBox";
-            this.deliveryAddressTextBox.Size = new System.Drawing.Size(279, 26);
+            this.deliveryAddressTextBox.ReadOnly = true;
+            this.deliveryAddressTextBox.Size = new System.Drawing.Size(503, 26);
             this.deliveryAddressTextBox.TabIndex = 41;
             // 
             // feeCodeTextBox
             // 
             this.feeCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "FeeCode", true));
-            this.feeCodeTextBox.Location = new System.Drawing.Point(413, 88);
+            this.feeCodeTextBox.Location = new System.Drawing.Point(594, 14);
             this.feeCodeTextBox.Name = "feeCodeTextBox";
-            this.feeCodeTextBox.Size = new System.Drawing.Size(100, 26);
+            this.feeCodeTextBox.ReadOnly = true;
+            this.feeCodeTextBox.Size = new System.Drawing.Size(59, 26);
             this.feeCodeTextBox.TabIndex = 35;
             // 
             // roadAccessTextBox
             // 
             this.roadAccessTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "RoadAccess", true));
-            this.roadAccessTextBox.Location = new System.Drawing.Point(884, 261);
+            this.roadAccessTextBox.Location = new System.Drawing.Point(553, 206);
             this.roadAccessTextBox.Name = "roadAccessTextBox";
+            this.roadAccessTextBox.ReadOnly = true;
             this.roadAccessTextBox.Size = new System.Drawing.Size(100, 26);
             this.roadAccessTextBox.TabIndex = 33;
             // 
             // sAPOrderTextBox
             // 
             this.sAPOrderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "SAPOrder", true));
-            this.sAPOrderTextBox.Location = new System.Drawing.Point(150, 161);
+            this.sAPOrderTextBox.Location = new System.Drawing.Point(150, 110);
             this.sAPOrderTextBox.Name = "sAPOrderTextBox";
+            this.sAPOrderTextBox.ReadOnly = true;
             this.sAPOrderTextBox.Size = new System.Drawing.Size(100, 26);
             this.sAPOrderTextBox.TabIndex = 11;
             // 
             // queueStatusTextBox
             // 
             this.queueStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "QueueStatus", true));
-            this.queueStatusTextBox.Location = new System.Drawing.Point(150, 125);
+            this.queueStatusTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.queueStatusTextBox.Location = new System.Drawing.Point(1078, 14);
             this.queueStatusTextBox.Name = "queueStatusTextBox";
-            this.queueStatusTextBox.Size = new System.Drawing.Size(100, 26);
+            this.queueStatusTextBox.ReadOnly = true;
+            this.queueStatusTextBox.Size = new System.Drawing.Size(47, 26);
             this.queueStatusTextBox.TabIndex = 5;
+            this.queueStatusTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tableAdapterManager
             // 
@@ -1174,6 +1074,15 @@ namespace QWS_Local
             this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager1.TIQTableAdapter = this.taTIQ2;
             this.tableAdapterManager1.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // schemeCodeLabel
+            // 
+            schemeCodeLabel.AutoSize = true;
+            schemeCodeLabel.Location = new System.Drawing.Point(433, 241);
+            schemeCodeLabel.Name = "schemeCodeLabel";
+            schemeCodeLabel.Size = new System.Drawing.Size(114, 20);
+            schemeCodeLabel.TabIndex = 58;
+            schemeCodeLabel.Text = "Scheme Code:";
             // 
             // TrucksInQuarry
             // 
@@ -1265,7 +1174,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox driverTextBox;
         private System.Windows.Forms.TextBox regoTextBox;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox weighbridgeIDTextBox;
         private System.Windows.Forms.TextBox materialDescTextBox;
         private System.Windows.Forms.TextBox materialTextBox;
         private System.Windows.Forms.TextBox gVMTruckTextBox;
@@ -1273,7 +1181,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox tareTkTextBox1;
         private System.Windows.Forms.TextBox tareTextBox1;
         private System.Windows.Forms.TextBox payloadSplitTextBox;
-        private System.Windows.Forms.TextBox payloadTextBox;
         private System.Windows.Forms.TextBox cartageCodeTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn queueStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn releaseDTTMDataGridViewTextBoxColumn;

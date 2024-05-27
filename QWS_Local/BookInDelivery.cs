@@ -258,8 +258,14 @@ namespace QWS_Local
                 myTIQRow.CustON = CurrentDeliveryOrder().PurchaseOrder;
                 myTIQRow.Material = CurrentDeliveryOrder().MaterialCode;
                 myTIQRow.MaterialDesc = CurrentDeliveryOrder().Material;
+                myTIQRow.DeliveryAddress = CurrentDeliveryOrder().DeliveryAddress;
                 myTIQRow.CartageCode = CurrentDeliveryOrder().CartageCode;
                 bsTIQ2.EndEdit();
+                //int iRow = taTIQ2.Update(dsTIQ2.TIQ);
+                //if (iRow != 1)
+                //{
+                //    MessageBox.Show("Error updating Order Details.");
+                //}
             }
             catch (Exception ex)
             {
@@ -285,6 +291,11 @@ namespace QWS_Local
             myTIQRow.GCM = myGCM;
             myTIQRow.GVMTruck =  CurrentTruckGVM().GVMTruck;
             bsTIQ2.EndEdit();
+            //int iRow = taTIQ2.Update(dsTIQ2.TIQ);
+            //if (iRow != 1)
+            //{
+            //    MessageBox.Show("Error updating Truck Configuration.");
+            //}
         }
 
         private void btnSetPayload_Click(object sender, EventArgs e)
@@ -297,12 +308,24 @@ namespace QWS_Local
             DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
             dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
             myTIQRow.Payload = nudPayload.Value;
-            myTIQRow.PayloadSplit = txtPayloadSplit.Text;
-            if(LoadType.Length == 3)
+            if (txtPayloadSplit.Text.Length == 0) 
+            {
+                txtPayloadSplit.Text = nudPayload.Value.ToString();
+            }
+            else
+            {
+                myTIQRow.PayloadSplit = txtPayloadSplit.Text;
+            }
+            if (LoadType.Length == 3)
             {
                 myTIQRow.TruckConfig = LoadType;
             }
             bsTIQ2.EndEdit();
+            //int iRow = taTIQ2.Update(dsTIQ2.TIQ);
+            //if (iRow != 1)
+            //{
+            //    MessageBox.Show("Error updating Payload.");
+            //}
         }
 
          private void button1_Click(object sender, EventArgs e)

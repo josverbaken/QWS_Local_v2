@@ -608,7 +608,7 @@ namespace QWS_Local
             this.tpList.Margin = new System.Windows.Forms.Padding(4);
             this.tpList.Name = "tpList";
             this.tpList.Padding = new System.Windows.Forms.Padding(4);
-            this.tpList.Size = new System.Drawing.Size(1353, 316);
+            this.tpList.Size = new System.Drawing.Size(1353, 386);
             this.tpList.TabIndex = 0;
             this.tpList.Text = "List";
             this.tpList.UseVisualStyleBackColor = true;
@@ -640,7 +640,7 @@ namespace QWS_Local
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1345, 308);
+            this.dataGridView1.Size = new System.Drawing.Size(1345, 378);
             this.dataGridView1.TabIndex = 0;
             // 
             // docNumDataGridViewTextBoxColumn
@@ -958,7 +958,7 @@ namespace QWS_Local
             this.tpTruckConfig.Controls.Add(this.btnSetTruckConfig);
             this.tpTruckConfig.Location = new System.Drawing.Point(4, 25);
             this.tpTruckConfig.Name = "tpTruckConfig";
-            this.tpTruckConfig.Size = new System.Drawing.Size(1353, 316);
+            this.tpTruckConfig.Size = new System.Drawing.Size(1353, 386);
             this.tpTruckConfig.TabIndex = 3;
             this.tpTruckConfig.Text = "Truck Config";
             this.tpTruckConfig.UseVisualStyleBackColor = true;
@@ -1053,9 +1053,9 @@ namespace QWS_Local
             this.tpLoading.Controls.Add(this.btnBookIn);
             this.tpLoading.Location = new System.Drawing.Point(4, 25);
             this.tpLoading.Name = "tpLoading";
-            this.tpLoading.Size = new System.Drawing.Size(1353, 316);
+            this.tpLoading.Size = new System.Drawing.Size(1353, 386);
             this.tpLoading.TabIndex = 4;
-            this.tpLoading.Text = "Loading";
+            this.tpLoading.Text = "Order Summary plus Payload";
             this.tpLoading.UseVisualStyleBackColor = true;
             // 
             // nudPayloadTr
@@ -1310,6 +1310,7 @@ namespace QWS_Local
             this.customerTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Customer", true));
             this.customerTextBox1.Location = new System.Drawing.Point(143, 31);
             this.customerTextBox1.Name = "customerTextBox1";
+            this.customerTextBox1.ReadOnly = true;
             this.customerTextBox1.Size = new System.Drawing.Size(290, 23);
             this.customerTextBox1.TabIndex = 1;
             // 
@@ -1318,6 +1319,7 @@ namespace QWS_Local
             this.customerCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "CustomerCode", true));
             this.customerCodeTextBox.Location = new System.Drawing.Point(439, 31);
             this.customerCodeTextBox.Name = "customerCodeTextBox";
+            this.customerCodeTextBox.ReadOnly = true;
             this.customerCodeTextBox.Size = new System.Drawing.Size(81, 23);
             this.customerCodeTextBox.TabIndex = 3;
             // 
@@ -1335,6 +1337,7 @@ namespace QWS_Local
             this.custONTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "CustON", true));
             this.custONTextBox.Location = new System.Drawing.Point(143, 60);
             this.custONTextBox.Name = "custONTextBox";
+            this.custONTextBox.ReadOnly = true;
             this.custONTextBox.Size = new System.Drawing.Size(100, 23);
             this.custONTextBox.TabIndex = 4;
             // 
@@ -1352,6 +1355,7 @@ namespace QWS_Local
             this.deliveryAddressTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "DeliveryAddress", true));
             this.deliveryAddressTextBox1.Location = new System.Drawing.Point(143, 89);
             this.deliveryAddressTextBox1.Name = "deliveryAddressTextBox1";
+            this.deliveryAddressTextBox1.ReadOnly = true;
             this.deliveryAddressTextBox1.Size = new System.Drawing.Size(377, 23);
             this.deliveryAddressTextBox1.TabIndex = 6;
             // 
@@ -1360,6 +1364,7 @@ namespace QWS_Local
             this.cartageCodeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "CartageCode", true));
             this.cartageCodeTextBox1.Location = new System.Drawing.Point(439, 147);
             this.cartageCodeTextBox1.Name = "cartageCodeTextBox1";
+            this.cartageCodeTextBox1.ReadOnly = true;
             this.cartageCodeTextBox1.Size = new System.Drawing.Size(81, 23);
             this.cartageCodeTextBox1.TabIndex = 8;
             // 
@@ -1368,6 +1373,7 @@ namespace QWS_Local
             this.materialDescTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "MaterialDesc", true));
             this.materialDescTextBox.Location = new System.Drawing.Point(143, 118);
             this.materialDescTextBox.Name = "materialDescTextBox";
+            this.materialDescTextBox.ReadOnly = true;
             this.materialDescTextBox.Size = new System.Drawing.Size(290, 23);
             this.materialDescTextBox.TabIndex = 10;
             // 
@@ -1385,6 +1391,7 @@ namespace QWS_Local
             this.materialTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Material", true));
             this.materialTextBox1.Location = new System.Drawing.Point(439, 118);
             this.materialTextBox1.Name = "materialTextBox1";
+            this.materialTextBox1.ReadOnly = true;
             this.materialTextBox1.Size = new System.Drawing.Size(81, 23);
             this.materialTextBox1.TabIndex = 12;
             // 
