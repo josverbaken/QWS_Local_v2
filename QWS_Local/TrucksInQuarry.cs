@@ -233,7 +233,22 @@ namespace QWS_Local
             if (dataGridView1.SelectedRows.Count == 1) 
             {
                 //okay to proceed
-                MessageBox.Show("Ready to capture weight!");
+                if (rbManual.Checked)
+                {
+                    if(mtxtWeight.Text.Length == 3) // __._
+                        // TODO consider parsing and checking value between 2 - 90 t
+                    {
+                        MessageBox.Show("Please enter weight as displayed on console.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Manually captured weight = " + mtxtWeight.Text);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Captured weight = ");
+                }
             }
             else
             {
