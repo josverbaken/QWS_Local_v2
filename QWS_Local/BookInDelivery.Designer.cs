@@ -60,6 +60,7 @@ namespace QWS_Local
             System.Windows.Forms.Label deliveryAddressLabel1;
             System.Windows.Forms.Label materialLabel1;
             System.Windows.Forms.Label nHVR_NetworkLabel;
+            System.Windows.Forms.Label label5;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.regoTrailersTextBox = new System.Windows.Forms.TextBox();
             this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
@@ -93,6 +94,7 @@ namespace QWS_Local
             this.bsDeliveryOrders = new System.Windows.Forms.BindingSource(this.components);
             this.dsBookIn = new QWS_Local.dsBookIn();
             this.tpDetails = new System.Windows.Forms.TabPage();
+            this.nHVR_NetworkTextBox = new System.Windows.Forms.TextBox();
             this.purchaseOrderTextBox = new System.Windows.Forms.TextBox();
             this.contactMobileTextBox = new System.Windows.Forms.TextBox();
             this.btnSelectOrder = new System.Windows.Forms.Button();
@@ -126,7 +128,6 @@ namespace QWS_Local
             this.schemeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSetTruckConfig = new System.Windows.Forms.Button();
             this.tpLoading = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.materialTextBox1 = new System.Windows.Forms.TextBox();
             this.materialDescTextBox = new System.Windows.Forms.TextBox();
@@ -144,7 +145,6 @@ namespace QWS_Local
             this.nudPayloadTr = new System.Windows.Forms.NumericUpDown();
             this.nudPayloadTk = new System.Windows.Forms.NumericUpDown();
             this.tareTkTextBox = new System.Windows.Forms.TextBox();
-            this.btnSetPayload = new System.Windows.Forms.Button();
             this.txtTruckConfig = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btnBookIn = new System.Windows.Forms.Button();
@@ -158,7 +158,7 @@ namespace QWS_Local
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager3 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
-            this.nHVR_NetworkTextBox = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             docNumLabel = new System.Windows.Forms.Label();
             deliveryDateLabel = new System.Windows.Forms.Label();
             materialLabel = new System.Windows.Forms.Label();
@@ -189,6 +189,7 @@ namespace QWS_Local
             deliveryAddressLabel1 = new System.Windows.Forms.Label();
             materialLabel1 = new System.Windows.Forms.Label();
             nHVR_NetworkLabel = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -478,6 +479,15 @@ namespace QWS_Local
             materialLabel1.TabIndex = 11;
             materialLabel1.Text = "Material:";
             // 
+            // nHVR_NetworkLabel
+            // 
+            nHVR_NetworkLabel.AutoSize = true;
+            nHVR_NetworkLabel.Location = new System.Drawing.Point(611, 204);
+            nHVR_NetworkLabel.Name = "nHVR_NetworkLabel";
+            nHVR_NetworkLabel.Size = new System.Drawing.Size(106, 17);
+            nHVR_NetworkLabel.TabIndex = 99;
+            nHVR_NetworkLabel.Text = "NHVR Network:";
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -556,7 +566,7 @@ namespace QWS_Local
             this.ownerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "Owner", true));
             this.ownerTextBox.Location = new System.Drawing.Point(548, 41);
             this.ownerTextBox.Name = "ownerTextBox";
-            this.ownerTextBox.Size = new System.Drawing.Size(194, 23);
+            this.ownerTextBox.Size = new System.Drawing.Size(366, 23);
             this.ownerTextBox.TabIndex = 82;
             // 
             // bsConfiguredTruckGVM
@@ -643,6 +653,7 @@ namespace QWS_Local
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1345, 378);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // docNumDataGridViewTextBoxColumn
             // 
@@ -800,6 +811,14 @@ namespace QWS_Local
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
+            // 
+            // nHVR_NetworkTextBox
+            // 
+            this.nHVR_NetworkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "NHVR_Network", true));
+            this.nHVR_NetworkTextBox.Location = new System.Drawing.Point(723, 201);
+            this.nHVR_NetworkTextBox.Name = "nHVR_NetworkTextBox";
+            this.nHVR_NetworkTextBox.Size = new System.Drawing.Size(100, 23);
+            this.nHVR_NetworkTextBox.TabIndex = 100;
             // 
             // purchaseOrderTextBox
             // 
@@ -979,11 +998,13 @@ namespace QWS_Local
             // 
             // tpTruckConfig
             // 
+            this.tpTruckConfig.Controls.Add(label5);
+            this.tpTruckConfig.Controls.Add(this.textBox1);
             this.tpTruckConfig.Controls.Add(this.dataGridView3);
             this.tpTruckConfig.Controls.Add(this.btnSetTruckConfig);
-            this.tpTruckConfig.Location = new System.Drawing.Point(4, 22);
+            this.tpTruckConfig.Location = new System.Drawing.Point(4, 25);
             this.tpTruckConfig.Name = "tpTruckConfig";
-            this.tpTruckConfig.Size = new System.Drawing.Size(1353, 389);
+            this.tpTruckConfig.Size = new System.Drawing.Size(1353, 386);
             this.tpTruckConfig.TabIndex = 3;
             this.tpTruckConfig.Text = "Truck Config";
             this.tpTruckConfig.UseVisualStyleBackColor = true;
@@ -1079,10 +1100,8 @@ namespace QWS_Local
             // 
             // tpLoading
             // 
-            this.tpLoading.Controls.Add(this.button1);
             this.tpLoading.Controls.Add(this.groupBox2);
             this.tpLoading.Controls.Add(this.groupBox1);
-            this.tpLoading.Controls.Add(this.btnSetPayload);
             this.tpLoading.Controls.Add(this.txtTruckConfig);
             this.tpLoading.Controls.Add(this.button2);
             this.tpLoading.Controls.Add(this.btnBookIn);
@@ -1092,17 +1111,6 @@ namespace QWS_Local
             this.tpLoading.TabIndex = 4;
             this.tpLoading.Text = "Order Summary plus Payload";
             this.tpLoading.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(805, 224);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 28);
-            this.button1.TabIndex = 107;
-            this.button1.Text = "Calc Payload";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox2
             // 
@@ -1216,6 +1224,7 @@ namespace QWS_Local
             this.gCMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "GCM", true));
             this.gCMTextBox.Location = new System.Drawing.Point(23, 53);
             this.gCMTextBox.Name = "gCMTextBox";
+            this.gCMTextBox.ReadOnly = true;
             this.gCMTextBox.Size = new System.Drawing.Size(72, 23);
             this.gCMTextBox.TabIndex = 33;
             this.gCMTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1236,6 +1245,7 @@ namespace QWS_Local
             this.txtPayloadSplit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "PayloadSplit", true));
             this.txtPayloadSplit.Location = new System.Drawing.Point(183, 159);
             this.txtPayloadSplit.Name = "txtPayloadSplit";
+            this.txtPayloadSplit.ReadOnly = true;
             this.txtPayloadSplit.Size = new System.Drawing.Size(181, 23);
             this.txtPayloadSplit.TabIndex = 100;
             // 
@@ -1244,6 +1254,7 @@ namespace QWS_Local
             this.gVMTruckTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "GVMTruck", true));
             this.gVMTruckTextBox.Location = new System.Drawing.Point(23, 79);
             this.gVMTruckTextBox.Name = "gVMTruckTextBox";
+            this.gVMTruckTextBox.ReadOnly = true;
             this.gVMTruckTextBox.Size = new System.Drawing.Size(72, 23);
             this.gVMTruckTextBox.TabIndex = 34;
             this.gVMTruckTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1253,6 +1264,7 @@ namespace QWS_Local
             this.tareTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "Tare", true));
             this.tareTextBox.Location = new System.Drawing.Point(104, 53);
             this.tareTextBox.Name = "tareTextBox";
+            this.tareTextBox.ReadOnly = true;
             this.tareTextBox.Size = new System.Drawing.Size(72, 23);
             this.tareTextBox.TabIndex = 36;
             this.tareTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1282,20 +1294,10 @@ namespace QWS_Local
             this.tareTkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "TareTk", true));
             this.tareTkTextBox.Location = new System.Drawing.Point(104, 79);
             this.tareTkTextBox.Name = "tareTkTextBox";
+            this.tareTkTextBox.ReadOnly = true;
             this.tareTkTextBox.Size = new System.Drawing.Size(72, 23);
             this.tareTkTextBox.TabIndex = 38;
             this.tareTkTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // btnSetPayload
-            // 
-            this.btnSetPayload.Location = new System.Drawing.Point(639, 224);
-            this.btnSetPayload.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSetPayload.Name = "btnSetPayload";
-            this.btnSetPayload.Size = new System.Drawing.Size(158, 28);
-            this.btnSetPayload.TabIndex = 102;
-            this.btnSetPayload.Text = "Set Payload";
-            this.btnSetPayload.UseVisualStyleBackColor = true;
-            this.btnSetPayload.Click += new System.EventHandler(this.btnSetPayload_Click);
             // 
             // txtTruckConfig
             // 
@@ -1390,22 +1392,22 @@ namespace QWS_Local
             this.tableAdapterManager3.TIQTableAdapter = this.taTIQ2;
             this.tableAdapterManager3.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // nHVR_NetworkLabel
+            // label5
             // 
-            nHVR_NetworkLabel.AutoSize = true;
-            nHVR_NetworkLabel.Location = new System.Drawing.Point(611, 204);
-            nHVR_NetworkLabel.Name = "nHVR_NetworkLabel";
-            nHVR_NetworkLabel.Size = new System.Drawing.Size(106, 17);
-            nHVR_NetworkLabel.TabIndex = 99;
-            nHVR_NetworkLabel.Text = "NHVR Network:";
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(354, 184);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(106, 17);
+            label5.TabIndex = 102;
+            label5.Text = "NHVR Network:";
             // 
-            // nHVR_NetworkTextBox
+            // textBox1
             // 
-            this.nHVR_NetworkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "NHVR_Network", true));
-            this.nHVR_NetworkTextBox.Location = new System.Drawing.Point(723, 201);
-            this.nHVR_NetworkTextBox.Name = "nHVR_NetworkTextBox";
-            this.nHVR_NetworkTextBox.Size = new System.Drawing.Size(100, 23);
-            this.nHVR_NetworkTextBox.TabIndex = 100;
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "NHVR_Network", true));
+            this.textBox1.Location = new System.Drawing.Point(466, 181);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 23);
+            this.textBox1.TabIndex = 103;
             // 
             // BookInDelivery
             // 
@@ -1438,6 +1440,7 @@ namespace QWS_Local
             this.tpDetails.ResumeLayout(false);
             this.tpDetails.PerformLayout();
             this.tpTruckConfig.ResumeLayout(false);
+            this.tpTruckConfig.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.tpLoading.ResumeLayout(false);
             this.tpLoading.PerformLayout();
@@ -1532,10 +1535,8 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox tareTkTextBox;
         private System.Windows.Forms.Button btnSelectOrder;
         private System.Windows.Forms.TextBox txtPayloadSplit;
-        private System.Windows.Forms.Button btnSetPayload;
         private System.Windows.Forms.Button btnSetTruckConfig;
         private System.Windows.Forms.TabPage tpLoading;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox contactMobileTextBox;
         private System.Windows.Forms.TextBox contactNameTextBox;
         private System.Windows.Forms.TextBox cardCodeTextBox;
@@ -1554,5 +1555,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox customerCodeTextBox;
         private System.Windows.Forms.TextBox customerTextBox1;
         private System.Windows.Forms.TextBox nHVR_NetworkTextBox;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

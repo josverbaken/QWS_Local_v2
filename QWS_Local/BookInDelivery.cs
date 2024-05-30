@@ -16,6 +16,7 @@ namespace QWS_Local
         private static int TIQID;
         private string LoadType = "TK";
         private dsQWSLocal.TruckDriverRow DriverRow;
+        private bool FormLoaded = false;
 
         public BookInDelivery()
         {
@@ -36,6 +37,8 @@ namespace QWS_Local
             LoadTIQ();
             DeliveryOrdersLoad();
             LoadDriver();
+            FormLoaded = true;
+            dataGridView1.ClearSelection();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -75,7 +78,8 @@ namespace QWS_Local
         private void AddDelivery2TIQ()
         {
             try
-            {                
+            {
+                SetTIQPayload();
                 DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
                 dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
                 myTIQRow.AllocateDTTM = DateTime.Now;
@@ -186,6 +190,30 @@ namespace QWS_Local
             }
         }
 
+        private void SetTIQPayload()
+        {
+            DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
+            dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
+            myTIQRow.Payload = nudPayload.Value;
+            if (txtPayloadSplit.Text.Length == 0)
+            {
+                txtPayloadSplit.Text = nudPayload.Value.ToString();
+            }
+            else
+            {
+                myTIQRow.PayloadSplit = txtPayloadSplit.Text;
+            }
+            if (LoadType.Length == 3)
+            {
+                myTIQRow.TruckConfig = LoadType;
+            }
+            bsTIQ2.EndEdit();
+            //int iRow = taTIQ2.Update(dsTIQ2.TIQ);
+            //if (iRow != 1)
+            //{
+            //    MessageBox.Show("Error updating Payload.");
+            //}
+        }
         private void PayloadNUDLimit()
         {
             decimal PayloadLimit;
@@ -197,7 +225,7 @@ namespace QWS_Local
             {
                 PayloadLimit = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
             }
-
+            
             if (nudPayload.Value > PayloadLimit)
             {
                 nudPayload.Value = PayloadLimit;
@@ -266,6 +294,7 @@ namespace QWS_Local
                 //{
                 //    MessageBox.Show("Error updating Order Details.");
                 //}
+                tabControl1.SelectedTab = tpTruckConfig;
             }
             catch (Exception ex)
             {
@@ -296,6 +325,10 @@ namespace QWS_Local
             //{
             //    MessageBox.Show("Error updating Truck Configuration.");
             //}
+            tabControl1.SelectedTab = tpLoading;
+            // calc payload
+            CalcPayload();
+            SetTIQPayload();
         }
 
         private void btnSetPayload_Click(object sender, EventArgs e)
@@ -303,30 +336,7 @@ namespace QWS_Local
             SetTIQPayload();
         }
 
-        private void SetTIQPayload()
-        {
-            DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
-            dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
-            myTIQRow.Payload = nudPayload.Value;
-            if (txtPayloadSplit.Text.Length == 0) 
-            {
-                txtPayloadSplit.Text = nudPayload.Value.ToString();
-            }
-            else
-            {
-                myTIQRow.PayloadSplit = txtPayloadSplit.Text;
-            }
-            if (LoadType.Length == 3)
-            {
-                myTIQRow.TruckConfig = LoadType;
-            }
-            bsTIQ2.EndEdit();
-            //int iRow = taTIQ2.Update(dsTIQ2.TIQ);
-            //if (iRow != 1)
-            //{
-            //    MessageBox.Show("Error updating Payload.");
-            //}
-        }
+
 
          private void button1_Click(object sender, EventArgs e)
         {
@@ -350,6 +360,20 @@ namespace QWS_Local
             {
                 txtTruckConfig.Text = "Cancelled!";
             }
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (bsDeliveryOrders.Count > 0 && FormLoaded == true && dataGridView1.SelectedRows.Count == 1) 
+            {
+                DialogResult dr = MessageBox.Show("Move to details ?","Choose Order",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
+                if (dr == DialogResult.OK)
+                {
+                    tabControl1.SelectedTab = tpDetails;
+                }
+            }
+
+            
         }
     }
 }
