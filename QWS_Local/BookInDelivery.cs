@@ -313,7 +313,7 @@ namespace QWS_Local
             dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
             decimal myGCM = CurrentTruckGVM().GCM;
             decimal myMaxGVM = CurrentTruckGVM().MaxGVM;
-            if (myGCM > myMaxGVM)
+            if (myGCM > myMaxGVM && myMaxGVM > 0)
             {
                 myGCM = myMaxGVM;
             }
