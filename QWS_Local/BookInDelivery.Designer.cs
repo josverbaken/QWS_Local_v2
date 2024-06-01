@@ -117,6 +117,7 @@ namespace QWS_Local
             this.materialCodeTextBox = new System.Windows.Forms.TextBox();
             this.docNumTextBox = new System.Windows.Forms.TextBox();
             this.tpTruckConfig = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.regoTkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gCMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -146,7 +147,7 @@ namespace QWS_Local
             this.nudPayloadTk = new System.Windows.Forms.NumericUpDown();
             this.tareTkTextBox = new System.Windows.Forms.TextBox();
             this.txtTruckConfig = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSplitLoadType = new System.Windows.Forms.Button();
             this.btnBookIn = new System.Windows.Forms.Button();
             this.exBinOrdersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.taDeliveryOrders = new QWS_Local.dsBookInTableAdapters.DeliveryOrdersAllTableAdapter();
@@ -158,7 +159,6 @@ namespace QWS_Local
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager3 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             docNumLabel = new System.Windows.Forms.Label();
             deliveryDateLabel = new System.Windows.Forms.Label();
             materialLabel = new System.Windows.Forms.Label();
@@ -488,6 +488,15 @@ namespace QWS_Local
             nHVR_NetworkLabel.TabIndex = 99;
             nHVR_NetworkLabel.Text = "NHVR Network:";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(354, 184);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(106, 17);
+            label5.TabIndex = 102;
+            label5.Text = "NHVR Network:";
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -803,11 +812,11 @@ namespace QWS_Local
             this.tpDetails.Controls.Add(deliveryDateLabel);
             this.tpDetails.Controls.Add(docNumLabel);
             this.tpDetails.Controls.Add(this.docNumTextBox);
-            this.tpDetails.Location = new System.Drawing.Point(4, 25);
+            this.tpDetails.Location = new System.Drawing.Point(4, 22);
             this.tpDetails.Margin = new System.Windows.Forms.Padding(4);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(4);
-            this.tpDetails.Size = new System.Drawing.Size(1353, 386);
+            this.tpDetails.Size = new System.Drawing.Size(1353, 389);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -1009,6 +1018,14 @@ namespace QWS_Local
             this.tpTruckConfig.Text = "Truck Config";
             this.tpTruckConfig.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "NHVR_Network", true));
+            this.textBox1.Location = new System.Drawing.Point(466, 181);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 23);
+            this.textBox1.TabIndex = 103;
+            // 
             // dataGridView3
             // 
             this.dataGridView3.AllowUserToAddRows = false;
@@ -1103,7 +1120,7 @@ namespace QWS_Local
             this.tpLoading.Controls.Add(this.groupBox2);
             this.tpLoading.Controls.Add(this.groupBox1);
             this.tpLoading.Controls.Add(this.txtTruckConfig);
-            this.tpLoading.Controls.Add(this.button2);
+            this.tpLoading.Controls.Add(this.btnSplitLoadType);
             this.tpLoading.Controls.Add(this.btnBookIn);
             this.tpLoading.Location = new System.Drawing.Point(4, 25);
             this.tpLoading.Name = "tpLoading";
@@ -1306,17 +1323,18 @@ namespace QWS_Local
             this.txtTruckConfig.Name = "txtTruckConfig";
             this.txtTruckConfig.Size = new System.Drawing.Size(100, 23);
             this.txtTruckConfig.TabIndex = 105;
+            this.txtTruckConfig.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // button2
+            // btnSplitLoadType
             // 
-            this.button2.Location = new System.Drawing.Point(993, 79);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(158, 28);
-            this.button2.TabIndex = 108;
-            this.button2.Text = "Split Load Type";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnSplitLoadType.Location = new System.Drawing.Point(993, 79);
+            this.btnSplitLoadType.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSplitLoadType.Name = "btnSplitLoadType";
+            this.btnSplitLoadType.Size = new System.Drawing.Size(158, 28);
+            this.btnSplitLoadType.TabIndex = 108;
+            this.btnSplitLoadType.Text = "Split Load Type";
+            this.btnSplitLoadType.UseVisualStyleBackColor = true;
+            this.btnSplitLoadType.Click += new System.EventHandler(this.btnSplitLoadType_Click);
             // 
             // btnBookIn
             // 
@@ -1391,23 +1409,6 @@ namespace QWS_Local
             this.tableAdapterManager3.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager3.TIQTableAdapter = this.taTIQ2;
             this.tableAdapterManager3.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(354, 184);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(106, 17);
-            label5.TabIndex = 102;
-            label5.Text = "NHVR Network:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "NHVR_Network", true));
-            this.textBox1.Location = new System.Drawing.Point(466, 181);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 103;
             // 
             // BookInDelivery
             // 
@@ -1542,7 +1543,7 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox cardCodeTextBox;
         private System.Windows.Forms.TextBox customerTextBox;
         private System.Windows.Forms.TextBox purchaseOrderTextBox;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSplitLoadType;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtTruckConfig;
         private System.Windows.Forms.GroupBox groupBox2;

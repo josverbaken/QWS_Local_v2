@@ -80,8 +80,7 @@ namespace QWS_Local
             try
             {
                 SetTIQPayload();
-                DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
-                dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
+                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 myTIQRow.AllocateDTTM = DateTime.Now;
                 //myTIQRow.SAPOrder = CurrentDeliveryOrder().DocNum;
                 if (CurrentDeliveryOrder().ItemQA == "Y")
@@ -135,6 +134,25 @@ namespace QWS_Local
             CalcPayload();
         }
 
+        private dsTIQ2.TIQRow CurrentTIQ()
+        {
+            try
+            {
+                if (bsTIQ2.Count > 0)
+                {
+                    DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
+                    dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
+                    return myTIQRow;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
         private dsTruckConfig.ConfiguredTruckGVMRow CurrentTruckGVM()
         {
             try
@@ -172,7 +190,8 @@ namespace QWS_Local
 
             myPayload = PayloadLimit;
             nudPayload.Value = myPayload;
-            if (CurrentTruckGVM().GCM != CurrentTruckGVM().GVMTruck)
+            if (CurrentTruckGVM().Compartments > 1)
+            //if (CurrentTruckGVM().GCM != CurrentTruckGVM().GVMTruck)
             {
                 myPayloadTk = CurrentTruckGVM().GVMTruck - CurrentTruckGVM().TareTk;
                 myPayloadTr = myPayload - myPayloadTk;
@@ -180,20 +199,20 @@ namespace QWS_Local
                 nudPayloadTk.Enabled = true;
                 nudPayloadTr.Value = myPayloadTr;
                 nudPayloadTr.Enabled= true;
-                txtPayloadSplit.Text = myPayloadTk.ToString() + "/" + myPayloadTr.ToString() + "(" + myPayload.ToString() + ")";
+                txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString() + " (" + myPayload.ToString() + ")";
             }
             else
             {
-                txtPayloadSplit.Text = string.Empty;
+                txtPayloadSplit.Text = myPayload.ToString(); //string.Empty;
                 nudPayloadTk.Enabled = false;
                 nudPayloadTr.Enabled = false;
             }
+            bsTIQ2.EndEdit();
         }
 
         private void SetTIQPayload()
         {
-            DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
-            dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
+            dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
             myTIQRow.Payload = nudPayload.Value;
             if (txtPayloadSplit.Text.Length == 0)
             {
@@ -208,11 +227,6 @@ namespace QWS_Local
                 myTIQRow.TruckConfig = LoadType;
             }
             bsTIQ2.EndEdit();
-            //int iRow = taTIQ2.Update(dsTIQ2.TIQ);
-            //if (iRow != 1)
-            //{
-            //    MessageBox.Show("Error updating Payload.");
-            //}
         }
         private void PayloadNUDLimit()
         {
@@ -278,8 +292,7 @@ namespace QWS_Local
         {
             try
             {
-                DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
-                dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
+                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 myTIQRow.SAPOrder = CurrentDeliveryOrder().DocNum;
                 myTIQRow.CustomerCode = CurrentDeliveryOrder().CardCode;
                 myTIQRow.Customer = CurrentDeliveryOrder().Customer;
@@ -289,11 +302,6 @@ namespace QWS_Local
                 myTIQRow.DeliveryAddress = CurrentDeliveryOrder().DeliveryAddress;
                 myTIQRow.CartageCode = CurrentDeliveryOrder().CartageCode;
                 bsTIQ2.EndEdit();
-                //int iRow = taTIQ2.Update(dsTIQ2.TIQ);
-                //if (iRow != 1)
-                //{
-                //    MessageBox.Show("Error updating Order Details.");
-                //}
                 tabControl1.SelectedTab = tpTruckConfig;
             }
             catch (Exception ex)
@@ -309,8 +317,7 @@ namespace QWS_Local
 
         private void SetTIQTruckconfig()
         {
-            DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
-            dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
+            dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
             decimal myGCM = CurrentTruckGVM().GCM;
             decimal myMaxGVM = CurrentTruckGVM().MaxGVM;
             if (myGCM > myMaxGVM && myMaxGVM > 0)
@@ -320,41 +327,28 @@ namespace QWS_Local
             myTIQRow.GCM = myGCM;
             myTIQRow.GVMTruck =  CurrentTruckGVM().GVMTruck;
             bsTIQ2.EndEdit();
-            //int iRow = taTIQ2.Update(dsTIQ2.TIQ);
-            //if (iRow != 1)
-            //{
-            //    MessageBox.Show("Error updating Truck Configuration.");
-            //}
             tabControl1.SelectedTab = tpLoading;
-            // calc payload
-            CalcPayload();
-            SetTIQPayload();
-        }
-
-        private void btnSetPayload_Click(object sender, EventArgs e)
-        {
-            SetTIQPayload();
-        }
-
-
-
-         private void button1_Click(object sender, EventArgs e)
-        {
-            CalcPayload();
-        }
+            if (CurrentTruckGVM().Compartments > 1)
+            {
+                btnSplitLoadType.Enabled = true;
+            }
+            else
+            {
+                btnSplitLoadType.Enabled = false;   
+            }
+                // calc payload
+                CalcPayload();
+            //SetTIQPayload();
+        }    
      
-        private void button2_Click(object sender, EventArgs e)
-        {
-            SetSplitLoadType();
-        }
-
-        private void SetSplitLoadType()
+         private void SetSplitLoadType()
         {
             SplitLoadType frmLoadType = new SplitLoadType();
             DialogResult dr = frmLoadType.ShowDialog();
             if (dr == DialogResult.OK)
             {
                 txtTruckConfig.Text = frmLoadType.LoadType;
+                bsTIQ2.EndEdit();
             }
             else
             {
@@ -371,9 +365,12 @@ namespace QWS_Local
                 {
                     tabControl1.SelectedTab = tpDetails;
                 }
-            }
+            }            
+        }
 
-            
+        private void btnSplitLoadType_Click(object sender, EventArgs e)
+        {
+            SetSplitLoadType();
         }
     }
 }
