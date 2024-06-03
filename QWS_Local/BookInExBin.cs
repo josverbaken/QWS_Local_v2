@@ -208,5 +208,15 @@ namespace QWS_Local
         {
             CalcPayload();
         }
+
+        private void btnExBinItems_Click(object sender, EventArgs e)
+        {
+            ItemSearch frmItemSearch = new ItemSearch(true);
+            DialogResult dr = frmItemSearch.ShowDialog();
+            if (dr == DialogResult.OK)
+            {//get details
+
+            }
+        }
     }
 }

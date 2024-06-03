@@ -17,12 +17,29 @@ namespace QWS_Local
             InitializeComponent();
         }
 
+        public ItemSearch(bool ExBinNoOrder)
+        {
+            InitializeComponent();
+            blExBinNoOrder = ExBinNoOrder;
+        }
+
+        private bool blExBinNoOrder = false;
+
+        private dsQWSViews.ItemRow ItemRow;
+
+        public dsQWSViews.ItemRow myItem
+        {
+            get { return ItemRow; }
+        }
+
         private void ItemSearch_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsQWSViews.Item' table. You can move, or remove it, as needed.
-            //this.itemTableAdapter.Fill(this.dsQWSViews.Item);
-            this.itemTableAdapter.ExBinnoOrder(this.dsQWSViews.Item,Properties.Settings.Default.SiteCode);
-            this.itemBindingSource.Filter = "Active like 'Y'";
+            this.taItem.ExBinnoOrder(this.dsQWSViews.Item,Properties.Settings.Default.SiteCode);
+            this.bsItem.Filter = "Active like 'Y'";
+            if (blExBinNoOrder)
+            {
+                this.bsItem.Filter += " and ExBinNoOrder = 'Y'";
+            }
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -30,21 +47,29 @@ namespace QWS_Local
             if (radioButton1.Checked == true)
             {
                 // show active items only = default
-                this.itemBindingSource.Filter = "Active like 'Y'";
+                this.bsItem.Filter = "Active like 'Y'";
             }
             else if (radioButton3.Checked == true)
             {
-                this.itemBindingSource.Filter = "Active like 'Y' and ItmsGrpCod = 138";
+                this.bsItem.Filter = "Active like 'Y' and ItmsGrpCod = 138";
             }
             else
             {
-                this.itemBindingSource.Filter = "";
+                this.bsItem.Filter = "";
+            }
+            if (blExBinNoOrder)
+            {
+                this.bsItem.Filter += " and ExBinNoOrder = 'Y'";
             }
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            // close form and pass selected item
+            DataRow dataRow = ((DataRowView)bsItem.Current).Row;
+            dsQWSViews.ItemRow itemRow = (dsQWSViews.ItemRow)dataRow;
+            ItemRow = itemRow;
+            this.DialogResult = DialogResult.OK;
+            this.Close();   
         }
     }
 }
