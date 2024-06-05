@@ -83,6 +83,11 @@ namespace PBS
 
         private void trucksInQuarryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ShowTrucksInQuarry();
+        }
+
+        private void ShowTrucksInQuarry()
+        {
             TrucksInQuarry frmTIQ = new TrucksInQuarry();
             frmTIQ.MdiParent = this;
             frmTIQ.Show();
@@ -100,6 +105,28 @@ namespace PBS
             DeliveryOrders frmDeliveryOrders = new DeliveryOrders();
             frmDeliveryOrders.MdiParent = this;
             frmDeliveryOrders.Show();
+        }
+
+        private void frmPBS_MDI_Load(object sender, EventArgs e)
+        {
+            ShowTrucksInQuarry();
+        }
+
+        public void BringTIQ2Front()
+        {
+            for (int x = 0; x < this.MdiChildren.Length; x++)
+            {
+                Form tempChild = (Form)this.MdiChildren[x];
+                if (tempChild.Name == "TrucksInQuarry")
+                {
+                    this.MdiChildren[x].BringToFront();
+                }
+            }
+        }
+
+        private void tIQToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BringTIQ2Front();   
         }
     }
 

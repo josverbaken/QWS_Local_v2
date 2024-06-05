@@ -178,9 +178,14 @@ namespace QWS_Local
                 iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 if (iRow == 1)
                 {
-                    TrucksInQuarry frmTIQ = new TrucksInQuarry();
-                    frmTIQ.MdiParent = this.MdiParent;
-                    frmTIQ.Show();
+                    //TrucksInQuarry frmTIQ = new TrucksInQuarry();
+                    //frmTIQ.MdiParent = this.MdiParent;
+                    //frmTIQ.Show();
+                    MessageBox.Show("TODO - swap to TrucksInQuarry form");
+                    //foreach 
+                    //if (TrucksInQuarry)
+                    //this.MdiParent.BringTIQ2Front();
+                    
                 }
                 this.Close();
             }

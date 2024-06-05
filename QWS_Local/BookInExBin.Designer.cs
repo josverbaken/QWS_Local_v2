@@ -48,9 +48,7 @@ namespace QWS_Local
             System.Windows.Forms.Label orderStatusLabel;
             System.Windows.Forms.Label gCMLabel;
             System.Windows.Forms.Label tareLabel;
-            System.Windows.Forms.Label regoTkLabel;
             System.Windows.Forms.Label ownerLabel;
-            System.Windows.Forms.Label feeCodeLabel;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label mobLabel;
             System.Windows.Forms.Label label3;
@@ -60,31 +58,16 @@ namespace QWS_Local
             System.Windows.Forms.Label label7;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.nudPayloadTk = new System.Windows.Forms.NumericUpDown();
-            this.nudPayloadTr = new System.Windows.Forms.NumericUpDown();
-            this.nudPayload = new System.Windows.Forms.NumericUpDown();
-            this.gCMTextBox = new System.Windows.Forms.TextBox();
-            this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTruckConfig = new QWS_Local.dsTruckConfig();
-            this.gVMTruckTextBox = new System.Windows.Forms.TextBox();
-            this.tareTextBox = new System.Windows.Forms.TextBox();
-            this.tareTkTextBox = new System.Windows.Forms.TextBox();
             this.mobTextBox = new System.Windows.Forms.TextBox();
             this.bsDriver = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.personTextBox = new System.Windows.Forms.TextBox();
-            this.feeCodeTextBox = new System.Windows.Forms.TextBox();
+            this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.ownerTextBox = new System.Windows.Forms.TextBox();
             this.regoTkTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.rbExBinSAPOrder = new System.Windows.Forms.RadioButton();
-            this.rbExBinNoOrder = new System.Windows.Forms.RadioButton();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btnRefreshOrders = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tpExBinOrders = new System.Windows.Forms.TabPage();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
@@ -136,7 +119,11 @@ namespace QWS_Local
             this.customerTextBox = new System.Windows.Forms.TextBox();
             this.cardCodeTextBox = new System.Windows.Forms.TextBox();
             this.docNumTextBox = new System.Windows.Forms.TextBox();
+            this.tpOrderDetails = new System.Windows.Forms.TabPage();
+            this.btnSetExBinOrder = new System.Windows.Forms.Button();
+            this.btnRefreshOrders = new System.Windows.Forms.Button();
             this.tpExBinNoOrder = new System.Windows.Forms.TabPage();
+            this.btnExBinItems = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.itemCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -145,6 +132,8 @@ namespace QWS_Local
             this.updateDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsItem = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.tpTruckconfig = new System.Windows.Forms.TabPage();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.regoTkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -155,6 +144,19 @@ namespace QWS_Local
             this.pBSLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.schemeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tpPayload = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.nudPayloadTk = new System.Windows.Forms.NumericUpDown();
+            this.nudPayloadTr = new System.Windows.Forms.NumericUpDown();
+            this.nudPayload = new System.Windows.Forms.NumericUpDown();
+            this.gCMTextBox = new System.Windows.Forms.TextBox();
+            this.gVMTruckTextBox = new System.Windows.Forms.TextBox();
+            this.tareTextBox = new System.Windows.Forms.TextBox();
+            this.tareTkTextBox = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.rbExBinSAPOrder = new System.Windows.Forms.RadioButton();
+            this.rbExBinNoOrder = new System.Windows.Forms.RadioButton();
             this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.taExBinOrders = new QWS_Local.dsBookInTableAdapters.ExBinOrdersTableAdapter();
@@ -168,11 +170,7 @@ namespace QWS_Local
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager3 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
-            this.btnExBinItems = new System.Windows.Forms.Button();
-            this.tpOrderDetails = new System.Windows.Forms.TabPage();
-            this.tpPayload = new System.Windows.Forms.TabPage();
-            this.btnSetExBinOrder = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             docNumLabel = new System.Windows.Forms.Label();
             docDateLabel = new System.Windows.Forms.Label();
             cardCodeLabel = new System.Windows.Forms.Label();
@@ -191,9 +189,7 @@ namespace QWS_Local
             orderStatusLabel = new System.Windows.Forms.Label();
             gCMLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
-            regoTkLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
-            feeCodeLabel = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             mobLabel = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -208,14 +204,10 @@ namespace QWS_Local
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDriver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel2.SuspendLayout();
@@ -229,16 +221,20 @@ namespace QWS_Local
             this.tpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tpDetails.SuspendLayout();
+            this.tpOrderDetails.SuspendLayout();
             this.tpExBinNoOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsItem)).BeginInit();
             this.tpTruckconfig.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.tpPayload.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
-            this.tpOrderDetails.SuspendLayout();
-            this.tpPayload.SuspendLayout();
             this.SuspendLayout();
             // 
             // docNumLabel
@@ -403,37 +399,19 @@ namespace QWS_Local
             tareLabel.TabIndex = 35;
             tareLabel.Text = "Tare";
             // 
-            // regoTkLabel
-            // 
-            regoTkLabel.AutoSize = true;
-            regoTkLabel.Location = new System.Drawing.Point(255, 99);
-            regoTkLabel.Name = "regoTkLabel";
-            regoTkLabel.Size = new System.Drawing.Size(50, 17);
-            regoTkLabel.TabIndex = 70;
-            regoTkLabel.Text = "Rego :";
-            // 
             // ownerLabel
             // 
             ownerLabel.AutoSize = true;
-            ownerLabel.Location = new System.Drawing.Point(12, 18);
+            ownerLabel.Location = new System.Drawing.Point(491, 44);
             ownerLabel.Name = "ownerLabel";
             ownerLabel.Size = new System.Drawing.Size(53, 17);
             ownerLabel.TabIndex = 72;
             ownerLabel.Text = "Owner:";
             // 
-            // feeCodeLabel
-            // 
-            feeCodeLabel.AutoSize = true;
-            feeCodeLabel.Location = new System.Drawing.Point(248, 131);
-            feeCodeLabel.Name = "feeCodeLabel";
-            feeCodeLabel.Size = new System.Drawing.Size(73, 17);
-            feeCodeLabel.TabIndex = 74;
-            feeCodeLabel.Text = "Fee Code:";
-            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(12, 47);
+            label2.Location = new System.Drawing.Point(491, 73);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(50, 17);
             label2.TabIndex = 77;
@@ -442,11 +420,56 @@ namespace QWS_Local
             // mobLabel
             // 
             mobLabel.AutoSize = true;
-            mobLabel.Location = new System.Drawing.Point(29, 76);
+            mobLabel.Location = new System.Drawing.Point(508, 102);
             mobLabel.Name = "mobLabel";
             mobLabel.Size = new System.Drawing.Size(39, 17);
             mobLabel.TabIndex = 79;
             mobLabel.Text = "Mob:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(125, 19);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(46, 17);
+            label3.TabIndex = 69;
+            label3.Text = "Gross";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(286, 21);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(59, 17);
+            label4.TabIndex = 70;
+            label4.Text = "Payload";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(373, 99);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(34, 17);
+            label5.TabIndex = 71;
+            label5.Text = "TRs";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(378, 73);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(33, 17);
+            label6.TabIndex = 72;
+            label6.Text = "TKs";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(179, 129);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(94, 17);
+            label7.TabIndex = 73;
+            label7.Text = "Payload Split:";
             // 
             // splitContainer1
             // 
@@ -474,15 +497,13 @@ namespace QWS_Local
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
+            this.splitContainer2.Panel1.Controls.Add(this.textBox4);
             this.splitContainer2.Panel1.Controls.Add(mobLabel);
             this.splitContainer2.Panel1.Controls.Add(this.mobTextBox);
             this.splitContainer2.Panel1.Controls.Add(this.personTextBox);
             this.splitContainer2.Panel1.Controls.Add(label2);
-            this.splitContainer2.Panel1.Controls.Add(feeCodeLabel);
-            this.splitContainer2.Panel1.Controls.Add(this.feeCodeTextBox);
             this.splitContainer2.Panel1.Controls.Add(ownerLabel);
             this.splitContainer2.Panel1.Controls.Add(this.ownerTextBox);
-            this.splitContainer2.Panel1.Controls.Add(regoTkLabel);
             this.splitContainer2.Panel1.Controls.Add(this.regoTkTextBox);
             this.splitContainer2.Panel1.Controls.Add(this.pictureBox1);
             // 
@@ -493,111 +514,10 @@ namespace QWS_Local
             this.splitContainer2.SplitterDistance = 228;
             this.splitContainer2.TabIndex = 3;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.textBox2);
-            this.groupBox3.Controls.Add(label7);
-            this.groupBox3.Controls.Add(label6);
-            this.groupBox3.Controls.Add(label5);
-            this.groupBox3.Controls.Add(label4);
-            this.groupBox3.Controls.Add(label3);
-            this.groupBox3.Controls.Add(this.nudPayloadTk);
-            this.groupBox3.Controls.Add(this.nudPayloadTr);
-            this.groupBox3.Controls.Add(this.nudPayload);
-            this.groupBox3.Controls.Add(this.gCMTextBox);
-            this.groupBox3.Controls.Add(gCMLabel);
-            this.groupBox3.Controls.Add(this.gVMTruckTextBox);
-            this.groupBox3.Controls.Add(this.tareTextBox);
-            this.groupBox3.Controls.Add(tareLabel);
-            this.groupBox3.Controls.Add(this.tareTkTextBox);
-            this.groupBox3.Location = new System.Drawing.Point(569, 41);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(439, 167);
-            this.groupBox3.TabIndex = 68;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Truck Details";
-            // 
-            // nudPayloadTk
-            // 
-            this.nudPayloadTk.DecimalPlaces = 2;
-            this.nudPayloadTk.Enabled = false;
-            this.nudPayloadTk.Location = new System.Drawing.Point(279, 71);
-            this.nudPayloadTk.Name = "nudPayloadTk";
-            this.nudPayloadTk.Size = new System.Drawing.Size(76, 23);
-            this.nudPayloadTk.TabIndex = 68;
-            this.nudPayloadTk.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // nudPayloadTr
-            // 
-            this.nudPayloadTr.DecimalPlaces = 2;
-            this.nudPayloadTr.Enabled = false;
-            this.nudPayloadTr.Location = new System.Drawing.Point(280, 97);
-            this.nudPayloadTr.Name = "nudPayloadTr";
-            this.nudPayloadTr.Size = new System.Drawing.Size(76, 23);
-            this.nudPayloadTr.TabIndex = 67;
-            this.nudPayloadTr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // nudPayload
-            // 
-            this.nudPayload.DecimalPlaces = 2;
-            this.nudPayload.Location = new System.Drawing.Point(280, 44);
-            this.nudPayload.Name = "nudPayload";
-            this.nudPayload.Size = new System.Drawing.Size(76, 23);
-            this.nudPayload.TabIndex = 66;
-            this.nudPayload.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.nudPayload.ValueChanged += new System.EventHandler(this.nudPayload_ValueChanged);
-            // 
-            // gCMTextBox
-            // 
-            this.gCMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "GCM", true));
-            this.gCMTextBox.Location = new System.Drawing.Point(106, 44);
-            this.gCMTextBox.Name = "gCMTextBox";
-            this.gCMTextBox.Size = new System.Drawing.Size(72, 23);
-            this.gCMTextBox.TabIndex = 33;
-            this.gCMTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // bsConfiguredTruckGVM
-            // 
-            this.bsConfiguredTruckGVM.DataMember = "ConfiguredTruckGVM";
-            this.bsConfiguredTruckGVM.DataSource = this.dsTruckConfig;
-            this.bsConfiguredTruckGVM.CurrentChanged += new System.EventHandler(this.bsConfiguredTruckGVM_CurrentChanged);
-            // 
-            // dsTruckConfig
-            // 
-            this.dsTruckConfig.DataSetName = "dsTruckConfig";
-            this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // gVMTruckTextBox
-            // 
-            this.gVMTruckTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "GVMTruck", true));
-            this.gVMTruckTextBox.Location = new System.Drawing.Point(106, 70);
-            this.gVMTruckTextBox.Name = "gVMTruckTextBox";
-            this.gVMTruckTextBox.Size = new System.Drawing.Size(72, 23);
-            this.gVMTruckTextBox.TabIndex = 34;
-            this.gVMTruckTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // tareTextBox
-            // 
-            this.tareTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "Tare", true));
-            this.tareTextBox.Location = new System.Drawing.Point(201, 44);
-            this.tareTextBox.Name = "tareTextBox";
-            this.tareTextBox.Size = new System.Drawing.Size(72, 23);
-            this.tareTextBox.TabIndex = 36;
-            this.tareTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // tareTkTextBox
-            // 
-            this.tareTkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "TareTk", true));
-            this.tareTkTextBox.Location = new System.Drawing.Point(201, 70);
-            this.tareTkTextBox.Name = "tareTkTextBox";
-            this.tareTkTextBox.Size = new System.Drawing.Size(72, 23);
-            this.tareTkTextBox.TabIndex = 38;
-            this.tareTkTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // mobTextBox
             // 
             this.mobTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDriver, "Mob", true));
-            this.mobTextBox.Location = new System.Drawing.Point(74, 73);
+            this.mobTextBox.Location = new System.Drawing.Point(553, 99);
             this.mobTextBox.Name = "mobTextBox";
             this.mobTextBox.Size = new System.Drawing.Size(100, 23);
             this.mobTextBox.TabIndex = 80;
@@ -615,23 +535,26 @@ namespace QWS_Local
             // personTextBox
             // 
             this.personTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDriver, "Person", true));
-            this.personTextBox.Location = new System.Drawing.Point(74, 44);
+            this.personTextBox.Location = new System.Drawing.Point(553, 70);
             this.personTextBox.Name = "personTextBox";
             this.personTextBox.Size = new System.Drawing.Size(247, 23);
             this.personTextBox.TabIndex = 79;
             // 
-            // feeCodeTextBox
+            // bsConfiguredTruckGVM
             // 
-            this.feeCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "FeeCode", true));
-            this.feeCodeTextBox.Location = new System.Drawing.Point(327, 128);
-            this.feeCodeTextBox.Name = "feeCodeTextBox";
-            this.feeCodeTextBox.Size = new System.Drawing.Size(100, 23);
-            this.feeCodeTextBox.TabIndex = 75;
+            this.bsConfiguredTruckGVM.DataMember = "ConfiguredTruckGVM";
+            this.bsConfiguredTruckGVM.DataSource = this.dsTruckConfig;
+            this.bsConfiguredTruckGVM.CurrentChanged += new System.EventHandler(this.bsConfiguredTruckGVM_CurrentChanged);
+            // 
+            // dsTruckConfig
+            // 
+            this.dsTruckConfig.DataSetName = "dsTruckConfig";
+            this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ownerTextBox
             // 
             this.ownerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "Owner", true));
-            this.ownerTextBox.Location = new System.Drawing.Point(74, 15);
+            this.ownerTextBox.Location = new System.Drawing.Point(553, 41);
             this.ownerTextBox.Name = "ownerTextBox";
             this.ownerTextBox.Size = new System.Drawing.Size(353, 23);
             this.ownerTextBox.TabIndex = 73;
@@ -639,7 +562,7 @@ namespace QWS_Local
             // regoTkTextBox
             // 
             this.regoTkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "RegoTk", true));
-            this.regoTkTextBox.Location = new System.Drawing.Point(327, 96);
+            this.regoTkTextBox.Location = new System.Drawing.Point(14, 12);
             this.regoTkTextBox.Name = "regoTkTextBox";
             this.regoTkTextBox.Size = new System.Drawing.Size(100, 23);
             this.regoTkTextBox.TabIndex = 71;
@@ -648,7 +571,7 @@ namespace QWS_Local
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.bsConfiguredTruckGVM, "Schematic", true));
-            this.pictureBox1.Location = new System.Drawing.Point(471, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(14, 41);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(450, 150);
             this.pictureBox1.TabIndex = 70;
@@ -668,65 +591,6 @@ namespace QWS_Local
             this.splitContainer3.Size = new System.Drawing.Size(1427, 322);
             this.splitContainer3.SplitterDistance = 80;
             this.splitContainer3.TabIndex = 3;
-            // 
-            // rbExBinSAPOrder
-            // 
-            this.rbExBinSAPOrder.AutoSize = true;
-            this.rbExBinSAPOrder.Location = new System.Drawing.Point(1045, 102);
-            this.rbExBinSAPOrder.Name = "rbExBinSAPOrder";
-            this.rbExBinSAPOrder.Size = new System.Drawing.Size(165, 21);
-            this.rbExBinSAPOrder.TabIndex = 81;
-            this.rbExBinSAPOrder.TabStop = true;
-            this.rbExBinSAPOrder.Text = "ExBin from SAP Order";
-            this.rbExBinSAPOrder.UseVisualStyleBackColor = true;
-            // 
-            // rbExBinNoOrder
-            // 
-            this.rbExBinNoOrder.AutoSize = true;
-            this.rbExBinNoOrder.Location = new System.Drawing.Point(1045, 66);
-            this.rbExBinNoOrder.Name = "rbExBinNoOrder";
-            this.rbExBinNoOrder.Size = new System.Drawing.Size(119, 21);
-            this.rbExBinNoOrder.TabIndex = 80;
-            this.rbExBinNoOrder.TabStop = true;
-            this.rbExBinNoOrder.Text = "ExBin no order";
-            this.rbExBinNoOrder.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(1050, 146);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(160, 30);
-            this.button3.TabIndex = 79;
-            this.button3.Text = "Book In";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // btnRefreshOrders
-            // 
-            this.btnRefreshOrders.Location = new System.Drawing.Point(943, 19);
-            this.btnRefreshOrders.Name = "btnRefreshOrders";
-            this.btnRefreshOrders.Size = new System.Drawing.Size(160, 30);
-            this.btnRefreshOrders.TabIndex = 78;
-            this.btnRefreshOrders.Text = "Refresh";
-            this.btnRefreshOrders.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(920, 71);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 30);
-            this.button1.TabIndex = 77;
-            this.button1.Text = "Change Customer";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(975, 136);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 76;
-            this.label1.Text = "label1";
             // 
             // tabControl2
             // 
@@ -749,7 +613,7 @@ namespace QWS_Local
             this.tpExBinOrders.Location = new System.Drawing.Point(4, 25);
             this.tpExBinOrders.Name = "tpExBinOrders";
             this.tpExBinOrders.Padding = new System.Windows.Forms.Padding(3);
-            this.tpExBinOrders.Size = new System.Drawing.Size(1419, 209);
+            this.tpExBinOrders.Size = new System.Drawing.Size(1419, 293);
             this.tpExBinOrders.TabIndex = 0;
             this.tpExBinOrders.Text = "Ex-Bin Orders";
             this.tpExBinOrders.UseVisualStyleBackColor = true;
@@ -783,7 +647,7 @@ namespace QWS_Local
             this.dataGridView4.Location = new System.Drawing.Point(3, 3);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
-            this.dataGridView4.Size = new System.Drawing.Size(1413, 203);
+            this.dataGridView4.Size = new System.Drawing.Size(1413, 287);
             this.dataGridView4.TabIndex = 2;
             // 
             // docNumDataGridViewTextBoxColumn1
@@ -1193,19 +1057,58 @@ namespace QWS_Local
             this.docNumTextBox.Size = new System.Drawing.Size(100, 23);
             this.docNumTextBox.TabIndex = 1;
             // 
+            // tpOrderDetails
+            // 
+            this.tpOrderDetails.Controls.Add(this.btnSetExBinOrder);
+            this.tpOrderDetails.Controls.Add(this.btnRefreshOrders);
+            this.tpOrderDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpOrderDetails.Name = "tpOrderDetails";
+            this.tpOrderDetails.Size = new System.Drawing.Size(1419, 296);
+            this.tpOrderDetails.TabIndex = 3;
+            this.tpOrderDetails.Text = "Order Details";
+            this.tpOrderDetails.UseVisualStyleBackColor = true;
+            // 
+            // btnSetExBinOrder
+            // 
+            this.btnSetExBinOrder.Location = new System.Drawing.Point(943, 139);
+            this.btnSetExBinOrder.Name = "btnSetExBinOrder";
+            this.btnSetExBinOrder.Size = new System.Drawing.Size(160, 30);
+            this.btnSetExBinOrder.TabIndex = 79;
+            this.btnSetExBinOrder.Text = "Refresh";
+            this.btnSetExBinOrder.UseVisualStyleBackColor = true;
+            // 
+            // btnRefreshOrders
+            // 
+            this.btnRefreshOrders.Location = new System.Drawing.Point(943, 19);
+            this.btnRefreshOrders.Name = "btnRefreshOrders";
+            this.btnRefreshOrders.Size = new System.Drawing.Size(160, 30);
+            this.btnRefreshOrders.TabIndex = 78;
+            this.btnRefreshOrders.Text = "Refresh";
+            this.btnRefreshOrders.UseVisualStyleBackColor = true;
+            // 
             // tpExBinNoOrder
             // 
             this.tpExBinNoOrder.Controls.Add(this.btnExBinItems);
             this.tpExBinNoOrder.Controls.Add(this.dataGridView2);
             this.tpExBinNoOrder.Controls.Add(this.button1);
             this.tpExBinNoOrder.Controls.Add(this.label1);
-            this.tpExBinNoOrder.Location = new System.Drawing.Point(4, 25);
+            this.tpExBinNoOrder.Location = new System.Drawing.Point(4, 22);
             this.tpExBinNoOrder.Name = "tpExBinNoOrder";
             this.tpExBinNoOrder.Padding = new System.Windows.Forms.Padding(3);
-            this.tpExBinNoOrder.Size = new System.Drawing.Size(1419, 293);
+            this.tpExBinNoOrder.Size = new System.Drawing.Size(1419, 296);
             this.tpExBinNoOrder.TabIndex = 1;
             this.tpExBinNoOrder.Text = "Ex-Bin No Order";
             this.tpExBinNoOrder.UseVisualStyleBackColor = true;
+            // 
+            // btnExBinItems
+            // 
+            this.btnExBinItems.Location = new System.Drawing.Point(920, 25);
+            this.btnExBinItems.Name = "btnExBinItems";
+            this.btnExBinItems.Size = new System.Drawing.Size(160, 30);
+            this.btnExBinItems.TabIndex = 82;
+            this.btnExBinItems.Text = "ExBin Items";
+            this.btnExBinItems.UseVisualStyleBackColor = true;
+            this.btnExBinItems.Click += new System.EventHandler(this.btnExBinItems_Click);
             // 
             // dataGridView2
             // 
@@ -1274,12 +1177,30 @@ namespace QWS_Local
             this.bsItem.DataMember = "Item";
             this.bsItem.DataSource = this.dsBookIn;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(920, 71);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(160, 30);
+            this.button1.TabIndex = 77;
+            this.button1.Text = "Change Customer";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(975, 136);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 76;
+            this.label1.Text = "label1";
+            // 
             // tpTruckconfig
             // 
             this.tpTruckconfig.Controls.Add(this.dataGridView3);
-            this.tpTruckconfig.Location = new System.Drawing.Point(4, 25);
+            this.tpTruckconfig.Location = new System.Drawing.Point(4, 22);
             this.tpTruckconfig.Name = "tpTruckconfig";
-            this.tpTruckconfig.Size = new System.Drawing.Size(1419, 209);
+            this.tpTruckconfig.Size = new System.Drawing.Size(1419, 296);
             this.tpTruckconfig.TabIndex = 2;
             this.tpTruckconfig.Text = "Truck config";
             this.tpTruckconfig.UseVisualStyleBackColor = true;
@@ -1362,6 +1283,150 @@ namespace QWS_Local
             this.schemeDataGridViewTextBoxColumn.Name = "schemeDataGridViewTextBoxColumn";
             this.schemeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // tpPayload
+            // 
+            this.tpPayload.Controls.Add(this.groupBox3);
+            this.tpPayload.Controls.Add(this.button3);
+            this.tpPayload.Controls.Add(this.rbExBinSAPOrder);
+            this.tpPayload.Controls.Add(this.rbExBinNoOrder);
+            this.tpPayload.Location = new System.Drawing.Point(4, 22);
+            this.tpPayload.Name = "tpPayload";
+            this.tpPayload.Size = new System.Drawing.Size(1419, 296);
+            this.tpPayload.TabIndex = 4;
+            this.tpPayload.Text = "Order Summary plus Payload";
+            this.tpPayload.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(label7);
+            this.groupBox3.Controls.Add(label6);
+            this.groupBox3.Controls.Add(label5);
+            this.groupBox3.Controls.Add(label4);
+            this.groupBox3.Controls.Add(label3);
+            this.groupBox3.Controls.Add(this.nudPayloadTk);
+            this.groupBox3.Controls.Add(this.nudPayloadTr);
+            this.groupBox3.Controls.Add(this.nudPayload);
+            this.groupBox3.Controls.Add(this.gCMTextBox);
+            this.groupBox3.Controls.Add(gCMLabel);
+            this.groupBox3.Controls.Add(this.gVMTruckTextBox);
+            this.groupBox3.Controls.Add(this.tareTextBox);
+            this.groupBox3.Controls.Add(tareLabel);
+            this.groupBox3.Controls.Add(this.tareTkTextBox);
+            this.groupBox3.Location = new System.Drawing.Point(569, 41);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(439, 167);
+            this.groupBox3.TabIndex = 68;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Truck Details";
+            // 
+            // textBox2
+            // 
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "GVMTruck", true));
+            this.textBox2.Location = new System.Drawing.Point(280, 126);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(142, 23);
+            this.textBox2.TabIndex = 74;
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // nudPayloadTk
+            // 
+            this.nudPayloadTk.DecimalPlaces = 2;
+            this.nudPayloadTk.Enabled = false;
+            this.nudPayloadTk.Location = new System.Drawing.Point(279, 71);
+            this.nudPayloadTk.Name = "nudPayloadTk";
+            this.nudPayloadTk.Size = new System.Drawing.Size(76, 23);
+            this.nudPayloadTk.TabIndex = 68;
+            this.nudPayloadTk.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // nudPayloadTr
+            // 
+            this.nudPayloadTr.DecimalPlaces = 2;
+            this.nudPayloadTr.Enabled = false;
+            this.nudPayloadTr.Location = new System.Drawing.Point(280, 97);
+            this.nudPayloadTr.Name = "nudPayloadTr";
+            this.nudPayloadTr.Size = new System.Drawing.Size(76, 23);
+            this.nudPayloadTr.TabIndex = 67;
+            this.nudPayloadTr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // nudPayload
+            // 
+            this.nudPayload.DecimalPlaces = 2;
+            this.nudPayload.Location = new System.Drawing.Point(280, 44);
+            this.nudPayload.Name = "nudPayload";
+            this.nudPayload.Size = new System.Drawing.Size(76, 23);
+            this.nudPayload.TabIndex = 66;
+            this.nudPayload.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nudPayload.ValueChanged += new System.EventHandler(this.nudPayload_ValueChanged);
+            // 
+            // gCMTextBox
+            // 
+            this.gCMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "GCM", true));
+            this.gCMTextBox.Location = new System.Drawing.Point(106, 44);
+            this.gCMTextBox.Name = "gCMTextBox";
+            this.gCMTextBox.Size = new System.Drawing.Size(72, 23);
+            this.gCMTextBox.TabIndex = 33;
+            this.gCMTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // gVMTruckTextBox
+            // 
+            this.gVMTruckTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "GVMTruck", true));
+            this.gVMTruckTextBox.Location = new System.Drawing.Point(106, 70);
+            this.gVMTruckTextBox.Name = "gVMTruckTextBox";
+            this.gVMTruckTextBox.Size = new System.Drawing.Size(72, 23);
+            this.gVMTruckTextBox.TabIndex = 34;
+            this.gVMTruckTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // tareTextBox
+            // 
+            this.tareTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "Tare", true));
+            this.tareTextBox.Location = new System.Drawing.Point(201, 44);
+            this.tareTextBox.Name = "tareTextBox";
+            this.tareTextBox.Size = new System.Drawing.Size(72, 23);
+            this.tareTextBox.TabIndex = 36;
+            this.tareTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // tareTkTextBox
+            // 
+            this.tareTkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "TareTk", true));
+            this.tareTkTextBox.Location = new System.Drawing.Point(201, 70);
+            this.tareTkTextBox.Name = "tareTkTextBox";
+            this.tareTkTextBox.Size = new System.Drawing.Size(72, 23);
+            this.tareTkTextBox.TabIndex = 38;
+            this.tareTkTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(1050, 146);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(160, 30);
+            this.button3.TabIndex = 79;
+            this.button3.Text = "Book In";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // rbExBinSAPOrder
+            // 
+            this.rbExBinSAPOrder.AutoSize = true;
+            this.rbExBinSAPOrder.Location = new System.Drawing.Point(1045, 102);
+            this.rbExBinSAPOrder.Name = "rbExBinSAPOrder";
+            this.rbExBinSAPOrder.Size = new System.Drawing.Size(165, 21);
+            this.rbExBinSAPOrder.TabIndex = 81;
+            this.rbExBinSAPOrder.TabStop = true;
+            this.rbExBinSAPOrder.Text = "ExBin from SAP Order";
+            this.rbExBinSAPOrder.UseVisualStyleBackColor = true;
+            // 
+            // rbExBinNoOrder
+            // 
+            this.rbExBinNoOrder.AutoSize = true;
+            this.rbExBinNoOrder.Location = new System.Drawing.Point(1045, 66);
+            this.rbExBinNoOrder.Name = "rbExBinNoOrder";
+            this.rbExBinNoOrder.Size = new System.Drawing.Size(119, 21);
+            this.rbExBinNoOrder.TabIndex = 80;
+            this.rbExBinNoOrder.TabStop = true;
+            this.rbExBinNoOrder.Text = "ExBin no order";
+            this.rbExBinNoOrder.UseVisualStyleBackColor = true;
+            // 
             // bsTIQ2
             // 
             this.bsTIQ2.DataMember = "TIQ";
@@ -1439,102 +1504,13 @@ namespace QWS_Local
             this.tableAdapterManager3.TIQTableAdapter = this.taTIQ2;
             this.tableAdapterManager3.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // btnExBinItems
+            // textBox4
             // 
-            this.btnExBinItems.Location = new System.Drawing.Point(920, 25);
-            this.btnExBinItems.Name = "btnExBinItems";
-            this.btnExBinItems.Size = new System.Drawing.Size(160, 30);
-            this.btnExBinItems.TabIndex = 82;
-            this.btnExBinItems.Text = "ExBin Items";
-            this.btnExBinItems.UseVisualStyleBackColor = true;
-            this.btnExBinItems.Click += new System.EventHandler(this.btnExBinItems_Click);
-            // 
-            // tpOrderDetails
-            // 
-            this.tpOrderDetails.Controls.Add(this.btnSetExBinOrder);
-            this.tpOrderDetails.Controls.Add(this.btnRefreshOrders);
-            this.tpOrderDetails.Location = new System.Drawing.Point(4, 25);
-            this.tpOrderDetails.Name = "tpOrderDetails";
-            this.tpOrderDetails.Size = new System.Drawing.Size(1419, 209);
-            this.tpOrderDetails.TabIndex = 3;
-            this.tpOrderDetails.Text = "Order Details";
-            this.tpOrderDetails.UseVisualStyleBackColor = true;
-            // 
-            // tpPayload
-            // 
-            this.tpPayload.Controls.Add(this.groupBox3);
-            this.tpPayload.Controls.Add(this.button3);
-            this.tpPayload.Controls.Add(this.rbExBinSAPOrder);
-            this.tpPayload.Controls.Add(this.rbExBinNoOrder);
-            this.tpPayload.Location = new System.Drawing.Point(4, 25);
-            this.tpPayload.Name = "tpPayload";
-            this.tpPayload.Size = new System.Drawing.Size(1419, 293);
-            this.tpPayload.TabIndex = 4;
-            this.tpPayload.Text = "Order Summary plus Payload";
-            this.tpPayload.UseVisualStyleBackColor = true;
-            // 
-            // btnSetExBinOrder
-            // 
-            this.btnSetExBinOrder.Location = new System.Drawing.Point(943, 139);
-            this.btnSetExBinOrder.Name = "btnSetExBinOrder";
-            this.btnSetExBinOrder.Size = new System.Drawing.Size(160, 30);
-            this.btnSetExBinOrder.TabIndex = 79;
-            this.btnSetExBinOrder.Text = "Refresh";
-            this.btnSetExBinOrder.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(125, 19);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(46, 17);
-            label3.TabIndex = 69;
-            label3.Text = "Gross";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(286, 21);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(59, 17);
-            label4.TabIndex = 70;
-            label4.Text = "Payload";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(373, 99);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(34, 17);
-            label5.TabIndex = 71;
-            label5.Text = "TRs";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(378, 73);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(33, 17);
-            label6.TabIndex = 72;
-            label6.Text = "TKs";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(179, 129);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(94, 17);
-            label7.TabIndex = 73;
-            label7.Text = "Payload Split:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "GVMTruck", true));
-            this.textBox2.Location = new System.Drawing.Point(280, 126);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(142, 23);
-            this.textBox2.TabIndex = 74;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "RegoTrailer", true));
+            this.textBox4.Location = new System.Drawing.Point(120, 12);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(148, 23);
+            this.textBox4.TabIndex = 81;
             // 
             // BookInExBin
             // 
@@ -1555,15 +1531,10 @@ namespace QWS_Local
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDriver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
@@ -1578,18 +1549,23 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tpDetails.ResumeLayout(false);
             this.tpDetails.PerformLayout();
+            this.tpOrderDetails.ResumeLayout(false);
             this.tpExBinNoOrder.ResumeLayout(false);
             this.tpExBinNoOrder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsItem)).EndInit();
             this.tpTruckconfig.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.tpPayload.ResumeLayout(false);
+            this.tpPayload.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
-            this.tpOrderDetails.ResumeLayout(false);
-            this.tpPayload.ResumeLayout(false);
-            this.tpPayload.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1659,7 +1635,6 @@ namespace QWS_Local
         private System.Windows.Forms.BindingSource bsConfiguredTrucks;
         private dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter taConfiguredTrucks;
         private dsTruckConfigTableAdapters.TableAdapterManager tableAdapterManager1;
-        private System.Windows.Forms.TextBox feeCodeTextBox;
         private System.Windows.Forms.TextBox ownerTextBox;
         private System.Windows.Forms.TextBox regoTkTextBox;
         private System.Windows.Forms.DataGridView dataGridView4;
@@ -1711,5 +1686,6 @@ namespace QWS_Local
         private System.Windows.Forms.TabPage tpPayload;
         private System.Windows.Forms.Button btnSetExBinOrder;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }

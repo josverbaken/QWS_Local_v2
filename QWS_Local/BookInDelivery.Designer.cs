@@ -61,6 +61,8 @@ namespace QWS_Local
             System.Windows.Forms.Label materialLabel1;
             System.Windows.Forms.Label nHVR_NetworkLabel;
             System.Windows.Forms.Label label5;
+            System.Windows.Forms.Label cartageLabel1;
+            System.Windows.Forms.Label contactNameLabel1;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.regoTrailersTextBox = new System.Windows.Forms.TextBox();
             this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
@@ -159,6 +161,9 @@ namespace QWS_Local
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager3 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
+            this.cartageTextBox1 = new System.Windows.Forms.TextBox();
+            this.contactNameTextBox1 = new System.Windows.Forms.TextBox();
+            this.contactMobileTextBox1 = new System.Windows.Forms.TextBox();
             docNumLabel = new System.Windows.Forms.Label();
             deliveryDateLabel = new System.Windows.Forms.Label();
             materialLabel = new System.Windows.Forms.Label();
@@ -190,6 +195,8 @@ namespace QWS_Local
             materialLabel1 = new System.Windows.Forms.Label();
             nHVR_NetworkLabel = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
+            cartageLabel1 = new System.Windows.Forms.Label();
+            contactNameLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -464,7 +471,7 @@ namespace QWS_Local
             // deliveryAddressLabel1
             // 
             deliveryAddressLabel1.AutoSize = true;
-            deliveryAddressLabel1.Location = new System.Drawing.Point(18, 92);
+            deliveryAddressLabel1.Location = new System.Drawing.Point(18, 121);
             deliveryAddressLabel1.Name = "deliveryAddressLabel1";
             deliveryAddressLabel1.Size = new System.Drawing.Size(119, 17);
             deliveryAddressLabel1.TabIndex = 5;
@@ -473,7 +480,7 @@ namespace QWS_Local
             // materialLabel1
             // 
             materialLabel1.AutoSize = true;
-            materialLabel1.Location = new System.Drawing.Point(72, 121);
+            materialLabel1.Location = new System.Drawing.Point(72, 150);
             materialLabel1.Name = "materialLabel1";
             materialLabel1.Size = new System.Drawing.Size(62, 17);
             materialLabel1.TabIndex = 11;
@@ -812,11 +819,11 @@ namespace QWS_Local
             this.tpDetails.Controls.Add(deliveryDateLabel);
             this.tpDetails.Controls.Add(docNumLabel);
             this.tpDetails.Controls.Add(this.docNumTextBox);
-            this.tpDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpDetails.Location = new System.Drawing.Point(4, 25);
             this.tpDetails.Margin = new System.Windows.Forms.Padding(4);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(4);
-            this.tpDetails.Size = new System.Drawing.Size(1353, 389);
+            this.tpDetails.Size = new System.Drawing.Size(1353, 386);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -1011,9 +1018,9 @@ namespace QWS_Local
             this.tpTruckConfig.Controls.Add(this.textBox1);
             this.tpTruckConfig.Controls.Add(this.dataGridView3);
             this.tpTruckConfig.Controls.Add(this.btnSetTruckConfig);
-            this.tpTruckConfig.Location = new System.Drawing.Point(4, 25);
+            this.tpTruckConfig.Location = new System.Drawing.Point(4, 22);
             this.tpTruckConfig.Name = "tpTruckConfig";
-            this.tpTruckConfig.Size = new System.Drawing.Size(1353, 386);
+            this.tpTruckConfig.Size = new System.Drawing.Size(1353, 389);
             this.tpTruckConfig.TabIndex = 3;
             this.tpTruckConfig.Text = "Truck Config";
             this.tpTruckConfig.UseVisualStyleBackColor = true;
@@ -1131,6 +1138,11 @@ namespace QWS_Local
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.contactMobileTextBox1);
+            this.groupBox2.Controls.Add(contactNameLabel1);
+            this.groupBox2.Controls.Add(this.contactNameTextBox1);
+            this.groupBox2.Controls.Add(cartageLabel1);
+            this.groupBox2.Controls.Add(this.cartageTextBox1);
             this.groupBox2.Controls.Add(materialLabel1);
             this.groupBox2.Controls.Add(this.materialTextBox1);
             this.groupBox2.Controls.Add(this.materialDescTextBox);
@@ -1144,7 +1156,7 @@ namespace QWS_Local
             this.groupBox2.Controls.Add(this.customerTextBox1);
             this.groupBox2.Location = new System.Drawing.Point(11, 20);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(548, 197);
+            this.groupBox2.Size = new System.Drawing.Size(564, 223);
             this.groupBox2.TabIndex = 113;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Customer / Order Summary";
@@ -1152,7 +1164,7 @@ namespace QWS_Local
             // materialTextBox1
             // 
             this.materialTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Material", true));
-            this.materialTextBox1.Location = new System.Drawing.Point(439, 118);
+            this.materialTextBox1.Location = new System.Drawing.Point(439, 147);
             this.materialTextBox1.Name = "materialTextBox1";
             this.materialTextBox1.ReadOnly = true;
             this.materialTextBox1.Size = new System.Drawing.Size(81, 23);
@@ -1161,7 +1173,7 @@ namespace QWS_Local
             // materialDescTextBox
             // 
             this.materialDescTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "MaterialDesc", true));
-            this.materialDescTextBox.Location = new System.Drawing.Point(143, 118);
+            this.materialDescTextBox.Location = new System.Drawing.Point(143, 147);
             this.materialDescTextBox.Name = "materialDescTextBox";
             this.materialDescTextBox.ReadOnly = true;
             this.materialDescTextBox.Size = new System.Drawing.Size(290, 23);
@@ -1170,7 +1182,7 @@ namespace QWS_Local
             // cartageCodeTextBox1
             // 
             this.cartageCodeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "CartageCode", true));
-            this.cartageCodeTextBox1.Location = new System.Drawing.Point(439, 147);
+            this.cartageCodeTextBox1.Location = new System.Drawing.Point(439, 176);
             this.cartageCodeTextBox1.Name = "cartageCodeTextBox1";
             this.cartageCodeTextBox1.ReadOnly = true;
             this.cartageCodeTextBox1.Size = new System.Drawing.Size(81, 23);
@@ -1179,7 +1191,7 @@ namespace QWS_Local
             // deliveryAddressTextBox1
             // 
             this.deliveryAddressTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "DeliveryAddress", true));
-            this.deliveryAddressTextBox1.Location = new System.Drawing.Point(143, 89);
+            this.deliveryAddressTextBox1.Location = new System.Drawing.Point(143, 118);
             this.deliveryAddressTextBox1.Name = "deliveryAddressTextBox1";
             this.deliveryAddressTextBox1.ReadOnly = true;
             this.deliveryAddressTextBox1.Size = new System.Drawing.Size(377, 23);
@@ -1231,7 +1243,7 @@ namespace QWS_Local
             this.groupBox1.Controls.Add(tareLabel);
             this.groupBox1.Location = new System.Drawing.Point(581, 20);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(382, 197);
+            this.groupBox1.Size = new System.Drawing.Size(382, 223);
             this.groupBox1.TabIndex = 112;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Payload";
@@ -1410,6 +1422,51 @@ namespace QWS_Local
             this.tableAdapterManager3.TIQTableAdapter = this.taTIQ2;
             this.tableAdapterManager3.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // cartageLabel1
+            // 
+            cartageLabel1.AutoSize = true;
+            cartageLabel1.Location = new System.Drawing.Point(75, 179);
+            cartageLabel1.Name = "cartageLabel1";
+            cartageLabel1.Size = new System.Drawing.Size(62, 17);
+            cartageLabel1.TabIndex = 12;
+            cartageLabel1.Text = "Cartage:";
+            // 
+            // cartageTextBox1
+            // 
+            this.cartageTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "Cartage", true));
+            this.cartageTextBox1.Location = new System.Drawing.Point(143, 176);
+            this.cartageTextBox1.Name = "cartageTextBox1";
+            this.cartageTextBox1.ReadOnly = true;
+            this.cartageTextBox1.Size = new System.Drawing.Size(290, 23);
+            this.cartageTextBox1.TabIndex = 13;
+            // 
+            // contactNameLabel1
+            // 
+            contactNameLabel1.AutoSize = true;
+            contactNameLabel1.Location = new System.Drawing.Point(36, 92);
+            contactNameLabel1.Name = "contactNameLabel1";
+            contactNameLabel1.Size = new System.Drawing.Size(101, 17);
+            contactNameLabel1.TabIndex = 13;
+            contactNameLabel1.Text = "Contact Name:";
+            // 
+            // contactNameTextBox1
+            // 
+            this.contactNameTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "ContactName", true));
+            this.contactNameTextBox1.Location = new System.Drawing.Point(143, 89);
+            this.contactNameTextBox1.Name = "contactNameTextBox1";
+            this.contactNameTextBox1.ReadOnly = true;
+            this.contactNameTextBox1.Size = new System.Drawing.Size(290, 23);
+            this.contactNameTextBox1.TabIndex = 14;
+            // 
+            // contactMobileTextBox1
+            // 
+            this.contactMobileTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDeliveryOrders, "ContactMobile", true));
+            this.contactMobileTextBox1.Location = new System.Drawing.Point(439, 89);
+            this.contactMobileTextBox1.Name = "contactMobileTextBox1";
+            this.contactMobileTextBox1.ReadOnly = true;
+            this.contactMobileTextBox1.Size = new System.Drawing.Size(81, 23);
+            this.contactMobileTextBox1.TabIndex = 16;
+            // 
             // BookInDelivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1557,5 +1614,8 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox customerTextBox1;
         private System.Windows.Forms.TextBox nHVR_NetworkTextBox;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox contactMobileTextBox1;
+        private System.Windows.Forms.TextBox contactNameTextBox1;
+        private System.Windows.Forms.TextBox cartageTextBox1;
     }
 }

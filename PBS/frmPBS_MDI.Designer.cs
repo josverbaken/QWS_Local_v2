@@ -39,11 +39,12 @@
             this.businessPlusPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trucksInQuarryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bookInTruckStep1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deliveryOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bookInTruckStep1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cascadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tIQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +53,8 @@
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.form1ToolStripMenuItem,
-            this.windowsToolStripMenuItem});
+            this.windowsToolStripMenuItem,
+            this.tIQToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MdiWindowListItem = this.windowsToolStripMenuItem;
             this.menuStrip1.Name = "menuStrip1";
@@ -142,19 +144,19 @@
             this.trucksInQuarryToolStripMenuItem.Text = "TrucksInQuarry";
             this.trucksInQuarryToolStripMenuItem.Click += new System.EventHandler(this.trucksInQuarryToolStripMenuItem_Click);
             // 
-            // bookInTruckStep1ToolStripMenuItem
-            // 
-            this.bookInTruckStep1ToolStripMenuItem.Name = "bookInTruckStep1ToolStripMenuItem";
-            this.bookInTruckStep1ToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
-            this.bookInTruckStep1ToolStripMenuItem.Text = "BookInTruckStep1";
-            this.bookInTruckStep1ToolStripMenuItem.Click += new System.EventHandler(this.bookInTruckStep1ToolStripMenuItem_Click);
-            // 
             // deliveryOrdersToolStripMenuItem
             // 
             this.deliveryOrdersToolStripMenuItem.Name = "deliveryOrdersToolStripMenuItem";
             this.deliveryOrdersToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
             this.deliveryOrdersToolStripMenuItem.Text = "Delivery Orders";
             this.deliveryOrdersToolStripMenuItem.Click += new System.EventHandler(this.deliveryOrdersToolStripMenuItem_Click);
+            // 
+            // bookInTruckStep1ToolStripMenuItem
+            // 
+            this.bookInTruckStep1ToolStripMenuItem.Name = "bookInTruckStep1ToolStripMenuItem";
+            this.bookInTruckStep1ToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
+            this.bookInTruckStep1ToolStripMenuItem.Text = "BookInTruckStep1";
+            this.bookInTruckStep1ToolStripMenuItem.Click += new System.EventHandler(this.bookInTruckStep1ToolStripMenuItem_Click);
             // 
             // windowsToolStripMenuItem
             // 
@@ -177,6 +179,13 @@
             this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.closeAllToolStripMenuItem.Text = "Close All";
             // 
+            // tIQToolStripMenuItem
+            // 
+            this.tIQToolStripMenuItem.Name = "tIQToolStripMenuItem";
+            this.tIQToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.tIQToolStripMenuItem.Text = "TIQ";
+            this.tIQToolStripMenuItem.Click += new System.EventHandler(this.tIQToolStripMenuItem_Click);
+            // 
             // frmPBS_MDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -190,6 +199,7 @@
             this.Name = "frmPBS_MDI";
             this.Text = "QWS PBS Module";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmPBS_MDI_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -215,6 +225,7 @@
         private System.Windows.Forms.ToolStripMenuItem trucksInQuarryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bookInTruckStep1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deliveryOrdersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tIQToolStripMenuItem;
     }
 }
 
