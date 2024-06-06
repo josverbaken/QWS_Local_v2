@@ -101,11 +101,14 @@ namespace QWS_Local
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 if (iRow == 1)
                 {
-                    TrucksInQuarry frmTIQ = new TrucksInQuarry();
-                    frmTIQ.MdiParent = this.MdiParent;
-                    frmTIQ.RefreshQueue();
-                    frmTIQ.Show();
-                    frmTIQ.ClearTIQ(); // sequence is important
+                    //QWS_MDIParent myParent = this.MdiParent();
+                    ((QWS_MDIParent)this.MdiParent).BringTIQ2Front();
+
+                    //TrucksInQuarry frmTIQ = new TrucksInQuarry();
+                    //frmTIQ.MdiParent = this.MdiParent;
+                    //frmTIQ.RefreshQueue();
+                    //frmTIQ.Show();
+                    //frmTIQ.ClearTIQ(); // sequence is important
                 }
                 this.Close();
             }

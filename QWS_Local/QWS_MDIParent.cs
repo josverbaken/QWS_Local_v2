@@ -106,8 +106,14 @@ namespace QWS_Local
 
         private void closeAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Close all children except TrucksInQuarry
-            MessageBox.Show("Close all children except TrucksInQuarry.");
+            for (int x = 0; x < this.MdiChildren.Length; x++)
+            {
+                Form tempChild = (Form)this.MdiChildren[x];
+                if (tempChild.Name != "TrucksInQuarry")
+                {
+                    this.MdiChildren[x].Close();
+                }
+            }
         }
 
         private void vehicleMaintenanceToolStripMenuItem_Click(object sender, EventArgs e)
