@@ -17,7 +17,7 @@ namespace QWS_Local
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PBSMaintenance());
+            Application.Run(new QWS_MDIParent());
         }
     }
 }

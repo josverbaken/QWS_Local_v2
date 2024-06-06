@@ -277,6 +277,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QWS_MDIParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QWS_MDIParent.Designer.cs">
+      <DependentUpon>QWS_MDIParent.cs</DependentUpon>
+    </Compile>
     <Compile Include="SplitLoadType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -387,6 +393,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="QWS_MDIParent.resx">
+      <DependentUpon>QWS_MDIParent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SplitLoadType.resx">
       <DependentUpon>SplitLoadType.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30517.126
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QWS_Local", "QWS_Local\QWS_Local.csproj", "{9FD1BC75-EAC1-428C-BE3C-9439B58ECAFA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QWS_PBS", "PBS\QWS_PBS.csproj", "{F66191EC-76AF-4C6B-8BEB-C2E3CB159699}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{4AD6549A-406F-43A1-969C-CA594FADBB8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{F66191EC-76AF-4C6B-8BEB-C2E3CB159699}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F66191EC-76AF-4C6B-8BEB-C2E3CB159699}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F66191EC-76AF-4C6B-8BEB-C2E3CB159699}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4AD6549A-406F-43A1-969C-CA594FADBB8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4AD6549A-406F-43A1-969C-CA594FADBB8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4AD6549A-406F-43A1-969C-CA594FADBB8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4AD6549A-406F-43A1-969C-CA594FADBB8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
