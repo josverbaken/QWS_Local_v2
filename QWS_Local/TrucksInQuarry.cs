@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,7 @@ namespace QWS_Local
         {
             dataGridView1.ClearSelection();
             txtRego.Clear();
+            pictureBox1.Image = null;   
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -217,6 +219,11 @@ namespace QWS_Local
                     string AxleConfig = CurrentTIQ().AxleConfiguration;
                     SyncAxleConfig(AxleConfig);
                     txtRego.Text = CurrentTIQ().Rego;
+                    // also load associated picture from bsAxleConfig
+                    DataRow myRow = ((DataRowView)bsAxleConfig.Current).Row;
+                    dsQWSLocal.AxleConfigurationRow myAxleConfigRow = (dsQWSLocal.AxleConfigurationRow)myRow;
+                    MemoryStream ms = new MemoryStream((byte[])myAxleConfigRow.Schematic);
+                    pictureBox1.Image = new Bitmap(ms);
                 }
             }
             catch (Exception ex)
