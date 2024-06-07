@@ -269,6 +269,12 @@
     <Compile Include="PBSMaintenance.Designer.cs">
       <DependentUpon>PBSMaintenance.cs</DependentUpon>
     </Compile>
+    <Compile Include="PostDocket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PostDocket.Designer.cs">
+      <DependentUpon>PostDocket.cs</DependentUpon>
+    </Compile>
     <Compile Include="PreferredCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -337,6 +343,12 @@
     <Compile Include="VehicleMaintenance.Designer.cs">
       <DependentUpon>VehicleMaintenance.cs</DependentUpon>
     </Compile>
+    <Compile Include="WeighTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WeighTruck.Designer.cs">
+      <DependentUpon>WeighTruck.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AxleConfigurationSearch.resx">
       <DependentUpon>AxleConfigurationSearch.cs</DependentUpon>
     </EmbeddedResource>
@@ -378,6 +390,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PBSMaintenance.resx">
       <DependentUpon>PBSMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PostDocket.resx">
+      <DependentUpon>PostDocket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PreferredCustomers.resx">
       <DependentUpon>PreferredCustomers.cs</DependentUpon>
@@ -422,6 +437,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VehicleMaintenance.resx">
       <DependentUpon>VehicleMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeighTruck.resx">
+      <DependentUpon>WeighTruck.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="dsBookIn.xsc">
       <DependentUpon>dsBookIn.xsd</DependentUpon>

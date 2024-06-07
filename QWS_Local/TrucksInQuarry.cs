@@ -241,28 +241,62 @@ namespace QWS_Local
         {
             if (dataGridView1.SelectedRows.Count == 1) 
             {
-                //okay to proceed
-                if (rbManual.Checked)
+                WeighTruck frmWeighTruck = new WeighTruck();
+                DialogResult dr = frmWeighTruck.ShowDialog();
+                if (dr == DialogResult.OK)
                 {
-                    if(mtxtWeight.Text.Length == 3) // __._
-                        // TODO consider parsing and checking value between 2 - 90 t
+                    //MessageBox.Show("Weight accepted.");
+                    if (ConfirmPostDocket())
                     {
-                        MessageBox.Show("Please enter weight as displayed on console.");
+                        PostDocket();
                     }
                     else
                     {
-                        MessageBox.Show("Manually captured weight = " + mtxtWeight.Text);
+                        MessageBox.Show("Post docket - cancelled!");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Captured weight = ");
+                    MessageBox.Show("Weighing cancelled!");
                 }
+                //okay to proceed
+                //if (rbManual.Checked)
+                //{
+                //    if(mtxtWeight.Text.Length == 3) // __._
+                //        // TODO consider parsing and checking value between 2 - 90 t
+                //    {
+                //        MessageBox.Show("Please enter weight as displayed on console.");
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("Manually captured weight = " + mtxtWeight.Text);
+                //    }
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Captured weight = ");
+                //}
             }
             else
             {
                 MessageBox.Show("Please select a truck to weigh!");
             }
+        }
+
+        private bool ConfirmPostDocket()
+        {
+            PostDocket frmPostDocket = new PostDocket();
+            DialogResult dr = frmPostDocket.ShowDialog();
+            if (dr == DialogResult.OK )
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void PostDocket()
+        {
+
         }
     }
 }
