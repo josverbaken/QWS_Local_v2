@@ -47,7 +47,7 @@ namespace QWS_Local
             System.Windows.Forms.Label gVMTruckLabel;
             System.Windows.Forms.Label materialLabel;
             System.Windows.Forms.Label schemeCodeLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.button5 = new System.Windows.Forms.Button();
@@ -55,22 +55,19 @@ namespace QWS_Local
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.btnTINRemove = new System.Windows.Forms.Button();
             this.btnWeigh = new System.Windows.Forms.Button();
             this.btnAddVehicle = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnTINReleaseHold = new System.Windows.Forms.Button();
-            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.mtxtWeight = new System.Windows.Forms.MaskedTextBox();
             this.rbManual = new System.Windows.Forms.RadioButton();
             this.rbAuto = new System.Windows.Forms.RadioButton();
-            this.regoTextBox1 = new System.Windows.Forms.TextBox();
+            this.txtRego = new System.Windows.Forms.TextBox();
+            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bsAxleConfig = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
@@ -114,6 +111,9 @@ namespace QWS_Local
             this.roadAccessTextBox = new System.Windows.Forms.TextBox();
             this.sAPOrderTextBox = new System.Windows.Forms.TextBox();
             this.queueStatusTextBox = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taAxleConfig = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
@@ -144,9 +144,9 @@ namespace QWS_Local
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
@@ -348,7 +348,7 @@ namespace QWS_Local
             this.splitContainer2.Panel1.Controls.Add(this.textBox2);
             this.splitContainer2.Panel1.Controls.Add(this.btnTINReleaseHold);
             this.splitContainer2.Panel1.Controls.Add(this.groupBox1);
-            this.splitContainer2.Panel1.Controls.Add(this.regoTextBox1);
+            this.splitContainer2.Panel1.Controls.Add(this.txtRego);
             this.splitContainer2.Panel1.Controls.Add(this.pictureBox1);
             this.splitContainer2.Panel1.Controls.Add(this.btnTINRefresh);
             // 
@@ -365,7 +365,7 @@ namespace QWS_Local
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(919, 287);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(86, 49);
             this.button5.TabIndex = 54;
@@ -421,48 +421,6 @@ namespace QWS_Local
             this.maskedTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.maskedTextBox3.Visible = false;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(17, 598);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 49);
-            this.button1.TabIndex = 51;
-            this.button1.Text = "info";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(17, 490);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(86, 49);
-            this.button2.TabIndex = 52;
-            this.button2.Text = "down";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(17, 418);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(86, 49);
-            this.button3.TabIndex = 53;
-            this.button3.Text = "up";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.Color.PeachPuff;
@@ -479,7 +437,7 @@ namespace QWS_Local
             this.btnTINRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTINRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTINRemove.Location = new System.Drawing.Point(753, 287);
-            this.btnTINRemove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTINRemove.Margin = new System.Windows.Forms.Padding(4);
             this.btnTINRemove.Name = "btnTINRemove";
             this.btnTINRemove.Size = new System.Drawing.Size(114, 49);
             this.btnTINRemove.TabIndex = 63;
@@ -493,7 +451,7 @@ namespace QWS_Local
             this.btnWeigh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWeigh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWeigh.Location = new System.Drawing.Point(265, 287);
-            this.btnWeigh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnWeigh.Margin = new System.Windows.Forms.Padding(4);
             this.btnWeigh.Name = "btnWeigh";
             this.btnWeigh.Size = new System.Drawing.Size(114, 49);
             this.btnWeigh.TabIndex = 62;
@@ -507,7 +465,7 @@ namespace QWS_Local
             this.btnAddVehicle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddVehicle.Location = new System.Drawing.Point(659, 287);
-            this.btnAddVehicle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddVehicle.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddVehicle.Name = "btnAddVehicle";
             this.btnAddVehicle.Size = new System.Drawing.Size(86, 49);
             this.btnAddVehicle.TabIndex = 50;
@@ -531,23 +489,12 @@ namespace QWS_Local
             this.btnTINReleaseHold.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTINReleaseHold.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTINReleaseHold.Location = new System.Drawing.Point(417, 287);
-            this.btnTINReleaseHold.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTINReleaseHold.Margin = new System.Windows.Forms.Padding(4);
             this.btnTINReleaseHold.Name = "btnTINReleaseHold";
             this.btnTINReleaseHold.Size = new System.Drawing.Size(178, 49);
             this.btnTINReleaseHold.TabIndex = 60;
             this.btnTINReleaseHold.Text = "Release/Hold";
             this.btnTINReleaseHold.UseVisualStyleBackColor = false;
-            // 
-            // bsTIQ2
-            // 
-            this.bsTIQ2.DataMember = "TIQ";
-            this.bsTIQ2.DataSource = this.dsTIQ2;
-            this.bsTIQ2.CurrentChanged += new System.EventHandler(this.bsTIQ2_CurrentChanged);
-            // 
-            // dsTIQ2
-            // 
-            this.dsTIQ2.DataSetName = "dsTIQ2";
-            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // groupBox1
             // 
@@ -592,15 +539,25 @@ namespace QWS_Local
             this.rbAuto.Text = "Auto";
             this.rbAuto.UseVisualStyleBackColor = true;
             // 
-            // regoTextBox1
+            // txtRego
             // 
-            this.regoTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Rego", true));
-            this.regoTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.regoTextBox1.Location = new System.Drawing.Point(12, 17);
-            this.regoTextBox1.Name = "regoTextBox1";
-            this.regoTextBox1.Size = new System.Drawing.Size(450, 32);
-            this.regoTextBox1.TabIndex = 57;
-            this.regoTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtRego.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRego.Location = new System.Drawing.Point(12, 17);
+            this.txtRego.Name = "txtRego";
+            this.txtRego.Size = new System.Drawing.Size(450, 32);
+            this.txtRego.TabIndex = 57;
+            this.txtRego.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // bsTIQ2
+            // 
+            this.bsTIQ2.DataMember = "TIQ";
+            this.bsTIQ2.DataSource = this.dsTIQ2;
+            this.bsTIQ2.CurrentChanged += new System.EventHandler(this.bsTIQ2_CurrentChanged);
+            // 
+            // dsTIQ2
+            // 
+            this.dsTIQ2.DataSetName = "dsTIQ2";
+            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // pictureBox1
             // 
@@ -628,7 +585,7 @@ namespace QWS_Local
             this.btnTINRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTINRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTINRefresh.Location = new System.Drawing.Point(33, 287);
-            this.btnTINRefresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTINRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnTINRefresh.Name = "btnTINRefresh";
             this.btnTINRefresh.Size = new System.Drawing.Size(114, 49);
             this.btnTINRefresh.TabIndex = 54;
@@ -652,7 +609,7 @@ namespace QWS_Local
             this.tpList.Controls.Add(this.dataGridView1);
             this.tpList.Location = new System.Drawing.Point(4, 29);
             this.tpList.Name = "tpList";
-            this.tpList.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpList.Padding = new System.Windows.Forms.Padding(3);
             this.tpList.Size = new System.Drawing.Size(1072, 308);
             this.tpList.TabIndex = 0;
             this.tpList.Text = "List";
@@ -697,9 +654,9 @@ namespace QWS_Local
             // releaseDTTMDataGridViewTextBoxColumn
             // 
             this.releaseDTTMDataGridViewTextBoxColumn.DataPropertyName = "ReleaseDTTM";
-            dataGridViewCellStyle2.Format = "HH:mm";
-            dataGridViewCellStyle2.NullValue = null;
-            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Format = "HH:mm";
+            dataGridViewCellStyle1.NullValue = null;
+            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.releaseDTTMDataGridViewTextBoxColumn.HeaderText = "Release";
             this.releaseDTTMDataGridViewTextBoxColumn.Name = "releaseDTTMDataGridViewTextBoxColumn";
             this.releaseDTTMDataGridViewTextBoxColumn.ReadOnly = true;
@@ -822,10 +779,10 @@ namespace QWS_Local
             this.tpDetails.Controls.Add(this.sAPOrderTextBox);
             this.tpDetails.Controls.Add(this.queueStatusTextBox);
             this.tpDetails.Controls.Add(entryDTTMLabel);
-            this.tpDetails.Location = new System.Drawing.Point(4, 29);
+            this.tpDetails.Location = new System.Drawing.Point(4, 22);
             this.tpDetails.Name = "tpDetails";
-            this.tpDetails.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tpDetails.Size = new System.Drawing.Size(1072, 308);
+            this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
+            this.tpDetails.Size = new System.Drawing.Size(1072, 315);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -1039,6 +996,48 @@ namespace QWS_Local
             this.queueStatusTextBox.TabIndex = 5;
             this.queueStatusTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(17, 598);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(86, 49);
+            this.button1.TabIndex = 51;
+            this.button1.Text = "info";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(17, 490);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(86, 49);
+            this.button2.TabIndex = 52;
+            this.button2.Text = "down";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(17, 418);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(86, 49);
+            this.button3.TabIndex = 53;
+            this.button3.Text = "up";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.AxleConfigurationTableAdapter = null;
@@ -1078,11 +1077,13 @@ namespace QWS_Local
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "TrucksInQuarry";
             this.Text = "Trucks In Quarry";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TrucksInQuarry_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -1095,10 +1096,10 @@ namespace QWS_Local
             this.splitContainer2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
@@ -1138,7 +1139,7 @@ namespace QWS_Local
         private System.Windows.Forms.MaskedTextBox mtxtWeight;
         private System.Windows.Forms.RadioButton rbManual;
         private System.Windows.Forms.RadioButton rbAuto;
-        private System.Windows.Forms.TextBox regoTextBox1;
+        private System.Windows.Forms.TextBox txtRego;
         private System.Windows.Forms.Button btnTINRemove;
         private System.Windows.Forms.Button btnWeigh;
         private System.Windows.Forms.TextBox textBox2;

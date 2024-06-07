@@ -19,6 +19,7 @@ namespace QWS_Local
 
         private void QWS_MDIParent_Load(object sender, EventArgs e)
         {
+            this.Size = new Size(1400, 800);
             TrucksInQuarry frmTIQ = new TrucksInQuarry();
             frmTIQ.MdiParent = this;
             frmTIQ.Show();
@@ -94,6 +95,7 @@ namespace QWS_Local
                 Form tempChild = (Form)this.MdiChildren[x];
                 if (tempChild.Name == "TrucksInQuarry")
                 {
+                    ((TrucksInQuarry)this.MdiChildren[x]).RefreshQueue();
                     this.MdiChildren[x].BringToFront();
                 }
             }

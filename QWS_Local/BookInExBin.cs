@@ -181,7 +181,9 @@ namespace QWS_Local
                     //TrucksInQuarry frmTIQ = new TrucksInQuarry();
                     //frmTIQ.MdiParent = this.MdiParent;
                     //frmTIQ.Show();
-                    MessageBox.Show("TODO - swap to TrucksInQuarry form");
+                    ((QWS_MDIParent)this.MdiParent).BringTIQ2Front();
+                    // TODO how to refresh?
+                    //MessageBox.Show("TODO - swap to TrucksInQuarry form");
                     //foreach 
                     //if (TrucksInQuarry)
                     //this.MdiParent.BringTIQ2Front();

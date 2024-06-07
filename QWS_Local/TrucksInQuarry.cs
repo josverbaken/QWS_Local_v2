@@ -29,6 +29,7 @@ namespace QWS_Local
         public void ClearTIQ()
         {
             dataGridView1.ClearSelection();
+            txtRego.Clear();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -215,6 +216,7 @@ namespace QWS_Local
                 {
                     string AxleConfig = CurrentTIQ().AxleConfiguration;
                     SyncAxleConfig(AxleConfig);
+                    txtRego.Text = CurrentTIQ().Rego;
                 }
             }
             catch (Exception ex)
