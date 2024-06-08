@@ -48,6 +48,8 @@ namespace QWS_Local
             System.Windows.Forms.Label materialLabel;
             System.Windows.Forms.Label schemeCodeLabel;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label docNumLabel;
+            System.Windows.Forms.Label docketLineLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.button5 = new System.Windows.Forms.Button();
@@ -118,6 +120,12 @@ namespace QWS_Local
             this.taAxleConfig = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
+            this.bsWBDockets = new System.Windows.Forms.BindingSource(this.components);
+            this.taWBDockets = new QWS_Local.dsTIQ2TableAdapters.WBDocketsTableAdapter();
+            this.docNumTextBox = new System.Windows.Forms.TextBox();
+            this.bsWBDocketLines = new System.Windows.Forms.BindingSource(this.components);
+            this.taWBDocketLines = new QWS_Local.dsTIQ2TableAdapters.WBDocketLinesTableAdapter();
+            this.docketLineTextBox = new System.Windows.Forms.TextBox();
             entryDTTMLabel = new System.Windows.Forms.Label();
             sAPOrderLabel = new System.Windows.Forms.Label();
             roadAccessLabel = new System.Windows.Forms.Label();
@@ -135,6 +143,8 @@ namespace QWS_Local
             gVMTruckLabel = new System.Windows.Forms.Label();
             materialLabel = new System.Windows.Forms.Label();
             schemeCodeLabel = new System.Windows.Forms.Label();
+            docNumLabel = new System.Windows.Forms.Label();
+            docketLineLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -154,6 +164,8 @@ namespace QWS_Local
             this.tpDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsWBDockets)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsWBDocketLines)).BeginInit();
             this.SuspendLayout();
             // 
             // entryDTTMLabel
@@ -339,6 +351,10 @@ namespace QWS_Local
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
             this.splitContainer2.Panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.splitContainer2.Panel1.Controls.Add(docketLineLabel);
+            this.splitContainer2.Panel1.Controls.Add(this.docketLineTextBox);
+            this.splitContainer2.Panel1.Controls.Add(docNumLabel);
+            this.splitContainer2.Panel1.Controls.Add(this.docNumTextBox);
             this.splitContainer2.Panel1.Controls.Add(this.button5);
             this.splitContainer2.Panel1.Controls.Add(this.groupBox2);
             this.splitContainer2.Panel1.Controls.Add(this.textBox3);
@@ -1071,6 +1087,60 @@ namespace QWS_Local
             this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager1.TIQTableAdapter = this.taTIQ2;
             this.tableAdapterManager1.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager1.WBDocketLinesTableAdapter = null;
+            this.tableAdapterManager1.WBDocketsTableAdapter = null;
+            // 
+            // bsWBDockets
+            // 
+            this.bsWBDockets.DataMember = "WBDockets";
+            this.bsWBDockets.DataSource = this.dsTIQ2;
+            // 
+            // taWBDockets
+            // 
+            this.taWBDockets.ClearBeforeFill = true;
+            // 
+            // docNumLabel
+            // 
+            docNumLabel.AutoSize = true;
+            docNumLabel.Location = new System.Drawing.Point(551, 157);
+            docNumLabel.Name = "docNumLabel";
+            docNumLabel.Size = new System.Drawing.Size(79, 20);
+            docNumLabel.TabIndex = 65;
+            docNumLabel.Text = "Doc Num:";
+            // 
+            // docNumTextBox
+            // 
+            this.docNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "DocNum", true));
+            this.docNumTextBox.Location = new System.Drawing.Point(636, 154);
+            this.docNumTextBox.Name = "docNumTextBox";
+            this.docNumTextBox.Size = new System.Drawing.Size(100, 26);
+            this.docNumTextBox.TabIndex = 66;
+            // 
+            // bsWBDocketLines
+            // 
+            this.bsWBDocketLines.DataMember = "WBDocketLines";
+            this.bsWBDocketLines.DataSource = this.dsTIQ2;
+            // 
+            // taWBDocketLines
+            // 
+            this.taWBDocketLines.ClearBeforeFill = true;
+            // 
+            // docketLineLabel
+            // 
+            docketLineLabel.AutoSize = true;
+            docketLineLabel.Location = new System.Drawing.Point(548, 122);
+            docketLineLabel.Name = "docketLineLabel";
+            docketLineLabel.Size = new System.Drawing.Size(98, 20);
+            docketLineLabel.TabIndex = 66;
+            docketLineLabel.Text = "Docket Line:";
+            // 
+            // docketLineTextBox
+            // 
+            this.docketLineTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDocketLines, "DocketLine", true));
+            this.docketLineTextBox.Location = new System.Drawing.Point(652, 119);
+            this.docketLineTextBox.Name = "docketLineTextBox";
+            this.docketLineTextBox.Size = new System.Drawing.Size(100, 26);
+            this.docketLineTextBox.TabIndex = 67;
             // 
             // TrucksInQuarry
             // 
@@ -1108,6 +1178,8 @@ namespace QWS_Local
             this.tpDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsWBDockets)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsWBDocketLines)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1184,5 +1256,11 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn TruckOwner;
         private System.Windows.Forms.DataGridViewTextBoxColumn materialDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CartageCode;
+        private System.Windows.Forms.BindingSource bsWBDockets;
+        private dsTIQ2TableAdapters.WBDocketsTableAdapter taWBDockets;
+        private System.Windows.Forms.TextBox docNumTextBox;
+        private System.Windows.Forms.BindingSource bsWBDocketLines;
+        private dsTIQ2TableAdapters.WBDocketLinesTableAdapter taWBDocketLines;
+        private System.Windows.Forms.TextBox docketLineTextBox;
     }
 }
