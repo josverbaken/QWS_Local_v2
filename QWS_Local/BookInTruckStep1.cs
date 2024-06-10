@@ -292,6 +292,7 @@ namespace QWS_Local
         {
             string myRego = CurrentConfigTruck().RegoTk;
             PreferredCustomers frmPrefCust = new PreferredCustomers(myRego);
+            frmPrefCust.StartPosition = FormStartPosition.CenterParent;
             DialogResult dr = frmPrefCust.ShowDialog();
             if (dr == DialogResult.OK)
             {

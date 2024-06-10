@@ -41,6 +41,8 @@ namespace QWS_Local
             LoadDriver();
             ExBinOrdersLoad(CardCode);
             label1.Text = "Customer  = " + CardCode + " " + CustomerName;
+            // format decimal text boxes
+            //txtQuantity.fo
         }
 
         private void ExBinOrdersLoad(string CardCode)
@@ -224,6 +226,34 @@ namespace QWS_Local
             {//get details
 
             }
+        }
+
+        private void btnRefreshOrders_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSetExBinOrder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bsExBinOrders_CurrentChanged(object sender, EventArgs e)
+        {
+            TextBoxFormatDecial();
+        }
+
+        private void TextBoxFormatDecial()
+        {
+            if (bsExBinOrders.Count > 0)
+            {
+                txtQuantity.Text = CurrentExBinOrder().Quantity.ToString("#.00");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            TextBoxFormatDecial();
         }
     }
 }

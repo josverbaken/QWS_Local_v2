@@ -56,14 +56,27 @@ namespace QWS_Local
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label7;
+            System.Windows.Forms.Label docNumLabel1;
+            System.Windows.Forms.Label deliveryDateLabel1;
+            System.Windows.Forms.Label customerLabel1;
+            System.Windows.Forms.Label purchaseOrderLabel1;
+            System.Windows.Forms.Label orderStatusLabel1;
+            System.Windows.Forms.Label contactNameLabel1;
+            System.Windows.Forms.Label materialLabel1;
+            System.Windows.Forms.Label itemQALabel1;
+            System.Windows.Forms.Label deliveryAddressLabel;
+            System.Windows.Forms.Label quantityLabel1;
+            System.Windows.Forms.Label suppliedLabel1;
+            System.Windows.Forms.Label openQtyLabel1;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.mobTextBox = new System.Windows.Forms.TextBox();
             this.bsDriver = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.personTextBox = new System.Windows.Forms.TextBox();
-            this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.ownerTextBox = new System.Windows.Forms.TextBox();
             this.regoTkTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -120,6 +133,21 @@ namespace QWS_Local
             this.cardCodeTextBox = new System.Windows.Forms.TextBox();
             this.docNumTextBox = new System.Windows.Forms.TextBox();
             this.tpOrderDetails = new System.Windows.Forms.TabPage();
+            this.txtOpenQty = new System.Windows.Forms.TextBox();
+            this.txtSupplied = new System.Windows.Forms.TextBox();
+            this.txtQuantity = new System.Windows.Forms.TextBox();
+            this.deliveryAddressTextBox = new System.Windows.Forms.TextBox();
+            this.itemQATextBox1 = new System.Windows.Forms.TextBox();
+            this.materialCodeTextBox1 = new System.Windows.Forms.TextBox();
+            this.materialTextBox1 = new System.Windows.Forms.TextBox();
+            this.contactMobileTextBox1 = new System.Windows.Forms.TextBox();
+            this.contactNameTextBox1 = new System.Windows.Forms.TextBox();
+            this.orderStatusTextBox1 = new System.Windows.Forms.TextBox();
+            this.purchaseOrderTextBox1 = new System.Windows.Forms.TextBox();
+            this.cardCodeTextBox1 = new System.Windows.Forms.TextBox();
+            this.customerTextBox1 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.docNumTextBox1 = new System.Windows.Forms.TextBox();
             this.btnSetExBinOrder = new System.Windows.Forms.Button();
             this.btnRefreshOrders = new System.Windows.Forms.Button();
             this.tpExBinNoOrder = new System.Windows.Forms.TabPage();
@@ -170,7 +198,7 @@ namespace QWS_Local
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager3 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             docNumLabel = new System.Windows.Forms.Label();
             docDateLabel = new System.Windows.Forms.Label();
             cardCodeLabel = new System.Windows.Forms.Label();
@@ -197,6 +225,18 @@ namespace QWS_Local
             label5 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
+            docNumLabel1 = new System.Windows.Forms.Label();
+            deliveryDateLabel1 = new System.Windows.Forms.Label();
+            customerLabel1 = new System.Windows.Forms.Label();
+            purchaseOrderLabel1 = new System.Windows.Forms.Label();
+            orderStatusLabel1 = new System.Windows.Forms.Label();
+            contactNameLabel1 = new System.Windows.Forms.Label();
+            materialLabel1 = new System.Windows.Forms.Label();
+            itemQALabel1 = new System.Windows.Forms.Label();
+            deliveryAddressLabel = new System.Windows.Forms.Label();
+            quantityLabel1 = new System.Windows.Forms.Label();
+            suppliedLabel1 = new System.Windows.Forms.Label();
+            openQtyLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -204,10 +244,10 @@ namespace QWS_Local
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsDriver)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDriver)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel2.SuspendLayout();
@@ -471,6 +511,114 @@ namespace QWS_Local
             label7.TabIndex = 73;
             label7.Text = "Payload Split:";
             // 
+            // docNumLabel1
+            // 
+            docNumLabel1.AutoSize = true;
+            docNumLabel1.Location = new System.Drawing.Point(64, 22);
+            docNumLabel1.Name = "docNumLabel1";
+            docNumLabel1.Size = new System.Drawing.Size(70, 17);
+            docNumLabel1.TabIndex = 79;
+            docNumLabel1.Text = "Doc Num:";
+            // 
+            // deliveryDateLabel1
+            // 
+            deliveryDateLabel1.AutoSize = true;
+            deliveryDateLabel1.Location = new System.Drawing.Point(37, 52);
+            deliveryDateLabel1.Name = "deliveryDateLabel1";
+            deliveryDateLabel1.Size = new System.Drawing.Size(97, 17);
+            deliveryDateLabel1.TabIndex = 80;
+            deliveryDateLabel1.Text = "Delivery Date:";
+            // 
+            // customerLabel1
+            // 
+            customerLabel1.AutoSize = true;
+            customerLabel1.Location = new System.Drawing.Point(62, 81);
+            customerLabel1.Name = "customerLabel1";
+            customerLabel1.Size = new System.Drawing.Size(72, 17);
+            customerLabel1.TabIndex = 81;
+            customerLabel1.Text = "Customer:";
+            // 
+            // purchaseOrderLabel1
+            // 
+            purchaseOrderLabel1.AutoSize = true;
+            purchaseOrderLabel1.Location = new System.Drawing.Point(419, 52);
+            purchaseOrderLabel1.Name = "purchaseOrderLabel1";
+            purchaseOrderLabel1.Size = new System.Drawing.Size(65, 17);
+            purchaseOrderLabel1.TabIndex = 83;
+            purchaseOrderLabel1.Text = "Cust ON:";
+            // 
+            // orderStatusLabel1
+            // 
+            orderStatusLabel1.AutoSize = true;
+            orderStatusLabel1.Location = new System.Drawing.Point(391, 23);
+            orderStatusLabel1.Name = "orderStatusLabel1";
+            orderStatusLabel1.Size = new System.Drawing.Size(93, 17);
+            orderStatusLabel1.TabIndex = 84;
+            orderStatusLabel1.Text = "Order Status:";
+            // 
+            // contactNameLabel1
+            // 
+            contactNameLabel1.AutoSize = true;
+            contactNameLabel1.Location = new System.Drawing.Point(74, 110);
+            contactNameLabel1.Name = "contactNameLabel1";
+            contactNameLabel1.Size = new System.Drawing.Size(60, 17);
+            contactNameLabel1.TabIndex = 85;
+            contactNameLabel1.Text = "Contact:";
+            // 
+            // materialLabel1
+            // 
+            materialLabel1.AutoSize = true;
+            materialLabel1.Location = new System.Drawing.Point(72, 139);
+            materialLabel1.Name = "materialLabel1";
+            materialLabel1.Size = new System.Drawing.Size(62, 17);
+            materialLabel1.TabIndex = 87;
+            materialLabel1.Text = "Material:";
+            // 
+            // itemQALabel1
+            // 
+            itemQALabel1.AutoSize = true;
+            itemQALabel1.Location = new System.Drawing.Point(422, 168);
+            itemQALabel1.Name = "itemQALabel1";
+            itemQALabel1.Size = new System.Drawing.Size(62, 17);
+            itemQALabel1.TabIndex = 89;
+            itemQALabel1.Text = "Item QA:";
+            // 
+            // deliveryAddressLabel
+            // 
+            deliveryAddressLabel.AutoSize = true;
+            deliveryAddressLabel.Location = new System.Drawing.Point(8, 197);
+            deliveryAddressLabel.Name = "deliveryAddressLabel";
+            deliveryAddressLabel.Size = new System.Drawing.Size(119, 17);
+            deliveryAddressLabel.TabIndex = 90;
+            deliveryAddressLabel.Text = "Delivery Address:";
+            // 
+            // quantityLabel1
+            // 
+            quantityLabel1.AutoSize = true;
+            quantityLabel1.Location = new System.Drawing.Point(651, 110);
+            quantityLabel1.Name = "quantityLabel1";
+            quantityLabel1.Size = new System.Drawing.Size(65, 17);
+            quantityLabel1.TabIndex = 91;
+            quantityLabel1.Text = "Quantity:";
+            // 
+            // suppliedLabel1
+            // 
+            suppliedLabel1.AutoSize = true;
+            suppliedLabel1.Location = new System.Drawing.Point(649, 139);
+            suppliedLabel1.Name = "suppliedLabel1";
+            suppliedLabel1.Size = new System.Drawing.Size(67, 17);
+            suppliedLabel1.TabIndex = 92;
+            suppliedLabel1.Text = "Supplied:";
+            // 
+            // openQtyLabel1
+            // 
+            openQtyLabel1.AutoSize = true;
+            openQtyLabel1.Location = new System.Drawing.Point(643, 168);
+            openQtyLabel1.Name = "openQtyLabel1";
+            openQtyLabel1.Size = new System.Drawing.Size(73, 17);
+            openQtyLabel1.TabIndex = 93;
+            openQtyLabel1.Text = "Open Qty:";
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -514,6 +662,25 @@ namespace QWS_Local
             this.splitContainer2.SplitterDistance = 228;
             this.splitContainer2.TabIndex = 3;
             // 
+            // textBox4
+            // 
+            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "RegoTrailer", true));
+            this.textBox4.Location = new System.Drawing.Point(120, 12);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(148, 23);
+            this.textBox4.TabIndex = 81;
+            // 
+            // bsConfiguredTruckGVM
+            // 
+            this.bsConfiguredTruckGVM.DataMember = "ConfiguredTruckGVM";
+            this.bsConfiguredTruckGVM.DataSource = this.dsTruckConfig;
+            this.bsConfiguredTruckGVM.CurrentChanged += new System.EventHandler(this.bsConfiguredTruckGVM_CurrentChanged);
+            // 
+            // dsTruckConfig
+            // 
+            this.dsTruckConfig.DataSetName = "dsTruckConfig";
+            this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // mobTextBox
             // 
             this.mobTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDriver, "Mob", true));
@@ -539,17 +706,6 @@ namespace QWS_Local
             this.personTextBox.Name = "personTextBox";
             this.personTextBox.Size = new System.Drawing.Size(247, 23);
             this.personTextBox.TabIndex = 79;
-            // 
-            // bsConfiguredTruckGVM
-            // 
-            this.bsConfiguredTruckGVM.DataMember = "ConfiguredTruckGVM";
-            this.bsConfiguredTruckGVM.DataSource = this.dsTruckConfig;
-            this.bsConfiguredTruckGVM.CurrentChanged += new System.EventHandler(this.bsConfiguredTruckGVM_CurrentChanged);
-            // 
-            // dsTruckConfig
-            // 
-            this.dsTruckConfig.DataSetName = "dsTruckConfig";
-            this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ownerTextBox
             // 
@@ -773,6 +929,7 @@ namespace QWS_Local
             // 
             this.bsExBinOrders.DataMember = "ExBinOrders";
             this.bsExBinOrders.DataSource = this.dsBookIn;
+            this.bsExBinOrders.CurrentChanged += new System.EventHandler(this.bsExBinOrders_CurrentChanged);
             // 
             // dsBookIn
             // 
@@ -1059,23 +1216,174 @@ namespace QWS_Local
             // 
             // tpOrderDetails
             // 
+            this.tpOrderDetails.Controls.Add(this.button2);
+            this.tpOrderDetails.Controls.Add(openQtyLabel1);
+            this.tpOrderDetails.Controls.Add(this.txtOpenQty);
+            this.tpOrderDetails.Controls.Add(suppliedLabel1);
+            this.tpOrderDetails.Controls.Add(this.txtSupplied);
+            this.tpOrderDetails.Controls.Add(quantityLabel1);
+            this.tpOrderDetails.Controls.Add(this.txtQuantity);
+            this.tpOrderDetails.Controls.Add(deliveryAddressLabel);
+            this.tpOrderDetails.Controls.Add(this.deliveryAddressTextBox);
+            this.tpOrderDetails.Controls.Add(itemQALabel1);
+            this.tpOrderDetails.Controls.Add(this.itemQATextBox1);
+            this.tpOrderDetails.Controls.Add(this.materialCodeTextBox1);
+            this.tpOrderDetails.Controls.Add(materialLabel1);
+            this.tpOrderDetails.Controls.Add(this.materialTextBox1);
+            this.tpOrderDetails.Controls.Add(this.contactMobileTextBox1);
+            this.tpOrderDetails.Controls.Add(contactNameLabel1);
+            this.tpOrderDetails.Controls.Add(this.contactNameTextBox1);
+            this.tpOrderDetails.Controls.Add(orderStatusLabel1);
+            this.tpOrderDetails.Controls.Add(this.orderStatusTextBox1);
+            this.tpOrderDetails.Controls.Add(purchaseOrderLabel1);
+            this.tpOrderDetails.Controls.Add(this.purchaseOrderTextBox1);
+            this.tpOrderDetails.Controls.Add(this.cardCodeTextBox1);
+            this.tpOrderDetails.Controls.Add(customerLabel1);
+            this.tpOrderDetails.Controls.Add(this.customerTextBox1);
+            this.tpOrderDetails.Controls.Add(this.textBox5);
+            this.tpOrderDetails.Controls.Add(deliveryDateLabel1);
+            this.tpOrderDetails.Controls.Add(docNumLabel1);
+            this.tpOrderDetails.Controls.Add(this.docNumTextBox1);
             this.tpOrderDetails.Controls.Add(this.btnSetExBinOrder);
             this.tpOrderDetails.Controls.Add(this.btnRefreshOrders);
-            this.tpOrderDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpOrderDetails.Location = new System.Drawing.Point(4, 25);
             this.tpOrderDetails.Name = "tpOrderDetails";
-            this.tpOrderDetails.Size = new System.Drawing.Size(1419, 296);
+            this.tpOrderDetails.Size = new System.Drawing.Size(1419, 293);
             this.tpOrderDetails.TabIndex = 3;
             this.tpOrderDetails.Text = "Order Details";
             this.tpOrderDetails.UseVisualStyleBackColor = true;
             // 
+            // txtOpenQty
+            // 
+            this.txtOpenQty.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "OpenQty", true));
+            this.txtOpenQty.Location = new System.Drawing.Point(722, 165);
+            this.txtOpenQty.Name = "txtOpenQty";
+            this.txtOpenQty.Size = new System.Drawing.Size(100, 23);
+            this.txtOpenQty.TabIndex = 94;
+            // 
+            // txtSupplied
+            // 
+            this.txtSupplied.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "Supplied", true));
+            this.txtSupplied.Location = new System.Drawing.Point(722, 136);
+            this.txtSupplied.Name = "txtSupplied";
+            this.txtSupplied.Size = new System.Drawing.Size(100, 23);
+            this.txtSupplied.TabIndex = 93;
+            // 
+            // txtQuantity
+            // 
+            this.txtQuantity.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "Quantity", true));
+            this.txtQuantity.Location = new System.Drawing.Point(722, 107);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(100, 23);
+            this.txtQuantity.TabIndex = 92;
+            // 
+            // deliveryAddressTextBox
+            // 
+            this.deliveryAddressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "DeliveryAddress", true));
+            this.deliveryAddressTextBox.Location = new System.Drawing.Point(144, 194);
+            this.deliveryAddressTextBox.Name = "deliveryAddressTextBox";
+            this.deliveryAddressTextBox.Size = new System.Drawing.Size(446, 23);
+            this.deliveryAddressTextBox.TabIndex = 91;
+            // 
+            // itemQATextBox1
+            // 
+            this.itemQATextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "ItemQA", true));
+            this.itemQATextBox1.Location = new System.Drawing.Point(490, 165);
+            this.itemQATextBox1.Name = "itemQATextBox1";
+            this.itemQATextBox1.Size = new System.Drawing.Size(100, 23);
+            this.itemQATextBox1.TabIndex = 90;
+            // 
+            // materialCodeTextBox1
+            // 
+            this.materialCodeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "MaterialCode", true));
+            this.materialCodeTextBox1.Location = new System.Drawing.Point(490, 136);
+            this.materialCodeTextBox1.Name = "materialCodeTextBox1";
+            this.materialCodeTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.materialCodeTextBox1.TabIndex = 89;
+            // 
+            // materialTextBox1
+            // 
+            this.materialTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.materialTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "Material", true));
+            this.materialTextBox1.Location = new System.Drawing.Point(140, 136);
+            this.materialTextBox1.Name = "materialTextBox1";
+            this.materialTextBox1.Size = new System.Drawing.Size(344, 23);
+            this.materialTextBox1.TabIndex = 88;
+            // 
+            // contactMobileTextBox1
+            // 
+            this.contactMobileTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "ContactMobile", true));
+            this.contactMobileTextBox1.Location = new System.Drawing.Point(490, 107);
+            this.contactMobileTextBox1.Name = "contactMobileTextBox1";
+            this.contactMobileTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.contactMobileTextBox1.TabIndex = 87;
+            // 
+            // contactNameTextBox1
+            // 
+            this.contactNameTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "ContactName", true));
+            this.contactNameTextBox1.Location = new System.Drawing.Point(140, 107);
+            this.contactNameTextBox1.Name = "contactNameTextBox1";
+            this.contactNameTextBox1.Size = new System.Drawing.Size(344, 23);
+            this.contactNameTextBox1.TabIndex = 86;
+            // 
+            // orderStatusTextBox1
+            // 
+            this.orderStatusTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "OrderStatus", true));
+            this.orderStatusTextBox1.Location = new System.Drawing.Point(490, 20);
+            this.orderStatusTextBox1.Name = "orderStatusTextBox1";
+            this.orderStatusTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.orderStatusTextBox1.TabIndex = 85;
+            // 
+            // purchaseOrderTextBox1
+            // 
+            this.purchaseOrderTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "PurchaseOrder", true));
+            this.purchaseOrderTextBox1.Location = new System.Drawing.Point(490, 49);
+            this.purchaseOrderTextBox1.Name = "purchaseOrderTextBox1";
+            this.purchaseOrderTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.purchaseOrderTextBox1.TabIndex = 84;
+            // 
+            // cardCodeTextBox1
+            // 
+            this.cardCodeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "CardCode", true));
+            this.cardCodeTextBox1.Location = new System.Drawing.Point(490, 78);
+            this.cardCodeTextBox1.Name = "cardCodeTextBox1";
+            this.cardCodeTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.cardCodeTextBox1.TabIndex = 83;
+            // 
+            // customerTextBox1
+            // 
+            this.customerTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.customerTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "Customer", true));
+            this.customerTextBox1.Location = new System.Drawing.Point(140, 78);
+            this.customerTextBox1.Name = "customerTextBox1";
+            this.customerTextBox1.Size = new System.Drawing.Size(344, 23);
+            this.customerTextBox1.TabIndex = 82;
+            // 
+            // textBox5
+            // 
+            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "DeliveryDate", true));
+            this.textBox5.Location = new System.Drawing.Point(140, 49);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 23);
+            this.textBox5.TabIndex = 81;
+            // 
+            // docNumTextBox1
+            // 
+            this.docNumTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "DocNum", true));
+            this.docNumTextBox1.Location = new System.Drawing.Point(140, 19);
+            this.docNumTextBox1.Name = "docNumTextBox1";
+            this.docNumTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.docNumTextBox1.TabIndex = 80;
+            // 
             // btnSetExBinOrder
             // 
-            this.btnSetExBinOrder.Location = new System.Drawing.Point(943, 139);
+            this.btnSetExBinOrder.Location = new System.Drawing.Point(943, 184);
             this.btnSetExBinOrder.Name = "btnSetExBinOrder";
             this.btnSetExBinOrder.Size = new System.Drawing.Size(160, 30);
             this.btnSetExBinOrder.TabIndex = 79;
-            this.btnSetExBinOrder.Text = "Refresh";
+            this.btnSetExBinOrder.Text = "Set Order";
             this.btnSetExBinOrder.UseVisualStyleBackColor = true;
+            this.btnSetExBinOrder.Click += new System.EventHandler(this.btnSetExBinOrder_Click);
             // 
             // btnRefreshOrders
             // 
@@ -1085,6 +1393,7 @@ namespace QWS_Local
             this.btnRefreshOrders.TabIndex = 78;
             this.btnRefreshOrders.Text = "Refresh";
             this.btnRefreshOrders.UseVisualStyleBackColor = true;
+            this.btnRefreshOrders.Click += new System.EventHandler(this.btnRefreshOrders_Click);
             // 
             // tpExBinNoOrder
             // 
@@ -1503,14 +1812,18 @@ namespace QWS_Local
             this.tableAdapterManager3.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager3.TIQTableAdapter = this.taTIQ2;
             this.tableAdapterManager3.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager3.WBDocketLinesTableAdapter = null;
+            this.tableAdapterManager3.WBDocketsTableAdapter = null;
             // 
-            // textBox4
+            // button2
             // 
-            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "RegoTrailer", true));
-            this.textBox4.Location = new System.Drawing.Point(120, 12);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(148, 23);
-            this.textBox4.TabIndex = 81;
+            this.button2.Location = new System.Drawing.Point(873, 110);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 95;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // BookInExBin
             // 
@@ -1531,10 +1844,10 @@ namespace QWS_Local
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bsDriver)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDriver)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
@@ -1550,6 +1863,7 @@ namespace QWS_Local
             this.tpDetails.ResumeLayout(false);
             this.tpDetails.PerformLayout();
             this.tpOrderDetails.ResumeLayout(false);
+            this.tpOrderDetails.PerformLayout();
             this.tpExBinNoOrder.ResumeLayout(false);
             this.tpExBinNoOrder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -1687,5 +2001,21 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnSetExBinOrder;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox docNumTextBox1;
+        private System.Windows.Forms.TextBox deliveryAddressTextBox;
+        private System.Windows.Forms.TextBox itemQATextBox1;
+        private System.Windows.Forms.TextBox materialCodeTextBox1;
+        private System.Windows.Forms.TextBox materialTextBox1;
+        private System.Windows.Forms.TextBox contactMobileTextBox1;
+        private System.Windows.Forms.TextBox contactNameTextBox1;
+        private System.Windows.Forms.TextBox orderStatusTextBox1;
+        private System.Windows.Forms.TextBox purchaseOrderTextBox1;
+        private System.Windows.Forms.TextBox cardCodeTextBox1;
+        private System.Windows.Forms.TextBox customerTextBox1;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtOpenQty;
+        private System.Windows.Forms.TextBox txtSupplied;
+        private System.Windows.Forms.TextBox txtQuantity;
+        private System.Windows.Forms.Button button2;
     }
 }
