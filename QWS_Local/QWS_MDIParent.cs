@@ -125,5 +125,10 @@ namespace QWS_Local
             frmVehicle.WindowState = FormWindowState.Maximized;
             frmVehicle.Show();
         }
+
+        private void helloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hello :-)");
+        }
     }
 }

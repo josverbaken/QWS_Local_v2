@@ -339,9 +339,7 @@ namespace QWS_Local
             {
                 btnSplitLoadType.Enabled = false;   
             }
-                // calc payload
-                CalcPayload();
-            //SetTIQPayload();
+            CalcPayload();            
         }    
      
          private void SetSplitLoadType()

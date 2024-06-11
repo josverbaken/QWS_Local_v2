@@ -47,26 +47,17 @@ namespace QWS_Local
             System.Windows.Forms.Label gVMTruckLabel;
             System.Windows.Forms.Label materialLabel;
             System.Windows.Forms.Label schemeCodeLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.Label docNumLabel;
-            System.Windows.Forms.Label docketLineLabel;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.bsWBDocketLines = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTIQ2 = new QWS_Local.dsTIQ2();
+            this.bsWBDockets = new System.Windows.Forms.BindingSource(this.components);
             this.button5 = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.btnTINRemove = new System.Windows.Forms.Button();
             this.btnWeigh = new System.Windows.Forms.Button();
             this.btnAddVehicle = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnTINReleaseHold = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.mtxtWeight = new System.Windows.Forms.MaskedTextBox();
-            this.rbManual = new System.Windows.Forms.RadioButton();
-            this.rbAuto = new System.Windows.Forms.RadioButton();
             this.txtRego = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnTINRefresh = new System.Windows.Forms.Button();
@@ -86,7 +77,6 @@ namespace QWS_Local
             this.materialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CartageCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.tpDetails = new System.Windows.Forms.TabPage();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.materialDescTextBox = new System.Windows.Forms.TextBox();
@@ -120,12 +110,8 @@ namespace QWS_Local
             this.taAxleConfig = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
-            this.bsWBDockets = new System.Windows.Forms.BindingSource(this.components);
             this.taWBDockets = new QWS_Local.dsTIQ2TableAdapters.WBDocketsTableAdapter();
-            this.docNumTextBox = new System.Windows.Forms.TextBox();
-            this.bsWBDocketLines = new System.Windows.Forms.BindingSource(this.components);
             this.taWBDocketLines = new QWS_Local.dsTIQ2TableAdapters.WBDocketLinesTableAdapter();
-            this.docketLineTextBox = new System.Windows.Forms.TextBox();
             entryDTTMLabel = new System.Windows.Forms.Label();
             sAPOrderLabel = new System.Windows.Forms.Label();
             roadAccessLabel = new System.Windows.Forms.Label();
@@ -143,8 +129,6 @@ namespace QWS_Local
             gVMTruckLabel = new System.Windows.Forms.Label();
             materialLabel = new System.Windows.Forms.Label();
             schemeCodeLabel = new System.Windows.Forms.Label();
-            docNumLabel = new System.Windows.Forms.Label();
-            docketLineLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -153,19 +137,17 @@ namespace QWS_Local
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsWBDocketLines)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsWBDockets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             this.tpDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsWBDockets)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsWBDocketLines)).BeginInit();
             this.SuspendLayout();
             // 
             // entryDTTMLabel
@@ -351,19 +333,11 @@ namespace QWS_Local
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
             this.splitContainer2.Panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.splitContainer2.Panel1.Controls.Add(docketLineLabel);
-            this.splitContainer2.Panel1.Controls.Add(this.docketLineTextBox);
-            this.splitContainer2.Panel1.Controls.Add(docNumLabel);
-            this.splitContainer2.Panel1.Controls.Add(this.docNumTextBox);
             this.splitContainer2.Panel1.Controls.Add(this.button5);
-            this.splitContainer2.Panel1.Controls.Add(this.groupBox2);
-            this.splitContainer2.Panel1.Controls.Add(this.textBox3);
             this.splitContainer2.Panel1.Controls.Add(this.btnTINRemove);
             this.splitContainer2.Panel1.Controls.Add(this.btnWeigh);
             this.splitContainer2.Panel1.Controls.Add(this.btnAddVehicle);
-            this.splitContainer2.Panel1.Controls.Add(this.textBox2);
             this.splitContainer2.Panel1.Controls.Add(this.btnTINReleaseHold);
-            this.splitContainer2.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer2.Panel1.Controls.Add(this.txtRego);
             this.splitContainer2.Panel1.Controls.Add(this.pictureBox1);
             this.splitContainer2.Panel1.Controls.Add(this.btnTINRefresh);
@@ -374,6 +348,21 @@ namespace QWS_Local
             this.splitContainer2.Size = new System.Drawing.Size(1080, 692);
             this.splitContainer2.SplitterDistance = 347;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // bsWBDocketLines
+            // 
+            this.bsWBDocketLines.DataMember = "WBDocketLines";
+            this.bsWBDocketLines.DataSource = this.dsTIQ2;
+            // 
+            // dsTIQ2
+            // 
+            this.dsTIQ2.DataSetName = "dsTIQ2";
+            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bsWBDockets
+            // 
+            this.bsWBDockets.DataMember = "WBDockets";
+            this.bsWBDockets.DataSource = this.dsTIQ2;
             // 
             // button5
             // 
@@ -388,64 +377,6 @@ namespace QWS_Local
             this.button5.Text = "Clear";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.maskedTextBox1);
-            this.groupBox2.Controls.Add(this.maskedTextBox2);
-            this.groupBox2.Controls.Add(this.maskedTextBox3);
-            this.groupBox2.Location = new System.Drawing.Point(692, 203);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(346, 77);
-            this.groupBox2.TabIndex = 65;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Captured Weight";
-            this.groupBox2.Visible = false;
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(255, 32);
-            this.maskedTextBox1.Mask = "00.00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.ReadOnly = true;
-            this.maskedTextBox1.Size = new System.Drawing.Size(59, 26);
-            this.maskedTextBox1.TabIndex = 3;
-            this.maskedTextBox1.Text = "0000";
-            this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(143, 32);
-            this.maskedTextBox2.Mask = "00.00";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.ReadOnly = true;
-            this.maskedTextBox2.Size = new System.Drawing.Size(59, 26);
-            this.maskedTextBox2.TabIndex = 4;
-            this.maskedTextBox2.Text = "0000";
-            this.maskedTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox2.Visible = false;
-            // 
-            // maskedTextBox3
-            // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(18, 32);
-            this.maskedTextBox3.Mask = "00.00";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.ReadOnly = true;
-            this.maskedTextBox3.Size = new System.Drawing.Size(59, 26);
-            this.maskedTextBox3.TabIndex = 5;
-            this.maskedTextBox3.Text = "0000";
-            this.maskedTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox3.Visible = false;
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.Color.PeachPuff;
-            this.textBox3.Location = new System.Drawing.Point(800, 154);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(238, 26);
-            this.textBox3.TabIndex = 64;
-            this.textBox3.Text = "overdue message";
-            this.textBox3.Visible = false;
             // 
             // btnTINRemove
             // 
@@ -480,24 +411,14 @@ namespace QWS_Local
             this.btnAddVehicle.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnAddVehicle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddVehicle.Location = new System.Drawing.Point(659, 287);
+            this.btnAddVehicle.Location = new System.Drawing.Point(146, 287);
             this.btnAddVehicle.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddVehicle.Name = "btnAddVehicle";
-            this.btnAddVehicle.Size = new System.Drawing.Size(86, 49);
+            this.btnAddVehicle.Size = new System.Drawing.Size(111, 49);
             this.btnAddVehicle.TabIndex = 50;
             this.btnAddVehicle.Text = "Add";
             this.btnAddVehicle.UseVisualStyleBackColor = false;
             this.btnAddVehicle.Click += new System.EventHandler(this.btnAddVehicle_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.PeachPuff;
-            this.textBox2.Location = new System.Drawing.Point(417, 225);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(344, 26);
-            this.textBox2.TabIndex = 61;
-            this.textBox2.Text = "weighing instructions";
-            this.textBox2.Visible = false;
             // 
             // btnTINReleaseHold
             // 
@@ -511,49 +432,6 @@ namespace QWS_Local
             this.btnTINReleaseHold.TabIndex = 60;
             this.btnTINReleaseHold.Text = "Release/Hold";
             this.btnTINReleaseHold.UseVisualStyleBackColor = false;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.mtxtWeight);
-            this.groupBox1.Controls.Add(this.rbManual);
-            this.groupBox1.Controls.Add(this.rbAuto);
-            this.groupBox1.Location = new System.Drawing.Point(710, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(346, 87);
-            this.groupBox1.TabIndex = 58;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Weighing Mode";
-            this.groupBox1.Visible = false;
-            // 
-            // mtxtWeight
-            // 
-            this.mtxtWeight.Location = new System.Drawing.Point(255, 46);
-            this.mtxtWeight.Mask = "00.00";
-            this.mtxtWeight.Name = "mtxtWeight";
-            this.mtxtWeight.Size = new System.Drawing.Size(59, 26);
-            this.mtxtWeight.TabIndex = 2;
-            // 
-            // rbManual
-            // 
-            this.rbManual.AutoSize = true;
-            this.rbManual.Checked = true;
-            this.rbManual.Location = new System.Drawing.Point(143, 46);
-            this.rbManual.Name = "rbManual";
-            this.rbManual.Size = new System.Drawing.Size(79, 24);
-            this.rbManual.TabIndex = 1;
-            this.rbManual.TabStop = true;
-            this.rbManual.Text = "Manual";
-            this.rbManual.UseVisualStyleBackColor = true;
-            // 
-            // rbAuto
-            // 
-            this.rbAuto.AutoSize = true;
-            this.rbAuto.Location = new System.Drawing.Point(42, 46);
-            this.rbAuto.Name = "rbAuto";
-            this.rbAuto.Size = new System.Drawing.Size(61, 24);
-            this.rbAuto.TabIndex = 0;
-            this.rbAuto.Text = "Auto";
-            this.rbAuto.UseVisualStyleBackColor = true;
             // 
             // txtRego
             // 
@@ -579,7 +457,7 @@ namespace QWS_Local
             this.btnTINRefresh.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnTINRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTINRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTINRefresh.Location = new System.Drawing.Point(33, 287);
+            this.btnTINRefresh.Location = new System.Drawing.Point(631, 287);
             this.btnTINRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnTINRefresh.Name = "btnTINRefresh";
             this.btnTINRefresh.Size = new System.Drawing.Size(114, 49);
@@ -649,9 +527,9 @@ namespace QWS_Local
             // releaseDTTMDataGridViewTextBoxColumn
             // 
             this.releaseDTTMDataGridViewTextBoxColumn.DataPropertyName = "ReleaseDTTM";
-            dataGridViewCellStyle1.Format = "HH:mm";
-            dataGridViewCellStyle1.NullValue = null;
-            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "HH:mm";
+            dataGridViewCellStyle2.NullValue = null;
+            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.releaseDTTMDataGridViewTextBoxColumn.HeaderText = "Release";
             this.releaseDTTMDataGridViewTextBoxColumn.Name = "releaseDTTMDataGridViewTextBoxColumn";
             this.releaseDTTMDataGridViewTextBoxColumn.ReadOnly = true;
@@ -736,11 +614,6 @@ namespace QWS_Local
             this.bsTIQ2.DataMember = "TIQ";
             this.bsTIQ2.DataSource = this.dsTIQ2;
             this.bsTIQ2.CurrentChanged += new System.EventHandler(this.bsTIQ2_CurrentChanged);
-            // 
-            // dsTIQ2
-            // 
-            this.dsTIQ2.DataSetName = "dsTIQ2";
-            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tpDetails
             // 
@@ -1090,57 +963,13 @@ namespace QWS_Local
             this.tableAdapterManager1.WBDocketLinesTableAdapter = null;
             this.tableAdapterManager1.WBDocketsTableAdapter = null;
             // 
-            // bsWBDockets
-            // 
-            this.bsWBDockets.DataMember = "WBDockets";
-            this.bsWBDockets.DataSource = this.dsTIQ2;
-            // 
             // taWBDockets
             // 
             this.taWBDockets.ClearBeforeFill = true;
             // 
-            // docNumLabel
-            // 
-            docNumLabel.AutoSize = true;
-            docNumLabel.Location = new System.Drawing.Point(551, 157);
-            docNumLabel.Name = "docNumLabel";
-            docNumLabel.Size = new System.Drawing.Size(79, 20);
-            docNumLabel.TabIndex = 65;
-            docNumLabel.Text = "Doc Num:";
-            // 
-            // docNumTextBox
-            // 
-            this.docNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "DocNum", true));
-            this.docNumTextBox.Location = new System.Drawing.Point(636, 154);
-            this.docNumTextBox.Name = "docNumTextBox";
-            this.docNumTextBox.Size = new System.Drawing.Size(100, 26);
-            this.docNumTextBox.TabIndex = 66;
-            // 
-            // bsWBDocketLines
-            // 
-            this.bsWBDocketLines.DataMember = "WBDocketLines";
-            this.bsWBDocketLines.DataSource = this.dsTIQ2;
-            // 
             // taWBDocketLines
             // 
             this.taWBDocketLines.ClearBeforeFill = true;
-            // 
-            // docketLineLabel
-            // 
-            docketLineLabel.AutoSize = true;
-            docketLineLabel.Location = new System.Drawing.Point(548, 122);
-            docketLineLabel.Name = "docketLineLabel";
-            docketLineLabel.Size = new System.Drawing.Size(98, 20);
-            docketLineLabel.TabIndex = 66;
-            docketLineLabel.Text = "Docket Line:";
-            // 
-            // docketLineTextBox
-            // 
-            this.docketLineTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDocketLines, "DocketLine", true));
-            this.docketLineTextBox.Location = new System.Drawing.Point(652, 119);
-            this.docketLineTextBox.Name = "docketLineTextBox";
-            this.docketLineTextBox.Size = new System.Drawing.Size(100, 26);
-            this.docketLineTextBox.TabIndex = 67;
             // 
             // TrucksInQuarry
             // 
@@ -1164,22 +993,18 @@ namespace QWS_Local
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsWBDocketLines)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsWBDockets)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             this.tpDetails.ResumeLayout(false);
             this.tpDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsWBDockets)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsWBDocketLines)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1207,20 +1032,10 @@ namespace QWS_Local
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.BindingSource bsAxleConfig;
         private dsQWSLocalTableAdapters.AxleConfigurationTableAdapter taAxleConfig;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.MaskedTextBox mtxtWeight;
-        private System.Windows.Forms.RadioButton rbManual;
-        private System.Windows.Forms.RadioButton rbAuto;
         private System.Windows.Forms.TextBox txtRego;
         private System.Windows.Forms.Button btnTINRemove;
         private System.Windows.Forms.Button btnWeigh;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnTINReleaseHold;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
         private System.Windows.Forms.TextBox stockpileLotNoTextBox;
         private System.Windows.Forms.TextBox deliveryAddressTextBox;
         private System.Windows.Forms.TextBox custONTextBox;
@@ -1258,9 +1073,7 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn CartageCode;
         private System.Windows.Forms.BindingSource bsWBDockets;
         private dsTIQ2TableAdapters.WBDocketsTableAdapter taWBDockets;
-        private System.Windows.Forms.TextBox docNumTextBox;
         private System.Windows.Forms.BindingSource bsWBDocketLines;
         private dsTIQ2TableAdapters.WBDocketLinesTableAdapter taWBDocketLines;
-        private System.Windows.Forms.TextBox docketLineTextBox;
     }
 }

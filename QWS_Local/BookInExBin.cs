@@ -110,20 +110,58 @@ namespace QWS_Local
             }
         }
 
+        //private void CalcPayload()
+        //{
+        //    decimal myPayload = 0.0M;
+        //    decimal myPayloadTk = 0.0M;
+        //    decimal myPayloadTr = 0.0M;
+        //    myPayload = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
+        //    nudPayload.Value = myPayload;
+        //    if (CurrentTruckGVM().GCM != CurrentTruckGVM().GVMTruck)
+        //    {
+        //        myPayloadTk = CurrentTruckGVM().GVMTruck - CurrentTruckGVM().TareTk;
+        //        myPayloadTr = myPayload - myPayloadTk;
+        //        nudPayloadTk.Value = myPayloadTk;
+        //        nudPayloadTr.Value = myPayloadTr;
+        //    }
+        //}
+
         private void CalcPayload()
         {
             decimal myPayload = 0.0M;
             decimal myPayloadTk = 0.0M;
             decimal myPayloadTr = 0.0M;
-            myPayload = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
+
+            decimal PayloadLimit;
+            if (CurrentTruckGVM().GCM > CurrentTruckGVM().MaxGVM && CurrentTruckGVM().MaxGVM > 0)
+            {
+                PayloadLimit = CurrentTruckGVM().MaxGVM - CurrentTruckGVM().Tare;
+            }
+            else
+            {
+                PayloadLimit = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
+            }
+
+            myPayload = PayloadLimit;
             nudPayload.Value = myPayload;
-            if (CurrentTruckGVM().GCM != CurrentTruckGVM().GVMTruck)
+            if (CurrentTruckGVM().Compartments > 1)
+            //if (CurrentTruckGVM().GCM != CurrentTruckGVM().GVMTruck)
             {
                 myPayloadTk = CurrentTruckGVM().GVMTruck - CurrentTruckGVM().TareTk;
                 myPayloadTr = myPayload - myPayloadTk;
                 nudPayloadTk.Value = myPayloadTk;
+                nudPayloadTk.Enabled = true;
                 nudPayloadTr.Value = myPayloadTr;
+                nudPayloadTr.Enabled = true;
+                txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString() + " (" + myPayload.ToString() + ")";
             }
+            else
+            {
+                txtPayloadSplit.Text = myPayload.ToString(); //string.Empty;
+                nudPayloadTk.Enabled = false;
+                nudPayloadTr.Enabled = false;
+            }
+            bsTIQ2.EndEdit();
         }
 
         private void PayloadNUDLimit()
@@ -349,14 +387,27 @@ namespace QWS_Local
             {
                 btnSplitLoadType.Enabled = false;
             }
-            // calc payload
             CalcPayload();
-            //SetTIQPayload();
         }
 
         private void btnSplitLoadType_Click(object sender, EventArgs e)
         {
+            SetSplitLoadType();
+        }
 
+        private void SetSplitLoadType()
+        {
+            SplitLoadType frmLoadType = new SplitLoadType();
+            DialogResult dr = frmLoadType.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                txtTruckConfig.Text = frmLoadType.LoadType;
+                bsTIQ2.EndEdit();
+            }
+            else
+            {
+                txtTruckConfig.Text = "Cancelled!";
+            }
         }
 
         private void btnBookIn_Click(object sender, EventArgs e)
