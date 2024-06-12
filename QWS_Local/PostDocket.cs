@@ -13,6 +13,12 @@ namespace QWS_Local
     public partial class PostDocket : Form
     {
         private dsTIQ2.TIQRow myRow;
+        private int mySPLotNo;
+
+        public int SPLotNo
+        {
+            get { return mySPLotNo; }
+        }
 
         public PostDocket()
         {
@@ -39,10 +45,20 @@ namespace QWS_Local
 
         private void PostDocket_Load(object sender, EventArgs e)
         {
-            // import row
-            //txtGross.Text = "56.50t";
             dsTIQ2.TIQ.Clear();
             dsTIQ2.TIQ.ImportRow(myRow);
+        }
+
+        private void txtStockpileLotNo_Validated(object sender, EventArgs e)
+        {
+            try
+            {
+                mySPLotNo = System.Convert.ToInt16(txtStockpileLotNo.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

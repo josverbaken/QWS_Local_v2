@@ -46,7 +46,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.customerTextBox = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtStockpileLotNo = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.materialDescTextBox = new System.Windows.Forms.TextBox();
             this.materialTextBox = new System.Windows.Forms.TextBox();
@@ -218,7 +218,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.txtStockpileLotNo);
             this.groupBox3.Controls.Add(this.textBox3);
             this.groupBox3.Controls.Add(this.materialDescTextBox);
             this.groupBox3.Controls.Add(this.materialTextBox);
@@ -231,14 +231,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "3) Check Material and PO#";
             // 
-            // textBox2
+            // txtStockpileLotNo
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(526, 86);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(157, 29);
-            this.textBox2.TabIndex = 12;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtStockpileLotNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStockpileLotNo.Location = new System.Drawing.Point(526, 86);
+            this.txtStockpileLotNo.Name = "txtStockpileLotNo";
+            this.txtStockpileLotNo.Size = new System.Drawing.Size(157, 29);
+            this.txtStockpileLotNo.TabIndex = 12;
+            this.txtStockpileLotNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtStockpileLotNo.Validated += new System.EventHandler(this.txtStockpileLotNo_Validated);
             // 
             // textBox3
             // 
@@ -368,7 +369,7 @@
         private System.Windows.Forms.TextBox txtGross;
         private System.Windows.Forms.CheckBox chkTruckRego;
         private System.Windows.Forms.TextBox customerTextBox;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtStockpileLotNo;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox materialDescTextBox;
         private System.Windows.Forms.TextBox materialTextBox;

@@ -231,10 +231,10 @@ namespace QWS_Local
                     msg += frmWeighTruck.Weight.ToString();
                     msg += "t";
                     MessageBox.Show(msg); 
+                    CurrentTIQ().Gross = frmWeighTruck.Weight;
+                    bsTIQ2.EndEdit();
                     if (ConfirmPostDocket())
                     {
-                        // 1) update Gross in TIQ row
-                        // 2) pass TIQ row to form PostDocket for confirmation but NO data alteration
                         PostDocket();
                     }
                     else
@@ -276,6 +276,7 @@ namespace QWS_Local
             DialogResult dr = frmPostDocket.ShowDialog();
             if (dr == DialogResult.OK )
             {
+                MessageBox.Show(frmPostDocket.SPLotNo.ToString());
                 return true;
             }
             return false;
