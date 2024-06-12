@@ -12,9 +12,17 @@ namespace QWS_Local
 {
     public partial class PostDocket : Form
     {
+        private dsTIQ2.TIQRow myRow;
+
         public PostDocket()
         {
             InitializeComponent();
+        }
+
+        public PostDocket(dsTIQ2.TIQRow row)
+        {
+            InitializeComponent();
+            myRow = row;    
         }
 
         private void btnOkay_Click(object sender, EventArgs e)
@@ -29,5 +37,12 @@ namespace QWS_Local
             this.Close ();  
         }
 
+        private void PostDocket_Load(object sender, EventArgs e)
+        {
+            // import row
+            //txtGross.Text = "56.50t";
+            dsTIQ2.TIQ.Clear();
+            dsTIQ2.TIQ.ImportRow(myRow);
+        }
     }
 }

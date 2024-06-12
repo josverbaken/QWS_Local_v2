@@ -21,9 +21,9 @@ namespace QWS_Local
         private void TrucksInQuarry_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dsTIQ2.WBDocketLines' table. You can move, or remove it, as needed.
-            this.taWBDocketLines.Fill(this.dsTIQ2.WBDocketLines);
+            //this.taWBDocketLines.Fill(this.dsTIQ2.WBDocketLines);
             // TODO: This line of code loads data into the 'dsTIQ2.WBDockets' table. You can move, or remove it, as needed.
-            this.taWBDockets.Fill(this.dsTIQ2.WBDockets);
+            //this.taWBDockets.Fill(this.dsTIQ2.WBDockets);
             this.taAxleConfig.Fill(this.dsQWSLocal.AxleConfiguration);
             // set up and down arrows
             //button3.Text = ""+ (char)24;
@@ -63,13 +63,6 @@ namespace QWS_Local
 
         private void BookInTruck()
         {
-            // TODO run truckconfigsearch as if from vehiclemaintenance or truckconfiguration
-            //BookInTruck frmBookIn = new BookInTruck();
-            //frmBookIn.MdiParent = this.MdiParent;
-            //frmBookIn.Show();
-            //TruckConfiguration frmTruckConfig = new TruckConfiguration();
-            //frmTruckConfig.MdiParent = this.MdiParent;
-            //frmTruckConfig.Show();
             BookInTruckStep1 frmBookIn = new BookInTruckStep1();
             frmBookIn.MdiParent = this.MdiParent;
             frmBookIn.Show();
@@ -82,22 +75,7 @@ namespace QWS_Local
 
         private void ShowTIQDetail()
         {
-            // 20240312 JV Swap to tabControl with List and Details tabs as elsewhere
             tabControl1.SelectedTab = tpDetails;
-            // get TIQID of selected row
-            // test that a row is selected
-            //if (dataGridView1.SelectedRows.Count > 0)
-            //{
-            //    DataRow dataRow = ((DataRowView)bsTIQ.Current).Row;
-            //    dsQWSLocal.TrucksInQuarryRow trucksInQuarryRow = (dsQWSLocal.TrucksInQuarryRow)dataRow;
-            //    int TIQID = trucksInQuarryRow.TIQID;
-            //    TIQDetail frmTIQDetail = new TIQDetail(TIQID);
-            //    frmTIQDetail.ShowDialog();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Please select a row!");
-            //}
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -255,6 +233,8 @@ namespace QWS_Local
                     MessageBox.Show(msg); 
                     if (ConfirmPostDocket())
                     {
+                        // 1) update Gross in TIQ row
+                        // 2) pass TIQ row to form PostDocket for confirmation but NO data alteration
                         PostDocket();
                     }
                     else
@@ -292,7 +272,7 @@ namespace QWS_Local
 
         private bool ConfirmPostDocket()
         {
-            PostDocket frmPostDocket = new PostDocket();
+            PostDocket frmPostDocket = new PostDocket(CurrentTIQ());
             DialogResult dr = frmPostDocket.ShowDialog();
             if (dr == DialogResult.OK )
             {

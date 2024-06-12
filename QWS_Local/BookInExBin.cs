@@ -61,13 +61,18 @@ namespace QWS_Local
         private void ExBinOrdersLoad(string CardCode)
         {
             int iOrders = this.taExBinOrders.FillBy(this.dsBookIn.ExBinOrders,CardCode);
-            if (iOrders == 0) { 
+            if (iOrders == 0) 
+            { 
                 this.tabControl2.SelectedTab = tpExBinNoOrder; 
                 rbExBinNoOrder.Checked = true;
             }
             else
             {
                 rbExBinSAPOrder.Checked = true;
+                if (iOrders == 1) 
+                { 
+                    tabControl2.SelectedTab = tpOrderDetails; 
+                }
             }
         }
 
@@ -475,6 +480,18 @@ namespace QWS_Local
                 myTIQRow.TruckConfig = LoadType;
             }
             bsTIQ2.EndEdit();
+        }
+
+        private void dataGridView4_SelectionChanged(object sender, EventArgs e)
+        {
+            if (bsExBinOrders.Count > 0 && FormLoaded == true && dataGridView4.SelectedRows.Count == 1)
+            {
+                DialogResult dr = MessageBox.Show("Move to details ?", "Choose Order", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dr == DialogResult.OK)
+                {
+                    tabControl2.SelectedTab = tpOrderDetails;
+                }
+            }
         }
     }
 }

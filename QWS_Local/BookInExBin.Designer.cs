@@ -124,6 +124,7 @@ namespace QWS_Local
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tpTruckconfig = new System.Windows.Forms.TabPage();
+            this.btnSetTruckConfig = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.regoTkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gCMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -134,6 +135,22 @@ namespace QWS_Local
             this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.schemeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpPayload = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.cartageTextBox1 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTIQ2 = new QWS_Local.dsTIQ2();
+            this.materialDescTextBox = new System.Windows.Forms.TextBox();
+            this.cartageCodeTextBox1 = new System.Windows.Forms.TextBox();
+            this.deliveryAddressTextBox1 = new System.Windows.Forms.TextBox();
+            this.custONTextBox = new System.Windows.Forms.TextBox();
+            this.customerCodeTextBox = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtTruckConfig = new System.Windows.Forms.TextBox();
+            this.btnSplitLoadType = new System.Windows.Forms.Button();
+            this.btnBookIn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtPayloadSplit = new System.Windows.Forms.TextBox();
             this.nudPayloadTk = new System.Windows.Forms.NumericUpDown();
@@ -145,8 +162,6 @@ namespace QWS_Local
             this.tareTkTextBox = new System.Windows.Forms.TextBox();
             this.rbExBinSAPOrder = new System.Windows.Forms.RadioButton();
             this.rbExBinNoOrder = new System.Windows.Forms.RadioButton();
-            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.taExBinOrders = new QWS_Local.dsBookInTableAdapters.ExBinOrdersTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsBookInTableAdapters.TableAdapterManager();
             this.taItem = new QWS_Local.dsBookInTableAdapters.ItemTableAdapter();
@@ -158,21 +173,6 @@ namespace QWS_Local
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager3 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
-            this.btnSetTruckConfig = new System.Windows.Forms.Button();
-            this.txtTruckConfig = new System.Windows.Forms.TextBox();
-            this.btnSplitLoadType = new System.Windows.Forms.Button();
-            this.btnBookIn = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.cartageTextBox1 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.materialDescTextBox = new System.Windows.Forms.TextBox();
-            this.cartageCodeTextBox1 = new System.Windows.Forms.TextBox();
-            this.deliveryAddressTextBox1 = new System.Windows.Forms.TextBox();
-            this.custONTextBox = new System.Windows.Forms.TextBox();
-            this.customerCodeTextBox = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             gCMLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
@@ -228,14 +228,14 @@ namespace QWS_Local
             this.tpTruckconfig.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tpPayload.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // gCMLabel
@@ -436,6 +436,60 @@ namespace QWS_Local
             openQtyLabel1.TabIndex = 93;
             openQtyLabel1.Text = "Open Qty:";
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(36, 92);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(101, 17);
+            label8.TabIndex = 13;
+            label8.Text = "Contact Name:";
+            // 
+            // cartageLabel1
+            // 
+            cartageLabel1.AutoSize = true;
+            cartageLabel1.Location = new System.Drawing.Point(75, 179);
+            cartageLabel1.Name = "cartageLabel1";
+            cartageLabel1.Size = new System.Drawing.Size(62, 17);
+            cartageLabel1.TabIndex = 12;
+            cartageLabel1.Text = "Cartage:";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(72, 150);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(62, 17);
+            label9.TabIndex = 11;
+            label9.Text = "Material:";
+            // 
+            // deliveryAddressLabel1
+            // 
+            deliveryAddressLabel1.AutoSize = true;
+            deliveryAddressLabel1.Location = new System.Drawing.Point(18, 121);
+            deliveryAddressLabel1.Name = "deliveryAddressLabel1";
+            deliveryAddressLabel1.Size = new System.Drawing.Size(119, 17);
+            deliveryAddressLabel1.TabIndex = 5;
+            deliveryAddressLabel1.Text = "Delivery Address:";
+            // 
+            // custONLabel
+            // 
+            custONLabel.AutoSize = true;
+            custONLabel.Location = new System.Drawing.Point(72, 63);
+            custONLabel.Name = "custONLabel";
+            custONLabel.Size = new System.Drawing.Size(65, 17);
+            custONLabel.TabIndex = 3;
+            custONLabel.Text = "Cust ON:";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(65, 34);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(72, 17);
+            label10.TabIndex = 0;
+            label10.Text = "Customer:";
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -622,6 +676,7 @@ namespace QWS_Local
             this.dataGridView4.ReadOnly = true;
             this.dataGridView4.Size = new System.Drawing.Size(1413, 287);
             this.dataGridView4.TabIndex = 2;
+            this.dataGridView4.SelectionChanged += new System.EventHandler(this.dataGridView4_SelectionChanged);
             // 
             // docNumDataGridViewTextBoxColumn1
             // 
@@ -783,9 +838,9 @@ namespace QWS_Local
             this.tpOrderDetails.Controls.Add(this.docNumTextBox1);
             this.tpOrderDetails.Controls.Add(this.btnSetExBinOrder);
             this.tpOrderDetails.Controls.Add(this.btnRefreshOrders);
-            this.tpOrderDetails.Location = new System.Drawing.Point(4, 25);
+            this.tpOrderDetails.Location = new System.Drawing.Point(4, 22);
             this.tpOrderDetails.Name = "tpOrderDetails";
-            this.tpOrderDetails.Size = new System.Drawing.Size(1419, 293);
+            this.tpOrderDetails.Size = new System.Drawing.Size(1419, 296);
             this.tpOrderDetails.TabIndex = 3;
             this.tpOrderDetails.Text = "Order Details";
             this.tpOrderDetails.UseVisualStyleBackColor = true;
@@ -1045,12 +1100,23 @@ namespace QWS_Local
             // 
             this.tpTruckconfig.Controls.Add(this.btnSetTruckConfig);
             this.tpTruckconfig.Controls.Add(this.dataGridView3);
-            this.tpTruckconfig.Location = new System.Drawing.Point(4, 25);
+            this.tpTruckconfig.Location = new System.Drawing.Point(4, 22);
             this.tpTruckconfig.Name = "tpTruckconfig";
-            this.tpTruckconfig.Size = new System.Drawing.Size(1419, 293);
+            this.tpTruckconfig.Size = new System.Drawing.Size(1419, 296);
             this.tpTruckconfig.TabIndex = 2;
             this.tpTruckconfig.Text = "Truck config";
             this.tpTruckconfig.UseVisualStyleBackColor = true;
+            // 
+            // btnSetTruckConfig
+            // 
+            this.btnSetTruckConfig.Location = new System.Drawing.Point(934, 119);
+            this.btnSetTruckConfig.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSetTruckConfig.Name = "btnSetTruckConfig";
+            this.btnSetTruckConfig.Size = new System.Drawing.Size(158, 28);
+            this.btnSetTruckConfig.TabIndex = 102;
+            this.btnSetTruckConfig.Text = "Set Truck Config";
+            this.btnSetTruckConfig.UseVisualStyleBackColor = true;
+            this.btnSetTruckConfig.Click += new System.EventHandler(this.btnSetTruckConfig_Click);
             // 
             // dataGridView3
             // 
@@ -1139,12 +1205,165 @@ namespace QWS_Local
             this.tpPayload.Controls.Add(this.groupBox3);
             this.tpPayload.Controls.Add(this.rbExBinSAPOrder);
             this.tpPayload.Controls.Add(this.rbExBinNoOrder);
-            this.tpPayload.Location = new System.Drawing.Point(4, 25);
+            this.tpPayload.Location = new System.Drawing.Point(4, 22);
             this.tpPayload.Name = "tpPayload";
-            this.tpPayload.Size = new System.Drawing.Size(1419, 293);
+            this.tpPayload.Size = new System.Drawing.Size(1419, 296);
             this.tpPayload.TabIndex = 4;
             this.tpPayload.Text = "Order Summary plus Payload";
             this.tpPayload.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(label8);
+            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(cartageLabel1);
+            this.groupBox2.Controls.Add(this.cartageTextBox1);
+            this.groupBox2.Controls.Add(label9);
+            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.materialDescTextBox);
+            this.groupBox2.Controls.Add(this.cartageCodeTextBox1);
+            this.groupBox2.Controls.Add(deliveryAddressLabel1);
+            this.groupBox2.Controls.Add(this.deliveryAddressTextBox1);
+            this.groupBox2.Controls.Add(custONLabel);
+            this.groupBox2.Controls.Add(this.custONTextBox);
+            this.groupBox2.Controls.Add(this.customerCodeTextBox);
+            this.groupBox2.Controls.Add(label10);
+            this.groupBox2.Controls.Add(this.textBox7);
+            this.groupBox2.Location = new System.Drawing.Point(10, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(564, 223);
+            this.groupBox2.TabIndex = 114;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Customer / Order Summary";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(439, 89);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(81, 23);
+            this.textBox1.TabIndex = 16;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(143, 89);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(290, 23);
+            this.textBox3.TabIndex = 14;
+            // 
+            // cartageTextBox1
+            // 
+            this.cartageTextBox1.Location = new System.Drawing.Point(143, 176);
+            this.cartageTextBox1.Name = "cartageTextBox1";
+            this.cartageTextBox1.ReadOnly = true;
+            this.cartageTextBox1.Size = new System.Drawing.Size(290, 23);
+            this.cartageTextBox1.TabIndex = 13;
+            // 
+            // textBox6
+            // 
+            this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Material", true));
+            this.textBox6.Location = new System.Drawing.Point(439, 147);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(81, 23);
+            this.textBox6.TabIndex = 12;
+            // 
+            // bsTIQ2
+            // 
+            this.bsTIQ2.DataMember = "TIQ";
+            this.bsTIQ2.DataSource = this.dsTIQ2;
+            // 
+            // dsTIQ2
+            // 
+            this.dsTIQ2.DataSetName = "dsTIQ2";
+            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // materialDescTextBox
+            // 
+            this.materialDescTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "MaterialDesc", true));
+            this.materialDescTextBox.Location = new System.Drawing.Point(143, 147);
+            this.materialDescTextBox.Name = "materialDescTextBox";
+            this.materialDescTextBox.ReadOnly = true;
+            this.materialDescTextBox.Size = new System.Drawing.Size(290, 23);
+            this.materialDescTextBox.TabIndex = 10;
+            // 
+            // cartageCodeTextBox1
+            // 
+            this.cartageCodeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "CartageCode", true));
+            this.cartageCodeTextBox1.Location = new System.Drawing.Point(439, 176);
+            this.cartageCodeTextBox1.Name = "cartageCodeTextBox1";
+            this.cartageCodeTextBox1.ReadOnly = true;
+            this.cartageCodeTextBox1.Size = new System.Drawing.Size(81, 23);
+            this.cartageCodeTextBox1.TabIndex = 8;
+            // 
+            // deliveryAddressTextBox1
+            // 
+            this.deliveryAddressTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "DeliveryAddress", true));
+            this.deliveryAddressTextBox1.Location = new System.Drawing.Point(143, 118);
+            this.deliveryAddressTextBox1.Name = "deliveryAddressTextBox1";
+            this.deliveryAddressTextBox1.ReadOnly = true;
+            this.deliveryAddressTextBox1.Size = new System.Drawing.Size(377, 23);
+            this.deliveryAddressTextBox1.TabIndex = 6;
+            // 
+            // custONTextBox
+            // 
+            this.custONTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "CustON", true));
+            this.custONTextBox.Location = new System.Drawing.Point(143, 60);
+            this.custONTextBox.Name = "custONTextBox";
+            this.custONTextBox.ReadOnly = true;
+            this.custONTextBox.Size = new System.Drawing.Size(100, 23);
+            this.custONTextBox.TabIndex = 4;
+            // 
+            // customerCodeTextBox
+            // 
+            this.customerCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "CustomerCode", true));
+            this.customerCodeTextBox.Location = new System.Drawing.Point(439, 31);
+            this.customerCodeTextBox.Name = "customerCodeTextBox";
+            this.customerCodeTextBox.ReadOnly = true;
+            this.customerCodeTextBox.Size = new System.Drawing.Size(81, 23);
+            this.customerCodeTextBox.TabIndex = 3;
+            // 
+            // textBox7
+            // 
+            this.textBox7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Customer", true));
+            this.textBox7.Location = new System.Drawing.Point(143, 31);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(290, 23);
+            this.textBox7.TabIndex = 1;
+            // 
+            // txtTruckConfig
+            // 
+            this.txtTruckConfig.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "TruckConfig", true));
+            this.txtTruckConfig.Location = new System.Drawing.Point(1068, 175);
+            this.txtTruckConfig.Name = "txtTruckConfig";
+            this.txtTruckConfig.Size = new System.Drawing.Size(100, 23);
+            this.txtTruckConfig.TabIndex = 110;
+            this.txtTruckConfig.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnSplitLoadType
+            // 
+            this.btnSplitLoadType.Location = new System.Drawing.Point(1045, 140);
+            this.btnSplitLoadType.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSplitLoadType.Name = "btnSplitLoadType";
+            this.btnSplitLoadType.Size = new System.Drawing.Size(158, 28);
+            this.btnSplitLoadType.TabIndex = 111;
+            this.btnSplitLoadType.Text = "Split Load Type";
+            this.btnSplitLoadType.UseVisualStyleBackColor = true;
+            this.btnSplitLoadType.Click += new System.EventHandler(this.btnSplitLoadType_Click);
+            // 
+            // btnBookIn
+            // 
+            this.btnBookIn.Location = new System.Drawing.Point(1045, 207);
+            this.btnBookIn.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBookIn.Name = "btnBookIn";
+            this.btnBookIn.Size = new System.Drawing.Size(158, 28);
+            this.btnBookIn.TabIndex = 109;
+            this.btnBookIn.Text = "Book In";
+            this.btnBookIn.UseVisualStyleBackColor = true;
+            this.btnBookIn.Click += new System.EventHandler(this.btnBookIn_Click);
             // 
             // groupBox3
             // 
@@ -1267,16 +1486,6 @@ namespace QWS_Local
             this.rbExBinNoOrder.Text = "ExBin no order";
             this.rbExBinNoOrder.UseVisualStyleBackColor = true;
             // 
-            // bsTIQ2
-            // 
-            this.bsTIQ2.DataMember = "TIQ";
-            this.bsTIQ2.DataSource = this.dsTIQ2;
-            // 
-            // dsTIQ2
-            // 
-            this.dsTIQ2.DataSetName = "dsTIQ2";
-            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // taExBinOrders
             // 
             this.taExBinOrders.ClearBeforeFill = true;
@@ -1346,214 +1555,6 @@ namespace QWS_Local
             this.tableAdapterManager3.WBDocketLinesTableAdapter = null;
             this.tableAdapterManager3.WBDocketsTableAdapter = null;
             // 
-            // btnSetTruckConfig
-            // 
-            this.btnSetTruckConfig.Location = new System.Drawing.Point(934, 119);
-            this.btnSetTruckConfig.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSetTruckConfig.Name = "btnSetTruckConfig";
-            this.btnSetTruckConfig.Size = new System.Drawing.Size(158, 28);
-            this.btnSetTruckConfig.TabIndex = 102;
-            this.btnSetTruckConfig.Text = "Set Truck Config";
-            this.btnSetTruckConfig.UseVisualStyleBackColor = true;
-            this.btnSetTruckConfig.Click += new System.EventHandler(this.btnSetTruckConfig_Click);
-            // 
-            // txtTruckConfig
-            // 
-            this.txtTruckConfig.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "TruckConfig", true));
-            this.txtTruckConfig.Location = new System.Drawing.Point(1068, 175);
-            this.txtTruckConfig.Name = "txtTruckConfig";
-            this.txtTruckConfig.Size = new System.Drawing.Size(100, 23);
-            this.txtTruckConfig.TabIndex = 110;
-            this.txtTruckConfig.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnSplitLoadType
-            // 
-            this.btnSplitLoadType.Location = new System.Drawing.Point(1045, 140);
-            this.btnSplitLoadType.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSplitLoadType.Name = "btnSplitLoadType";
-            this.btnSplitLoadType.Size = new System.Drawing.Size(158, 28);
-            this.btnSplitLoadType.TabIndex = 111;
-            this.btnSplitLoadType.Text = "Split Load Type";
-            this.btnSplitLoadType.UseVisualStyleBackColor = true;
-            this.btnSplitLoadType.Click += new System.EventHandler(this.btnSplitLoadType_Click);
-            // 
-            // btnBookIn
-            // 
-            this.btnBookIn.Location = new System.Drawing.Point(1045, 207);
-            this.btnBookIn.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBookIn.Name = "btnBookIn";
-            this.btnBookIn.Size = new System.Drawing.Size(158, 28);
-            this.btnBookIn.TabIndex = 109;
-            this.btnBookIn.Text = "Book In";
-            this.btnBookIn.UseVisualStyleBackColor = true;
-            this.btnBookIn.Click += new System.EventHandler(this.btnBookIn_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(label8);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(cartageLabel1);
-            this.groupBox2.Controls.Add(this.cartageTextBox1);
-            this.groupBox2.Controls.Add(label9);
-            this.groupBox2.Controls.Add(this.textBox6);
-            this.groupBox2.Controls.Add(this.materialDescTextBox);
-            this.groupBox2.Controls.Add(this.cartageCodeTextBox1);
-            this.groupBox2.Controls.Add(deliveryAddressLabel1);
-            this.groupBox2.Controls.Add(this.deliveryAddressTextBox1);
-            this.groupBox2.Controls.Add(custONLabel);
-            this.groupBox2.Controls.Add(this.custONTextBox);
-            this.groupBox2.Controls.Add(this.customerCodeTextBox);
-            this.groupBox2.Controls.Add(label10);
-            this.groupBox2.Controls.Add(this.textBox7);
-            this.groupBox2.Location = new System.Drawing.Point(10, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(564, 223);
-            this.groupBox2.TabIndex = 114;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Customer / Order Summary";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(439, 89);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(81, 23);
-            this.textBox1.TabIndex = 16;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new System.Drawing.Point(36, 92);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(101, 17);
-            label8.TabIndex = 13;
-            label8.Text = "Contact Name:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(143, 89);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(290, 23);
-            this.textBox3.TabIndex = 14;
-            // 
-            // cartageLabel1
-            // 
-            cartageLabel1.AutoSize = true;
-            cartageLabel1.Location = new System.Drawing.Point(75, 179);
-            cartageLabel1.Name = "cartageLabel1";
-            cartageLabel1.Size = new System.Drawing.Size(62, 17);
-            cartageLabel1.TabIndex = 12;
-            cartageLabel1.Text = "Cartage:";
-            // 
-            // cartageTextBox1
-            // 
-            this.cartageTextBox1.Location = new System.Drawing.Point(143, 176);
-            this.cartageTextBox1.Name = "cartageTextBox1";
-            this.cartageTextBox1.ReadOnly = true;
-            this.cartageTextBox1.Size = new System.Drawing.Size(290, 23);
-            this.cartageTextBox1.TabIndex = 13;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(72, 150);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(62, 17);
-            label9.TabIndex = 11;
-            label9.Text = "Material:";
-            // 
-            // textBox6
-            // 
-            this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Material", true));
-            this.textBox6.Location = new System.Drawing.Point(439, 147);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(81, 23);
-            this.textBox6.TabIndex = 12;
-            // 
-            // materialDescTextBox
-            // 
-            this.materialDescTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "MaterialDesc", true));
-            this.materialDescTextBox.Location = new System.Drawing.Point(143, 147);
-            this.materialDescTextBox.Name = "materialDescTextBox";
-            this.materialDescTextBox.ReadOnly = true;
-            this.materialDescTextBox.Size = new System.Drawing.Size(290, 23);
-            this.materialDescTextBox.TabIndex = 10;
-            // 
-            // cartageCodeTextBox1
-            // 
-            this.cartageCodeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "CartageCode", true));
-            this.cartageCodeTextBox1.Location = new System.Drawing.Point(439, 176);
-            this.cartageCodeTextBox1.Name = "cartageCodeTextBox1";
-            this.cartageCodeTextBox1.ReadOnly = true;
-            this.cartageCodeTextBox1.Size = new System.Drawing.Size(81, 23);
-            this.cartageCodeTextBox1.TabIndex = 8;
-            // 
-            // deliveryAddressLabel1
-            // 
-            deliveryAddressLabel1.AutoSize = true;
-            deliveryAddressLabel1.Location = new System.Drawing.Point(18, 121);
-            deliveryAddressLabel1.Name = "deliveryAddressLabel1";
-            deliveryAddressLabel1.Size = new System.Drawing.Size(119, 17);
-            deliveryAddressLabel1.TabIndex = 5;
-            deliveryAddressLabel1.Text = "Delivery Address:";
-            // 
-            // deliveryAddressTextBox1
-            // 
-            this.deliveryAddressTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "DeliveryAddress", true));
-            this.deliveryAddressTextBox1.Location = new System.Drawing.Point(143, 118);
-            this.deliveryAddressTextBox1.Name = "deliveryAddressTextBox1";
-            this.deliveryAddressTextBox1.ReadOnly = true;
-            this.deliveryAddressTextBox1.Size = new System.Drawing.Size(377, 23);
-            this.deliveryAddressTextBox1.TabIndex = 6;
-            // 
-            // custONLabel
-            // 
-            custONLabel.AutoSize = true;
-            custONLabel.Location = new System.Drawing.Point(72, 63);
-            custONLabel.Name = "custONLabel";
-            custONLabel.Size = new System.Drawing.Size(65, 17);
-            custONLabel.TabIndex = 3;
-            custONLabel.Text = "Cust ON:";
-            // 
-            // custONTextBox
-            // 
-            this.custONTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "CustON", true));
-            this.custONTextBox.Location = new System.Drawing.Point(143, 60);
-            this.custONTextBox.Name = "custONTextBox";
-            this.custONTextBox.ReadOnly = true;
-            this.custONTextBox.Size = new System.Drawing.Size(100, 23);
-            this.custONTextBox.TabIndex = 4;
-            // 
-            // customerCodeTextBox
-            // 
-            this.customerCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "CustomerCode", true));
-            this.customerCodeTextBox.Location = new System.Drawing.Point(439, 31);
-            this.customerCodeTextBox.Name = "customerCodeTextBox";
-            this.customerCodeTextBox.ReadOnly = true;
-            this.customerCodeTextBox.Size = new System.Drawing.Size(81, 23);
-            this.customerCodeTextBox.TabIndex = 3;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new System.Drawing.Point(65, 34);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(72, 17);
-            label10.TabIndex = 0;
-            label10.Text = "Customer:";
-            // 
-            // textBox7
-            // 
-            this.textBox7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Customer", true));
-            this.textBox7.Location = new System.Drawing.Point(143, 31);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(290, 23);
-            this.textBox7.TabIndex = 1;
-            // 
             // BookInExBin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1596,16 +1597,16 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.tpPayload.ResumeLayout(false);
             this.tpPayload.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
