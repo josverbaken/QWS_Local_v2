@@ -249,7 +249,10 @@ namespace QWS_Local
                 DialogResult dr = frmWeighTruck.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    //MessageBox.Show("Weight accepted.");
+                    string msg = "Weight = ";
+                    msg += frmWeighTruck.Weight.ToString();
+                    msg += "t";
+                    MessageBox.Show(msg); 
                     if (ConfirmPostDocket())
                     {
                         PostDocket();
