@@ -227,11 +227,13 @@ namespace QWS_Local
                 DialogResult dr = frmWeighTruck.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
+                    decimal myWeight = frmWeighTruck.Weight;
                     string msg = "Weight = ";
                     msg += frmWeighTruck.Weight.ToString();
                     msg += "t";
-                    MessageBox.Show(msg); 
-                    CurrentTIQ().Gross = frmWeighTruck.Weight;
+                    MessageBox.Show(msg);
+                    CurrentTIQ().Gross = myWeight;
+                    CurrentTIQ().Nett = myWeight - CurrentTIQ().Tare;
                     bsTIQ2.EndEdit();
                     if (ConfirmPostDocket())
                     {

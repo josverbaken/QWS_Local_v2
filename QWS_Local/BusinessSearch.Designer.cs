@@ -197,7 +197,7 @@ namespace QWS_Local
             this.splitContainer1.Panel2.Controls.Add(this.tradingNameTextBox);
             this.splitContainer1.Panel2.Controls.Add(sAPCodeLabel);
             this.splitContainer1.Panel2.Controls.Add(this.sAPCodeTextBox);
-            this.splitContainer1.Size = new System.Drawing.Size(1000, 290);
+            this.splitContainer1.Size = new System.Drawing.Size(1000, 340);
             this.splitContainer1.SplitterDistance = 500;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -216,7 +216,7 @@ namespace QWS_Local
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(500, 290);
+            this.dataGridView1.Size = new System.Drawing.Size(500, 340);
             this.dataGridView1.TabIndex = 0;
             // 
             // sAPCodeDataGridViewTextBoxColumn
@@ -342,6 +342,8 @@ namespace QWS_Local
             this.tableAdapterManager.TruckConfigVehicleTableAdapter = null;
             this.tableAdapterManager.TrucksInQuarryTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.VehiclePBSTableAdapter = null;
+            this.tableAdapterManager.VehiclePrefCustomersTableAdapter = null;
             this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager.VehicleTableAdapter = null;
             this.tableAdapterManager.VehicleTypeTableAdapter = null;
@@ -364,7 +366,7 @@ namespace QWS_Local
             // 
             // btnSearchByCode
             // 
-            this.btnSearchByCode.BackColor = System.Drawing.Color.LemonChiffon;
+            this.btnSearchByCode.BackColor = System.Drawing.SystemColors.Control;
             this.btnSearchByCode.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnSearchByCode.Image = global::QWS_Local.Properties.Resources.A2;
             this.btnSearchByCode.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -381,7 +383,7 @@ namespace QWS_Local
             // 
             // btnSelectBusiness
             // 
-            this.btnSelectBusiness.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnSelectBusiness.BackColor = System.Drawing.SystemColors.Control;
             this.btnSelectBusiness.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnSelectBusiness.Image = ((System.Drawing.Image)(resources.GetObject("btnSelectBusiness.Image")));
             this.btnSelectBusiness.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -439,7 +441,7 @@ namespace QWS_Local
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 332);
+            this.ClientSize = new System.Drawing.Size(1000, 382);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip1);
