@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 
 namespace QWS_Local
 {
@@ -286,7 +287,60 @@ namespace QWS_Local
 
         private void PostDocket()
         {
+            // create new WBDockets row using NewDocket, then add lines
+            // lock TIQ row and get DocNum
+            int myTIQID = CurrentTIQ().TIQID;
+            if (LockTIQ(myTIQID))
+            {
+                int myDocNum = GetDocNum();
+                if (myDocNum > 0)
+                {
+                    NewDocket(myDocNum);
+                    taWBDockets.Update(dsTIQ2.WBDockets);
+                    // add lines logic depends on if order exbin = 1 line, delivery = 2 lines
+                    // no order = ex binonly 1 line
+                    // TODO add docket lines logic
+                    DocketLineAdd("ItemCode", "ItemDescription", true, 132, 1, 234);
+                }
+                else
+                {
+                    MessageBox.Show("Unable to get docket number!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Unable to proceed, Truck locked by another operator!");
+            }
+        }
 
+        private int GetDocNum()
+        {
+            try
+            {
+                int DocNumNext = 0;
+                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "DocNumNext";
+                sqlConnection.Open();
+                DocNumNext = System.Convert.ToInt32(cmd.ExecuteScalar());
+                sqlConnection.Close();
+                return DocNumNext;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return -9;
+            }
+
+
+        }
+
+        private bool LockTIQ(int TIQID)
+        {
+            // TODO add logic
+            return true;
         }
 
         private void NewDocket(int DocNum)
@@ -301,8 +355,8 @@ namespace QWS_Local
             dsTIQ2.WBDocketsRow docketsRow = (dsTIQ2.WBDocketsRow)dr;
             docketsRow.DocNum = DocNum;
             docketsRow.DocDate = DateTime.Now;
-            docketsRow.CardCode = "";
-            docketsRow.CardName = "";
+            docketsRow.CardCode = CurrentTIQ().CustomerCode;
+            docketsRow.CardName = CurrentTIQ().Customer;
             docketsRow.PurchaseOrder = "";
             docketsRow.CntCode = -9;
             docketsRow.ContactName = "";
@@ -311,15 +365,15 @@ namespace QWS_Local
             docketsRow.DeliveryAddress = "";
             docketsRow.MapRef = "";
             docketsRow.Distance = 0;
-            docketsRow.TruckRego = "";
+            docketsRow.TruckRego = CurrentTIQ().Rego;
             docketsRow.TruckOwnerCode = "tba";
             docketsRow.TruckOwner = "";
             docketsRow.TruckConfig = "";
             docketsRow.TruckConfigID = 1;
             docketsRow.GrossLegal = 0;
-            docketsRow.Gross = 0;
-            docketsRow.Tare = 0;
-            docketsRow.Nett = 0;
+            docketsRow.Gross = CurrentTIQ().Gross;
+            docketsRow.Tare = CurrentTIQ().Tare;
+            docketsRow.Nett = CurrentTIQ().Nett;
             docketsRow.WBMode = "m";
             docketsRow.TruckDriverID = -1;
             docketsRow.TruckDriver = "";//"Truck Driver";
