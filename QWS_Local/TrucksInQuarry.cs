@@ -297,10 +297,15 @@ namespace QWS_Local
                 {
                     NewDocket(myDocNum);
                     taWBDockets.Update(dsTIQ2.WBDockets);
-                    // add lines logic depends on if order exbin = 1 line, delivery = 2 lines
-                    // no order = ex binonly 1 line
-                    // TODO add docket lines logic
-                    DocketLineAdd("ItemCode", "ItemDescription", true, 132, 1, 234);
+                    int myOrderBaseEntry = 0;
+                    myOrderBaseEntry = GetOrderDocEntry(CurrentTIQ().SAPOrder);
+                    DocketLineAdd(CurrentTIQ().Material, CurrentTIQ().MaterialDesc, true, 132, CurrentTIQ().StockpileLotNo, myOrderBaseEntry);
+                    // TODO get ItemQA, itmsgrpcod
+                    if (CurrentTIQ().CartageCode.Length > 0)
+                    {
+                        DocketLineAdd("cartage desc", CurrentTIQ().CartageCode, true,132, 0, myOrderBaseEntry);
+                    }
+                    taWBDocketLines.Update(dsTIQ2.WBDocketLines);
                 }
                 else
                 {
@@ -331,6 +336,31 @@ namespace QWS_Local
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                return -9;
+            }
+
+
+        }
+
+        private int GetOrderDocEntry(int DocNum)
+        {
+            try
+            {
+                int DocEntry = 0;
+                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "OrderDocEntry";
+                cmd.Parameters.AddWithValue("@DocNum", DocNum);
+                sqlConnection.Open();
+                DocEntry = System.Convert.ToInt32(cmd.ExecuteScalar());
+                sqlConnection.Close();
+                return DocEntry;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "GetOrderDocEntry", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return -9;
             }
 
@@ -411,6 +441,7 @@ namespace QWS_Local
                 linesRow.Quantity = 0; //was docketsRow.Nett; but now have to wait for determination of nett
                 linesRow.CreatedDTTM = DateTime.Now;
                 dsTIQ2.WBDocketLines.AddWBDocketLinesRow(linesRow);
+                bsWBDocketLines.EndEdit();  
             }
             catch (Exception ex)
             {

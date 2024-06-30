@@ -417,18 +417,20 @@ namespace QWS_Local
 
         private void btnBookIn_Click(object sender, EventArgs e)
         {
-            AddDelivery2TIQ();
+            AddExBin2TIQ();
         }
 
-        private void AddDelivery2TIQ()
+        private void AddExBin2TIQ()
         {
             try
             {
+                // TODO differentiate between ExBin Order and No Order
+                // bsExBin.Count == 0
                 SetTIQPayload();
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 myTIQRow.AllocateDTTM = DateTime.Now;
-                // TODO implement CurrentDeliveryOrder()
-                //myTIQRow.SAPOrder = CurrentDeliveryOrder().DocNum;
+                myTIQRow.SAPOrder = CurrentExBinOrder().DocNum;
+                // TODO - no longer required at details 
                 if (CurrentExBinOrder().ItemQA == "Y")
                 {
                     myTIQRow.StockpileLotNo = -9;
@@ -437,11 +439,11 @@ namespace QWS_Local
                 {
                     myTIQRow.StockpileLotNo = 0;
                 }
-                //myTIQRow.CustON = CurrentDeliveryOrder().PurchaseOrder;
-                //myTIQRow.Material = CurrentDeliveryOrder().MaterialCode;
-                //myTIQRow.MaterialDesc = CurrentDeliveryOrder().Material;
-                //myTIQRow.CartageCode = CurrentDeliveryOrder().CartageCode;
-                //myTIQRow.Payload = nudPayload.Value;
+                myTIQRow.CustON = CurrentExBinOrder().PurchaseOrder;
+                myTIQRow.Material = CurrentExBinOrder().MaterialCode;
+                myTIQRow.MaterialDesc = CurrentExBinOrder().Material;
+                myTIQRow.CartageCode = "";
+                myTIQRow.Payload = nudPayload.Value;
                 myTIQRow.QueueStatus = "Q";
                 bsTIQ2.EndEdit();
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
