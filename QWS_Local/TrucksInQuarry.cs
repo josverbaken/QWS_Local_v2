@@ -21,10 +21,6 @@ namespace QWS_Local
 
         private void TrucksInQuarry_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsTIQ2.WBDocketLines' table. You can move, or remove it, as needed.
-            //this.taWBDocketLines.Fill(this.dsTIQ2.WBDocketLines);
-            // TODO: This line of code loads data into the 'dsTIQ2.WBDockets' table. You can move, or remove it, as needed.
-            //this.taWBDockets.Fill(this.dsTIQ2.WBDockets);
             this.taAxleConfig.Fill(this.dsQWSLocal.AxleConfiguration);
             // set up and down arrows
             //button3.Text = ""+ (char)24;
@@ -57,7 +53,7 @@ namespace QWS_Local
             }
         }
 
-        private void btnAddVehicle_Click(object sender, EventArgs e)
+        private void btnAddTIQ_Click(object sender, EventArgs e)
         {
             BookInTruck();
         }
@@ -181,11 +177,13 @@ namespace QWS_Local
             try 
             { 
                TIQRemove frmTIQRemove = new TIQRemove();
-                frmTIQRemove.ShowDialog();
-                // TODO show dialogue and only remove if OK
-            CurrentTIQ().TIQOpen = false;
-            bsTIQ2.EndEdit();
-            taTIQ2.Update(dsTIQ2.TIQ);
+               DialogResult dr = frmTIQRemove.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    CurrentTIQ().TIQOpen = false;
+                    bsTIQ2.EndEdit();
+                    taTIQ2.Update(dsTIQ2.TIQ);
+                }
             }
             catch (Exception ex)
             {
@@ -229,13 +227,11 @@ namespace QWS_Local
                 if (dr == DialogResult.OK)
                 {
                     decimal myWeight = frmWeighTruck.Weight;
-                    string msg = "Weight = ";
-                    msg += frmWeighTruck.Weight.ToString();
-                    msg += "t";
-                    MessageBox.Show(msg);
+                    decimal myQty = myWeight - CurrentTIQ().Tare;
                     CurrentTIQ().Gross = myWeight;
-                    CurrentTIQ().Nett = myWeight - CurrentTIQ().Tare;
+                    CurrentTIQ().Nett = myQty;
                     bsTIQ2.EndEdit();
+                    // TODO capture SP Lot No
                     if (ConfirmPostDocket())
                     {
                         PostDocket();
@@ -303,7 +299,7 @@ namespace QWS_Local
                     // TODO get ItemQA, itmsgrpcod
                     if (CurrentTIQ().CartageCode.Length > 0)
                     {
-                        DocketLineAdd("cartage desc", CurrentTIQ().CartageCode, true,132, 0, myOrderBaseEntry);
+                        DocketLineAdd(CurrentTIQ().CartageCode, "cartage desc", true,132, 0, myOrderBaseEntry);
                     }
                     taWBDocketLines.Update(dsTIQ2.WBDocketLines);
                 }
@@ -375,14 +371,12 @@ namespace QWS_Local
 
         private void NewDocket(int DocNum)
         {
-            //btnSave.Enabled = false;
-            //txtOverloaded.Visible = false;
-
             dsTIQ2.WBDockets.Clear();
             dsTIQ2.WBDocketLines.Clear();
 
             DataRow dr = dsTIQ2.WBDockets.NewRow();
             dsTIQ2.WBDocketsRow docketsRow = (dsTIQ2.WBDocketsRow)dr;
+
             docketsRow.DocNum = DocNum;
             docketsRow.DocDate = DateTime.Now;
             docketsRow.CardCode = CurrentTIQ().CustomerCode;
@@ -413,24 +407,22 @@ namespace QWS_Local
             docketsRow.CreatedDTTM = DateTime.Now;
             dsTIQ2.WBDockets.AddWBDocketsRow(docketsRow);
             bsWBDockets.EndEdit();
-
-            //dtpDeliveryDTTM.Enabled = true;
-            //dtpDeliveryDTTM.Focus();
         }
 
         private void DocketLineAdd(string ItemCode, string ItemDescription, bool ItemQA, int ItmsGrpCod, int SPLot, int BaseEntry)
         {
             try
             {
-                // Transfer DocNum
                 DataRow myDR = ((DataRowView)bsWBDockets.Current).Row;
                 dsTIQ2.WBDocketsRow docketsRow = (dsTIQ2.WBDocketsRow)myDR;
 
                 int iLines = bsWBDocketLines.Count; //TODO maybe inherit from order?
+
                 DataRow dr = dsTIQ2.WBDocketLines.NewRow();
                 dsTIQ2.WBDocketLinesRow linesRow = (dsTIQ2.WBDocketLinesRow)dr;
+
                 linesRow.DocNum = docketsRow.DocNum;
-                linesRow.BaseEntry = BaseEntry; // link to SAP Order
+                linesRow.BaseEntry = BaseEntry;
                 linesRow.DocketLine = iLines;
                 linesRow.WarehouseCode = "7";
                 linesRow.ItemCode = ItemCode;
@@ -438,7 +430,7 @@ namespace QWS_Local
                 linesRow.ItemQA = ItemQA;
                 linesRow.ItmsGrpCod = ItmsGrpCod;
                 linesRow.StockpileLot = SPLot;
-                linesRow.Quantity = 0; //was docketsRow.Nett; but now have to wait for determination of nett
+                linesRow.Quantity = CurrentTIQ().Nett;
                 linesRow.CreatedDTTM = DateTime.Now;
                 dsTIQ2.WBDocketLines.AddWBDocketLinesRow(linesRow);
                 bsWBDocketLines.EndEdit();  
