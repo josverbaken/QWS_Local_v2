@@ -400,7 +400,7 @@ namespace QWS_Local
                 DataRow dr = dsTIQ2.WBDocketLines.NewRow();
                 dsTIQ2.WBDocketLinesRow linesRow = (dsTIQ2.WBDocketLinesRow)dr;
                 linesRow.DocNum = docketsRow.DocNum;
-                linesRow.BaseEntry = BaseEntry;
+                linesRow.BaseEntry = BaseEntry; // link to SAP Order
                 linesRow.DocketLine = iLines;
                 linesRow.WarehouseCode = "7";
                 linesRow.ItemCode = ItemCode;

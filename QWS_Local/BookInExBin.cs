@@ -427,6 +427,7 @@ namespace QWS_Local
                 SetTIQPayload();
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 myTIQRow.AllocateDTTM = DateTime.Now;
+                // TODO implement CurrentDeliveryOrder()
                 //myTIQRow.SAPOrder = CurrentDeliveryOrder().DocNum;
                 if (CurrentExBinOrder().ItemQA == "Y")
                 {
@@ -446,14 +447,7 @@ namespace QWS_Local
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 if (iRow == 1)
                 {
-                    //QWS_MDIParent myParent = this.MdiParent();
                     ((QWS_MDIParent)this.MdiParent).BringTIQ2Front();
-
-                    //TrucksInQuarry frmTIQ = new TrucksInQuarry();
-                    //frmTIQ.MdiParent = this.MdiParent;
-                    //frmTIQ.RefreshQueue();
-                    //frmTIQ.Show();
-                    //frmTIQ.ClearTIQ(); // sequence is important
                 }
                 this.Close();
             }
