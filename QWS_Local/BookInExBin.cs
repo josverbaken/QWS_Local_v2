@@ -40,11 +40,10 @@ namespace QWS_Local
         private void BookInExBin_Load(object sender, EventArgs e)
         {
             LoadTIQ();
-            LoadExBinItems();
+            // LoadExBinItems(); 20240701 use ItemSearch showdialog instead
             LoadConfiguredTruckGVM(TruckConfigID);
             LoadDriver();
             ExBinOrdersLoad(CardCode);
-            label1.Text = "Customer  = " + CardCode + " " + CustomerName;
             FormLoaded = true;
             dataGridView4.ClearSelection();
         }
@@ -91,9 +90,6 @@ namespace QWS_Local
         {
             dsQWSLocal.TruckDriver.Clear();
             dsQWSLocal.TruckDriver.ImportRow(DriverRow);
-            //bsDriver.Position = 0;
-            //DataRow myRow = ((DataRowView)bsDriver.Current).Row;
-            //dsQWSLocal.TruckDriverRow myDriverRow = (dsQWSLocal.TruckDriverRow)myRow;
         }
 
         private dsTruckConfig.ConfiguredTruckGVMRow CurrentTruckGVM()
@@ -114,22 +110,6 @@ namespace QWS_Local
                 return null;
             }
         }
-
-        //private void CalcPayload()
-        //{
-        //    decimal myPayload = 0.0M;
-        //    decimal myPayloadTk = 0.0M;
-        //    decimal myPayloadTr = 0.0M;
-        //    myPayload = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
-        //    nudPayload.Value = myPayload;
-        //    if (CurrentTruckGVM().GCM != CurrentTruckGVM().GVMTruck)
-        //    {
-        //        myPayloadTk = CurrentTruckGVM().GVMTruck - CurrentTruckGVM().TareTk;
-        //        myPayloadTr = myPayload - myPayloadTk;
-        //        nudPayloadTk.Value = myPayloadTk;
-        //        nudPayloadTr.Value = myPayloadTr;
-        //    }
-        //}
 
         private void CalcPayload()
         {
@@ -236,16 +216,7 @@ namespace QWS_Local
                 iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 if (iRow == 1)
                 {
-                    //TrucksInQuarry frmTIQ = new TrucksInQuarry();
-                    //frmTIQ.MdiParent = this.MdiParent;
-                    //frmTIQ.Show();
-                    ((QWS_MDIParent)this.MdiParent).BringTIQ2Front();
-                    // TODO how to refresh?
-                    //MessageBox.Show("TODO - swap to TrucksInQuarry form");
-                    //foreach 
-                    //if (TrucksInQuarry)
-                    //this.MdiParent.BringTIQ2Front();
-                    
+                    ((QWS_MDIParent)this.MdiParent).BringTIQ2Front();                   
                 }
                 this.Close();
             }
@@ -280,7 +251,7 @@ namespace QWS_Local
             DialogResult dr = frmItemSearch.ShowDialog();
             if (dr == DialogResult.OK)
             {//get details
-
+                dsBookIn.Item.ImportRow(frmItemSearch.myItem);
             }
         }
 
@@ -487,6 +458,48 @@ namespace QWS_Local
                 {
                     tabControl2.SelectedTab = tpOrderDetails;
                 }
+            }
+        }
+
+        private void btnSetItem_Click(object sender, EventArgs e)
+        {
+            SetExBinNoOrderItem();
+        }
+
+        private void SetExBinNoOrderItem()
+        {
+            if (bsItem.Count > 0)
+            {
+                DataRow myRow = ((DataRowView)bsItem.Current).Row;
+                if (myRow != null)
+                {
+                    dsBookIn.ItemRow itemRow = (dsBookIn.ItemRow)myRow;
+                    MessageBox.Show("Selected item is : " + itemRow.ItemCode);
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ChangeCustomer();
+        }
+
+        //private dsQWSLocal.BusinessRow ChangeCustomer()
+        private void ChangeCustomer()
+        {
+            BusinessSearch frmBusinessSearch = new BusinessSearch();
+            DialogResult dr = frmBusinessSearch.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                txtCardCode.Text = frmBusinessSearch.SAPCode;
+                txtCustomer.Text = frmBusinessSearch.BusinessName;
+                //return 
+            }
+            else
+            {
+                //return null;
+                txtCardCode.Text = "n/a";
+                txtCustomer.Text = "n/a";
             }
         }
     }
