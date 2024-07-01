@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtWBID = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.mtxtWeight = new System.Windows.Forms.MaskedTextBox();
             this.rbManual = new System.Windows.Forms.RadioButton();
             this.rbAuto = new System.Windows.Forms.RadioButton();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
             this.txtMessage = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtWBID = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +53,25 @@
             this.groupBox1.TabIndex = 59;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Weighing Mode";
+            // 
+            // txtWBID
+            // 
+            this.txtWBID.Location = new System.Drawing.Point(249, 42);
+            this.txtWBID.Name = "txtWBID";
+            this.txtWBID.Size = new System.Drawing.Size(59, 24);
+            this.txtWBID.TabIndex = 4;
+            this.txtWBID.Text = "1";
+            this.txtWBID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Location = new System.Drawing.Point(36, 42);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(175, 17);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.Text = "Weighbridge ID";
             // 
             // mtxtWeight
             // 
@@ -126,25 +145,6 @@
             this.txtMessage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtMessage.Validated += new System.EventHandler(this.txtMessage_Validated);
             // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(36, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(175, 17);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "Weighbridge ID";
-            // 
-            // txtWBID
-            // 
-            this.txtWBID.Location = new System.Drawing.Point(249, 42);
-            this.txtWBID.Name = "txtWBID";
-            this.txtWBID.Size = new System.Drawing.Size(59, 24);
-            this.txtWBID.TabIndex = 4;
-            this.txtWBID.Text = "1";
-            this.txtWBID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // WeighTruck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -160,6 +160,7 @@
             this.Name = "WeighTruck";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "WeighTruck";
+            this.Load += new System.EventHandler(this.WeighTruck_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

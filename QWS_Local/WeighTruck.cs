@@ -13,6 +13,7 @@ namespace QWS_Local
     public partial class WeighTruck : Form
     {
         private decimal myWeight;
+        
 
         public decimal Weight
         {
@@ -60,6 +61,11 @@ namespace QWS_Local
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void WeighTruck_Load(object sender, EventArgs e)
+        {
+            mtxtWeight.Focus();
         }
     }
 }

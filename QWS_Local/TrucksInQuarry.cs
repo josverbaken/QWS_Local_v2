@@ -14,6 +14,8 @@ namespace QWS_Local
 {
     public partial class TrucksInQuarry : Form
     {
+        private int mySPLotNo;
+
         public TrucksInQuarry()
         {
             InitializeComponent();
@@ -222,12 +224,14 @@ namespace QWS_Local
         {
             if (dataGridView1.SelectedRows.Count == 1) 
             {
+                // TODO check if Item is QA
+                //if (CurrentTIQ().)
                 WeighTruck frmWeighTruck = new WeighTruck();
                 DialogResult dr = frmWeighTruck.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
                     decimal myWeight = frmWeighTruck.Weight;
-                    decimal myQty = myWeight - CurrentTIQ().Tare;
+                    decimal myQty = myWeight - CurrentTIQ().Tare;                  
                     CurrentTIQ().Gross = myWeight;
                     CurrentTIQ().Nett = myQty;
                     bsTIQ2.EndEdit();
@@ -275,7 +279,8 @@ namespace QWS_Local
             DialogResult dr = frmPostDocket.ShowDialog();
             if (dr == DialogResult.OK )
             {
-                MessageBox.Show(frmPostDocket.SPLotNo.ToString());
+                //MessageBox.Show(frmPostDocket.SPLotNo.ToString());
+                mySPLotNo = frmPostDocket.SPLotNo;
                 return true;
             }
             return false;
@@ -295,7 +300,8 @@ namespace QWS_Local
                     taWBDockets.Update(dsTIQ2.WBDockets);
                     int myOrderBaseEntry = 0;
                     myOrderBaseEntry = GetOrderDocEntry(CurrentTIQ().SAPOrder);
-                    DocketLineAdd(CurrentTIQ().Material, CurrentTIQ().MaterialDesc, true, 132, CurrentTIQ().StockpileLotNo, myOrderBaseEntry);
+                    //DocketLineAdd(CurrentTIQ().Material, CurrentTIQ().MaterialDesc, true, 132, CurrentTIQ().StockpileLotNo, myOrderBaseEntry);
+                    DocketLineAdd(CurrentTIQ().Material, CurrentTIQ().MaterialDesc, true, 132, mySPLotNo, myOrderBaseEntry);
                     // TODO get ItemQA, itmsgrpcod
                     if (CurrentTIQ().CartageCode.Length > 0)
                     {

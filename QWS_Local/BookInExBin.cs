@@ -485,6 +485,7 @@ namespace QWS_Local
                     myTIQRow.MaterialDesc = itemRow.ItemName;
                     bsTIQ2.EndEdit();
                     tabControl2.SelectedTab = tpTruckconfig;
+                    rbExBinNoOrder.Checked = true;  
                     }
             }
             }
