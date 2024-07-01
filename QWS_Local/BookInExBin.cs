@@ -468,14 +468,29 @@ namespace QWS_Local
 
         private void SetExBinNoOrderItem()
         {
+            try
+            { 
             if (bsItem.Count > 0)
             {
                 DataRow myRow = ((DataRowView)bsItem.Current).Row;
                 if (myRow != null)
                 {
                     dsBookIn.ItemRow itemRow = (dsBookIn.ItemRow)myRow;
-                    MessageBox.Show("Selected item is : " + itemRow.ItemCode);
-                }
+                    dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+                    myTIQRow.SAPOrder = 0;
+                    myTIQRow.CustomerCode = txtCardCode.Text;
+                    myTIQRow.Customer = txtCustomer.Text;
+                    myTIQRow.CustON = txtCustON.Text;
+                    myTIQRow.Material = itemRow.ItemCode;
+                    myTIQRow.MaterialDesc = itemRow.ItemName;
+                    bsTIQ2.EndEdit();
+                    tabControl2.SelectedTab = tpTruckconfig;
+                    }
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

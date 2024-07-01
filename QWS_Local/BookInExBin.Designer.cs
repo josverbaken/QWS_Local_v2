@@ -62,6 +62,7 @@ namespace QWS_Local
             System.Windows.Forms.Label label12;
             System.Windows.Forms.Label label13;
             System.Windows.Forms.Label label14;
+            System.Windows.Forms.Label label1;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -116,8 +117,15 @@ namespace QWS_Local
             this.btnSetExBinOrder = new System.Windows.Forms.Button();
             this.btnRefreshOrders = new System.Windows.Forms.Button();
             this.tpExBinNoOrder = new System.Windows.Forms.TabPage();
-            this.btnExBinItems = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.bsItem = new System.Windows.Forms.BindingSource(this.components);
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtCardCode = new System.Windows.Forms.TextBox();
+            this.txtCustomer = new System.Windows.Forms.TextBox();
+            this.btnSetItem = new System.Windows.Forms.Button();
+            this.btnExBinItems = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tpTruckconfig = new System.Windows.Forms.TabPage();
             this.btnSetTruckConfig = new System.Windows.Forms.Button();
@@ -169,14 +177,8 @@ namespace QWS_Local
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager3 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
-            this.btnSetItem = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.txtCardCode = new System.Windows.Forms.TextBox();
-            this.txtCustomer = new System.Windows.Forms.TextBox();
+            this.txtDriverMob = new System.Windows.Forms.TextBox();
+            this.txtCustON = new System.Windows.Forms.TextBox();
             gCMLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
@@ -209,6 +211,7 @@ namespace QWS_Local
             label12 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             label14 = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -365,7 +368,7 @@ namespace QWS_Local
             // purchaseOrderLabel1
             // 
             purchaseOrderLabel1.AutoSize = true;
-            purchaseOrderLabel1.Location = new System.Drawing.Point(419, 52);
+            purchaseOrderLabel1.Location = new System.Drawing.Point(324, 52);
             purchaseOrderLabel1.Name = "purchaseOrderLabel1";
             purchaseOrderLabel1.Size = new System.Drawing.Size(65, 17);
             purchaseOrderLabel1.TabIndex = 83;
@@ -496,6 +499,42 @@ namespace QWS_Local
             label10.Size = new System.Drawing.Size(72, 17);
             label10.TabIndex = 0;
             label10.Text = "Customer:";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new System.Drawing.Point(427, 122);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(62, 17);
+            label11.TabIndex = 99;
+            label11.Text = "Item QA:";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new System.Drawing.Point(77, 93);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(62, 17);
+            label12.TabIndex = 96;
+            label12.Text = "Material:";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new System.Drawing.Point(89, 64);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(50, 17);
+            label13.TabIndex = 94;
+            label13.Text = "Driver:";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new System.Drawing.Point(67, 35);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(72, 17);
+            label14.TabIndex = 91;
+            label14.Text = "Customer:";
             // 
             // splitContainer1
             // 
@@ -936,9 +975,9 @@ namespace QWS_Local
             // purchaseOrderTextBox1
             // 
             this.purchaseOrderTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "PurchaseOrder", true));
-            this.purchaseOrderTextBox1.Location = new System.Drawing.Point(490, 49);
+            this.purchaseOrderTextBox1.Location = new System.Drawing.Point(395, 49);
             this.purchaseOrderTextBox1.Name = "purchaseOrderTextBox1";
-            this.purchaseOrderTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.purchaseOrderTextBox1.Size = new System.Drawing.Size(195, 23);
             this.purchaseOrderTextBox1.TabIndex = 84;
             // 
             // cardCodeTextBox1
@@ -996,12 +1035,14 @@ namespace QWS_Local
             // 
             // tpExBinNoOrder
             // 
+            this.tpExBinNoOrder.Controls.Add(this.txtCustON);
+            this.tpExBinNoOrder.Controls.Add(label1);
+            this.tpExBinNoOrder.Controls.Add(this.txtDriverMob);
             this.tpExBinNoOrder.Controls.Add(label11);
             this.tpExBinNoOrder.Controls.Add(this.textBox2);
             this.tpExBinNoOrder.Controls.Add(this.textBox8);
             this.tpExBinNoOrder.Controls.Add(label12);
             this.tpExBinNoOrder.Controls.Add(this.textBox9);
-            this.tpExBinNoOrder.Controls.Add(this.textBox10);
             this.tpExBinNoOrder.Controls.Add(label13);
             this.tpExBinNoOrder.Controls.Add(this.textBox11);
             this.tpExBinNoOrder.Controls.Add(this.txtCardCode);
@@ -1018,20 +1059,78 @@ namespace QWS_Local
             this.tpExBinNoOrder.Text = "Ex-Bin No Order";
             this.tpExBinNoOrder.UseVisualStyleBackColor = true;
             // 
-            // btnExBinItems
+            // textBox2
             // 
-            this.btnExBinItems.Location = new System.Drawing.Point(920, 64);
-            this.btnExBinItems.Name = "btnExBinItems";
-            this.btnExBinItems.Size = new System.Drawing.Size(160, 30);
-            this.btnExBinItems.TabIndex = 82;
-            this.btnExBinItems.Text = "ExBin Items";
-            this.btnExBinItems.UseVisualStyleBackColor = true;
-            this.btnExBinItems.Click += new System.EventHandler(this.btnExBinItems_Click);
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsItem, "QA", true));
+            this.textBox2.Location = new System.Drawing.Point(495, 119);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 23);
+            this.textBox2.TabIndex = 101;
             // 
             // bsItem
             // 
             this.bsItem.DataMember = "Item";
             this.bsItem.DataSource = this.dsBookIn;
+            // 
+            // textBox8
+            // 
+            this.textBox8.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsItem, "ItemCode", true));
+            this.textBox8.Location = new System.Drawing.Point(495, 90);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(100, 23);
+            this.textBox8.TabIndex = 100;
+            // 
+            // textBox9
+            // 
+            this.textBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.textBox9.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsItem, "ItemName", true));
+            this.textBox9.Location = new System.Drawing.Point(145, 90);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(344, 23);
+            this.textBox9.TabIndex = 98;
+            // 
+            // textBox11
+            // 
+            this.textBox11.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Driver", true));
+            this.textBox11.Location = new System.Drawing.Point(145, 61);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(344, 23);
+            this.textBox11.TabIndex = 95;
+            // 
+            // txtCardCode
+            // 
+            this.txtCardCode.Location = new System.Drawing.Point(495, 32);
+            this.txtCardCode.Name = "txtCardCode";
+            this.txtCardCode.Size = new System.Drawing.Size(100, 23);
+            this.txtCardCode.TabIndex = 93;
+            // 
+            // txtCustomer
+            // 
+            this.txtCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtCustomer.Location = new System.Drawing.Point(145, 32);
+            this.txtCustomer.Name = "txtCustomer";
+            this.txtCustomer.Size = new System.Drawing.Size(344, 23);
+            this.txtCustomer.TabIndex = 92;
+            // 
+            // btnSetItem
+            // 
+            this.btnSetItem.Location = new System.Drawing.Point(622, 159);
+            this.btnSetItem.Name = "btnSetItem";
+            this.btnSetItem.Size = new System.Drawing.Size(160, 30);
+            this.btnSetItem.TabIndex = 83;
+            this.btnSetItem.Text = "Set Item";
+            this.btnSetItem.UseVisualStyleBackColor = true;
+            this.btnSetItem.Click += new System.EventHandler(this.btnSetItem_Click);
+            // 
+            // btnExBinItems
+            // 
+            this.btnExBinItems.Location = new System.Drawing.Point(622, 86);
+            this.btnExBinItems.Name = "btnExBinItems";
+            this.btnExBinItems.Size = new System.Drawing.Size(160, 30);
+            this.btnExBinItems.TabIndex = 82;
+            this.btnExBinItems.Text = "ExBin Item List";
+            this.btnExBinItems.UseVisualStyleBackColor = true;
+            this.btnExBinItems.Click += new System.EventHandler(this.btnExBinItems_Click);
             // 
             // button1
             // 
@@ -1502,109 +1601,29 @@ namespace QWS_Local
             this.tableAdapterManager3.WBDocketLinesTableAdapter = null;
             this.tableAdapterManager3.WBDocketsTableAdapter = null;
             // 
-            // btnSetItem
+            // txtDriverMob
             // 
-            this.btnSetItem.Location = new System.Drawing.Point(920, 156);
-            this.btnSetItem.Name = "btnSetItem";
-            this.btnSetItem.Size = new System.Drawing.Size(160, 30);
-            this.btnSetItem.TabIndex = 83;
-            this.btnSetItem.Text = "Set Item";
-            this.btnSetItem.UseVisualStyleBackColor = true;
-            this.btnSetItem.Click += new System.EventHandler(this.btnSetItem_Click);
+            this.txtDriverMob.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsItem, "ItemCode", true));
+            this.txtDriverMob.Location = new System.Drawing.Point(495, 61);
+            this.txtDriverMob.Name = "txtDriverMob";
+            this.txtDriverMob.Size = new System.Drawing.Size(100, 23);
+            this.txtDriverMob.TabIndex = 102;
             // 
-            // label11
+            // label1
             // 
-            label11.AutoSize = true;
-            label11.Location = new System.Drawing.Point(427, 122);
-            label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(62, 17);
-            label11.TabIndex = 99;
-            label11.Text = "Item QA:";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(74, 122);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(65, 17);
+            label1.TabIndex = 103;
+            label1.Text = "Cust ON:";
             // 
-            // textBox2
+            // txtCustON
             // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsItem, "QA", true));
-            this.textBox2.Location = new System.Drawing.Point(495, 119);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
-            this.textBox2.TabIndex = 101;
-            // 
-            // textBox8
-            // 
-            this.textBox8.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsItem, "ItemCode", true));
-            this.textBox8.Location = new System.Drawing.Point(495, 90);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 23);
-            this.textBox8.TabIndex = 100;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new System.Drawing.Point(77, 93);
-            label12.Name = "label12";
-            label12.Size = new System.Drawing.Size(62, 17);
-            label12.TabIndex = 96;
-            label12.Text = "Material:";
-            // 
-            // textBox9
-            // 
-            this.textBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.textBox9.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsItem, "ItemName", true));
-            this.textBox9.Location = new System.Drawing.Point(145, 90);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(344, 23);
-            this.textBox9.TabIndex = 98;
-            // 
-            // textBox10
-            // 
-            this.textBox10.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "ContactMobile", true));
-            this.textBox10.Location = new System.Drawing.Point(495, 61);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 23);
-            this.textBox10.TabIndex = 97;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new System.Drawing.Point(79, 64);
-            label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(60, 17);
-            label13.TabIndex = 94;
-            label13.Text = "Contact:";
-            // 
-            // textBox11
-            // 
-            this.textBox11.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "ContactName", true));
-            this.textBox11.Location = new System.Drawing.Point(145, 61);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(344, 23);
-            this.textBox11.TabIndex = 95;
-            // 
-            // txtCardCode
-            // 
-            this.txtCardCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "CardCode", true));
-            this.txtCardCode.Location = new System.Drawing.Point(495, 32);
-            this.txtCardCode.Name = "txtCardCode";
-            this.txtCardCode.Size = new System.Drawing.Size(100, 23);
-            this.txtCardCode.TabIndex = 93;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new System.Drawing.Point(67, 35);
-            label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(72, 17);
-            label14.TabIndex = 91;
-            label14.Text = "Customer:";
-            // 
-            // txtCustomer
-            // 
-            this.txtCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtCustomer.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "Customer", true));
-            this.txtCustomer.Location = new System.Drawing.Point(145, 32);
-            this.txtCustomer.Name = "txtCustomer";
-            this.txtCustomer.Size = new System.Drawing.Size(344, 23);
-            this.txtCustomer.TabIndex = 92;
+            this.txtCustON.Location = new System.Drawing.Point(145, 119);
+            this.txtCustON.Name = "txtCustON";
+            this.txtCustON.Size = new System.Drawing.Size(262, 23);
+            this.txtCustON.TabIndex = 104;
             // 
             // BookInExBin
             // 
@@ -1774,9 +1793,10 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.TextBox txtCardCode;
         private System.Windows.Forms.TextBox txtCustomer;
+        private System.Windows.Forms.TextBox txtDriverMob;
+        private System.Windows.Forms.TextBox txtCustON;
     }
 }
