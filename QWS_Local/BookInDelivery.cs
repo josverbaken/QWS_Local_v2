@@ -339,7 +339,8 @@ namespace QWS_Local
             {
                 btnSplitLoadType.Enabled = false;   
             }
-            CalcPayload();            
+            CalcPayload();     
+            SetSplitLoadGUI(txtTruckConfig.Text);
         }    
      
          private void SetSplitLoadType()
@@ -350,10 +351,33 @@ namespace QWS_Local
             {
                 txtTruckConfig.Text = frmLoadType.LoadType;
                 bsTIQ2.EndEdit();
+                SetSplitLoadGUI(frmLoadType.LoadType);
             }
             else
             {
                 txtTruckConfig.Text = "Cancelled!";
+            }
+        }
+
+        private void SetSplitLoadGUI(string LoadType)
+        {
+            if (LoadType == "TK")
+            {
+                txtGVMTruck.Visible = false;
+                txtTareTruck.Visible = false;   
+                txtPayloadSplit.Visible = false;
+                nudPayloadTk.Visible = false;
+                nudPayloadTr.Visible = false;
+                //lblPayloadSplit.Visible = false;
+            }
+            else
+            {
+                txtGVMTruck.Visible = true;
+                txtTareTruck.Visible = true;
+                txtPayloadSplit.Visible = true;
+                nudPayloadTk.Visible = true;
+                nudPayloadTr.Visible = true;
+                //lblPayloadSplit.Visible = true;
             }
         }
 
