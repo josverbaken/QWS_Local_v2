@@ -417,6 +417,7 @@ namespace QWS_Local
             this.btnTINReleaseHold.TabIndex = 60;
             this.btnTINReleaseHold.Text = "Release/Hold";
             this.btnTINReleaseHold.UseVisualStyleBackColor = false;
+            this.btnTINReleaseHold.Click += new System.EventHandler(this.btnTINReleaseHold_Click);
             // 
             // txtRego
             // 

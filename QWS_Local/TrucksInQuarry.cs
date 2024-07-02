@@ -45,9 +45,10 @@ namespace QWS_Local
         public void RefreshQueue()
         {
             try
-            {
+            {         
                 int SiteID = Properties.Settings.Default.SiteID;
                 this.taTIQ2.Fill(dsTIQ2.TIQ, SiteID);
+                ClearTIQ();
             }
             catch (Exception ex)
             {
@@ -445,6 +446,11 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message, "DocketLineAdd Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnTINReleaseHold_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("TODO implement release / hold");
         }
     }
 }

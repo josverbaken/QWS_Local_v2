@@ -117,11 +117,15 @@ namespace QWS_Local
             this.btnSetExBinOrder = new System.Windows.Forms.Button();
             this.btnRefreshOrders = new System.Windows.Forms.Button();
             this.tpExBinNoOrder = new System.Windows.Forms.TabPage();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCustON = new System.Windows.Forms.TextBox();
+            this.txtDriverMob = new System.Windows.Forms.TextBox();
             this.bsItem = new System.Windows.Forms.BindingSource(this.components);
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
+            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.txtCardCode = new System.Windows.Forms.TextBox();
             this.txtCustomer = new System.Windows.Forms.TextBox();
             this.btnSetItem = new System.Windows.Forms.Button();
@@ -144,8 +148,6 @@ namespace QWS_Local
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.cartageTextBox1 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.materialDescTextBox = new System.Windows.Forms.TextBox();
             this.cartageCodeTextBox1 = new System.Windows.Forms.TextBox();
             this.deliveryAddressTextBox1 = new System.Windows.Forms.TextBox();
@@ -177,8 +179,6 @@ namespace QWS_Local
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager3 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
-            this.txtDriverMob = new System.Windows.Forms.TextBox();
-            this.txtCustON = new System.Windows.Forms.TextBox();
             gCMLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
@@ -235,12 +235,12 @@ namespace QWS_Local
             this.tpOrderDetails.SuspendLayout();
             this.tpExBinNoOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             this.tpTruckconfig.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tpPayload.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).BeginInit();
@@ -269,7 +269,7 @@ namespace QWS_Local
             // ownerLabel
             // 
             ownerLabel.AutoSize = true;
-            ownerLabel.Location = new System.Drawing.Point(491, 44);
+            ownerLabel.Location = new System.Drawing.Point(494, 44);
             ownerLabel.Name = "ownerLabel";
             ownerLabel.Size = new System.Drawing.Size(53, 17);
             ownerLabel.TabIndex = 72;
@@ -278,7 +278,7 @@ namespace QWS_Local
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(491, 73);
+            label2.Location = new System.Drawing.Point(497, 73);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(50, 17);
             label2.TabIndex = 77;
@@ -535,6 +535,15 @@ namespace QWS_Local
             label14.Size = new System.Drawing.Size(72, 17);
             label14.TabIndex = 91;
             label14.Text = "Customer:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(74, 122);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(65, 17);
+            label1.TabIndex = 103;
+            label1.Text = "Cust ON:";
             // 
             // splitContainer1
             // 
@@ -884,9 +893,9 @@ namespace QWS_Local
             this.tpOrderDetails.Controls.Add(this.docNumTextBox1);
             this.tpOrderDetails.Controls.Add(this.btnSetExBinOrder);
             this.tpOrderDetails.Controls.Add(this.btnRefreshOrders);
-            this.tpOrderDetails.Location = new System.Drawing.Point(4, 25);
+            this.tpOrderDetails.Location = new System.Drawing.Point(4, 22);
             this.tpOrderDetails.Name = "tpOrderDetails";
-            this.tpOrderDetails.Size = new System.Drawing.Size(1419, 293);
+            this.tpOrderDetails.Size = new System.Drawing.Size(1419, 296);
             this.tpOrderDetails.TabIndex = 3;
             this.tpOrderDetails.Text = "Order Details";
             this.tpOrderDetails.UseVisualStyleBackColor = true;
@@ -1051,13 +1060,33 @@ namespace QWS_Local
             this.tpExBinNoOrder.Controls.Add(this.btnSetItem);
             this.tpExBinNoOrder.Controls.Add(this.btnExBinItems);
             this.tpExBinNoOrder.Controls.Add(this.button1);
-            this.tpExBinNoOrder.Location = new System.Drawing.Point(4, 25);
+            this.tpExBinNoOrder.Location = new System.Drawing.Point(4, 22);
             this.tpExBinNoOrder.Name = "tpExBinNoOrder";
             this.tpExBinNoOrder.Padding = new System.Windows.Forms.Padding(3);
-            this.tpExBinNoOrder.Size = new System.Drawing.Size(1419, 293);
+            this.tpExBinNoOrder.Size = new System.Drawing.Size(1419, 296);
             this.tpExBinNoOrder.TabIndex = 1;
             this.tpExBinNoOrder.Text = "Ex-Bin No Order";
             this.tpExBinNoOrder.UseVisualStyleBackColor = true;
+            // 
+            // txtCustON
+            // 
+            this.txtCustON.Location = new System.Drawing.Point(145, 119);
+            this.txtCustON.Name = "txtCustON";
+            this.txtCustON.Size = new System.Drawing.Size(262, 23);
+            this.txtCustON.TabIndex = 104;
+            // 
+            // txtDriverMob
+            // 
+            this.txtDriverMob.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsItem, "ItemCode", true));
+            this.txtDriverMob.Location = new System.Drawing.Point(495, 61);
+            this.txtDriverMob.Name = "txtDriverMob";
+            this.txtDriverMob.Size = new System.Drawing.Size(100, 23);
+            this.txtDriverMob.TabIndex = 102;
+            // 
+            // bsItem
+            // 
+            this.bsItem.DataMember = "Item";
+            this.bsItem.DataSource = this.dsBookIn;
             // 
             // textBox2
             // 
@@ -1066,11 +1095,6 @@ namespace QWS_Local
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 23);
             this.textBox2.TabIndex = 101;
-            // 
-            // bsItem
-            // 
-            this.bsItem.DataMember = "Item";
-            this.bsItem.DataSource = this.dsBookIn;
             // 
             // textBox8
             // 
@@ -1096,6 +1120,16 @@ namespace QWS_Local
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(344, 23);
             this.textBox11.TabIndex = 95;
+            // 
+            // bsTIQ2
+            // 
+            this.bsTIQ2.DataMember = "TIQ";
+            this.bsTIQ2.DataSource = this.dsTIQ2;
+            // 
+            // dsTIQ2
+            // 
+            this.dsTIQ2.DataSetName = "dsTIQ2";
+            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtCardCode
             // 
@@ -1315,16 +1349,6 @@ namespace QWS_Local
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(81, 23);
             this.textBox6.TabIndex = 12;
-            // 
-            // bsTIQ2
-            // 
-            this.bsTIQ2.DataMember = "TIQ";
-            this.bsTIQ2.DataSource = this.dsTIQ2;
-            // 
-            // dsTIQ2
-            // 
-            this.dsTIQ2.DataSetName = "dsTIQ2";
-            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // materialDescTextBox
             // 
@@ -1601,30 +1625,6 @@ namespace QWS_Local
             this.tableAdapterManager3.WBDocketLinesTableAdapter = null;
             this.tableAdapterManager3.WBDocketsTableAdapter = null;
             // 
-            // txtDriverMob
-            // 
-            this.txtDriverMob.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsItem, "ItemCode", true));
-            this.txtDriverMob.Location = new System.Drawing.Point(495, 61);
-            this.txtDriverMob.Name = "txtDriverMob";
-            this.txtDriverMob.Size = new System.Drawing.Size(100, 23);
-            this.txtDriverMob.TabIndex = 102;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(74, 122);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(65, 17);
-            label1.TabIndex = 103;
-            label1.Text = "Cust ON:";
-            // 
-            // txtCustON
-            // 
-            this.txtCustON.Location = new System.Drawing.Point(145, 119);
-            this.txtCustON.Name = "txtCustON";
-            this.txtCustON.Size = new System.Drawing.Size(262, 23);
-            this.txtCustON.TabIndex = 104;
-            // 
             // BookInExBin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1662,14 +1662,14 @@ namespace QWS_Local
             this.tpExBinNoOrder.ResumeLayout(false);
             this.tpExBinNoOrder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             this.tpTruckconfig.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.tpPayload.ResumeLayout(false);
             this.tpPayload.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).EndInit();

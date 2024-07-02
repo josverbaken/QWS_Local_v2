@@ -44,6 +44,7 @@ namespace QWS_Local
             LoadConfiguredTruckGVM(TruckConfigID);
             LoadDriver();
             ExBinOrdersLoad(CardCode);
+            SetExBinNoOrderCustomer();
             FormLoaded = true;
             dataGridView4.ClearSelection();
         }
@@ -55,6 +56,12 @@ namespace QWS_Local
             {
                 MessageBox.Show("Error loading TIQ row!");
             }
+        }
+
+        private void SetExBinNoOrderCustomer()
+        {
+            txtCardCode.Text = CardCode;
+            txtCustomer.Text = CustomerName;
         }
 
         private void ExBinOrdersLoad(string CardCode)
@@ -395,24 +402,9 @@ namespace QWS_Local
         {
             try
             {
-                // TODO differentiate between ExBin Order and No Order
-                // bsExBin.Count == 0
                 SetTIQPayload();
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 myTIQRow.AllocateDTTM = DateTime.Now;
-                myTIQRow.SAPOrder = CurrentExBinOrder().DocNum;
-                // TODO - no longer required at details 
-                if (CurrentExBinOrder().ItemQA == "Y")
-                {
-                    myTIQRow.StockpileLotNo = -9;
-                }
-                else
-                {
-                    myTIQRow.StockpileLotNo = 0;
-                }
-                myTIQRow.CustON = CurrentExBinOrder().PurchaseOrder;
-                myTIQRow.Material = CurrentExBinOrder().MaterialCode;
-                myTIQRow.MaterialDesc = CurrentExBinOrder().Material;
                 myTIQRow.CartageCode = "";
                 myTIQRow.Payload = nudPayload.Value;
                 myTIQRow.QueueStatus = "Q";
@@ -426,7 +418,7 @@ namespace QWS_Local
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "AddDelivery2TIQ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "AddExBin2TIQ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

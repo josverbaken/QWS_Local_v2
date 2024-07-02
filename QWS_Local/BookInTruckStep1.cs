@@ -373,10 +373,8 @@ namespace QWS_Local
             int iTIQID = NewTIQ(TIQType.Retare);
             if (iTIQID > 0)
             {
-                TrucksInQuarry frmTIQ = new TrucksInQuarry();
-                frmTIQ.MdiParent = this.MdiParent;
-                frmTIQ.RefreshQueue();
-                frmTIQ.Show();
+                ((QWS_MDIParent)this.MdiParent).BringTIQ2Front();
+                this.Close();
             }
         }
 
