@@ -231,26 +231,27 @@ namespace QWS_Local
                 DialogResult dr = frmWeighTruck.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    decimal myWeight = frmWeighTruck.Weight;
-                    decimal myQty = myWeight - CurrentTIQ().Tare;                  
-                    CurrentTIQ().Gross = myWeight;
-                    CurrentTIQ().Nett = myQty;
-                    bsTIQ2.EndEdit();
-                    // TODO capture SP Lot No
-                    if (ConfirmPostDocket())
+ 
+                    if (CurrentTIQ().QueueStatus == "T") // Tare
                     {
-                        if (CurrentTIQ().QueueStatus == "T") // Tare
-                        {
-                            RetareTruck(myWeight);
-                        }
-                        else
-                        {
-                            PostDocket();
-                        }
+                        RetareTruck(frmWeighTruck.Weight);
                     }
                     else
                     {
-                        MessageBox.Show("Post docket - cancelled!");
+                        decimal myWeight = frmWeighTruck.Weight;
+                        decimal myQty = myWeight - CurrentTIQ().Tare;
+                        CurrentTIQ().Gross = myWeight;
+                        CurrentTIQ().Nett = myQty;
+                        bsTIQ2.EndEdit();
+
+                        if (ConfirmPostDocket())
+                        {
+                            PostDocket();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Post docket - cancelled!");
+                        }
                     }
                 }
                 else
@@ -296,7 +297,12 @@ namespace QWS_Local
 
         private void RetareTruck(decimal WBWeight)
         {
-
+            TareTruck frmTareTruck = new TareTruck();
+            DialogResult dr = frmTareTruck.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                MessageBox.Show("Retare form OK");
+            }
         }
 
         private void PostDocket()

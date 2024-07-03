@@ -81,6 +81,7 @@
             this.mtxtWeight.Size = new System.Drawing.Size(59, 24);
             this.mtxtWeight.TabIndex = 2;
             this.mtxtWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mtxtWeight.Enter += new System.EventHandler(this.mtxtWeight_Enter);
             // 
             // rbManual
             // 
@@ -103,6 +104,7 @@
             this.rbAuto.TabIndex = 0;
             this.rbAuto.Text = "Auto";
             this.rbAuto.UseVisualStyleBackColor = true;
+            this.rbAuto.CheckedChanged += new System.EventHandler(this.rbAuto_CheckedChanged);
             // 
             // btnCancel
             // 

@@ -65,7 +65,32 @@ namespace QWS_Local
 
         private void WeighTruck_Load(object sender, EventArgs e)
         {
+            WeightFocus();
+        }
+
+        private void WeightFocus()
+        {
+            mtxtWeight.ReadOnly=false;
             mtxtWeight.Focus();
+            mtxtWeight.SelectAll();
+            //MessageBox.Show("Load event!");
+        }
+
+        private void rbAuto_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbAuto.Checked)
+            {
+                mtxtWeight.ReadOnly = true;
+            }
+            else
+            {
+                WeightFocus();
+            }
+        }
+
+        private void mtxtWeight_Enter(object sender, EventArgs e)
+        {
+            WeightFocus();
         }
     }
 }
