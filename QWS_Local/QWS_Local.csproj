@@ -295,6 +295,12 @@
     <Compile Include="SplitLoadType.Designer.cs">
       <DependentUpon>SplitLoadType.cs</DependentUpon>
     </Compile>
+    <Compile Include="TareTruck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TareTruck.Designer.cs">
+      <DependentUpon>TareTruck.cs</DependentUpon>
+    </Compile>
     <Compile Include="TIQDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -413,6 +419,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SplitLoadType.resx">
       <DependentUpon>SplitLoadType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TareTruck.resx">
+      <DependentUpon>TareTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TIQDetail.resx">
       <DependentUpon>TIQDetail.cs</DependentUpon>

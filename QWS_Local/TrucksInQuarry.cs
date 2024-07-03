@@ -239,7 +239,14 @@ namespace QWS_Local
                     // TODO capture SP Lot No
                     if (ConfirmPostDocket())
                     {
-                        PostDocket();
+                        if (CurrentTIQ().QueueStatus == "T") // Tare
+                        {
+                            RetareTruck(myWeight);
+                        }
+                        else
+                        {
+                            PostDocket();
+                        }
                     }
                     else
                     {
@@ -285,6 +292,11 @@ namespace QWS_Local
                 return true;
             }
             return false;
+        }
+
+        private void RetareTruck(decimal WBWeight)
+        {
+
         }
 
         private void PostDocket()
