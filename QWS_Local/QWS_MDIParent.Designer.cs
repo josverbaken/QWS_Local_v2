@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.tIQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pBSMaintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pBSMaintenanceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.vehicleMaintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,8 +43,8 @@
             this.bookInTruckStep1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tIQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printDocketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +54,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tIQToolStripMenuItem,
             this.pBSMaintenanceToolStripMenuItem,
+            this.printDocketToolStripMenuItem,
             this.windowsToolStripMenuItem,
             this.helloToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -61,6 +63,13 @@
             this.menuStrip1.Size = new System.Drawing.Size(1200, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // tIQToolStripMenuItem
+            // 
+            this.tIQToolStripMenuItem.Name = "tIQToolStripMenuItem";
+            this.tIQToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.tIQToolStripMenuItem.Text = "Home";
+            this.tIQToolStripMenuItem.Click += new System.EventHandler(this.tIQToolStripMenuItem_Click);
             // 
             // pBSMaintenanceToolStripMenuItem
             // 
@@ -164,19 +173,19 @@
             this.closeAllToolStripMenuItem.Text = "Close All";
             this.closeAllToolStripMenuItem.Click += new System.EventHandler(this.closeAllToolStripMenuItem_Click);
             // 
-            // tIQToolStripMenuItem
-            // 
-            this.tIQToolStripMenuItem.Name = "tIQToolStripMenuItem";
-            this.tIQToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
-            this.tIQToolStripMenuItem.Text = "Home";
-            this.tIQToolStripMenuItem.Click += new System.EventHandler(this.tIQToolStripMenuItem_Click);
-            // 
             // helloToolStripMenuItem
             // 
             this.helloToolStripMenuItem.Name = "helloToolStripMenuItem";
-            this.helloToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
-            this.helloToolStripMenuItem.Text = "Hello";
+            this.helloToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.helloToolStripMenuItem.Text = "Help";
             this.helloToolStripMenuItem.Click += new System.EventHandler(this.helloToolStripMenuItem_Click);
+            // 
+            // printDocketToolStripMenuItem
+            // 
+            this.printDocketToolStripMenuItem.Name = "printDocketToolStripMenuItem";
+            this.printDocketToolStripMenuItem.Size = new System.Drawing.Size(102, 24);
+            this.printDocketToolStripMenuItem.Text = "Print Docket";
+            this.printDocketToolStripMenuItem.Click += new System.EventHandler(this.printDocketToolStripMenuItem_Click);
             // 
             // QWS_MDIParent
             // 
@@ -216,5 +225,6 @@
         private System.Windows.Forms.ToolStripMenuItem tIQToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helloToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printDocketToolStripMenuItem;
     }
 }

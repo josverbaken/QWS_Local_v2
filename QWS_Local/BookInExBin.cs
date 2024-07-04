@@ -23,7 +23,6 @@ namespace QWS_Local
         public BookInExBin(int myTIQID,string myTIQType,int myTruckConfigID, string myCardCode, string myCustomerName, dsQWSLocal.TruckDriverRow driverRow)
         {
             InitializeComponent();
-            //EntryDTTM = _EntryDTTM;
             TIQID = myTIQID;
             TruckConfigID = myTruckConfigID;
             CardCode = myCardCode;
@@ -31,13 +30,12 @@ namespace QWS_Local
             DriverRow = driverRow;
             if (myTIQType == "Imported")
             {
-                //this.Name = "Book In Imported."; // not reflected in MDI Parent
-                label15.Text = "Book In Imported";
+                this.Text = "Book In Imported";
                 bsExBinOrders.Filter = "ItmsGrpCod = 138";
             }
             else
             {
-                label15.Text = "Book In ExBin";
+                this.Text = "Book In ExBin";
                 bsExBinOrders.Filter = "ItmsGrpCod != 138";
             }
         }
@@ -51,7 +49,6 @@ namespace QWS_Local
         private void BookInExBin_Load(object sender, EventArgs e)
         {
             LoadTIQ();
-            // LoadExBinItems(); 20240701 use ItemSearch showdialog instead
             LoadConfiguredTruckGVM(TruckConfigID);
             LoadDriver();
             ExBinOrdersLoad(CardCode);
@@ -93,13 +90,7 @@ namespace QWS_Local
             }
         }
 
-        private void LoadExBinItems()
-        {
-            string mySiteCode = Properties.Settings.Default.SiteCode;
-            taItem.Fill(dsBookIn.Item, mySiteCode);
-        }
-
-        private void LoadConfiguredTruckGVM(int myTruckConfigID)
+          private void LoadConfiguredTruckGVM(int myTruckConfigID)
         {
             taConfiguredTruckGVM.Fill(dsTruckConfig.ConfiguredTruckGVM, "", myTruckConfigID);
         }

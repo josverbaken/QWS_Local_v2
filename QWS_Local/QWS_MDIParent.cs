@@ -128,7 +128,15 @@ namespace QWS_Local
 
         private void helloToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hello :-)");
+            MessageBox.Show("Read the supplied documentation first.");
+        }
+
+        private void printDocketToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PrintDocket frmPrintDocket = new PrintDocket();
+            frmPrintDocket.MdiParent = this;
+            frmPrintDocket.WindowState = FormWindowState.Maximized;
+            frmPrintDocket.Show();
         }
     }
 }
