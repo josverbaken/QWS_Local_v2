@@ -21,6 +21,7 @@ namespace QWS_Local
         {
             Retare,
             ExBin,
+            Imported,
             Delivery
         }
         private enum LoadType
@@ -234,12 +235,14 @@ namespace QWS_Local
                     txtOkay2Cart.Text = "Y";
                     txtOkay2Cart.BackColor = Color.PaleGreen;
                     btnExBin.Enabled = true;
+                    btnImported.Enabled = true;
                 }
                 else
                 {
                     txtOkay2Cart.Text = "N";
                     txtOkay2Cart.BackColor = Color.Salmon;
                     btnExBin.Enabled = false;
+                    btnImported.Enabled = false;
                 }
                 if (myTruckDriverRow.Position == "Authorised Cartage Contractor")
                 {
@@ -258,6 +261,7 @@ namespace QWS_Local
                 {
                     btnExBin.Enabled = false;
                     btnDelivery.Enabled = false;
+                    btnImported.Enabled=false;
                 }
                 btnRetare.Enabled = true;
             }
@@ -325,23 +329,23 @@ namespace QWS_Local
 
         private void btnExBin_Click(object sender, EventArgs e)
         {
-            GoToBookInExBin();
+            GoToBookInExBin(TIQType.ExBin);
         }
 
-        private void GoToBookInExBin()
+        private void GoToBookInExBin(TIQType myTIQType)
         {
             if (SetExBinCustomer() == true)
             {
-                BookInExBin();
+                BookInExBin(myTIQType);
             }            
         }
 
-        private void BookInExBin()
+        private void BookInExBin(TIQType myTIQType)
         {
-            int iTIQID = NewTIQ(TIQType.ExBin);
+            int iTIQID = NewTIQ(myTIQType);
             if (iTIQID > 0)
             {
-                BookInExBin frmExBin = new BookInExBin(iTIQID,CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, CurrentTruckDriver());
+                BookInExBin frmExBin = new BookInExBin(iTIQID,myTIQType.ToString() ,CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, CurrentTruckDriver());
                 frmExBin.MdiParent = this.MdiParent;
                 frmExBin.Show();
             }
@@ -419,9 +423,7 @@ namespace QWS_Local
                         break;
                     case TIQType.ExBin:
                         cmd.Parameters.AddWithValue("@QueueStatus", "P");
- 
                          cmd.Parameters.AddWithValue("@Material", "ExBin");
- 
                          cmd.Parameters.AddWithValue("@MaterialDesc", "tba");
                         break;
                     case TIQType.Delivery:
@@ -429,7 +431,13 @@ namespace QWS_Local
                         cmd.Parameters.AddWithValue("@Material", "Delivery");
                         cmd.Parameters.AddWithValue("@MaterialDesc", "tba");
                         break;
+                        case TIQType.Imported:
+                        cmd.Parameters.AddWithValue("@QueueStatus", "I");
+                        cmd.Parameters.AddWithValue("@Material", "Imported");
+                        cmd.Parameters.AddWithValue("@MaterialDesc", "tba");
+                        break ;
                     default:
+                        MessageBox.Show("Unhandled TIQ Type : " +  myTIQType,"Add TIQ ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
                 cmd.Parameters.AddWithValue("@StockpileLotNo", 0);
@@ -459,9 +467,14 @@ namespace QWS_Local
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "NewTIQ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return -9;
             }
-        }    
+        }
+
+        private void btnImported_Click(object sender, EventArgs e)
+        {
+            GoToBookInExBin(TIQType.Imported);
+        }
     }
 }

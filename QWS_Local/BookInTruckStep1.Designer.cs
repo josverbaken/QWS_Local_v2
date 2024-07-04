@@ -532,6 +532,7 @@ namespace QWS_Local
             this.btnImported.TabIndex = 55;
             this.btnImported.Text = "Imported";
             this.btnImported.UseVisualStyleBackColor = true;
+            this.btnImported.Click += new System.EventHandler(this.btnImported_Click);
             // 
             // btnExBin
             // 
@@ -634,6 +635,8 @@ namespace QWS_Local
             this.tableAdapterManager2.Connection = null;
             this.tableAdapterManager2.TIQTableAdapter = null;
             this.tableAdapterManager2.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager2.WBDocketLinesTableAdapter = null;
+            this.tableAdapterManager2.WBDocketsTableAdapter = null;
             // 
             // txtTruckConfig
             // 
