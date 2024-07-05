@@ -33,16 +33,7 @@
             this.tpList = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.btnRefreshDockets = new System.Windows.Forms.Button();
-            this.tpDocket = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btnGetDocket = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnPrintDocket = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dsQWSViews = new QWS_Local.dsQWSViews();
-            this.docketListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.docketListTableAdapter = new QWS_Local.dsQWSViewsTableAdapters.DocketListTableAdapter();
             this.docNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.docDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cardCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,20 +51,30 @@
             this.overloadPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.overloadDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wBModeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.docketListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSViews = new QWS_Local.dsQWSViews();
+            this.tpDocket = new System.Windows.Forms.TabPage();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnGetDocket = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnPrintDocket = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.docketListTableAdapter = new QWS_Local.dsQWSViewsTableAdapters.DocketListTableAdapter();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docketListBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSViews)).BeginInit();
             this.tpDocket.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSViews)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docketListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -126,77 +127,6 @@
             this.btnRefreshDockets.Text = "Refresh";
             this.btnRefreshDockets.UseVisualStyleBackColor = true;
             // 
-            // tpDocket
-            // 
-            this.tpDocket.Controls.Add(this.splitContainer1);
-            this.tpDocket.Location = new System.Drawing.Point(4, 27);
-            this.tpDocket.Margin = new System.Windows.Forms.Padding(4);
-            this.tpDocket.Name = "tpDocket";
-            this.tpDocket.Padding = new System.Windows.Forms.Padding(4);
-            this.tpDocket.Size = new System.Drawing.Size(1192, 592);
-            this.tpDocket.TabIndex = 1;
-            this.tpDocket.Text = "Docket";
-            this.tpDocket.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(4, 4);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.btnGetDocket);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
-            this.splitContainer1.Panel1.Controls.Add(this.btnPrintDocket);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.label1);
-            this.splitContainer1.Size = new System.Drawing.Size(1184, 584);
-            this.splitContainer1.SplitterDistance = 280;
-            this.splitContainer1.SplitterWidth = 6;
-            this.splitContainer1.TabIndex = 0;
-            // 
-            // btnGetDocket
-            // 
-            this.btnGetDocket.Location = new System.Drawing.Point(44, 168);
-            this.btnGetDocket.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGetDocket.Name = "btnGetDocket";
-            this.btnGetDocket.Size = new System.Drawing.Size(150, 32);
-            this.btnGetDocket.TabIndex = 2;
-            this.btnGetDocket.Text = "Find";
-            this.btnGetDocket.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(44, 115);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(148, 24);
-            this.textBox1.TabIndex = 1;
-            // 
-            // btnPrintDocket
-            // 
-            this.btnPrintDocket.Location = new System.Drawing.Point(44, 238);
-            this.btnPrintDocket.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPrintDocket.Name = "btnPrintDocket";
-            this.btnPrintDocket.Size = new System.Drawing.Size(150, 32);
-            this.btnPrintDocket.TabIndex = 0;
-            this.btnPrintDocket.Text = "Print";
-            this.btnPrintDocket.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(87, 181);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(260, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "todo - install reportviewer components";
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -228,20 +158,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(966, 584);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // dsQWSViews
-            // 
-            this.dsQWSViews.DataSetName = "dsQWSViews";
-            this.dsQWSViews.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // docketListBindingSource
-            // 
-            this.docketListBindingSource.DataMember = "DocketList";
-            this.docketListBindingSource.DataSource = this.dsQWSViews;
-            // 
-            // docketListTableAdapter
-            // 
-            this.docketListTableAdapter.ClearBeforeFill = true;
             // 
             // docNumDataGridViewTextBoxColumn
             // 
@@ -362,6 +278,100 @@
             this.wBModeDataGridViewTextBoxColumn.Name = "wBModeDataGridViewTextBoxColumn";
             this.wBModeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // docketListBindingSource
+            // 
+            this.docketListBindingSource.DataMember = "DocketList";
+            this.docketListBindingSource.DataSource = this.dsQWSViews;
+            // 
+            // dsQWSViews
+            // 
+            this.dsQWSViews.DataSetName = "dsQWSViews";
+            this.dsQWSViews.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tpDocket
+            // 
+            this.tpDocket.Controls.Add(this.splitContainer1);
+            this.tpDocket.Location = new System.Drawing.Point(4, 27);
+            this.tpDocket.Margin = new System.Windows.Forms.Padding(4);
+            this.tpDocket.Name = "tpDocket";
+            this.tpDocket.Padding = new System.Windows.Forms.Padding(4);
+            this.tpDocket.Size = new System.Drawing.Size(1192, 592);
+            this.tpDocket.TabIndex = 1;
+            this.tpDocket.Text = "Docket";
+            this.tpDocket.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnGetDocket);
+            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.btnPrintDocket);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.reportViewer1);
+            this.splitContainer1.Panel2.Controls.Add(this.label1);
+            this.splitContainer1.Size = new System.Drawing.Size(1184, 584);
+            this.splitContainer1.SplitterDistance = 280;
+            this.splitContainer1.SplitterWidth = 6;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // btnGetDocket
+            // 
+            this.btnGetDocket.Location = new System.Drawing.Point(44, 168);
+            this.btnGetDocket.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGetDocket.Name = "btnGetDocket";
+            this.btnGetDocket.Size = new System.Drawing.Size(150, 32);
+            this.btnGetDocket.TabIndex = 2;
+            this.btnGetDocket.Text = "Find";
+            this.btnGetDocket.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(44, 115);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(148, 24);
+            this.textBox1.TabIndex = 1;
+            // 
+            // btnPrintDocket
+            // 
+            this.btnPrintDocket.Location = new System.Drawing.Point(44, 238);
+            this.btnPrintDocket.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrintDocket.Name = "btnPrintDocket";
+            this.btnPrintDocket.Size = new System.Drawing.Size(150, 32);
+            this.btnPrintDocket.TabIndex = 0;
+            this.btnPrintDocket.Text = "Print";
+            this.btnPrintDocket.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(87, 181);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(260, 18);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "todo - install reportviewer components";
+            // 
+            // docketListTableAdapter
+            // 
+            this.docketListTableAdapter.ClearBeforeFill = true;
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Location = new System.Drawing.Point(148, 272);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(396, 246);
+            this.reportViewer1.TabIndex = 1;
+            // 
             // PrintDocket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -379,6 +389,9 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docketListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSViews)).EndInit();
             this.tpDocket.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -386,9 +399,6 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSViews)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docketListBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -426,5 +436,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn overloadPointsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn overloadDescDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn wBModeDataGridViewTextBoxColumn;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

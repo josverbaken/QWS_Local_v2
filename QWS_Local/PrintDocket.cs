@@ -19,7 +19,8 @@ namespace QWS_Local
 
         private void PrintDocket_Load(object sender, EventArgs e)
         {
-            GetDocketList();    
+            GetDocketList();
+            this.reportViewer1.RefreshReport();
         }
 
         private void GetDocketList()
