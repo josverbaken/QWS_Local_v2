@@ -16,5 +16,22 @@ namespace QWS_Local
         {
             InitializeComponent();
         }
+
+        private void PrintDocket_Load(object sender, EventArgs e)
+        {
+            GetDocketList();    
+        }
+
+        private void GetDocketList()
+        {
+            try
+            {
+                this.docketListTableAdapter.Fill(this.dsQWSViews.DocketList);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "GetDocketList Error!");
+            }
+        }
     }
 }
