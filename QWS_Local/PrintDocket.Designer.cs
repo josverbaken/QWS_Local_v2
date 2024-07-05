@@ -58,9 +58,8 @@
             this.btnGetDocket = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnPrintDocket = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.docketListTableAdapter = new QWS_Local.dsQWSViewsTableAdapters.DocketListTableAdapter();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.docketListTableAdapter = new QWS_Local.dsQWSViewsTableAdapters.DocketListTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -316,7 +315,6 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.reportViewer1);
-            this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Size = new System.Drawing.Size(1184, 584);
             this.splitContainer1.SplitterDistance = 280;
             this.splitContainer1.SplitterWidth = 6;
@@ -350,27 +348,19 @@
             this.btnPrintDocket.Text = "Print";
             this.btnPrintDocket.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // reportViewer1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(87, 181);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(260, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "todo - install reportviewer components";
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "QWS_Local.DocketRpt.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(898, 584);
+            this.reportViewer1.TabIndex = 1;
             // 
             // docketListTableAdapter
             // 
             this.docketListTableAdapter.ClearBeforeFill = true;
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Location = new System.Drawing.Point(148, 272);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(396, 246);
-            this.reportViewer1.TabIndex = 1;
             // 
             // PrintDocket
             // 
@@ -396,7 +386,6 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -412,7 +401,6 @@
         private System.Windows.Forms.Button btnGetDocket;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnPrintDocket;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Button btnRefreshDockets;
         private System.Windows.Forms.DataGridView dataGridView1;

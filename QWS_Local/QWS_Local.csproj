@@ -447,6 +447,7 @@
     <EmbeddedResource Include="QWS_MDIParent.resx">
       <DependentUpon>QWS_MDIParent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DocketRpt.rdlc" />
     <EmbeddedResource Include="SplitLoadType.resx">
       <DependentUpon>SplitLoadType.cs</DependentUpon>
     </EmbeddedResource>
