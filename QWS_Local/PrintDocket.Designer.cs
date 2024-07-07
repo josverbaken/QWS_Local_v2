@@ -29,37 +29,41 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label docDateLabel;
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.btnRefreshDockets = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.docNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.docDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cardCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cardNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.purchaseOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deliveryAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.truckRegoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.truckConfigDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grossDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tareDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nettDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.overloadPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.overloadDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wBModeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.docketListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSViews = new QWS_Local.dsQWSViews();
             this.tpDocket = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnGetDocket = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnPrintDocket = new System.Windows.Forms.Button();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.Overload = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.docNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.docDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.truckRegoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grossDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deliveryAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tareDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nettDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.overloadPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.overloadDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wBModeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsDocketList = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWS = new QWS_Local.dsQWSViews();
             this.docketListTableAdapter = new QWS_Local.dsQWSViewsTableAdapters.DocketListTableAdapter();
+            this.dtpDocketList = new System.Windows.Forms.DateTimePicker();
+            this.btnGetDocketList = new System.Windows.Forms.Button();
+            this.tableAdapterManager = new QWS_Local.dsQWSViewsTableAdapters.TableAdapterManager();
+            this.docNumTextBox = new System.Windows.Forms.TextBox();
+            docDateLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -67,13 +71,13 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docketListBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSViews)).BeginInit();
             this.tpDocket.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDocketList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWS)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -108,6 +112,11 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.AutoScroll = true;
+            this.splitContainer2.Panel1.Controls.Add(this.docNumTextBox);
+            this.splitContainer2.Panel1.Controls.Add(docDateLabel);
+            this.splitContainer2.Panel1.Controls.Add(this.btnGetDocketList);
+            this.splitContainer2.Panel1.Controls.Add(this.dtpDocketList);
             this.splitContainer2.Panel1.Controls.Add(this.btnRefreshDockets);
             // 
             // splitContainer2.Panel2
@@ -125,6 +134,7 @@
             this.btnRefreshDockets.TabIndex = 0;
             this.btnRefreshDockets.Text = "Refresh";
             this.btnRefreshDockets.UseVisualStyleBackColor = true;
+            this.btnRefreshDockets.Click += new System.EventHandler(this.btnRefreshDockets_Click);
             // 
             // dataGridView1
             // 
@@ -135,157 +145,25 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.docNumDataGridViewTextBoxColumn,
             this.docDateDataGridViewTextBoxColumn,
-            this.cardCodeDataGridViewTextBoxColumn,
-            this.cardNameDataGridViewTextBoxColumn,
-            this.purchaseOrderDataGridViewTextBoxColumn,
-            this.contactNameDataGridViewTextBoxColumn,
-            this.deliveryAddressDataGridViewTextBoxColumn,
             this.truckRegoDataGridViewTextBoxColumn,
-            this.truckConfigDataGridViewTextBoxColumn,
             this.grossDataGridViewTextBoxColumn,
-            this.tareDataGridViewTextBoxColumn,
-            this.nettDataGridViewTextBoxColumn,
+            this.Overload,
+            this.cardNameDataGridViewTextBoxColumn,
+            this.deliveryAddressDataGridViewTextBoxColumn,
             this.itemCodeDataGridViewTextBoxColumn,
             this.itemDescriptionDataGridViewTextBoxColumn,
+            this.tareDataGridViewTextBoxColumn,
+            this.nettDataGridViewTextBoxColumn,
             this.overloadPointsDataGridViewTextBoxColumn,
             this.overloadDescDataGridViewTextBoxColumn,
             this.wBModeDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.docketListBindingSource;
+            this.dataGridView1.DataSource = this.bsDocketList;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(966, 584);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // docNumDataGridViewTextBoxColumn
-            // 
-            this.docNumDataGridViewTextBoxColumn.DataPropertyName = "DocNum";
-            this.docNumDataGridViewTextBoxColumn.HeaderText = "DocNum";
-            this.docNumDataGridViewTextBoxColumn.Name = "docNumDataGridViewTextBoxColumn";
-            this.docNumDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // docDateDataGridViewTextBoxColumn
-            // 
-            this.docDateDataGridViewTextBoxColumn.DataPropertyName = "DocDate";
-            this.docDateDataGridViewTextBoxColumn.HeaderText = "DocDate";
-            this.docDateDataGridViewTextBoxColumn.Name = "docDateDataGridViewTextBoxColumn";
-            this.docDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cardCodeDataGridViewTextBoxColumn
-            // 
-            this.cardCodeDataGridViewTextBoxColumn.DataPropertyName = "CardCode";
-            this.cardCodeDataGridViewTextBoxColumn.HeaderText = "CardCode";
-            this.cardCodeDataGridViewTextBoxColumn.Name = "cardCodeDataGridViewTextBoxColumn";
-            this.cardCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cardNameDataGridViewTextBoxColumn
-            // 
-            this.cardNameDataGridViewTextBoxColumn.DataPropertyName = "CardName";
-            this.cardNameDataGridViewTextBoxColumn.HeaderText = "CardName";
-            this.cardNameDataGridViewTextBoxColumn.Name = "cardNameDataGridViewTextBoxColumn";
-            this.cardNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // purchaseOrderDataGridViewTextBoxColumn
-            // 
-            this.purchaseOrderDataGridViewTextBoxColumn.DataPropertyName = "PurchaseOrder";
-            this.purchaseOrderDataGridViewTextBoxColumn.HeaderText = "PurchaseOrder";
-            this.purchaseOrderDataGridViewTextBoxColumn.Name = "purchaseOrderDataGridViewTextBoxColumn";
-            this.purchaseOrderDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // contactNameDataGridViewTextBoxColumn
-            // 
-            this.contactNameDataGridViewTextBoxColumn.DataPropertyName = "ContactName";
-            this.contactNameDataGridViewTextBoxColumn.HeaderText = "ContactName";
-            this.contactNameDataGridViewTextBoxColumn.Name = "contactNameDataGridViewTextBoxColumn";
-            this.contactNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // deliveryAddressDataGridViewTextBoxColumn
-            // 
-            this.deliveryAddressDataGridViewTextBoxColumn.DataPropertyName = "DeliveryAddress";
-            this.deliveryAddressDataGridViewTextBoxColumn.HeaderText = "DeliveryAddress";
-            this.deliveryAddressDataGridViewTextBoxColumn.Name = "deliveryAddressDataGridViewTextBoxColumn";
-            this.deliveryAddressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // truckRegoDataGridViewTextBoxColumn
-            // 
-            this.truckRegoDataGridViewTextBoxColumn.DataPropertyName = "TruckRego";
-            this.truckRegoDataGridViewTextBoxColumn.HeaderText = "TruckRego";
-            this.truckRegoDataGridViewTextBoxColumn.Name = "truckRegoDataGridViewTextBoxColumn";
-            this.truckRegoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // truckConfigDataGridViewTextBoxColumn
-            // 
-            this.truckConfigDataGridViewTextBoxColumn.DataPropertyName = "TruckConfig";
-            this.truckConfigDataGridViewTextBoxColumn.HeaderText = "TruckConfig";
-            this.truckConfigDataGridViewTextBoxColumn.Name = "truckConfigDataGridViewTextBoxColumn";
-            this.truckConfigDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // grossDataGridViewTextBoxColumn
-            // 
-            this.grossDataGridViewTextBoxColumn.DataPropertyName = "Gross";
-            this.grossDataGridViewTextBoxColumn.HeaderText = "Gross";
-            this.grossDataGridViewTextBoxColumn.Name = "grossDataGridViewTextBoxColumn";
-            this.grossDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tareDataGridViewTextBoxColumn
-            // 
-            this.tareDataGridViewTextBoxColumn.DataPropertyName = "Tare";
-            this.tareDataGridViewTextBoxColumn.HeaderText = "Tare";
-            this.tareDataGridViewTextBoxColumn.Name = "tareDataGridViewTextBoxColumn";
-            this.tareDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nettDataGridViewTextBoxColumn
-            // 
-            this.nettDataGridViewTextBoxColumn.DataPropertyName = "Nett";
-            this.nettDataGridViewTextBoxColumn.HeaderText = "Nett";
-            this.nettDataGridViewTextBoxColumn.Name = "nettDataGridViewTextBoxColumn";
-            this.nettDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // itemCodeDataGridViewTextBoxColumn
-            // 
-            this.itemCodeDataGridViewTextBoxColumn.DataPropertyName = "ItemCode";
-            this.itemCodeDataGridViewTextBoxColumn.HeaderText = "ItemCode";
-            this.itemCodeDataGridViewTextBoxColumn.Name = "itemCodeDataGridViewTextBoxColumn";
-            this.itemCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // itemDescriptionDataGridViewTextBoxColumn
-            // 
-            this.itemDescriptionDataGridViewTextBoxColumn.DataPropertyName = "ItemDescription";
-            this.itemDescriptionDataGridViewTextBoxColumn.HeaderText = "ItemDescription";
-            this.itemDescriptionDataGridViewTextBoxColumn.Name = "itemDescriptionDataGridViewTextBoxColumn";
-            this.itemDescriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // overloadPointsDataGridViewTextBoxColumn
-            // 
-            this.overloadPointsDataGridViewTextBoxColumn.DataPropertyName = "OverloadPoints";
-            this.overloadPointsDataGridViewTextBoxColumn.HeaderText = "OverloadPoints";
-            this.overloadPointsDataGridViewTextBoxColumn.Name = "overloadPointsDataGridViewTextBoxColumn";
-            this.overloadPointsDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // overloadDescDataGridViewTextBoxColumn
-            // 
-            this.overloadDescDataGridViewTextBoxColumn.DataPropertyName = "OverloadDesc";
-            this.overloadDescDataGridViewTextBoxColumn.HeaderText = "OverloadDesc";
-            this.overloadDescDataGridViewTextBoxColumn.Name = "overloadDescDataGridViewTextBoxColumn";
-            this.overloadDescDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // wBModeDataGridViewTextBoxColumn
-            // 
-            this.wBModeDataGridViewTextBoxColumn.DataPropertyName = "WBMode";
-            this.wBModeDataGridViewTextBoxColumn.HeaderText = "WBMode";
-            this.wBModeDataGridViewTextBoxColumn.Name = "wBModeDataGridViewTextBoxColumn";
-            this.wBModeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // docketListBindingSource
-            // 
-            this.docketListBindingSource.DataMember = "DocketList";
-            this.docketListBindingSource.DataSource = this.dsQWSViews;
-            // 
-            // dsQWSViews
-            // 
-            this.dsQWSViews.DataSetName = "dsQWSViews";
-            this.dsQWSViews.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tpDocket
             // 
@@ -358,9 +236,160 @@
             this.reportViewer1.Size = new System.Drawing.Size(898, 584);
             this.reportViewer1.TabIndex = 1;
             // 
+            // Overload
+            // 
+            this.Overload.DataPropertyName = "Overload";
+            this.Overload.HeaderText = "Overload";
+            this.Overload.Name = "Overload";
+            this.Overload.ReadOnly = true;
+            // 
+            // docNumDataGridViewTextBoxColumn
+            // 
+            this.docNumDataGridViewTextBoxColumn.DataPropertyName = "DocNum";
+            this.docNumDataGridViewTextBoxColumn.HeaderText = "Docket";
+            this.docNumDataGridViewTextBoxColumn.Name = "docNumDataGridViewTextBoxColumn";
+            this.docNumDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // docDateDataGridViewTextBoxColumn
+            // 
+            this.docDateDataGridViewTextBoxColumn.DataPropertyName = "DocDate";
+            dataGridViewCellStyle3.Format = "t";
+            dataGridViewCellStyle3.NullValue = null;
+            this.docDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.docDateDataGridViewTextBoxColumn.HeaderText = "Time";
+            this.docDateDataGridViewTextBoxColumn.Name = "docDateDataGridViewTextBoxColumn";
+            this.docDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // truckRegoDataGridViewTextBoxColumn
+            // 
+            this.truckRegoDataGridViewTextBoxColumn.DataPropertyName = "TruckRego";
+            this.truckRegoDataGridViewTextBoxColumn.HeaderText = "Rego";
+            this.truckRegoDataGridViewTextBoxColumn.Name = "truckRegoDataGridViewTextBoxColumn";
+            this.truckRegoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // grossDataGridViewTextBoxColumn
+            // 
+            this.grossDataGridViewTextBoxColumn.DataPropertyName = "Gross";
+            this.grossDataGridViewTextBoxColumn.HeaderText = "Gross";
+            this.grossDataGridViewTextBoxColumn.Name = "grossDataGridViewTextBoxColumn";
+            this.grossDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cardNameDataGridViewTextBoxColumn
+            // 
+            this.cardNameDataGridViewTextBoxColumn.DataPropertyName = "CardName";
+            this.cardNameDataGridViewTextBoxColumn.HeaderText = "Customer";
+            this.cardNameDataGridViewTextBoxColumn.Name = "cardNameDataGridViewTextBoxColumn";
+            this.cardNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // deliveryAddressDataGridViewTextBoxColumn
+            // 
+            this.deliveryAddressDataGridViewTextBoxColumn.DataPropertyName = "DeliveryAddress";
+            this.deliveryAddressDataGridViewTextBoxColumn.HeaderText = "DeliveryAddress";
+            this.deliveryAddressDataGridViewTextBoxColumn.Name = "deliveryAddressDataGridViewTextBoxColumn";
+            this.deliveryAddressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // itemCodeDataGridViewTextBoxColumn
+            // 
+            this.itemCodeDataGridViewTextBoxColumn.DataPropertyName = "ItemCode";
+            this.itemCodeDataGridViewTextBoxColumn.HeaderText = "Material";
+            this.itemCodeDataGridViewTextBoxColumn.Name = "itemCodeDataGridViewTextBoxColumn";
+            this.itemCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // itemDescriptionDataGridViewTextBoxColumn
+            // 
+            this.itemDescriptionDataGridViewTextBoxColumn.DataPropertyName = "ItemDescription";
+            this.itemDescriptionDataGridViewTextBoxColumn.HeaderText = "MaterialDesc";
+            this.itemDescriptionDataGridViewTextBoxColumn.Name = "itemDescriptionDataGridViewTextBoxColumn";
+            this.itemDescriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tareDataGridViewTextBoxColumn
+            // 
+            this.tareDataGridViewTextBoxColumn.DataPropertyName = "Tare";
+            this.tareDataGridViewTextBoxColumn.HeaderText = "Tare";
+            this.tareDataGridViewTextBoxColumn.Name = "tareDataGridViewTextBoxColumn";
+            this.tareDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nettDataGridViewTextBoxColumn
+            // 
+            this.nettDataGridViewTextBoxColumn.DataPropertyName = "Nett";
+            this.nettDataGridViewTextBoxColumn.HeaderText = "Nett";
+            this.nettDataGridViewTextBoxColumn.Name = "nettDataGridViewTextBoxColumn";
+            this.nettDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // overloadPointsDataGridViewTextBoxColumn
+            // 
+            this.overloadPointsDataGridViewTextBoxColumn.DataPropertyName = "OverloadPoints";
+            this.overloadPointsDataGridViewTextBoxColumn.HeaderText = "OverloadPoints";
+            this.overloadPointsDataGridViewTextBoxColumn.Name = "overloadPointsDataGridViewTextBoxColumn";
+            this.overloadPointsDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // overloadDescDataGridViewTextBoxColumn
+            // 
+            this.overloadDescDataGridViewTextBoxColumn.DataPropertyName = "OverloadDesc";
+            this.overloadDescDataGridViewTextBoxColumn.HeaderText = "OverloadDesc";
+            this.overloadDescDataGridViewTextBoxColumn.Name = "overloadDescDataGridViewTextBoxColumn";
+            this.overloadDescDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // wBModeDataGridViewTextBoxColumn
+            // 
+            this.wBModeDataGridViewTextBoxColumn.DataPropertyName = "WBMode";
+            this.wBModeDataGridViewTextBoxColumn.HeaderText = "WBMode";
+            this.wBModeDataGridViewTextBoxColumn.Name = "wBModeDataGridViewTextBoxColumn";
+            this.wBModeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bsDocketList
+            // 
+            this.bsDocketList.DataMember = "DocketList";
+            this.bsDocketList.DataSource = this.dsQWS;
+            // 
+            // dsQWS
+            // 
+            this.dsQWS.DataSetName = "dsQWSViews";
+            this.dsQWS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // docketListTableAdapter
             // 
             this.docketListTableAdapter.ClearBeforeFill = true;
+            // 
+            // dtpDocketList
+            // 
+            this.dtpDocketList.Location = new System.Drawing.Point(4, 233);
+            this.dtpDocketList.Name = "dtpDocketList";
+            this.dtpDocketList.Size = new System.Drawing.Size(200, 24);
+            this.dtpDocketList.TabIndex = 1;
+            // 
+            // btnGetDocketList
+            // 
+            this.btnGetDocketList.Location = new System.Drawing.Point(4, 276);
+            this.btnGetDocketList.Name = "btnGetDocketList";
+            this.btnGetDocketList.Size = new System.Drawing.Size(200, 23);
+            this.btnGetDocketList.TabIndex = 2;
+            this.btnGetDocketList.Text = "Get List";
+            this.btnGetDocketList.UseVisualStyleBackColor = true;
+            this.btnGetDocketList.Click += new System.EventHandler(this.btnGetDocketList_Click);
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSViewsTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // docDateLabel
+            // 
+            docDateLabel.AutoSize = true;
+            docDateLabel.Location = new System.Drawing.Point(11, 350);
+            docDateLabel.Name = "docDateLabel";
+            docDateLabel.Size = new System.Drawing.Size(75, 18);
+            docDateLabel.TabIndex = 3;
+            docDateLabel.Text = "Doc Date:";
+            // 
+            // docNumTextBox
+            // 
+            this.docNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDocketList, "DocDate", true));
+            this.docNumTextBox.Location = new System.Drawing.Point(4, 381);
+            this.docNumTextBox.Name = "docNumTextBox";
+            this.docNumTextBox.Size = new System.Drawing.Size(200, 24);
+            this.docNumTextBox.TabIndex = 6;
             // 
             // PrintDocket
             // 
@@ -376,18 +405,19 @@
             this.tabControl1.ResumeLayout(false);
             this.tpList.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docketListBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSViews)).EndInit();
             this.tpDocket.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bsDocketList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -404,26 +434,27 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Button btnRefreshDockets;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private dsQWSViews dsQWSViews;
-        private System.Windows.Forms.BindingSource docketListBindingSource;
         private dsQWSViewsTableAdapters.DocketListTableAdapter docketListTableAdapter;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private dsQWSViews dsQWS;
+        private System.Windows.Forms.BindingSource bsDocketList;
         private System.Windows.Forms.DataGridViewTextBoxColumn docNumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn docDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cardCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cardNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn purchaseOrderDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contactNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deliveryAddressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn truckRegoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn truckConfigDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn grossDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tareDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nettDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Overload;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cardNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deliveryAddressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemDescriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tareDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nettDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn overloadPointsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn overloadDescDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn wBModeDataGridViewTextBoxColumn;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.Button btnGetDocketList;
+        private System.Windows.Forms.DateTimePicker dtpDocketList;
+        private System.Windows.Forms.TextBox docNumTextBox;
+        private dsQWSViewsTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }

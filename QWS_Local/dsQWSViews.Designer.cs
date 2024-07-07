@@ -762,6 +762,8 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnWBMode;
             
+            private global::System.Data.DataColumn columnOverload;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DocketListDataTable() {
@@ -933,6 +935,14 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn OverloadColumn {
+                get {
+                    return this.columnOverload;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -985,7 +995,8 @@ namespace QWS_Local {
                         string ItemDescription, 
                         int OverloadPoints, 
                         string OverloadDesc, 
-                        string WBMode) {
+                        string WBMode, 
+                        string Overload) {
                 DocketListRow rowDocketListRow = ((DocketListRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DocNum,
@@ -1004,7 +1015,8 @@ namespace QWS_Local {
                         ItemDescription,
                         OverloadPoints,
                         OverloadDesc,
-                        WBMode};
+                        WBMode,
+                        Overload};
                 rowDocketListRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDocketListRow);
                 return rowDocketListRow;
@@ -1051,6 +1063,7 @@ namespace QWS_Local {
                 this.columnOverloadPoints = base.Columns["OverloadPoints"];
                 this.columnOverloadDesc = base.Columns["OverloadDesc"];
                 this.columnWBMode = base.Columns["WBMode"];
+                this.columnOverload = base.Columns["Overload"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1090,6 +1103,8 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnOverloadDesc);
                 this.columnWBMode = new global::System.Data.DataColumn("WBMode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWBMode);
+                this.columnOverload = new global::System.Data.DataColumn("Overload", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOverload);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnDocNum}, true));
                 this.columnDocNum.AllowDBNull = false;
@@ -1119,6 +1134,8 @@ namespace QWS_Local {
                 this.columnOverloadDesc.MaxLength = 25;
                 this.columnWBMode.AllowDBNull = false;
                 this.columnWBMode.MaxLength = 50;
+                this.columnOverload.ReadOnly = true;
+                this.columnOverload.MaxLength = 22;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1594,6 +1611,22 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Overload {
+                get {
+                    try {
+                        return ((string)(this[this.tableDocketList.OverloadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Overload\' in table \'DocketList\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDocketList.OverloadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsOverloadPointsNull() {
                 return this.IsNull(this.tableDocketList.OverloadPointsColumn);
             }
@@ -1614,6 +1647,18 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetOverloadDescNull() {
                 this[this.tableDocketList.OverloadDescColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsOverloadNull() {
+                return this.IsNull(this.tableDocketList.OverloadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetOverloadNull() {
+                this[this.tableDocketList.OverloadColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2048,6 +2093,7 @@ namespace QWS_Local.dsQWSViewsTableAdapters {
             tableMapping.ColumnMappings.Add("OverloadPoints", "OverloadPoints");
             tableMapping.ColumnMappings.Add("OverloadDesc", "OverloadDesc");
             tableMapping.ColumnMappings.Add("WBMode", "WBMode");
+            tableMapping.ColumnMappings.Add("Overload", "Overload");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2061,11 +2107,17 @@ namespace QWS_Local.dsQWSViewsTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        DocketList.*\r\nFROM            DocketList";
+            this._commandCollection[0].CommandText = "SELECT t0.* \r\nFROM DocketList t0";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "dbo.DeliveryDocketsToday";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DocDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2087,6 +2139,42 @@ namespace QWS_Local.dsQWSViewsTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual dsQWSViews.DocketListDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            dsQWSViews.DocketListDataTable dataTable = new dsQWSViews.DocketListDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(dsQWSViews.DocketListDataTable dataTable, global::System.Nullable<global::System.DateTime> DocDate) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((DocDate.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(DocDate.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dsQWSViews.DocketListDataTable GetDataBy(global::System.Nullable<global::System.DateTime> DocDate) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((DocDate.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(DocDate.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             dsQWSViews.DocketListDataTable dataTable = new dsQWSViews.DocketListDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

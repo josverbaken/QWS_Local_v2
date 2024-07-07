@@ -18,8 +18,8 @@ namespace QWS_Local
         }
 
         private void PrintDocket_Load(object sender, EventArgs e)
-        {
-            GetDocketList();
+        {            
+            //GetDocketList();
             this.reportViewer1.RefreshReport();
         }
 
@@ -27,12 +27,35 @@ namespace QWS_Local
         {
             try
             {
-                this.docketListTableAdapter.Fill(this.dsQWSViews.DocketList);
+                this.docketListTableAdapter.Fill(this.dsQWS.DocketList);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "GetDocketList Error!");
             }
+        }
+
+        private void btnGetDocketList_Click(object sender, EventArgs e)
+        {
+            GetDocketListDTP(dtpDocketList.Value);
+        }
+        private void GetDocketListDTP(DateTime DocDate)
+        {
+            try
+            {
+                dsQWS.DocketList.Clear();
+                int iRows = this.docketListTableAdapter.FillBy(this.dsQWS.DocketList,DocDate);
+                iRows += 2;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "GetDocketListDTP Error!");
+            }
+        }
+
+        private void btnRefreshDockets_Click(object sender, EventArgs e)
+        {
+            GetDocketList();
         }
     }
 }
