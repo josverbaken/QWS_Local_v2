@@ -234,7 +234,23 @@ namespace QWS_Local
  
                     if (CurrentTIQ().QueueStatus == "T") // Tare
                     {
-                        RetareTruck(frmWeighTruck.Weight);
+                        decimal myTare = 0.0M;
+                        decimal myTareTk = 0.0M;
+                        if (CurrentTIQ().TruckConfig != "TT")
+                        {
+                            myTare = frmWeighTruck.Weight;
+                        }
+                        else
+                        {
+                            myTareTk = frmWeighTruck.Weight;
+                            WeighTruck frmTare = new WeighTruck();
+                            DialogResult dr1 = frmTare.ShowDialog();
+                            if (dr1 == DialogResult.OK)
+                            {
+                                myTare = frmTare.Weight;
+                            }
+                        }
+                        RetareTruck(myTareTk, myTare);
                     }
                     else
                     {
@@ -295,9 +311,9 @@ namespace QWS_Local
             return false;
         }
 
-        private void RetareTruck(decimal WBWeight)
+        private void RetareTruck(decimal TareTk, decimal Tare)
         {
-            TareTruck frmTareTruck = new TareTruck();
+            TareTruck frmTareTruck = new TareTruck(TareTk, Tare, CurrentTIQ());
             DialogResult dr = frmTareTruck.ShowDialog();
             if (dr == DialogResult.OK)
             {
