@@ -33,14 +33,16 @@ namespace QWS_Local
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-            // TODO update tare via USP
             if (TruckConfigTare(CurrentTIQ().TruckConfigID, TareTk, Tare) == true)
             {
-                // TODO remove from TIQ and resume booking in
                 RemoveFromTIQ(CurrentTIQ().TIQID, "Retare successful");
-                // clone, set parenttiq and return to bookinstep1 form
+                // clone, set parent-tiqid and return to bookinstep1 form
+                DialogResult = DialogResult.OK;
                 this.Close();
+            }
+            else
+            {
+                DialogResult = DialogResult.Cancel;
             }
         }
 

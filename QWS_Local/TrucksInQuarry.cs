@@ -252,6 +252,7 @@ namespace QWS_Local
                         }
                         RetareTruck(myTareTk, myTare);
                         RefreshQueue();
+                        GoBack2BookIn();
                     }
                     else
                     {
@@ -297,6 +298,14 @@ namespace QWS_Local
             {
                 MessageBox.Show("Please select a truck to weigh!");
             }
+        }
+
+        private void GoBack2BookIn()
+        {
+            //called after retare successful
+            BookInTruckStep1 frmBookInStep1 = new BookInTruckStep1("Called after successful retare.");
+            frmBookInStep1.MdiParent = this.MdiParent;
+            frmBookInStep1.Show();
         }
 
         private bool ConfirmPostDocket()

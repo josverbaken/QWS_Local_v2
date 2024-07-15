@@ -17,6 +17,8 @@ namespace QWS_Local
         private static DateTime EntryDTTM;
         private static string CustCardCode;
         private static string ExBinCustomer;
+        private static string CallingMessage="";
+
         private enum TIQType
         {
             Retare,
@@ -42,6 +44,12 @@ namespace QWS_Local
         public BookInTruckStep1()
         {
             InitializeComponent();
+        }
+
+        public BookInTruckStep1(string Message)
+        {
+            InitializeComponent();
+            CallingMessage = Message;
         }
 
         private void btnFindTruck_Click(object sender, EventArgs e)
@@ -121,6 +129,10 @@ namespace QWS_Local
         private void BookInTruckStep1_Load(object sender, EventArgs e)
         {
             FormLoaded = true;
+            if (CallingMessage.Length>0)
+            {
+                MessageBox.Show(CallingMessage);
+            }
         }
 
         private bool CheckFeeCode()
