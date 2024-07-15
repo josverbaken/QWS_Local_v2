@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
+
 
 namespace QWS_Local
 {
@@ -33,6 +35,7 @@ namespace QWS_Local
         {
             DialogResult = DialogResult.OK;
             // TODO update tare via USP
+            UpdateTare();
             // TODO remove from TIQ and resume booking in
             this.Close();
         }
@@ -44,12 +47,61 @@ namespace QWS_Local
             dsTIQ2.TIQ.ImportRow(TIQRow);
         }
 
-        private void tIQBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.bsTIQ.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dsTIQ2);
+        //private dsTruckConfig.ConfiguredTrucksRow CurrentConfigTruck()
+        //{
+        //    if (bsConfiguredTrucks.Count > 0)
+        //    {
+        //        DataRow myRow = ((DataRowView)bsConfiguredTrucks.Current).Row;
+        //        dsTruckConfig.ConfiguredTrucksRow configuredTruckRow = (dsTruckConfig.ConfiguredTrucksRow)myRow;
+        //        return configuredTruckRow;
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
 
+        private dsTIQ2.TIQRow CurrentTIQ()
+        {
+            if (bsTIQ.Count > 0)
+            {
+                DataRow myRow = ((DataRowView)bsTIQ.Current).Row;
+                dsTIQ2.TIQRow TIQRow = (dsTIQ2.TIQRow)myRow;
+                return TIQRow;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private void UpdateTare()
+        {
+            TruckConfigTare(CurrentTIQ().TruckConfigID, TareTk, Tare);
+            MessageBox.Show("Tare Updated for ID : " + CurrentTIQ().TruckConfigID);
+        }
+
+        private void TruckConfigTare(int TruckConfigID, decimal TareTk, decimal Tare)
+        {
+            try
+            {
+                int iStatus = 0;
+                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "TruckConfigtareUpdate";
+                cmd.Parameters.AddWithValue("@TruckConfigID", TruckConfigID);
+                cmd.Parameters.AddWithValue("@TareTk", TareTk);
+                cmd.Parameters.AddWithValue("@Tare", Tare);
+                sqlConnection.Open();
+                iStatus = cmd.ExecuteNonQuery();    
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "TruckConfigTareUpate - ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
     }
