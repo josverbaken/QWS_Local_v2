@@ -46,10 +46,12 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public BookInTruckStep1(string Message)
+        public BookInTruckStep1(string Rego, int TruckConfigID ,string Message)
         {
             InitializeComponent();
             CallingMessage = Message;
+            FindTruckConfig(Rego);
+            SelectTruckConfig(TruckConfigID);
         }
 
         private void btnFindTruck_Click(object sender, EventArgs e)
@@ -61,7 +63,6 @@ namespace QWS_Local
         {
             try
             {
-                //SetTruckConfigRadioButtons(1);
                 btnRetare.Enabled = false;
                 btnRetare.BackColor = SystemColors.Control;
                 dsQWSLocal.TruckDriver.Clear();
@@ -110,7 +111,16 @@ namespace QWS_Local
                 chkACC.Checked = false;
             }
 
-        }  
+        }
+
+        private void SelectTruckConfig (int TruckConfigID)
+        {
+            int index =  bsConfiguredTrucks.Find("TruckConfigID", TruckConfigID);
+            if (index >= 0)
+            {
+                bsConfiguredTrucks.Position = index;
+            }
+        }
 
         private dsTruckConfig.ConfiguredTrucksRow CurrentConfigTruck()
         {

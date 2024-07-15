@@ -234,6 +234,8 @@ namespace QWS_Local
  
                     if (CurrentTIQ().QueueStatus == "T") // Tare
                     {
+                        string myRego = CurrentTIQ().Rego;
+                        int myTruckConfigID = CurrentTIQ().TruckConfigID;
                         decimal myTare = 0.0M;
                         decimal myTareTk = 0.0M;
                         if (CurrentTIQ().TruckConfig != "TT")
@@ -252,7 +254,7 @@ namespace QWS_Local
                         }
                         RetareTruck(myTareTk, myTare);
                         RefreshQueue();
-                        GoBack2BookIn();
+                        GoBack2BookIn(myRego, myTruckConfigID);
                     }
                     else
                     {
@@ -300,10 +302,10 @@ namespace QWS_Local
             }
         }
 
-        private void GoBack2BookIn()
+        private void GoBack2BookIn(string Rego, int TruckConfigID)
         {
             //called after retare successful
-            BookInTruckStep1 frmBookInStep1 = new BookInTruckStep1("Called after successful retare.");
+            BookInTruckStep1 frmBookInStep1 = new BookInTruckStep1(Rego, TruckConfigID, "Called after successful retare.");
             frmBookInStep1.MdiParent = this.MdiParent;
             frmBookInStep1.Show();
         }
