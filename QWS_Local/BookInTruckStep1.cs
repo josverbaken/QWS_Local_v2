@@ -18,7 +18,7 @@ namespace QWS_Local
         private static string CustCardCode;
         private static string ExBinCustomer;
         private static string CallingMessage="";
-        private static int myDriverID;
+        private static int myDriverID = 0;
 
         private enum TIQType
         {
@@ -218,12 +218,28 @@ namespace QWS_Local
         {
             bool blOkay2Cart = true;
             bool RetareDue = CheckRetareDue();
-            TruckDriverSearch frmTruckDriverSearch = new TruckDriverSearch(CurrentConfigTruck().CardCode);
-            DialogResult dr = frmTruckDriverSearch.ShowDialog();
-            if (dr == DialogResult.OK)
+            bool blOkay2Proceed = false;
+            if (myDriverID > 0)
             {
-                dsQWSLocal.TruckDriver.Clear();
-                dsQWSLocal.TruckDriver.ImportRow(frmTruckDriverSearch.TruckDriverRow);
+                // use driverid to retrieve row
+                // if count = 1
+                //taTruckDriver.fi
+                blOkay2Proceed = true;  
+            }
+            else
+            {
+                TruckDriverSearch frmTruckDriverSearch = new TruckDriverSearch(CurrentConfigTruck().CardCode);
+                DialogResult dr = frmTruckDriverSearch.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    dsQWSLocal.TruckDriver.Clear();
+                    dsQWSLocal.TruckDriver.ImportRow(frmTruckDriverSearch.TruckDriverRow);
+                    blOkay2Proceed = true;
+                }
+            }
+
+            if (blOkay2Proceed == true)
+            {
                 bsTruckDriver.Position = 0;
                 DataRow myRow = ((DataRowView)bsTruckDriver.Current).Row;
                 dsQWSLocal.TruckDriverRow myTruckDriverRow = (dsQWSLocal.TruckDriverRow)myRow;
@@ -281,11 +297,11 @@ namespace QWS_Local
                     chkDriverACC.Checked = false;
                     btnDelivery.Enabled = false;
                 }
-                if(RetareDue)
+                if (RetareDue)
                 {
                     btnExBin.Enabled = false;
                     btnDelivery.Enabled = false;
-                    btnImported.Enabled=false;
+                    btnImported.Enabled = false;
                 }
                 btnRetare.Enabled = true;
             }
