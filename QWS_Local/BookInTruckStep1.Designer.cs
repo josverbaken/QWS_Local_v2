@@ -90,6 +90,7 @@ namespace QWS_Local
             this.pictureSchematic = new System.Windows.Forms.PictureBox();
             this.tableAdapterManager2 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.txtTruckConfig = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -646,11 +647,22 @@ namespace QWS_Local
             this.txtTruckConfig.Size = new System.Drawing.Size(33, 23);
             this.txtTruckConfig.TabIndex = 81;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(465, 451);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(84, 23);
+            this.button1.TabIndex = 78;
+            this.button1.Text = "Get";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // BookInTruckStep1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 658);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtTruckConfig);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -742,5 +754,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn nHVLDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
         private System.Windows.Forms.TextBox txtTruckConfig;
+        private System.Windows.Forms.Button button1;
     }
 }

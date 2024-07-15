@@ -18,6 +18,7 @@ namespace QWS_Local
         private static string CustCardCode;
         private static string ExBinCustomer;
         private static string CallingMessage="";
+        private static int myDriverID;
 
         private enum TIQType
         {
@@ -46,12 +47,13 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public BookInTruckStep1(string Rego, int TruckConfigID ,string Message)
+        public BookInTruckStep1(string Rego, int TruckConfigID, int DriverID ,string Message)
         {
             InitializeComponent();
             CallingMessage = Message;
             FindTruckConfig(Rego);
             SelectTruckConfig(TruckConfigID);
+            myDriverID = DriverID;
         }
 
         private void btnFindTruck_Click(object sender, EventArgs e)
@@ -497,6 +499,17 @@ namespace QWS_Local
         private void btnImported_Click(object sender, EventArgs e)
         {
             GoToBookInExBin(TIQType.Imported);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int iDriver = myDriverID;
+            GetDriver(iDriver);
+        }
+
+        private void GetDriver(int DriverID)
+        {
+            MessageBox.Show("Truck driver with cntctcode = " + DriverID.ToString());
         }
     }
 }
