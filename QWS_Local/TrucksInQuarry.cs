@@ -251,6 +251,7 @@ namespace QWS_Local
                             }
                         }
                         RetareTruck(myTareTk, myTare);
+                        RefreshQueue();
                     }
                     else
                     {

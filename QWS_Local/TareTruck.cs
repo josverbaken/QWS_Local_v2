@@ -35,9 +35,13 @@ namespace QWS_Local
         {
             DialogResult = DialogResult.OK;
             // TODO update tare via USP
-            UpdateTare();
-            // TODO remove from TIQ and resume booking in
-            this.Close();
+            if (TruckConfigTare(CurrentTIQ().TruckConfigID, TareTk, Tare) == true)
+            {
+                // TODO remove from TIQ and resume booking in
+                RemoveFromTIQ(CurrentTIQ().TIQID, "Retare successful");
+                // clone, set parenttiq and return to bookinstep1 form
+                this.Close();
+            }
         }
 
         private void TareTruck_Load(object sender, EventArgs e)
@@ -75,13 +79,8 @@ namespace QWS_Local
             }
         }
 
-        private void UpdateTare()
-        {
-            TruckConfigTare(CurrentTIQ().TruckConfigID, TareTk, Tare);
-            MessageBox.Show("Tare Updated for ID : " + CurrentTIQ().TruckConfigID);
-        }
 
-        private void TruckConfigTare(int TruckConfigID, decimal TareTk, decimal Tare)
+        private bool TruckConfigTare(int TruckConfigID, decimal TareTk, decimal Tare)
         {
             try
             {
@@ -97,12 +96,35 @@ namespace QWS_Local
                 sqlConnection.Open();
                 iStatus = cmd.ExecuteNonQuery();    
                 sqlConnection.Close();
+                return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "TruckConfigTareUpate - ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
 
+        private void RemoveFromTIQ(int TIQID, string Comment)
+        {
+            try
+            {
+                int iStatus = 0;
+                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "TIQRemove";
+                cmd.Parameters.AddWithValue("@TIQID", TIQID);
+                cmd.Parameters.AddWithValue("@Comment",Comment);
+                sqlConnection.Open();
+                iStatus = cmd.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "RemoveFromTIQ - ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
