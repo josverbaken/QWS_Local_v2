@@ -356,6 +356,8 @@ namespace QWS_Local
                         DocketLineAdd(CurrentTIQ().CartageCode, "cartage desc", true,132, 0, myOrderBaseEntry);
                     }
                     taWBDocketLines.Update(dsTIQ2.WBDocketLines);
+                    RemoveFromTIQ(myTIQID, "Docket posted successfully.");
+                    RefreshQueue();
                 }
                 else
                 {
@@ -494,6 +496,29 @@ namespace QWS_Local
                 MessageBox.Show(ex.Message, "DocketLineAdd Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void RemoveFromTIQ(int TIQID, string Comment)
+        {
+            try
+            {
+                int iStatus = 0;
+                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "TIQRemove";
+                cmd.Parameters.AddWithValue("@TIQID", TIQID);
+                cmd.Parameters.AddWithValue("@Comment", Comment);
+                sqlConnection.Open();
+                iStatus = cmd.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "RemoveFromTIQ - ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private void btnTINReleaseHold_Click(object sender, EventArgs e)
         {
