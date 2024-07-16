@@ -224,6 +224,7 @@ namespace QWS_Local
                 // use driverid to retrieve row
                 // if count = 1
                 //taTruckDriver.fi
+                
                 blOkay2Proceed = true;  
             }
             else
