@@ -36,7 +36,7 @@ namespace QWS_Local
             else
             {
                 this.Text = "Book In ExBin";
-                bsExBinOrders.Filter = "ItmsGrpCod != 138";
+                bsExBinOrders.Filter = "ItmsGrpCod <> 138"; 
             }
         }
 

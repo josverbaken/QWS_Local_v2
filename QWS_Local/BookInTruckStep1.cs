@@ -221,10 +221,12 @@ namespace QWS_Local
             bool blOkay2Proceed = false;
             if (myDriverID > 0)
             {
-                // use driverid to retrieve row
-                // if count = 1
-                //taTruckDriver.fi
-                
+                taTruckDriver.FillByCardCode(dsQWSLocal.TruckDriver, CurrentConfigTruck().CardCode);
+                int index = bsTruckDriver.Find("CntctCode", myDriverID);
+                if (index > 0)
+                {
+                    bsTruckDriver.Position = index; 
+                }
                 blOkay2Proceed = true;  
             }
             else
@@ -235,13 +237,13 @@ namespace QWS_Local
                 {
                     dsQWSLocal.TruckDriver.Clear();
                     dsQWSLocal.TruckDriver.ImportRow(frmTruckDriverSearch.TruckDriverRow);
+                    bsTruckDriver.Position = 0;
                     blOkay2Proceed = true;
                 }
             }
 
             if (blOkay2Proceed == true)
             {
-                bsTruckDriver.Position = 0;
                 DataRow myRow = ((DataRowView)bsTruckDriver.Current).Row;
                 dsQWSLocal.TruckDriverRow myTruckDriverRow = (dsQWSLocal.TruckDriverRow)myRow;
                 if (myTruckDriverRow.LicenseExp < DateTime.Now)
