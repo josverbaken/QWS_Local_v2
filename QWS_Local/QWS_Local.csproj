@@ -266,6 +266,12 @@
     <Compile Include="FeeCodeSearch.Designer.cs">
       <DependentUpon>FeeCodeSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImportedOverload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportedOverload.Designer.cs">
+      <DependentUpon>ImportedOverload.cs</DependentUpon>
+    </Compile>
     <Compile Include="ItemSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -411,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FeeCodeSearch.resx">
       <DependentUpon>FeeCodeSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportedOverload.resx">
+      <DependentUpon>ImportedOverload.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ItemSearch.resx">
       <DependentUpon>ItemSearch.cs</DependentUpon>

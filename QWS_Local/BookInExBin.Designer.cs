@@ -59,11 +59,11 @@ namespace QWS_Local
             System.Windows.Forms.Label label10;
             System.Windows.Forms.Label label11;
             System.Windows.Forms.Label label12;
-            System.Windows.Forms.Label label13;
             System.Windows.Forms.Label label14;
             System.Windows.Forms.Label label1;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.label15 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
@@ -117,12 +117,10 @@ namespace QWS_Local
             this.btnRefreshOrders = new System.Windows.Forms.Button();
             this.tpExBinNoOrder = new System.Windows.Forms.TabPage();
             this.txtCustON = new System.Windows.Forms.TextBox();
-            this.txtDriverMob = new System.Windows.Forms.TextBox();
             this.bsItem = new System.Windows.Forms.BindingSource(this.components);
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
             this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.txtCardCode = new System.Windows.Forms.TextBox();
@@ -178,7 +176,6 @@ namespace QWS_Local
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager3 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
-            this.label15 = new System.Windows.Forms.Label();
             gCMLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
@@ -208,7 +205,6 @@ namespace QWS_Local
             label10 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label12 = new System.Windows.Forms.Label();
-            label13 = new System.Windows.Forms.Label();
             label14 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -508,15 +504,6 @@ namespace QWS_Local
             label12.TabIndex = 96;
             label12.Text = "Material:";
             // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new System.Drawing.Point(89, 64);
-            label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(50, 17);
-            label13.TabIndex = 94;
-            label13.Text = "Driver:";
-            // 
             // label14
             // 
             label14.AutoSize = true;
@@ -578,6 +565,15 @@ namespace QWS_Local
             this.splitContainer2.Size = new System.Drawing.Size(1427, 554);
             this.splitContainer2.SplitterDistance = 228;
             this.splitContainer2.TabIndex = 3;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(553, 160);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(54, 17);
+            this.label15.TabIndex = 82;
+            this.label15.Text = "label15";
             // 
             // textBox4
             // 
@@ -1037,24 +1033,21 @@ namespace QWS_Local
             // 
             this.tpExBinNoOrder.Controls.Add(this.txtCustON);
             this.tpExBinNoOrder.Controls.Add(label1);
-            this.tpExBinNoOrder.Controls.Add(this.txtDriverMob);
             this.tpExBinNoOrder.Controls.Add(label11);
             this.tpExBinNoOrder.Controls.Add(this.textBox2);
             this.tpExBinNoOrder.Controls.Add(this.textBox8);
             this.tpExBinNoOrder.Controls.Add(label12);
             this.tpExBinNoOrder.Controls.Add(this.textBox9);
-            this.tpExBinNoOrder.Controls.Add(label13);
-            this.tpExBinNoOrder.Controls.Add(this.textBox11);
             this.tpExBinNoOrder.Controls.Add(this.txtCardCode);
             this.tpExBinNoOrder.Controls.Add(label14);
             this.tpExBinNoOrder.Controls.Add(this.txtCustomer);
             this.tpExBinNoOrder.Controls.Add(this.btnSetItem);
             this.tpExBinNoOrder.Controls.Add(this.btnExBinItems);
             this.tpExBinNoOrder.Controls.Add(this.button1);
-            this.tpExBinNoOrder.Location = new System.Drawing.Point(4, 22);
+            this.tpExBinNoOrder.Location = new System.Drawing.Point(4, 25);
             this.tpExBinNoOrder.Name = "tpExBinNoOrder";
             this.tpExBinNoOrder.Padding = new System.Windows.Forms.Padding(3);
-            this.tpExBinNoOrder.Size = new System.Drawing.Size(1419, 296);
+            this.tpExBinNoOrder.Size = new System.Drawing.Size(1419, 293);
             this.tpExBinNoOrder.TabIndex = 1;
             this.tpExBinNoOrder.Text = "Ex-Bin No Order";
             this.tpExBinNoOrder.UseVisualStyleBackColor = true;
@@ -1065,14 +1058,6 @@ namespace QWS_Local
             this.txtCustON.Name = "txtCustON";
             this.txtCustON.Size = new System.Drawing.Size(262, 23);
             this.txtCustON.TabIndex = 104;
-            // 
-            // txtDriverMob
-            // 
-            this.txtDriverMob.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsItem, "ItemCode", true));
-            this.txtDriverMob.Location = new System.Drawing.Point(495, 61);
-            this.txtDriverMob.Name = "txtDriverMob";
-            this.txtDriverMob.Size = new System.Drawing.Size(100, 23);
-            this.txtDriverMob.TabIndex = 102;
             // 
             // bsItem
             // 
@@ -1103,14 +1088,6 @@ namespace QWS_Local
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(344, 23);
             this.textBox9.TabIndex = 98;
-            // 
-            // textBox11
-            // 
-            this.textBox11.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Driver", true));
-            this.textBox11.Location = new System.Drawing.Point(145, 61);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(344, 23);
-            this.textBox11.TabIndex = 95;
             // 
             // bsTIQ2
             // 
@@ -1617,15 +1594,6 @@ namespace QWS_Local
             this.tableAdapterManager3.WBDocketLinesTableAdapter = null;
             this.tableAdapterManager3.WBDocketsTableAdapter = null;
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(553, 160);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(54, 17);
-            this.label15.TabIndex = 82;
-            this.label15.Text = "label15";
-            // 
             // BookInExBin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1786,10 +1754,8 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.TextBox txtCardCode;
         private System.Windows.Forms.TextBox txtCustomer;
-        private System.Windows.Forms.TextBox txtDriverMob;
         private System.Windows.Forms.TextBox txtCustON;
         private System.Windows.Forms.DataGridViewTextBoxColumn roadAccessDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gCMDataGridViewTextBoxColumn;

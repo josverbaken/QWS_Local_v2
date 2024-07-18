@@ -15,6 +15,16 @@ namespace QWS_Local
         private bool FormLoaded = false;
         private string LoadType = "TK";
 
+        private enum TIQType
+        {
+            Retare,
+            ExBin,
+            Imported,
+            Delivery
+        }
+
+        private TIQType FormTIQType;
+
         public BookInExBin()
         {
             InitializeComponent();
@@ -32,11 +42,13 @@ namespace QWS_Local
             {
                 this.Text = "Book In Imported";
                 bsExBinOrders.Filter = "ItmsGrpCod = 138";
+                FormTIQType = TIQType.Imported;
             }
             else
             {
                 this.Text = "Book In ExBin";
                 bsExBinOrders.Filter = "ItmsGrpCod <> 138"; 
+                FormTIQType = TIQType.ExBin;
             }
         }
 
@@ -436,7 +448,14 @@ namespace QWS_Local
                 myTIQRow.AllocateDTTM = DateTime.Now;
                 myTIQRow.CartageCode = "";
                 myTIQRow.Payload = nudPayload.Value;
+                if (FormTIQType == TIQType.Imported)
+                {
+                    myTIQRow.QueueStatus = "I";
+                }
+                else
+                { 
                 myTIQRow.QueueStatus = "Q";
+            }
                 bsTIQ2.EndEdit();
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 if (iRow == 1)

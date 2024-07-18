@@ -260,18 +260,65 @@ namespace QWS_Local
                     else
                     {
                         decimal myWeight = frmWeighTruck.Weight;
-                        decimal myQty = myWeight - CurrentTIQ().Tare;
-                        CurrentTIQ().Gross = myWeight;
-                        CurrentTIQ().Nett = myQty;
-                        bsTIQ2.EndEdit();
-
-                        if (ConfirmPostDocket())
+                        // TODO if Imported record Gross
+                        if (CurrentTIQ().QueueStatus=="I")
                         {
-                            PostDocket();
+                            if(myWeight > CurrentTIQ().GCM)
+                            {
+                                ImportedOverload frmImportedOverload = new ImportedOverload();
+                                DialogResult dr2 = frmImportedOverload.ShowDialog();
+                                if (dr2 == DialogResult.OK)
+                                {
+                                    CurrentTIQ().Gross = myWeight;
+                                    CurrentTIQ().QueueStatus = "G";
+                                    // TODO record overload points plus description
+                                    bsTIQ2.EndEdit();  
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Imported Weighing Cancelled!");
+                                }
+                            }
+                            else
+                            {
+                                CurrentTIQ().Gross = myWeight;
+                                CurrentTIQ().QueueStatus = "G";
+                                bsTIQ2.EndEdit();
+                            }
+                            taTIQ2.Update(dsTIQ2.TIQ);
+                            RefreshQueue();
+                        }
+                        else if (CurrentTIQ().QueueStatus == "G")
+                        {
+                            CurrentTIQ().Tare = myWeight;
+                            CurrentTIQ().Nett = CurrentTIQ().Gross - myWeight;
+                            CurrentTIQ().QueueStatus = "E";
+                            bsTIQ2.EndEdit();
+
+                            if (ConfirmPostDocket())
+                            {
+                                PostDocket();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Post docket - cancelled!");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Post docket - cancelled!");
+                            decimal myQty = myWeight - CurrentTIQ().Tare;
+                            CurrentTIQ().Gross = myWeight;
+                            CurrentTIQ().Nett = myQty;
+                            bsTIQ2.EndEdit();
+
+                            if (ConfirmPostDocket())
+                            {
+                                PostDocket();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Post docket - cancelled!");
+                            }
                         }
                     }
                 }
@@ -524,5 +571,6 @@ namespace QWS_Local
         {
             MessageBox.Show("TODO implement release / hold");
         }
-    }
+
+      }
 }
