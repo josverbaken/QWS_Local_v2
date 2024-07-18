@@ -503,6 +503,9 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@WeightDTTM", EntryDTTM);
                 cmd.Parameters.AddWithValue("@AcceptanceDTTM", EntryDTTM);
                 cmd.Parameters.AddWithValue("@ExitDTTM", EntryDTTM);
+                cmd.Parameters.AddWithValue("OverloadPoints", 0);
+                cmd.Parameters.AddWithValue("OverloadDesc", "");
+                cmd.Parameters.AddWithValue("Comment", "");
                 sqlConnection.Open();
                 iTIQID = System.Convert.ToInt32( cmd.ExecuteScalar());
                 sqlConnection.Close();

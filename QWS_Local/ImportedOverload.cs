@@ -12,14 +12,30 @@ namespace QWS_Local
 {
     public partial class ImportedOverload : Form
     {
+        private static int DriverID;
+        private static decimal Gross;
+        private static decimal GVM;
+
         public ImportedOverload()
         {
             InitializeComponent();
         }
 
+        public ImportedOverload(int myDriverID, decimal myGross, decimal myGVM)
+        {
+            InitializeComponent();
+            DriverID = myDriverID;
+            Gross = myGross;
+            GVM = myGVM;
+        }
+
         private void ImportedOverload_Load(object sender, EventArgs e)
         {
             SetSanctionsText(); 
+            GetImportedOverloads(DriverID);
+            txtGross.Text = Gross.ToString();
+            txtGVM.Text = GVM.ToString();
+            CalcOverloadCategory(); 
         }
 
         private void SetSanctionsText()
@@ -37,6 +53,28 @@ namespace QWS_Local
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void GetImportedOverloads(int DriverID)
+        {
+            try
+            {
+                this.taImportedOverloads.Fill(dsTIQ2.ImportedOverloadsByDriver, DriverID);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void CalcOverloadCategory()
+        {
+            txtOverloadCategory.Text = "tba";
+            // carry out calculations
+
+            txtOverloadPercent.Text = "110.00 %";
+            txtOverloadTonnes.Text = "4.50 t";
         }
     }
 }

@@ -30,6 +30,8 @@ namespace QWS_Local {
         
         private WBDocketLinesDataTable tableWBDocketLines;
         
+        private ImportedOverloadsByDriverDataTable tableImportedOverloadsByDriver;
+        
         private global::System.Data.DataRelation relationFK_WBDocketLines_WBDockets;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
@@ -68,6 +70,9 @@ namespace QWS_Local {
                 }
                 if ((ds.Tables["WBDocketLines"] != null)) {
                     base.Tables.Add(new WBDocketLinesDataTable(ds.Tables["WBDocketLines"]));
+                }
+                if ((ds.Tables["ImportedOverloadsByDriver"] != null)) {
+                    base.Tables.Add(new ImportedOverloadsByDriverDataTable(ds.Tables["ImportedOverloadsByDriver"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -114,6 +119,16 @@ namespace QWS_Local {
         public WBDocketLinesDataTable WBDocketLines {
             get {
                 return this.tableWBDocketLines;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ImportedOverloadsByDriverDataTable ImportedOverloadsByDriver {
+            get {
+                return this.tableImportedOverloadsByDriver;
             }
         }
         
@@ -193,6 +208,9 @@ namespace QWS_Local {
                 if ((ds.Tables["WBDocketLines"] != null)) {
                     base.Tables.Add(new WBDocketLinesDataTable(ds.Tables["WBDocketLines"]));
                 }
+                if ((ds.Tables["ImportedOverloadsByDriver"] != null)) {
+                    base.Tables.Add(new ImportedOverloadsByDriverDataTable(ds.Tables["ImportedOverloadsByDriver"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -244,6 +262,12 @@ namespace QWS_Local {
                     this.tableWBDocketLines.InitVars();
                 }
             }
+            this.tableImportedOverloadsByDriver = ((ImportedOverloadsByDriverDataTable)(base.Tables["ImportedOverloadsByDriver"]));
+            if ((initTable == true)) {
+                if ((this.tableImportedOverloadsByDriver != null)) {
+                    this.tableImportedOverloadsByDriver.InitVars();
+                }
+            }
             this.relationFK_WBDocketLines_WBDockets = this.Relations["FK_WBDocketLines_WBDockets"];
         }
         
@@ -261,6 +285,8 @@ namespace QWS_Local {
             base.Tables.Add(this.tableWBDockets);
             this.tableWBDocketLines = new WBDocketLinesDataTable();
             base.Tables.Add(this.tableWBDocketLines);
+            this.tableImportedOverloadsByDriver = new ImportedOverloadsByDriverDataTable();
+            base.Tables.Add(this.tableImportedOverloadsByDriver);
             this.relationFK_WBDocketLines_WBDockets = new global::System.Data.DataRelation("FK_WBDocketLines_WBDockets", new global::System.Data.DataColumn[] {
                         this.tableWBDockets.DocNumColumn}, new global::System.Data.DataColumn[] {
                         this.tableWBDocketLines.DocNumColumn}, false);
@@ -282,6 +308,12 @@ namespace QWS_Local {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeWBDocketLines() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeImportedOverloadsByDriver() {
             return false;
         }
         
@@ -348,6 +380,9 @@ namespace QWS_Local {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void WBDocketLinesRowChangeEventHandler(object sender, WBDocketLinesRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void ImportedOverloadsByDriverRowChangeEventHandler(object sender, ImportedOverloadsByDriverRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2552,6 +2587,450 @@ namespace QWS_Local {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ImportedOverloadsByDriverDataTable : global::System.Data.TypedTableBase<ImportedOverloadsByDriverRow> {
+            
+            private global::System.Data.DataColumn columnRego;
+            
+            private global::System.Data.DataColumn columnDriverID;
+            
+            private global::System.Data.DataColumn columnDriver;
+            
+            private global::System.Data.DataColumn columntimeInDTTM;
+            
+            private global::System.Data.DataColumn columnTimeIn;
+            
+            private global::System.Data.DataColumn columnGross;
+            
+            private global::System.Data.DataColumn columnGCM;
+            
+            private global::System.Data.DataColumn columnOverloadPoints;
+            
+            private global::System.Data.DataColumn columnTIQID;
+            
+            private global::System.Data.DataColumn columnTday;
+            
+            private global::System.Data.DataColumn columnTmonth;
+            
+            private global::System.Data.DataColumn columnTyear;
+            
+            private global::System.Data.DataColumn columnTweek;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ImportedOverloadsByDriverDataTable() {
+                this.TableName = "ImportedOverloadsByDriver";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal ImportedOverloadsByDriverDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected ImportedOverloadsByDriverDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RegoColumn {
+                get {
+                    return this.columnRego;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DriverIDColumn {
+                get {
+                    return this.columnDriverID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DriverColumn {
+                get {
+                    return this.columnDriver;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn timeInDTTMColumn {
+                get {
+                    return this.columntimeInDTTM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TimeInColumn {
+                get {
+                    return this.columnTimeIn;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn GrossColumn {
+                get {
+                    return this.columnGross;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn GCMColumn {
+                get {
+                    return this.columnGCM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn OverloadPointsColumn {
+                get {
+                    return this.columnOverloadPoints;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TIQIDColumn {
+                get {
+                    return this.columnTIQID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TdayColumn {
+                get {
+                    return this.columnTday;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TmonthColumn {
+                get {
+                    return this.columnTmonth;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TyearColumn {
+                get {
+                    return this.columnTyear;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TweekColumn {
+                get {
+                    return this.columnTweek;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ImportedOverloadsByDriverRow this[int index] {
+                get {
+                    return ((ImportedOverloadsByDriverRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event ImportedOverloadsByDriverRowChangeEventHandler ImportedOverloadsByDriverRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event ImportedOverloadsByDriverRowChangeEventHandler ImportedOverloadsByDriverRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event ImportedOverloadsByDriverRowChangeEventHandler ImportedOverloadsByDriverRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event ImportedOverloadsByDriverRowChangeEventHandler ImportedOverloadsByDriverRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddImportedOverloadsByDriverRow(ImportedOverloadsByDriverRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ImportedOverloadsByDriverRow AddImportedOverloadsByDriverRow(string Rego, int DriverID, string Driver, System.DateTime timeInDTTM, string TimeIn, decimal Gross, decimal GCM, int OverloadPoints, int Tday, int Tmonth, int Tyear, int Tweek) {
+                ImportedOverloadsByDriverRow rowImportedOverloadsByDriverRow = ((ImportedOverloadsByDriverRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Rego,
+                        DriverID,
+                        Driver,
+                        timeInDTTM,
+                        TimeIn,
+                        Gross,
+                        GCM,
+                        OverloadPoints,
+                        null,
+                        Tday,
+                        Tmonth,
+                        Tyear,
+                        Tweek};
+                rowImportedOverloadsByDriverRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowImportedOverloadsByDriverRow);
+                return rowImportedOverloadsByDriverRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ImportedOverloadsByDriverRow FindByTIQID(int TIQID) {
+                return ((ImportedOverloadsByDriverRow)(this.Rows.Find(new object[] {
+                            TIQID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                ImportedOverloadsByDriverDataTable cln = ((ImportedOverloadsByDriverDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ImportedOverloadsByDriverDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnRego = base.Columns["Rego"];
+                this.columnDriverID = base.Columns["DriverID"];
+                this.columnDriver = base.Columns["Driver"];
+                this.columntimeInDTTM = base.Columns["timeInDTTM"];
+                this.columnTimeIn = base.Columns["TimeIn"];
+                this.columnGross = base.Columns["Gross"];
+                this.columnGCM = base.Columns["GCM"];
+                this.columnOverloadPoints = base.Columns["OverloadPoints"];
+                this.columnTIQID = base.Columns["TIQID"];
+                this.columnTday = base.Columns["Tday"];
+                this.columnTmonth = base.Columns["Tmonth"];
+                this.columnTyear = base.Columns["Tyear"];
+                this.columnTweek = base.Columns["Tweek"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnRego = new global::System.Data.DataColumn("Rego", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRego);
+                this.columnDriverID = new global::System.Data.DataColumn("DriverID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDriverID);
+                this.columnDriver = new global::System.Data.DataColumn("Driver", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDriver);
+                this.columntimeInDTTM = new global::System.Data.DataColumn("timeInDTTM", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntimeInDTTM);
+                this.columnTimeIn = new global::System.Data.DataColumn("TimeIn", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTimeIn);
+                this.columnGross = new global::System.Data.DataColumn("Gross", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGross);
+                this.columnGCM = new global::System.Data.DataColumn("GCM", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGCM);
+                this.columnOverloadPoints = new global::System.Data.DataColumn("OverloadPoints", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOverloadPoints);
+                this.columnTIQID = new global::System.Data.DataColumn("TIQID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTIQID);
+                this.columnTday = new global::System.Data.DataColumn("Tday", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTday);
+                this.columnTmonth = new global::System.Data.DataColumn("Tmonth", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTmonth);
+                this.columnTyear = new global::System.Data.DataColumn("Tyear", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTyear);
+                this.columnTweek = new global::System.Data.DataColumn("Tweek", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTweek);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnTIQID}, true));
+                this.columnRego.AllowDBNull = false;
+                this.columnRego.MaxLength = 6;
+                this.columnDriverID.AllowDBNull = false;
+                this.columnDriver.AllowDBNull = false;
+                this.columnDriver.MaxLength = 50;
+                this.columntimeInDTTM.AllowDBNull = false;
+                this.columnTimeIn.ReadOnly = true;
+                this.columnTimeIn.MaxLength = 20;
+                this.columnGross.AllowDBNull = false;
+                this.columnGCM.AllowDBNull = false;
+                this.columnTIQID.AutoIncrement = true;
+                this.columnTIQID.AutoIncrementSeed = -1;
+                this.columnTIQID.AutoIncrementStep = -1;
+                this.columnTIQID.AllowDBNull = false;
+                this.columnTIQID.ReadOnly = true;
+                this.columnTIQID.Unique = true;
+                this.columnTday.ReadOnly = true;
+                this.columnTmonth.ReadOnly = true;
+                this.columnTyear.ReadOnly = true;
+                this.columnTweek.ReadOnly = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ImportedOverloadsByDriverRow NewImportedOverloadsByDriverRow() {
+                return ((ImportedOverloadsByDriverRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ImportedOverloadsByDriverRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(ImportedOverloadsByDriverRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ImportedOverloadsByDriverRowChanged != null)) {
+                    this.ImportedOverloadsByDriverRowChanged(this, new ImportedOverloadsByDriverRowChangeEvent(((ImportedOverloadsByDriverRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ImportedOverloadsByDriverRowChanging != null)) {
+                    this.ImportedOverloadsByDriverRowChanging(this, new ImportedOverloadsByDriverRowChangeEvent(((ImportedOverloadsByDriverRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ImportedOverloadsByDriverRowDeleted != null)) {
+                    this.ImportedOverloadsByDriverRowDeleted(this, new ImportedOverloadsByDriverRowChangeEvent(((ImportedOverloadsByDriverRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ImportedOverloadsByDriverRowDeleting != null)) {
+                    this.ImportedOverloadsByDriverRowDeleting(this, new ImportedOverloadsByDriverRowChangeEvent(((ImportedOverloadsByDriverRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveImportedOverloadsByDriverRow(ImportedOverloadsByDriverRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsTIQ2 ds = new dsTIQ2();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ImportedOverloadsByDriverDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class TIQRow : global::System.Data.DataRow {
@@ -3694,6 +4173,267 @@ namespace QWS_Local {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class ImportedOverloadsByDriverRow : global::System.Data.DataRow {
+            
+            private ImportedOverloadsByDriverDataTable tableImportedOverloadsByDriver;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal ImportedOverloadsByDriverRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableImportedOverloadsByDriver = ((ImportedOverloadsByDriverDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Rego {
+                get {
+                    return ((string)(this[this.tableImportedOverloadsByDriver.RegoColumn]));
+                }
+                set {
+                    this[this.tableImportedOverloadsByDriver.RegoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int DriverID {
+                get {
+                    return ((int)(this[this.tableImportedOverloadsByDriver.DriverIDColumn]));
+                }
+                set {
+                    this[this.tableImportedOverloadsByDriver.DriverIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Driver {
+                get {
+                    return ((string)(this[this.tableImportedOverloadsByDriver.DriverColumn]));
+                }
+                set {
+                    this[this.tableImportedOverloadsByDriver.DriverColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime timeInDTTM {
+                get {
+                    return ((global::System.DateTime)(this[this.tableImportedOverloadsByDriver.timeInDTTMColumn]));
+                }
+                set {
+                    this[this.tableImportedOverloadsByDriver.timeInDTTMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string TimeIn {
+                get {
+                    try {
+                        return ((string)(this[this.tableImportedOverloadsByDriver.TimeInColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TimeIn\' in table \'ImportedOverloadsByDriver\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableImportedOverloadsByDriver.TimeInColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Gross {
+                get {
+                    return ((decimal)(this[this.tableImportedOverloadsByDriver.GrossColumn]));
+                }
+                set {
+                    this[this.tableImportedOverloadsByDriver.GrossColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal GCM {
+                get {
+                    return ((decimal)(this[this.tableImportedOverloadsByDriver.GCMColumn]));
+                }
+                set {
+                    this[this.tableImportedOverloadsByDriver.GCMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int OverloadPoints {
+                get {
+                    try {
+                        return ((int)(this[this.tableImportedOverloadsByDriver.OverloadPointsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'OverloadPoints\' in table \'ImportedOverloadsByDriver\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableImportedOverloadsByDriver.OverloadPointsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int TIQID {
+                get {
+                    return ((int)(this[this.tableImportedOverloadsByDriver.TIQIDColumn]));
+                }
+                set {
+                    this[this.tableImportedOverloadsByDriver.TIQIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Tday {
+                get {
+                    try {
+                        return ((int)(this[this.tableImportedOverloadsByDriver.TdayColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Tday\' in table \'ImportedOverloadsByDriver\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableImportedOverloadsByDriver.TdayColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Tmonth {
+                get {
+                    try {
+                        return ((int)(this[this.tableImportedOverloadsByDriver.TmonthColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Tmonth\' in table \'ImportedOverloadsByDriver\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableImportedOverloadsByDriver.TmonthColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Tyear {
+                get {
+                    try {
+                        return ((int)(this[this.tableImportedOverloadsByDriver.TyearColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Tyear\' in table \'ImportedOverloadsByDriver\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableImportedOverloadsByDriver.TyearColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Tweek {
+                get {
+                    try {
+                        return ((int)(this[this.tableImportedOverloadsByDriver.TweekColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Tweek\' in table \'ImportedOverloadsByDriver\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableImportedOverloadsByDriver.TweekColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTimeInNull() {
+                return this.IsNull(this.tableImportedOverloadsByDriver.TimeInColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTimeInNull() {
+                this[this.tableImportedOverloadsByDriver.TimeInColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsOverloadPointsNull() {
+                return this.IsNull(this.tableImportedOverloadsByDriver.OverloadPointsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetOverloadPointsNull() {
+                this[this.tableImportedOverloadsByDriver.OverloadPointsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTdayNull() {
+                return this.IsNull(this.tableImportedOverloadsByDriver.TdayColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTdayNull() {
+                this[this.tableImportedOverloadsByDriver.TdayColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTmonthNull() {
+                return this.IsNull(this.tableImportedOverloadsByDriver.TmonthColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTmonthNull() {
+                this[this.tableImportedOverloadsByDriver.TmonthColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTyearNull() {
+                return this.IsNull(this.tableImportedOverloadsByDriver.TyearColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTyearNull() {
+                this[this.tableImportedOverloadsByDriver.TyearColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTweekNull() {
+                return this.IsNull(this.tableImportedOverloadsByDriver.TweekColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTweekNull() {
+                this[this.tableImportedOverloadsByDriver.TweekColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -3781,6 +4521,40 @@ namespace QWS_Local {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public WBDocketLinesRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class ImportedOverloadsByDriverRowChangeEvent : global::System.EventArgs {
+            
+            private ImportedOverloadsByDriverRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ImportedOverloadsByDriverRowChangeEvent(ImportedOverloadsByDriverRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ImportedOverloadsByDriverRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -6451,6 +7225,199 @@ SELECT DocNum, DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, 
                     decimal Original_Quantity, 
                     System.DateTime Original_CreatedDTTM) {
             return this.Update(Original_DocNum, Original_DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, ItemQA, ItmsGrpCod, StockpileLot, Quantity, CreatedDTTM, Original_DocNum, Original_DocketLine, Original_WarehouseCode, Original_BaseEntry, Original_ItemCode, Original_ItemDescription, Original_ItemQA, Original_ItmsGrpCod, Original_StockpileLot, Original_Quantity, Original_CreatedDTTM);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class ImportedOverloadsByDriverTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public ImportedOverloadsByDriverTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "ImportedOverloadsByDriver";
+            tableMapping.ColumnMappings.Add("Rego", "Rego");
+            tableMapping.ColumnMappings.Add("DriverID", "DriverID");
+            tableMapping.ColumnMappings.Add("Driver", "Driver");
+            tableMapping.ColumnMappings.Add("timeInDTTM", "timeInDTTM");
+            tableMapping.ColumnMappings.Add("TimeIn", "TimeIn");
+            tableMapping.ColumnMappings.Add("Gross", "Gross");
+            tableMapping.ColumnMappings.Add("GCM", "GCM");
+            tableMapping.ColumnMappings.Add("OverloadPoints", "OverloadPoints");
+            tableMapping.ColumnMappings.Add("TIQID", "TIQID");
+            tableMapping.ColumnMappings.Add("Tday", "Tday");
+            tableMapping.ColumnMappings.Add("Tmonth", "Tmonth");
+            tableMapping.ColumnMappings.Add("Tyear", "Tyear");
+            tableMapping.ColumnMappings.Add("Tweek", "Tweek");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::QWS_Local.Properties.Settings.Default.cnQWSLocal;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.ImportedOverloadsByDriver";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DriverID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(dsTIQ2.ImportedOverloadsByDriverDataTable dataTable, global::System.Nullable<int> DriverID) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((DriverID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(DriverID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual dsTIQ2.ImportedOverloadsByDriverDataTable GetData(global::System.Nullable<int> DriverID) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((DriverID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(DriverID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            dsTIQ2.ImportedOverloadsByDriverDataTable dataTable = new dsTIQ2.ImportedOverloadsByDriverDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
     }
     

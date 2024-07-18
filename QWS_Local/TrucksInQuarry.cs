@@ -265,7 +265,7 @@ namespace QWS_Local
                         {
                             if(myWeight > CurrentTIQ().GCM)
                             {
-                                ImportedOverload frmImportedOverload = new ImportedOverload();
+                                ImportedOverload frmImportedOverload = new ImportedOverload(CurrentTIQ().DriverID,myWeight,CurrentTIQ().GCM);
                                 DialogResult dr2 = frmImportedOverload.ShowDialog();
                                 if (dr2 == DialogResult.OK)
                                 {
