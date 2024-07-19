@@ -67,10 +67,17 @@ namespace QWS_Local
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            myOverloadPoints = System.Convert.ToInt16(txtDocket.Text);
+            try
+            {
+                myOverloadPoints = System.Convert.ToInt16(txtDocket.Text);
             myOverloadDesc = txtOverloadCategory.Text;  
             this.DialogResult = DialogResult.OK;
             this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -294,6 +294,7 @@ namespace QWS_Local
                             CurrentTIQ().Nett = CurrentTIQ().Gross - myWeight;
                             CurrentTIQ().QueueStatus = "E";
                             bsTIQ2.EndEdit();
+                            taTIQ2.Update(dsTIQ2.TIQ);
 
                             if (ConfirmPostDocket())
                             {
@@ -310,6 +311,7 @@ namespace QWS_Local
                             CurrentTIQ().Gross = myWeight;
                             CurrentTIQ().Nett = myQty;
                             bsTIQ2.EndEdit();
+                            taTIQ2.Update(dsTIQ2.TIQ);
 
                             if (ConfirmPostDocket())
                             {

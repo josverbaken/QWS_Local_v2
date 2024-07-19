@@ -217,6 +217,8 @@ namespace QWS_Local
         private void GetTruckDriver()
         {
             bool blOkay2Cart = true;
+            bool blOK4ExBin = true;
+            bool blInduction = false;
             bool RetareDue = CheckRetareDue();
             bool blOkay2Proceed = false;
             if (myDriverID > 0)
@@ -250,6 +252,7 @@ namespace QWS_Local
                 {
                     txtLicenseExp.BackColor = Color.Salmon;
                     blOkay2Cart = false;
+                    blOK4ExBin=false;
                 }
                 else
                 {
@@ -257,11 +260,12 @@ namespace QWS_Local
                 }
                 if (myTruckDriverRow.InductionExp < DateTime.Now)
                 {
-                    txtInductionExp.BackColor = Color.Salmon;
+                    txtInductionExp.BackColor = Color.Orange;
                     blOkay2Cart = false;
                 }
                 else
                 {
+                    blInduction = true;
                     txtInductionExp.BackColor = Color.PaleGreen;
                 }
                 if (myTruckDriverRow.Active == "Y")
@@ -272,6 +276,7 @@ namespace QWS_Local
                 {
                     txtActive.BackColor = Color.Salmon;
                     blOkay2Cart = false;
+                    blOK4ExBin = false;
                 }
                 if (blOkay2Cart)
                 {
@@ -284,13 +289,20 @@ namespace QWS_Local
                 {
                     txtOkay2Cart.Text = "N";
                     txtOkay2Cart.BackColor = Color.Salmon;
-                    btnExBin.Enabled = false;
+                    if (blOK4ExBin == true)
+                    {
+                        btnExBin.Enabled = true;
+                    }
+                    else
+                    {
+                        btnExBin.Enabled = false;
+                    }
                     btnImported.Enabled = false;
                 }
-                if (myTruckDriverRow.Position == "Authorised Cartage Contractor")
+                if (myTruckDriverRow.Position == "Authorised Cartage Contractor") 
                 {
                     chkDriverACC.Checked = true;
-                    if (chkACC.Checked == true)
+                    if (chkACC.Checked == true && blInduction == true)
                     {
                         btnDelivery.Enabled = true;
                     }
