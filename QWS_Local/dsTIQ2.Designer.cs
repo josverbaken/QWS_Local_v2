@@ -483,6 +483,12 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnCustomer;
             
+            private global::System.Data.DataColumn columnOverloadPoints;
+            
+            private global::System.Data.DataColumn columnOverloadDesc;
+            
+            private global::System.Data.DataColumn columnComment;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public TIQDataTable() {
@@ -886,6 +892,30 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn OverloadPointsColumn {
+                get {
+                    return this.columnOverloadPoints;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn OverloadDescColumn {
+                get {
+                    return this.columnOverloadDesc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CommentColumn {
+                get {
+                    return this.columnComment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -966,7 +996,10 @@ namespace QWS_Local {
                         string RegoTrailers, 
                         System.DateTime TruckConfigDTTM, 
                         string CustomerCode, 
-                        string Customer) {
+                        string Customer, 
+                        int OverloadPoints, 
+                        string OverloadDesc, 
+                        string Comment) {
                 TIQRow rowTIQRow = ((TIQRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1014,7 +1047,10 @@ namespace QWS_Local {
                         RegoTrailers,
                         TruckConfigDTTM,
                         CustomerCode,
-                        Customer};
+                        Customer,
+                        OverloadPoints,
+                        OverloadDesc,
+                        Comment};
                 rowTIQRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTIQRow);
                 return rowTIQRow;
@@ -1090,6 +1126,9 @@ namespace QWS_Local {
                 this.columnTruckConfigDTTM = base.Columns["TruckConfigDTTM"];
                 this.columnCustomerCode = base.Columns["CustomerCode"];
                 this.columnCustomer = base.Columns["Customer"];
+                this.columnOverloadPoints = base.Columns["OverloadPoints"];
+                this.columnOverloadDesc = base.Columns["OverloadDesc"];
+                this.columnComment = base.Columns["Comment"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1187,6 +1226,12 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnCustomerCode);
                 this.columnCustomer = new global::System.Data.DataColumn("Customer", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCustomer);
+                this.columnOverloadPoints = new global::System.Data.DataColumn("OverloadPoints", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOverloadPoints);
+                this.columnOverloadDesc = new global::System.Data.DataColumn("OverloadDesc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOverloadDesc);
+                this.columnComment = new global::System.Data.DataColumn("Comment", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnComment);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTIQID}, true));
                 this.columnTIQID.AutoIncrement = true;
@@ -1261,6 +1306,8 @@ namespace QWS_Local {
                 this.columnCustomerCode.MaxLength = 15;
                 this.columnCustomer.AllowDBNull = false;
                 this.columnCustomer.MaxLength = 50;
+                this.columnOverloadDesc.MaxLength = 25;
+                this.columnComment.MaxLength = 500;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3549,6 +3596,90 @@ namespace QWS_Local {
                     this[this.tableTIQ.CustomerColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int OverloadPoints {
+                get {
+                    try {
+                        return ((int)(this[this.tableTIQ.OverloadPointsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'OverloadPoints\' in table \'TIQ\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTIQ.OverloadPointsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string OverloadDesc {
+                get {
+                    try {
+                        return ((string)(this[this.tableTIQ.OverloadDescColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'OverloadDesc\' in table \'TIQ\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTIQ.OverloadDescColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Comment {
+                get {
+                    try {
+                        return ((string)(this[this.tableTIQ.CommentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Comment\' in table \'TIQ\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTIQ.CommentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsOverloadPointsNull() {
+                return this.IsNull(this.tableTIQ.OverloadPointsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetOverloadPointsNull() {
+                this[this.tableTIQ.OverloadPointsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsOverloadDescNull() {
+                return this.IsNull(this.tableTIQ.OverloadDescColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetOverloadDescNull() {
+                this[this.tableTIQ.OverloadDescColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCommentNull() {
+                return this.IsNull(this.tableTIQ.CommentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCommentNull() {
+                this[this.tableTIQ.CommentColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -4740,6 +4871,9 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             tableMapping.ColumnMappings.Add("TruckConfigDTTM", "TruckConfigDTTM");
             tableMapping.ColumnMappings.Add("CustomerCode", "CustomerCode");
             tableMapping.ColumnMappings.Add("Customer", "Customer");
+            tableMapping.ColumnMappings.Add("OverloadPoints", "OverloadPoints");
+            tableMapping.ColumnMappings.Add("OverloadDesc", "OverloadDesc");
+            tableMapping.ColumnMappings.Add("Comment", "Comment");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
@@ -4791,6 +4925,9 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeightDTTM", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, "WeightDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AcceptanceDTTM", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, "AcceptanceDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ExitDTTM", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, "ExitDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OverloadPoints", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "OverloadPoints", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OverloadDesc", global::System.Data.SqlDbType.VarChar, 25, global::System.Data.ParameterDirection.Input, 0, 0, "OverloadDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Comment", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "dbo.TIQUpdate";
@@ -4820,6 +4957,8 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gross", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "Gross", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tare", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "Tare", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nett", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "Nett", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OverloadPoints", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "OverloadPoints", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OverloadDesc", global::System.Data.SqlDbType.VarChar, 25, global::System.Data.ParameterDirection.Input, 0, 0, "OverloadDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5010,7 +5149,10 @@ namespace QWS_Local.dsTIQ2TableAdapters {
                     global::System.Nullable<global::System.DateTime> ReleaseDTTM, 
                     global::System.Nullable<global::System.DateTime> WeightDTTM, 
                     global::System.Nullable<global::System.DateTime> AcceptanceDTTM, 
-                    global::System.Nullable<global::System.DateTime> ExitDTTM) {
+                    global::System.Nullable<global::System.DateTime> ExitDTTM, 
+                    global::System.Nullable<int> OverloadPoints, 
+                    string OverloadDesc, 
+                    string Comment) {
             if ((ParentTIQID.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((int)(ParentTIQID.Value));
             }
@@ -5281,6 +5423,24 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[45].Value = global::System.DBNull.Value;
             }
+            if ((OverloadPoints.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[46].Value = ((int)(OverloadPoints.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[46].Value = global::System.DBNull.Value;
+            }
+            if ((OverloadDesc == null)) {
+                this.Adapter.InsertCommand.Parameters[47].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[47].Value = ((string)(OverloadDesc));
+            }
+            if ((Comment == null)) {
+                this.Adapter.InsertCommand.Parameters[48].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[48].Value = ((string)(Comment));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5325,7 +5485,9 @@ namespace QWS_Local.dsTIQ2TableAdapters {
                     global::System.Nullable<decimal> GVMTruck, 
                     global::System.Nullable<decimal> Gross, 
                     global::System.Nullable<decimal> Tare, 
-                    global::System.Nullable<decimal> Nett) {
+                    global::System.Nullable<decimal> Nett, 
+                    global::System.Nullable<int> OverloadPoints, 
+                    string OverloadDesc) {
             if ((TIQID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(TIQID.Value));
             }
@@ -5469,6 +5631,18 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((OverloadPoints.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(OverloadPoints.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            if ((OverloadDesc == null)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(OverloadDesc));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 

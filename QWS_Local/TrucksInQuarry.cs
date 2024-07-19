@@ -260,18 +260,18 @@ namespace QWS_Local
                     else
                     {
                         decimal myWeight = frmWeighTruck.Weight;
-                        // TODO if Imported record Gross
                         if (CurrentTIQ().QueueStatus=="I")
                         {
                             if(myWeight > CurrentTIQ().GCM)
                             {
-                                ImportedOverload frmImportedOverload = new ImportedOverload(CurrentTIQ().DriverID,myWeight,CurrentTIQ().GCM);
+                                ImportedOverload frmImportedOverload = new ImportedOverload(CurrentTIQ().DriverID, CurrentTIQ().Driver,myWeight,CurrentTIQ().GCM);
                                 DialogResult dr2 = frmImportedOverload.ShowDialog();
                                 if (dr2 == DialogResult.OK)
                                 {
                                     CurrentTIQ().Gross = myWeight;
                                     CurrentTIQ().QueueStatus = "G";
-                                    // TODO record overload points plus description
+                                    CurrentTIQ().OverloadPoints=frmImportedOverload.OverloadPoints;
+                                    CurrentTIQ().OverloadDesc=frmImportedOverload.OverloadDesc;
                                     bsTIQ2.EndEdit();  
                                 }
                                 else

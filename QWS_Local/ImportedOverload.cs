@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,26 +14,47 @@ namespace QWS_Local
     public partial class ImportedOverload : Form
     {
         private static int DriverID;
+        private static string Driver;
         private static decimal Gross;
         private static decimal GVM;
+        private int myOverloadPoints;
+        private string myOverloadDesc;
 
         public ImportedOverload()
         {
             InitializeComponent();
         }
 
-        public ImportedOverload(int myDriverID, decimal myGross, decimal myGVM)
+        public ImportedOverload(int myDriverID, string myDriver, decimal myGross, decimal myGVM)
         {
             InitializeComponent();
             DriverID = myDriverID;
+            Driver = myDriver;
             Gross = myGross;
             GVM = myGVM;
         }
 
-        private void ImportedOverload_Load(object sender, EventArgs e)
+        public int OverloadPoints
+        {
+            get
+            {
+                return myOverloadPoints;
+            }
+        }
+
+        public string OverloadDesc
+        { 
+            get 
+            { 
+                return myOverloadDesc; 
+            } 
+        }  
+
+            private void ImportedOverload_Load(object sender, EventArgs e)
         {
             SetSanctionsText(); 
             GetImportedOverloads(DriverID);
+            txtDriver.Text = Driver;
             txtGross.Text = Gross.ToString();
             txtGVM.Text = GVM.ToString();
             CalcOverloadCategory(); 
@@ -45,6 +67,8 @@ namespace QWS_Local
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            myOverloadPoints = System.Convert.ToInt16(txtDocket.Text);
+            myOverloadDesc = txtOverloadCategory.Text;  
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

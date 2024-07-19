@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label driverLabel;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.Label driverLabel;
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpOverload = new System.Windows.Forms.TabPage();
             this.tpSanctions = new System.Windows.Forms.TabPage();
@@ -55,9 +55,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.bsImportedOverloads = new System.Windows.Forms.BindingSource(this.components);
-            this.taImportedOverloads = new QWS_Local.dsTIQ2TableAdapters.ImportedOverloadsByDriverTableAdapter();
+            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.driverDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timeInDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timeInDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,11 +64,11 @@
             this.grossDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gCMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.overloadPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taImportedOverloads = new QWS_Local.dsTIQ2TableAdapters.ImportedOverloadsByDriverTableAdapter();
             this.tIQBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tIQTableAdapter = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
-            this.driverIDTextBox = new System.Windows.Forms.TextBox();
-            this.driverTextBox = new System.Windows.Forms.TextBox();
+            this.txtDriver = new System.Windows.Forms.TextBox();
             driverLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tpOverload.SuspendLayout();
@@ -80,8 +79,8 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsImportedOverloads)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tIQBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,9 +98,8 @@
             // 
             // tpOverload
             // 
+            this.tpOverload.Controls.Add(this.txtDriver);
             this.tpOverload.Controls.Add(driverLabel);
-            this.tpOverload.Controls.Add(this.driverTextBox);
-            this.tpOverload.Controls.Add(this.driverIDTextBox);
             this.tpOverload.Controls.Add(this.label6);
             this.tpOverload.Controls.Add(this.label5);
             this.tpOverload.Controls.Add(this.label4);
@@ -325,19 +323,24 @@
             this.dataGridView1.Size = new System.Drawing.Size(872, 380);
             this.dataGridView1.TabIndex = 0;
             // 
-            // dsTIQ2
+            // driverLabel
             // 
-            this.dsTIQ2.DataSetName = "dsTIQ2";
-            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            driverLabel.AutoSize = true;
+            driverLabel.Location = new System.Drawing.Point(90, 23);
+            driverLabel.Name = "driverLabel";
+            driverLabel.Size = new System.Drawing.Size(51, 18);
+            driverLabel.TabIndex = 16;
+            driverLabel.Text = "Driver:";
             // 
             // bsImportedOverloads
             // 
             this.bsImportedOverloads.DataMember = "ImportedOverloadsByDriver";
             this.bsImportedOverloads.DataSource = this.dsTIQ2;
             // 
-            // taImportedOverloads
+            // dsTIQ2
             // 
-            this.taImportedOverloads.ClearBeforeFill = true;
+            this.dsTIQ2.DataSetName = "dsTIQ2";
+            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // driverDataGridViewTextBoxColumn
             // 
@@ -395,6 +398,10 @@
             this.overloadPointsDataGridViewTextBoxColumn.Name = "overloadPointsDataGridViewTextBoxColumn";
             this.overloadPointsDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // taImportedOverloads
+            // 
+            this.taImportedOverloads.ClearBeforeFill = true;
+            // 
             // tIQBindingSource
             // 
             this.tIQBindingSource.DataMember = "TIQ";
@@ -412,30 +419,12 @@
             this.tableAdapterManager.WBDocketLinesTableAdapter = null;
             this.tableAdapterManager.WBDocketsTableAdapter = null;
             // 
-            // driverIDTextBox
+            // txtDriver
             // 
-            this.driverIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsImportedOverloads, "DriverID", true));
-            this.driverIDTextBox.Location = new System.Drawing.Point(376, 20);
-            this.driverIDTextBox.Name = "driverIDTextBox";
-            this.driverIDTextBox.Size = new System.Drawing.Size(100, 24);
-            this.driverIDTextBox.TabIndex = 16;
-            // 
-            // driverLabel
-            // 
-            driverLabel.AutoSize = true;
-            driverLabel.Location = new System.Drawing.Point(90, 23);
-            driverLabel.Name = "driverLabel";
-            driverLabel.Size = new System.Drawing.Size(51, 18);
-            driverLabel.TabIndex = 16;
-            driverLabel.Text = "Driver:";
-            // 
-            // driverTextBox
-            // 
-            this.driverTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsImportedOverloads, "Driver", true));
-            this.driverTextBox.Location = new System.Drawing.Point(147, 20);
-            this.driverTextBox.Name = "driverTextBox";
-            this.driverTextBox.Size = new System.Drawing.Size(206, 24);
-            this.driverTextBox.TabIndex = 17;
+            this.txtDriver.Location = new System.Drawing.Point(147, 24);
+            this.txtDriver.Name = "txtDriver";
+            this.txtDriver.Size = new System.Drawing.Size(206, 24);
+            this.txtDriver.TabIndex = 17;
             // 
             // ImportedOverload
             // 
@@ -459,8 +448,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsImportedOverloads)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tIQBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -504,7 +493,6 @@
         private System.Windows.Forms.BindingSource tIQBindingSource;
         private dsTIQ2TableAdapters.TIQTableAdapter tIQTableAdapter;
         private dsTIQ2TableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.TextBox driverTextBox;
-        private System.Windows.Forms.TextBox driverIDTextBox;
+        private System.Windows.Forms.TextBox txtDriver;
     }
 }
