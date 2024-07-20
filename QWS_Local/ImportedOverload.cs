@@ -133,7 +133,7 @@ namespace QWS_Local
                 OverloadPoints = Properties.Settings.Default.OverloadSubstantial;
                 txtOverloadCategory.Text = "Overload Substantial";
             }
-            else if (OverloadPercent >= 10.5M && (Gross - GVM) > TonnesCriterion)
+            else if (OverloadPercent >= 1.05M && (Gross - GVM) > TonnesCriterion)
             {
                 OverloadPoints = Properties.Settings.Default.OverloadSubstantial;
                 txtOverloadCategory.Text = "Overload Substantial";
@@ -147,12 +147,47 @@ namespace QWS_Local
             txtPointsDocket.Text = OverloadPoints.ToString();
             myOverloadPoints = OverloadPoints;
             myOverloadDesc = txtOverloadCategory.Text;
-            AccumulatedPoints();
+            AccumulatedPoints(myOverloadPoints);
         }
 
-        private void AccumulatedPoints()
+        private void AccumulatedPoints(int OverloadPoints)
         {
-            //MessageBox.Show("TODO display accumulated points and advise action");
+            try
+            {
+                int DocketPointsToday = OverloadPoints;
+                int DocketPointsThisWeek = OverloadPoints;
+                int SanctionToday = Properties.Settings.Default.SanctionToday;
+                int SanctionThisWeek = Properties.Settings.Default.SanctionThisWeek;
+                string msgSanction = "";
+                taImportedOverloads.Fill(dsTIQ2.ImportedOverloadsByDriver, DriverID);
+                    foreach (dsTIQ2.ImportedOverloadsByDriverRow row in dsTIQ2.ImportedOverloadsByDriver)
+                    {
+                        DocketPointsToday += row.OverloadPoints;
+                        if (row.Tday == DateTime.Now.Day)
+                        {
+                            DocketPointsToday += row.OverloadPoints;   
+                        }
+                    }
+                if (DocketPointsToday > SanctionToday)
+                {
+                    msgSanction = "Daily points exceeded,";
+                }
+                else if (DocketPointsToday > SanctionThisWeek)
+                {
+                    msgSanction = "Weekly points exceeded,";
+                }
+                if (msgSanction.Length > 0)
+                {
+                    msgSanction += " sanction for remainder of today and tomorrow,ensure Sanction Date is entered into SAP.";
+                    MessageBox.Show(msgSanction, "Accumulated Points Sanction", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                txtPointsToday.Text = DocketPointsToday.ToString(); 
+                txtPointsThisWeek.Text = DocketPointsThisWeek.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Accumulated Points ERROR!");
+            }
         }
     }
 }
