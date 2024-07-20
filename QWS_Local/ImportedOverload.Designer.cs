@@ -41,9 +41,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtThisWeek = new System.Windows.Forms.TextBox();
-            this.txtToday = new System.Windows.Forms.TextBox();
-            this.txtDocket = new System.Windows.Forms.TextBox();
+            this.txtPointsThisWeek = new System.Windows.Forms.TextBox();
+            this.txtPointsToday = new System.Windows.Forms.TextBox();
+            this.txtPointsDocket = new System.Windows.Forms.TextBox();
             this.txtOverloadCategory = new System.Windows.Forms.TextBox();
             this.txtOverloadTonnes = new System.Windows.Forms.TextBox();
             this.txtOverloadPercent = new System.Windows.Forms.TextBox();
@@ -112,9 +112,9 @@
             this.tpOverload.Controls.Add(this.label3);
             this.tpOverload.Controls.Add(this.label2);
             this.tpOverload.Controls.Add(this.label1);
-            this.tpOverload.Controls.Add(this.txtThisWeek);
-            this.tpOverload.Controls.Add(this.txtToday);
-            this.tpOverload.Controls.Add(this.txtDocket);
+            this.tpOverload.Controls.Add(this.txtPointsThisWeek);
+            this.tpOverload.Controls.Add(this.txtPointsToday);
+            this.tpOverload.Controls.Add(this.txtPointsDocket);
             this.tpOverload.Controls.Add(this.txtOverloadCategory);
             this.tpOverload.Controls.Add(this.txtOverloadTonnes);
             this.tpOverload.Controls.Add(this.txtOverloadPercent);
@@ -189,26 +189,26 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Gross";
             // 
-            // txtThisWeek
+            // txtPointsThisWeek
             // 
-            this.txtThisWeek.Location = new System.Drawing.Point(147, 245);
-            this.txtThisWeek.Name = "txtThisWeek";
-            this.txtThisWeek.Size = new System.Drawing.Size(100, 24);
-            this.txtThisWeek.TabIndex = 8;
+            this.txtPointsThisWeek.Location = new System.Drawing.Point(147, 245);
+            this.txtPointsThisWeek.Name = "txtPointsThisWeek";
+            this.txtPointsThisWeek.Size = new System.Drawing.Size(100, 24);
+            this.txtPointsThisWeek.TabIndex = 8;
             // 
-            // txtToday
+            // txtPointsToday
             // 
-            this.txtToday.Location = new System.Drawing.Point(147, 215);
-            this.txtToday.Name = "txtToday";
-            this.txtToday.Size = new System.Drawing.Size(100, 24);
-            this.txtToday.TabIndex = 7;
+            this.txtPointsToday.Location = new System.Drawing.Point(147, 215);
+            this.txtPointsToday.Name = "txtPointsToday";
+            this.txtPointsToday.Size = new System.Drawing.Size(100, 24);
+            this.txtPointsToday.TabIndex = 7;
             // 
-            // txtDocket
+            // txtPointsDocket
             // 
-            this.txtDocket.Location = new System.Drawing.Point(147, 185);
-            this.txtDocket.Name = "txtDocket";
-            this.txtDocket.Size = new System.Drawing.Size(100, 24);
-            this.txtDocket.TabIndex = 6;
+            this.txtPointsDocket.Location = new System.Drawing.Point(147, 185);
+            this.txtPointsDocket.Name = "txtPointsDocket";
+            this.txtPointsDocket.Size = new System.Drawing.Size(100, 24);
+            this.txtPointsDocket.TabIndex = 6;
             // 
             // txtOverloadCategory
             // 
@@ -409,6 +409,8 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.TIQTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.WBDocketLinesTableAdapter = null;
             this.tableAdapterManager.WBDocketsTableAdapter = null;
@@ -452,9 +454,9 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtThisWeek;
-        private System.Windows.Forms.TextBox txtToday;
-        private System.Windows.Forms.TextBox txtDocket;
+        private System.Windows.Forms.TextBox txtPointsThisWeek;
+        private System.Windows.Forms.TextBox txtPointsToday;
+        private System.Windows.Forms.TextBox txtPointsDocket;
         private System.Windows.Forms.TextBox txtOverloadCategory;
         private System.Windows.Forms.TextBox txtOverloadTonnes;
         private System.Windows.Forms.TextBox txtOverloadPercent;

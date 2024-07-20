@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
+using System.Globalization;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
@@ -57,7 +59,8 @@ namespace QWS_Local
             txtDriver.Text = Driver;
             txtGross.Text = Gross.ToString();
             txtGVM.Text = GVM.ToString();
-            CalcOverloadCategory(); 
+            //CalcOverloadCategory(); 
+            CalculatePoints();
         }
 
         private void SetSanctionsText()
@@ -69,7 +72,7 @@ namespace QWS_Local
         {
             try
             {
-                myOverloadPoints = System.Convert.ToInt16(txtDocket.Text);
+                myOverloadPoints = System.Convert.ToInt16(txtPointsDocket.Text);
             myOverloadDesc = txtOverloadCategory.Text;  
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -106,6 +109,50 @@ namespace QWS_Local
 
             txtOverloadPercent.Text = "110.00 %";
             txtOverloadTonnes.Text = "4.50 t";
+        }
+
+        private void CalculatePoints()
+        {
+            decimal TonnesCriterion = 0.5M;
+            decimal OverloadPercent;
+            int OverloadPoints = 5;
+            string msgSanction;
+
+            OverloadPercent = Gross / GVM;
+            txtOverloadPercent.Text = OverloadPercent.ToString("P", CultureInfo.InvariantCulture);
+            txtOverloadTonnes.Text = (Gross - GVM).ToString() + " t";
+            if (OverloadPercent >= 1.2M)
+            {
+                msgSanction = "Immediate Sanction Applies. tip off must be supervised, manager contacted, driver advised of immediate sanction and initiation of IRF";
+                OverloadPoints = Properties.Settings.Default.OverloadSevere;
+                txtOverloadCategory.Text = "Overload Severe";
+                MessageBox.Show(msgSanction, "Overload Category = SEVERE!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (OverloadPercent >= 1.05M)
+            {
+                OverloadPoints = Properties.Settings.Default.OverloadSubstantial;
+                txtOverloadCategory.Text = "Overload Substantial";
+            }
+            else if (OverloadPercent >= 10.5M && (Gross - GVM) > TonnesCriterion)
+            {
+                OverloadPoints = Properties.Settings.Default.OverloadSubstantial;
+                txtOverloadCategory.Text = "Overload Substantial";
+            }
+            else
+            {
+                OverloadPoints = Properties.Settings.Default.OverloadMinor;
+                txtOverloadCategory.Text = "Overload Minor";
+
+            }
+            txtPointsDocket.Text = OverloadPoints.ToString();
+            myOverloadPoints = OverloadPoints;
+            myOverloadDesc = txtOverloadCategory.Text;
+            AccumulatedPoints();
+        }
+
+        private void AccumulatedPoints()
+        {
+            //MessageBox.Show("TODO display accumulated points and advise action");
         }
     }
 }
