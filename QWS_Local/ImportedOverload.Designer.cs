@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label driverLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpOverload = new System.Windows.Forms.TabPage();
             this.txtDriver = new System.Windows.Forms.TextBox();
@@ -268,9 +268,9 @@
             // tpDockets
             // 
             this.tpDockets.Controls.Add(this.dataGridView1);
-            this.tpDockets.Location = new System.Drawing.Point(4, 27);
+            this.tpDockets.Location = new System.Drawing.Point(4, 22);
             this.tpDockets.Name = "tpDockets";
-            this.tpDockets.Size = new System.Drawing.Size(872, 380);
+            this.tpDockets.Size = new System.Drawing.Size(872, 385);
             this.tpDockets.TabIndex = 2;
             this.tpDockets.Text = "Dockets";
             this.tpDockets.UseVisualStyleBackColor = true;
@@ -294,7 +294,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(872, 380);
+            this.dataGridView1.Size = new System.Drawing.Size(872, 385);
             this.dataGridView1.TabIndex = 0;
             // 
             // driverDataGridViewTextBoxColumn
@@ -308,9 +308,9 @@
             // timeInDTTMDataGridViewTextBoxColumn
             // 
             this.timeInDTTMDataGridViewTextBoxColumn.DataPropertyName = "timeInDTTM";
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            this.timeInDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.timeInDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.timeInDTTMDataGridViewTextBoxColumn.HeaderText = "timeInDTTM";
             this.timeInDTTMDataGridViewTextBoxColumn.Name = "timeInDTTMDataGridViewTextBoxColumn";
             this.timeInDTTMDataGridViewTextBoxColumn.ReadOnly = true;
@@ -318,9 +318,9 @@
             // timeInDataGridViewTextBoxColumn
             // 
             this.timeInDataGridViewTextBoxColumn.DataPropertyName = "TimeIn";
-            dataGridViewCellStyle4.Format = "t";
-            dataGridViewCellStyle4.NullValue = null;
-            this.timeInDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Format = "t";
+            dataGridViewCellStyle2.NullValue = null;
+            this.timeInDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.timeInDataGridViewTextBoxColumn.HeaderText = "TimeIn";
             this.timeInDataGridViewTextBoxColumn.Name = "timeInDataGridViewTextBoxColumn";
             this.timeInDataGridViewTextBoxColumn.ReadOnly = true;
@@ -425,6 +425,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ImportedOverload";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ImportedOverload";
             this.Load += new System.EventHandler(this.ImportedOverload_Load);
             this.tabControl1.ResumeLayout(false);

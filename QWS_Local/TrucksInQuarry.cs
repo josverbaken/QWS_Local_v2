@@ -28,6 +28,7 @@ namespace QWS_Local
             //button3.Text = ""+ (char)24;
             //button2.Text = ""+ (char)25;
             // TODO: find a nicer solution, probably images/icons
+            this.KeyPreview = true;
         }
 
         public void ClearTIQ()
@@ -503,6 +504,8 @@ namespace QWS_Local
             docketsRow.Gross = CurrentTIQ().Gross;
             docketsRow.Tare = CurrentTIQ().Tare;
             docketsRow.Nett = CurrentTIQ().Nett;
+            docketsRow.OverloadPoints = CurrentTIQ().OverloadPoints;
+            docketsRow.OverloadDesc = CurrentTIQ().OverloadDesc;
             docketsRow.WBMode = "m";
             docketsRow.TruckDriverID = -1;
             docketsRow.TruckDriver = "";//"Truck Driver";
@@ -510,6 +513,7 @@ namespace QWS_Local
             docketsRow.SalesPerson = "";//"Weighbridge Operator";
             docketsRow.Comments = "";
             docketsRow.CreatedDTTM = DateTime.Now;
+            docketsRow.TIQID = CurrentTIQ().TIQID;
             dsTIQ2.WBDockets.AddWBDocketsRow(docketsRow);
             bsWBDockets.EndEdit();
         }
@@ -574,5 +578,17 @@ namespace QWS_Local
             MessageBox.Show("TODO implement release / hold");
         }
 
-      }
+        private void TrucksInQuarry_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F9)
+            {
+                label2.Text = "F9 pressed.";
+                GoToWeighTruck();
+            }
+            else
+            {
+                label2.Text = string.Empty;
+            }
+        }
+    }
 }
