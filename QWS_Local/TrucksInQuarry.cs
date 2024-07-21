@@ -580,14 +580,10 @@ namespace QWS_Local
 
         private void TrucksInQuarry_KeyDown(object sender, KeyEventArgs e)
         {
+            // TODO check F key allocation in current version of QWS
             if (e.KeyCode == Keys.F9)
             {
-                label2.Text = "F9 pressed.";
                 GoToWeighTruck();
-            }
-            else
-            {
-                label2.Text = string.Empty;
             }
         }
     }

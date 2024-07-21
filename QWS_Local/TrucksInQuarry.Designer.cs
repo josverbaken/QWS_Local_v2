@@ -48,7 +48,7 @@ namespace QWS_Local
             System.Windows.Forms.Label materialLabel;
             System.Windows.Forms.Label schemeCodeLabel;
             System.Windows.Forms.Label label1;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.button5 = new System.Windows.Forms.Button();
@@ -114,7 +114,6 @@ namespace QWS_Local
             this.tableAdapterManager1 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.taWBDockets = new QWS_Local.dsTIQ2TableAdapters.WBDocketsTableAdapter();
             this.taWBDocketLines = new QWS_Local.dsTIQ2TableAdapters.WBDocketLinesTableAdapter();
-            this.label2 = new System.Windows.Forms.Label();
             entryDTTMLabel = new System.Windows.Forms.Label();
             sAPOrderLabel = new System.Windows.Forms.Label();
             roadAccessLabel = new System.Windows.Forms.Label();
@@ -346,7 +345,6 @@ namespace QWS_Local
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
             this.splitContainer2.Panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.splitContainer2.Panel1.Controls.Add(this.label2);
             this.splitContainer2.Panel1.Controls.Add(this.button5);
             this.splitContainer2.Panel1.Controls.Add(this.btnTINRemove);
             this.splitContainer2.Panel1.Controls.Add(this.btnWeigh);
@@ -396,12 +394,12 @@ namespace QWS_Local
             this.btnWeigh.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnWeigh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWeigh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWeigh.Location = new System.Drawing.Point(265, 287);
+            this.btnWeigh.Location = new System.Drawing.Point(249, 287);
             this.btnWeigh.Margin = new System.Windows.Forms.Padding(4);
             this.btnWeigh.Name = "btnWeigh";
-            this.btnWeigh.Size = new System.Drawing.Size(114, 49);
+            this.btnWeigh.Size = new System.Drawing.Size(160, 49);
             this.btnWeigh.TabIndex = 62;
-            this.btnWeigh.Text = "Weigh";
+            this.btnWeigh.Text = "Weigh (F9)";
             this.btnWeigh.UseVisualStyleBackColor = false;
             this.btnWeigh.Click += new System.EventHandler(this.btnWeigh_Click);
             // 
@@ -410,7 +408,7 @@ namespace QWS_Local
             this.btnAddTIQ.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnAddTIQ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddTIQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddTIQ.Location = new System.Drawing.Point(146, 287);
+            this.btnAddTIQ.Location = new System.Drawing.Point(130, 287);
             this.btnAddTIQ.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddTIQ.Name = "btnAddTIQ";
             this.btnAddTIQ.Size = new System.Drawing.Size(111, 49);
@@ -527,9 +525,9 @@ namespace QWS_Local
             // releaseDTTMDataGridViewTextBoxColumn
             // 
             this.releaseDTTMDataGridViewTextBoxColumn.DataPropertyName = "ReleaseDTTM";
-            dataGridViewCellStyle5.Format = "HH:mm";
-            dataGridViewCellStyle5.NullValue = null;
-            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Format = "HH:mm";
+            dataGridViewCellStyle2.NullValue = null;
+            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.releaseDTTMDataGridViewTextBoxColumn.HeaderText = "Release";
             this.releaseDTTMDataGridViewTextBoxColumn.Name = "releaseDTTMDataGridViewTextBoxColumn";
             this.releaseDTTMDataGridViewTextBoxColumn.ReadOnly = true;
@@ -997,15 +995,6 @@ namespace QWS_Local
             // 
             this.taWBDocketLines.ClearBeforeFill = true;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(546, 237);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 20);
-            this.label2.TabIndex = 64;
-            this.label2.Text = "label2";
-            // 
             // TrucksInQuarry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1112,6 +1101,5 @@ namespace QWS_Local
         private System.Windows.Forms.BindingSource bsWBDocketLines;
         private dsTIQ2TableAdapters.WBDocketLinesTableAdapter taWBDocketLines;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
     }
 }

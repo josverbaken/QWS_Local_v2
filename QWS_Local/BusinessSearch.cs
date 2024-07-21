@@ -31,13 +31,13 @@ namespace QWS_Local
         {
             // Initialize with string argument
             InitializeComponent();
-            txtSAPCode.Text = myCode;
+            txtSearch.Text = myCode;
             SearchByCode();
         }
         private void BusinessSearch_Load(object sender, EventArgs e)
         {
             // nothing at present
-            txtSAPCode.Focus();
+            btnSearch.Focus();
         }
 
         private void btnSearchByCode_Click(object sender, EventArgs e)
@@ -49,15 +49,15 @@ namespace QWS_Local
         {
             try
             {
-                if (txtSAPCode.Text != "Name or SAP Code")
-                {
-                   int iCount = this.businessTableAdapter.FillByNameOrCode(this.dsQWSLocal.Business, txtSAPCode.Text);
-                   if (iCount > 0)
-                    {
-                        txtSAPCode.Text = "Name or SAP Code";
-                    }
-                   iCount += 2;
-                }
+                //if (txtSAPCode.Text != "Name or SAP Code")
+                //{
+                   int iCount = this.businessTableAdapter.FillByNameOrCode(this.dsQWSLocal.Business, txtSearch.Text);
+                   //if (iCount > 0)
+                   // {
+                   //     txtSAPCode.Text = "Name or SAP Code";
+                   // }
+                   //iCount += 2;
+                //}
             }
             catch (Exception ex)
             {
@@ -97,26 +97,30 @@ namespace QWS_Local
             this.Close();
         }
 
-        private void txtSAPCode_Enter(object sender, EventArgs e)
+   
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-            SAPCodeSelectAll();
+            SearchByCode();
         }
 
-        private void SAPCodeSelectAll()
+        private void btnCancel1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                this.txtSAPCode.SelectAll();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
 
-        private void txtSAPCode_Click(object sender, EventArgs e)
+        private void btnSelect_Click(object sender, EventArgs e)
         {
-            SAPCodeSelectAll();
+            this.DialogResult = DialogResult.OK;
+            SetOwnerParams();
+            this.Close();
+        }
+
+        private void btnCancelNotFound_Click(object sender, EventArgs e)
+        {
+            //business not found
+            this.DialogResult = DialogResult.Abort; //distinguish from cancel, WBO is saying the BP not found
+            this.Close();
         }
     }
 
