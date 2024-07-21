@@ -40,37 +40,37 @@ namespace QWS_Local
             System.Windows.Forms.Label pORequiredLabel;
             System.Windows.Forms.Label documentOwnerLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.businessBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
-            this.documentOwnerTextBox = new System.Windows.Forms.TextBox();
-            this.pORequiredTextBox = new System.Windows.Forms.TextBox();
-            this.accountStatusTextBox = new System.Windows.Forms.TextBox();
-            this.aBNTextBox = new System.Windows.Forms.TextBox();
-            this.aCTypeTextBox = new System.Windows.Forms.TextBox();
-            this.groupTextBox = new System.Windows.Forms.TextBox();
-            this.alternateNameTextBox = new System.Windows.Forms.TextBox();
-            this.tradingNameTextBox = new System.Windows.Forms.TextBox();
-            this.sAPCodeTextBox = new System.Windows.Forms.TextBox();
-            this.businessTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.BusinessTableAdapter();
-            this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tpList = new System.Windows.Forms.TabPage();
-            this.tpDetails = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnCancelNotFound = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnCancel1 = new System.Windows.Forms.Button();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tpList = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.businessBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
+            this.tpDetails = new System.Windows.Forms.TabPage();
+            this.sAPCodeTextBox = new System.Windows.Forms.TextBox();
+            this.documentOwnerTextBox = new System.Windows.Forms.TextBox();
+            this.tradingNameTextBox = new System.Windows.Forms.TextBox();
+            this.pORequiredTextBox = new System.Windows.Forms.TextBox();
+            this.alternateNameTextBox = new System.Windows.Forms.TextBox();
+            this.accountStatusTextBox = new System.Windows.Forms.TextBox();
+            this.groupTextBox = new System.Windows.Forms.TextBox();
+            this.aBNTextBox = new System.Windows.Forms.TextBox();
+            this.aCTypeTextBox = new System.Windows.Forms.TextBox();
+            this.btnDown = new System.Windows.Forms.Button();
+            this.btnInfo = new System.Windows.Forms.Button();
+            this.btnUp = new System.Windows.Forms.Button();
+            this.businessTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.BusinessTableAdapter();
+            this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.sAPCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tradingNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AccountStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DefaultContact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OfficePhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCancelNotFound = new System.Windows.Forms.Button();
             sAPCodeLabel = new System.Windows.Forms.Label();
             tradingNameLabel = new System.Windows.Forms.Label();
             alternateNameLabel = new System.Windows.Forms.Label();
@@ -84,16 +84,16 @@ namespace QWS_Local
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.businessBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tpList.SuspendLayout();
-            this.tpDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tpList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.businessBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
+            this.tpDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // sAPCodeLabel
@@ -199,6 +199,111 @@ namespace QWS_Local
             this.splitContainer1.SplitterDistance = 108;
             this.splitContainer1.TabIndex = 1;
             // 
+            // btnCancelNotFound
+            // 
+            this.btnCancelNotFound.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCancelNotFound.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelNotFound.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelNotFound.Location = new System.Drawing.Point(670, 24);
+            this.btnCancelNotFound.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelNotFound.Name = "btnCancelNotFound";
+            this.btnCancelNotFound.Size = new System.Drawing.Size(157, 49);
+            this.btnCancelNotFound.TabIndex = 68;
+            this.btnCancelNotFound.Text = "Cancel - Not Found";
+            this.btnCancelNotFound.UseVisualStyleBackColor = false;
+            this.btnCancelNotFound.Click += new System.EventHandler(this.btnCancelNotFound_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(29, 34);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(211, 35);
+            this.txtSearch.TabIndex = 67;
+            // 
+            // btnCancel1
+            // 
+            this.btnCancel1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCancel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel1.Location = new System.Drawing.Point(541, 24);
+            this.btnCancel1.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel1.Name = "btnCancel1";
+            this.btnCancel1.Size = new System.Drawing.Size(112, 49);
+            this.btnCancel1.TabIndex = 64;
+            this.btnCancel1.Text = "Cancel";
+            this.btnCancel1.UseVisualStyleBackColor = false;
+            this.btnCancel1.Click += new System.EventHandler(this.btnCancel1_Click);
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelect.Location = new System.Drawing.Point(404, 24);
+            this.btnSelect.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(114, 49);
+            this.btnSelect.TabIndex = 66;
+            this.btnSelect.Text = "Select";
+            this.btnSelect.UseVisualStyleBackColor = false;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(271, 24);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(114, 49);
+            this.btnSearch.TabIndex = 65;
+            this.btnSearch.Text = "Find";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.tabControl1);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.btnDown);
+            this.splitContainer2.Panel2.Controls.Add(this.btnInfo);
+            this.splitContainer2.Panel2.Controls.Add(this.btnUp);
+            this.splitContainer2.Size = new System.Drawing.Size(1000, 516);
+            this.splitContainer2.SplitterDistance = 818;
+            this.splitContainer2.TabIndex = 57;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tpList);
+            this.tabControl1.Controls.Add(this.tpDetails);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(818, 516);
+            this.tabControl1.TabIndex = 18;
+            // 
+            // tpList
+            // 
+            this.tpList.Controls.Add(this.dataGridView1);
+            this.tpList.Location = new System.Drawing.Point(4, 27);
+            this.tpList.Name = "tpList";
+            this.tpList.Padding = new System.Windows.Forms.Padding(3);
+            this.tpList.Size = new System.Drawing.Size(810, 485);
+            this.tpList.TabIndex = 0;
+            this.tpList.Text = "List";
+            this.tpList.UseVisualStyleBackColor = true;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -229,6 +334,42 @@ namespace QWS_Local
             this.dsQWSLocal.DataSetName = "dsQWSLocal";
             this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // tpDetails
+            // 
+            this.tpDetails.Controls.Add(this.sAPCodeTextBox);
+            this.tpDetails.Controls.Add(documentOwnerLabel);
+            this.tpDetails.Controls.Add(sAPCodeLabel);
+            this.tpDetails.Controls.Add(this.documentOwnerTextBox);
+            this.tpDetails.Controls.Add(this.tradingNameTextBox);
+            this.tpDetails.Controls.Add(pORequiredLabel);
+            this.tpDetails.Controls.Add(tradingNameLabel);
+            this.tpDetails.Controls.Add(this.pORequiredTextBox);
+            this.tpDetails.Controls.Add(this.alternateNameTextBox);
+            this.tpDetails.Controls.Add(accountStatusLabel);
+            this.tpDetails.Controls.Add(alternateNameLabel);
+            this.tpDetails.Controls.Add(this.accountStatusTextBox);
+            this.tpDetails.Controls.Add(this.groupTextBox);
+            this.tpDetails.Controls.Add(aBNLabel);
+            this.tpDetails.Controls.Add(groupLabel);
+            this.tpDetails.Controls.Add(this.aBNTextBox);
+            this.tpDetails.Controls.Add(this.aCTypeTextBox);
+            this.tpDetails.Controls.Add(aCTypeLabel);
+            this.tpDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpDetails.Name = "tpDetails";
+            this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
+            this.tpDetails.Size = new System.Drawing.Size(810, 490);
+            this.tpDetails.TabIndex = 1;
+            this.tpDetails.Text = "Details";
+            this.tpDetails.UseVisualStyleBackColor = true;
+            // 
+            // sAPCodeTextBox
+            // 
+            this.sAPCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.businessBindingSource, "SAPCode", true));
+            this.sAPCodeTextBox.Location = new System.Drawing.Point(165, 31);
+            this.sAPCodeTextBox.Name = "sAPCodeTextBox";
+            this.sAPCodeTextBox.Size = new System.Drawing.Size(84, 24);
+            this.sAPCodeTextBox.TabIndex = 1;
+            // 
             // documentOwnerTextBox
             // 
             this.documentOwnerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.businessBindingSource, "DocumentOwner", true));
@@ -236,6 +377,14 @@ namespace QWS_Local
             this.documentOwnerTextBox.Name = "documentOwnerTextBox";
             this.documentOwnerTextBox.Size = new System.Drawing.Size(269, 24);
             this.documentOwnerTextBox.TabIndex = 17;
+            // 
+            // tradingNameTextBox
+            // 
+            this.tradingNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.businessBindingSource, "TradingName", true));
+            this.tradingNameTextBox.Location = new System.Drawing.Point(165, 61);
+            this.tradingNameTextBox.Name = "tradingNameTextBox";
+            this.tradingNameTextBox.Size = new System.Drawing.Size(269, 24);
+            this.tradingNameTextBox.TabIndex = 3;
             // 
             // pORequiredTextBox
             // 
@@ -245,6 +394,14 @@ namespace QWS_Local
             this.pORequiredTextBox.Size = new System.Drawing.Size(33, 24);
             this.pORequiredTextBox.TabIndex = 15;
             // 
+            // alternateNameTextBox
+            // 
+            this.alternateNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.businessBindingSource, "AlternateName", true));
+            this.alternateNameTextBox.Location = new System.Drawing.Point(165, 91);
+            this.alternateNameTextBox.Name = "alternateNameTextBox";
+            this.alternateNameTextBox.Size = new System.Drawing.Size(269, 24);
+            this.alternateNameTextBox.TabIndex = 5;
+            // 
             // accountStatusTextBox
             // 
             this.accountStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.businessBindingSource, "AccountStatus", true));
@@ -252,6 +409,14 @@ namespace QWS_Local
             this.accountStatusTextBox.Name = "accountStatusTextBox";
             this.accountStatusTextBox.Size = new System.Drawing.Size(29, 24);
             this.accountStatusTextBox.TabIndex = 13;
+            // 
+            // groupTextBox
+            // 
+            this.groupTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.businessBindingSource, "Group", true));
+            this.groupTextBox.Location = new System.Drawing.Point(165, 121);
+            this.groupTextBox.Name = "groupTextBox";
+            this.groupTextBox.Size = new System.Drawing.Size(269, 24);
+            this.groupTextBox.TabIndex = 7;
             // 
             // aBNTextBox
             // 
@@ -269,37 +434,45 @@ namespace QWS_Local
             this.aCTypeTextBox.Size = new System.Drawing.Size(269, 24);
             this.aCTypeTextBox.TabIndex = 9;
             // 
-            // groupTextBox
+            // btnDown
             // 
-            this.groupTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.businessBindingSource, "Group", true));
-            this.groupTextBox.Location = new System.Drawing.Point(165, 121);
-            this.groupTextBox.Name = "groupTextBox";
-            this.groupTextBox.Size = new System.Drawing.Size(269, 24);
-            this.groupTextBox.TabIndex = 7;
+            this.btnDown.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDown.Location = new System.Drawing.Point(18, 102);
+            this.btnDown.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDown.Name = "btnDown";
+            this.btnDown.Size = new System.Drawing.Size(86, 49);
+            this.btnDown.TabIndex = 55;
+            this.btnDown.Text = "down";
+            this.btnDown.UseVisualStyleBackColor = false;
             // 
-            // alternateNameTextBox
+            // btnInfo
             // 
-            this.alternateNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.businessBindingSource, "AlternateName", true));
-            this.alternateNameTextBox.Location = new System.Drawing.Point(165, 91);
-            this.alternateNameTextBox.Name = "alternateNameTextBox";
-            this.alternateNameTextBox.Size = new System.Drawing.Size(269, 24);
-            this.alternateNameTextBox.TabIndex = 5;
+            this.btnInfo.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInfo.Location = new System.Drawing.Point(18, 210);
+            this.btnInfo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.Size = new System.Drawing.Size(86, 49);
+            this.btnInfo.TabIndex = 54;
+            this.btnInfo.Text = "info";
+            this.btnInfo.UseVisualStyleBackColor = false;
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
             // 
-            // tradingNameTextBox
+            // btnUp
             // 
-            this.tradingNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.businessBindingSource, "TradingName", true));
-            this.tradingNameTextBox.Location = new System.Drawing.Point(165, 61);
-            this.tradingNameTextBox.Name = "tradingNameTextBox";
-            this.tradingNameTextBox.Size = new System.Drawing.Size(269, 24);
-            this.tradingNameTextBox.TabIndex = 3;
-            // 
-            // sAPCodeTextBox
-            // 
-            this.sAPCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.businessBindingSource, "SAPCode", true));
-            this.sAPCodeTextBox.Location = new System.Drawing.Point(165, 31);
-            this.sAPCodeTextBox.Name = "sAPCodeTextBox";
-            this.sAPCodeTextBox.Size = new System.Drawing.Size(84, 24);
-            this.sAPCodeTextBox.TabIndex = 1;
+            this.btnUp.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUp.Location = new System.Drawing.Point(18, 30);
+            this.btnUp.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUp.Name = "btnUp";
+            this.btnUp.Size = new System.Drawing.Size(86, 49);
+            this.btnUp.TabIndex = 56;
+            this.btnUp.Text = "up";
+            this.btnUp.UseVisualStyleBackColor = false;
             // 
             // businessTableAdapter
             // 
@@ -325,175 +498,17 @@ namespace QWS_Local
             this.tableAdapterManager.VehicleTableAdapter = null;
             this.tableAdapterManager.VehicleTypeTableAdapter = null;
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tpList);
-            this.tabControl1.Controls.Add(this.tpDetails);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(818, 516);
-            this.tabControl1.TabIndex = 18;
-            // 
-            // tpList
-            // 
-            this.tpList.Controls.Add(this.dataGridView1);
-            this.tpList.Location = new System.Drawing.Point(4, 27);
-            this.tpList.Name = "tpList";
-            this.tpList.Padding = new System.Windows.Forms.Padding(3);
-            this.tpList.Size = new System.Drawing.Size(810, 485);
-            this.tpList.TabIndex = 0;
-            this.tpList.Text = "List";
-            this.tpList.UseVisualStyleBackColor = true;
-            // 
-            // tpDetails
-            // 
-            this.tpDetails.Controls.Add(this.sAPCodeTextBox);
-            this.tpDetails.Controls.Add(documentOwnerLabel);
-            this.tpDetails.Controls.Add(sAPCodeLabel);
-            this.tpDetails.Controls.Add(this.documentOwnerTextBox);
-            this.tpDetails.Controls.Add(this.tradingNameTextBox);
-            this.tpDetails.Controls.Add(pORequiredLabel);
-            this.tpDetails.Controls.Add(tradingNameLabel);
-            this.tpDetails.Controls.Add(this.pORequiredTextBox);
-            this.tpDetails.Controls.Add(this.alternateNameTextBox);
-            this.tpDetails.Controls.Add(accountStatusLabel);
-            this.tpDetails.Controls.Add(alternateNameLabel);
-            this.tpDetails.Controls.Add(this.accountStatusTextBox);
-            this.tpDetails.Controls.Add(this.groupTextBox);
-            this.tpDetails.Controls.Add(aBNLabel);
-            this.tpDetails.Controls.Add(groupLabel);
-            this.tpDetails.Controls.Add(this.aBNTextBox);
-            this.tpDetails.Controls.Add(this.aCTypeTextBox);
-            this.tpDetails.Controls.Add(aCTypeLabel);
-            this.tpDetails.Location = new System.Drawing.Point(4, 27);
-            this.tpDetails.Name = "tpDetails";
-            this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(688, 287);
-            this.tpDetails.TabIndex = 1;
-            this.tpDetails.Text = "Details";
-            this.tpDetails.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(18, 210);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 49);
-            this.button1.TabIndex = 54;
-            this.button1.Text = "info";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(18, 102);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(86, 49);
-            this.button2.TabIndex = 55;
-            this.button2.Text = "down";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(18, 30);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(86, 49);
-            this.button3.TabIndex = 56;
-            this.button3.Text = "up";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // btnCancel1
-            // 
-            this.btnCancel1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCancel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel1.Location = new System.Drawing.Point(405, 24);
-            this.btnCancel1.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancel1.Name = "btnCancel1";
-            this.btnCancel1.Size = new System.Drawing.Size(112, 49);
-            this.btnCancel1.TabIndex = 64;
-            this.btnCancel1.Text = "Cancel";
-            this.btnCancel1.UseVisualStyleBackColor = false;
-            this.btnCancel1.Click += new System.EventHandler(this.btnCancel1_Click);
-            // 
-            // btnSelect
-            // 
-            this.btnSelect.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelect.Location = new System.Drawing.Point(539, 24);
-            this.btnSelect.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(114, 49);
-            this.btnSelect.TabIndex = 66;
-            this.btnSelect.Text = "Select";
-            this.btnSelect.UseVisualStyleBackColor = false;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(271, 24);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(114, 49);
-            this.btnSearch.TabIndex = 65;
-            this.btnSearch.Text = "Find";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(29, 34);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(211, 35);
-            this.txtSearch.TabIndex = 67;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.tabControl1);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.button2);
-            this.splitContainer2.Panel2.Controls.Add(this.button1);
-            this.splitContainer2.Panel2.Controls.Add(this.button3);
-            this.splitContainer2.Size = new System.Drawing.Size(1000, 516);
-            this.splitContainer2.SplitterDistance = 818;
-            this.splitContainer2.TabIndex = 57;
-            // 
             // sAPCodeDataGridViewTextBoxColumn
             // 
             this.sAPCodeDataGridViewTextBoxColumn.DataPropertyName = "SAPCode";
-            this.sAPCodeDataGridViewTextBoxColumn.HeaderText = "SAPCode";
+            this.sAPCodeDataGridViewTextBoxColumn.HeaderText = "CardCode";
             this.sAPCodeDataGridViewTextBoxColumn.Name = "sAPCodeDataGridViewTextBoxColumn";
             this.sAPCodeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // tradingNameDataGridViewTextBoxColumn
             // 
             this.tradingNameDataGridViewTextBoxColumn.DataPropertyName = "TradingName";
-            this.tradingNameDataGridViewTextBoxColumn.HeaderText = "TradingName";
+            this.tradingNameDataGridViewTextBoxColumn.HeaderText = "Business Partner";
             this.tradingNameDataGridViewTextBoxColumn.Name = "tradingNameDataGridViewTextBoxColumn";
             this.tradingNameDataGridViewTextBoxColumn.ReadOnly = true;
             this.tradingNameDataGridViewTextBoxColumn.Width = 200;
@@ -501,35 +516,21 @@ namespace QWS_Local
             // AccountStatus
             // 
             this.AccountStatus.DataPropertyName = "AccountStatus";
-            this.AccountStatus.HeaderText = "AccountStatus";
+            this.AccountStatus.HeaderText = "AC Status";
             this.AccountStatus.Name = "AccountStatus";
             this.AccountStatus.ReadOnly = true;
             // 
             // DefaultContact
             // 
-            this.DefaultContact.HeaderText = "Default Contact";
+            this.DefaultContact.HeaderText = "Contact";
             this.DefaultContact.Name = "DefaultContact";
             this.DefaultContact.ReadOnly = true;
             // 
             // OfficePhone
             // 
-            this.OfficePhone.HeaderText = "Office Phone";
+            this.OfficePhone.HeaderText = "Phone";
             this.OfficePhone.Name = "OfficePhone";
             this.OfficePhone.ReadOnly = true;
-            // 
-            // btnCancelNotFound
-            // 
-            this.btnCancelNotFound.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCancelNotFound.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelNotFound.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelNotFound.Location = new System.Drawing.Point(670, 24);
-            this.btnCancelNotFound.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancelNotFound.Name = "btnCancelNotFound";
-            this.btnCancelNotFound.Size = new System.Drawing.Size(284, 49);
-            this.btnCancelNotFound.TabIndex = 68;
-            this.btnCancelNotFound.Text = "Cancel - Not Found";
-            this.btnCancelNotFound.UseVisualStyleBackColor = false;
-            this.btnCancelNotFound.Click += new System.EventHandler(this.btnCancelNotFound_Click);
             // 
             // BusinessSearch
             // 
@@ -549,17 +550,17 @@ namespace QWS_Local
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.businessBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tpList.ResumeLayout(false);
-            this.tpDetails.ResumeLayout(false);
-            this.tpDetails.PerformLayout();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tpList.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.businessBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
+            this.tpDetails.ResumeLayout(false);
+            this.tpDetails.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -583,19 +584,19 @@ namespace QWS_Local
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpList;
         private System.Windows.Forms.TabPage tpDetails;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnInfo;
+        private System.Windows.Forms.Button btnDown;
+        private System.Windows.Forms.Button btnUp;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnCancel1;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.Button btnCancelNotFound;
         private System.Windows.Forms.DataGridViewTextBoxColumn sAPCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tradingNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AccountStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn DefaultContact;
         private System.Windows.Forms.DataGridViewTextBoxColumn OfficePhone;
-        private System.Windows.Forms.Button btnCancelNotFound;
     }
 }

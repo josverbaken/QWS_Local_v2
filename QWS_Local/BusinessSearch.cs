@@ -122,6 +122,16 @@ namespace QWS_Local
             this.DialogResult = DialogResult.Abort; //distinguish from cancel, WBO is saying the BP not found
             this.Close();
         }
+
+        private void btnInfo_Click(object sender, EventArgs e)
+        {
+            ShowDetailsTab();
+        }
+
+        private void ShowDetailsTab()
+        {
+            tabControl1.SelectedTab = tpDetails;
+        }
     }
 
 }
