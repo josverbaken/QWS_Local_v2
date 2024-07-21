@@ -911,7 +911,7 @@ namespace QWS_Local
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VehicleMaintenance";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Vehicle Maintenance";
+            this.Text = "Vehicle_Maintenance";
             this.Load += new System.EventHandler(this.Vehicle_Maintenance_Load);
             ((System.ComponentModel.ISupportInitialize)(this.vehicleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
