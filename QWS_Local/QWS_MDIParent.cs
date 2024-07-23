@@ -138,5 +138,13 @@ namespace QWS_Local
             frmPrintDocket.WindowState = FormWindowState.Maximized;
             frmPrintDocket.Show();
         }
+
+        private void truckConfigMaintToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TruckConfigMaintenance frmTruckConfigMaintenance = new TruckConfigMaintenance();
+            frmTruckConfigMaintenance.MdiParent = this;
+            frmTruckConfigMaintenance.WindowState = FormWindowState.Maximized;
+            frmTruckConfigMaintenance.Show();   
+        }
     }
 }
