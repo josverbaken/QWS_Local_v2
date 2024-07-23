@@ -20,7 +20,7 @@ namespace QWS_Local
         public TruckDriverSearch(string SAPCode)
         {
             InitializeComponent();
-            this.truckDriverTableAdapter.FillByCardCode(this.dsQWSLocal.TruckDriver,SAPCode);
+            this.taTruckDriver.FillByCardCode(this.dsQWSLocal.TruckDriver,SAPCode);
         }
 
         private string myDriver;
@@ -45,9 +45,7 @@ namespace QWS_Local
         private void TruckDriverSearch_Load(object sender, EventArgs e)
         {
             // nothing at present
-            rbActive.Checked = true;
-            rbAll.Checked = false;
-            truckDriverBindingSource.Filter = "Active = 'Y'";
+            bsTruckDriver.Sort = "Active";
         }
 
      
@@ -67,7 +65,7 @@ namespace QWS_Local
         private bool SetDriver()
         {
             bool blDriverOK = true;
-            DataRow dataRow = ((DataRowView)truckDriverBindingSource.Current).Row;
+            DataRow dataRow = ((DataRowView)bsTruckDriver.Current).Row;
            QWS_Local.dsQWSLocal.TruckDriverRow truckDriverRow = (QWS_Local.dsQWSLocal.TruckDriverRow)dataRow;
             myTruckDriver = truckDriverRow;
             myDriver = truckDriverRow.Person;
@@ -102,9 +100,9 @@ namespace QWS_Local
 
  
 
-        private void Search4Driver(string SAPCode) //actuall drivers for BP code
+        private void Search4Driver(string SAPCode) //actual drivers for BP code
         {
-            this.truckDriverTableAdapter.FillByCardCode(this.dsQWSLocal.TruckDriver, SAPCode);
+            this.taTruckDriver.FillByCardCode(this.dsQWSLocal.TruckDriver, SAPCode);
 
         }
 
@@ -115,16 +113,5 @@ namespace QWS_Local
             this.Close();
         }
 
-        private void rbActive_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbActive.Checked == true)
-            {
-                truckDriverBindingSource.Filter = "Active = 'Y'";
-            }
-            else
-            {
-                truckDriverBindingSource.Filter = "";
-            }
-        }
     }
 }

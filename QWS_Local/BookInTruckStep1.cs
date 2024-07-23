@@ -268,27 +268,13 @@ namespace QWS_Local
                     blInduction = true;
                     txtInductionExp.BackColor = Color.PaleGreen;
                 }
-                if (myTruckDriverRow.Active == "Y")
-                {
-                    txtActive.BackColor = Color.PaleGreen;
-                }
-                else
-                {
-                    txtActive.BackColor = Color.Salmon;
-                    blOkay2Cart = false;
-                    blOK4ExBin = false;
-                }
                 if (blOkay2Cart)
                 {
-                    txtOkay2Cart.Text = "Y";
-                    txtOkay2Cart.BackColor = Color.PaleGreen;
                     btnExBin.Enabled = true;
                     btnImported.Enabled = true;
                 }
                 else
                 {
-                    txtOkay2Cart.Text = "N";
-                    txtOkay2Cart.BackColor = Color.Salmon;
                     if (blOK4ExBin == true)
                     {
                         btnExBin.Enabled = true;
@@ -301,7 +287,6 @@ namespace QWS_Local
                 }
                 if (myTruckDriverRow.Position == "Authorised Cartage Contractor") 
                 {
-                    chkDriverACC.Checked = true;
                     if (chkACC.Checked == true && blInduction == true)
                     {
                         btnDelivery.Enabled = true;
@@ -309,7 +294,6 @@ namespace QWS_Local
                 }
                 else
                 {
-                    chkDriverACC.Checked = false;
                     btnDelivery.Enabled = false;
                 }
                 if (RetareDue)
@@ -534,13 +518,7 @@ namespace QWS_Local
         {
             GoToBookInExBin(TIQType.Imported);
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            int iDriver = myDriverID;
-            GetDriver(iDriver);
-        }
-
+    
         private void GetDriver(int DriverID)
         {
             MessageBox.Show("Truck driver with cntctcode = " + DriverID.ToString());

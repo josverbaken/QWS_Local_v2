@@ -31,21 +31,18 @@ namespace QWS_Local
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.personDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.positionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mobDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LicenseType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.truckDriverBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bsTruckDriver = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
-            this.truckDriverTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.TruckDriverTableAdapter();
+            this.taTruckDriver = new QWS_Local.dsQWSLocalTableAdapters.TruckDriverTableAdapter();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.rbAll = new System.Windows.Forms.RadioButton();
-            this.rbActive = new System.Windows.Forms.RadioButton();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSelectDriver = new System.Windows.Forms.Button();
+            this.activeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.personDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mobDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.positionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.truckDriverBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -60,12 +57,11 @@ namespace QWS_Local
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.activeDataGridViewTextBoxColumn,
             this.personDataGridViewTextBoxColumn,
-            this.positionDataGridViewTextBoxColumn,
             this.mobDataGridViewTextBoxColumn,
-            this.LicenseType,
-            this.activeDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.truckDriverBindingSource;
+            this.positionDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.bsTruckDriver;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
@@ -74,57 +70,19 @@ namespace QWS_Local
             this.dataGridView1.Size = new System.Drawing.Size(841, 382);
             this.dataGridView1.TabIndex = 0;
             // 
-            // personDataGridViewTextBoxColumn
+            // bsTruckDriver
             // 
-            this.personDataGridViewTextBoxColumn.DataPropertyName = "Person";
-            this.personDataGridViewTextBoxColumn.HeaderText = "Person";
-            this.personDataGridViewTextBoxColumn.Name = "personDataGridViewTextBoxColumn";
-            this.personDataGridViewTextBoxColumn.ReadOnly = true;
-            this.personDataGridViewTextBoxColumn.Width = 300;
-            // 
-            // positionDataGridViewTextBoxColumn
-            // 
-            this.positionDataGridViewTextBoxColumn.DataPropertyName = "Position";
-            this.positionDataGridViewTextBoxColumn.HeaderText = "Position";
-            this.positionDataGridViewTextBoxColumn.Name = "positionDataGridViewTextBoxColumn";
-            this.positionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.positionDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // mobDataGridViewTextBoxColumn
-            // 
-            this.mobDataGridViewTextBoxColumn.DataPropertyName = "Mob";
-            this.mobDataGridViewTextBoxColumn.HeaderText = "Mob";
-            this.mobDataGridViewTextBoxColumn.Name = "mobDataGridViewTextBoxColumn";
-            this.mobDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // LicenseType
-            // 
-            this.LicenseType.DataPropertyName = "LicenseType";
-            this.LicenseType.HeaderText = "LicenseType";
-            this.LicenseType.Name = "LicenseType";
-            this.LicenseType.ReadOnly = true;
-            // 
-            // activeDataGridViewTextBoxColumn
-            // 
-            this.activeDataGridViewTextBoxColumn.DataPropertyName = "Active";
-            this.activeDataGridViewTextBoxColumn.HeaderText = "Active";
-            this.activeDataGridViewTextBoxColumn.Name = "activeDataGridViewTextBoxColumn";
-            this.activeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.activeDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // truckDriverBindingSource
-            // 
-            this.truckDriverBindingSource.DataMember = "TruckDriver";
-            this.truckDriverBindingSource.DataSource = this.dsQWSLocal;
+            this.bsTruckDriver.DataMember = "TruckDriver";
+            this.bsTruckDriver.DataSource = this.dsQWSLocal;
             // 
             // dsQWSLocal
             // 
             this.dsQWSLocal.DataSetName = "dsQWSLocal";
             this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // truckDriverTableAdapter
+            // taTruckDriver
             // 
-            this.truckDriverTableAdapter.ClearBeforeFill = true;
+            this.taTruckDriver.ClearBeforeFill = true;
             // 
             // splitContainer1
             // 
@@ -135,8 +93,6 @@ namespace QWS_Local
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.rbAll);
-            this.splitContainer1.Panel1.Controls.Add(this.rbActive);
             this.splitContainer1.Panel1.Controls.Add(this.btnCancel);
             this.splitContainer1.Panel1.Controls.Add(this.btnSelectDriver);
             // 
@@ -147,29 +103,6 @@ namespace QWS_Local
             this.splitContainer1.SplitterDistance = 216;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 1;
-            // 
-            // rbAll
-            // 
-            this.rbAll.AutoSize = true;
-            this.rbAll.Location = new System.Drawing.Point(75, 134);
-            this.rbAll.Name = "rbAll";
-            this.rbAll.Size = new System.Drawing.Size(41, 21);
-            this.rbAll.TabIndex = 6;
-            this.rbAll.TabStop = true;
-            this.rbAll.Text = "All";
-            this.rbAll.UseVisualStyleBackColor = true;
-            // 
-            // rbActive
-            // 
-            this.rbActive.AutoSize = true;
-            this.rbActive.Location = new System.Drawing.Point(75, 89);
-            this.rbActive.Name = "rbActive";
-            this.rbActive.Size = new System.Drawing.Size(64, 21);
-            this.rbActive.TabIndex = 5;
-            this.rbActive.TabStop = true;
-            this.rbActive.Text = "Active";
-            this.rbActive.UseVisualStyleBackColor = true;
-            this.rbActive.CheckedChanged += new System.EventHandler(this.rbActive_CheckedChanged);
             // 
             // btnCancel
             // 
@@ -193,6 +126,41 @@ namespace QWS_Local
             this.btnSelectDriver.UseVisualStyleBackColor = true;
             this.btnSelectDriver.Click += new System.EventHandler(this.btnSelectDriver_Click);
             // 
+            // activeDataGridViewTextBoxColumn
+            // 
+            this.activeDataGridViewTextBoxColumn.DataPropertyName = "Active";
+            this.activeDataGridViewTextBoxColumn.FalseValue = "N";
+            this.activeDataGridViewTextBoxColumn.HeaderText = "Active";
+            this.activeDataGridViewTextBoxColumn.Name = "activeDataGridViewTextBoxColumn";
+            this.activeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.activeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.activeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.activeDataGridViewTextBoxColumn.TrueValue = "Y";
+            this.activeDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // personDataGridViewTextBoxColumn
+            // 
+            this.personDataGridViewTextBoxColumn.DataPropertyName = "Person";
+            this.personDataGridViewTextBoxColumn.HeaderText = "Person";
+            this.personDataGridViewTextBoxColumn.Name = "personDataGridViewTextBoxColumn";
+            this.personDataGridViewTextBoxColumn.ReadOnly = true;
+            this.personDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // mobDataGridViewTextBoxColumn
+            // 
+            this.mobDataGridViewTextBoxColumn.DataPropertyName = "Mob";
+            this.mobDataGridViewTextBoxColumn.HeaderText = "Mob";
+            this.mobDataGridViewTextBoxColumn.Name = "mobDataGridViewTextBoxColumn";
+            this.mobDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // positionDataGridViewTextBoxColumn
+            // 
+            this.positionDataGridViewTextBoxColumn.DataPropertyName = "Position";
+            this.positionDataGridViewTextBoxColumn.HeaderText = "Position";
+            this.positionDataGridViewTextBoxColumn.Name = "positionDataGridViewTextBoxColumn";
+            this.positionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.positionDataGridViewTextBoxColumn.Width = 200;
+            // 
             // TruckDriverSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -207,10 +175,9 @@ namespace QWS_Local
             this.Text = "Truck Driver Search";
             this.Load += new System.EventHandler(this.TruckDriverSearch_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.truckDriverBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -222,17 +189,14 @@ namespace QWS_Local
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private QWS_Local.dsQWSLocal dsQWSLocal;
-        private System.Windows.Forms.BindingSource truckDriverBindingSource;
-        private QWS_Local.dsQWSLocalTableAdapters.TruckDriverTableAdapter truckDriverTableAdapter;
+        private System.Windows.Forms.BindingSource bsTruckDriver;
+        private QWS_Local.dsQWSLocalTableAdapters.TruckDriverTableAdapter taTruckDriver;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button btnSelectDriver;
-        private System.Windows.Forms.RadioButton rbAll;
-        private System.Windows.Forms.RadioButton rbActive;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn personDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn positionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mobDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LicenseType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn activeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn positionDataGridViewTextBoxColumn;
     }
 }

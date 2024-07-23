@@ -33,7 +33,6 @@ namespace QWS_Local
             System.Windows.Forms.Label cardCodeLabel;
             System.Windows.Forms.Label truckOwnerLabel;
             System.Windows.Forms.Label cardStatusLabel;
-            System.Windows.Forms.Label activeLabel;
             System.Windows.Forms.Label inductionExpLabel;
             System.Windows.Forms.Label licenseExpLabel;
             System.Windows.Forms.Label licenseTypeLabel;
@@ -58,14 +57,10 @@ namespace QWS_Local
             this.chkACC = new System.Windows.Forms.CheckBox();
             this.txtFeeCode = new System.Windows.Forms.TextBox();
             this.txtFeeCodeConditions = new System.Windows.Forms.TextBox();
-            this.chkDriverACC = new System.Windows.Forms.CheckBox();
-            this.txtOkay2Cart = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtLicenseExp = new System.Windows.Forms.TextBox();
             this.bsTruckDriver = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.txtInductionExp = new System.Windows.Forms.TextBox();
-            this.txtActive = new System.Windows.Forms.TextBox();
             this.licenseTypeTextBox = new System.Windows.Forms.TextBox();
             this.mobTextBox = new System.Windows.Forms.TextBox();
             this.positionTextBox = new System.Windows.Forms.TextBox();
@@ -90,11 +85,10 @@ namespace QWS_Local
             this.pictureSchematic = new System.Windows.Forms.PictureBox();
             this.tableAdapterManager2 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.txtTruckConfig = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnHold = new System.Windows.Forms.Button();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
-            activeLabel = new System.Windows.Forms.Label();
             inductionExpLabel = new System.Windows.Forms.Label();
             licenseExpLabel = new System.Windows.Forms.Label();
             licenseTypeLabel = new System.Windows.Forms.Label();
@@ -138,15 +132,6 @@ namespace QWS_Local
             cardStatusLabel.Size = new System.Drawing.Size(86, 17);
             cardStatusLabel.TabIndex = 17;
             cardStatusLabel.Text = "Card Status:";
-            // 
-            // activeLabel
-            // 
-            activeLabel.AutoSize = true;
-            activeLabel.Location = new System.Drawing.Point(282, 114);
-            activeLabel.Name = "activeLabel";
-            activeLabel.Size = new System.Drawing.Size(50, 17);
-            activeLabel.TabIndex = 71;
-            activeLabel.Text = "Active:";
             // 
             // inductionExpLabel
             // 
@@ -353,32 +338,6 @@ namespace QWS_Local
             this.txtFeeCodeConditions.Size = new System.Drawing.Size(374, 23);
             this.txtFeeCodeConditions.TabIndex = 21;
             // 
-            // chkDriverACC
-            // 
-            this.chkDriverACC.AutoSize = true;
-            this.chkDriverACC.Location = new System.Drawing.Point(338, 139);
-            this.chkDriverACC.Name = "chkDriverACC";
-            this.chkDriverACC.Size = new System.Drawing.Size(54, 21);
-            this.chkDriverACC.TabIndex = 77;
-            this.chkDriverACC.Text = "ACC";
-            this.chkDriverACC.UseVisualStyleBackColor = true;
-            // 
-            // txtOkay2Cart
-            // 
-            this.txtOkay2Cart.Location = new System.Drawing.Point(339, 164);
-            this.txtOkay2Cart.Name = "txtOkay2Cart";
-            this.txtOkay2Cart.Size = new System.Drawing.Size(46, 23);
-            this.txtOkay2Cart.TabIndex = 76;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(268, 167);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 17);
-            this.label1.TabIndex = 75;
-            this.label1.Text = "OK 2 Cart:";
-            // 
             // txtLicenseExp
             // 
             this.txtLicenseExp.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "LicenseExp", true));
@@ -404,14 +363,6 @@ namespace QWS_Local
             this.txtInductionExp.Name = "txtInductionExp";
             this.txtInductionExp.Size = new System.Drawing.Size(100, 23);
             this.txtInductionExp.TabIndex = 73;
-            // 
-            // txtActive
-            // 
-            this.txtActive.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Active", true));
-            this.txtActive.Location = new System.Drawing.Point(338, 111);
-            this.txtActive.Name = "txtActive";
-            this.txtActive.Size = new System.Drawing.Size(47, 23);
-            this.txtActive.TabIndex = 72;
             // 
             // licenseTypeTextBox
             // 
@@ -551,17 +502,12 @@ namespace QWS_Local
             this.groupBox3.Controls.Add(this.personTextBox);
             this.groupBox3.Controls.Add(this.btnGetDriver);
             this.groupBox3.Controls.Add(personLabel);
-            this.groupBox3.Controls.Add(this.chkDriverACC);
             this.groupBox3.Controls.Add(this.positionTextBox);
-            this.groupBox3.Controls.Add(this.txtOkay2Cart);
             this.groupBox3.Controls.Add(positionLabel);
-            this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.mobTextBox);
             this.groupBox3.Controls.Add(this.txtLicenseExp);
             this.groupBox3.Controls.Add(mobLabel);
             this.groupBox3.Controls.Add(this.txtInductionExp);
-            this.groupBox3.Controls.Add(activeLabel);
-            this.groupBox3.Controls.Add(this.txtActive);
             this.groupBox3.Controls.Add(this.licenseTypeTextBox);
             this.groupBox3.Controls.Add(inductionExpLabel);
             this.groupBox3.Controls.Add(licenseTypeLabel);
@@ -647,22 +593,23 @@ namespace QWS_Local
             this.txtTruckConfig.Size = new System.Drawing.Size(33, 23);
             this.txtTruckConfig.TabIndex = 81;
             // 
-            // button1
+            // btnHold
             // 
-            this.button1.Location = new System.Drawing.Point(465, 451);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 23);
-            this.button1.TabIndex = 78;
-            this.button1.Text = "Get";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnHold.BackColor = System.Drawing.SystemColors.Control;
+            this.btnHold.Enabled = false;
+            this.btnHold.Location = new System.Drawing.Point(451, 575);
+            this.btnHold.Name = "btnHold";
+            this.btnHold.Size = new System.Drawing.Size(251, 38);
+            this.btnHold.TabIndex = 61;
+            this.btnHold.Text = "Hold";
+            this.btnHold.UseVisualStyleBackColor = false;
             // 
             // BookInTruckStep1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 658);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnHold);
             this.Controls.Add(this.txtTruckConfig);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -720,12 +667,8 @@ namespace QWS_Local
         private System.Windows.Forms.CheckBox chkACC;
         private System.Windows.Forms.TextBox txtFeeCode;
         private System.Windows.Forms.TextBox txtFeeCodeConditions;
-        private System.Windows.Forms.CheckBox chkDriverACC;
-        private System.Windows.Forms.TextBox txtOkay2Cart;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtLicenseExp;
         private System.Windows.Forms.TextBox txtInductionExp;
-        private System.Windows.Forms.TextBox txtActive;
         private System.Windows.Forms.TextBox licenseTypeTextBox;
         private System.Windows.Forms.TextBox mobTextBox;
         private System.Windows.Forms.TextBox positionTextBox;
@@ -754,6 +697,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn nHVLDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
         private System.Windows.Forms.TextBox txtTruckConfig;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnHold;
     }
 }
