@@ -221,7 +221,7 @@ namespace QWS_Local
             bool blInduction = false;
             bool RetareDue = CheckRetareDue();
             bool blOkay2Proceed = false;
-            if (myDriverID > 0)
+            if (myDriverID > 0) // driver pre-selected on prior iteration
             {
                 taTruckDriver.FillByCardCode(dsQWSLocal.TruckDriver, CurrentConfigTruck().CardCode);
                 int index = bsTruckDriver.Find("CntctCode", myDriverID);

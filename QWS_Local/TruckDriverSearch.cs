@@ -44,22 +44,31 @@ namespace QWS_Local
 
         private void TruckDriverSearch_Load(object sender, EventArgs e)
         {
-            // nothing at present
-            bsTruckDriver.Sort = "Active";
+            //dataGridView1.ClearSelection();
+            bsTruckDriver.Sort = "Active DESC, Person ASC";
         }
 
      
         private void btnSelectDriver_Click(object sender, EventArgs e)
         {
-            if (SetDriver())
+            if (dataGridView1.SelectedRows.Count == 1)
             {
-                this.DialogResult = DialogResult.OK;
+
+
+                if (SetDriver())
+                {
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    this.DialogResult = DialogResult.Cancel;
+                }
+                this.Close();
             }
             else
             {
-                this.DialogResult = DialogResult.Cancel;
+                MessageBox.Show("Please select a driver.");
             }
-            this.Close();
         }
 
         private bool SetDriver()
@@ -70,29 +79,26 @@ namespace QWS_Local
             myTruckDriver = truckDriverRow;
             myDriver = truckDriverRow.Person;
             myDriverID = truckDriverRow.CntctCode;
-            if (truckDriverRow.LicenseExp < DateTime.Now)
-            {
-                DialogResult dr = MessageBox.Show("License has expired, cannot proceed!","License Expiry Date Check",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
-                if (dr == DialogResult.Cancel)
-                {
-                    blDriverOK = false;
-                }
-            }
-            if (truckDriverRow.InductionExp < DateTime.Now)
-            {
-                DialogResult dr = MessageBox.Show("Induction expired, cannot [proceed!", "Induction Expiry Date Check", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                if (dr == DialogResult.Cancel)
-                {
-                    blDriverOK = false;
-                }
-            }
+            //if (truckDriverRow.LicenseExp < DateTime.Now)
+            //{
+            //    DialogResult dr = MessageBox.Show("License has expired, cannot proceed!","License Expiry Date Check",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
+            //    if (dr == DialogResult.Cancel)
+            //    {
+            //        blDriverOK = false;
+            //    }
+            //}
+            //if (truckDriverRow.InductionExp < DateTime.Now)
+            //{
+            //    DialogResult dr = MessageBox.Show("Induction expired, cannot [proceed!", "Induction Expiry Date Check", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            //    if (dr == DialogResult.Cancel)
+            //    {
+            //        blDriverOK = false;
+            //    }
+            //}
             if (truckDriverRow.Active != 'Y'.ToString())
             {
-                DialogResult dr = MessageBox.Show("Driver status not Active!", "Driver Status Check", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                if (dr == DialogResult.Cancel)
-                {
+                DialogResult dr = MessageBox.Show("Driver status not Active!", "Driver Status Check", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     blDriverOK = false;
-                }
             }
             return blDriverOK;
 
@@ -113,5 +119,9 @@ namespace QWS_Local
             this.Close();
         }
 
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
     }
 }
