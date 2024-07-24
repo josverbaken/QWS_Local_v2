@@ -61,7 +61,6 @@ namespace QWS_Local
             this.personDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mobDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.positionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnClear = new System.Windows.Forms.Button();
             licenseTypeLabel = new System.Windows.Forms.Label();
             sAPUpdateDTTMLabel = new System.Windows.Forms.Label();
             licenseExpLabel = new System.Windows.Forms.Label();
@@ -99,6 +98,7 @@ namespace QWS_Local
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1181, 274);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
             // 
             // bsTruckDriver
             // 
@@ -127,7 +127,6 @@ namespace QWS_Local
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.btnClear);
             this.splitContainer1.Panel2.Controls.Add(this.txtInfo);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancel);
             this.splitContainer1.Panel2.Controls.Add(this.btnSelectDriver);
@@ -395,17 +394,6 @@ namespace QWS_Local
             this.positionDataGridViewTextBoxColumn.ReadOnly = true;
             this.positionDataGridViewTextBoxColumn.Width = 250;
             // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(928, 21);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(4);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(74, 29);
-            this.btnClear.TabIndex = 6;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
             // TruckDriverSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -463,6 +451,5 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn personDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mobDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn positionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnClear;
     }
 }

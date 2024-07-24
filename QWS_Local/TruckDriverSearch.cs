@@ -44,10 +44,8 @@ namespace QWS_Local
 
         private void TruckDriverSearch_Load(object sender, EventArgs e)
         {
-            //dataGridView1.ClearSelection();
             bsTruckDriver.Sort = "Active DESC, Person ASC";
         }
-
      
         private void btnSelectDriver_Click(object sender, EventArgs e)
         {
@@ -79,47 +77,27 @@ namespace QWS_Local
             myTruckDriver = truckDriverRow;
             myDriver = truckDriverRow.Person;
             myDriverID = truckDriverRow.CntctCode;
-            //if (truckDriverRow.LicenseExp < DateTime.Now)
-            //{
-            //    DialogResult dr = MessageBox.Show("License has expired, cannot proceed!","License Expiry Date Check",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
-            //    if (dr == DialogResult.Cancel)
-            //    {
-            //        blDriverOK = false;
-            //    }
-            //}
-            //if (truckDriverRow.InductionExp < DateTime.Now)
-            //{
-            //    DialogResult dr = MessageBox.Show("Induction expired, cannot [proceed!", "Induction Expiry Date Check", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            //    if (dr == DialogResult.Cancel)
-            //    {
-            //        blDriverOK = false;
-            //    }
-            //}
             if (truckDriverRow.Active != 'Y'.ToString())
             {
-                DialogResult dr = MessageBox.Show("Driver status not Active!", "Driver Status Check", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    blDriverOK = false;
+                MessageBox.Show("Driver status not Active!", "Driver Status Check", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                blDriverOK = false;
             }
             return blDriverOK;
 
         }
 
- 
-
         private void Search4Driver(string SAPCode) //actual drivers for BP code
         {
             this.taTruckDriver.FillByCardCode(this.dsQWSLocal.TruckDriver, SAPCode);
-
         }
-
     
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
-
-        private void btnClear_Click(object sender, EventArgs e)
+    
+         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dataGridView1.ClearSelection();
         }
