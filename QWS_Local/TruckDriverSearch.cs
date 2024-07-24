@@ -20,14 +20,14 @@ namespace QWS_Local
         public TruckDriverSearch(string SAPCode)
         {
             InitializeComponent();
-            this.taTruckDriver.FillByCardCode(this.dsQWSLocal.TruckDriver,SAPCode);
+            this.taTruckDriver2024.FillByCardCode(this.dsQWSLocal2024.TruckDriver,SAPCode);
         }
 
         private string myDriver;
         private int myDriverID;
-        private dsQWSLocal.TruckDriverRow myTruckDriver;
+        private dsQWSLocal2024.TruckDriverRow myTruckDriver;
 
-        public dsQWSLocal.TruckDriverRow TruckDriverRow
+        public dsQWSLocal2024.TruckDriverRow TruckDriverRow
         {
             get { return myTruckDriver; }
         }
@@ -44,23 +44,15 @@ namespace QWS_Local
 
         private void TruckDriverSearch_Load(object sender, EventArgs e)
         {
-            bsTruckDriver.Sort = "Active DESC, Person ASC";
+            bsTruckDriver2024.Sort = "Active DESC, Person ASC";
+            btnSelectDriver.Enabled = false;
         }
      
         private void btnSelectDriver_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 1)
             {
-
-
-                if (SetDriver())
-                {
-                    this.DialogResult = DialogResult.OK;
-                }
-                else
-                {
-                    this.DialogResult = DialogResult.Cancel;
-                }
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
@@ -69,26 +61,31 @@ namespace QWS_Local
             }
         }
 
-        private bool SetDriver()
+        private void SetDriver()
         {
-            bool blDriverOK = true;
-            DataRow dataRow = ((DataRowView)bsTruckDriver.Current).Row;
-           QWS_Local.dsQWSLocal.TruckDriverRow truckDriverRow = (QWS_Local.dsQWSLocal.TruckDriverRow)dataRow;
+            string msg = "";
+            DataRow dataRow = ((DataRowView)bsTruckDriver2024.Current).Row;
+           QWS_Local.dsQWSLocal2024.TruckDriverRow truckDriverRow = (QWS_Local.dsQWSLocal2024.TruckDriverRow)dataRow;
             myTruckDriver = truckDriverRow;
             myDriver = truckDriverRow.Person;
             myDriverID = truckDriverRow.CntctCode;
+            btnSelectDriver.Enabled = true;
             if (truckDriverRow.Active != 'Y'.ToString())
             {
-                MessageBox.Show("Driver status not Active!", "Driver Status Check", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                blDriverOK = false;
+                msg = "Driver status not Active! ";
+                btnSelectDriver.Enabled = false;
             }
-            return blDriverOK;
-
+            if (truckDriverRow.LicenseExp < DateTime.Now)
+            {
+                msg += "License is expired!";
+                btnSelectDriver.Enabled = false;
+            }
+            txtInfo.Text = msg;
         }
 
         private void Search4Driver(string SAPCode) //actual drivers for BP code
         {
-            this.taTruckDriver.FillByCardCode(this.dsQWSLocal.TruckDriver, SAPCode);
+            this.taTruckDriver2024.FillByCardCode(this.dsQWSLocal2024.TruckDriver, SAPCode);
         }
     
         private void btnCancel_Click(object sender, EventArgs e)
@@ -100,6 +97,14 @@ namespace QWS_Local
          private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dataGridView1.ClearSelection();
+        }
+
+          private void bsTruckDriver2024_CurrentChanged(object sender, EventArgs e)
+        {
+            if (bsTruckDriver2024.Count > 0)
+            {
+                SetDriver();
+            }
         }
     }
 }

@@ -245,6 +245,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsQWSLocal.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsQWSLocal2024.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsQWSLocal2024.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsQWSViews.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -520,6 +525,17 @@
     </None>
     <None Include="dsQWSLocal.xss">
       <DependentUpon>dsQWSLocal.xsd</DependentUpon>
+    </None>
+    <None Include="dsQWSLocal2024.xsc">
+      <DependentUpon>dsQWSLocal2024.xsd</DependentUpon>
+    </None>
+    <None Include="dsQWSLocal2024.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsQWSLocal2024.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsQWSLocal2024.xss">
+      <DependentUpon>dsQWSLocal2024.xsd</DependentUpon>
     </None>
     <None Include="dsQWSViews.xsc">
       <DependentUpon>dsQWSViews.xsd</DependentUpon>
