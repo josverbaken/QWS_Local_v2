@@ -253,16 +253,17 @@ namespace QWS_Local
             this.tpDetails.Controls.Add(this.personTextBox);
             this.tpDetails.Controls.Add(this.cardCodeTextBox);
             this.tpDetails.Controls.Add(this.tradingNameTextBox);
-            this.tpDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpDetails.Location = new System.Drawing.Point(4, 27);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(1187, 285);
+            this.tpDetails.Size = new System.Drawing.Size(1187, 280);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
             // 
             // activeTextBox
             // 
+            this.activeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "Active", true));
             this.activeTextBox.Location = new System.Drawing.Point(510, 190);
             this.activeTextBox.Name = "activeTextBox";
             this.activeTextBox.Size = new System.Drawing.Size(112, 24);
@@ -270,6 +271,7 @@ namespace QWS_Local
             // 
             // inductionExpTextBox
             // 
+            this.inductionExpTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "InductionExp", true));
             this.inductionExpTextBox.Location = new System.Drawing.Point(510, 158);
             this.inductionExpTextBox.Name = "inductionExpTextBox";
             this.inductionExpTextBox.Size = new System.Drawing.Size(112, 24);
@@ -277,6 +279,7 @@ namespace QWS_Local
             // 
             // licenseExpTextBox
             // 
+            this.licenseExpTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "LicenseExp", true));
             this.licenseExpTextBox.Location = new System.Drawing.Point(510, 125);
             this.licenseExpTextBox.Name = "licenseExpTextBox";
             this.licenseExpTextBox.Size = new System.Drawing.Size(112, 24);
@@ -284,6 +287,7 @@ namespace QWS_Local
             // 
             // sAPUpdateDTTMTextBox
             // 
+            this.sAPUpdateDTTMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "SAPUpdateDTTM", true));
             this.sAPUpdateDTTMTextBox.Location = new System.Drawing.Point(742, 232);
             this.sAPUpdateDTTMTextBox.Name = "sAPUpdateDTTMTextBox";
             this.sAPUpdateDTTMTextBox.Size = new System.Drawing.Size(277, 24);
@@ -291,6 +295,7 @@ namespace QWS_Local
             // 
             // licenseTypeTextBox
             // 
+            this.licenseTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "LicenseType", true));
             this.licenseTypeTextBox.Location = new System.Drawing.Point(510, 92);
             this.licenseTypeTextBox.Name = "licenseTypeTextBox";
             this.licenseTypeTextBox.Size = new System.Drawing.Size(112, 24);
@@ -298,6 +303,7 @@ namespace QWS_Local
             // 
             // mobTextBox
             // 
+            this.mobTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "Mob", true));
             this.mobTextBox.Location = new System.Drawing.Point(57, 125);
             this.mobTextBox.Name = "mobTextBox";
             this.mobTextBox.Size = new System.Drawing.Size(112, 24);
@@ -305,6 +311,7 @@ namespace QWS_Local
             // 
             // positionTextBox
             // 
+            this.positionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "Position", true));
             this.positionTextBox.Location = new System.Drawing.Point(57, 92);
             this.positionTextBox.Name = "positionTextBox";
             this.positionTextBox.Size = new System.Drawing.Size(264, 24);
@@ -312,6 +319,7 @@ namespace QWS_Local
             // 
             // personTextBox
             // 
+            this.personTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "Person", true));
             this.personTextBox.Location = new System.Drawing.Point(57, 60);
             this.personTextBox.Name = "personTextBox";
             this.personTextBox.Size = new System.Drawing.Size(264, 24);
@@ -319,6 +327,7 @@ namespace QWS_Local
             // 
             // cardCodeTextBox
             // 
+            this.cardCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "CardCode", true));
             this.cardCodeTextBox.Location = new System.Drawing.Point(328, 27);
             this.cardCodeTextBox.Name = "cardCodeTextBox";
             this.cardCodeTextBox.Size = new System.Drawing.Size(112, 24);
@@ -326,6 +335,7 @@ namespace QWS_Local
             // 
             // tradingNameTextBox
             // 
+            this.tradingNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "TradingName", true));
             this.tradingNameTextBox.Location = new System.Drawing.Point(57, 27);
             this.tradingNameTextBox.Name = "tradingNameTextBox";
             this.tradingNameTextBox.Size = new System.Drawing.Size(264, 24);
