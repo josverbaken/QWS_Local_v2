@@ -23,6 +23,7 @@ namespace QWS_Local
         private enum TIQType
         {
             Retare,
+            OnHold,
             ExBin,
             Imported,
             Delivery
@@ -160,6 +161,7 @@ namespace QWS_Local
 
         private void btnGetDriver_Click(object sender, EventArgs e)
         {
+            txtInfo.Text = "";
             GotoGetTruckDriver();
         }
 
@@ -460,6 +462,11 @@ namespace QWS_Local
                         cmd.Parameters.AddWithValue("@Material", "Retare");
                         cmd.Parameters.AddWithValue("@MaterialDesc", "Retare Vehicle");
                         break;
+                        case TIQType.OnHold:
+                        cmd.Parameters.AddWithValue("@QueueStatus", "O");
+                        cmd.Parameters.AddWithValue("@Material", "On Hold");
+                        cmd.Parameters.AddWithValue("@MaterialDesc", "Park up in holding bay.");
+                        break;
                     case TIQType.ExBin:
                         cmd.Parameters.AddWithValue("@QueueStatus", "P");
                          cmd.Parameters.AddWithValue("@Material", "ExBin");
@@ -519,9 +526,24 @@ namespace QWS_Local
             GoToBookInExBin(TIQType.Imported);
         }
     
-        private void GetDriver(int DriverID)
+        private void btnHold_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Truck driver with cntctcode = " + DriverID.ToString());
+            PutOnHold();
+        }
+
+        private void PutOnHold()
+        {
+            try
+            {
+                string msg = "Put on hold, direct to park in holding bay and proceed to office to resolve driver issue.";
+                NewTIQ(TIQType.OnHold);
+                MessageBox.Show(msg,"Put on hold.",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -73,12 +73,12 @@ namespace QWS_Local
             if (truckDriverRow.Active != 'Y'.ToString())
             {
                 msg = "Driver status not Active! ";
-                btnSelectDriver.Enabled = false;
+                //btnSelectDriver.Enabled = false;
             }
             if (truckDriverRow.LicenseExp < DateTime.Now)
             {
                 msg += "License is expired!";
-                btnSelectDriver.Enabled = false;
+                //btnSelectDriver.Enabled = false;
             }
             txtInfo.Text = msg;
         }

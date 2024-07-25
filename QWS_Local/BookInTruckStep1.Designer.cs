@@ -86,6 +86,7 @@ namespace QWS_Local
             this.tableAdapterManager2 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.txtTruckConfig = new System.Windows.Forms.TextBox();
             this.btnHold = new System.Windows.Forms.Button();
+            this.txtInfo = new System.Windows.Forms.TextBox();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -596,19 +597,29 @@ namespace QWS_Local
             // btnHold
             // 
             this.btnHold.BackColor = System.Drawing.SystemColors.Control;
-            this.btnHold.Enabled = false;
             this.btnHold.Location = new System.Drawing.Point(451, 575);
             this.btnHold.Name = "btnHold";
             this.btnHold.Size = new System.Drawing.Size(251, 38);
             this.btnHold.TabIndex = 61;
-            this.btnHold.Text = "Hold";
+            this.btnHold.Text = "Hold - park up.";
             this.btnHold.UseVisualStyleBackColor = false;
+            this.btnHold.Click += new System.EventHandler(this.btnHold_Click);
+            // 
+            // txtInfo
+            // 
+            this.txtInfo.Location = new System.Drawing.Point(451, 440);
+            this.txtInfo.Multiline = true;
+            this.txtInfo.Name = "txtInfo";
+            this.txtInfo.ReadOnly = true;
+            this.txtInfo.Size = new System.Drawing.Size(251, 72);
+            this.txtInfo.TabIndex = 82;
             // 
             // BookInTruckStep1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 658);
+            this.Controls.Add(this.txtInfo);
             this.Controls.Add(this.btnHold);
             this.Controls.Add(this.txtTruckConfig);
             this.Controls.Add(this.groupBox3);
@@ -698,5 +709,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
         private System.Windows.Forms.TextBox txtTruckConfig;
         private System.Windows.Forms.Button btnHold;
+        private System.Windows.Forms.TextBox txtInfo;
     }
 }
