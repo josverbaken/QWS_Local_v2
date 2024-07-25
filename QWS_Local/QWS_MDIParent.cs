@@ -146,5 +146,13 @@ namespace QWS_Local
             frmTruckConfigMaintenance.WindowState = FormWindowState.Maximized;
             frmTruckConfigMaintenance.Show();   
         }
+    
+        private void trafficCamerasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TrafficCameras frmTrafficCameras = new TrafficCameras();
+            frmTrafficCameras.MdiParent = this;
+            frmTrafficCameras.WindowState = FormWindowState.Maximized;
+            frmTrafficCameras.Show();
+        }
     }
 }

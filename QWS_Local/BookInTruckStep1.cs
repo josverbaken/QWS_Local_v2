@@ -142,6 +142,7 @@ namespace QWS_Local
         private void BookInTruckStep1_Load(object sender, EventArgs e)
         {
             FormLoaded = true;
+            this.KeyPreview = true;
             if (CallingMessage.Length>0)
             {
                 MessageBox.Show(CallingMessage);
@@ -161,8 +162,7 @@ namespace QWS_Local
 
         private void btnGetDriver_Click(object sender, EventArgs e)
         {
-            txtInfo.Text = "";
-            GotoGetTruckDriver();
+            GetTruckDriver();
         }
 
         private dsQWSLocal.TruckDriverRow CurrentTruckDriver()
@@ -176,8 +176,9 @@ namespace QWS_Local
             return null;
         }
 
-        private void GotoGetTruckDriver()
+        private void CheckConfigOK2Proceed()
         {
+            btnGetDriver.Enabled = false;   
             bool OK2Proceed = false;
             if(CurrentConfigTruck().RegoCheck == true)
             {
@@ -196,7 +197,7 @@ namespace QWS_Local
             }
             if (OK2Proceed)
             {
-                GetTruckDriver();
+                btnGetDriver.Enabled = true;    
             }
         }
 
@@ -543,6 +544,24 @@ namespace QWS_Local
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
+
+        private void bsConfiguredTrucks_CurrentChanged(object sender, EventArgs e)
+        {
+            CheckConfigOK2Proceed();
+        }
+
+        private void BookInTruckStep1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F3)
+            {
+                FindTruckConfig(txtTruckRego.Text);
             }
         }
     }

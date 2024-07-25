@@ -41,11 +41,12 @@
             this.itemSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deliveryOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookInTruckStep1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.truckConfigMaintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printDocketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.truckConfigMaintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trafficCamerasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,7 +86,8 @@
             this.itemSearchToolStripMenuItem,
             this.deliveryOrdersToolStripMenuItem,
             this.bookInTruckStep1ToolStripMenuItem,
-            this.truckConfigMaintToolStripMenuItem});
+            this.truckConfigMaintToolStripMenuItem,
+            this.trafficCamerasToolStripMenuItem});
             this.pBSMaintenanceToolStripMenuItem.Name = "pBSMaintenanceToolStripMenuItem";
             this.pBSMaintenanceToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
             this.pBSMaintenanceToolStripMenuItem.Text = "Menu";
@@ -160,6 +162,13 @@
             this.bookInTruckStep1ToolStripMenuItem.Text = "BookInTruckStep1";
             this.bookInTruckStep1ToolStripMenuItem.Click += new System.EventHandler(this.bookInTruckStep1ToolStripMenuItem_Click);
             // 
+            // truckConfigMaintToolStripMenuItem
+            // 
+            this.truckConfigMaintToolStripMenuItem.Name = "truckConfigMaintToolStripMenuItem";
+            this.truckConfigMaintToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
+            this.truckConfigMaintToolStripMenuItem.Text = "TruckConfigMaint";
+            this.truckConfigMaintToolStripMenuItem.Click += new System.EventHandler(this.truckConfigMaintToolStripMenuItem_Click);
+            // 
             // printDocketToolStripMenuItem
             // 
             this.printDocketToolStripMenuItem.Name = "printDocketToolStripMenuItem";
@@ -189,12 +198,12 @@
             this.helloToolStripMenuItem.Text = "Help";
             this.helloToolStripMenuItem.Click += new System.EventHandler(this.helloToolStripMenuItem_Click);
             // 
-            // truckConfigMaintToolStripMenuItem
+            // trafficCamerasToolStripMenuItem
             // 
-            this.truckConfigMaintToolStripMenuItem.Name = "truckConfigMaintToolStripMenuItem";
-            this.truckConfigMaintToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
-            this.truckConfigMaintToolStripMenuItem.Text = "TruckConfigMaint";
-            this.truckConfigMaintToolStripMenuItem.Click += new System.EventHandler(this.truckConfigMaintToolStripMenuItem_Click);
+            this.trafficCamerasToolStripMenuItem.Name = "trafficCamerasToolStripMenuItem";
+            this.trafficCamerasToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
+            this.trafficCamerasToolStripMenuItem.Text = "Traffic Cameras";
+            this.trafficCamerasToolStripMenuItem.Click += new System.EventHandler(this.trafficCamerasToolStripMenuItem_Click);
             // 
             // QWS_MDIParent
             // 
@@ -236,5 +245,6 @@
         private System.Windows.Forms.ToolStripMenuItem helloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printDocketToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem truckConfigMaintToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem trafficCamerasToolStripMenuItem;
     }
 }

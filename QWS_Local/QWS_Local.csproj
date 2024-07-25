@@ -351,6 +351,12 @@
     <Compile Include="TIQRemove.Designer.cs">
       <DependentUpon>TIQRemove.cs</DependentUpon>
     </Compile>
+    <Compile Include="TrafficCameras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrafficCameras.Designer.cs">
+      <DependentUpon>TrafficCameras.cs</DependentUpon>
+    </Compile>
     <Compile Include="TruckConfigMaintenance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -479,6 +485,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TIQRemove.resx">
       <DependentUpon>TIQRemove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrafficCameras.resx">
+      <DependentUpon>TrafficCameras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TruckConfigMaintenance.resx">
       <DependentUpon>TruckConfigMaintenance.cs</DependentUpon>

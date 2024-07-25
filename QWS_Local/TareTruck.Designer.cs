@@ -149,10 +149,19 @@
             tareTkLabel.TabIndex = 17;
             tareTkLabel.Text = "Tare Tk:";
             // 
+            // truckConfigIDLabel
+            // 
+            truckConfigIDLabel.AutoSize = true;
+            truckConfigIDLabel.Location = new System.Drawing.Point(84, 52);
+            truckConfigIDLabel.Name = "truckConfigIDLabel";
+            truckConfigIDLabel.Size = new System.Drawing.Size(115, 18);
+            truckConfigIDLabel.TabIndex = 19;
+            truckConfigIDLabel.Text = "Truck Config ID:";
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(214, 141);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(148, 32);
             this.button1.TabIndex = 0;
@@ -163,7 +172,7 @@
             // txtTareTk
             // 
             this.txtTareTk.Location = new System.Drawing.Point(214, 77);
-            this.txtTareTk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTareTk.Margin = new System.Windows.Forms.Padding(4);
             this.txtTareTk.Name = "txtTareTk";
             this.txtTareTk.Size = new System.Drawing.Size(148, 24);
             this.txtTareTk.TabIndex = 1;
@@ -171,7 +180,7 @@
             // txtTare
             // 
             this.txtTare.Location = new System.Drawing.Point(214, 109);
-            this.txtTare.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTare.Margin = new System.Windows.Forms.Padding(4);
             this.txtTare.Name = "txtTare";
             this.txtTare.Size = new System.Drawing.Size(148, 24);
             this.txtTare.TabIndex = 2;
@@ -202,7 +211,7 @@
             // 
             this.regoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "Rego", true));
             this.regoTextBox.Location = new System.Drawing.Point(214, 209);
-            this.regoTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.regoTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.regoTextBox.Name = "regoTextBox";
             this.regoTextBox.Size = new System.Drawing.Size(148, 24);
             this.regoTextBox.TabIndex = 6;
@@ -211,7 +220,7 @@
             // 
             this.truckConfigTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "TruckConfig", true));
             this.truckConfigTextBox.Location = new System.Drawing.Point(214, 245);
-            this.truckConfigTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.truckConfigTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.truckConfigTextBox.Name = "truckConfigTextBox";
             this.truckConfigTextBox.Size = new System.Drawing.Size(148, 24);
             this.truckConfigTextBox.TabIndex = 7;
@@ -220,7 +229,7 @@
             // 
             this.axleConfigurationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "AxleConfiguration", true));
             this.axleConfigurationTextBox.Location = new System.Drawing.Point(214, 281);
-            this.axleConfigurationTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.axleConfigurationTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.axleConfigurationTextBox.Name = "axleConfigurationTextBox";
             this.axleConfigurationTextBox.Size = new System.Drawing.Size(148, 24);
             this.axleConfigurationTextBox.TabIndex = 8;
@@ -229,7 +238,7 @@
             // 
             this.truckOwnerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "TruckOwner", true));
             this.truckOwnerTextBox.Location = new System.Drawing.Point(214, 317);
-            this.truckOwnerTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.truckOwnerTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.truckOwnerTextBox.Name = "truckOwnerTextBox";
             this.truckOwnerTextBox.Size = new System.Drawing.Size(148, 24);
             this.truckOwnerTextBox.TabIndex = 10;
@@ -238,7 +247,7 @@
             // 
             this.truckOwnerCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "TruckOwnerCode", true));
             this.truckOwnerCodeTextBox.Location = new System.Drawing.Point(214, 353);
-            this.truckOwnerCodeTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.truckOwnerCodeTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.truckOwnerCodeTextBox.Name = "truckOwnerCodeTextBox";
             this.truckOwnerCodeTextBox.Size = new System.Drawing.Size(148, 24);
             this.truckOwnerCodeTextBox.TabIndex = 12;
@@ -247,7 +256,7 @@
             // 
             this.driverTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "Driver", true));
             this.driverTextBox.Location = new System.Drawing.Point(214, 389);
-            this.driverTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.driverTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.driverTextBox.Name = "driverTextBox";
             this.driverTextBox.Size = new System.Drawing.Size(148, 24);
             this.driverTextBox.TabIndex = 14;
@@ -256,7 +265,7 @@
             // 
             this.tareTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "Tare", true));
             this.tareTextBox.Location = new System.Drawing.Point(214, 425);
-            this.tareTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tareTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.tareTextBox.Name = "tareTextBox";
             this.tareTextBox.Size = new System.Drawing.Size(148, 24);
             this.tareTextBox.TabIndex = 16;
@@ -265,19 +274,10 @@
             // 
             this.tareTkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "TareTk", true));
             this.tareTkTextBox.Location = new System.Drawing.Point(214, 461);
-            this.tareTkTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tareTkTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.tareTkTextBox.Name = "tareTkTextBox";
             this.tareTkTextBox.Size = new System.Drawing.Size(148, 24);
             this.tareTkTextBox.TabIndex = 18;
-            // 
-            // truckConfigIDLabel
-            // 
-            truckConfigIDLabel.AutoSize = true;
-            truckConfigIDLabel.Location = new System.Drawing.Point(84, 52);
-            truckConfigIDLabel.Name = "truckConfigIDLabel";
-            truckConfigIDLabel.Size = new System.Drawing.Size(115, 18);
-            truckConfigIDLabel.TabIndex = 19;
-            truckConfigIDLabel.Text = "Truck Config ID:";
             // 
             // truckConfigIDTextBox
             // 
@@ -334,8 +334,9 @@
             this.Controls.Add(this.txtTareTk);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TareTruck";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "TareTruck";
             this.Load += new System.EventHandler(this.TareTruck_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();

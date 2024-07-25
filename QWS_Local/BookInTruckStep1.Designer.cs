@@ -86,7 +86,7 @@ namespace QWS_Local
             this.tableAdapterManager2 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.txtTruckConfig = new System.Windows.Forms.TextBox();
             this.btnHold = new System.Windows.Forms.Button();
-            this.txtInfo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -192,6 +192,7 @@ namespace QWS_Local
             // 
             this.bsConfiguredTrucks.DataMember = "ConfiguredTrucks";
             this.bsConfiguredTrucks.DataSource = this.dsTruckConfig;
+            this.bsConfiguredTrucks.CurrentChanged += new System.EventHandler(this.bsConfiguredTrucks_CurrentChanged);
             // 
             // dsTruckConfig
             // 
@@ -211,9 +212,9 @@ namespace QWS_Local
             this.btnFindTruck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFindTruck.Location = new System.Drawing.Point(183, 22);
             this.btnFindTruck.Name = "btnFindTruck";
-            this.btnFindTruck.Size = new System.Drawing.Size(75, 27);
+            this.btnFindTruck.Size = new System.Drawing.Size(101, 27);
             this.btnFindTruck.TabIndex = 2;
-            this.btnFindTruck.Text = "Find";
+            this.btnFindTruck.Text = "Find (F3)";
             this.btnFindTruck.UseVisualStyleBackColor = true;
             this.btnFindTruck.Click += new System.EventHandler(this.btnFindTruck_Click);
             // 
@@ -231,10 +232,12 @@ namespace QWS_Local
             this.TareDT});
             this.dataGridView1.DataSource = this.bsConfiguredTrucks;
             this.dataGridView1.Location = new System.Drawing.Point(21, 250);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(979, 150);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
             // 
             // regoTkDataGridViewTextBoxColumn
             // 
@@ -409,6 +412,8 @@ namespace QWS_Local
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.btnHold);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnCollected);
@@ -416,9 +421,9 @@ namespace QWS_Local
             this.groupBox1.Controls.Add(this.btnRetare);
             this.groupBox1.Controls.Add(this.btnImported);
             this.groupBox1.Controls.Add(this.btnExBin);
-            this.groupBox1.Location = new System.Drawing.Point(717, 427);
+            this.groupBox1.Location = new System.Drawing.Point(582, 427);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(283, 200);
+            this.groupBox1.Size = new System.Drawing.Size(418, 200);
             this.groupBox1.TabIndex = 78;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Book In Mode";
@@ -468,9 +473,9 @@ namespace QWS_Local
             // 
             this.btnRetare.BackColor = System.Drawing.SystemColors.Control;
             this.btnRetare.Enabled = false;
-            this.btnRetare.Location = new System.Drawing.Point(15, 148);
+            this.btnRetare.Location = new System.Drawing.Point(272, 60);
             this.btnRetare.Name = "btnRetare";
-            this.btnRetare.Size = new System.Drawing.Size(251, 38);
+            this.btnRetare.Size = new System.Drawing.Size(121, 38);
             this.btnRetare.TabIndex = 56;
             this.btnRetare.Text = "Retare";
             this.btnRetare.UseVisualStyleBackColor = false;
@@ -597,30 +602,29 @@ namespace QWS_Local
             // btnHold
             // 
             this.btnHold.BackColor = System.Drawing.SystemColors.Control;
-            this.btnHold.Location = new System.Drawing.Point(451, 575);
+            this.btnHold.Location = new System.Drawing.Point(272, 103);
             this.btnHold.Name = "btnHold";
-            this.btnHold.Size = new System.Drawing.Size(251, 38);
+            this.btnHold.Size = new System.Drawing.Size(121, 38);
             this.btnHold.TabIndex = 61;
             this.btnHold.Text = "Hold - park up.";
             this.btnHold.UseVisualStyleBackColor = false;
             this.btnHold.Click += new System.EventHandler(this.btnHold_Click);
             // 
-            // txtInfo
+            // label1
             // 
-            this.txtInfo.Location = new System.Drawing.Point(451, 440);
-            this.txtInfo.Multiline = true;
-            this.txtInfo.Name = "txtInfo";
-            this.txtInfo.ReadOnly = true;
-            this.txtInfo.Size = new System.Drawing.Size(251, 72);
-            this.txtInfo.TabIndex = 82;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(304, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 17);
+            this.label1.TabIndex = 62;
+            this.label1.Text = "Admin";
             // 
             // BookInTruckStep1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 658);
-            this.Controls.Add(this.txtInfo);
-            this.Controls.Add(this.btnHold);
             this.Controls.Add(this.txtTruckConfig);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -644,6 +648,7 @@ namespace QWS_Local
             this.Name = "BookInTruckStep1";
             this.Text = "BookInTruckStep1";
             this.Load += new System.EventHandler(this.BookInTruckStep1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BookInTruckStep1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -709,6 +714,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
         private System.Windows.Forms.TextBox txtTruckConfig;
         private System.Windows.Forms.Button btnHold;
-        private System.Windows.Forms.TextBox txtInfo;
+        private System.Windows.Forms.Label label1;
     }
 }
