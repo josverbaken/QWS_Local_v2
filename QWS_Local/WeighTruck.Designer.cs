@@ -29,49 +29,32 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtWBID = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.mtxtWeight = new System.Windows.Forms.MaskedTextBox();
             this.rbManual = new System.Windows.Forms.RadioButton();
             this.rbAuto = new System.Windows.Forms.RadioButton();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
-            this.txtMessage = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.txtInstruction = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtWBID);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.mtxtWeight);
             this.groupBox1.Controls.Add(this.rbManual);
             this.groupBox1.Controls.Add(this.rbAuto);
-            this.groupBox1.Location = new System.Drawing.Point(37, 45);
+            this.groupBox1.Location = new System.Drawing.Point(43, 85);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(346, 142);
             this.groupBox1.TabIndex = 59;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Weighing Mode";
-            // 
-            // txtWBID
-            // 
-            this.txtWBID.Location = new System.Drawing.Point(249, 42);
-            this.txtWBID.Name = "txtWBID";
-            this.txtWBID.Size = new System.Drawing.Size(59, 24);
-            this.txtWBID.TabIndex = 4;
-            this.txtWBID.Text = "1";
-            this.txtWBID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(36, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(175, 17);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "Weighbridge ID";
             // 
             // mtxtWeight
             // 
@@ -81,7 +64,6 @@
             this.mtxtWeight.Size = new System.Drawing.Size(59, 24);
             this.mtxtWeight.TabIndex = 2;
             this.mtxtWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.mtxtWeight.Enter += new System.EventHandler(this.mtxtWeight_Enter);
             // 
             // rbManual
             // 
@@ -111,21 +93,21 @@
             this.btnCancel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(37, 271);
+            this.btnCancel.Location = new System.Drawing.Point(43, 264);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 49);
             this.btnCancel.TabIndex = 60;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.button5_Click);
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnAccept
             // 
             this.btnAccept.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccept.Location = new System.Drawing.Point(254, 271);
+            this.btnAccept.Location = new System.Drawing.Point(260, 264);
             this.btnAccept.Margin = new System.Windows.Forms.Padding(4);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(129, 49);
@@ -134,26 +116,61 @@
             this.btnAccept.UseVisualStyleBackColor = false;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
-            // txtMessage
+            // button1
             // 
-            this.txtMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMessage.Location = new System.Drawing.Point(37, 207);
-            this.txtMessage.Multiline = true;
-            this.txtMessage.Name = "txtMessage";
-            this.txtMessage.ReadOnly = true;
-            this.txtMessage.Size = new System.Drawing.Size(346, 57);
-            this.txtMessage.TabIndex = 62;
-            this.txtMessage.Text = "message if required";
-            this.txtMessage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtMessage.Validated += new System.EventHandler(this.txtMessage_Validated);
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(25, 34);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(85, 39);
+            this.button1.TabIndex = 63;
+            this.button1.Text = "WB #1";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(130, 34);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(85, 39);
+            this.button2.TabIndex = 64;
+            this.button2.Text = "WB #2";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(235, 34);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(85, 39);
+            this.button3.TabIndex = 65;
+            this.button3.Text = "WB #3";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // txtInstruction
+            // 
+            this.txtInstruction.Location = new System.Drawing.Point(43, 13);
+            this.txtInstruction.Multiline = true;
+            this.txtInstruction.Name = "txtInstruction";
+            this.txtInstruction.ReadOnly = true;
+            this.txtInstruction.Size = new System.Drawing.Size(346, 55);
+            this.txtInstruction.TabIndex = 62;
             // 
             // WeighTruck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(436, 354);
+            this.ClientSize = new System.Drawing.Size(436, 356);
             this.ControlBox = false;
-            this.Controls.Add(this.txtMessage);
+            this.Controls.Add(this.txtInstruction);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.groupBox1);
@@ -178,8 +195,9 @@
         private System.Windows.Forms.RadioButton rbAuto;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAccept;
-        private System.Windows.Forms.TextBox txtMessage;
-        private System.Windows.Forms.TextBox txtWBID;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtInstruction;
     }
 }

@@ -233,9 +233,18 @@ namespace QWS_Local
                 else
                 {
                     // TODO check if Item is QA
-                    //if (CurrentTIQ().)
-                    WeighTruck frmWeighTruck = new WeighTruck();
-                    DialogResult dr = frmWeighTruck.ShowDialog();
+                    DialogResult dr;
+                    WeighTruck frmWeighTruck;
+                    if (CurrentTIQ().QueueStatus == "T" && CurrentTIQ().TruckConfig == "TT")
+                    {
+                        frmWeighTruck = new WeighTruck("Collect Tare of as split weight");
+                        dr = frmWeighTruck.ShowDialog();
+                    }
+                    else
+                    {
+                        frmWeighTruck = new WeighTruck("Collect with whole truck on weighbridge.");
+                        dr = frmWeighTruck.ShowDialog();
+                    }
                     if (dr == DialogResult.OK)
                     {
 
@@ -253,7 +262,7 @@ namespace QWS_Local
                             else
                             {
                                 myTareTk = frmWeighTruck.Weight;
-                                WeighTruck frmTare = new WeighTruck();
+                                WeighTruck frmTare = new WeighTruck("Collect Tare of T&T as a total weight");
                                 DialogResult dr1 = frmTare.ShowDialog();
                                 if (dr1 == DialogResult.OK)
                                 {
@@ -330,6 +339,7 @@ namespace QWS_Local
                                 }
                             }
                         }
+
 
                     }
                     else
