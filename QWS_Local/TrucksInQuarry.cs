@@ -242,7 +242,7 @@ namespace QWS_Local
                     }
                     else
                     {
-                        frmWeighTruck = new WeighTruck("Collect with whole truck on weighbridge.");
+                        frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.");
                         dr = frmWeighTruck.ShowDialog();
                     }
                     if (dr == DialogResult.OK)

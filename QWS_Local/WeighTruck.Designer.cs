@@ -34,18 +34,18 @@
             this.rbAuto = new System.Windows.Forms.RadioButton();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.txtInstruction = new System.Windows.Forms.TextBox();
+            this.rbWB1 = new System.Windows.Forms.RadioButton();
+            this.rbWB2 = new System.Windows.Forms.RadioButton();
+            this.rbWB3 = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.rbWB3);
+            this.groupBox1.Controls.Add(this.rbWB2);
+            this.groupBox1.Controls.Add(this.rbWB1);
             this.groupBox1.Controls.Add(this.mtxtWeight);
             this.groupBox1.Controls.Add(this.rbManual);
             this.groupBox1.Controls.Add(this.rbAuto);
@@ -68,12 +68,10 @@
             // rbManual
             // 
             this.rbManual.AutoSize = true;
-            this.rbManual.Checked = true;
             this.rbManual.Location = new System.Drawing.Point(137, 89);
             this.rbManual.Name = "rbManual";
             this.rbManual.Size = new System.Drawing.Size(74, 22);
             this.rbManual.TabIndex = 1;
-            this.rbManual.TabStop = true;
             this.rbManual.Text = "Manual";
             this.rbManual.UseVisualStyleBackColor = true;
             // 
@@ -116,45 +114,6 @@
             this.btnAccept.UseVisualStyleBackColor = false;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(25, 34);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 39);
-            this.button1.TabIndex = 63;
-            this.button1.Text = "WB #1";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(130, 34);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(85, 39);
-            this.button2.TabIndex = 64;
-            this.button2.Text = "WB #2";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(235, 34);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(85, 39);
-            this.button3.TabIndex = 65;
-            this.button3.Text = "WB #3";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
             // txtInstruction
             // 
             this.txtInstruction.Location = new System.Drawing.Point(43, 13);
@@ -163,6 +122,44 @@
             this.txtInstruction.ReadOnly = true;
             this.txtInstruction.Size = new System.Drawing.Size(346, 55);
             this.txtInstruction.TabIndex = 62;
+            // 
+            // rbWB1
+            // 
+            this.rbWB1.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbWB1.AutoSize = true;
+            this.rbWB1.Checked = true;
+            this.rbWB1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbWB1.Location = new System.Drawing.Point(24, 34);
+            this.rbWB1.Name = "rbWB1";
+            this.rbWB1.Size = new System.Drawing.Size(60, 34);
+            this.rbWB1.TabIndex = 66;
+            this.rbWB1.TabStop = true;
+            this.rbWB1.Text = "WB1";
+            this.rbWB1.UseVisualStyleBackColor = true;
+            // 
+            // rbWB2
+            // 
+            this.rbWB2.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbWB2.AutoSize = true;
+            this.rbWB2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbWB2.Location = new System.Drawing.Point(151, 34);
+            this.rbWB2.Name = "rbWB2";
+            this.rbWB2.Size = new System.Drawing.Size(60, 34);
+            this.rbWB2.TabIndex = 67;
+            this.rbWB2.Text = "WB2";
+            this.rbWB2.UseVisualStyleBackColor = true;
+            // 
+            // rbWB3
+            // 
+            this.rbWB3.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbWB3.AutoSize = true;
+            this.rbWB3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbWB3.Location = new System.Drawing.Point(257, 34);
+            this.rbWB3.Name = "rbWB3";
+            this.rbWB3.Size = new System.Drawing.Size(60, 34);
+            this.rbWB3.TabIndex = 68;
+            this.rbWB3.Text = "WB3";
+            this.rbWB3.UseVisualStyleBackColor = true;
             // 
             // WeighTruck
             // 
@@ -195,9 +192,9 @@
         private System.Windows.Forms.RadioButton rbAuto;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAccept;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtInstruction;
+        private System.Windows.Forms.RadioButton rbWB3;
+        private System.Windows.Forms.RadioButton rbWB2;
+        private System.Windows.Forms.RadioButton rbWB1;
     }
 }
