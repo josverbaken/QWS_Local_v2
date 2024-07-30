@@ -14,6 +14,7 @@ namespace QWS_Local
     {
         private bool FormLoaded = false;
         private string LoadType = "TK";
+        private bool IsPrefCust = false;
 
         private enum TIQType
         {
@@ -30,13 +31,14 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public BookInExBin(int myTIQID,string myTIQType,int myTruckConfigID, string myCardCode, string myCustomerName, dsQWSLocal.TruckDriverRow driverRow)
+        public BookInExBin(int myTIQID,string myTIQType,int myTruckConfigID, string myCardCode, string myCustomerName, bool myIsPrefCust , dsQWSLocal.TruckDriverRow driverRow)
         {
             InitializeComponent();
             TIQID = myTIQID;
             TruckConfigID = myTruckConfigID;
             CardCode = myCardCode;
             CustomerName = myCustomerName;
+            IsPrefCust = myIsPrefCust;
             DriverRow = driverRow;
             if (myTIQType == "Imported")
             {
@@ -454,8 +456,15 @@ namespace QWS_Local
                 }
                 else
                 { 
-                myTIQRow.QueueStatus = "Q";
-            }
+                    if (IsPrefCust == true)
+                    {
+                        myTIQRow.QueueStatus = "Q";
+                    }
+                    else
+                    {
+                        myTIQRow.QueueStatus = "U";
+                    }
+                }
                 bsTIQ2.EndEdit();
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 if (iRow == 1)

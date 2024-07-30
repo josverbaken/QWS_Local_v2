@@ -226,9 +226,20 @@ namespace QWS_Local
         {
             if (dataGridView1.SelectedRows.Count == 1)
             {
-                if (CurrentTIQ().QueueStatus == "H")
+                if (CurrentTIQ().QueueStatus == "H" || CurrentTIQ().QueueStatus == "U")
                 {
-                    MessageBox.Show("Truck is still on hold, cannot proceed!", "Queuestatus = H", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if(CurrentTIQ().QueueStatus == "U")
+                    {
+                        DialogResult dr = MessageBox.Show("Truck is still on hold, cannot proceed!", "Queuestatus = U", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                        if (dr == DialogResult.OK)
+                        {
+                            // TODO show customer confirm form
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Truck is still on hold, cannot proceed!", "Queuestatus = H", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 else
                 {

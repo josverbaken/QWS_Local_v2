@@ -17,6 +17,7 @@ namespace QWS_Local
         private static DateTime EntryDTTM;
         private static string CustCardCode;
         private static string ExBinCustomer;
+        private static bool IsPrefCust = false;
         private static string CallingMessage="";
         private static int myDriverID = 0;
 
@@ -344,10 +345,12 @@ namespace QWS_Local
             {
                 CustCardCode = frmPrefCust.customersRow.CardCode;
                 ExBinCustomer = frmPrefCust.customersRow.PrefCustomer;
+                IsPrefCust = true;
                 return true;
             }
             else
             {
+                IsPrefCust = false;
                 return false;
             }
         }
@@ -387,7 +390,7 @@ namespace QWS_Local
             int iTIQID = NewTIQ(myTIQType);
             if (iTIQID > 0)
             {
-                BookInExBin frmExBin = new BookInExBin(iTIQID,myTIQType.ToString() ,CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, CurrentTruckDriver());
+                BookInExBin frmExBin = new BookInExBin(iTIQID,myTIQType.ToString() ,CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer,IsPrefCust ,CurrentTruckDriver());
                 frmExBin.MdiParent = this.MdiParent;
                 frmExBin.Show();
             }
