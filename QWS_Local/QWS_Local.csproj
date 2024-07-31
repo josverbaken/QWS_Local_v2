@@ -226,6 +226,12 @@
     <Compile Include="BusinessSearch.Designer.cs">
       <DependentUpon>BusinessSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConfirmCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmCustomer.Designer.cs">
+      <DependentUpon>ConfirmCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="DeliveryOrders.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -428,6 +434,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BusinessSearch.resx">
       <DependentUpon>BusinessSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfirmCustomer.resx">
+      <DependentUpon>ConfirmCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeliveryOrders.resx">
       <DependentUpon>DeliveryOrders.cs</DependentUpon>

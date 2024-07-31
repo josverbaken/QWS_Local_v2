@@ -226,11 +226,27 @@ namespace QWS_Local
         {
             if (dataGridView1.SelectedRows.Count == 1)
             {
+                // TODO implement switch to refactor code
+                //switch (CurrentTIQ().QueueStatus)
+                //{
+                //    case "U":
+                //        MessageBox.Show("Contact customer to confirm okay to pick up.", "Confirm non-preferred customer.");
+                //        break;
+                //    case "Q":
+                //        CurrentTIQ().QueueStatus = "H";
+                //        break;
+                //    case "H":
+                //        CurrentTIQ().QueueStatus = "Q";
+                //        break;
+                //    default:
+                //        break;
+                //}
+
                 if (CurrentTIQ().QueueStatus == "H" || CurrentTIQ().QueueStatus == "U")
                 {
                     if(CurrentTIQ().QueueStatus == "U")
                     {
-                        DialogResult dr = MessageBox.Show("Truck is still on hold, cannot proceed!", "Queuestatus = U", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                        DialogResult dr = MessageBox.Show("Contact customer to confirm if OK to pick up.", "Queuestatus = U", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                         if (dr == DialogResult.OK)
                         {
                             // TODO show customer confirm form
@@ -588,21 +604,34 @@ namespace QWS_Local
 
         private void btnTINReleaseHold_Click(object sender, EventArgs e)
         {
-            // TODO
-            // at this stage only toggle between Q and H
             try
             {
                 bool blSave = false;
-            if (CurrentTIQ().QueueStatus == "Q")
-            {
-                CurrentTIQ().QueueStatus = "H";
-                blSave = true;
-            }
-            else if (CurrentTIQ().QueueStatus == "H")
-            {
-                CurrentTIQ().QueueStatus = "Q";
-                blSave = true;
-            }
+
+                switch (CurrentTIQ().QueueStatus)
+                {
+                    case "U":
+                        MessageBox.Show("Contact customer to confirm okay to pick up.", "Confirm non-preferred customer."); 
+                        // TODO call form ConfirmCustomer
+                        // if returns OK change status to "Q"
+                        // not ok then remove from queue and resume booking in as per retare process
+                        if (CheckConfirmCustomer() ==  true)
+                        {
+                            blSave = true;
+                            CurrentTIQ().QueueStatus = "Q";
+                        }
+                        break;
+                    case "Q":
+                        blSave = true;
+                        CurrentTIQ().QueueStatus = "H";
+                        break;
+                    case "H":
+                        blSave = true;
+                        CurrentTIQ().QueueStatus = "Q";
+                        break;
+                    default:
+                        break;
+                }
             if (blSave == true)
             {
                 bsTIQ2.EndEdit();
@@ -614,7 +643,17 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message);
             }
+        }
 
+        private bool CheckConfirmCustomer()
+        {
+            ConfirmCustomer frmConfirmCustomer = new ConfirmCustomer();
+            DialogResult dr = frmConfirmCustomer.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                return true;
+            }
+            return false;
         }
 
         private void TrucksInQuarry_KeyDown(object sender, KeyEventArgs e)
