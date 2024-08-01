@@ -28,5 +28,10 @@ namespace QWS_Local
 
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.webBrowser1.Navigate(textBox1.Text);
+        }
     }
 }

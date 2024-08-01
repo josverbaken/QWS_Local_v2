@@ -81,5 +81,16 @@ namespace QWS_Local
                 return null;
             }
         }
+
+        private void btnSearchNHVR_Click(object sender, EventArgs e)
+        {
+            SearchNHVR(CurrentConfigTruck().AxleConfiguration);
+        }
+
+        private void SearchNHVR(string AxleConfig)
+        {
+            NHVR_GVM_Search frmNHVR = new NHVR_GVM_Search(AxleConfig);
+            frmNHVR.ShowDialog();
+        }
     }
 }
