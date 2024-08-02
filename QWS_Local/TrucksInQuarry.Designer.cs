@@ -48,7 +48,7 @@ namespace QWS_Local
             System.Windows.Forms.Label materialLabel;
             System.Windows.Forms.Label schemeCodeLabel;
             System.Windows.Forms.Label label1;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.button5 = new System.Windows.Forms.Button();
@@ -62,18 +62,6 @@ namespace QWS_Local
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.queueStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.releaseDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.regoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TruckConfig = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PayloadSplit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.driverDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GCM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GVMTruck = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TruckOwner = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CartageCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.tpDetails = new System.Windows.Forms.TabPage();
@@ -114,6 +102,17 @@ namespace QWS_Local
             this.tableAdapterManager1 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.taWBDockets = new QWS_Local.dsTIQ2TableAdapters.WBDocketsTableAdapter();
             this.taWBDocketLines = new QWS_Local.dsTIQ2TableAdapters.WBDocketLinesTableAdapter();
+            this.btnChange = new System.Windows.Forms.Button();
+            this.queueStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WBO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.releaseDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.regoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TruckConfig = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PayloadSplit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.driverDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TruckOwner = new System.Windows.Forms.DataGridViewTextBoxColumn();
             entryDTTMLabel = new System.Windows.Forms.Label();
             sAPOrderLabel = new System.Windows.Forms.Label();
             roadAccessLabel = new System.Windows.Forms.Label();
@@ -345,6 +344,7 @@ namespace QWS_Local
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
             this.splitContainer2.Panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.splitContainer2.Panel1.Controls.Add(this.btnChange);
             this.splitContainer2.Panel1.Controls.Add(this.button5);
             this.splitContainer2.Panel1.Controls.Add(this.btnTINRemove);
             this.splitContainer2.Panel1.Controls.Add(this.btnWeigh);
@@ -380,7 +380,7 @@ namespace QWS_Local
             this.btnTINRemove.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnTINRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTINRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTINRemove.Location = new System.Drawing.Point(753, 287);
+            this.btnTINRemove.Location = new System.Drawing.Point(675, 287);
             this.btnTINRemove.Margin = new System.Windows.Forms.Padding(4);
             this.btnTINRemove.Name = "btnTINRemove";
             this.btnTINRemove.Size = new System.Drawing.Size(114, 49);
@@ -394,7 +394,7 @@ namespace QWS_Local
             this.btnWeigh.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnWeigh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWeigh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWeigh.Location = new System.Drawing.Point(249, 287);
+            this.btnWeigh.Location = new System.Drawing.Point(507, 287);
             this.btnWeigh.Margin = new System.Windows.Forms.Padding(4);
             this.btnWeigh.Name = "btnWeigh";
             this.btnWeigh.Size = new System.Drawing.Size(160, 49);
@@ -408,7 +408,7 @@ namespace QWS_Local
             this.btnAddTIQ.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnAddTIQ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddTIQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddTIQ.Location = new System.Drawing.Point(130, 287);
+            this.btnAddTIQ.Location = new System.Drawing.Point(28, 287);
             this.btnAddTIQ.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddTIQ.Name = "btnAddTIQ";
             this.btnAddTIQ.Size = new System.Drawing.Size(111, 49);
@@ -422,7 +422,7 @@ namespace QWS_Local
             this.btnTINReleaseHold.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnTINReleaseHold.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTINReleaseHold.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTINReleaseHold.Location = new System.Drawing.Point(417, 287);
+            this.btnTINReleaseHold.Location = new System.Drawing.Point(321, 287);
             this.btnTINReleaseHold.Margin = new System.Windows.Forms.Padding(4);
             this.btnTINReleaseHold.Name = "btnTINReleaseHold";
             this.btnTINReleaseHold.Size = new System.Drawing.Size(178, 49);
@@ -455,7 +455,7 @@ namespace QWS_Local
             this.btnTINRefresh.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnTINRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTINRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTINRefresh.Location = new System.Drawing.Point(631, 287);
+            this.btnTINRefresh.Location = new System.Drawing.Point(797, 287);
             this.btnTINRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnTINRefresh.Name = "btnTINRefresh";
             this.btnTINRefresh.Size = new System.Drawing.Size(114, 49);
@@ -494,17 +494,15 @@ namespace QWS_Local
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.queueStatusDataGridViewTextBoxColumn,
+            this.WBO,
             this.releaseDTTMDataGridViewTextBoxColumn,
             this.regoDataGridViewTextBoxColumn,
             this.TruckConfig,
             this.PayloadSplit,
             this.materialDescDataGridViewTextBoxColumn,
+            this.Customer,
             this.driverDataGridViewTextBoxColumn,
-            this.GCM,
-            this.GVMTruck,
-            this.TruckOwner,
-            this.materialDataGridViewTextBoxColumn,
-            this.CartageCode});
+            this.TruckOwner});
             this.dataGridView1.DataSource = this.bsTIQ2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
@@ -513,99 +511,6 @@ namespace QWS_Local
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1066, 302);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // queueStatusDataGridViewTextBoxColumn
-            // 
-            this.queueStatusDataGridViewTextBoxColumn.DataPropertyName = "QueueStatus";
-            this.queueStatusDataGridViewTextBoxColumn.HeaderText = "QS";
-            this.queueStatusDataGridViewTextBoxColumn.Name = "queueStatusDataGridViewTextBoxColumn";
-            this.queueStatusDataGridViewTextBoxColumn.ReadOnly = true;
-            this.queueStatusDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // releaseDTTMDataGridViewTextBoxColumn
-            // 
-            this.releaseDTTMDataGridViewTextBoxColumn.DataPropertyName = "ReleaseDTTM";
-            dataGridViewCellStyle2.Format = "HH:mm";
-            dataGridViewCellStyle2.NullValue = null;
-            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.releaseDTTMDataGridViewTextBoxColumn.HeaderText = "Release";
-            this.releaseDTTMDataGridViewTextBoxColumn.Name = "releaseDTTMDataGridViewTextBoxColumn";
-            this.releaseDTTMDataGridViewTextBoxColumn.ReadOnly = true;
-            this.releaseDTTMDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // regoDataGridViewTextBoxColumn
-            // 
-            this.regoDataGridViewTextBoxColumn.DataPropertyName = "Rego";
-            this.regoDataGridViewTextBoxColumn.HeaderText = "Rego";
-            this.regoDataGridViewTextBoxColumn.Name = "regoDataGridViewTextBoxColumn";
-            this.regoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // TruckConfig
-            // 
-            this.TruckConfig.DataPropertyName = "TruckConfig";
-            this.TruckConfig.HeaderText = "Config";
-            this.TruckConfig.Name = "TruckConfig";
-            this.TruckConfig.ReadOnly = true;
-            this.TruckConfig.Width = 70;
-            // 
-            // PayloadSplit
-            // 
-            this.PayloadSplit.DataPropertyName = "PayloadSplit";
-            this.PayloadSplit.HeaderText = "PayloadSplit";
-            this.PayloadSplit.Name = "PayloadSplit";
-            this.PayloadSplit.ReadOnly = true;
-            this.PayloadSplit.Width = 180;
-            // 
-            // materialDescDataGridViewTextBoxColumn
-            // 
-            this.materialDescDataGridViewTextBoxColumn.DataPropertyName = "MaterialDesc";
-            this.materialDescDataGridViewTextBoxColumn.HeaderText = "MaterialDesc";
-            this.materialDescDataGridViewTextBoxColumn.Name = "materialDescDataGridViewTextBoxColumn";
-            this.materialDescDataGridViewTextBoxColumn.ReadOnly = true;
-            this.materialDescDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // driverDataGridViewTextBoxColumn
-            // 
-            this.driverDataGridViewTextBoxColumn.DataPropertyName = "Driver";
-            this.driverDataGridViewTextBoxColumn.HeaderText = "Driver";
-            this.driverDataGridViewTextBoxColumn.Name = "driverDataGridViewTextBoxColumn";
-            this.driverDataGridViewTextBoxColumn.ReadOnly = true;
-            this.driverDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // GCM
-            // 
-            this.GCM.DataPropertyName = "GCM";
-            this.GCM.HeaderText = "GCM";
-            this.GCM.Name = "GCM";
-            this.GCM.ReadOnly = true;
-            // 
-            // GVMTruck
-            // 
-            this.GVMTruck.DataPropertyName = "GVMTruck";
-            this.GVMTruck.HeaderText = "GVMTruck";
-            this.GVMTruck.Name = "GVMTruck";
-            this.GVMTruck.ReadOnly = true;
-            // 
-            // TruckOwner
-            // 
-            this.TruckOwner.DataPropertyName = "TruckOwner";
-            this.TruckOwner.HeaderText = "TruckOwner";
-            this.TruckOwner.Name = "TruckOwner";
-            this.TruckOwner.ReadOnly = true;
-            // 
-            // materialDataGridViewTextBoxColumn
-            // 
-            this.materialDataGridViewTextBoxColumn.DataPropertyName = "Material";
-            this.materialDataGridViewTextBoxColumn.HeaderText = "Material";
-            this.materialDataGridViewTextBoxColumn.Name = "materialDataGridViewTextBoxColumn";
-            this.materialDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // CartageCode
-            // 
-            this.CartageCode.DataPropertyName = "CartageCode";
-            this.CartageCode.HeaderText = "Cartage";
-            this.CartageCode.Name = "CartageCode";
-            this.CartageCode.ReadOnly = true;
             // 
             // bsTIQ2
             // 
@@ -995,6 +900,97 @@ namespace QWS_Local
             // 
             this.taWBDocketLines.ClearBeforeFill = true;
             // 
+            // btnChange
+            // 
+            this.btnChange.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChange.Location = new System.Drawing.Point(147, 287);
+            this.btnChange.Margin = new System.Windows.Forms.Padding(4);
+            this.btnChange.Name = "btnChange";
+            this.btnChange.Size = new System.Drawing.Size(166, 49);
+            this.btnChange.TabIndex = 64;
+            this.btnChange.Text = "Change";
+            this.btnChange.UseVisualStyleBackColor = false;
+            // 
+            // queueStatusDataGridViewTextBoxColumn
+            // 
+            this.queueStatusDataGridViewTextBoxColumn.DataPropertyName = "QueueStatus";
+            this.queueStatusDataGridViewTextBoxColumn.HeaderText = "QS";
+            this.queueStatusDataGridViewTextBoxColumn.Name = "queueStatusDataGridViewTextBoxColumn";
+            this.queueStatusDataGridViewTextBoxColumn.ReadOnly = true;
+            this.queueStatusDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // WBO
+            // 
+            this.WBO.HeaderText = "WBO";
+            this.WBO.Name = "WBO";
+            this.WBO.ReadOnly = true;
+            // 
+            // releaseDTTMDataGridViewTextBoxColumn
+            // 
+            this.releaseDTTMDataGridViewTextBoxColumn.DataPropertyName = "ReleaseDTTM";
+            dataGridViewCellStyle1.Format = "HH:mm";
+            dataGridViewCellStyle1.NullValue = null;
+            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.releaseDTTMDataGridViewTextBoxColumn.HeaderText = "Time";
+            this.releaseDTTMDataGridViewTextBoxColumn.Name = "releaseDTTMDataGridViewTextBoxColumn";
+            this.releaseDTTMDataGridViewTextBoxColumn.ReadOnly = true;
+            this.releaseDTTMDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // regoDataGridViewTextBoxColumn
+            // 
+            this.regoDataGridViewTextBoxColumn.DataPropertyName = "Rego";
+            this.regoDataGridViewTextBoxColumn.HeaderText = "Rego";
+            this.regoDataGridViewTextBoxColumn.Name = "regoDataGridViewTextBoxColumn";
+            this.regoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // TruckConfig
+            // 
+            this.TruckConfig.DataPropertyName = "TruckConfig";
+            this.TruckConfig.HeaderText = "Config";
+            this.TruckConfig.Name = "TruckConfig";
+            this.TruckConfig.ReadOnly = true;
+            this.TruckConfig.Width = 70;
+            // 
+            // PayloadSplit
+            // 
+            this.PayloadSplit.DataPropertyName = "PayloadSplit";
+            this.PayloadSplit.HeaderText = "PayloadSplit";
+            this.PayloadSplit.Name = "PayloadSplit";
+            this.PayloadSplit.ReadOnly = true;
+            this.PayloadSplit.Width = 180;
+            // 
+            // materialDescDataGridViewTextBoxColumn
+            // 
+            this.materialDescDataGridViewTextBoxColumn.DataPropertyName = "MaterialDesc";
+            this.materialDescDataGridViewTextBoxColumn.HeaderText = "MaterialDesc";
+            this.materialDescDataGridViewTextBoxColumn.Name = "materialDescDataGridViewTextBoxColumn";
+            this.materialDescDataGridViewTextBoxColumn.ReadOnly = true;
+            this.materialDescDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // Customer
+            // 
+            this.Customer.DataPropertyName = "Customer";
+            this.Customer.HeaderText = "Customer";
+            this.Customer.Name = "Customer";
+            this.Customer.ReadOnly = true;
+            // 
+            // driverDataGridViewTextBoxColumn
+            // 
+            this.driverDataGridViewTextBoxColumn.DataPropertyName = "Driver";
+            this.driverDataGridViewTextBoxColumn.HeaderText = "Driver";
+            this.driverDataGridViewTextBoxColumn.Name = "driverDataGridViewTextBoxColumn";
+            this.driverDataGridViewTextBoxColumn.ReadOnly = true;
+            this.driverDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // TruckOwner
+            // 
+            this.TruckOwner.DataPropertyName = "TruckOwner";
+            this.TruckOwner.HeaderText = "TruckOwner";
+            this.TruckOwner.Name = "TruckOwner";
+            this.TruckOwner.ReadOnly = true;
+            // 
             // TrucksInQuarry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1084,22 +1080,21 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox tareTextBox1;
         private System.Windows.Forms.TextBox payloadSplitTextBox;
         private System.Windows.Forms.TextBox cartageCodeTextBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn queueStatusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn releaseDTTMDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn regoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TruckConfig;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PayloadSplit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn materialDescDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn driverDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GCM;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GVMTruck;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TruckOwner;
-        private System.Windows.Forms.DataGridViewTextBoxColumn materialDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CartageCode;
         private System.Windows.Forms.BindingSource bsWBDockets;
         private dsTIQ2TableAdapters.WBDocketsTableAdapter taWBDockets;
         private System.Windows.Forms.BindingSource bsWBDocketLines;
         private dsTIQ2TableAdapters.WBDocketLinesTableAdapter taWBDocketLines;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnChange;
+        private System.Windows.Forms.DataGridViewTextBoxColumn queueStatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WBO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn releaseDTTMDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn regoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TruckConfig;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PayloadSplit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materialDescDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn driverDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TruckOwner;
     }
 }

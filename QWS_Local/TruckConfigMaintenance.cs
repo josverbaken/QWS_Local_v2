@@ -58,9 +58,12 @@ namespace QWS_Local
         {
             try
             {
-                string myRego = CurrentConfigTruck().RegoTk;
-                int myTruckConfigID = CurrentConfigTruck().TruckConfigID;
-                GetConfiguredTruckGVM(myRego, myTruckConfigID);
+                if (bsConfiguredTrucks.Count > 0)
+                {
+                    string myRego = CurrentConfigTruck().RegoTk;
+                    int myTruckConfigID = CurrentConfigTruck().TruckConfigID;
+                    GetConfiguredTruckGVM(myRego, myTruckConfigID);
+                }
             }
             catch (Exception ex)
             {

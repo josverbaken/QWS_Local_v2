@@ -16,6 +16,7 @@ namespace QWS_Local
         private static string SteerAxleFilter = "";
         private static string TruckPlustrailerFilter = "";
         private static string AxleConfigFilter = "";
+        private static string RoadAccessFilter = "";
         private static int myNHVLID;
         private static dsQWSLocal.NHVLRow myNHVLRow;
 
@@ -80,6 +81,10 @@ namespace QWS_Local
                 {
                     myFilter += " and ";
                     myFilter += TruckPlustrailerFilter;
+                }
+                if (RoadAccessFilter.Length > 0)
+                {   myFilter += " and ";
+                    myFilter += RoadAccessFilter;
                 }
                 bsNHVL.Filter = myFilter;
                 // TODO test filter why just and Trailer
@@ -193,6 +198,37 @@ namespace QWS_Local
             if (myIndex >=0)
             {
                 bsAxleConfig.Position = myIndex;
+            }
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbAllRoads.Checked)
+            {
+                RoadAccessFilter = "RoadAccess like 'All Roads'";
+                SetAxleConfigFilter();
+            }
+            else
+            {
+                RoadAccessFilter = "";
+            }
+        }
+
+        private void rbRoadAccessAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbRoadAccessAll.Checked)
+            {
+                RoadAccessFilter = "";
+                SetAxleConfigFilter();
+            }
+        }
+
+        private void rbRoadAccessOther_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbRoadAccessOther.Checked)
+            {
+                RoadAccessFilter = "RoadAccess not like 'All Roads'";
+                SetAxleConfigFilter();
             }
         }
     }
