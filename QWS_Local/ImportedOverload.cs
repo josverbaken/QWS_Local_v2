@@ -128,11 +128,12 @@ namespace QWS_Local
                 txtOverloadCategory.Text = "Overload Severe";
                 MessageBox.Show(msgSanction, "Overload Category = SEVERE!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if (OverloadPercent >= 1.05M)
-            {
-                OverloadPoints = Properties.Settings.Default.OverloadSubstantial;
-                txtOverloadCategory.Text = "Overload Substantial";
-            }
+            //else if (OverloadPercent >= 1.05M)
+            //{
+            //    OverloadPoints = Properties.Settings.Default.OverloadSubstantial;
+            //    txtOverloadCategory.Text = "Overload Substantial";
+            //}
+            // Higher of 0.5t or 5%
             else if (OverloadPercent >= 1.05M && (Gross - GVM) > TonnesCriterion)
             {
                 OverloadPoints = Properties.Settings.Default.OverloadSubstantial;
