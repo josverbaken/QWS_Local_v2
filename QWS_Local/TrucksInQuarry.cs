@@ -516,7 +516,7 @@ namespace QWS_Local
             docketsRow.DocDate = DateTime.Now;
             docketsRow.CardCode = CurrentTIQ().CustomerCode;
             docketsRow.CardName = CurrentTIQ().Customer;
-            docketsRow.PurchaseOrder = "";
+            docketsRow.PurchaseOrder = CurrentTIQ().CustON;
             docketsRow.CntCode = -9;
             docketsRow.ContactName = "";
             docketsRow.ContactMobile = "";
