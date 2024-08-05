@@ -51,6 +51,7 @@ namespace QWS_Local
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.btnChange = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.btnTINRemove = new System.Windows.Forms.Button();
             this.btnWeigh = new System.Windows.Forms.Button();
@@ -102,7 +103,6 @@ namespace QWS_Local
             this.tableAdapterManager1 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.taWBDockets = new QWS_Local.dsTIQ2TableAdapters.WBDocketsTableAdapter();
             this.taWBDocketLines = new QWS_Local.dsTIQ2TableAdapters.WBDocketLinesTableAdapter();
-            this.btnChange = new System.Windows.Forms.Button();
             this.queueStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WBO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.releaseDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -360,6 +360,19 @@ namespace QWS_Local
             this.splitContainer2.Size = new System.Drawing.Size(1080, 692);
             this.splitContainer2.SplitterDistance = 347;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // btnChange
+            // 
+            this.btnChange.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChange.Location = new System.Drawing.Point(147, 287);
+            this.btnChange.Margin = new System.Windows.Forms.Padding(4);
+            this.btnChange.Name = "btnChange";
+            this.btnChange.Size = new System.Drawing.Size(166, 49);
+            this.btnChange.TabIndex = 64;
+            this.btnChange.Text = "Change";
+            this.btnChange.UseVisualStyleBackColor = false;
             // 
             // button5
             // 
@@ -900,19 +913,6 @@ namespace QWS_Local
             // 
             this.taWBDocketLines.ClearBeforeFill = true;
             // 
-            // btnChange
-            // 
-            this.btnChange.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChange.Location = new System.Drawing.Point(147, 287);
-            this.btnChange.Margin = new System.Windows.Forms.Padding(4);
-            this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(166, 49);
-            this.btnChange.TabIndex = 64;
-            this.btnChange.Text = "Change";
-            this.btnChange.UseVisualStyleBackColor = false;
-            // 
             // queueStatusDataGridViewTextBoxColumn
             // 
             this.queueStatusDataGridViewTextBoxColumn.DataPropertyName = "QueueStatus";
@@ -964,7 +964,7 @@ namespace QWS_Local
             // materialDescDataGridViewTextBoxColumn
             // 
             this.materialDescDataGridViewTextBoxColumn.DataPropertyName = "MaterialDesc";
-            this.materialDescDataGridViewTextBoxColumn.HeaderText = "MaterialDesc";
+            this.materialDescDataGridViewTextBoxColumn.HeaderText = "Material / Instruction";
             this.materialDescDataGridViewTextBoxColumn.Name = "materialDescDataGridViewTextBoxColumn";
             this.materialDescDataGridViewTextBoxColumn.ReadOnly = true;
             this.materialDescDataGridViewTextBoxColumn.Width = 200;

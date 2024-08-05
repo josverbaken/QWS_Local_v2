@@ -31,6 +31,7 @@
             this.btnOkayOnce = new System.Windows.Forms.Button();
             this.btnOkayAlways = new System.Windows.Forms.Button();
             this.btnNotOkay = new System.Windows.Forms.Button();
+            this.txtRego = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnOkayOnce
@@ -63,22 +64,33 @@
             this.btnNotOkay.UseVisualStyleBackColor = true;
             this.btnNotOkay.Click += new System.EventHandler(this.btnNotOkay_Click);
             // 
+            // txtRego
+            // 
+            this.txtRego.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRego.Location = new System.Drawing.Point(235, 12);
+            this.txtRego.Name = "txtRego";
+            this.txtRego.ReadOnly = true;
+            this.txtRego.Size = new System.Drawing.Size(100, 35);
+            this.txtRego.TabIndex = 3;
+            // 
             // ConfirmCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(541, 420);
             this.ControlBox = false;
+            this.Controls.Add(this.txtRego);
             this.Controls.Add(this.btnNotOkay);
             this.Controls.Add(this.btnOkayAlways);
             this.Controls.Add(this.btnOkayOnce);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ConfirmCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ConfirmCustomer";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.ConfirmCustomer_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -87,5 +99,6 @@
         private System.Windows.Forms.Button btnOkayOnce;
         private System.Windows.Forms.Button btnOkayAlways;
         private System.Windows.Forms.Button btnNotOkay;
+        private System.Windows.Forms.TextBox txtRego;
     }
 }

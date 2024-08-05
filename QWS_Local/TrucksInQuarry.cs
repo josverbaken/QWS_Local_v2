@@ -250,6 +250,13 @@ namespace QWS_Local
                         if (dr == DialogResult.OK)
                         {
                             // TODO show customer confirm form
+                            if (CheckConfirmCustomer() == true)
+                            {
+                                CurrentTIQ().QueueStatus = "Q";
+                                bsTIQ2.EndEdit();
+                                taTIQ2.Update(dsTIQ2.TIQ);
+                                RefreshQueue();
+                            }
                         }
                     }
                     else
@@ -647,7 +654,8 @@ namespace QWS_Local
 
         private bool CheckConfirmCustomer()
         {
-            ConfirmCustomer frmConfirmCustomer = new ConfirmCustomer();
+            ConfirmCustomer frmConfirmCustomer = new ConfirmCustomer(CurrentTIQ().Rego);
+            //OOPs frmConfirmCustomer.MdiParent = this.MdiParent;
             DialogResult dr = frmConfirmCustomer.ShowDialog();
             if (dr == DialogResult.OK)
             {

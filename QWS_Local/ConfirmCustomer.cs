@@ -12,11 +12,19 @@ namespace QWS_Local
 {
     public partial class ConfirmCustomer : Form
     {
+        private string Rego;
+
         public ConfirmCustomer()
         {
             InitializeComponent();
         }
 
+        public ConfirmCustomer(string myRego)
+        {
+            Rego = myRego;
+            // TODO show customer info
+            InitializeComponent();
+        }
         private void btnNotOkay_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
@@ -31,8 +39,14 @@ namespace QWS_Local
 
         private void btnOkayAlways_Click(object sender, EventArgs e)
         {
+            // TODO enter preferred customer using stored procedure
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void ConfirmCustomer_Load(object sender, EventArgs e)
+        {
+            txtRego.Text = Rego;
         }
     }
 }
