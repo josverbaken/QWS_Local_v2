@@ -654,7 +654,7 @@ namespace QWS_Local
 
         private bool CheckConfirmCustomer()
         {
-            ConfirmCustomer frmConfirmCustomer = new ConfirmCustomer(CurrentTIQ().Rego);
+            ConfirmCustomer frmConfirmCustomer = new ConfirmCustomer(CurrentTIQ().Rego,CurrentTIQ().DriverID, CurrentTIQ().CustomerCode, CurrentTIQ().Customer);
             //OOPs frmConfirmCustomer.MdiParent = this.MdiParent;
             DialogResult dr = frmConfirmCustomer.ShowDialog();
             if (dr == DialogResult.OK)
