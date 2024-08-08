@@ -48,11 +48,11 @@ namespace QWS_Local
             if (AddPrefCustomer() == false)
             {
                 MessageBox.Show("Unable to add preferred customer!");
-                this.DialogResult = DialogResult.OK;
+                this.DialogResult = DialogResult.Cancel;
             }
             else
             {
-                this.DialogResult = DialogResult.Cancel;
+                this.DialogResult = DialogResult.OK;
             }
             this.Close();
         }
@@ -63,6 +63,11 @@ namespace QWS_Local
             if (iRows == 0)
             {
                 MessageBox.Show("No contact persons on files for selected customer!");
+            }
+            else if (iRows > 1)            
+            {
+                bsPerson.Filter = "Person like 'xcvbn'"; // don't want to display first record
+                txtPerson.Text = "* multiple found *";
             }
             this.taDriver.FillByID(this.dsQWSLocal2024.TruckDriver, DriverID);
             txtRego.Text = Rego;
@@ -106,6 +111,26 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message);
                 return false;
+            }
+        }
+
+        private void txtPerson_Enter(object sender, EventArgs e)
+        {
+            txtPerson.SelectAll();
+        }
+
+        private void txtPerson_Click(object sender, EventArgs e)
+        {
+            txtPerson.SelectAll();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtPerson.Text = "";
+            bsPerson.Filter = "";
+            if (bsPerson.Count > 0)
+            {
+                txtPerson.Text = "* multiple found *";
             }
         }
     }

@@ -61,6 +61,7 @@
             this.sAPUpdateDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCustomer = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bsPerson)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDriver)).BeginInit();
@@ -169,6 +170,8 @@
             this.txtPerson.Name = "txtPerson";
             this.txtPerson.Size = new System.Drawing.Size(192, 24);
             this.txtPerson.TabIndex = 17;
+            this.txtPerson.Click += new System.EventHandler(this.txtPerson_Click);
+            this.txtPerson.Enter += new System.EventHandler(this.txtPerson_Enter);
             // 
             // btnSeachPerson
             // 
@@ -231,6 +234,7 @@
             // 
             // tpMain
             // 
+            this.tpMain.Controls.Add(this.btnClear);
             this.tpMain.Controls.Add(this.textBox2);
             this.tpMain.Controls.Add(this.txtCustomer);
             this.tpMain.Controls.Add(this.txtRego);
@@ -353,6 +357,16 @@
             this.textBox2.Size = new System.Drawing.Size(142, 24);
             this.textBox2.TabIndex = 21;
             // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(371, 175);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(142, 27);
+            this.btnClear.TabIndex = 22;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // ConfirmCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -412,5 +426,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sAPUpdateDTTMDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox txtCustomer;
+        private System.Windows.Forms.Button btnClear;
     }
 }
