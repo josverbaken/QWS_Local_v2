@@ -43,8 +43,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.customerTextBox = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtStockpileLotNo = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.materialDescTextBox = new System.Windows.Forms.TextBox();
             this.materialTextBox = new System.Windows.Forms.TextBox();
             this.custONTextBox = new System.Windows.Forms.TextBox();
@@ -52,6 +50,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
+            this.txtInfo = new System.Windows.Forms.TextBox();
             grossLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             nettLabel = new System.Windows.Forms.Label();
@@ -186,8 +185,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.txtStockpileLotNo);
-            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.txtInfo);
             this.groupBox3.Controls.Add(this.materialDescTextBox);
             this.groupBox3.Controls.Add(this.materialTextBox);
             this.groupBox3.Controls.Add(custONLabel);
@@ -199,34 +197,13 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "3) Check Material and PO#";
             // 
-            // txtStockpileLotNo
-            // 
-            this.txtStockpileLotNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStockpileLotNo.Location = new System.Drawing.Point(215, 136);
-            this.txtStockpileLotNo.Name = "txtStockpileLotNo";
-            this.txtStockpileLotNo.Size = new System.Drawing.Size(157, 29);
-            this.txtStockpileLotNo.TabIndex = 12;
-            this.txtStockpileLotNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtStockpileLotNo.Validated += new System.EventHandler(this.txtStockpileLotNo_Validated);
-            // 
-            // textBox3
-            // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(25, 143);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(157, 22);
-            this.textBox3.TabIndex = 13;
-            this.textBox3.Text = "Stockpile Lot No";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // materialDescTextBox
             // 
             this.materialDescTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "MaterialDesc", true));
             this.materialDescTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialDescTextBox.Location = new System.Drawing.Point(138, 63);
             this.materialDescTextBox.Name = "materialDescTextBox";
+            this.materialDescTextBox.ReadOnly = true;
             this.materialDescTextBox.Size = new System.Drawing.Size(234, 29);
             this.materialDescTextBox.TabIndex = 5;
             // 
@@ -236,6 +213,7 @@
             this.materialTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialTextBox.Location = new System.Drawing.Point(378, 63);
             this.materialTextBox.Name = "materialTextBox";
+            this.materialTextBox.ReadOnly = true;
             this.materialTextBox.Size = new System.Drawing.Size(100, 29);
             this.materialTextBox.TabIndex = 3;
             // 
@@ -245,6 +223,7 @@
             this.custONTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.custONTextBox.Location = new System.Drawing.Point(138, 98);
             this.custONTextBox.Name = "custONTextBox";
+            this.custONTextBox.ReadOnly = true;
             this.custONTextBox.Size = new System.Drawing.Size(100, 29);
             this.custONTextBox.TabIndex = 1;
             // 
@@ -287,6 +266,14 @@
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.WBDocketLinesTableAdapter = null;
             this.tableAdapterManager.WBDocketsTableAdapter = null;
+            // 
+            // txtInfo
+            // 
+            this.txtInfo.Location = new System.Drawing.Point(25, 159);
+            this.txtInfo.Name = "txtInfo";
+            this.txtInfo.ReadOnly = true;
+            this.txtInfo.Size = new System.Drawing.Size(453, 24);
+            this.txtInfo.TabIndex = 6;
             // 
             // PostDocket
             // 
@@ -333,10 +320,9 @@
         private System.Windows.Forms.TextBox tareTextBox;
         private System.Windows.Forms.TextBox txtGross;
         private System.Windows.Forms.TextBox customerTextBox;
-        private System.Windows.Forms.TextBox txtStockpileLotNo;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox materialDescTextBox;
         private System.Windows.Forms.TextBox materialTextBox;
         private System.Windows.Forms.TextBox custONTextBox;
+        private System.Windows.Forms.TextBox txtInfo;
     }
 }

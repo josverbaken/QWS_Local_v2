@@ -71,6 +71,8 @@ namespace QWS_Local
             }
             this.taDriver.FillByID(this.dsQWSLocal2024.TruckDriver, DriverID);
             txtRego.Text = Rego;
+            txtCustomer.Text = Customer;
+            txtCardCode.Text = CardCode;    
         }
 
         private void btnSeachPerson_Click(object sender, EventArgs e)
@@ -128,10 +130,23 @@ namespace QWS_Local
         {
             txtPerson.Text = "";
             bsPerson.Filter = "";
-            if (bsPerson.Count > 0)
+            if (bsPerson.Count > 1) // if 1 just show them!
             {
                 txtPerson.Text = "* multiple found *";
+                tabControl1.SelectedTab = tpContactPersons;
+                dataGridView1.ClearSelection();
             }
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab=tpMain;
+        }
+
+        private void tabControl1_SelectedTabChanged(object sender, EventArgs e)
+        {
+            bsPerson.Filter = "";
+            // tabControl1.SelectedTab=tpContactPersons; // don't do this!
         }
     }
 }

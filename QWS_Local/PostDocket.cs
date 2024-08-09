@@ -49,16 +49,13 @@ namespace QWS_Local
             dsTIQ2.TIQ.ImportRow(myRow);
         }
 
-        private void txtStockpileLotNo_Validated(object sender, EventArgs e)
+        private void GetSPLotNo()
         {
-            try
-            {
-                mySPLotNo = System.Convert.ToInt16(txtStockpileLotNo.Text);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            // call stored procedure SPLotNoAssign with material code, returns SPLotNo, Lot Status, Remaining Tonnes
+
+            mySPLotNo = 0;
         }
+
+
     }
 }
