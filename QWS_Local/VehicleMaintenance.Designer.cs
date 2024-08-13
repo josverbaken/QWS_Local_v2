@@ -30,9 +30,7 @@ namespace QWS_Local
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label regoLabel;
             System.Windows.Forms.Label vINLabel;
-            System.Windows.Forms.Label ownerLabel;
             System.Windows.Forms.Label makeLabel;
             System.Windows.Forms.Label modelLabel;
             System.Windows.Forms.Label tareLabel;
@@ -40,7 +38,6 @@ namespace QWS_Local
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label jurisdictionLabel1;
-            System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label5;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VehicleMaintenance));
@@ -58,7 +55,6 @@ namespace QWS_Local
             this.txtRegoExpiryDT = new System.Windows.Forms.TextBox();
             this.btnIdentificationSave = new System.Windows.Forms.Button();
             this.btnFindVehicle = new System.Windows.Forms.Button();
-            this.btnSetTruckOwner = new System.Windows.Forms.Button();
             this.btnSetAxleConfig = new System.Windows.Forms.Button();
             this.btnSetFeeCodeMain = new System.Windows.Forms.Button();
             this.txtFeeCode = new System.Windows.Forms.TextBox();
@@ -103,11 +99,16 @@ namespace QWS_Local
             this.bsVehiclePrefCustomers = new System.Windows.Forms.BindingSource(this.components);
             this.taVehiclePrefCustomers = new QWS_Local.dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter();
             this.btnSavePrefCustomers = new System.Windows.Forms.Button();
-            this.btnLoadPrefCustomers = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            regoLabel = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tpOverview = new System.Windows.Forms.TabPage();
+            this.tpDetails = new System.Windows.Forms.TabPage();
+            this.tpPrefCust = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnLoadPrefCustomers = new System.Windows.Forms.Button();
+            this.btnSetTruckOwner = new System.Windows.Forms.Button();
             vINLabel = new System.Windows.Forms.Label();
-            ownerLabel = new System.Windows.Forms.Label();
             makeLabel = new System.Windows.Forms.Label();
             modelLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
@@ -115,7 +116,6 @@ namespace QWS_Local
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             jurisdictionLabel1 = new System.Windows.Forms.Label();
-            label4 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleBindingSource)).BeginInit();
@@ -129,23 +129,21 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehiclePrefCustomers)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tpOverview.SuspendLayout();
+            this.tpDetails.SuspendLayout();
+            this.tpPrefCust.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // regoLabel
-            // 
-            regoLabel.AutoSize = true;
-            regoLabel.Location = new System.Drawing.Point(123, 33);
-            regoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            regoLabel.Name = "regoLabel";
-            regoLabel.Size = new System.Drawing.Size(48, 18);
-            regoLabel.TabIndex = 1;
-            regoLabel.Text = "Rego:";
-            regoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // vINLabel
             // 
             vINLabel.AutoSize = true;
-            vINLabel.Location = new System.Drawing.Point(136, 86);
+            vINLabel.Location = new System.Drawing.Point(113, 349);
             vINLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             vINLabel.Name = "vINLabel";
             vINLabel.Size = new System.Drawing.Size(35, 18);
@@ -153,21 +151,10 @@ namespace QWS_Local
             vINLabel.Text = "VIN:";
             vINLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // ownerLabel
-            // 
-            ownerLabel.AutoSize = true;
-            ownerLabel.Location = new System.Drawing.Point(115, 114);
-            ownerLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            ownerLabel.Name = "ownerLabel";
-            ownerLabel.Size = new System.Drawing.Size(56, 18);
-            ownerLabel.TabIndex = 7;
-            ownerLabel.Text = "Owner:";
-            ownerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // makeLabel
             // 
             makeLabel.AutoSize = true;
-            makeLabel.Location = new System.Drawing.Point(121, 187);
+            makeLabel.Location = new System.Drawing.Point(99, 110);
             makeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             makeLabel.Name = "makeLabel";
             makeLabel.Size = new System.Drawing.Size(49, 18);
@@ -178,7 +165,7 @@ namespace QWS_Local
             // modelLabel
             // 
             modelLabel.AutoSize = true;
-            modelLabel.Location = new System.Drawing.Point(115, 223);
+            modelLabel.Location = new System.Drawing.Point(93, 146);
             modelLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             modelLabel.Name = "modelLabel";
             modelLabel.Size = new System.Drawing.Size(53, 18);
@@ -189,7 +176,7 @@ namespace QWS_Local
             // tareLabel
             // 
             tareLabel.AutoSize = true;
-            tareLabel.Location = new System.Drawing.Point(50, 292);
+            tareLabel.Location = new System.Drawing.Point(28, 215);
             tareLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             tareLabel.Name = "tareLabel";
             tareLabel.Size = new System.Drawing.Size(117, 18);
@@ -200,7 +187,7 @@ namespace QWS_Local
             // expiryDTLabel
             // 
             expiryDTLabel.AutoSize = true;
-            expiryDTLabel.Location = new System.Drawing.Point(91, 257);
+            expiryDTLabel.Location = new System.Drawing.Point(69, 180);
             expiryDTLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             expiryDTLabel.Name = "expiryDTLabel";
             expiryDTLabel.Size = new System.Drawing.Size(76, 18);
@@ -211,7 +198,7 @@ namespace QWS_Local
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(684, 234);
+            label2.Location = new System.Drawing.Point(91, 212);
             label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(86, 18);
@@ -222,7 +209,7 @@ namespace QWS_Local
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(684, 72);
+            label3.Location = new System.Drawing.Point(91, 50);
             label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(81, 18);
@@ -233,7 +220,7 @@ namespace QWS_Local
             // jurisdictionLabel1
             // 
             jurisdictionLabel1.AutoSize = true;
-            jurisdictionLabel1.Location = new System.Drawing.Point(674, 38);
+            jurisdictionLabel1.Location = new System.Drawing.Point(81, 16);
             jurisdictionLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             jurisdictionLabel1.Name = "jurisdictionLabel1";
             jurisdictionLabel1.Size = new System.Drawing.Size(87, 18);
@@ -241,21 +228,10 @@ namespace QWS_Local
             jurisdictionLabel1.Text = "Jurisdiction:";
             jurisdictionLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(406, 291);
-            label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(113, 18);
-            label4.TabIndex = 62;
-            label4.Text = "Pref Customer :";
-            label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(6, 521);
+            label1.Location = new System.Drawing.Point(15, 82);
             label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(170, 18);
@@ -266,7 +242,7 @@ namespace QWS_Local
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(57, 480);
+            label5.Location = new System.Drawing.Point(66, 41);
             label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(143, 18);
@@ -279,7 +255,7 @@ namespace QWS_Local
             this.txtRego.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "Rego", true));
             this.txtRego.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRego.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.txtRego.Location = new System.Drawing.Point(208, 24);
+            this.txtRego.Location = new System.Drawing.Point(529, 14);
             this.txtRego.Margin = new System.Windows.Forms.Padding(4);
             this.txtRego.Name = "txtRego";
             this.txtRego.Size = new System.Drawing.Size(232, 35);
@@ -302,7 +278,7 @@ namespace QWS_Local
             // txtVIN
             // 
             this.txtVIN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "VIN", true));
-            this.txtVIN.Location = new System.Drawing.Point(208, 78);
+            this.txtVIN.Location = new System.Drawing.Point(185, 341);
             this.txtVIN.Margin = new System.Windows.Forms.Padding(4);
             this.txtVIN.MaxLength = 17;
             this.txtVIN.Name = "txtVIN";
@@ -313,16 +289,16 @@ namespace QWS_Local
             // txtOwner
             // 
             this.txtOwner.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "Owner", true));
-            this.txtOwner.Location = new System.Drawing.Point(209, 143);
+            this.txtOwner.Location = new System.Drawing.Point(13, 174);
             this.txtOwner.Margin = new System.Windows.Forms.Padding(4);
             this.txtOwner.Name = "txtOwner";
-            this.txtOwner.Size = new System.Drawing.Size(393, 24);
+            this.txtOwner.Size = new System.Drawing.Size(372, 24);
             this.txtOwner.TabIndex = 4;
             // 
             // txtVehicleMake
             // 
             this.txtVehicleMake.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "Make", true));
-            this.txtVehicleMake.Location = new System.Drawing.Point(208, 179);
+            this.txtVehicleMake.Location = new System.Drawing.Point(186, 102);
             this.txtVehicleMake.Margin = new System.Windows.Forms.Padding(4);
             this.txtVehicleMake.Name = "txtVehicleMake";
             this.txtVehicleMake.Size = new System.Drawing.Size(394, 24);
@@ -331,7 +307,7 @@ namespace QWS_Local
             // modelTextBox
             // 
             this.modelTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "Model", true));
-            this.modelTextBox.Location = new System.Drawing.Point(208, 215);
+            this.modelTextBox.Location = new System.Drawing.Point(186, 138);
             this.modelTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.modelTextBox.Name = "modelTextBox";
             this.modelTextBox.Size = new System.Drawing.Size(394, 24);
@@ -340,7 +316,7 @@ namespace QWS_Local
             // tareTextBox
             // 
             this.tareTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "RegisteredTare", true));
-            this.tareTextBox.Location = new System.Drawing.Point(209, 289);
+            this.tareTextBox.Location = new System.Drawing.Point(187, 212);
             this.tareTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.tareTextBox.Name = "tareTextBox";
             this.tareTextBox.Size = new System.Drawing.Size(148, 24);
@@ -348,10 +324,10 @@ namespace QWS_Local
             // 
             // btnFeeCodesMore
             // 
-            this.btnFeeCodesMore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnFeeCodesMore.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnFeeCodesMore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFeeCodesMore.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFeeCodesMore.Location = new System.Drawing.Point(947, 69);
+            this.btnFeeCodesMore.Location = new System.Drawing.Point(488, 42);
             this.btnFeeCodesMore.Margin = new System.Windows.Forms.Padding(4);
             this.btnFeeCodesMore.Name = "btnFeeCodesMore";
             this.btnFeeCodesMore.Size = new System.Drawing.Size(56, 33);
@@ -364,7 +340,7 @@ namespace QWS_Local
             // txtJurisdiction
             // 
             this.txtJurisdiction.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleRegFeeCodesBindingSource, "Jurisdiction", true));
-            this.txtJurisdiction.Location = new System.Drawing.Point(771, 35);
+            this.txtJurisdiction.Location = new System.Drawing.Point(178, 13);
             this.txtJurisdiction.Margin = new System.Windows.Forms.Padding(4);
             this.txtJurisdiction.Name = "txtJurisdiction";
             this.txtJurisdiction.Size = new System.Drawing.Size(148, 24);
@@ -379,7 +355,7 @@ namespace QWS_Local
             // 
             this.txtRegoExpiryDT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "RegistrationExpiryDT", true));
             this.txtRegoExpiryDT.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtRegoExpiryDT.Location = new System.Drawing.Point(208, 254);
+            this.txtRegoExpiryDT.Location = new System.Drawing.Point(186, 177);
             this.txtRegoExpiryDT.Margin = new System.Windows.Forms.Padding(4);
             this.txtRegoExpiryDT.Name = "txtRegoExpiryDT";
             this.txtRegoExpiryDT.Size = new System.Drawing.Size(394, 24);
@@ -389,13 +365,13 @@ namespace QWS_Local
             // 
             // btnIdentificationSave
             // 
-            this.btnIdentificationSave.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnIdentificationSave.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnIdentificationSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIdentificationSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIdentificationSave.Location = new System.Drawing.Point(676, 512);
+            this.btnIdentificationSave.Location = new System.Drawing.Point(858, 74);
             this.btnIdentificationSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnIdentificationSave.Name = "btnIdentificationSave";
-            this.btnIdentificationSave.Size = new System.Drawing.Size(450, 42);
+            this.btnIdentificationSave.Size = new System.Drawing.Size(222, 42);
             this.btnIdentificationSave.TabIndex = 13;
             this.btnIdentificationSave.Text = "Save";
             this.btnIdentificationSave.UseVisualStyleBackColor = false;
@@ -403,39 +379,25 @@ namespace QWS_Local
             // 
             // btnFindVehicle
             // 
-            this.btnFindVehicle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnFindVehicle.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnFindVehicle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnFindVehicle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFindVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFindVehicle.Location = new System.Drawing.Point(487, 25);
+            this.btnFindVehicle.Location = new System.Drawing.Point(858, 17);
             this.btnFindVehicle.Margin = new System.Windows.Forms.Padding(4);
             this.btnFindVehicle.Name = "btnFindVehicle";
             this.btnFindVehicle.Size = new System.Drawing.Size(115, 35);
             this.btnFindVehicle.TabIndex = 2;
-            this.btnFindVehicle.Text = "Find / New";
+            this.btnFindVehicle.Text = "Find (F3)";
             this.btnFindVehicle.UseVisualStyleBackColor = false;
             this.btnFindVehicle.Click += new System.EventHandler(this.btnFindVehicle_Click);
             // 
-            // btnSetTruckOwner
-            // 
-            this.btnSetTruckOwner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnSetTruckOwner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetTruckOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetTruckOwner.Location = new System.Drawing.Point(541, 109);
-            this.btnSetTruckOwner.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSetTruckOwner.Name = "btnSetTruckOwner";
-            this.btnSetTruckOwner.Size = new System.Drawing.Size(61, 25);
-            this.btnSetTruckOwner.TabIndex = 5;
-            this.btnSetTruckOwner.Text = "Set";
-            this.btnSetTruckOwner.UseVisualStyleBackColor = false;
-            this.btnSetTruckOwner.Click += new System.EventHandler(this.btnSetTruckOwner_Click);
-            // 
             // btnSetAxleConfig
             // 
-            this.btnSetAxleConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnSetAxleConfig.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSetAxleConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetAxleConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetAxleConfig.Location = new System.Drawing.Point(944, 224);
+            this.btnSetAxleConfig.Location = new System.Drawing.Point(485, 197);
             this.btnSetAxleConfig.Margin = new System.Windows.Forms.Padding(4);
             this.btnSetAxleConfig.Name = "btnSetAxleConfig";
             this.btnSetAxleConfig.Size = new System.Drawing.Size(182, 33);
@@ -446,10 +408,10 @@ namespace QWS_Local
             // 
             // btnSetFeeCodeMain
             // 
-            this.btnSetFeeCodeMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnSetFeeCodeMain.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSetFeeCodeMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetFeeCodeMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetFeeCodeMain.Location = new System.Drawing.Point(1010, 69);
+            this.btnSetFeeCodeMain.Location = new System.Drawing.Point(551, 42);
             this.btnSetFeeCodeMain.Margin = new System.Windows.Forms.Padding(4);
             this.btnSetFeeCodeMain.Name = "btnSetFeeCodeMain";
             this.btnSetFeeCodeMain.Size = new System.Drawing.Size(116, 33);
@@ -461,7 +423,7 @@ namespace QWS_Local
             // txtFeeCode
             // 
             this.txtFeeCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleRegFeeCodesBindingSource, "FeeCode", true));
-            this.txtFeeCode.Location = new System.Drawing.Point(812, 72);
+            this.txtFeeCode.Location = new System.Drawing.Point(219, 50);
             this.txtFeeCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtFeeCode.Name = "txtFeeCode";
             this.txtFeeCode.Size = new System.Drawing.Size(107, 24);
@@ -470,7 +432,7 @@ namespace QWS_Local
             // txtAxleConfig
             // 
             this.txtAxleConfig.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "AxleConfiguration", true));
-            this.txtAxleConfig.Location = new System.Drawing.Point(778, 231);
+            this.txtAxleConfig.Location = new System.Drawing.Point(185, 209);
             this.txtAxleConfig.Margin = new System.Windows.Forms.Padding(4);
             this.txtAxleConfig.Name = "txtAxleConfig";
             this.txtAxleConfig.ReadOnly = true;
@@ -481,7 +443,7 @@ namespace QWS_Local
             // textBox8
             // 
             this.textBox8.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.axleConfigurationBindingSource, "VehicleDescription", true));
-            this.textBox8.Location = new System.Drawing.Point(678, 270);
+            this.textBox8.Location = new System.Drawing.Point(85, 248);
             this.textBox8.Margin = new System.Windows.Forms.Padding(4);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
@@ -498,7 +460,7 @@ namespace QWS_Local
             // textBox1
             // 
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleRegFeeCodesBindingSource, "FeeConditions", true));
-            this.textBox1.Location = new System.Drawing.Point(678, 143);
+            this.textBox1.Location = new System.Drawing.Point(85, 121);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -510,7 +472,7 @@ namespace QWS_Local
             // textBox6
             // 
             this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleRegFeeCodesBindingSource, "FeeType", true));
-            this.textBox6.Location = new System.Drawing.Point(678, 111);
+            this.textBox6.Location = new System.Drawing.Point(85, 89);
             this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
@@ -525,13 +487,13 @@ namespace QWS_Local
             // 
             // btnGo2Config
             // 
-            this.btnGo2Config.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnGo2Config.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnGo2Config.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGo2Config.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGo2Config.Location = new System.Drawing.Point(676, 624);
+            this.btnGo2Config.Location = new System.Drawing.Point(858, 124);
             this.btnGo2Config.Margin = new System.Windows.Forms.Padding(4);
             this.btnGo2Config.Name = "btnGo2Config";
-            this.btnGo2Config.Size = new System.Drawing.Size(450, 42);
+            this.btnGo2Config.Size = new System.Drawing.Size(222, 42);
             this.btnGo2Config.TabIndex = 51;
             this.btnGo2Config.Text = "Go to GVM configuration.";
             this.btnGo2Config.UseVisualStyleBackColor = false;
@@ -539,10 +501,10 @@ namespace QWS_Local
             // 
             // btnNewVehicle
             // 
-            this.btnNewVehicle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnNewVehicle.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnNewVehicle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewVehicle.Location = new System.Drawing.Point(676, 571);
+            this.btnNewVehicle.Location = new System.Drawing.Point(579, 79);
             this.btnNewVehicle.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewVehicle.Name = "btnNewVehicle";
             this.btnNewVehicle.Size = new System.Drawing.Size(182, 33);
@@ -553,10 +515,10 @@ namespace QWS_Local
             // 
             // btnNewVehicleCurrentOwner
             // 
-            this.btnNewVehicleCurrentOwner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnNewVehicleCurrentOwner.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnNewVehicleCurrentOwner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewVehicleCurrentOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewVehicleCurrentOwner.Location = new System.Drawing.Point(944, 571);
+            this.btnNewVehicleCurrentOwner.Location = new System.Drawing.Point(579, 133);
             this.btnNewVehicleCurrentOwner.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewVehicleCurrentOwner.Name = "btnNewVehicleCurrentOwner";
             this.btnNewVehicleCurrentOwner.Size = new System.Drawing.Size(182, 33);
@@ -567,10 +529,10 @@ namespace QWS_Local
             // 
             // btnSetPrefCustomer
             // 
-            this.btnSetPrefCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnSetPrefCustomer.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSetPrefCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetPrefCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetPrefCustomer.Location = new System.Drawing.Point(541, 288);
+            this.btnSetPrefCustomer.Location = new System.Drawing.Point(316, 25);
             this.btnSetPrefCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.btnSetPrefCustomer.Name = "btnSetPrefCustomer";
             this.btnSetPrefCustomer.Size = new System.Drawing.Size(61, 25);
@@ -582,7 +544,7 @@ namespace QWS_Local
             // textBox2
             // 
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "FeeCodeID", true));
-            this.textBox2.Location = new System.Drawing.Point(771, 72);
+            this.textBox2.Location = new System.Drawing.Point(178, 50);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(33, 24);
@@ -592,7 +554,7 @@ namespace QWS_Local
             // 
             this.isLeadVehicleCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.vehicleBindingSource, "IsLeadVehicle", true));
             this.isLeadVehicleCheckBox.Enabled = false;
-            this.isLeadVehicleCheckBox.Location = new System.Drawing.Point(678, 303);
+            this.isLeadVehicleCheckBox.Location = new System.Drawing.Point(85, 281);
             this.isLeadVehicleCheckBox.Name = "isLeadVehicleCheckBox";
             this.isLeadVehicleCheckBox.Size = new System.Drawing.Size(210, 24);
             this.isLeadVehicleCheckBox.TabIndex = 67;
@@ -602,7 +564,7 @@ namespace QWS_Local
             // txtSAPCode
             // 
             this.txtSAPCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "CardCode", true));
-            this.txtSAPCode.Location = new System.Drawing.Point(209, 110);
+            this.txtSAPCode.Location = new System.Drawing.Point(393, 174);
             this.txtSAPCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtSAPCode.Name = "txtSAPCode";
             this.txtSAPCode.Size = new System.Drawing.Size(72, 24);
@@ -613,7 +575,7 @@ namespace QWS_Local
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.axleConfigurationBindingSource, "Schematic", true));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(676, 338);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 14);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(452, 152);
@@ -623,10 +585,10 @@ namespace QWS_Local
             // 
             // btnVehiclesByCardCode
             // 
-            this.btnVehiclesByCardCode.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnVehiclesByCardCode.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnVehiclesByCardCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVehiclesByCardCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVehiclesByCardCode.Location = new System.Drawing.Point(303, 109);
+            this.btnVehiclesByCardCode.Location = new System.Drawing.Point(759, 47);
             this.btnVehiclesByCardCode.Margin = new System.Windows.Forms.Padding(4);
             this.btnVehiclesByCardCode.Name = "btnVehiclesByCardCode";
             this.btnVehiclesByCardCode.Size = new System.Drawing.Size(137, 25);
@@ -686,10 +648,10 @@ namespace QWS_Local
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.SkyBlue;
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(472, 595);
+            this.button1.Location = new System.Drawing.Point(481, 156);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 32);
@@ -713,17 +675,17 @@ namespace QWS_Local
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.vehicleApprovalDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.bsVehiclePBS;
-            this.dataGridView1.Location = new System.Drawing.Point(208, 521);
+            this.dataGridView1.Location = new System.Drawing.Point(217, 82);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(163, 106);
             this.dataGridView1.TabIndex = 72;
             // 
             // btnAddPBS
             // 
-            this.btnAddPBS.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnAddPBS.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnAddPBS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddPBS.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPBS.Location = new System.Drawing.Point(472, 555);
+            this.btnAddPBS.Location = new System.Drawing.Point(481, 116);
             this.btnAddPBS.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddPBS.Name = "btnAddPBS";
             this.btnAddPBS.Size = new System.Drawing.Size(130, 32);
@@ -734,7 +696,7 @@ namespace QWS_Local
             // 
             // txtPBS_VA
             // 
-            this.txtPBS_VA.Location = new System.Drawing.Point(472, 521);
+            this.txtPBS_VA.Location = new System.Drawing.Point(481, 82);
             this.txtPBS_VA.Name = "txtPBS_VA";
             this.txtPBS_VA.Size = new System.Drawing.Size(130, 24);
             this.txtPBS_VA.TabIndex = 76;
@@ -753,9 +715,9 @@ namespace QWS_Local
             this.commentDataGridViewTextBoxColumn,
             this.activeDataGridViewCheckBoxColumn});
             this.dataGridView2.DataSource = this.bsVehiclePrefCustomers;
-            this.dataGridView2.Location = new System.Drawing.Point(12, 320);
+            this.dataGridView2.Location = new System.Drawing.Point(100, 84);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(614, 150);
+            this.dataGridView2.Size = new System.Drawing.Size(911, 285);
             this.dataGridView2.TabIndex = 77;
             // 
             // prefCustIDDataGridViewTextBoxColumn
@@ -818,10 +780,10 @@ namespace QWS_Local
             // 
             // btnSavePrefCustomers
             // 
-            this.btnSavePrefCustomers.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnSavePrefCustomers.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSavePrefCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSavePrefCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSavePrefCustomers.Location = new System.Drawing.Point(438, 477);
+            this.btnSavePrefCustomers.Location = new System.Drawing.Point(423, 25);
             this.btnSavePrefCustomers.Margin = new System.Windows.Forms.Padding(4);
             this.btnSavePrefCustomers.Name = "btnSavePrefCustomers";
             this.btnSavePrefCustomers.Size = new System.Drawing.Size(164, 25);
@@ -830,89 +792,170 @@ namespace QWS_Local
             this.btnSavePrefCustomers.UseVisualStyleBackColor = false;
             this.btnSavePrefCustomers.Click += new System.EventHandler(this.btnSavePrefCustomers_Click);
             // 
-            // btnLoadPrefCustomers
-            // 
-            this.btnLoadPrefCustomers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnLoadPrefCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadPrefCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoadPrefCustomers.Location = new System.Drawing.Point(349, 477);
-            this.btnLoadPrefCustomers.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLoadPrefCustomers.Name = "btnLoadPrefCustomers";
-            this.btnLoadPrefCustomers.Size = new System.Drawing.Size(61, 25);
-            this.btnLoadPrefCustomers.TabIndex = 79;
-            this.btnLoadPrefCustomers.Text = "Load";
-            this.btnLoadPrefCustomers.UseVisualStyleBackColor = false;
-            this.btnLoadPrefCustomers.Click += new System.EventHandler(this.btnLoadPrefCustomers_Click);
-            // 
             // textBox3
             // 
             this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "MassAccreditationLabel", true));
-            this.textBox3.Location = new System.Drawing.Point(208, 478);
+            this.textBox3.Location = new System.Drawing.Point(217, 39);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(116, 24);
             this.textBox3.TabIndex = 80;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tpOverview);
+            this.tabControl1.Controls.Add(this.tpDetails);
+            this.tabControl1.Controls.Add(this.tpPrefCust);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1171, 476);
+            this.tabControl1.TabIndex = 82;
+            // 
+            // tpOverview
+            // 
+            this.tpOverview.Controls.Add(this.txtVehicleMake);
+            this.tpOverview.Controls.Add(tareLabel);
+            this.tpOverview.Controls.Add(this.tareTextBox);
+            this.tpOverview.Controls.Add(expiryDTLabel);
+            this.tpOverview.Controls.Add(makeLabel);
+            this.tpOverview.Controls.Add(this.modelTextBox);
+            this.tpOverview.Controls.Add(modelLabel);
+            this.tpOverview.Controls.Add(this.txtRegoExpiryDT);
+            this.tpOverview.Location = new System.Drawing.Point(4, 27);
+            this.tpOverview.Name = "tpOverview";
+            this.tpOverview.Padding = new System.Windows.Forms.Padding(3);
+            this.tpOverview.Size = new System.Drawing.Size(1163, 445);
+            this.tpOverview.TabIndex = 0;
+            this.tpOverview.Text = "Overview";
+            this.tpOverview.UseVisualStyleBackColor = true;
+            // 
+            // tpDetails
+            // 
+            this.tpDetails.Controls.Add(this.textBox1);
+            this.tpDetails.Controls.Add(this.btnVehiclesByCardCode);
+            this.tpDetails.Controls.Add(this.txtAxleConfig);
+            this.tpDetails.Controls.Add(this.btnFeeCodesMore);
+            this.tpDetails.Controls.Add(label3);
+            this.tpDetails.Controls.Add(this.isLeadVehicleCheckBox);
+            this.tpDetails.Controls.Add(label2);
+            this.tpDetails.Controls.Add(this.textBox2);
+            this.tpDetails.Controls.Add(this.txtFeeCode);
+            this.tpDetails.Controls.Add(this.btnSetAxleConfig);
+            this.tpDetails.Controls.Add(this.btnSetFeeCodeMain);
+            this.tpDetails.Controls.Add(this.textBox6);
+            this.tpDetails.Controls.Add(jurisdictionLabel1);
+            this.tpDetails.Controls.Add(this.txtJurisdiction);
+            this.tpDetails.Controls.Add(this.textBox8);
+            this.tpDetails.Controls.Add(this.txtVIN);
+            this.tpDetails.Controls.Add(vINLabel);
+            this.tpDetails.Location = new System.Drawing.Point(4, 27);
+            this.tpDetails.Name = "tpDetails";
+            this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
+            this.tpDetails.Size = new System.Drawing.Size(1163, 445);
+            this.tpDetails.TabIndex = 1;
+            this.tpDetails.Text = "Details";
+            this.tpDetails.UseVisualStyleBackColor = true;
+            // 
+            // tpPrefCust
+            // 
+            this.tpPrefCust.Controls.Add(this.btnLoadPrefCustomers);
+            this.tpPrefCust.Controls.Add(this.btnSavePrefCustomers);
+            this.tpPrefCust.Controls.Add(this.dataGridView2);
+            this.tpPrefCust.Controls.Add(this.btnSetPrefCustomer);
+            this.tpPrefCust.Location = new System.Drawing.Point(4, 27);
+            this.tpPrefCust.Name = "tpPrefCust";
+            this.tpPrefCust.Size = new System.Drawing.Size(1163, 445);
+            this.tpPrefCust.TabIndex = 2;
+            this.tpPrefCust.Text = "Preferred Customers";
+            this.tpPrefCust.UseVisualStyleBackColor = true;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(label5);
+            this.tabPage1.Controls.Add(label1);
+            this.tabPage1.Controls.Add(this.textBox3);
+            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.txtPBS_VA);
+            this.tabPage1.Controls.Add(this.btnAddPBS);
+            this.tabPage1.Location = new System.Drawing.Point(4, 27);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(1163, 445);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnSetTruckOwner);
+            this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.txtRego);
+            this.splitContainer1.Panel1.Controls.Add(this.btnNewVehicleCurrentOwner);
+            this.splitContainer1.Panel1.Controls.Add(this.txtSAPCode);
+            this.splitContainer1.Panel1.Controls.Add(this.btnFindVehicle);
+            this.splitContainer1.Panel1.Controls.Add(this.btnNewVehicle);
+            this.splitContainer1.Panel1.Controls.Add(this.btnIdentificationSave);
+            this.splitContainer1.Panel1.Controls.Add(this.btnGo2Config);
+            this.splitContainer1.Panel1.Controls.Add(this.txtOwner);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
+            this.splitContainer1.Size = new System.Drawing.Size(1171, 696);
+            this.splitContainer1.SplitterDistance = 216;
+            this.splitContainer1.TabIndex = 83;
+            // 
+            // btnLoadPrefCustomers
+            // 
+            this.btnLoadPrefCustomers.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnLoadPrefCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadPrefCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoadPrefCustomers.Location = new System.Drawing.Point(150, 25);
+            this.btnLoadPrefCustomers.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLoadPrefCustomers.Name = "btnLoadPrefCustomers";
+            this.btnLoadPrefCustomers.Size = new System.Drawing.Size(61, 25);
+            this.btnLoadPrefCustomers.TabIndex = 80;
+            this.btnLoadPrefCustomers.Text = "Load";
+            this.btnLoadPrefCustomers.UseVisualStyleBackColor = false;
+            this.btnLoadPrefCustomers.Click += new System.EventHandler(this.btnLoadPrefCustomers_Click);
+            // 
+            // btnSetTruckOwner
+            // 
+            this.btnSetTruckOwner.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSetTruckOwner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetTruckOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetTruckOwner.Location = new System.Drawing.Point(473, 173);
+            this.btnSetTruckOwner.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSetTruckOwner.Name = "btnSetTruckOwner";
+            this.btnSetTruckOwner.Size = new System.Drawing.Size(61, 25);
+            this.btnSetTruckOwner.TabIndex = 20;
+            this.btnSetTruckOwner.Text = "Set";
+            this.btnSetTruckOwner.UseVisualStyleBackColor = false;
+            this.btnSetTruckOwner.Click += new System.EventHandler(this.btnSetTruckOwner_Click);
             // 
             // VehicleMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1171, 696);
-            this.Controls.Add(label5);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.btnLoadPrefCustomers);
-            this.Controls.Add(this.btnSavePrefCustomers);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.txtPBS_VA);
-            this.Controls.Add(this.btnAddPBS);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnVehiclesByCardCode);
-            this.Controls.Add(this.txtSAPCode);
-            this.Controls.Add(this.isLeadVehicleCheckBox);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(label1);
-            this.Controls.Add(label4);
-            this.Controls.Add(this.btnSetPrefCustomer);
-            this.Controls.Add(this.btnNewVehicleCurrentOwner);
-            this.Controls.Add(this.btnNewVehicle);
-            this.Controls.Add(this.btnGo2Config);
-            this.Controls.Add(this.btnFeeCodesMore);
-            this.Controls.Add(this.btnIdentificationSave);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.txtJurisdiction);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(jurisdictionLabel1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.txtRegoExpiryDT);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.txtRego);
-            this.Controls.Add(modelLabel);
-            this.Controls.Add(this.modelTextBox);
-            this.Controls.Add(this.btnFindVehicle);
-            this.Controls.Add(makeLabel);
-            this.Controls.Add(this.btnSetTruckOwner);
-            this.Controls.Add(this.txtVehicleMake);
-            this.Controls.Add(this.btnSetAxleConfig);
-            this.Controls.Add(ownerLabel);
-            this.Controls.Add(this.btnSetFeeCodeMain);
-            this.Controls.Add(this.txtOwner);
-            this.Controls.Add(this.txtFeeCode);
-            this.Controls.Add(expiryDTLabel);
-            this.Controls.Add(label2);
-            this.Controls.Add(vINLabel);
-            this.Controls.Add(this.tareTextBox);
-            this.Controls.Add(this.txtVIN);
-            this.Controls.Add(label3);
-            this.Controls.Add(regoLabel);
-            this.Controls.Add(this.txtAxleConfig);
-            this.Controls.Add(tareLabel);
+            this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VehicleMaintenance";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Vehicle_Maintenance";
             this.Load += new System.EventHandler(this.Vehicle_Maintenance_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VehicleMaintenance_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.vehicleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleRegFeeCodesBindingSource)).EndInit();
@@ -924,8 +967,20 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehiclePrefCustomers)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tpOverview.ResumeLayout(false);
+            this.tpOverview.PerformLayout();
+            this.tpDetails.ResumeLayout(false);
+            this.tpDetails.PerformLayout();
+            this.tpPrefCust.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -952,7 +1007,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox txtFeeCode;
         private System.Windows.Forms.Button btnSetAxleConfig;
         private System.Windows.Forms.Button btnSetFeeCodeMain;
-        private System.Windows.Forms.Button btnSetTruckOwner;
         private System.Windows.Forms.Button btnFindVehicle;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox6;
@@ -990,7 +1044,14 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
         private System.Windows.Forms.Button btnSavePrefCustomers;
-        private System.Windows.Forms.Button btnLoadPrefCustomers;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tpOverview;
+        private System.Windows.Forms.TabPage tpDetails;
+        private System.Windows.Forms.TabPage tpPrefCust;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Button btnSetTruckOwner;
+        private System.Windows.Forms.Button btnLoadPrefCustomers;
     }
 }

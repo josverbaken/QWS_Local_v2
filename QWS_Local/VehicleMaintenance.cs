@@ -25,6 +25,7 @@ namespace QWS_Local
             try
             {
                 txtJurisdiction.Text = Properties.Settings.Default.defaultJurisdiction;
+                this.KeyPreview = true; // enable Function keys
             }
             catch (Exception ex)
             {
@@ -615,6 +616,14 @@ namespace QWS_Local
         private void LoadPrefCustomers()
         {
             taVehiclePrefCustomers.FillBy(dsQWSLocal.VehiclePrefCustomers, CurrentVehicle().Rego);
+        }
+
+        private void VehicleMaintenance_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F3)
+            {
+                FindByOwnerOrRego();
+            }
         }
     }
 }
