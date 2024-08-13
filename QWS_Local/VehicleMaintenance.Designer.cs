@@ -41,6 +41,11 @@ namespace QWS_Local
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label5;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VehicleMaintenance));
+            System.Windows.Forms.Label label4;
+            System.Windows.Forms.Label label6;
+            System.Windows.Forms.Label label7;
+            System.Windows.Forms.Label label8;
+            System.Windows.Forms.Label label9;
             this.txtRego = new System.Windows.Forms.TextBox();
             this.vehicleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
@@ -88,14 +93,6 @@ namespace QWS_Local
             this.btnAddPBS = new System.Windows.Forms.Button();
             this.txtPBS_VA = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.prefCustIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.regoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cardCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prefCustomerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isDefaultDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.rankDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bsVehiclePrefCustomers = new System.Windows.Forms.BindingSource(this.components);
             this.taVehiclePrefCustomers = new QWS_Local.dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter();
             this.btnSavePrefCustomers = new System.Windows.Forms.Button();
@@ -108,6 +105,28 @@ namespace QWS_Local
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnLoadPrefCustomers = new System.Windows.Forms.Button();
             this.btnSetTruckOwner = new System.Windows.Forms.Button();
+            this.isDefaultDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cardCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prefCustomerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.btnGo2PrefCust = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             vINLabel = new System.Windows.Forms.Label();
             makeLabel = new System.Windows.Forms.Label();
             modelLabel = new System.Windows.Forms.Label();
@@ -118,6 +137,11 @@ namespace QWS_Local
             jurisdictionLabel1 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleRegFeeCodesBindingSource)).BeginInit();
@@ -138,12 +162,16 @@ namespace QWS_Local
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // vINLabel
             // 
             vINLabel.AutoSize = true;
-            vINLabel.Location = new System.Drawing.Point(113, 349);
+            vINLabel.Location = new System.Drawing.Point(101, 27);
             vINLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             vINLabel.Name = "vINLabel";
             vINLabel.Size = new System.Drawing.Size(35, 18);
@@ -198,7 +226,7 @@ namespace QWS_Local
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(91, 212);
+            label2.Location = new System.Drawing.Point(702, 218);
             label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(86, 18);
@@ -209,7 +237,7 @@ namespace QWS_Local
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(91, 50);
+            label3.Location = new System.Drawing.Point(702, 56);
             label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(81, 18);
@@ -220,7 +248,7 @@ namespace QWS_Local
             // jurisdictionLabel1
             // 
             jurisdictionLabel1.AutoSize = true;
-            jurisdictionLabel1.Location = new System.Drawing.Point(81, 16);
+            jurisdictionLabel1.Location = new System.Drawing.Point(692, 22);
             jurisdictionLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             jurisdictionLabel1.Name = "jurisdictionLabel1";
             jurisdictionLabel1.Size = new System.Drawing.Size(87, 18);
@@ -278,7 +306,7 @@ namespace QWS_Local
             // txtVIN
             // 
             this.txtVIN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "VIN", true));
-            this.txtVIN.Location = new System.Drawing.Point(185, 341);
+            this.txtVIN.Location = new System.Drawing.Point(173, 19);
             this.txtVIN.Margin = new System.Windows.Forms.Padding(4);
             this.txtVIN.MaxLength = 17;
             this.txtVIN.Name = "txtVIN";
@@ -301,6 +329,7 @@ namespace QWS_Local
             this.txtVehicleMake.Location = new System.Drawing.Point(186, 102);
             this.txtVehicleMake.Margin = new System.Windows.Forms.Padding(4);
             this.txtVehicleMake.Name = "txtVehicleMake";
+            this.txtVehicleMake.ReadOnly = true;
             this.txtVehicleMake.Size = new System.Drawing.Size(394, 24);
             this.txtVehicleMake.TabIndex = 6;
             // 
@@ -310,6 +339,7 @@ namespace QWS_Local
             this.modelTextBox.Location = new System.Drawing.Point(186, 138);
             this.modelTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.modelTextBox.Name = "modelTextBox";
+            this.modelTextBox.ReadOnly = true;
             this.modelTextBox.Size = new System.Drawing.Size(394, 24);
             this.modelTextBox.TabIndex = 7;
             // 
@@ -319,6 +349,7 @@ namespace QWS_Local
             this.tareTextBox.Location = new System.Drawing.Point(187, 212);
             this.tareTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.tareTextBox.Name = "tareTextBox";
+            this.tareTextBox.ReadOnly = true;
             this.tareTextBox.Size = new System.Drawing.Size(148, 24);
             this.tareTextBox.TabIndex = 9;
             // 
@@ -327,7 +358,7 @@ namespace QWS_Local
             this.btnFeeCodesMore.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnFeeCodesMore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFeeCodesMore.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFeeCodesMore.Location = new System.Drawing.Point(488, 42);
+            this.btnFeeCodesMore.Location = new System.Drawing.Point(965, 53);
             this.btnFeeCodesMore.Margin = new System.Windows.Forms.Padding(4);
             this.btnFeeCodesMore.Name = "btnFeeCodesMore";
             this.btnFeeCodesMore.Size = new System.Drawing.Size(56, 33);
@@ -340,7 +371,7 @@ namespace QWS_Local
             // txtJurisdiction
             // 
             this.txtJurisdiction.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleRegFeeCodesBindingSource, "Jurisdiction", true));
-            this.txtJurisdiction.Location = new System.Drawing.Point(178, 13);
+            this.txtJurisdiction.Location = new System.Drawing.Point(789, 19);
             this.txtJurisdiction.Margin = new System.Windows.Forms.Padding(4);
             this.txtJurisdiction.Name = "txtJurisdiction";
             this.txtJurisdiction.Size = new System.Drawing.Size(148, 24);
@@ -358,6 +389,7 @@ namespace QWS_Local
             this.txtRegoExpiryDT.Location = new System.Drawing.Point(186, 177);
             this.txtRegoExpiryDT.Margin = new System.Windows.Forms.Padding(4);
             this.txtRegoExpiryDT.Name = "txtRegoExpiryDT";
+            this.txtRegoExpiryDT.ReadOnly = true;
             this.txtRegoExpiryDT.Size = new System.Drawing.Size(394, 24);
             this.txtRegoExpiryDT.TabIndex = 8;
             this.txtRegoExpiryDT.Click += new System.EventHandler(this.txtRegoExpiryDT_Click);
@@ -397,7 +429,7 @@ namespace QWS_Local
             this.btnSetAxleConfig.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSetAxleConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetAxleConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetAxleConfig.Location = new System.Drawing.Point(485, 197);
+            this.btnSetAxleConfig.Location = new System.Drawing.Point(962, 208);
             this.btnSetAxleConfig.Margin = new System.Windows.Forms.Padding(4);
             this.btnSetAxleConfig.Name = "btnSetAxleConfig";
             this.btnSetAxleConfig.Size = new System.Drawing.Size(182, 33);
@@ -411,7 +443,7 @@ namespace QWS_Local
             this.btnSetFeeCodeMain.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSetFeeCodeMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetFeeCodeMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetFeeCodeMain.Location = new System.Drawing.Point(551, 42);
+            this.btnSetFeeCodeMain.Location = new System.Drawing.Point(1028, 53);
             this.btnSetFeeCodeMain.Margin = new System.Windows.Forms.Padding(4);
             this.btnSetFeeCodeMain.Name = "btnSetFeeCodeMain";
             this.btnSetFeeCodeMain.Size = new System.Drawing.Size(116, 33);
@@ -423,7 +455,7 @@ namespace QWS_Local
             // txtFeeCode
             // 
             this.txtFeeCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleRegFeeCodesBindingSource, "FeeCode", true));
-            this.txtFeeCode.Location = new System.Drawing.Point(219, 50);
+            this.txtFeeCode.Location = new System.Drawing.Point(830, 56);
             this.txtFeeCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtFeeCode.Name = "txtFeeCode";
             this.txtFeeCode.Size = new System.Drawing.Size(107, 24);
@@ -432,7 +464,7 @@ namespace QWS_Local
             // txtAxleConfig
             // 
             this.txtAxleConfig.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "AxleConfiguration", true));
-            this.txtAxleConfig.Location = new System.Drawing.Point(185, 209);
+            this.txtAxleConfig.Location = new System.Drawing.Point(796, 215);
             this.txtAxleConfig.Margin = new System.Windows.Forms.Padding(4);
             this.txtAxleConfig.Name = "txtAxleConfig";
             this.txtAxleConfig.ReadOnly = true;
@@ -443,7 +475,7 @@ namespace QWS_Local
             // textBox8
             // 
             this.textBox8.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.axleConfigurationBindingSource, "VehicleDescription", true));
-            this.textBox8.Location = new System.Drawing.Point(85, 248);
+            this.textBox8.Location = new System.Drawing.Point(696, 254);
             this.textBox8.Margin = new System.Windows.Forms.Padding(4);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
@@ -460,7 +492,7 @@ namespace QWS_Local
             // textBox1
             // 
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleRegFeeCodesBindingSource, "FeeConditions", true));
-            this.textBox1.Location = new System.Drawing.Point(85, 121);
+            this.textBox1.Location = new System.Drawing.Point(696, 127);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -472,7 +504,7 @@ namespace QWS_Local
             // textBox6
             // 
             this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleRegFeeCodesBindingSource, "FeeType", true));
-            this.textBox6.Location = new System.Drawing.Point(85, 89);
+            this.textBox6.Location = new System.Drawing.Point(696, 95);
             this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
@@ -544,7 +576,7 @@ namespace QWS_Local
             // textBox2
             // 
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "FeeCodeID", true));
-            this.textBox2.Location = new System.Drawing.Point(178, 50);
+            this.textBox2.Location = new System.Drawing.Point(789, 56);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(33, 24);
@@ -554,7 +586,7 @@ namespace QWS_Local
             // 
             this.isLeadVehicleCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.vehicleBindingSource, "IsLeadVehicle", true));
             this.isLeadVehicleCheckBox.Enabled = false;
-            this.isLeadVehicleCheckBox.Location = new System.Drawing.Point(85, 281);
+            this.isLeadVehicleCheckBox.Location = new System.Drawing.Point(357, 50);
             this.isLeadVehicleCheckBox.Name = "isLeadVehicleCheckBox";
             this.isLeadVehicleCheckBox.Size = new System.Drawing.Size(210, 24);
             this.isLeadVehicleCheckBox.TabIndex = 67;
@@ -588,10 +620,10 @@ namespace QWS_Local
             this.btnVehiclesByCardCode.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnVehiclesByCardCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVehiclesByCardCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVehiclesByCardCode.Location = new System.Drawing.Point(759, 47);
+            this.btnVehiclesByCardCode.Location = new System.Drawing.Point(579, 173);
             this.btnVehiclesByCardCode.Margin = new System.Windows.Forms.Padding(4);
             this.btnVehiclesByCardCode.Name = "btnVehiclesByCardCode";
-            this.btnVehiclesByCardCode.Size = new System.Drawing.Size(137, 25);
+            this.btnVehiclesByCardCode.Size = new System.Drawing.Size(182, 25);
             this.btnVehiclesByCardCode.TabIndex = 69;
             this.btnVehiclesByCardCode.Text = "List Vehicles";
             this.btnVehiclesByCardCode.UseVisualStyleBackColor = false;
@@ -668,7 +700,6 @@ namespace QWS_Local
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
@@ -706,12 +737,9 @@ namespace QWS_Local
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.prefCustIDDataGridViewTextBoxColumn,
-            this.regoDataGridViewTextBoxColumn,
+            this.isDefaultDataGridViewCheckBoxColumn,
             this.cardCodeDataGridViewTextBoxColumn,
             this.prefCustomerDataGridViewTextBoxColumn,
-            this.isDefaultDataGridViewCheckBoxColumn,
-            this.rankDataGridViewTextBoxColumn,
             this.commentDataGridViewTextBoxColumn,
             this.activeDataGridViewCheckBoxColumn});
             this.dataGridView2.DataSource = this.bsVehiclePrefCustomers;
@@ -719,55 +747,6 @@ namespace QWS_Local
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(911, 285);
             this.dataGridView2.TabIndex = 77;
-            // 
-            // prefCustIDDataGridViewTextBoxColumn
-            // 
-            this.prefCustIDDataGridViewTextBoxColumn.DataPropertyName = "PrefCustID";
-            this.prefCustIDDataGridViewTextBoxColumn.HeaderText = "PrefCustID";
-            this.prefCustIDDataGridViewTextBoxColumn.Name = "prefCustIDDataGridViewTextBoxColumn";
-            this.prefCustIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // regoDataGridViewTextBoxColumn
-            // 
-            this.regoDataGridViewTextBoxColumn.DataPropertyName = "Rego";
-            this.regoDataGridViewTextBoxColumn.HeaderText = "Rego";
-            this.regoDataGridViewTextBoxColumn.Name = "regoDataGridViewTextBoxColumn";
-            // 
-            // cardCodeDataGridViewTextBoxColumn
-            // 
-            this.cardCodeDataGridViewTextBoxColumn.DataPropertyName = "CardCode";
-            this.cardCodeDataGridViewTextBoxColumn.HeaderText = "CardCode";
-            this.cardCodeDataGridViewTextBoxColumn.Name = "cardCodeDataGridViewTextBoxColumn";
-            // 
-            // prefCustomerDataGridViewTextBoxColumn
-            // 
-            this.prefCustomerDataGridViewTextBoxColumn.DataPropertyName = "PrefCustomer";
-            this.prefCustomerDataGridViewTextBoxColumn.HeaderText = "PrefCustomer";
-            this.prefCustomerDataGridViewTextBoxColumn.Name = "prefCustomerDataGridViewTextBoxColumn";
-            // 
-            // isDefaultDataGridViewCheckBoxColumn
-            // 
-            this.isDefaultDataGridViewCheckBoxColumn.DataPropertyName = "IsDefault";
-            this.isDefaultDataGridViewCheckBoxColumn.HeaderText = "IsDefault";
-            this.isDefaultDataGridViewCheckBoxColumn.Name = "isDefaultDataGridViewCheckBoxColumn";
-            // 
-            // rankDataGridViewTextBoxColumn
-            // 
-            this.rankDataGridViewTextBoxColumn.DataPropertyName = "Rank";
-            this.rankDataGridViewTextBoxColumn.HeaderText = "Rank";
-            this.rankDataGridViewTextBoxColumn.Name = "rankDataGridViewTextBoxColumn";
-            // 
-            // commentDataGridViewTextBoxColumn
-            // 
-            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
-            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
-            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
-            // 
-            // activeDataGridViewCheckBoxColumn
-            // 
-            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
-            this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
-            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
             // 
             // bsVehiclePrefCustomers
             // 
@@ -816,6 +795,15 @@ namespace QWS_Local
             // 
             // tpOverview
             // 
+            this.tpOverview.BackColor = System.Drawing.SystemColors.Control;
+            this.tpOverview.Controls.Add(this.groupBox2);
+            this.tpOverview.Controls.Add(this.textBox13);
+            this.tpOverview.Controls.Add(label9);
+            this.tpOverview.Controls.Add(this.panel2);
+            this.tpOverview.Controls.Add(this.groupBox1);
+            this.tpOverview.Controls.Add(this.textBox10);
+            this.tpOverview.Controls.Add(this.textBox11);
+            this.tpOverview.Controls.Add(this.textBox12);
             this.tpOverview.Controls.Add(this.txtVehicleMake);
             this.tpOverview.Controls.Add(tareLabel);
             this.tpOverview.Controls.Add(this.tareTextBox);
@@ -830,12 +818,18 @@ namespace QWS_Local
             this.tpOverview.Size = new System.Drawing.Size(1163, 445);
             this.tpOverview.TabIndex = 0;
             this.tpOverview.Text = "Overview";
-            this.tpOverview.UseVisualStyleBackColor = true;
             // 
             // tpDetails
             // 
+            this.tpDetails.Controls.Add(this.textBox4);
+            this.tpDetails.Controls.Add(label4);
+            this.tpDetails.Controls.Add(this.textBox5);
+            this.tpDetails.Controls.Add(label6);
+            this.tpDetails.Controls.Add(label7);
+            this.tpDetails.Controls.Add(this.textBox7);
+            this.tpDetails.Controls.Add(label8);
+            this.tpDetails.Controls.Add(this.textBox9);
             this.tpDetails.Controls.Add(this.textBox1);
-            this.tpDetails.Controls.Add(this.btnVehiclesByCardCode);
             this.tpDetails.Controls.Add(this.txtAxleConfig);
             this.tpDetails.Controls.Add(this.btnFeeCodesMore);
             this.tpDetails.Controls.Add(label3);
@@ -885,7 +879,7 @@ namespace QWS_Local
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Size = new System.Drawing.Size(1163, 445);
             this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "NHVR Checker App";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
@@ -898,6 +892,7 @@ namespace QWS_Local
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.btnSetTruckOwner);
+            this.splitContainer1.Panel1.Controls.Add(this.btnVehiclesByCardCode);
             this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
             this.splitContainer1.Panel1.Controls.Add(this.txtRego);
             this.splitContainer1.Panel1.Controls.Add(this.btnNewVehicleCurrentOwner);
@@ -937,11 +932,280 @@ namespace QWS_Local
             this.btnSetTruckOwner.Location = new System.Drawing.Point(473, 173);
             this.btnSetTruckOwner.Margin = new System.Windows.Forms.Padding(4);
             this.btnSetTruckOwner.Name = "btnSetTruckOwner";
-            this.btnSetTruckOwner.Size = new System.Drawing.Size(61, 25);
+            this.btnSetTruckOwner.Size = new System.Drawing.Size(98, 25);
             this.btnSetTruckOwner.TabIndex = 20;
             this.btnSetTruckOwner.Text = "Set";
             this.btnSetTruckOwner.UseVisualStyleBackColor = false;
             this.btnSetTruckOwner.Click += new System.EventHandler(this.btnSetTruckOwner_Click);
+            // 
+            // isDefaultDataGridViewCheckBoxColumn
+            // 
+            this.isDefaultDataGridViewCheckBoxColumn.DataPropertyName = "IsDefault";
+            this.isDefaultDataGridViewCheckBoxColumn.HeaderText = "IsDefault";
+            this.isDefaultDataGridViewCheckBoxColumn.Name = "isDefaultDataGridViewCheckBoxColumn";
+            // 
+            // cardCodeDataGridViewTextBoxColumn
+            // 
+            this.cardCodeDataGridViewTextBoxColumn.DataPropertyName = "CardCode";
+            this.cardCodeDataGridViewTextBoxColumn.HeaderText = "CardCode";
+            this.cardCodeDataGridViewTextBoxColumn.Name = "cardCodeDataGridViewTextBoxColumn";
+            // 
+            // prefCustomerDataGridViewTextBoxColumn
+            // 
+            this.prefCustomerDataGridViewTextBoxColumn.DataPropertyName = "PrefCustomer";
+            this.prefCustomerDataGridViewTextBoxColumn.HeaderText = "PrefCustomer";
+            this.prefCustomerDataGridViewTextBoxColumn.Name = "prefCustomerDataGridViewTextBoxColumn";
+            this.prefCustomerDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // commentDataGridViewTextBoxColumn
+            // 
+            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
+            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
+            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
+            this.commentDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // activeDataGridViewCheckBoxColumn
+            // 
+            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
+            this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
+            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
+            // 
+            // textBox4
+            // 
+            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "Make", true));
+            this.textBox4.Location = new System.Drawing.Point(173, 81);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(394, 24);
+            this.textBox4.TabIndex = 68;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(15, 194);
+            label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(117, 18);
+            label4.TabIndex = 74;
+            label4.Text = "Registered Tare:";
+            label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBox5
+            // 
+            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "RegisteredTare", true));
+            this.textBox5.Location = new System.Drawing.Point(174, 191);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(148, 24);
+            this.textBox5.TabIndex = 71;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(56, 159);
+            label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(76, 18);
+            label6.TabIndex = 75;
+            label6.Text = "Expiry DT:";
+            label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(86, 89);
+            label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(49, 18);
+            label7.TabIndex = 72;
+            label7.Text = "Make:";
+            label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBox7
+            // 
+            this.textBox7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "Model", true));
+            this.textBox7.Location = new System.Drawing.Point(173, 117);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(394, 24);
+            this.textBox7.TabIndex = 69;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(80, 125);
+            label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(53, 18);
+            label8.TabIndex = 73;
+            label8.Text = "Model:";
+            label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBox9
+            // 
+            this.textBox9.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "RegistrationExpiryDT", true));
+            this.textBox9.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.textBox9.Location = new System.Drawing.Point(173, 156);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(394, 24);
+            this.textBox9.TabIndex = 70;
+            // 
+            // textBox10
+            // 
+            this.textBox10.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "AxleConfiguration", true));
+            this.textBox10.Location = new System.Drawing.Point(313, 244);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
+            this.textBox10.Size = new System.Drawing.Size(148, 24);
+            this.textBox10.TabIndex = 38;
+            this.textBox10.TabStop = false;
+            // 
+            // textBox11
+            // 
+            this.textBox11.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleRegFeeCodesBindingSource, "FeeCode", true));
+            this.textBox11.Location = new System.Drawing.Point(187, 244);
+            this.textBox11.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.ReadOnly = true;
+            this.textBox11.Size = new System.Drawing.Size(107, 24);
+            this.textBox11.TabIndex = 37;
+            // 
+            // textBox12
+            // 
+            this.textBox12.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.axleConfigurationBindingSource, "VehicleDescription", true));
+            this.textBox12.Location = new System.Drawing.Point(186, 276);
+            this.textBox12.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.ReadOnly = true;
+            this.textBox12.Size = new System.Drawing.Size(448, 24);
+            this.textBox12.TabIndex = 39;
+            this.textBox12.TabStop = false;
+            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Location = new System.Drawing.Point(698, 244);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(296, 71);
+            this.groupBox1.TabIndex = 41;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Mass Management Accreditation";
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(21, 38);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(14, 13);
+            this.radioButton2.TabIndex = 0;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnGo2PrefCust);
+            this.panel2.Controls.Add(this.radioButton3);
+            this.panel2.Location = new System.Drawing.Point(698, 34);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(296, 53);
+            this.panel2.TabIndex = 41;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(21, 17);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(131, 22);
+            this.radioButton3.TabIndex = 0;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Pref Customers";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // textBox13
+            // 
+            this.textBox13.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "VIN", true));
+            this.textBox13.Location = new System.Drawing.Point(186, 63);
+            this.textBox13.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox13.MaxLength = 17;
+            this.textBox13.Name = "textBox13";
+            this.textBox13.ReadOnly = true;
+            this.textBox13.Size = new System.Drawing.Size(394, 24);
+            this.textBox13.TabIndex = 42;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(114, 71);
+            label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(35, 18);
+            label9.TabIndex = 43;
+            label9.Text = "VIN:";
+            label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnGo2PrefCust
+            // 
+            this.btnGo2PrefCust.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnGo2PrefCust.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGo2PrefCust.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGo2PrefCust.Location = new System.Drawing.Point(164, 16);
+            this.btnGo2PrefCust.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGo2PrefCust.Name = "btnGo2PrefCust";
+            this.btnGo2PrefCust.Size = new System.Drawing.Size(98, 25);
+            this.btnGo2PrefCust.TabIndex = 70;
+            this.btnGo2PrefCust.Text = "Set";
+            this.btnGo2PrefCust.UseVisualStyleBackColor = false;
+            this.btnGo2PrefCust.Click += new System.EventHandler(this.btnGo2PrefCust_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(165, 31);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(98, 25);
+            this.button3.TabIndex = 71;
+            this.button3.Text = "Set";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AutoGenerateColumns = false;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.ColumnHeadersVisible = false;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1});
+            this.dataGridView3.DataSource = this.bsVehiclePBS;
+            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView3.Location = new System.Drawing.Point(3, 20);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(290, 113);
+            this.dataGridView3.TabIndex = 73;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "VehicleApproval";
+            this.dataGridViewTextBoxColumn1.HeaderText = "VA";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridView3);
+            this.groupBox2.Location = new System.Drawing.Point(698, 102);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(296, 136);
+            this.groupBox2.TabIndex = 74;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "PBS";
             // 
             // VehicleMaintenance
             // 
@@ -980,6 +1244,12 @@ namespace QWS_Local
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1035,14 +1305,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.BindingSource bsVehiclePrefCustomers;
         private dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter taVehiclePrefCustomers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prefCustIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn regoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cardCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prefCustomerDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn isDefaultDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rankDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
         private System.Windows.Forms.Button btnSavePrefCustomers;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TabControl tabControl1;
@@ -1053,5 +1315,27 @@ namespace QWS_Local
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button btnSetTruckOwner;
         private System.Windows.Forms.Button btnLoadPrefCustomers;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isDefaultDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cardCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prefCustomerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.Button btnGo2PrefCust;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
     }
 }

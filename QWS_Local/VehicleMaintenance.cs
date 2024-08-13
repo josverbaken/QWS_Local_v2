@@ -616,6 +616,7 @@ namespace QWS_Local
         private void LoadPrefCustomers()
         {
             taVehiclePrefCustomers.FillBy(dsQWSLocal.VehiclePrefCustomers, CurrentVehicle().Rego);
+            bsVehiclePrefCustomers.Sort = "IsDefault DESC, PrefCustomer ASC";
         }
 
         private void VehicleMaintenance_KeyDown(object sender, KeyEventArgs e)
@@ -624,6 +625,16 @@ namespace QWS_Local
             {
                 FindByOwnerOrRego();
             }
+        }
+
+        private void btnGo2PrefCust_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tpPrefCust;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabPage1;
         }
     }
 }
