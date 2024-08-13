@@ -226,30 +226,15 @@ namespace QWS_Local
         {
             if (dataGridView1.SelectedRows.Count == 1)
             {
-                // TODO implement switch to refactor code
-                //switch (CurrentTIQ().QueueStatus)
-                //{
-                //    case "U":
-                //        MessageBox.Show("Contact customer to confirm okay to pick up.", "Confirm non-preferred customer.");
-                //        break;
-                //    case "Q":
-                //        CurrentTIQ().QueueStatus = "H";
-                //        break;
-                //    case "H":
-                //        CurrentTIQ().QueueStatus = "Q";
-                //        break;
-                //    default:
-                //        break;
-                //}
-
-                if (CurrentTIQ().QueueStatus == "H" || CurrentTIQ().QueueStatus == "U")
+                DialogResult dr;
+                WeighTruck frmWeighTruck;
+                decimal myWeight;
+                switch (CurrentTIQ().QueueStatus)
                 {
-                    if(CurrentTIQ().QueueStatus == "U")
-                    {
-                        DialogResult dr = MessageBox.Show("Contact customer to confirm if OK to pick up.", "Queuestatus = U", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    case "U":
+                        dr = MessageBox.Show("Contact customer to confirm if OK to pick up.", "Queuestatus = U", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                         if (dr == DialogResult.OK)
                         {
-                            // TODO show customer confirm form
                             if (CheckConfirmCustomer() == true)
                             {
                                 CurrentTIQ().QueueStatus = "Q";
@@ -258,31 +243,26 @@ namespace QWS_Local
                                 RefreshQueue();
                             }
                         }
-                    }
-                    else
-                    {
+                        else
+                        {
+                            MessageBox.Show("Customer NOT confirmed, so cannot proceed!", "Customer Unconfirmed!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        break;
+                    case "H":
                         MessageBox.Show("Truck is still on hold, cannot proceed!", "Queuestatus = H", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-                else
-                {
-                    // TODO check if Item is QA
-                    DialogResult dr;
-                    WeighTruck frmWeighTruck;
-                    if (CurrentTIQ().QueueStatus == "T" && CurrentTIQ().TruckConfig == "TT")
-                    {
-                        frmWeighTruck = new WeighTruck("Collect Tare of as split weight");
-                        dr = frmWeighTruck.ShowDialog();
-                    }
-                    else
-                    {
-                        frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.");
-                        dr = frmWeighTruck.ShowDialog();
-                    }
-                    if (dr == DialogResult.OK)
-                    {
-
-                        if (CurrentTIQ().QueueStatus == "T") // Tare
+                        break;
+                    case "T":
+                        if (CurrentTIQ().QueueStatus == "T" && CurrentTIQ().TruckConfig == "TT")
+                        {
+                            frmWeighTruck = new WeighTruck("Collect Tare of as split weight");
+                            dr = frmWeighTruck.ShowDialog();
+                        }
+                        else
+                        {
+                            frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.");
+                            dr = frmWeighTruck.ShowDialog();
+                        }
+                        if (dr == DialogResult.OK)
                         {
                             string myRego = CurrentTIQ().Rego;
                             int myTruckConfigID = CurrentTIQ().TruckConfigID;
@@ -309,84 +289,104 @@ namespace QWS_Local
                         }
                         else
                         {
-                            decimal myWeight = frmWeighTruck.Weight;
-                            if (CurrentTIQ().QueueStatus == "I")
+                            MessageBox.Show("Weighing cancelled!");
+                        }
+                        break;
+                    case "I":
+                        frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.");
+                        dr = frmWeighTruck.ShowDialog();
+                        myWeight = frmWeighTruck.Weight;
+                        if (dr == DialogResult.OK)
+                        {
+                            if (myWeight > CurrentTIQ().GCM)
                             {
-                                if (myWeight > CurrentTIQ().GCM)
-                                {
-                                    ImportedOverload frmImportedOverload = new ImportedOverload(CurrentTIQ().DriverID, CurrentTIQ().Driver, myWeight, CurrentTIQ().GCM);
-                                    DialogResult dr2 = frmImportedOverload.ShowDialog();
-                                    if (dr2 == DialogResult.OK)
-                                    {
-                                        CurrentTIQ().Gross = myWeight;
-                                        CurrentTIQ().QueueStatus = "G";
-                                        CurrentTIQ().OverloadPoints = frmImportedOverload.OverloadPoints;
-                                        CurrentTIQ().OverloadDesc = frmImportedOverload.OverloadDesc;
-                                        bsTIQ2.EndEdit();
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Imported Weighing Cancelled!");
-                                    }
-                                }
-                                else
+                                ImportedOverload frmImportedOverload = new ImportedOverload(CurrentTIQ().DriverID, CurrentTIQ().Driver, myWeight, CurrentTIQ().GCM);
+                                DialogResult dr2 = frmImportedOverload.ShowDialog();
+                                if (dr2 == DialogResult.OK)
                                 {
                                     CurrentTIQ().Gross = myWeight;
                                     CurrentTIQ().QueueStatus = "G";
+                                    CurrentTIQ().OverloadPoints = frmImportedOverload.OverloadPoints;
+                                    CurrentTIQ().OverloadDesc = frmImportedOverload.OverloadDesc;
                                     bsTIQ2.EndEdit();
-                                }
-                                taTIQ2.Update(dsTIQ2.TIQ);
-                                RefreshQueue();
-                            }
-                            else if (CurrentTIQ().QueueStatus == "G")
-                            {
-                                CurrentTIQ().Tare = myWeight;
-                                CurrentTIQ().Nett = CurrentTIQ().Gross - myWeight;
-                                CurrentTIQ().QueueStatus = "E";
-                                bsTIQ2.EndEdit();
-                                taTIQ2.Update(dsTIQ2.TIQ);
-
-                                if (ConfirmPostDocket())
-                                {
-                                    PostDocket();
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Post docket - cancelled!");
+                                    MessageBox.Show("Imported Weighing Cancelled!");
                                 }
                             }
                             else
                             {
-                                decimal myQty = myWeight - CurrentTIQ().Tare;
                                 CurrentTIQ().Gross = myWeight;
-                                CurrentTIQ().Nett = myQty;
+                                CurrentTIQ().QueueStatus = "G";
                                 bsTIQ2.EndEdit();
-                                taTIQ2.Update(dsTIQ2.TIQ);
+                            }
+                            taTIQ2.Update(dsTIQ2.TIQ);
+                            //RefreshQueue();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Weighing cancelled!");
+                        }
+                        break;
+                    case "G":
+                        frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.");
+                        dr = frmWeighTruck.ShowDialog();
+                        myWeight = frmWeighTruck.Weight;
+                        if (dr == DialogResult.OK)
+                        {
+                            CurrentTIQ().Tare = myWeight;
+                            CurrentTIQ().Nett = CurrentTIQ().Gross - myWeight;
+                            CurrentTIQ().QueueStatus = "E";
+                            bsTIQ2.EndEdit();
+                            taTIQ2.Update(dsTIQ2.TIQ);
 
-                                if (ConfirmPostDocket())
-                                {
-                                    PostDocket();
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Post docket - cancelled!");
-                                }
+                            if (ConfirmPostDocket())
+                            {
+                                PostDocket();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Post docket - cancelled!");
                             }
                         }
 
+                        break;
+                    case "Q":
+                        frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.");
+                        dr = frmWeighTruck.ShowDialog();
+                        myWeight = frmWeighTruck.Weight;
+                        if (dr == DialogResult.OK)
+                        {
+                            decimal myQty = myWeight - CurrentTIQ().Tare;
+                            CurrentTIQ().Gross = myWeight;
+                            CurrentTIQ().Nett = myQty;
+                            bsTIQ2.EndEdit();
+                            taTIQ2.Update(dsTIQ2.TIQ);
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Weighing cancelled!");
-                    }
+                            if (ConfirmPostDocket())
+                            {
+                                PostDocket();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Post docket - cancelled!");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Weighing cancelled!");
+                        }
+                        break;
+                    default:
+                        break;
                 }
-             
-        }
+            }
             else
             {
-                MessageBox.Show("Please select a truck to weigh!", "No truck selected yet!", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a truck to weigh!", "No truck selected yet!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
         }
 
         private void GoBack2BookIn(string Rego, int TruckConfigID, int DriverID)

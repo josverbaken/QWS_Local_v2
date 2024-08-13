@@ -48,6 +48,7 @@ namespace QWS_Local
         private void PreferredCustomers_Load(object sender, EventArgs e)
         {
             GetPrefCustomers();
+            bsVehiclePrefCustomers.Sort = "IsDefault DESC, PrefCustomer ASC";
         }
 
         private void btnSelect_Click(object sender, EventArgs e)

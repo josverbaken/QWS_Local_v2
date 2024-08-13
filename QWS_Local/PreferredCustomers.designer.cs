@@ -35,15 +35,14 @@ namespace QWS_Local
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.taVehiclePrefCustomers = new QWS_Local.dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cardCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prefCustomerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isDefaultDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.rankDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.isDefaultDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cardCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prefCustomerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehiclePrefCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
@@ -75,57 +74,23 @@ namespace QWS_Local
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.isDefaultDataGridViewCheckBoxColumn,
             this.cardCodeDataGridViewTextBoxColumn,
             this.prefCustomerDataGridViewTextBoxColumn,
-            this.isDefaultDataGridViewCheckBoxColumn,
-            this.rankDataGridViewTextBoxColumn,
             this.commentDataGridViewTextBoxColumn,
             this.activeDataGridViewCheckBoxColumn});
             this.dataGridView1.DataSource = this.bsVehiclePrefCustomers;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(674, 177);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(910, 177);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // cardCodeDataGridViewTextBoxColumn
-            // 
-            this.cardCodeDataGridViewTextBoxColumn.DataPropertyName = "CardCode";
-            this.cardCodeDataGridViewTextBoxColumn.HeaderText = "CardCode";
-            this.cardCodeDataGridViewTextBoxColumn.Name = "cardCodeDataGridViewTextBoxColumn";
-            // 
-            // prefCustomerDataGridViewTextBoxColumn
-            // 
-            this.prefCustomerDataGridViewTextBoxColumn.DataPropertyName = "PrefCustomer";
-            this.prefCustomerDataGridViewTextBoxColumn.HeaderText = "PrefCustomer";
-            this.prefCustomerDataGridViewTextBoxColumn.Name = "prefCustomerDataGridViewTextBoxColumn";
-            // 
-            // isDefaultDataGridViewCheckBoxColumn
-            // 
-            this.isDefaultDataGridViewCheckBoxColumn.DataPropertyName = "IsDefault";
-            this.isDefaultDataGridViewCheckBoxColumn.HeaderText = "IsDefault";
-            this.isDefaultDataGridViewCheckBoxColumn.Name = "isDefaultDataGridViewCheckBoxColumn";
-            // 
-            // rankDataGridViewTextBoxColumn
-            // 
-            this.rankDataGridViewTextBoxColumn.DataPropertyName = "Rank";
-            this.rankDataGridViewTextBoxColumn.HeaderText = "Rank";
-            this.rankDataGridViewTextBoxColumn.Name = "rankDataGridViewTextBoxColumn";
-            // 
-            // commentDataGridViewTextBoxColumn
-            // 
-            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
-            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
-            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
-            // 
-            // activeDataGridViewCheckBoxColumn
-            // 
-            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
-            this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
-            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
             // 
             // btnSelect
             // 
@@ -162,16 +127,54 @@ namespace QWS_Local
             // 
             this.splitContainer1.Panel2.Controls.Add(this.btnSelect);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancel);
-            this.splitContainer1.Size = new System.Drawing.Size(674, 282);
+            this.splitContainer1.Size = new System.Drawing.Size(910, 282);
             this.splitContainer1.SplitterDistance = 177;
             this.splitContainer1.TabIndex = 3;
             // 
+            // isDefaultDataGridViewCheckBoxColumn
+            // 
+            this.isDefaultDataGridViewCheckBoxColumn.DataPropertyName = "IsDefault";
+            this.isDefaultDataGridViewCheckBoxColumn.HeaderText = "IsDefault";
+            this.isDefaultDataGridViewCheckBoxColumn.Name = "isDefaultDataGridViewCheckBoxColumn";
+            this.isDefaultDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // cardCodeDataGridViewTextBoxColumn
+            // 
+            this.cardCodeDataGridViewTextBoxColumn.DataPropertyName = "CardCode";
+            this.cardCodeDataGridViewTextBoxColumn.HeaderText = "CardCode";
+            this.cardCodeDataGridViewTextBoxColumn.Name = "cardCodeDataGridViewTextBoxColumn";
+            this.cardCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // prefCustomerDataGridViewTextBoxColumn
+            // 
+            this.prefCustomerDataGridViewTextBoxColumn.DataPropertyName = "PrefCustomer";
+            this.prefCustomerDataGridViewTextBoxColumn.HeaderText = "Pref Customer";
+            this.prefCustomerDataGridViewTextBoxColumn.Name = "prefCustomerDataGridViewTextBoxColumn";
+            this.prefCustomerDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prefCustomerDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // commentDataGridViewTextBoxColumn
+            // 
+            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
+            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
+            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
+            this.commentDataGridViewTextBoxColumn.ReadOnly = true;
+            this.commentDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // activeDataGridViewCheckBoxColumn
+            // 
+            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
+            this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
+            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
+            this.activeDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
             // PreferredCustomers
             // 
-            this.ClientSize = new System.Drawing.Size(674, 282);
+            this.ClientSize = new System.Drawing.Size(910, 282);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "PreferredCustomers";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Preferred Customers";
             this.Load += new System.EventHandler(this.PreferredCustomers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
@@ -193,14 +196,13 @@ namespace QWS_Local
         private dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter taVehiclePrefCustomers;
         private dsQWSLocal dsQWSLocal;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cardCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prefCustomerDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn isDefaultDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rankDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isDefaultDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cardCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prefCustomerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
     }
 }
