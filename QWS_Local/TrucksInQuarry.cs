@@ -289,7 +289,7 @@ namespace QWS_Local
                         }
                         else
                         {
-                            MessageBox.Show("Weighing cancelled!");
+                            MessageBox.Show("Tare Weighing cancelled!");
                         }
                         break;
                     case "I":
@@ -354,23 +354,38 @@ namespace QWS_Local
                         break;
                     case "Q":
                         frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.");
-                        dr = frmWeighTruck.ShowDialog();
-                        myWeight = frmWeighTruck.Weight;
+                        dr = frmWeighTruck.ShowDialog();                        
                         if (dr == DialogResult.OK)
                         {
-                            decimal myQty = myWeight - CurrentTIQ().Tare;
-                            CurrentTIQ().Gross = myWeight;
-                            CurrentTIQ().Nett = myQty;
-                            bsTIQ2.EndEdit();
-                            taTIQ2.Update(dsTIQ2.TIQ);
-
-                            if (ConfirmPostDocket())
+                            decimal myGVM = CurrentTIQ().GCM;
+                            if (CurrentTIQ().TruckConfig == "TKs")
                             {
-                                PostDocket();
+                                myGVM = CurrentTIQ().GVMTruck + CurrentTIQ().Tare - CurrentTIQ().TareTk;
+                            }
+                            myWeight = frmWeighTruck.Weight;
+                            if (myWeight > myGVM)
+                            {
+                                decimal Overweight = myWeight - myGVM;
+                                string msg = "Truck overloaded by : " + Overweight.ToString() + "t";
+                                MessageBox.Show(msg,"Overweight",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                                // TODO clone or log somehow
                             }
                             else
                             {
-                                MessageBox.Show("Post docket - cancelled!");
+                                decimal myQty = myWeight - CurrentTIQ().Tare;
+                                CurrentTIQ().Gross = myWeight;
+                                CurrentTIQ().Nett = myQty;
+                                bsTIQ2.EndEdit();
+                                taTIQ2.Update(dsTIQ2.TIQ);
+
+                                if (ConfirmPostDocket())
+                                {
+                                    PostDocket();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Post docket - cancelled!");
+                                }
                             }
                         }
                         else
@@ -434,9 +449,7 @@ namespace QWS_Local
                     taWBDockets.Update(dsTIQ2.WBDockets);
                     int myOrderBaseEntry = 0;
                     myOrderBaseEntry = GetOrderDocEntry(CurrentTIQ().SAPOrder);
-                    //DocketLineAdd(CurrentTIQ().Material, CurrentTIQ().MaterialDesc, true, 132, CurrentTIQ().StockpileLotNo, myOrderBaseEntry);
-                    DocketLineAdd(CurrentTIQ().Material, CurrentTIQ().MaterialDesc, true, 132, mySPLotNo, myOrderBaseEntry);
-                    // TODO get ItemQA, itmsgrpcod
+                    DocketLineAdd(CurrentTIQ().Material, CurrentTIQ().MaterialDesc, GetItemQA(CurrentTIQ().Material), GetItmsGrpCod(CurrentTIQ().Material), mySPLotNo, myOrderBaseEntry);
                     if (CurrentTIQ().CartageCode.Length > 0)
                     {
                         DocketLineAdd(CurrentTIQ().CartageCode, "cartage desc", true,132, 0, myOrderBaseEntry);
@@ -476,8 +489,6 @@ namespace QWS_Local
                 MessageBox.Show(ex.Message);
                 return -9;
             }
-
-
         }
 
         private int GetOrderDocEntry(int DocNum)
@@ -501,9 +512,56 @@ namespace QWS_Local
                 MessageBox.Show(ex.Message, "GetOrderDocEntry", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return -9;
             }
-
-
         }
+
+        private int GetItmsGrpCod(string ItemCode)
+        {
+            try
+            {
+                int DocNumNext = 0;
+                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select ItmsGrpCod from SAP_OITM where ItemCode like '" + ItemCode + "'";
+                sqlConnection.Open();
+                DocNumNext = System.Convert.ToInt32(cmd.ExecuteScalar());
+                sqlConnection.Close();
+                return DocNumNext;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return -9;
+            }
+        }
+
+        private bool GetItemQA(string ItemCode)
+        {
+            try
+            {
+                bool ItemQA = false;
+                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select U_QWS_QA from SAP_OITM where ItemCode like '" + ItemCode + "'";
+                sqlConnection.Open();
+                string myItemQA = System.Convert.ToString(cmd.ExecuteScalar());
+                if (myItemQA == "Y")
+                {
+                    ItemQA = true;
+                }
+                sqlConnection.Close();
+                return ItemQA;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "GetItemQA Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
 
         private bool LockTIQ(int TIQID)
         {
@@ -618,10 +676,7 @@ namespace QWS_Local
                 switch (CurrentTIQ().QueueStatus)
                 {
                     case "U":
-                        MessageBox.Show("Contact customer to confirm okay to pick up.", "Confirm non-preferred customer."); 
-                        // TODO call form ConfirmCustomer
-                        // if returns OK change status to "Q"
-                        // not ok then remove from queue and resume booking in as per retare process
+                        //MessageBox.Show("Contact customer to confirm okay to pick up.", "Confirm non-preferred customer."); 
                         if (CheckConfirmCustomer() ==  true)
                         {
                             blSave = true;
@@ -666,7 +721,6 @@ namespace QWS_Local
 
         private void TrucksInQuarry_KeyDown(object sender, KeyEventArgs e)
         {
-            // TODO check F key allocation in current version of QWS
             if (e.KeyCode == Keys.F9)
             {
                 GoToWeighTruck();
