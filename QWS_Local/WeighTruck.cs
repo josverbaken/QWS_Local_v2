@@ -58,10 +58,29 @@ namespace QWS_Local
         private void WeighTruck_Load(object sender, EventArgs e)
         {
             txtInstruction.Text = Instruction;  
+            if (Properties.Settings.Default.WBCount > 1)
+            {
+                rbWB1.Visible = true;
+                rbWB2.Visible = true;
+                rbWB3.Visible = true;   
+            }
+            else
+            {
+                rbWB1.Visible= false;
+                rbWB2.Visible= false;
+                rbWB3.Visible= false;
+            }
+            if (Properties.Settings.Default.AutoWeigh == true)
+            {
+                rbAuto.Checked = true;
+            }
+            else
+            { 
+                rbAuto.Checked= false; 
+            }
         }
 
-
-        private void rbAuto_CheckedChanged(object sender, EventArgs e)
+         private void rbAuto_CheckedChanged(object sender, EventArgs e)
         {
             if (rbAuto.Checked)
             {
@@ -79,6 +98,24 @@ namespace QWS_Local
             mtxtWeight.ReadOnly = false;
             mtxtWeight.Focus();
         }
- 
+
+        private void WBn_CheckChanged(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.AutoWeigh == true)
+            {
+                if (rbWB1.Checked == true)
+                {
+                    txtWBInfo.Text = "Getting weight from WB1";
+                }
+                else if (rbWB2.Checked == true)
+                {
+                    txtWBInfo.Text = "Getting weight from WB2";
+                }
+                else if (rbWB3.Checked ==true)
+                {
+                    txtWBInfo.Text = "Getting weight from WB3";
+                }
+            }
+        }
     }
 }
