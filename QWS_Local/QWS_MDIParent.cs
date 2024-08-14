@@ -154,5 +154,13 @@ namespace QWS_Local
             frmTrafficCameras.WindowState = FormWindowState.Maximized;
             frmTrafficCameras.Show();
         }
+
+        private void stockpileLotToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SPLotMaintenance frmSPLotMaintenance = new SPLotMaintenance();
+            frmSPLotMaintenance.MdiParent = this;
+            frmSPLotMaintenance.WindowState = FormWindowState.Maximized;
+            frmSPLotMaintenance.Show(); 
+        }
     }
 }

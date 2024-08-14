@@ -339,6 +339,12 @@
     <Compile Include="SplitLoadType.Designer.cs">
       <DependentUpon>SplitLoadType.cs</DependentUpon>
     </Compile>
+    <Compile Include="SPLotMaintenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SPLotMaintenance.Designer.cs">
+      <DependentUpon>SPLotMaintenance.cs</DependentUpon>
+    </Compile>
     <Compile Include="TareTruck.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -485,6 +491,9 @@
     <EmbeddedResource Include="DocketRpt.rdlc" />
     <EmbeddedResource Include="SplitLoadType.resx">
       <DependentUpon>SplitLoadType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPLotMaintenance.resx">
+      <DependentUpon>SPLotMaintenance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TareTruck.resx">
       <DependentUpon>TareTruck.cs</DependentUpon>
