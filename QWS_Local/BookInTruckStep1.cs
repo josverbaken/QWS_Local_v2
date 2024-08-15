@@ -418,7 +418,7 @@ namespace QWS_Local
 
           private void btnRetare_Click(object sender, EventArgs e)
         {
-            txtTruckConfig.Text = LoadType.BD.ToString();
+            txtTruckConfig.Text = LoadType.BD.ToString(); // TODO why?
             int iTIQID = NewTIQ(TIQType.Retare);
             if (iTIQID > 0)
             {
@@ -466,7 +466,7 @@ namespace QWS_Local
                         cmd.Parameters.AddWithValue("@Material", "Retare");
                         cmd.Parameters.AddWithValue("@MaterialDesc", "Retare Vehicle");
                         break;
-                        case TIQType.OnHold:
+                    case TIQType.OnHold:
                         cmd.Parameters.AddWithValue("@QueueStatus", "O");
                         cmd.Parameters.AddWithValue("@Material", "On Hold");
                         cmd.Parameters.AddWithValue("@MaterialDesc", "Park up in holding bay.");
@@ -481,7 +481,7 @@ namespace QWS_Local
                         cmd.Parameters.AddWithValue("@Material", "Delivery");
                         cmd.Parameters.AddWithValue("@MaterialDesc", "tba");
                         break;
-                        case TIQType.Imported:
+                    case TIQType.Imported:
                         cmd.Parameters.AddWithValue("@QueueStatus", "I");
                         cmd.Parameters.AddWithValue("@Material", "Imported");
                         cmd.Parameters.AddWithValue("@MaterialDesc", "tba");

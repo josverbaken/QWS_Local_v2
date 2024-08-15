@@ -259,7 +259,7 @@ namespace QWS_Local
                         }
                         else
                         {
-                            frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.");
+                            frmWeighTruck = new WeighTruck("Collect Tare with whole truck on weighbridge.");
                             dr = frmWeighTruck.ShowDialog();
                         }
                         if (dr == DialogResult.OK)
@@ -381,6 +381,10 @@ namespace QWS_Local
                                 if (ConfirmPostDocket())
                                 {
                                     PostDocket();
+                                    if (CurrentTIQ().TruckConfig == "TKs")
+                                    {
+                                        // TODO change status of TRs from S to Q
+                                    }
                                 }
                                 else
                                 {

@@ -13,7 +13,7 @@ namespace QWS_Local
     public partial class BookInExBin : Form
     {
         private bool FormLoaded = false;
-        private string LoadType = "TK";
+        //private string LoadType = "TK";
         private bool IsPrefCust = false;
 
         private enum TIQType
@@ -24,7 +24,24 @@ namespace QWS_Local
             Delivery
         }
 
+        private enum LoadType
+        {
+            TK,
+            TT,
+            TKs,
+            TRs,
+            ST,
+            BD,
+            BDa,
+            BDb,
+            AD,
+            ADa,
+            ADb
+        }
+
         private TIQType FormTIQType;
+
+        private LoadType FormLoadType;
 
         public BookInExBin()
         {
@@ -69,6 +86,7 @@ namespace QWS_Local
             SetExBinNoOrderCustomer();
             FormLoaded = true;
             dataGridView4.ClearSelection();
+            FormLoadType = LoadType.TK;
         }
 
         private void LoadTIQ()
@@ -387,7 +405,7 @@ namespace QWS_Local
                 btnSplitLoadType.Enabled = false;
             }
             CalcPayload();
-            SetSplitLoadGUI(txtTruckConfig.Text);
+            SetSplitLoadGUI(FormLoadType);
         }
 
         private void btnSplitLoadType_Click(object sender, EventArgs e)
@@ -401,9 +419,9 @@ namespace QWS_Local
             DialogResult dr = frmLoadType.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                txtTruckConfig.Text = frmLoadType.LoadType;
+                txtTruckConfig.Text = frmLoadType.FormLoadType;
                 bsTIQ2.EndEdit();
-                SetSplitLoadGUI(frmLoadType.LoadType);
+                SetSplitLoadGUI(frmLoadType.FormLoadType);
             }
             else
             {
@@ -411,9 +429,9 @@ namespace QWS_Local
             }
         }
 
-        private void SetSplitLoadGUI(string LoadType)
+        private void SetSplitLoadGUI(LoadType LoadType)
         {
-            if (LoadType == "TK")
+            if (LoadType == LoadType.TK)
             {
                 txtGVMTruck.Visible = false;
                 txtTareTruck.Visible = false;
@@ -491,9 +509,9 @@ namespace QWS_Local
             {
                 myTIQRow.PayloadSplit = txtPayloadSplit.Text;
             }
-            if (LoadType.Length == 3)
+            if (FormLoadType.ToString().Length == 3)
             {
-                myTIQRow.TruckConfig = LoadType;
+                myTIQRow.TruckConfig = FormLoadType.ToString();
             }
             bsTIQ2.EndEdit();
         }

@@ -16,13 +16,34 @@ namespace QWS_Local
         {
             InitializeComponent();
         }
-        public string LoadType;
+
+        private enum LoadType
+        {
+            TK,
+            TT,
+            TKs,
+            TRs,
+            ST,
+            BD,
+            BDa,
+            BDb,
+            AD,
+            ADa,
+            ADb
+        }
+
+        private LoadType formLoadType;
+
+        public string frmSplitLoadType   // property
+        {
+            get { return formLoadType.ToString(); }   // get method
+        //}
 
         private void rbTnT_CheckedChanged(object sender, EventArgs e)
         {
             if(rbTnT.Checked)
-            { 
-                LoadType = "TT";
+            {
+                formLoadType = LoadType.TT;
             }
         }
 
@@ -30,7 +51,7 @@ namespace QWS_Local
         {
             if (rbSplitLoad.Checked)
             {
-                LoadType = "TKs"; // TODO check if B-Double
+                formLoadType = LoadType.TKs; //"TKs"; // TODO check if B-Double
             }
         }
 
@@ -38,7 +59,7 @@ namespace QWS_Local
         {
             if (rbTrailerOnly.Checked)
             {
-                LoadType = "TRs";
+                formLoadType = LoadType.TRs;// "TRs";
             }
         }
 
