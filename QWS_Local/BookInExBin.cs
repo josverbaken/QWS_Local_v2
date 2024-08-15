@@ -405,7 +405,7 @@ namespace QWS_Local
                 btnSplitLoadType.Enabled = false;
             }
             CalcPayload();
-            SetSplitLoadGUI(FormLoadType);
+            SetSplitLoadGUI(FormLoadType.ToString());
         }
 
         private void btnSplitLoadType_Click(object sender, EventArgs e)
@@ -419,9 +419,9 @@ namespace QWS_Local
             DialogResult dr = frmLoadType.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                txtTruckConfig.Text = frmLoadType.FormLoadType;
+                txtTruckConfig.Text = frmLoadType.strSplitLoadType;
                 bsTIQ2.EndEdit();
-                SetSplitLoadGUI(frmLoadType.FormLoadType);
+                SetSplitLoadGUI(frmLoadType.strSplitLoadType);
             }
             else
             {
@@ -429,9 +429,9 @@ namespace QWS_Local
             }
         }
 
-        private void SetSplitLoadGUI(LoadType LoadType)
+        private void SetSplitLoadGUI(string LoadType)
         {
-            if (LoadType == LoadType.TK)
+            if (LoadType == "TK") // TODO handle "BD", "ST"
             {
                 txtGVMTruck.Visible = false;
                 txtTareTruck.Visible = false;
@@ -485,9 +485,16 @@ namespace QWS_Local
                 }
                 bsTIQ2.EndEdit();
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
-                if (iRow == 1)
+                if (iRow == 1) // TODO test if split load
                 {
-                    ((QWS_MDIParent)this.MdiParent).BringTIQ2Front();
+                    if (txtTruckConfig.Text == "TKs")
+                    {
+                        MessageBox.Show("To book in TRs","Split Load", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        ((QWS_MDIParent)this.MdiParent).BringTIQ2Front();
+                    }
                 }
                 this.Close();
             }

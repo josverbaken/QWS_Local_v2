@@ -34,16 +34,17 @@ namespace QWS_Local
 
         private LoadType formLoadType;
 
-        public string frmSplitLoadType   // property
+        public string strSplitLoadType
         {
-            get { return formLoadType.ToString(); }   // get method
-        //}
+            get { return formLoadType.ToString(); }
+        }
 
+        // TODO check if B-Double
         private void rbTnT_CheckedChanged(object sender, EventArgs e)
         {
             if(rbTnT.Checked)
             {
-                formLoadType = LoadType.TT;
+                formLoadType = LoadType.TT; // "BD"
             }
         }
 
@@ -51,7 +52,7 @@ namespace QWS_Local
         {
             if (rbSplitLoad.Checked)
             {
-                formLoadType = LoadType.TKs; //"TKs"; // TODO check if B-Double
+                formLoadType = LoadType.TKs; // "BDa" 
             }
         }
 
@@ -59,7 +60,7 @@ namespace QWS_Local
         {
             if (rbTrailerOnly.Checked)
             {
-                formLoadType = LoadType.TRs;// "TRs";
+                formLoadType = LoadType.TRs;// "BDb"
             }
         }
 

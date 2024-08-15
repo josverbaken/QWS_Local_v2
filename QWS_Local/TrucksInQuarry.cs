@@ -381,10 +381,10 @@ namespace QWS_Local
                                 if (ConfirmPostDocket())
                                 {
                                     PostDocket();
-                                    if (CurrentTIQ().TruckConfig == "TKs")
-                                    {
-                                        // TODO change status of TRs from S to Q
-                                    }
+                                    //if (CurrentTIQ().TruckConfig == "TKs") // TODO find TIQ where status = S and Rego = Rego or better link via ParentTIQID
+                                    //{
+                                    //    // TODO change status of TRs from S to Q
+                                    //}
                                 }
                                 else
                                 {

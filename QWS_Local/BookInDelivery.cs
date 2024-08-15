@@ -349,9 +349,9 @@ namespace QWS_Local
             DialogResult dr = frmLoadType.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                txtTruckConfig.Text = frmLoadType.LoadType;
+                txtTruckConfig.Text = frmLoadType.strSplitLoadType;
                 bsTIQ2.EndEdit();
-                SetSplitLoadGUI(frmLoadType.LoadType);
+                SetSplitLoadGUI(frmLoadType.strSplitLoadType);
             }
             else
             {
