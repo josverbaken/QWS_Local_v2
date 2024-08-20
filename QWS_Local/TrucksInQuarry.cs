@@ -418,7 +418,8 @@ namespace QWS_Local
 
         private bool ConfirmPostDocket()
         {
-            PostDocket frmPostDocket = new PostDocket(CurrentTIQ());
+            bool ItemQA = GetItemQA(CurrentTIQ().Material);
+            PostDocket frmPostDocket = new PostDocket(CurrentTIQ(),ItemQA);
             DialogResult dr = frmPostDocket.ShowDialog();
             if (dr == DialogResult.OK )
             {

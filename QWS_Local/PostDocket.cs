@@ -14,6 +14,7 @@ namespace QWS_Local
     {
         private dsTIQ2.TIQRow myRow;
         private int mySPLotNo;
+        private bool myItemQA;
 
         public int SPLotNo
         {
@@ -25,10 +26,11 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public PostDocket(dsTIQ2.TIQRow row)
+        public PostDocket(dsTIQ2.TIQRow row, bool ItemQA)
         {
             InitializeComponent();
             myRow = row;    
+            myItemQA = ItemQA;
         }
 
         private void btnOkay_Click(object sender, EventArgs e)
@@ -47,7 +49,10 @@ namespace QWS_Local
         {
             dsTIQ2.TIQ.Clear();
             dsTIQ2.TIQ.ImportRow(myRow);
-            GetSPLotNo();
+            if (myItemQA) 
+            {
+                GetSPLotNo();
+            }
         }
 
         private dsTIQ2.TIQRow CurrentTIQ()
@@ -83,9 +88,18 @@ namespace QWS_Local
             // call stored procedure SPLotNoAssign with material code, returns SPLotNo, Lot Status, Remaining Tonnes
             try
             {
+                string msg = "";
                 this.taSPLotNo.Fill(this.dsTIQ2.SPLotNoAssign, CurrentTIQ().Material, System.Convert.ToInt32( CurrentTIQ().Nett));
                 mySPLotNo = CurrentSPLotNo().SPLotNo;
-                string msg = "Lot No: " + CurrentSPLotNo().SPLotNo.ToString() + " status: " + CurrentSPLotNo().LotStatus + " remaining tonnes: " + CurrentSPLotNo().TonnesRemaining.ToString();
+                if (CurrentSPLotNo().LotStatus == 'M'.ToString())
+                {
+                    msg = "No lot allocated yet!";
+                }
+                else
+                {
+                    //msg = "Lot No: " + CurrentSPLotNo().SPLotNo.ToString() + " status: " + CurrentSPLotNo().LotStatus + " remaining tonnes: " + CurrentSPLotNo().TonnesRemaining.ToString();
+                    msg = "Lot No: " + CurrentSPLotNo().SPLotNo.ToString() +  " .. Remaining tonnes: " + CurrentSPLotNo().TonnesRemaining.ToString();
+                }
                 txtInfo.Text = msg;
             }
             catch (System.Exception ex)

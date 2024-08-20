@@ -33,38 +33,35 @@
             System.Windows.Forms.Label tareLabel;
             System.Windows.Forms.Label nettLabel;
             System.Windows.Forms.Label custONLabel;
-            System.Windows.Forms.Label sPLotNoLabel;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.regoTextBox = new System.Windows.Forms.TextBox();
+            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.nettTextBox = new System.Windows.Forms.TextBox();
             this.tareTextBox = new System.Windows.Forms.TextBox();
             this.txtGross = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.customerTextBox = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.bsSPLotNo = new System.Windows.Forms.BindingSource(this.components);
             this.txtInfo = new System.Windows.Forms.TextBox();
             this.materialDescTextBox = new System.Windows.Forms.TextBox();
             this.materialTextBox = new System.Windows.Forms.TextBox();
             this.custONTextBox = new System.Windows.Forms.TextBox();
             this.btnOkay = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
-            this.bsSPLotNo = new System.Windows.Forms.BindingSource(this.components);
             this.taSPLotNo = new QWS_Local.dsTIQ2TableAdapters.SPLotNoAssignTableAdapter();
-            this.sPLotNoTextBox = new System.Windows.Forms.TextBox();
             grossLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             nettLabel = new System.Windows.Forms.Label();
             custONLabel = new System.Windows.Forms.Label();
-            sPLotNoLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotNo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,6 +128,16 @@
             this.regoTextBox.Size = new System.Drawing.Size(133, 29);
             this.regoTextBox.TabIndex = 9;
             // 
+            // bsTIQ2
+            // 
+            this.bsTIQ2.DataMember = "TIQ";
+            this.bsTIQ2.DataSource = this.dsTIQ2;
+            // 
+            // dsTIQ2
+            // 
+            this.dsTIQ2.DataSetName = "dsTIQ2";
+            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // nettTextBox
             // 
             this.nettTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Nett", true));
@@ -181,8 +188,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(sPLotNoLabel);
-            this.groupBox3.Controls.Add(this.sPLotNoTextBox);
             this.groupBox3.Controls.Add(this.txtInfo);
             this.groupBox3.Controls.Add(this.materialDescTextBox);
             this.groupBox3.Controls.Add(this.materialTextBox);
@@ -194,6 +199,11 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "3) Check Material and PO#";
+            // 
+            // bsSPLotNo
+            // 
+            this.bsSPLotNo.DataMember = "SPLotNoAssign";
+            this.bsSPLotNo.DataSource = this.dsTIQ2;
             // 
             // txtInfo
             // 
@@ -261,16 +271,6 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // bsTIQ2
-            // 
-            this.bsTIQ2.DataMember = "TIQ";
-            this.bsTIQ2.DataSource = this.dsTIQ2;
-            // 
-            // dsTIQ2
-            // 
-            this.dsTIQ2.DataSetName = "dsTIQ2";
-            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // taTIQ2
             // 
             this.taTIQ2.ClearBeforeFill = true;
@@ -278,37 +278,15 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.StockpileLotAllocationTableAdapter = null;
             this.tableAdapterManager.TIQTableAdapter = this.taTIQ2;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.WBDocketLinesTableAdapter = null;
             this.tableAdapterManager.WBDocketsTableAdapter = null;
             // 
-            // bsSPLotNo
-            // 
-            this.bsSPLotNo.DataMember = "SPLotNoAssign";
-            this.bsSPLotNo.DataSource = this.dsTIQ2;
-            // 
             // taSPLotNo
             // 
             this.taSPLotNo.ClearBeforeFill = true;
-            // 
-            // sPLotNoLabel
-            // 
-            sPLotNoLabel.AutoSize = true;
-            sPLotNoLabel.Location = new System.Drawing.Point(295, 105);
-            sPLotNoLabel.Name = "sPLotNoLabel";
-            sPLotNoLabel.Size = new System.Drawing.Size(77, 18);
-            sPLotNoLabel.TabIndex = 6;
-            sPLotNoLabel.Text = "SPLot No:";
-            // 
-            // sPLotNoTextBox
-            // 
-            this.sPLotNoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsSPLotNo, "SPLotNo", true));
-            this.sPLotNoTextBox.Location = new System.Drawing.Point(378, 102);
-            this.sPLotNoTextBox.Name = "sPLotNoTextBox";
-            this.sPLotNoTextBox.ReadOnly = true;
-            this.sPLotNoTextBox.Size = new System.Drawing.Size(100, 24);
-            this.sPLotNoTextBox.TabIndex = 7;
             // 
             // PostDocket
             // 
@@ -329,12 +307,12 @@
             this.Load += new System.EventHandler(this.PostDocket_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotNo)).EndInit();
             this.ResumeLayout(false);
 
@@ -362,6 +340,5 @@
         private System.Windows.Forms.TextBox txtInfo;
         private System.Windows.Forms.BindingSource bsSPLotNo;
         private dsTIQ2TableAdapters.SPLotNoAssignTableAdapter taSPLotNo;
-        private System.Windows.Forms.TextBox sPLotNoTextBox;
     }
 }
