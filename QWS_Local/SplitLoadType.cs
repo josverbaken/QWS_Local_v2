@@ -17,6 +17,14 @@ namespace QWS_Local
             InitializeComponent();
         }
 
+        public SplitLoadType(string myAxleConfig)
+        {
+            InitializeComponent();
+            AxleConfig = myAxleConfig;
+        }
+
+        private string AxleConfig;
+
         private enum LoadType
         {
             TK,
@@ -44,7 +52,14 @@ namespace QWS_Local
         {
             if(rbTnT.Checked)
             {
-                formLoadType = LoadType.TT; // "BD"
+                if (AxleConfig.IndexOf("R") > 0)
+                {
+                    formLoadType = LoadType.TT; 
+                }
+                else
+                {
+                    formLoadType= LoadType.BD;
+                }
             }
         }
 
@@ -52,7 +67,14 @@ namespace QWS_Local
         {
             if (rbSplitLoad.Checked)
             {
-                formLoadType = LoadType.TKs; // "BDa" 
+                if (AxleConfig.IndexOf("R") > 0)
+                {
+                    formLoadType = LoadType.TKs;
+                }
+                else
+                {
+                    formLoadType = LoadType.BDa;
+                }
             }
         }
 
@@ -60,7 +82,14 @@ namespace QWS_Local
         {
             if (rbTrailerOnly.Checked)
             {
-                formLoadType = LoadType.TRs;// "BDb"
+                if (AxleConfig.IndexOf("R") > 0)
+                {
+                    formLoadType = LoadType.TRs;
+                }
+                else
+                {
+                    formLoadType = LoadType.BDb;
+                }
             }
         }
 

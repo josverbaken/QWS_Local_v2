@@ -45,7 +45,7 @@ namespace QWS_Local
         private void TruckDriverSearch_Load(object sender, EventArgs e)
         {
             bsTruckDriver2024.Sort = "Active DESC, Person ASC";
-            btnSelectDriver.Enabled = false;
+            //btnSelectDriver.Enabled = false;
         }
      
         private void btnSelectDriver_Click(object sender, EventArgs e)
@@ -69,7 +69,7 @@ namespace QWS_Local
             myTruckDriver = truckDriverRow;
             myDriver = truckDriverRow.Person;
             myDriverID = truckDriverRow.CntctCode;
-            btnSelectDriver.Enabled = true;
+            //btnSelectDriver.Enabled = true;
             if (truckDriverRow.Active != 'Y'.ToString())
             {
                 msg = "Driver status not Active! ";

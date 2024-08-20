@@ -154,40 +154,49 @@ namespace QWS_Local
 
         private void CalcPayload()
         {
-            decimal myPayload = 0.0M;
-            decimal myPayloadTk = 0.0M;
-            decimal myPayloadTr = 0.0M;
+            try
+            {
+                decimal myPayload = 0.0M;
+                decimal myPayloadTk = 0.0M;
+                decimal myPayloadTr = 0.0M;
 
-            decimal PayloadLimit;
-            if (CurrentTruckGVM().GCM > CurrentTruckGVM().MaxGVM && CurrentTruckGVM().MaxGVM > 0)
-            {
-                PayloadLimit = CurrentTruckGVM().MaxGVM - CurrentTruckGVM().Tare;
-            }
-            else
-            {
-                PayloadLimit = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
-            }
+                decimal PayloadLimit;
+                if (CurrentTruckGVM().GCM > CurrentTruckGVM().MaxGVM && CurrentTruckGVM().MaxGVM > 0)
+                {
+                    PayloadLimit = CurrentTruckGVM().MaxGVM - CurrentTruckGVM().Tare;
+                }
+                else
+                {
+                    PayloadLimit = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
+                }
 
-            myPayload = PayloadLimit;
-            nudPayload.Value = myPayload;
-            if (CurrentTruckGVM().Compartments > 1)
-            //if (CurrentTruckGVM().GCM != CurrentTruckGVM().GVMTruck)
-            {
-                myPayloadTk = CurrentTruckGVM().GVMTruck - CurrentTruckGVM().TareTk;
-                myPayloadTr = myPayload - myPayloadTk;
-                nudPayloadTk.Value = myPayloadTk;
-                nudPayloadTk.Enabled = true;
-                nudPayloadTr.Value = myPayloadTr;
-                nudPayloadTr.Enabled = true;
-                txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString() + " (" + myPayload.ToString() + ")";
+                myPayload = PayloadLimit;
+                nudPayload.Value = myPayload;
+                if (CurrentTruckGVM().Compartments > 1 && CurrentTruckGVM().AxleConfiguration.IndexOf("R") > 0)
+                    // TODO how to handle B-double
+                //if (CurrentTruckGVM().GCM != CurrentTruckGVM().GVMTruck)
+                {
+                    myPayloadTk = CurrentTruckGVM().GVMTruck - CurrentTruckGVM().TareTk;
+                    myPayloadTr = myPayload - myPayloadTk;
+                    nudPayloadTk.Value = myPayloadTk;
+                    nudPayloadTk.Enabled = true;
+                    nudPayloadTr.Value = myPayloadTr;
+                    nudPayloadTr.Enabled = true;
+                    txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString() + " (" + myPayload.ToString() + ")";
+                }
+                else
+                {
+                    txtPayloadSplit.Text = myPayload.ToString(); //string.Empty;
+                    nudPayloadTk.Enabled = false;
+                    nudPayloadTr.Enabled = false;
+                }
+                bsTIQ2.EndEdit();
             }
-            else
+            catch (Exception ex)
             {
-                txtPayloadSplit.Text = myPayload.ToString(); //string.Empty;
-                nudPayloadTk.Enabled = false;
-                nudPayloadTr.Enabled = false;
+                MessageBox.Show(ex.Message, "CalcPayload ERROR");
+                throw;
             }
-            bsTIQ2.EndEdit();
         }
 
         private void PayloadNUDLimit()
@@ -415,7 +424,8 @@ namespace QWS_Local
 
         private void SetSplitLoadType()
         {
-            SplitLoadType frmLoadType = new SplitLoadType();
+            string AxleConfig = CurrentTruckGVM().AxleConfiguration;
+            SplitLoadType frmLoadType = new SplitLoadType(AxleConfig);
             DialogResult dr = frmLoadType.ShowDialog();
             if (dr == DialogResult.OK)
             {
