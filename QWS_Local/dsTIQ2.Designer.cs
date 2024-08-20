@@ -36,6 +36,8 @@ namespace QWS_Local {
         
         private StockpileLotAllocationDataTable tableStockpileLotAllocation;
         
+        private StockpileBOMDataTable tableStockpileBOM;
+        
         private global::System.Data.DataRelation relationFK_WBDocketLines_WBDockets;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
@@ -83,6 +85,9 @@ namespace QWS_Local {
                 }
                 if ((ds.Tables["StockpileLotAllocation"] != null)) {
                     base.Tables.Add(new StockpileLotAllocationDataTable(ds.Tables["StockpileLotAllocation"]));
+                }
+                if ((ds.Tables["StockpileBOM"] != null)) {
+                    base.Tables.Add(new StockpileBOMDataTable(ds.Tables["StockpileBOM"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -159,6 +164,16 @@ namespace QWS_Local {
         public StockpileLotAllocationDataTable StockpileLotAllocation {
             get {
                 return this.tableStockpileLotAllocation;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public StockpileBOMDataTable StockpileBOM {
+            get {
+                return this.tableStockpileBOM;
             }
         }
         
@@ -247,6 +262,9 @@ namespace QWS_Local {
                 if ((ds.Tables["StockpileLotAllocation"] != null)) {
                     base.Tables.Add(new StockpileLotAllocationDataTable(ds.Tables["StockpileLotAllocation"]));
                 }
+                if ((ds.Tables["StockpileBOM"] != null)) {
+                    base.Tables.Add(new StockpileBOMDataTable(ds.Tables["StockpileBOM"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -316,6 +334,12 @@ namespace QWS_Local {
                     this.tableStockpileLotAllocation.InitVars();
                 }
             }
+            this.tableStockpileBOM = ((StockpileBOMDataTable)(base.Tables["StockpileBOM"]));
+            if ((initTable == true)) {
+                if ((this.tableStockpileBOM != null)) {
+                    this.tableStockpileBOM.InitVars();
+                }
+            }
             this.relationFK_WBDocketLines_WBDockets = this.Relations["FK_WBDocketLines_WBDockets"];
         }
         
@@ -339,6 +363,8 @@ namespace QWS_Local {
             base.Tables.Add(this.tableSPLotNoAssign);
             this.tableStockpileLotAllocation = new StockpileLotAllocationDataTable();
             base.Tables.Add(this.tableStockpileLotAllocation);
+            this.tableStockpileBOM = new StockpileBOMDataTable();
+            base.Tables.Add(this.tableStockpileBOM);
             this.relationFK_WBDocketLines_WBDockets = new global::System.Data.DataRelation("FK_WBDocketLines_WBDockets", new global::System.Data.DataColumn[] {
                         this.tableWBDockets.DocNumColumn}, new global::System.Data.DataColumn[] {
                         this.tableWBDocketLines.DocNumColumn}, false);
@@ -378,6 +404,12 @@ namespace QWS_Local {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeStockpileLotAllocation() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeStockpileBOM() {
             return false;
         }
         
@@ -453,6 +485,9 @@ namespace QWS_Local {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void StockpileLotAllocationRowChangeEventHandler(object sender, StockpileLotAllocationRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void StockpileBOMRowChangeEventHandler(object sender, StockpileBOMRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -3451,8 +3486,6 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnAllocationID;
             
-            private global::System.Data.DataColumn columnItemCode;
-            
             private global::System.Data.DataColumn columnMCO;
             
             private global::System.Data.DataColumn columnLotNo;
@@ -3460,6 +3493,8 @@ namespace QWS_Local {
             private global::System.Data.DataColumn columnLotStatus;
             
             private global::System.Data.DataColumn columnAllocationDTTM;
+            
+            private global::System.Data.DataColumn columnBaseItemCode;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -3504,14 +3539,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ItemCodeColumn {
-                get {
-                    return this.columnItemCode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn MCOColumn {
                 get {
                     return this.columnMCO;
@@ -3539,6 +3566,14 @@ namespace QWS_Local {
             public global::System.Data.DataColumn AllocationDTTMColumn {
                 get {
                     return this.columnAllocationDTTM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BaseItemCodeColumn {
+                get {
+                    return this.columnBaseItemCode;
                 }
             }
             
@@ -3579,15 +3614,15 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public StockpileLotAllocationRow AddStockpileLotAllocationRow(string ItemCode, string MCO, int LotNo, string LotStatus, System.DateTime AllocationDTTM) {
+            public StockpileLotAllocationRow AddStockpileLotAllocationRow(string MCO, int LotNo, string LotStatus, System.DateTime AllocationDTTM, string BaseItemCode) {
                 StockpileLotAllocationRow rowStockpileLotAllocationRow = ((StockpileLotAllocationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        ItemCode,
                         MCO,
                         LotNo,
                         LotStatus,
-                        AllocationDTTM};
+                        AllocationDTTM,
+                        BaseItemCode};
                 rowStockpileLotAllocationRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStockpileLotAllocationRow);
                 return rowStockpileLotAllocationRow;
@@ -3618,11 +3653,11 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnAllocationID = base.Columns["AllocationID"];
-                this.columnItemCode = base.Columns["ItemCode"];
                 this.columnMCO = base.Columns["MCO"];
                 this.columnLotNo = base.Columns["LotNo"];
                 this.columnLotStatus = base.Columns["LotStatus"];
                 this.columnAllocationDTTM = base.Columns["AllocationDTTM"];
+                this.columnBaseItemCode = base.Columns["BaseItemCode"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3630,8 +3665,6 @@ namespace QWS_Local {
             private void InitClass() {
                 this.columnAllocationID = new global::System.Data.DataColumn("AllocationID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAllocationID);
-                this.columnItemCode = new global::System.Data.DataColumn("ItemCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnItemCode);
                 this.columnMCO = new global::System.Data.DataColumn("MCO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMCO);
                 this.columnLotNo = new global::System.Data.DataColumn("LotNo", typeof(int), null, global::System.Data.MappingType.Element);
@@ -3640,6 +3673,8 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnLotStatus);
                 this.columnAllocationDTTM = new global::System.Data.DataColumn("AllocationDTTM", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAllocationDTTM);
+                this.columnBaseItemCode = new global::System.Data.DataColumn("BaseItemCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBaseItemCode);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnAllocationID}, true));
                 this.columnAllocationID.AutoIncrement = true;
@@ -3648,14 +3683,14 @@ namespace QWS_Local {
                 this.columnAllocationID.AllowDBNull = false;
                 this.columnAllocationID.ReadOnly = true;
                 this.columnAllocationID.Unique = true;
-                this.columnItemCode.AllowDBNull = false;
-                this.columnItemCode.MaxLength = 50;
                 this.columnMCO.AllowDBNull = false;
                 this.columnMCO.MaxLength = 50;
                 this.columnLotNo.AllowDBNull = false;
                 this.columnLotStatus.AllowDBNull = false;
                 this.columnLotStatus.MaxLength = 1;
                 this.columnAllocationDTTM.AllowDBNull = false;
+                this.columnBaseItemCode.AllowDBNull = false;
+                this.columnBaseItemCode.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3742,6 +3777,281 @@ namespace QWS_Local {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "StockpileLotAllocationDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class StockpileBOMDataTable : global::System.Data.TypedTableBase<StockpileBOMRow> {
+            
+            private global::System.Data.DataColumn columnItemCode;
+            
+            private global::System.Data.DataColumn columnBaseItemCode;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public StockpileBOMDataTable() {
+                this.TableName = "StockpileBOM";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal StockpileBOMDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected StockpileBOMDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ItemCodeColumn {
+                get {
+                    return this.columnItemCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BaseItemCodeColumn {
+                get {
+                    return this.columnBaseItemCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public StockpileBOMRow this[int index] {
+                get {
+                    return ((StockpileBOMRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event StockpileBOMRowChangeEventHandler StockpileBOMRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event StockpileBOMRowChangeEventHandler StockpileBOMRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event StockpileBOMRowChangeEventHandler StockpileBOMRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event StockpileBOMRowChangeEventHandler StockpileBOMRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddStockpileBOMRow(StockpileBOMRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public StockpileBOMRow AddStockpileBOMRow(string ItemCode, string BaseItemCode) {
+                StockpileBOMRow rowStockpileBOMRow = ((StockpileBOMRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        ItemCode,
+                        BaseItemCode};
+                rowStockpileBOMRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowStockpileBOMRow);
+                return rowStockpileBOMRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public StockpileBOMRow FindByItemCode(string ItemCode) {
+                return ((StockpileBOMRow)(this.Rows.Find(new object[] {
+                            ItemCode})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                StockpileBOMDataTable cln = ((StockpileBOMDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new StockpileBOMDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnItemCode = base.Columns["ItemCode"];
+                this.columnBaseItemCode = base.Columns["BaseItemCode"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnItemCode = new global::System.Data.DataColumn("ItemCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItemCode);
+                this.columnBaseItemCode = new global::System.Data.DataColumn("BaseItemCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBaseItemCode);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnItemCode}, true));
+                this.columnItemCode.AllowDBNull = false;
+                this.columnItemCode.Unique = true;
+                this.columnItemCode.MaxLength = 15;
+                this.columnBaseItemCode.AllowDBNull = false;
+                this.columnBaseItemCode.MaxLength = 15;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public StockpileBOMRow NewStockpileBOMRow() {
+                return ((StockpileBOMRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new StockpileBOMRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(StockpileBOMRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.StockpileBOMRowChanged != null)) {
+                    this.StockpileBOMRowChanged(this, new StockpileBOMRowChangeEvent(((StockpileBOMRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.StockpileBOMRowChanging != null)) {
+                    this.StockpileBOMRowChanging(this, new StockpileBOMRowChangeEvent(((StockpileBOMRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.StockpileBOMRowDeleted != null)) {
+                    this.StockpileBOMRowDeleted(this, new StockpileBOMRowChangeEvent(((StockpileBOMRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.StockpileBOMRowDeleting != null)) {
+                    this.StockpileBOMRowDeleting(this, new StockpileBOMRowChangeEvent(((StockpileBOMRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveStockpileBOMRow(StockpileBOMRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsTIQ2 ds = new dsTIQ2();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "StockpileBOMDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -5423,17 +5733,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string ItemCode {
-                get {
-                    return ((string)(this[this.tableStockpileLotAllocation.ItemCodeColumn]));
-                }
-                set {
-                    this[this.tableStockpileLotAllocation.ItemCodeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string MCO {
                 get {
                     return ((string)(this[this.tableStockpileLotAllocation.MCOColumn]));
@@ -5473,6 +5772,54 @@ namespace QWS_Local {
                 }
                 set {
                     this[this.tableStockpileLotAllocation.AllocationDTTMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string BaseItemCode {
+                get {
+                    return ((string)(this[this.tableStockpileLotAllocation.BaseItemCodeColumn]));
+                }
+                set {
+                    this[this.tableStockpileLotAllocation.BaseItemCodeColumn] = value;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class StockpileBOMRow : global::System.Data.DataRow {
+            
+            private StockpileBOMDataTable tableStockpileBOM;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal StockpileBOMRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableStockpileBOM = ((StockpileBOMDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ItemCode {
+                get {
+                    return ((string)(this[this.tableStockpileBOM.ItemCodeColumn]));
+                }
+                set {
+                    this[this.tableStockpileBOM.ItemCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string BaseItemCode {
+                get {
+                    return ((string)(this[this.tableStockpileBOM.BaseItemCodeColumn]));
+                }
+                set {
+                    this[this.tableStockpileBOM.BaseItemCodeColumn] = value;
                 }
             }
         }
@@ -5667,6 +6014,40 @@ namespace QWS_Local {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public StockpileLotAllocationRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class StockpileBOMRowChangeEvent : global::System.EventArgs {
+            
+            private StockpileBOMRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public StockpileBOMRowChangeEvent(StockpileBOMRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public StockpileBOMRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -8895,44 +9276,44 @@ SELECT DocNum, DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, 
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "StockpileLotAllocation";
             tableMapping.ColumnMappings.Add("AllocationID", "AllocationID");
-            tableMapping.ColumnMappings.Add("ItemCode", "ItemCode");
             tableMapping.ColumnMappings.Add("MCO", "MCO");
             tableMapping.ColumnMappings.Add("LotNo", "LotNo");
             tableMapping.ColumnMappings.Add("LotStatus", "LotStatus");
             tableMapping.ColumnMappings.Add("AllocationDTTM", "AllocationDTTM");
+            tableMapping.ColumnMappings.Add("BaseItemCode", "BaseItemCode");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [StockpileLotAllocation] WHERE (([AllocationID] = @Original_AllocationID) AND ([ItemCode] = @Original_ItemCode) AND ([MCO] = @Original_MCO) AND ([LotNo] = @Original_LotNo) AND ([LotStatus] = @Original_LotStatus) AND ([AllocationDTTM] = @Original_AllocationDTTM))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [StockpileLotAllocation] WHERE (([AllocationID] = @Original_AllocationID) AND ([BaseItemCode] = @Original_BaseItemCode) AND ([MCO] = @Original_MCO) AND ([LotNo] = @Original_LotNo) AND ([LotStatus] = @Original_LotStatus) AND ([AllocationDTTM] = @Original_AllocationDTTM))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AllocationID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllocationID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItemCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BaseItemCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BaseItemCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MCO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MCO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LotNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LotNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LotStatus", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LotStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AllocationDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllocationDTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [StockpileLotAllocation] ([ItemCode], [MCO], [LotNo], [LotStatus], [AllocationDTTM]) VALUES (@ItemCode, @MCO, @LotNo, @LotStatus, @AllocationDTTM);
-SELECT AllocationID, ItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM StockpileLotAllocation AS t0 WHERE (AllocationID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [StockpileLotAllocation] ([BaseItemCode], [MCO], [LotNo], [LotStatus], [AllocationDTTM]) VALUES (@BaseItemCode, @MCO, @LotNo, @LotStatus, @AllocationDTTM);
+SELECT AllocationID, BaseItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM StockpileLotAllocation AS t0 WHERE (AllocationID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BaseItemCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BaseItemCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MCO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MCO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LotNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LotNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LotStatus", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LotStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AllocationDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllocationDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [StockpileLotAllocation] SET [ItemCode] = @ItemCode, [MCO] = @MCO, [LotNo] = @LotNo, [LotStatus] = @LotStatus, [AllocationDTTM] = @AllocationDTTM WHERE (([AllocationID] = @Original_AllocationID) AND ([ItemCode] = @Original_ItemCode) AND ([MCO] = @Original_MCO) AND ([LotNo] = @Original_LotNo) AND ([LotStatus] = @Original_LotStatus) AND ([AllocationDTTM] = @Original_AllocationDTTM));
-SELECT AllocationID, ItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM StockpileLotAllocation AS t0 WHERE (AllocationID = @AllocationID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [StockpileLotAllocation] SET [BaseItemCode] = @BaseItemCode, [MCO] = @MCO, [LotNo] = @LotNo, [LotStatus] = @LotStatus, [AllocationDTTM] = @AllocationDTTM WHERE (([AllocationID] = @Original_AllocationID) AND ([BaseItemCode] = @Original_BaseItemCode) AND ([MCO] = @Original_MCO) AND ([LotNo] = @Original_LotNo) AND ([LotStatus] = @Original_LotStatus) AND ([AllocationDTTM] = @Original_AllocationDTTM));
+SELECT AllocationID, BaseItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM StockpileLotAllocation AS t0 WHERE (AllocationID = @AllocationID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BaseItemCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BaseItemCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MCO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MCO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LotNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LotNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LotStatus", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LotStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AllocationDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllocationDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AllocationID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllocationID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItemCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BaseItemCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BaseItemCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MCO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MCO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LotNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LotNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LotStatus", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LotStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -8950,12 +9331,19 @@ SELECT AllocationID, ItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM Stockp
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        AllocationID, ItemCode, MCO, LotNo, LotStatus, AllocationDTTM\r\nFROM" +
-                "            StockpileLotAllocation AS t0";
+            this._commandCollection[0].CommandText = "SELECT        AllocationID, BaseItemCode, MCO, LotNo, LotStatus, AllocationDTTM\r\n" +
+                "FROM            StockpileLotAllocation AS t0";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        AllocationID, t0.BaseItemCode, MCO, LotNo, LotStatus, AllocationDTT" +
+                "M\r\nFROM            StockpileLotAllocation AS t0\r\njoin StockpileBOM t1 on t0.Base" +
+                "ItemCode = t1.BaseItemCode\r\nwhere t1.ItemCode like @ItemCode";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemCode", global::System.Data.SqlDbType.VarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, "ItemCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8977,6 +9365,42 @@ SELECT AllocationID, ItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM Stockp
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual dsTIQ2.StockpileLotAllocationDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            dsTIQ2.StockpileLotAllocationDataTable dataTable = new dsTIQ2.StockpileLotAllocationDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByItemCode(dsTIQ2.StockpileLotAllocationDataTable dataTable, string ItemCode) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((ItemCode == null)) {
+                throw new global::System.ArgumentNullException("ItemCode");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(ItemCode));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dsTIQ2.StockpileLotAllocationDataTable GetDataByItemCode(string ItemCode) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((ItemCode == null)) {
+                throw new global::System.ArgumentNullException("ItemCode");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(ItemCode));
+            }
             dsTIQ2.StockpileLotAllocationDataTable dataTable = new dsTIQ2.StockpileLotAllocationDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -9015,13 +9439,13 @@ SELECT AllocationID, ItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM Stockp
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_AllocationID, string Original_ItemCode, string Original_MCO, int Original_LotNo, string Original_LotStatus, System.DateTime Original_AllocationDTTM) {
+        public virtual int Delete(int Original_AllocationID, string Original_BaseItemCode, string Original_MCO, int Original_LotNo, string Original_LotStatus, System.DateTime Original_AllocationDTTM) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_AllocationID));
-            if ((Original_ItemCode == null)) {
-                throw new global::System.ArgumentNullException("Original_ItemCode");
+            if ((Original_BaseItemCode == null)) {
+                throw new global::System.ArgumentNullException("Original_BaseItemCode");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_ItemCode));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_BaseItemCode));
             }
             if ((Original_MCO == null)) {
                 throw new global::System.ArgumentNullException("Original_MCO");
@@ -9057,12 +9481,12 @@ SELECT AllocationID, ItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM Stockp
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string ItemCode, string MCO, int LotNo, string LotStatus, System.DateTime AllocationDTTM) {
-            if ((ItemCode == null)) {
-                throw new global::System.ArgumentNullException("ItemCode");
+        public virtual int Insert(string BaseItemCode, string MCO, int LotNo, string LotStatus, System.DateTime AllocationDTTM) {
+            if ((BaseItemCode == null)) {
+                throw new global::System.ArgumentNullException("BaseItemCode");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(ItemCode));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(BaseItemCode));
             }
             if ((MCO == null)) {
                 throw new global::System.ArgumentNullException("MCO");
@@ -9098,12 +9522,12 @@ SELECT AllocationID, ItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM Stockp
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string ItemCode, string MCO, int LotNo, string LotStatus, System.DateTime AllocationDTTM, int Original_AllocationID, string Original_ItemCode, string Original_MCO, int Original_LotNo, string Original_LotStatus, System.DateTime Original_AllocationDTTM, int AllocationID) {
-            if ((ItemCode == null)) {
-                throw new global::System.ArgumentNullException("ItemCode");
+        public virtual int Update(string BaseItemCode, string MCO, int LotNo, string LotStatus, System.DateTime AllocationDTTM, int Original_AllocationID, string Original_BaseItemCode, string Original_MCO, int Original_LotNo, string Original_LotStatus, System.DateTime Original_AllocationDTTM, int AllocationID) {
+            if ((BaseItemCode == null)) {
+                throw new global::System.ArgumentNullException("BaseItemCode");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(ItemCode));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(BaseItemCode));
             }
             if ((MCO == null)) {
                 throw new global::System.ArgumentNullException("MCO");
@@ -9120,11 +9544,11 @@ SELECT AllocationID, ItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM Stockp
             }
             this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(AllocationDTTM));
             this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_AllocationID));
-            if ((Original_ItemCode == null)) {
-                throw new global::System.ArgumentNullException("Original_ItemCode");
+            if ((Original_BaseItemCode == null)) {
+                throw new global::System.ArgumentNullException("Original_BaseItemCode");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_ItemCode));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_BaseItemCode));
             }
             if ((Original_MCO == null)) {
                 throw new global::System.ArgumentNullException("Original_MCO");
@@ -9161,8 +9585,392 @@ SELECT AllocationID, ItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM Stockp
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string ItemCode, string MCO, int LotNo, string LotStatus, System.DateTime AllocationDTTM, int Original_AllocationID, string Original_ItemCode, string Original_MCO, int Original_LotNo, string Original_LotStatus, System.DateTime Original_AllocationDTTM) {
-            return this.Update(ItemCode, MCO, LotNo, LotStatus, AllocationDTTM, Original_AllocationID, Original_ItemCode, Original_MCO, Original_LotNo, Original_LotStatus, Original_AllocationDTTM, Original_AllocationID);
+        public virtual int Update(string BaseItemCode, string MCO, int LotNo, string LotStatus, System.DateTime AllocationDTTM, int Original_AllocationID, string Original_BaseItemCode, string Original_MCO, int Original_LotNo, string Original_LotStatus, System.DateTime Original_AllocationDTTM) {
+            return this.Update(BaseItemCode, MCO, LotNo, LotStatus, AllocationDTTM, Original_AllocationID, Original_BaseItemCode, Original_MCO, Original_LotNo, Original_LotStatus, Original_AllocationDTTM, Original_AllocationID);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class StockpileBOMTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public StockpileBOMTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "StockpileBOM";
+            tableMapping.ColumnMappings.Add("ItemCode", "ItemCode");
+            tableMapping.ColumnMappings.Add("BaseItemCode", "BaseItemCode");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [StockpileBOM] WHERE (([ItemCode] = @Original_ItemCode) AND ([BaseIte" +
+                "mCode] = @Original_BaseItemCode))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItemCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BaseItemCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BaseItemCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [StockpileBOM] ([ItemCode], [BaseItemCode]) VALUES (@ItemCode, @BaseI" +
+                "temCode);\r\nSELECT ItemCode, BaseItemCode FROM StockpileBOM WHERE (ItemCode = @It" +
+                "emCode)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BaseItemCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BaseItemCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE [StockpileBOM] SET [ItemCode] = @ItemCode, [BaseItemCode] = @BaseItemCode " +
+                "WHERE (([ItemCode] = @Original_ItemCode) AND ([BaseItemCode] = @Original_BaseIte" +
+                "mCode));\r\nSELECT ItemCode, BaseItemCode FROM StockpileBOM WHERE (ItemCode = @Ite" +
+                "mCode)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BaseItemCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BaseItemCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItemCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BaseItemCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BaseItemCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::QWS_Local.Properties.Settings.Default.cnQWSLocal;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT        StockpileBOM.*\r\nFROM            StockpileBOM";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        StockpileBOM.*\r\nFROM            StockpileBOM\r\nwhere BaseItemCode li" +
+                "ke (select BaseItemCode from StockpileBOM where ItemCode like @ItemCode)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemCode", global::System.Data.SqlDbType.VarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, "ItemCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(dsTIQ2.StockpileBOMDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual dsTIQ2.StockpileBOMDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            dsTIQ2.StockpileBOMDataTable dataTable = new dsTIQ2.StockpileBOMDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByItemCode(dsTIQ2.StockpileBOMDataTable dataTable, string ItemCode) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((ItemCode == null)) {
+                throw new global::System.ArgumentNullException("ItemCode");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(ItemCode));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dsTIQ2.StockpileBOMDataTable GetDataByItemCode(string ItemCode) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((ItemCode == null)) {
+                throw new global::System.ArgumentNullException("ItemCode");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(ItemCode));
+            }
+            dsTIQ2.StockpileBOMDataTable dataTable = new dsTIQ2.StockpileBOMDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dsTIQ2.StockpileBOMDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dsTIQ2 dataSet) {
+            return this.Adapter.Update(dataSet, "StockpileBOM");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_ItemCode, string Original_BaseItemCode) {
+            if ((Original_ItemCode == null)) {
+                throw new global::System.ArgumentNullException("Original_ItemCode");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_ItemCode));
+            }
+            if ((Original_BaseItemCode == null)) {
+                throw new global::System.ArgumentNullException("Original_BaseItemCode");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_BaseItemCode));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string ItemCode, string BaseItemCode) {
+            if ((ItemCode == null)) {
+                throw new global::System.ArgumentNullException("ItemCode");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(ItemCode));
+            }
+            if ((BaseItemCode == null)) {
+                throw new global::System.ArgumentNullException("BaseItemCode");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(BaseItemCode));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string ItemCode, string BaseItemCode, string Original_ItemCode, string Original_BaseItemCode) {
+            if ((ItemCode == null)) {
+                throw new global::System.ArgumentNullException("ItemCode");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(ItemCode));
+            }
+            if ((BaseItemCode == null)) {
+                throw new global::System.ArgumentNullException("BaseItemCode");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(BaseItemCode));
+            }
+            if ((Original_ItemCode == null)) {
+                throw new global::System.ArgumentNullException("Original_ItemCode");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_ItemCode));
+            }
+            if ((Original_BaseItemCode == null)) {
+                throw new global::System.ArgumentNullException("Original_BaseItemCode");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_BaseItemCode));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string BaseItemCode, string Original_ItemCode, string Original_BaseItemCode) {
+            return this.Update(Original_ItemCode, BaseItemCode, Original_ItemCode, Original_BaseItemCode);
         }
     }
     
@@ -9185,6 +9993,8 @@ SELECT AllocationID, ItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM Stockp
         private WBDocketLinesTableAdapter _wBDocketLinesTableAdapter;
         
         private StockpileLotAllocationTableAdapter _stockpileLotAllocationTableAdapter;
+        
+        private StockpileBOMTableAdapter _stockpileBOMTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -9259,6 +10069,20 @@ SELECT AllocationID, ItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM Stockp
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public StockpileBOMTableAdapter StockpileBOMTableAdapter {
+            get {
+                return this._stockpileBOMTableAdapter;
+            }
+            set {
+                this._stockpileBOMTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -9292,6 +10116,10 @@ SELECT AllocationID, ItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM Stockp
                             && (this._stockpileLotAllocationTableAdapter.Connection != null))) {
                     return this._stockpileLotAllocationTableAdapter.Connection;
                 }
+                if (((this._stockpileBOMTableAdapter != null) 
+                            && (this._stockpileBOMTableAdapter.Connection != null))) {
+                    return this._stockpileBOMTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -9315,6 +10143,9 @@ SELECT AllocationID, ItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM Stockp
                     count = (count + 1);
                 }
                 if ((this._stockpileLotAllocationTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._stockpileBOMTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -9364,6 +10195,15 @@ SELECT AllocationID, ItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM Stockp
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._stockpileBOMTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.StockpileBOM.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._stockpileBOMTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -9406,6 +10246,14 @@ SELECT AllocationID, ItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM Stockp
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._stockpileBOMTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.StockpileBOM.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._stockpileBOMTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -9416,6 +10264,14 @@ SELECT AllocationID, ItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM Stockp
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(dsTIQ2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._stockpileBOMTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.StockpileBOM.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._stockpileBOMTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._stockpileLotAllocationTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.StockpileLotAllocation.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -9507,6 +10363,11 @@ SELECT AllocationID, ItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM Stockp
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
+            if (((this._stockpileBOMTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._stockpileBOMTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
@@ -9573,6 +10434,15 @@ SELECT AllocationID, ItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM Stockp
                     if (this._stockpileLotAllocationTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._stockpileLotAllocationTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._stockpileLotAllocationTableAdapter.Adapter);
+                    }
+                }
+                if ((this._stockpileBOMTableAdapter != null)) {
+                    revertConnections.Add(this._stockpileBOMTableAdapter, this._stockpileBOMTableAdapter.Connection);
+                    this._stockpileBOMTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._stockpileBOMTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._stockpileBOMTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._stockpileBOMTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._stockpileBOMTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -9648,6 +10518,10 @@ SELECT AllocationID, ItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM Stockp
                 if ((this._stockpileLotAllocationTableAdapter != null)) {
                     this._stockpileLotAllocationTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._stockpileLotAllocationTableAdapter]));
                     this._stockpileLotAllocationTableAdapter.Transaction = null;
+                }
+                if ((this._stockpileBOMTableAdapter != null)) {
+                    this._stockpileBOMTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._stockpileBOMTableAdapter]));
+                    this._stockpileBOMTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
