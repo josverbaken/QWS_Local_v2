@@ -45,7 +45,6 @@ namespace QWS_Local
         private void TruckDriverSearch_Load(object sender, EventArgs e)
         {
             bsTruckDriver2024.Sort = "Active DESC, Person ASC";
-            //btnSelectDriver.Enabled = false;
         }
      
         private void btnSelectDriver_Click(object sender, EventArgs e)
@@ -69,21 +68,18 @@ namespace QWS_Local
             myTruckDriver = truckDriverRow;
             myDriver = truckDriverRow.Person;
             myDriverID = truckDriverRow.CntctCode;
-            //btnSelectDriver.Enabled = true;
             if (truckDriverRow.Active != 'Y'.ToString())
             {
                 msg = "Driver status not Active! ";
-                //btnSelectDriver.Enabled = false;
             }
             if (truckDriverRow.LicenseExp < DateTime.Now)
             {
                 msg += "License is expired!";
-                //btnSelectDriver.Enabled = false;
             }
             txtInfo.Text = msg;
         }
 
-        private void Search4Driver(string SAPCode) //actual drivers for BP code
+        private void Search4Driver(string SAPCode) //drivers by BP code
         {
             this.taTruckDriver2024.FillByCardCode(this.dsQWSLocal2024.TruckDriver, SAPCode);
         }

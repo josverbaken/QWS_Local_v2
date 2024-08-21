@@ -559,17 +559,17 @@ namespace QWS_Local
             dataGridView1.ClearSelection();
         }
 
-        private void bsConfiguredTrucks_CurrentChanged(object sender, EventArgs e)
-        {
-            CheckConfigOK2Proceed();
-        }
-
         private void BookInTruckStep1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F3)
             {
                 FindTruckConfig(txtTruckRego.Text);
             }
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            CheckConfigOK2Proceed();
         }
     }
 }

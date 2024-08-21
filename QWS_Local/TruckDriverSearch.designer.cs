@@ -253,10 +253,10 @@ namespace QWS_Local
             this.tpDetails.Controls.Add(this.personTextBox);
             this.tpDetails.Controls.Add(this.cardCodeTextBox);
             this.tpDetails.Controls.Add(this.tradingNameTextBox);
-            this.tpDetails.Location = new System.Drawing.Point(4, 27);
+            this.tpDetails.Location = new System.Drawing.Point(4, 22);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(1187, 280);
+            this.tpDetails.Size = new System.Drawing.Size(1187, 285);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;

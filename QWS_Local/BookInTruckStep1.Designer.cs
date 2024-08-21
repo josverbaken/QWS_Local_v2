@@ -67,6 +67,8 @@ namespace QWS_Local
             this.personTextBox = new System.Windows.Forms.TextBox();
             this.btnGetDriver = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnHold = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCollected = new System.Windows.Forms.Button();
@@ -85,8 +87,7 @@ namespace QWS_Local
             this.pictureSchematic = new System.Windows.Forms.PictureBox();
             this.tableAdapterManager2 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.txtTruckConfig = new System.Windows.Forms.TextBox();
-            this.btnHold = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnNext = new System.Windows.Forms.Button();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -192,7 +193,6 @@ namespace QWS_Local
             // 
             this.bsConfiguredTrucks.DataMember = "ConfiguredTrucks";
             this.bsConfiguredTrucks.DataSource = this.dsTruckConfig;
-            this.bsConfiguredTrucks.CurrentChanged += new System.EventHandler(this.bsConfiguredTrucks_CurrentChanged);
             // 
             // dsTruckConfig
             // 
@@ -428,6 +428,27 @@ namespace QWS_Local
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Book In Mode";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(304, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 17);
+            this.label1.TabIndex = 62;
+            this.label1.Text = "Admin";
+            // 
+            // btnHold
+            // 
+            this.btnHold.BackColor = System.Drawing.SystemColors.Control;
+            this.btnHold.Location = new System.Drawing.Point(272, 103);
+            this.btnHold.Name = "btnHold";
+            this.btnHold.Size = new System.Drawing.Size(121, 38);
+            this.btnHold.TabIndex = 61;
+            this.btnHold.Text = "Hold - park up.";
+            this.btnHold.UseVisualStyleBackColor = false;
+            this.btnHold.Click += new System.EventHandler(this.btnHold_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -586,6 +607,8 @@ namespace QWS_Local
             // 
             this.tableAdapterManager2.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager2.Connection = null;
+            this.tableAdapterManager2.StockpileBOMTableAdapter = null;
+            this.tableAdapterManager2.StockpileLotAllocationTableAdapter = null;
             this.tableAdapterManager2.TIQTableAdapter = null;
             this.tableAdapterManager2.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager2.WBDocketLinesTableAdapter = null;
@@ -599,32 +622,22 @@ namespace QWS_Local
             this.txtTruckConfig.Size = new System.Drawing.Size(33, 23);
             this.txtTruckConfig.TabIndex = 81;
             // 
-            // btnHold
+            // btnNext
             // 
-            this.btnHold.BackColor = System.Drawing.SystemColors.Control;
-            this.btnHold.Location = new System.Drawing.Point(272, 103);
-            this.btnHold.Name = "btnHold";
-            this.btnHold.Size = new System.Drawing.Size(121, 38);
-            this.btnHold.TabIndex = 61;
-            this.btnHold.Text = "Hold - park up.";
-            this.btnHold.UseVisualStyleBackColor = false;
-            this.btnHold.Click += new System.EventHandler(this.btnHold_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(304, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 17);
-            this.label1.TabIndex = 62;
-            this.label1.Text = "Admin";
+            this.btnNext.Location = new System.Drawing.Point(322, 406);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(84, 23);
+            this.btnNext.TabIndex = 75;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // BookInTruckStep1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 658);
+            this.Controls.Add(this.btnNext);
             this.Controls.Add(this.txtTruckConfig);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -715,5 +728,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox txtTruckConfig;
         private System.Windows.Forms.Button btnHold;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnNext;
     }
 }
