@@ -415,10 +415,15 @@ namespace QWS_Local
                 {
                     case "TKs":
                         txtTruckConfig.Text = "TRs";
+                        //CurrentTIQ().QueueStatus = "S";
+                        btnSplitLoadType.Enabled = false;
+                        //FormLoadType = LoadType.TRs; //??
                         bsTIQ2.EndEdit();
                         break;
                     case "BDa":
                         txtTruckConfig.Text = "BDb";
+                        btnSplitLoadType.Enabled = false;
+                        //CurrentTIQ().QueueStatus = "S";
                         bsTIQ2.EndEdit();
                         break;
                     default:
@@ -505,7 +510,14 @@ namespace QWS_Local
                 { 
                     if (IsPrefCust == true)
                     {
-                        myTIQRow.QueueStatus = "Q";
+                        if (SplitTruckConfig == "TKs" || SplitTruckConfig == "BDa")
+                        {
+                            myTIQRow.QueueStatus = "S";
+                        }
+                        else
+                        {
+                            myTIQRow.QueueStatus = "Q";
+                        }
                     }
                     else
                     {

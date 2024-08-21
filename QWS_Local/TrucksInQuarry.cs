@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using Microsoft.IdentityModel.Abstractions;
 
 namespace QWS_Local
 {
@@ -385,12 +386,11 @@ namespace QWS_Local
                                 if (ConfirmPostDocket())
                                 {
                                     PostDocket();
-                                    if (CurrentTIQ().TruckConfig == "TKs") // TODO find TIQ where status = S and Rego = Rego or better link via ParentTIQID
+                                    if (CurrentTIQ().TruckConfig == "TKs" || CurrentTIQ().TruckConfig == "BDa") 
                                     {
-                                        // TODO change status of TRs from S to Q
-
+                                        // change status of TRs from S to Q
+                                        ReleaseSplit(CurrentTIQ().Rego);
                                         RefreshQueue();
-                                        //GoBack2BookIn(myRego, myTruckConfigID, myDriverID); // TODO copy to book in exbin / delivery
                                     }
 
                                 }
@@ -404,6 +404,9 @@ namespace QWS_Local
                         {
                             MessageBox.Show("Weighing cancelled!");
                         }
+                        break;
+                    case "S":
+                        MessageBox.Show("Please process truck first!", "Split Load", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         break;
                     default:
                         break;
@@ -572,6 +575,25 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message, "GetItemQA Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return false;
+            }
+        }
+
+        private void ReleaseSplit(string Rego)
+        {
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "TIQReleaseSplit";
+                cmd.Parameters.AddWithValue("@Rego", Rego);
+                sqlConnection.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ReleaseSplit Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
