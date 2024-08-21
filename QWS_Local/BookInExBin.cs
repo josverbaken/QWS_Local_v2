@@ -15,6 +15,7 @@ namespace QWS_Local
         private bool FormLoaded = false;
         //private string LoadType = "TK";
         private bool IsPrefCust = false;
+        private string SplitTruckConfig;
 
         private enum TIQType
         {
@@ -48,7 +49,7 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public BookInExBin(int myTIQID,string myTIQType,int myTruckConfigID, string myCardCode, string myCustomerName, bool myIsPrefCust , dsQWSLocal.TruckDriverRow driverRow)
+        public BookInExBin(int myTIQID,string myTIQType,string mySplitTruckConfig,int myTruckConfigID, string myCardCode, string myCustomerName, bool myIsPrefCust , dsQWSLocal.TruckDriverRow driverRow)
         {
             InitializeComponent();
             TIQID = myTIQID;
@@ -56,6 +57,7 @@ namespace QWS_Local
             CardCode = myCardCode;
             CustomerName = myCustomerName;
             IsPrefCust = myIsPrefCust;
+            SplitTruckConfig = mySplitTruckConfig;
             DriverRow = driverRow;
             if (myTIQType == "Imported")
             {
@@ -87,6 +89,7 @@ namespace QWS_Local
             FormLoaded = true;
             dataGridView4.ClearSelection();
             FormLoadType = LoadType.TK;
+            label13.Text = SplitTruckConfig.ToString();
         }
 
         private void LoadTIQ()
@@ -407,7 +410,21 @@ namespace QWS_Local
             tabControl2.SelectedTab = tpPayload;
             if (CurrentTruckGVM().Compartments > 1)
             {
-                btnSplitLoadType.Enabled = true;
+                // check if split
+                switch (SplitTruckConfig)
+                {
+                    case "TKs":
+                        txtTruckConfig.Text = "TRs";
+                        bsTIQ2.EndEdit();
+                        break;
+                    case "BDa":
+                        txtTruckConfig.Text = "BDb";
+                        bsTIQ2.EndEdit();
+                        break;
+                    default:
+                        btnSplitLoadType.Enabled = true;
+                        break;
+                }
             }
             else
             {
@@ -441,26 +458,28 @@ namespace QWS_Local
 
         private void SetSplitLoadGUI(string LoadType)
         {
-            if (LoadType == "TK") // TODO handle "BD", "ST"
+            switch (LoadType)
             {
-                txtGVMTruck.Visible = false;
-                txtTareTruck.Visible = false;
-                txtPayloadSplit.Visible = false;
-                nudPayloadTk.Visible = false;
-                nudPayloadTr.Visible = false;
-                //lblPayloadSplit.Visible = false;
-                // issue with databound labels
-                label7.Visible = false;
-            }
-            else
-            {
-                txtGVMTruck.Visible = true;
-                txtTareTruck.Visible = true;
-                txtPayloadSplit.Visible = true;
-                nudPayloadTk.Visible = true;
-                nudPayloadTr.Visible = true;
-                //lblPayloadSplit.Visible = true;
-                label7.Visible = true;
+                case "TK":
+                case "BD":
+                    txtGVMTruck.Visible = false;
+                    txtTareTruck.Visible = false;
+                    txtPayloadSplit.Visible = false;
+                    nudPayloadTk.Visible = false;
+                    nudPayloadTr.Visible = false;
+                    //lblPayloadSplit.Visible = false;
+                    // issue with databound labels
+                    label7.Visible = false;
+                    break;
+                default:
+                    txtGVMTruck.Visible = true;
+                    txtTareTruck.Visible = true;
+                    txtPayloadSplit.Visible = true;
+                    nudPayloadTk.Visible = true;
+                    nudPayloadTr.Visible = true;
+                    //lblPayloadSplit.Visible = true;
+                    label7.Visible = true;
+                    break;            
             }
         }
 
@@ -500,6 +519,7 @@ namespace QWS_Local
                     if (txtTruckConfig.Text == "TKs")
                     {
                         MessageBox.Show("To book in TRs","Split Load", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        GoBack2BookIn(CurrentTIQ().Rego, CurrentTIQ().TruckConfigID, CurrentTIQ().DriverID);
                     }
                     else
                     {
@@ -602,5 +622,15 @@ namespace QWS_Local
                 txtCustomer.Text = "n/a";
             }
         }
+
+        private void GoBack2BookIn(string Rego, int TruckConfigID, int DriverID)
+        {
+            //called after retare successful //TODO modify for split load
+            BookInTruckStep1 frmBookInStep1 = new BookInTruckStep1(Rego, TruckConfigID, DriverID, CurrentTIQ().TruckConfig, "Called after book in TKs");
+            frmBookInStep1.MdiParent = this.MdiParent;
+            frmBookInStep1.Show();
+        }
+
+
     }
 }

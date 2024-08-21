@@ -91,24 +91,20 @@ namespace QWS_Local
                 {
                     myTIQRow.StockpileLotNo = 0;
                 }
-                //myTIQRow.CustON = CurrentDeliveryOrder().PurchaseOrder;
-                //myTIQRow.Material = CurrentDeliveryOrder().MaterialCode;
-                //myTIQRow.MaterialDesc = CurrentDeliveryOrder().Material;
-                //myTIQRow.CartageCode = CurrentDeliveryOrder().CartageCode;
-                //myTIQRow.Payload = nudPayload.Value;
                 myTIQRow.QueueStatus = "Q";
                 bsTIQ2.EndEdit();
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
-                if (iRow == 1)
+                if (iRow == 1) // TODO test if split load
                 {
-                    //QWS_MDIParent myParent = this.MdiParent();
-                    ((QWS_MDIParent)this.MdiParent).BringTIQ2Front();
-
-                    //TrucksInQuarry frmTIQ = new TrucksInQuarry();
-                    //frmTIQ.MdiParent = this.MdiParent;
-                    //frmTIQ.RefreshQueue();
-                    //frmTIQ.Show();
-                    //frmTIQ.ClearTIQ(); // sequence is important
+                    if (txtTruckConfig.Text == "TKs")
+                    {
+                        MessageBox.Show("To book in TRs", "Split Load", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        GoBack2BookIn(CurrentTIQ().Rego, CurrentTIQ().TruckConfigID, CurrentTIQ().DriverID);
+                    }
+                    else
+                    {
+                        ((QWS_MDIParent)this.MdiParent).BringTIQ2Front();
+                    }
                 }
                 this.Close();
             }
@@ -396,6 +392,14 @@ namespace QWS_Local
         private void btnSplitLoadType_Click(object sender, EventArgs e)
         {
             SetSplitLoadType();
+        }
+
+        private void GoBack2BookIn(string Rego, int TruckConfigID, int DriverID)
+        {
+            //called after retare successful
+            BookInTruckStep1 frmBookInStep1 = new BookInTruckStep1(Rego, TruckConfigID, DriverID, CurrentTIQ().TruckConfig, "Called after book in TKs.");
+            frmBookInStep1.MdiParent = this.MdiParent;
+            frmBookInStep1.Show();
         }
     }
 }

@@ -19,7 +19,8 @@ namespace QWS_Local
         private static string ExBinCustomer;
         private static bool IsPrefCust = false;
         private static string CallingMessage="";
-        private static int myDriverID = 0;
+        private static int DriverID = 0;
+        private static string SplitTruckConfig = "Single";
 
         private enum TIQType
         {
@@ -49,13 +50,14 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public BookInTruckStep1(string Rego, int TruckConfigID, int DriverID ,string Message)
+        public BookInTruckStep1(string Rego, int TruckConfigID, int myDriverID ,string mySplitTruckConfig, string Message)
         {
             InitializeComponent();
             CallingMessage = Message;
             FindTruckConfig(Rego);
             SelectTruckConfig(TruckConfigID);
-            myDriverID = DriverID;
+            DriverID = myDriverID;
+            SplitTruckConfig = mySplitTruckConfig;
         }
 
         private void btnFindTruck_Click(object sender, EventArgs e)
@@ -144,7 +146,7 @@ namespace QWS_Local
         {
             FormLoaded = true;
             this.KeyPreview = true;
-            if (CallingMessage.Length>0)
+            if (CallingMessage.Length > 0)
             {
                 MessageBox.Show(CallingMessage);
             }
@@ -225,10 +227,10 @@ namespace QWS_Local
             bool blInduction = false;
             bool RetareDue = CheckRetareDue();
             bool blOkay2Proceed = false;
-            if (myDriverID > 0) // driver pre-selected on prior iteration
+            if (DriverID > 0) // driver pre-selected on prior iteration
             {
                 taTruckDriver.FillByCardCode(dsQWSLocal.TruckDriver, CurrentConfigTruck().CardCode);
-                int index = bsTruckDriver.Find("CntctCode", myDriverID);
+                int index = bsTruckDriver.Find("CntctCode", DriverID);
                 if (index > 0)
                 {
                     bsTruckDriver.Position = index; 
@@ -390,9 +392,10 @@ namespace QWS_Local
             int iTIQID = NewTIQ(myTIQType);
             if (iTIQID > 0)
             {
-                BookInExBin frmExBin = new BookInExBin(iTIQID,myTIQType.ToString() ,CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer,IsPrefCust ,CurrentTruckDriver());
+                BookInExBin frmExBin = new BookInExBin(iTIQID,myTIQType.ToString() , SplitTruckConfig ,CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer,IsPrefCust ,CurrentTruckDriver());
                 frmExBin.MdiParent = this.MdiParent;
                 frmExBin.Show();
+                this.Close();
             }
         }
 
@@ -413,6 +416,7 @@ namespace QWS_Local
                 BookInDelivery frmDelivery = new BookInDelivery(iTIQID, CurrentConfigTruck().TruckConfigID, CurrentTruckDriver());
                 frmDelivery.MdiParent = this.MdiParent;
                 frmDelivery.Show();
+                this.Close();
             }
         }
 

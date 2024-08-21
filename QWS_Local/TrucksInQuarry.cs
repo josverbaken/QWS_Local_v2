@@ -334,7 +334,7 @@ namespace QWS_Local
                         dr = frmWeighTruck.ShowDialog();
                         myWeight = frmWeighTruck.Weight;
                         if (dr == DialogResult.OK)
-                        {
+                        {                          
                             CurrentTIQ().Tare = myWeight;
                             CurrentTIQ().Nett = CurrentTIQ().Gross - myWeight;
                             CurrentTIQ().QueueStatus = "E";
@@ -357,6 +357,10 @@ namespace QWS_Local
                         dr = frmWeighTruck.ShowDialog();                        
                         if (dr == DialogResult.OK)
                         {
+                            string myRego = CurrentTIQ().Rego;
+                            int myTruckConfigID = CurrentTIQ().TruckConfigID;
+                            int myDriverID = CurrentTIQ().DriverID;
+
                             decimal myGVM = CurrentTIQ().GCM;
                             if (CurrentTIQ().TruckConfig == "TKs")
                             {
@@ -381,10 +385,14 @@ namespace QWS_Local
                                 if (ConfirmPostDocket())
                                 {
                                     PostDocket();
-                                    //if (CurrentTIQ().TruckConfig == "TKs") // TODO find TIQ where status = S and Rego = Rego or better link via ParentTIQID
-                                    //{
-                                    //    // TODO change status of TRs from S to Q
-                                    //}
+                                    if (CurrentTIQ().TruckConfig == "TKs") // TODO find TIQ where status = S and Rego = Rego or better link via ParentTIQID
+                                    {
+                                        // TODO change status of TRs from S to Q
+
+                                        RefreshQueue();
+                                        //GoBack2BookIn(myRego, myTruckConfigID, myDriverID); // TODO copy to book in exbin / delivery
+                                    }
+
                                 }
                                 else
                                 {
@@ -411,7 +419,7 @@ namespace QWS_Local
         private void GoBack2BookIn(string Rego, int TruckConfigID, int DriverID)
         {
             //called after retare successful
-            BookInTruckStep1 frmBookInStep1 = new BookInTruckStep1(Rego, TruckConfigID, DriverID , "Called after successful retare.");
+            BookInTruckStep1 frmBookInStep1 = new BookInTruckStep1(Rego, TruckConfigID, DriverID ,"TruckConfig", "Called after successful retare.");
             frmBookInStep1.MdiParent = this.MdiParent;
             frmBookInStep1.Show();
         }
