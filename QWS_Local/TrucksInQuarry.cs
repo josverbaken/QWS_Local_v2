@@ -361,9 +361,10 @@ namespace QWS_Local
                             string myRego = CurrentTIQ().Rego;
                             int myTruckConfigID = CurrentTIQ().TruckConfigID;
                             int myDriverID = CurrentTIQ().DriverID;
+                            string myTruckConfig = CurrentTIQ().TruckConfig;
 
                             decimal myGVM = CurrentTIQ().GCM;
-                            if (CurrentTIQ().TruckConfig == "TKs")
+                            if (myTruckConfig == "TKs")
                             {
                                 myGVM = CurrentTIQ().GVMTruck + CurrentTIQ().Tare - CurrentTIQ().TareTk;
                             }
@@ -386,10 +387,10 @@ namespace QWS_Local
                                 if (ConfirmPostDocket())
                                 {
                                     PostDocket();
-                                    if (CurrentTIQ().TruckConfig == "TKs" || CurrentTIQ().TruckConfig == "BDa") 
+                                    if (myTruckConfig == "TKs" || myTruckConfig == "BDa") 
                                     {
                                         // change status of TRs from S to Q
-                                        ReleaseSplit(CurrentTIQ().Rego);
+                                        ReleaseSplit(CurrentTIQ().Rego, myWeight);
                                         RefreshQueue();
                                     }
 
@@ -578,7 +579,7 @@ namespace QWS_Local
             }
         }
 
-        private void ReleaseSplit(string Rego)
+        private void ReleaseSplit(string Rego, decimal TempTare)
         {
             try
             {
@@ -588,6 +589,7 @@ namespace QWS_Local
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "TIQReleaseSplit";
                 cmd.Parameters.AddWithValue("@Rego", Rego);
+                cmd.Parameters.AddWithValue("@Tare", TempTare);
                 sqlConnection.Open();
                 cmd.ExecuteNonQuery();
             }
