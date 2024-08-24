@@ -104,6 +104,7 @@ namespace QWS_Local
                             SynchFeeCode(CurrentVehicle().FeeCodeID);
                             CheckExpiryDT();
                             GetPBSApprovals(CurrentVehicle().Rego);
+                            LoadPrefCustomers();
                             break;
                         case int n when(n > 1):
                             VehicleSearch vehicleSearch = new VehicleSearch(strSearch, false);
@@ -116,6 +117,7 @@ namespace QWS_Local
                                 SynchAxleConfig(CurrentVehicle().AxleConfiguration);
                                 SynchFeeCode(CurrentVehicle().FeeCodeID);
                                 GetPBSApprovals(CurrentVehicle().Rego);
+                                LoadPrefCustomers();
                             }
                             else
                             {
@@ -526,10 +528,6 @@ namespace QWS_Local
         {
             try
             {
-                //DataRow dr = ((DataRowView)bsVehiclePBS.Current).Row;
-                //dsQWSLocal.VehiclePBSRow vehiclePBSRow = (dsQWSLocal.VehiclePBSRow)dr;
-                //vehiclePBSRow.Rego = CurrentVehicle().Rego;
-                // TOO Late, exception occurs in bindingsource add item to list
                 bsVehiclePBS.EndEdit();
                 this.taVehiclePBS.Update(dsQWSLocal.VehiclePBS);
             }
@@ -592,9 +590,9 @@ namespace QWS_Local
                 DataRow dr = dsQWSLocal.VehiclePBS.NewRow();
                 dsQWSLocal.VehiclePBSRow vehiclePBSRow = (dsQWSLocal.VehiclePBSRow)dr;
                 vehiclePBSRow.Rego = CurrentVehicle().Rego;
-                vehiclePBSRow.VehicleApproval = System.Convert.ToInt32(txtPBS_VA.Text);
+                vehiclePBSRow.VehicleApproval = 0; // System.Convert.ToInt32(txtPBS_VA.Text);
                 dsQWSLocal.VehiclePBS.AddVehiclePBSRow(vehiclePBSRow);
-                txtPBS_VA.Text = "";
+                //txtPBS_VA.Text = "";
             }
             catch (Exception ex)
             {
@@ -635,6 +633,21 @@ namespace QWS_Local
         private void button3_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tabPage1;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabPage1;
+        }
+
+        private void btnSaveMassMgmtAccred_Click(object sender, EventArgs e)
+        {
+            IdentificationSave();
+        }
+
+        private void btnRefreshPBS_Click(object sender, EventArgs e)
+        {
+            GetPBSApprovals(CurrentVehicle().Rego);
         }
     }
 }
