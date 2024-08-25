@@ -287,14 +287,13 @@ namespace QWS_Local
             // TODO refactor PrefCustomerSearch to just return found BP
             try
             {
-                BusinessSearch businessSearch = new BusinessSearch(""); // txtPrefCustName.Text);
-                DialogResult dr = businessSearch.ShowDialog();
+                BusinessSearch frmBusinessSearch = new BusinessSearch(""); // txtPrefCustName.Text);
+                DialogResult dr = frmBusinessSearch.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-//                    CurrentVehicle().PrefCustomerCode = businessSearch.SAPCode;
-//                    CurrentVehicle().PrefCustomer = businessSearch.BusinessName;
-//                    vehicleBindingSource.EndEdit();
-                    txtJurisdiction.Focus();
+                    AddVehiclePreCustomer(frmBusinessSearch.SAPCode, frmBusinessSearch.BusinessName);
+                    bsVehiclePrefCustomers.EndEdit();
+                    //txtJurisdiction.Focus();
                 }
                 else if (dr == DialogResult.Abort)
                 {
@@ -593,6 +592,27 @@ namespace QWS_Local
                 vehiclePBSRow.VehicleApproval = 0; // System.Convert.ToInt32(txtPBS_VA.Text);
                 dsQWSLocal.VehiclePBS.AddVehiclePBSRow(vehiclePBSRow);
                 //txtPBS_VA.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void AddVehiclePreCustomer(string CardCode, string CardName)
+        {
+            try
+            {
+                DataRow dr = dsQWSLocal.VehiclePrefCustomers.NewRow();
+                dsQWSLocal.VehiclePrefCustomersRow vehiclePrefCustomersRow = (dsQWSLocal.VehiclePrefCustomersRow)dr;
+                vehiclePrefCustomersRow.Rego = CurrentVehicle().Rego;
+                vehiclePrefCustomersRow.CardCode = CardCode;
+                vehiclePrefCustomersRow.PrefCustomer = CardName;
+                vehiclePrefCustomersRow.IsDefault = false;
+                vehiclePrefCustomersRow.Active = true;
+                vehiclePrefCustomersRow.Comment = "";
+                vehiclePrefCustomersRow.Rank = 0;
+                dsQWSLocal.VehiclePrefCustomers.AddVehiclePrefCustomersRow(vehiclePrefCustomersRow);                
             }
             catch (Exception ex)
             {
