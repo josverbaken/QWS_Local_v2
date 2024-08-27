@@ -17,7 +17,7 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-    
+
         private void GetConfiguredTruckGVM(string Rego, int TruckConfigID)
         {
             try
@@ -35,7 +35,31 @@ namespace QWS_Local
         {
             try
             {
-                this.taConfiguredTrucks.FillByRego(this.dsTruckConfig.ConfiguredTrucks, Rego);
+                int iVehicleConfig = this.taConfiguredTrucks.FillByRego(this.dsTruckConfig.ConfiguredTrucks, Rego);
+                int iVehicle = this.taVehicle.FillBy(dsQWSLocal.Vehicle, Rego);
+                if (iVehicle == 0)
+                {
+                    DialogResult dr2 = MessageBox.Show("Vehicle not on record. Do you want to add it?", "Vehicle not found!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr2 == DialogResult.Yes)
+                    {
+                        VehicleMaintenance frmVehicleMaintenance = new VehicleMaintenance();
+                        frmVehicleMaintenance.MdiParent = this.MdiParent;
+                        frmVehicleMaintenance.Show();
+                    }
+                }
+                else if (iVehicleConfig == 0) 
+                {
+                    DialogResult dr = MessageBox.Show("No configuration found. Do you want to add a new configuration?", "Not yet configured.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr == DialogResult.Yes)
+                    {
+                        AxleConfigurationSearch frmAxleConfig = new AxleConfigurationSearch();
+                        DialogResult dr1 = frmAxleConfig.ShowDialog();
+                        if (dr1 == DialogResult.Yes)
+                        {
+                            MessageBox.Show("todo accept select axle config");
+                        }
+                    }
+                }
             }
             catch (System.Exception ex)
             {
@@ -94,6 +118,21 @@ namespace QWS_Local
         {
             NHVR_GVM_Search frmNHVR = new NHVR_GVM_Search(AxleConfig);
             frmNHVR.ShowDialog();
+        }
+
+        private void TruckConfigMaintenance_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'dsQWSLocal.Vehicle' table. You can move, or remove it, as needed.
+            this.taVehicle.Fill(this.dsQWSLocal.Vehicle);
+            this.KeyPreview = true;
+        }
+
+        private void TruckConfigMaintenance_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F3)
+            {
+                GetConfiguredTruck(txtRego.Text);
+            }
         }
     }
 }
