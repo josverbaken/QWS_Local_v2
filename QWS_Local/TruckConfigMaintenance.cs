@@ -35,6 +35,8 @@ namespace QWS_Local
         {
             try
             {
+                dsTruckConfig.ConfiguredTrucks.Clear();
+                dsTruckConfig.ConfiguredTruckGVM.Clear();
                 int iVehicleConfig = this.taConfiguredTrucks.FillByRego(this.dsTruckConfig.ConfiguredTrucks, Rego);
                 int iVehicle = this.taVehicle.FillBy(dsQWSLocal.Vehicle, Rego);
                 if (iVehicle == 0)
@@ -49,14 +51,18 @@ namespace QWS_Local
                 }
                 else if (iVehicleConfig == 0) 
                 {
+                    string myAxleConfig = CurrentVehicle().AxleConfiguration;
                     DialogResult dr = MessageBox.Show("No configuration found. Do you want to add a new configuration?", "Not yet configured.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dr == DialogResult.Yes)
                     {
-                        AxleConfigurationSearch frmAxleConfig = new AxleConfigurationSearch();
+                        AxleConfigurationSearch frmAxleConfig = new AxleConfigurationSearch(myAxleConfig);
                         DialogResult dr1 = frmAxleConfig.ShowDialog();
-                        if (dr1 == DialogResult.Yes)
+                        if (dr1 == DialogResult.OK)
                         {
-                            MessageBox.Show("todo accept select axle config");
+                            string msg = "Selected axle config = ";
+                            msg += frmAxleConfig.SelectedAxleConfig;
+                            MessageBox.Show(msg);
+                            ////TODO if SelectedAxleConfig.length > myAxleConfig.length then get trailer/s
                         }
                     }
                 }
@@ -66,6 +72,21 @@ namespace QWS_Local
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private dsQWSLocal.VehicleRow CurrentVehicle()
+        {
+            try
+            {
+                DataRow myDR = ((DataRowView)bsVehicle.Current).Row;
+                dsQWSLocal.VehicleRow vehicleRow = (dsQWSLocal.VehicleRow)myDR;
+                return vehicleRow;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
         }
 
         private void btnFindConfiguredTrucks_Click(object sender, EventArgs e)

@@ -17,14 +17,26 @@ namespace QWS_Local
         private bool myIsLeadVehicle;
         private int myAxles;
         private string myCoupling;
+        private string myAxleConfiguration = "";
 
         public dsQWSLocal.AxleConfigurationRow _AxleConfigurationRow
         {
             get { return myAxleConfigurationRow; }
         }
+
+        public string SelectedAxleConfig
+        {
+            get { return myAxleConfiguration; }
+        }
+
         public AxleConfigurationSearch()
         {
             InitializeComponent();
+        }
+        public AxleConfigurationSearch(string Axleconfiguration)
+        {
+            InitializeComponent();
+            myAxleConfiguration=Axleconfiguration;
         }
 
         public AxleConfigurationSearch(bool IsLeadVehicle, int Axles, string Coupling)
@@ -47,24 +59,26 @@ namespace QWS_Local
         {
             try
             {
+                string myFilter = "";
                 this.axleConfigurationTableAdapter.FillByView(this.dsQWSLocal.AxleConfiguration);
-                // TODO probably better to call parameterised stored procedure
-            string myFilter = "Axles = " + myAxles.ToString();
-                //"VehicleType like '" + myVehicleType + "'";
-                //myFilter += " and Axles = " + myAxles.ToString();
-                if (myIsLeadVehicle == false)
+                if (myAxleConfiguration.Length > 0)
                 {
-                    myFilter += " and AxleConfiguration like '" + myCoupling + "%'";
+                    myFilter = "AxleConfiguration like '" + myAxleConfiguration + "%'";
                 }
                 else
                 {
-                    //myFilter += " and AxleConfiguration like '%" + myCoupling + "%'  and AxleConfiguration not like '" + myCoupling + "%'";
-                    myFilter += " and AxleConfiguration like '%" + myCoupling + "%'  and IsLeadVehicle = 1";
-                    //myFilter += " and IsLeadVehicle = 1";
+                    myFilter = "Axles = " + myAxles.ToString();
+                    if (myIsLeadVehicle == false)
+                    {
+                        myFilter += " and AxleConfiguration like '" + myCoupling + "%'";
+                    }
+                    else
+                    {
+                        myFilter += " and AxleConfiguration like '%" + myCoupling + "%'  and IsLeadVehicle = 1";
+                    }
+
                 }
-                this.axleConfigurationBindingSource.Filter = myFilter;
-            //this.radGridView1.TableElement.RowHeight = 150;
-            //this.dataGridView1.
+                this.axleConfigurationBindingSource.Filter = myFilter;             
             }
             catch (Exception ex)
             {
@@ -84,6 +98,7 @@ namespace QWS_Local
                 DataRow myDR = ((DataRowView)axleConfigurationBindingSource.Current).Row;
                 dsQWSLocal.AxleConfigurationRow axleConfigRow = (dsQWSLocal.AxleConfigurationRow)myDR;
                 myAxleConfigurationRow = axleConfigRow;
+                myAxleConfiguration = axleConfigRow.AxleConfiguration;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -114,6 +129,12 @@ namespace QWS_Local
         private void btnClearFilter_Click(object sender, EventArgs e)
         {
             axleConfigurationBindingSource.Filter = "";
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult= DialogResult.Cancel;
+            this.Close();  
         }
     }
 }
