@@ -70,6 +70,8 @@
             this.bsVehicle = new System.Windows.Forms.BindingSource(this.components);
             this.taVehicle = new QWS_Local.dsQWSLocalTableAdapters.VehicleTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
+            this.bsAxleConfiguration = new System.Windows.Forms.BindingSource(this.components);
+            this.taAxleConfiguration = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
             regoTkLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             feeCodeLabel = new System.Windows.Forms.Label();
@@ -94,6 +96,7 @@
             this.tpConfigGVMList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfiguration)).BeginInit();
             this.SuspendLayout();
             // 
             // regoTkLabel
@@ -355,6 +358,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.AutoScroll = true;
             this.splitContainer1.Panel1.Controls.Add(this.btnSearchNHVR);
             this.splitContainer1.Panel1.Controls.Add(this.btnFindConfiguredTrucks);
             this.splitContainer1.Panel1.Controls.Add(this.txtRego);
@@ -479,6 +483,15 @@
             this.tableAdapterManager1.VehicleTableAdapter = this.taVehicle;
             this.tableAdapterManager1.VehicleTypeTableAdapter = null;
             // 
+            // bsAxleConfiguration
+            // 
+            this.bsAxleConfiguration.DataMember = "AxleConfiguration";
+            this.bsAxleConfiguration.DataSource = this.dsQWSLocal;
+            // 
+            // taAxleConfiguration
+            // 
+            this.taAxleConfiguration.ClearBeforeFill = true;
+            // 
             // TruckConfigMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -514,6 +527,7 @@
             this.tpConfigGVMList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfiguration)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -557,5 +571,7 @@
         private System.Windows.Forms.BindingSource bsVehicle;
         private dsQWSLocalTableAdapters.VehicleTableAdapter taVehicle;
         private dsQWSLocalTableAdapters.TableAdapterManager tableAdapterManager1;
+        private System.Windows.Forms.BindingSource bsAxleConfiguration;
+        private dsQWSLocalTableAdapters.AxleConfigurationTableAdapter taAxleConfiguration;
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 
 namespace QWS_Local
 {
@@ -49,6 +50,10 @@ namespace QWS_Local
                         frmVehicleMaintenance.Show();
                     }
                 }
+                else if (CurrentVehicle().IsLeadVehicle == false)
+                {
+                    MessageBox.Show("Please get truck before trailer");
+                }
                 else if (iVehicleConfig == 0) 
                 {
                     string myAxleConfig = CurrentVehicle().AxleConfiguration;
@@ -61,8 +66,10 @@ namespace QWS_Local
                         {
                             string msg = "Selected axle config = ";
                             msg += frmAxleConfig.SelectedAxleConfig;
-                            MessageBox.Show(msg);
                             ////TODO if SelectedAxleConfig.length > myAxleConfig.length then get trailer/s
+                            dsQWSLocal.AxleConfigurationRow axleConfigurationRow = frmAxleConfig._AxleConfigurationRow;
+                            msg += " vehicle count = " + axleConfigurationRow.Vehicles.ToString();
+                            MessageBox.Show(msg);
                         }
                     }
                 }
@@ -143,6 +150,8 @@ namespace QWS_Local
 
         private void TruckConfigMaintenance_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsQWSLocal.AxleConfiguration' table. You can move, or remove it, as needed.
+            this.taAxleConfiguration.Fill(this.dsQWSLocal.AxleConfiguration);
             // TODO: This line of code loads data into the 'dsQWSLocal.Vehicle' table. You can move, or remove it, as needed.
             this.taVehicle.Fill(this.dsQWSLocal.Vehicle);
             this.KeyPreview = true;
@@ -153,6 +162,56 @@ namespace QWS_Local
             if (e.KeyCode == Keys.F3)
             {
                 GetConfiguredTruck(txtRego.Text);
+            }
+        }
+
+        private int NewTruckConfig(string AxleConfiguration)
+        {
+            try
+            {
+                int iTruckConfigID = 0;
+                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "TruckConfigAdd";
+                cmd.Parameters.AddWithValue("@AxleConfiguration", AxleConfiguration);
+                cmd.Parameters.AddWithValue("@Tare", 0.0M);
+                cmd.Parameters.AddWithValue("@TareTk", 0.0M);
+                cmd.Parameters.AddWithValue("@ForceRetare", false);
+                cmd.Parameters.AddWithValue("@RetareEveryTime", false);
+                sqlConnection.Open();
+                iTruckConfigID = System.Convert.ToInt32(cmd.ExecuteScalar());
+                sqlConnection.Close();
+                return iTruckConfigID;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "NewTruckConfig", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -9;
+            }
+        }
+
+        private void TruckConfigVehicleAdd(int TruckConfigID, string Rego, int Position, decimal PrefPayload)
+        {
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "TruckConfigVehicleAdd";
+                cmd.Parameters.AddWithValue("@TruckConfigID", TruckConfigID);
+                cmd.Parameters.AddWithValue("@Rego", Rego);
+                cmd.Parameters.AddWithValue("@Position", Position);
+                cmd.Parameters.AddWithValue("@PrefPayload", PrefPayload);
+                sqlConnection.Open();
+                cmd.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "TruckConfigVehicleAdd", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
