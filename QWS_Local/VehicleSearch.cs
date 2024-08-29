@@ -35,6 +35,17 @@ namespace QWS_Local
             InitializeComponent();
         }
 
+        public VehicleSearch(string CardCode, string TkAxleConfig)
+        {
+            InitializeComponent();
+            Search4Vehicle(CardCode,true);
+            this.txtSearch.Text = CardCode;
+            //TODO set axle config filter
+            //this.bsVehicleDetails.Filter = "AxleConfiguration like '" + TkAxleConfig + "%' and IsLeadVehicle = 0";
+            MessageBox.Show("Truck Axle config = " + TkAxleConfig);
+            FilterByTrailers();
+        }
+
         public VehicleSearch(string strSearch, bool IsCardCode)
         {
             InitializeComponent();
@@ -55,7 +66,7 @@ namespace QWS_Local
                 if (IsCardCode)
                 {
                     this.vehicleDetailsTableAdapter.FillBySAPCode(this.dsQWSLocal.VehicleDetails, strSearch);
-                    this.bsVehicleDetails.Filter = "IsLeadVehicle = 1";
+                    //this.bsVehicleDetails.Filter = "IsLeadVehicle = 1";
                     // maybe pass in as a parameter from calling form
                     // maybe create function for filter
                 }
@@ -72,10 +83,13 @@ namespace QWS_Local
 
         private void VehicleSet()
         {
-            DataRow myDR = ((DataRowView)bsVehicleDetails.Current).Row;
-            dsQWSLocal.VehicleDetailsRow vehicleDetailsRow = (dsQWSLocal.VehicleDetailsRow)myDR;
-            myRego = vehicleDetailsRow.Rego;
-            myCardCode = vehicleDetailsRow.CardCode;
+            if (bsVehicleDetails.Count > 0)
+            {
+                DataRow myDR = ((DataRowView)bsVehicleDetails.Current).Row;
+                dsQWSLocal.VehicleDetailsRow vehicleDetailsRow = (dsQWSLocal.VehicleDetailsRow)myDR;
+                myRego = vehicleDetailsRow.Rego;
+                myCardCode = vehicleDetailsRow.CardCode;
+            }
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)

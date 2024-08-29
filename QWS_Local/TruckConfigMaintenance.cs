@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,12 +65,13 @@ namespace QWS_Local
                         DialogResult dr1 = frmAxleConfig.ShowDialog();
                         if (dr1 == DialogResult.OK)
                         {
+                            string SelectedAxleConfig = frmAxleConfig.SelectedAxleConfig;
                             string msg = "Selected axle config = ";
-                            msg += frmAxleConfig.SelectedAxleConfig;
-                            ////TODO if SelectedAxleConfig.length > myAxleConfig.length then get trailer/s
+                            msg += SelectedAxleConfig;
                             dsQWSLocal.AxleConfigurationRow axleConfigurationRow = frmAxleConfig._AxleConfigurationRow;
                             msg += " vehicle count = " + axleConfigurationRow.Vehicles.ToString();
                             MessageBox.Show(msg);
+                            TruckConfigAddTruck(SelectedAxleConfig, Rego, axleConfigurationRow.Vehicles);
                         }
                     }
                 }
@@ -165,7 +167,7 @@ namespace QWS_Local
             }
         }
 
-        private int NewTruckConfig(string AxleConfiguration)
+        private int TruckConfigAdd(string AxleConfiguration)
         {
             try
             {
@@ -178,6 +180,7 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@AxleConfiguration", AxleConfiguration);
                 cmd.Parameters.AddWithValue("@Tare", 0.0M);
                 cmd.Parameters.AddWithValue("@TareTk", 0.0M);
+                cmd.Parameters.AddWithValue("@TareDt", DateTime.Now);
                 cmd.Parameters.AddWithValue("@ForceRetare", false);
                 cmd.Parameters.AddWithValue("@RetareEveryTime", false);
                 sqlConnection.Open();
@@ -213,6 +216,28 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message, "TruckConfigVehicleAdd", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void TruckConfigAddTruck(string AxleConfig, string Rego, int Vehicles)
+        {
+            int myTruckConfigID = TruckConfigAdd(AxleConfig);
+            TruckConfigVehicleAdd(myTruckConfigID, Rego, 1, 0.0M);
+            //TODO add trailers
+            for (int i = 1; i < Vehicles; i++) //0 taken by truck as above
+            {
+                string Trailer;
+                // vehicle search by owner
+                // TODO filter to trailers and truck axles
+                VehicleSearch frmVehicleSearch = new VehicleSearch(CurrentVehicle().CardCode,CurrentVehicle().AxleConfiguration);
+                DialogResult dr = frmVehicleSearch.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    Trailer = frmVehicleSearch.Rego;
+                    TruckConfigVehicleAdd(myTruckConfigID, Trailer, i+1, 0.0M);
+                }
+            }
+
+            GetConfiguredTruck(Rego);
         }
     }
 }
