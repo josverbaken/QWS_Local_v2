@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label regoTkLabel;
-            System.Windows.Forms.Label truckOwnerLabel;
-            System.Windows.Forms.Label feeCodeLabel;
             this.txtRego = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.roadAccessDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,9 +69,8 @@
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.bsAxleConfiguration = new System.Windows.Forms.BindingSource(this.components);
             this.taAxleConfiguration = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
-            regoTkLabel = new System.Windows.Forms.Label();
-            truckOwnerLabel = new System.Windows.Forms.Label();
-            feeCodeLabel = new System.Windows.Forms.Label();
+            this.btnAddTrailer = new System.Windows.Forms.Button();
+            this.btnAddGVM = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
@@ -99,36 +95,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfiguration)).BeginInit();
             this.SuspendLayout();
             // 
-            // regoTkLabel
-            // 
-            regoTkLabel.AutoSize = true;
-            regoTkLabel.Location = new System.Drawing.Point(62, 25);
-            regoTkLabel.Name = "regoTkLabel";
-            regoTkLabel.Size = new System.Drawing.Size(69, 18);
-            regoTkLabel.TabIndex = 0;
-            regoTkLabel.Text = "Rego Tk:";
-            // 
-            // truckOwnerLabel
-            // 
-            truckOwnerLabel.AutoSize = true;
-            truckOwnerLabel.Location = new System.Drawing.Point(33, 55);
-            truckOwnerLabel.Name = "truckOwnerLabel";
-            truckOwnerLabel.Size = new System.Drawing.Size(98, 18);
-            truckOwnerLabel.TabIndex = 2;
-            truckOwnerLabel.Text = "Truck Owner:";
-            // 
-            // feeCodeLabel
-            // 
-            feeCodeLabel.AutoSize = true;
-            feeCodeLabel.Location = new System.Drawing.Point(54, 86);
-            feeCodeLabel.Name = "feeCodeLabel";
-            feeCodeLabel.Size = new System.Drawing.Size(77, 18);
-            feeCodeLabel.TabIndex = 4;
-            feeCodeLabel.Text = "Fee Code:";
-            // 
             // txtRego
             // 
-            this.txtRego.Location = new System.Drawing.Point(18, 58);
+            this.txtRego.Location = new System.Drawing.Point(48, 30);
             this.txtRego.Name = "txtRego";
             this.txtRego.Size = new System.Drawing.Size(100, 24);
             this.txtRego.TabIndex = 1;
@@ -303,16 +272,13 @@
             // tpDetails
             // 
             this.tpDetails.Controls.Add(this.schematicPictureBox);
-            this.tpDetails.Controls.Add(feeCodeLabel);
             this.tpDetails.Controls.Add(this.feeCodeTextBox);
-            this.tpDetails.Controls.Add(truckOwnerLabel);
             this.tpDetails.Controls.Add(this.truckOwnerTextBox);
-            this.tpDetails.Controls.Add(regoTkLabel);
             this.tpDetails.Controls.Add(this.regoTkTextBox);
-            this.tpDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpDetails.Location = new System.Drawing.Point(4, 27);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(978, 258);
+            this.tpDetails.Size = new System.Drawing.Size(978, 253);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -320,7 +286,7 @@
             // schematicPictureBox
             // 
             this.schematicPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.bsConfiguredTrucks, "Schematic", true));
-            this.schematicPictureBox.Location = new System.Drawing.Point(283, 22);
+            this.schematicPictureBox.Location = new System.Drawing.Point(26, 18);
             this.schematicPictureBox.Name = "schematicPictureBox";
             this.schematicPictureBox.Size = new System.Drawing.Size(450, 150);
             this.schematicPictureBox.TabIndex = 7;
@@ -329,7 +295,7 @@
             // feeCodeTextBox
             // 
             this.feeCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "FeeCode", true));
-            this.feeCodeTextBox.Location = new System.Drawing.Point(137, 83);
+            this.feeCodeTextBox.Location = new System.Drawing.Point(630, 23);
             this.feeCodeTextBox.Name = "feeCodeTextBox";
             this.feeCodeTextBox.Size = new System.Drawing.Size(100, 24);
             this.feeCodeTextBox.TabIndex = 5;
@@ -337,15 +303,15 @@
             // truckOwnerTextBox
             // 
             this.truckOwnerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "TruckOwner", true));
-            this.truckOwnerTextBox.Location = new System.Drawing.Point(137, 52);
+            this.truckOwnerTextBox.Location = new System.Drawing.Point(503, 53);
             this.truckOwnerTextBox.Name = "truckOwnerTextBox";
-            this.truckOwnerTextBox.Size = new System.Drawing.Size(100, 24);
+            this.truckOwnerTextBox.Size = new System.Drawing.Size(409, 24);
             this.truckOwnerTextBox.TabIndex = 3;
             // 
             // regoTkTextBox
             // 
             this.regoTkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "RegoTk", true));
-            this.regoTkTextBox.Location = new System.Drawing.Point(137, 22);
+            this.regoTkTextBox.Location = new System.Drawing.Point(503, 23);
             this.regoTkTextBox.Name = "regoTkTextBox";
             this.regoTkTextBox.Size = new System.Drawing.Size(100, 24);
             this.regoTkTextBox.TabIndex = 1;
@@ -359,6 +325,8 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
+            this.splitContainer1.Panel1.Controls.Add(this.btnAddGVM);
+            this.splitContainer1.Panel1.Controls.Add(this.btnAddTrailer);
             this.splitContainer1.Panel1.Controls.Add(this.btnSearchNHVR);
             this.splitContainer1.Panel1.Controls.Add(this.btnFindConfiguredTrucks);
             this.splitContainer1.Panel1.Controls.Add(this.txtRego);
@@ -372,7 +340,7 @@
             // 
             // btnSearchNHVR
             // 
-            this.btnSearchNHVR.Location = new System.Drawing.Point(18, 127);
+            this.btnSearchNHVR.Location = new System.Drawing.Point(48, 260);
             this.btnSearchNHVR.Name = "btnSearchNHVR";
             this.btnSearchNHVR.Size = new System.Drawing.Size(100, 33);
             this.btnSearchNHVR.TabIndex = 4;
@@ -382,7 +350,7 @@
             // 
             // btnFindConfiguredTrucks
             // 
-            this.btnFindConfiguredTrucks.Location = new System.Drawing.Point(18, 88);
+            this.btnFindConfiguredTrucks.Location = new System.Drawing.Point(48, 60);
             this.btnFindConfiguredTrucks.Name = "btnFindConfiguredTrucks";
             this.btnFindConfiguredTrucks.Size = new System.Drawing.Size(100, 33);
             this.btnFindConfiguredTrucks.TabIndex = 3;
@@ -492,6 +460,26 @@
             // 
             this.taAxleConfiguration.ClearBeforeFill = true;
             // 
+            // btnAddTrailer
+            // 
+            this.btnAddTrailer.Location = new System.Drawing.Point(48, 99);
+            this.btnAddTrailer.Name = "btnAddTrailer";
+            this.btnAddTrailer.Size = new System.Drawing.Size(100, 33);
+            this.btnAddTrailer.TabIndex = 5;
+            this.btnAddTrailer.Text = "Add Trailer";
+            this.btnAddTrailer.UseVisualStyleBackColor = true;
+            this.btnAddTrailer.Click += new System.EventHandler(this.btnAddTrailer_Click);
+            // 
+            // btnAddGVM
+            // 
+            this.btnAddGVM.Location = new System.Drawing.Point(48, 221);
+            this.btnAddGVM.Name = "btnAddGVM";
+            this.btnAddGVM.Size = new System.Drawing.Size(100, 33);
+            this.btnAddGVM.TabIndex = 6;
+            this.btnAddGVM.Text = "Config GVM";
+            this.btnAddGVM.UseVisualStyleBackColor = true;
+            this.btnAddGVM.Click += new System.EventHandler(this.btnAddGVM_Click);
+            // 
             // TruckConfigMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -573,5 +561,7 @@
         private dsQWSLocalTableAdapters.TableAdapterManager tableAdapterManager1;
         private System.Windows.Forms.BindingSource bsAxleConfiguration;
         private dsQWSLocalTableAdapters.AxleConfigurationTableAdapter taAxleConfiguration;
+        private System.Windows.Forms.Button btnAddGVM;
+        private System.Windows.Forms.Button btnAddTrailer;
     }
 }

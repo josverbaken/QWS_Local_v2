@@ -284,7 +284,7 @@ namespace QWS_Local
 
         private void PrefCustomerSearch()
         {
-            // TODO refactor PrefCustomerSearch to just return found BP
+            // /*TODO*/ refactor PrefCustomerSearch to just return found BP
             try
             {
                 BusinessSearch frmBusinessSearch = new BusinessSearch(""); // txtPrefCustName.Text);
@@ -293,7 +293,6 @@ namespace QWS_Local
                 {
                     AddVehiclePreCustomer(frmBusinessSearch.SAPCode, frmBusinessSearch.BusinessName);
                     bsVehiclePrefCustomers.EndEdit();
-                    //txtJurisdiction.Focus();
                 }
                 else if (dr == DialogResult.Abort)
                 {
@@ -468,9 +467,17 @@ namespace QWS_Local
 
         private void Go2GVMConfiguration()
         {
-            TruckConfiguration truckConfiguration = new TruckConfiguration(CurrentVehicle().Rego, CurrentVehicle().CardCode);
-                truckConfiguration.MdiParent = this.MdiParent;
-                truckConfiguration.Show();
+            if (CurrentVehicle().IsLeadVehicle == true)
+            {
+                // TODO check if form already open
+                TruckConfigMaintenance frmTruckConfig = new TruckConfigMaintenance(CurrentVehicle().Rego);
+                frmTruckConfig.MdiParent = this.MdiParent;
+                frmTruckConfig.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please choose truck/prime mover first.","Not lead vehicle!",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
         }
 
         private void btnNewVehicleCurrentOwner_Click(object sender, EventArgs e)

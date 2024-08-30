@@ -54,14 +54,7 @@ namespace QWS_Local
             frmFeeCodes.Show();
         }
 
-        private void truckConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TruckConfiguration frmTruckConfiguration = new TruckConfiguration();
-            frmTruckConfiguration.MdiParent = this;
-            frmTruckConfiguration.Show();
-        }
-
-        private void businessPlusPersonToolStripMenuItem_Click(object sender, EventArgs e)
+         private void businessPlusPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BusinessPlusPerson frmBusiness = new BusinessPlusPerson();
             frmBusiness.MdiParent = this;

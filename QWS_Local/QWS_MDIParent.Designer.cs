@@ -36,18 +36,17 @@
             this.axleConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nHVRGCMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vehicleRegFeeCodesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.truckConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.businessPlusPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deliveryOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookInTruckStep1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.truckConfigMaintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trafficCamerasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockpileLotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printDocketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stockpileLotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +81,6 @@
             this.axleConfigurationToolStripMenuItem,
             this.nHVRGCMToolStripMenuItem,
             this.vehicleRegFeeCodesToolStripMenuItem,
-            this.truckConfigurationToolStripMenuItem,
             this.businessPlusPersonToolStripMenuItem,
             this.itemSearchToolStripMenuItem,
             this.deliveryOrdersToolStripMenuItem,
@@ -129,13 +127,6 @@
             this.vehicleRegFeeCodesToolStripMenuItem.Text = "Vehicle Reg Fee Codes";
             this.vehicleRegFeeCodesToolStripMenuItem.Click += new System.EventHandler(this.vehicleRegFeeCodesToolStripMenuItem_Click);
             // 
-            // truckConfigurationToolStripMenuItem
-            // 
-            this.truckConfigurationToolStripMenuItem.Name = "truckConfigurationToolStripMenuItem";
-            this.truckConfigurationToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
-            this.truckConfigurationToolStripMenuItem.Text = "Truck Configuration";
-            this.truckConfigurationToolStripMenuItem.Click += new System.EventHandler(this.truckConfigurationToolStripMenuItem_Click);
-            // 
             // businessPlusPersonToolStripMenuItem
             // 
             this.businessPlusPersonToolStripMenuItem.Name = "businessPlusPersonToolStripMenuItem";
@@ -178,6 +169,13 @@
             this.trafficCamerasToolStripMenuItem.Text = "Traffic Cameras";
             this.trafficCamerasToolStripMenuItem.Click += new System.EventHandler(this.trafficCamerasToolStripMenuItem_Click);
             // 
+            // stockpileLotToolStripMenuItem
+            // 
+            this.stockpileLotToolStripMenuItem.Name = "stockpileLotToolStripMenuItem";
+            this.stockpileLotToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
+            this.stockpileLotToolStripMenuItem.Text = "Stockpile Lot";
+            this.stockpileLotToolStripMenuItem.Click += new System.EventHandler(this.stockpileLotToolStripMenuItem_Click);
+            // 
             // printDocketToolStripMenuItem
             // 
             this.printDocketToolStripMenuItem.Name = "printDocketToolStripMenuItem";
@@ -206,13 +204,6 @@
             this.helloToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.helloToolStripMenuItem.Text = "Help";
             this.helloToolStripMenuItem.Click += new System.EventHandler(this.helloToolStripMenuItem_Click);
-            // 
-            // stockpileLotToolStripMenuItem
-            // 
-            this.stockpileLotToolStripMenuItem.Name = "stockpileLotToolStripMenuItem";
-            this.stockpileLotToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
-            this.stockpileLotToolStripMenuItem.Text = "Stockpile Lot";
-            this.stockpileLotToolStripMenuItem.Click += new System.EventHandler(this.stockpileLotToolStripMenuItem_Click);
             // 
             // QWS_MDIParent
             // 
@@ -243,7 +234,6 @@
         private System.Windows.Forms.ToolStripMenuItem axleConfigurationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nHVRGCMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vehicleRegFeeCodesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem truckConfigurationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem businessPlusPersonToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem itemSearchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deliveryOrdersToolStripMenuItem;

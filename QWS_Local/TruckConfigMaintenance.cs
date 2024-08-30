@@ -19,6 +19,13 @@ namespace QWS_Local
             InitializeComponent();
         }
 
+        public TruckConfigMaintenance(string myRego)
+        {
+            InitializeComponent();
+            Rego = myRego;
+        }
+
+        private static string Rego = "";
 
         private void GetConfiguredTruckGVM(string Rego, int TruckConfigID)
         {
@@ -152,11 +159,11 @@ namespace QWS_Local
 
         private void TruckConfigMaintenance_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsQWSLocal.AxleConfiguration' table. You can move, or remove it, as needed.
-            this.taAxleConfiguration.Fill(this.dsQWSLocal.AxleConfiguration);
-            // TODO: This line of code loads data into the 'dsQWSLocal.Vehicle' table. You can move, or remove it, as needed.
-            this.taVehicle.Fill(this.dsQWSLocal.Vehicle);
             this.KeyPreview = true;
+            if (Rego.Length>0)
+            {
+                GetConfiguredTruck(Rego);
+            }
         }
 
         private void TruckConfigMaintenance_KeyDown(object sender, KeyEventArgs e)
@@ -222,12 +229,10 @@ namespace QWS_Local
         {
             int myTruckConfigID = TruckConfigAdd(AxleConfig);
             TruckConfigVehicleAdd(myTruckConfigID, Rego, 1, 0.0M);
-            //TODO add trailers
             for (int i = 1; i < Vehicles; i++) //0 taken by truck as above
             {
                 string Trailer;
-                // vehicle search by owner
-                // TODO filter to trailers and truck axles
+                // /*TODO*/ filter to trailers and truck axles
                 VehicleSearch frmVehicleSearch = new VehicleSearch(CurrentVehicle().CardCode,CurrentVehicle().AxleConfiguration);
                 DialogResult dr = frmVehicleSearch.ShowDialog();
                 if (dr == DialogResult.OK)
@@ -238,6 +243,19 @@ namespace QWS_Local
             }
 
             GetConfiguredTruck(Rego);
+        }
+
+        private void btnAddTrailer_Click(object sender, EventArgs e)
+        {
+            // check if truck found
+            // check if vehicle count satisfied
+            // provide option to add diferent trailer
+            MessageBox.Show("check if truck found\r\ncheck if vehicle count satisfied\r\nprovide option to add diferent trailer");
+        }
+
+        private void btnAddGVM_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("configure gvm, need at least one combination with Road Access = All Roads\r\nPBS should show automatically");
         }
     }
 }
