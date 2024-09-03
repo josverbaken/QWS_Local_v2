@@ -14,10 +14,10 @@ namespace QWS_Local
     {
         private static string SchemeCodeFilter = "";
         private static string SteerAxleFilter = "";
-        private static string TruckPlustrailerFilter = "";
         private static string AxleConfigFilter = "";
         private static string RoadAccessFilter = "";
-        private static int myNHVLID;
+        private static int myNHVRID;
+        private static string AxleConfiguration;
         private static dsQWSLocal.NHVLRow myNHVLRow;
 
         public NHVR_GVM_Search()
@@ -28,13 +28,14 @@ namespace QWS_Local
         public NHVR_GVM_Search(string AxleConfig)
         {
             InitializeComponent();
+            AxleConfiguration = AxleConfig;
             LoadAxleConfiguration();
-            LoadByAxleConfig(AxleConfig);
+            LoadByAxleConfig(AxleConfiguration);
         }
 
-        public static int NHVLID
+        public  int NHVRID
         {
-            get { return myNHVLID; }
+            get { return myNHVRID; }
         }
 
         public static dsQWSLocal.NHVLRow NHVLRow
@@ -71,16 +72,17 @@ namespace QWS_Local
         {
             try
             {
-                string myFilter = SchemeCodeFilter;
+                string myFilter = "AxleConfiguration like '" + AxleConfiguration + "%'";
+                if (SchemeCodeFilter.Length > 0) 
+                {
+                    myFilter += " and ";
+                    myFilter += SchemeCodeFilter;
+                }
+
                 if (SteerAxleFilter.Length > 0)
                 {
                     myFilter += " and ";
                     myFilter += SteerAxleFilter;
-                }
-                if (TruckPlustrailerFilter.Length > 0)
-                {
-                    myFilter += " and ";
-                    myFilter += TruckPlustrailerFilter;
                 }
                 if (RoadAccessFilter.Length > 0)
                 {   myFilter += " and ";
@@ -148,35 +150,7 @@ namespace QWS_Local
                 SetAxleConfigFilter();
             }
         }
-
-        private void rbTruckOnly_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbTruckOnly.Checked)
-            {
-                TruckPlustrailerFilter = "len(AxleConfiguration) <= 3";//"Trailers = 0";
-                SetAxleConfigFilter();
-            }
-        }
-
-        private void rbTruckPlusTrailer_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbTruckPlusTrailer.Checked)
-            {
-                TruckPlustrailerFilter = "len(AxleConfiguration) > 3";//"Trailers > 0";
-                SetAxleConfigFilter();
-            }
-        }
-
-        private void rbTruckAll_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbTruckAll.Checked)
-            {
-                TruckPlustrailerFilter = "";
-                SetAxleConfigFilter();
-            }
-        }
-
-
+     
         private dsQWSLocal.NHVLRow CurrentNHVL()
         {
             DataRow myDR = ((DataRowView)bsNHVL.Current).Row;
@@ -193,7 +167,7 @@ namespace QWS_Local
 
         private void SyncNHVL2AxleConfiguration()
         {
-            myNHVLID = CurrentNHVL().TruckTypeID;
+            myNHVRID = CurrentNHVL().TruckTypeID;
            int myIndex =  bsAxleConfig.Find("AxleConfiguration", CurrentNHVL().AxleConfiguration);
             if (myIndex >=0)
             {

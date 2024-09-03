@@ -43,23 +43,23 @@ namespace QWS_Local
             System.Windows.Forms.Label axleConfigurationLabel;
             System.Windows.Forms.Label roadAccessLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.gbRoadAccess = new System.Windows.Forms.GroupBox();
+            this.rbRoadAccessOther = new System.Windows.Forms.RadioButton();
+            this.rbRoadAccessAll = new System.Windows.Forms.RadioButton();
+            this.rbAllRoads = new System.Windows.Forms.RadioButton();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSelect = new System.Windows.Forms.Button();
-            this.gbTruckPlusTrailer = new System.Windows.Forms.GroupBox();
-            this.rbTruckAll = new System.Windows.Forms.RadioButton();
-            this.rbTruckPlusTrailer = new System.Windows.Forms.RadioButton();
-            this.rbTruckOnly = new System.Windows.Forms.RadioButton();
             this.gbSteerAxle = new System.Windows.Forms.GroupBox();
             this.rbSteerAll = new System.Windows.Forms.RadioButton();
             this.rbSteerZero = new System.Windows.Forms.RadioButton();
             this.rbSteer05 = new System.Windows.Forms.RadioButton();
-            this.bsAxleConfig = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.gbSchemeCode = new System.Windows.Forms.GroupBox();
             this.rbSchemeAll = new System.Windows.Forms.RadioButton();
             this.rbSchemeOther = new System.Windows.Forms.RadioButton();
             this.rbSchemeGML = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bsAxleConfig = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -88,10 +88,6 @@ namespace QWS_Local
             this.taNHVL = new QWS_Local.dsQWSLocalTableAdapters.NHVLTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taAxleConfig = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
-            this.gbRoadAccess = new System.Windows.Forms.GroupBox();
-            this.rbAllRoads = new System.Windows.Forms.RadioButton();
-            this.rbRoadAccessAll = new System.Windows.Forms.RadioButton();
-            this.rbRoadAccessOther = new System.Windows.Forms.RadioButton();
             axlesLabel = new System.Windows.Forms.Label();
             couplingLabel = new System.Windows.Forms.Label();
             maxLengthLabel = new System.Windows.Forms.Label();
@@ -108,18 +104,17 @@ namespace QWS_Local
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.gbTruckPlusTrailer.SuspendLayout();
+            this.gbRoadAccess.SuspendLayout();
             this.gbSteerAxle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             this.gbSchemeCode.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsNHVL)).BeginInit();
             this.tpDetails.SuspendLayout();
-            this.gbRoadAccess.SuspendLayout();
             this.SuspendLayout();
             // 
             // axlesLabel
@@ -266,7 +261,6 @@ namespace QWS_Local
             this.splitContainer1.Panel1.Controls.Add(this.gbRoadAccess);
             this.splitContainer1.Panel1.Controls.Add(this.btnCancel);
             this.splitContainer1.Panel1.Controls.Add(this.btnSelect);
-            this.splitContainer1.Panel1.Controls.Add(this.gbTruckPlusTrailer);
             this.splitContainer1.Panel1.Controls.Add(this.gbSteerAxle);
             this.splitContainer1.Panel1.Controls.Add(this.gbSchemeCode);
             this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
@@ -278,6 +272,54 @@ namespace QWS_Local
             this.splitContainer1.SplitterDistance = 322;
             this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // gbRoadAccess
+            // 
+            this.gbRoadAccess.Controls.Add(this.rbRoadAccessOther);
+            this.gbRoadAccess.Controls.Add(this.rbRoadAccessAll);
+            this.gbRoadAccess.Controls.Add(this.rbAllRoads);
+            this.gbRoadAccess.Location = new System.Drawing.Point(407, 200);
+            this.gbRoadAccess.Name = "gbRoadAccess";
+            this.gbRoadAccess.Size = new System.Drawing.Size(361, 83);
+            this.gbRoadAccess.TabIndex = 32;
+            this.gbRoadAccess.TabStop = false;
+            this.gbRoadAccess.Text = "Road Access";
+            // 
+            // rbRoadAccessOther
+            // 
+            this.rbRoadAccessOther.AutoSize = true;
+            this.rbRoadAccessOther.Location = new System.Drawing.Point(151, 40);
+            this.rbRoadAccessOther.Name = "rbRoadAccessOther";
+            this.rbRoadAccessOther.Size = new System.Drawing.Size(63, 22);
+            this.rbRoadAccessOther.TabIndex = 5;
+            this.rbRoadAccessOther.TabStop = true;
+            this.rbRoadAccessOther.Text = "Other";
+            this.rbRoadAccessOther.UseVisualStyleBackColor = true;
+            this.rbRoadAccessOther.CheckedChanged += new System.EventHandler(this.rbRoadAccessOther_CheckedChanged);
+            // 
+            // rbRoadAccessAll
+            // 
+            this.rbRoadAccessAll.AutoSize = true;
+            this.rbRoadAccessAll.Location = new System.Drawing.Point(278, 40);
+            this.rbRoadAccessAll.Name = "rbRoadAccessAll";
+            this.rbRoadAccessAll.Size = new System.Drawing.Size(61, 22);
+            this.rbRoadAccessAll.TabIndex = 4;
+            this.rbRoadAccessAll.TabStop = true;
+            this.rbRoadAccessAll.Text = "Clear";
+            this.rbRoadAccessAll.UseVisualStyleBackColor = true;
+            this.rbRoadAccessAll.CheckedChanged += new System.EventHandler(this.rbRoadAccessAll_CheckedChanged);
+            // 
+            // rbAllRoads
+            // 
+            this.rbAllRoads.AutoSize = true;
+            this.rbAllRoads.Location = new System.Drawing.Point(20, 40);
+            this.rbAllRoads.Name = "rbAllRoads";
+            this.rbAllRoads.Size = new System.Drawing.Size(89, 22);
+            this.rbAllRoads.TabIndex = 3;
+            this.rbAllRoads.TabStop = true;
+            this.rbAllRoads.Text = "All Roads";
+            this.rbAllRoads.UseVisualStyleBackColor = true;
+            this.rbAllRoads.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // btnCancel
             // 
@@ -300,54 +342,6 @@ namespace QWS_Local
             this.btnSelect.Text = "Select";
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
-            // 
-            // gbTruckPlusTrailer
-            // 
-            this.gbTruckPlusTrailer.Controls.Add(this.rbTruckAll);
-            this.gbTruckPlusTrailer.Controls.Add(this.rbTruckPlusTrailer);
-            this.gbTruckPlusTrailer.Controls.Add(this.rbTruckOnly);
-            this.gbTruckPlusTrailer.Location = new System.Drawing.Point(407, 200);
-            this.gbTruckPlusTrailer.Name = "gbTruckPlusTrailer";
-            this.gbTruckPlusTrailer.Size = new System.Drawing.Size(361, 83);
-            this.gbTruckPlusTrailer.TabIndex = 31;
-            this.gbTruckPlusTrailer.TabStop = false;
-            this.gbTruckPlusTrailer.Text = "Truck Config";
-            // 
-            // rbTruckAll
-            // 
-            this.rbTruckAll.AutoSize = true;
-            this.rbTruckAll.Location = new System.Drawing.Point(278, 40);
-            this.rbTruckAll.Name = "rbTruckAll";
-            this.rbTruckAll.Size = new System.Drawing.Size(61, 22);
-            this.rbTruckAll.TabIndex = 2;
-            this.rbTruckAll.TabStop = true;
-            this.rbTruckAll.Text = "Clear";
-            this.rbTruckAll.UseVisualStyleBackColor = true;
-            this.rbTruckAll.CheckedChanged += new System.EventHandler(this.rbTruckAll_CheckedChanged);
-            // 
-            // rbTruckPlusTrailer
-            // 
-            this.rbTruckPlusTrailer.AutoSize = true;
-            this.rbTruckPlusTrailer.Location = new System.Drawing.Point(124, 40);
-            this.rbTruckPlusTrailer.Name = "rbTruckPlusTrailer";
-            this.rbTruckPlusTrailer.Size = new System.Drawing.Size(135, 22);
-            this.rbTruckPlusTrailer.TabIndex = 1;
-            this.rbTruckPlusTrailer.TabStop = true;
-            this.rbTruckPlusTrailer.Text = "Truck plus trailer";
-            this.rbTruckPlusTrailer.UseVisualStyleBackColor = true;
-            this.rbTruckPlusTrailer.CheckedChanged += new System.EventHandler(this.rbTruckPlusTrailer_CheckedChanged);
-            // 
-            // rbTruckOnly
-            // 
-            this.rbTruckOnly.AutoSize = true;
-            this.rbTruckOnly.Location = new System.Drawing.Point(20, 40);
-            this.rbTruckOnly.Name = "rbTruckOnly";
-            this.rbTruckOnly.Size = new System.Drawing.Size(98, 22);
-            this.rbTruckOnly.TabIndex = 0;
-            this.rbTruckOnly.TabStop = true;
-            this.rbTruckOnly.Text = "Truck Only";
-            this.rbTruckOnly.UseVisualStyleBackColor = true;
-            this.rbTruckOnly.CheckedChanged += new System.EventHandler(this.rbTruckOnly_CheckedChanged);
             // 
             // gbSteerAxle
             // 
@@ -376,7 +370,7 @@ namespace QWS_Local
             // rbSteerZero
             // 
             this.rbSteerZero.AutoSize = true;
-            this.rbSteerZero.Location = new System.Drawing.Point(124, 40);
+            this.rbSteerZero.Location = new System.Drawing.Point(151, 40);
             this.rbSteerZero.Name = "rbSteerZero";
             this.rbSteerZero.Size = new System.Drawing.Size(46, 22);
             this.rbSteerZero.TabIndex = 1;
@@ -396,16 +390,6 @@ namespace QWS_Local
             this.rbSteer05.Text = "0.5 t";
             this.rbSteer05.UseVisualStyleBackColor = true;
             this.rbSteer05.CheckedChanged += new System.EventHandler(this.rbSteer05_CheckedChanged);
-            // 
-            // bsAxleConfig
-            // 
-            this.bsAxleConfig.DataMember = "AxleConfiguration";
-            this.bsAxleConfig.DataSource = this.dsQWSLocal;
-            // 
-            // dsQWSLocal
-            // 
-            this.dsQWSLocal.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gbSchemeCode
             // 
@@ -434,7 +418,7 @@ namespace QWS_Local
             // rbSchemeOther
             // 
             this.rbSchemeOther.AutoSize = true;
-            this.rbSchemeOther.Location = new System.Drawing.Point(124, 39);
+            this.rbSchemeOther.Location = new System.Drawing.Point(151, 39);
             this.rbSchemeOther.Name = "rbSchemeOther";
             this.rbSchemeOther.Size = new System.Drawing.Size(63, 22);
             this.rbSchemeOther.TabIndex = 1;
@@ -466,6 +450,16 @@ namespace QWS_Local
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // bsAxleConfig
+            // 
+            this.bsAxleConfig.DataMember = "AxleConfiguration";
+            this.bsAxleConfig.DataSource = this.dsQWSLocal;
+            // 
+            // dsQWSLocal
+            // 
+            this.dsQWSLocal.DataSetName = "dsQWSLocal";
+            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabControl1
             // 
@@ -763,54 +757,6 @@ namespace QWS_Local
             // 
             this.taAxleConfig.ClearBeforeFill = true;
             // 
-            // gbRoadAccess
-            // 
-            this.gbRoadAccess.Controls.Add(this.rbRoadAccessOther);
-            this.gbRoadAccess.Controls.Add(this.rbRoadAccessAll);
-            this.gbRoadAccess.Controls.Add(this.rbAllRoads);
-            this.gbRoadAccess.Location = new System.Drawing.Point(24, 200);
-            this.gbRoadAccess.Name = "gbRoadAccess";
-            this.gbRoadAccess.Size = new System.Drawing.Size(339, 83);
-            this.gbRoadAccess.TabIndex = 32;
-            this.gbRoadAccess.TabStop = false;
-            this.gbRoadAccess.Text = "Road Access";
-            // 
-            // rbAllRoads
-            // 
-            this.rbAllRoads.AutoSize = true;
-            this.rbAllRoads.Location = new System.Drawing.Point(37, 40);
-            this.rbAllRoads.Name = "rbAllRoads";
-            this.rbAllRoads.Size = new System.Drawing.Size(89, 22);
-            this.rbAllRoads.TabIndex = 3;
-            this.rbAllRoads.TabStop = true;
-            this.rbAllRoads.Text = "All Roads";
-            this.rbAllRoads.UseVisualStyleBackColor = true;
-            this.rbAllRoads.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // rbRoadAccessAll
-            // 
-            this.rbRoadAccessAll.AutoSize = true;
-            this.rbRoadAccessAll.Location = new System.Drawing.Point(254, 40);
-            this.rbRoadAccessAll.Name = "rbRoadAccessAll";
-            this.rbRoadAccessAll.Size = new System.Drawing.Size(61, 22);
-            this.rbRoadAccessAll.TabIndex = 4;
-            this.rbRoadAccessAll.TabStop = true;
-            this.rbRoadAccessAll.Text = "Clear";
-            this.rbRoadAccessAll.UseVisualStyleBackColor = true;
-            this.rbRoadAccessAll.CheckedChanged += new System.EventHandler(this.rbRoadAccessAll_CheckedChanged);
-            // 
-            // rbRoadAccessOther
-            // 
-            this.rbRoadAccessOther.AutoSize = true;
-            this.rbRoadAccessOther.Location = new System.Drawing.Point(151, 40);
-            this.rbRoadAccessOther.Name = "rbRoadAccessOther";
-            this.rbRoadAccessOther.Size = new System.Drawing.Size(63, 22);
-            this.rbRoadAccessOther.TabIndex = 5;
-            this.rbRoadAccessOther.TabStop = true;
-            this.rbRoadAccessOther.Text = "Other";
-            this.rbRoadAccessOther.UseVisualStyleBackColor = true;
-            this.rbRoadAccessOther.CheckedChanged += new System.EventHandler(this.rbRoadAccessOther_CheckedChanged);
-            // 
             // NHVR_GVM_Search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -827,23 +773,21 @@ namespace QWS_Local
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.gbTruckPlusTrailer.ResumeLayout(false);
-            this.gbTruckPlusTrailer.PerformLayout();
+            this.gbRoadAccess.ResumeLayout(false);
+            this.gbRoadAccess.PerformLayout();
             this.gbSteerAxle.ResumeLayout(false);
             this.gbSteerAxle.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             this.gbSchemeCode.ResumeLayout(false);
             this.gbSchemeCode.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsNHVL)).EndInit();
             this.tpDetails.ResumeLayout(false);
             this.tpDetails.PerformLayout();
-            this.gbRoadAccess.ResumeLayout(false);
-            this.gbRoadAccess.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -879,10 +823,6 @@ namespace QWS_Local
         private System.Windows.Forms.RadioButton rbSchemeAll;
         private System.Windows.Forms.RadioButton rbSchemeOther;
         private System.Windows.Forms.RadioButton rbSchemeGML;
-        private System.Windows.Forms.GroupBox gbTruckPlusTrailer;
-        private System.Windows.Forms.RadioButton rbTruckAll;
-        private System.Windows.Forms.RadioButton rbTruckPlusTrailer;
-        private System.Windows.Forms.RadioButton rbTruckOnly;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.BindingSource bsAxleConfig;
         private dsQWSLocalTableAdapters.AxleConfigurationTableAdapter taAxleConfig;

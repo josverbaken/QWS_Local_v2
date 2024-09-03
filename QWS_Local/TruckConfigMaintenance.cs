@@ -158,7 +158,13 @@ namespace QWS_Local
         private void SearchNHVR(string AxleConfig)
         {
             NHVR_GVM_Search frmNHVR = new NHVR_GVM_Search(AxleConfig);
-            frmNHVR.ShowDialog();
+            DialogResult dr = frmNHVR.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                string msg = "NHVR ID = ";
+                msg += frmNHVR.NHVRID.ToString();
+                MessageBox.Show(msg);
+            }
         }
 
         private void TruckConfigMaintenance_Load(object sender, EventArgs e)
