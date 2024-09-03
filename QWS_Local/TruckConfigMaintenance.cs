@@ -62,24 +62,12 @@ namespace QWS_Local
                 {
                     MessageBox.Show("Please get truck before trailer");
                 }
-                else if (iVehicleConfig == 0) 
+                else if (iVehicleConfig == 0)
                 {
-                    string myAxleConfig = CurrentVehicle().AxleConfiguration;
                     DialogResult dr = MessageBox.Show("No configuration found. Do you want to add a new configuration?", "Not yet configured.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dr == DialogResult.Yes)
                     {
-                        AxleConfigurationSearch frmAxleConfig = new AxleConfigurationSearch(myAxleConfig);
-                        DialogResult dr1 = frmAxleConfig.ShowDialog();
-                        if (dr1 == DialogResult.OK)
-                        {
-                            string SelectedAxleConfig = frmAxleConfig.SelectedAxleConfig;
-                            string msg = "Selected axle config = ";
-                            msg += SelectedAxleConfig;
-                            dsQWSLocal.AxleConfigurationRow axleConfigurationRow = frmAxleConfig._AxleConfigurationRow;
-                            msg += " vehicle count = " + axleConfigurationRow.Vehicles.ToString();
-                            MessageBox.Show(msg);
-                            TruckConfigAddTruck(SelectedAxleConfig, Rego, axleConfigurationRow.Vehicles);
-                        }
+                        TruckConfigAdd();
                     }
                 }
             }
@@ -88,6 +76,22 @@ namespace QWS_Local
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void TruckConfigAdd()
+        {
+            AxleConfigurationSearch frmAxleConfig = new AxleConfigurationSearch(CurrentVehicle().AxleConfiguration);
+            DialogResult dr1 = frmAxleConfig.ShowDialog();
+            if (dr1 == DialogResult.OK)
+            {
+                string SelectedAxleConfig = frmAxleConfig.SelectedAxleConfig;
+                string msg = "Selected axle config = ";
+                msg += SelectedAxleConfig;
+                dsQWSLocal.AxleConfigurationRow axleConfigurationRow = frmAxleConfig._AxleConfigurationRow;
+                msg += " vehicle count = " + axleConfigurationRow.Vehicles.ToString();
+                //MessageBox.Show(msg);
+                TruckConfigAddTruck(SelectedAxleConfig, CurrentVehicle().Rego, axleConfigurationRow.Vehicles);
+            }            
         }
 
         private dsQWSLocal.VehicleRow CurrentVehicle()
@@ -231,31 +235,108 @@ namespace QWS_Local
             TruckConfigVehicleAdd(myTruckConfigID, Rego, 1, 0.0M);
             for (int i = 1; i < Vehicles; i++) //0 taken by truck as above
             {
-                string Trailer;
-                // /*TODO*/ filter to trailers and truck axles
-                VehicleSearch frmVehicleSearch = new VehicleSearch(CurrentVehicle().CardCode,CurrentVehicle().AxleConfiguration);
-                DialogResult dr = frmVehicleSearch.ShowDialog();
-                if (dr == DialogResult.OK)
-                {
-                    Trailer = frmVehicleSearch.Rego;
-                    TruckConfigVehicleAdd(myTruckConfigID, Trailer, i+1, 0.0M);
-                }
+                TruckConfigAddTrailer(myTruckConfigID, i + 1);
             }
 
             GetConfiguredTruck(Rego);
         }
 
+        private void TruckConfigAddTrailer(int TruckConfigID, int Position)
+        {
+            string Trailer;
+            // /*TODO*/ filter to trailers and truck axles
+            VehicleSearch frmVehicleSearch = new VehicleSearch(CurrentVehicle().CardCode, CurrentVehicle().AxleConfiguration);
+            DialogResult dr = frmVehicleSearch.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                Trailer = frmVehicleSearch.Rego;
+                TruckConfigVehicleAdd(TruckConfigID, Trailer, Position, 0.0M);
+            }
+        }
+
         private void btnAddTrailer_Click(object sender, EventArgs e)
         {
-            // check if truck found
-            // check if vehicle count satisfied
-            // provide option to add diferent trailer
-            MessageBox.Show("check if truck found\r\ncheck if vehicle count satisfied\r\nprovide option to add diferent trailer");
+            MessageBox.Show("TODO add method for adding different trailers");
         }
 
         private void btnAddGVM_Click(object sender, EventArgs e)
         {
             MessageBox.Show("configure gvm, need at least one combination with Road Access = All Roads\r\nPBS should show automatically");
+        }
+
+        private void btnCheckConfig_Click(object sender, EventArgs e)
+        {
+            CheckSelectedConfig();
+        }
+
+        private void CheckSelectedConfig()
+        {
+            if (bsConfiguredTrucks.Count == 0)
+            {
+                MessageBox.Show("Please select a truck first.");
+            }
+            else
+            {
+                int CfgVehicleCount = CurrentConfigTruck().Vehicles;
+                bool blConfigOK = true;
+                switch (CfgVehicleCount)
+                {
+                    case 1: // truck only, ask if want to add trailer/s
+                        DialogResult dr = MessageBox.Show("Do you want to add trailer/s?", "Truck Only", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dr == DialogResult.Yes)
+                        {
+                            //TruckConfigAdd(); //wrong method
+                            // which trailer
+                        }
+                        break;
+                    case 2:
+                        if (CurrentConfigTruck().RegoTr1.Length == 0)
+                        {
+                            MessageBox.Show("Please add trailer #1.");
+                            blConfigOK = false;
+                            //TruckConfigAddTrailer(CurrentConfigTruck().TruckConfigID, 2);
+                        }
+                        break;
+                    case 3:
+                        if (CurrentConfigTruck().RegoTr1.Length == 0)
+                        {
+                            MessageBox.Show("Please add trailer #1.");
+                            blConfigOK = false;
+                        }
+                        if (CurrentConfigTruck().RegoTr2.Length == 0)
+                        {
+                            MessageBox.Show("Please add trailer #2.");
+                            blConfigOK = false;
+                        }
+                        break;
+                    case 4:
+                        if (CurrentConfigTruck().RegoTr1.Length == 0)
+                        {
+                            MessageBox.Show("Please add trailer #1.");
+                            blConfigOK =false;
+                        }
+                        if (CurrentConfigTruck().RegoTr2.Length == 0)
+                        {
+                            MessageBox.Show("Please add trailer #2.");
+                            blConfigOK =false;  
+                        }
+                        if (CurrentConfigTruck().RegoTr3.Length == 0)
+                        {
+                            MessageBox.Show("Please add trailer #3.");
+                            blConfigOK =false;
+                        }
+                        break;
+                    default:
+                        MessageBox.Show("provide option to add diferent trailer");
+                        break;
+
+                }
+                if (blConfigOK == true)
+                {
+                    MessageBox.Show("Truck configuration is okay.");
+                }
+            }
+
         }
     }
 }

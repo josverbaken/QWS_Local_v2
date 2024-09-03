@@ -30,7 +30,7 @@ namespace QWS_Local
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AxleConfigurationSearch));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.axleConfigurationDataGridView = new System.Windows.Forms.DataGridView();
@@ -38,6 +38,7 @@ namespace QWS_Local
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.axleConfigurationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.axleConfigurationTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
@@ -57,7 +58,6 @@ namespace QWS_Local
             this.btnLoad = new System.Windows.Forms.ToolStripButton();
             this.btnClear = new System.Windows.Forms.ToolStripButton();
             this.btnClearFilter = new System.Windows.Forms.ToolStripButton();
-            this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -141,6 +141,17 @@ namespace QWS_Local
             this.dsQWSLocal.DataSetName = "dsQWSLocal";
             this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(28, 208);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(156, 32);
+            this.btnCancel.TabIndex = 8;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -155,10 +166,10 @@ namespace QWS_Local
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(28, 188);
+            this.btnSelect.Location = new System.Drawing.Point(192, 208);
             this.btnSelect.Margin = new System.Windows.Forms.Padding(4);
             this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(450, 32);
+            this.btnSelect.Size = new System.Drawing.Size(286, 32);
             this.btnSelect.TabIndex = 0;
             this.btnSelect.Text = "Select and Close";
             this.btnSelect.UseVisualStyleBackColor = true;
@@ -288,8 +299,8 @@ namespace QWS_Local
             // vehicleDescriptionDataGridViewTextBoxColumn
             // 
             this.vehicleDescriptionDataGridViewTextBoxColumn.DataPropertyName = "VehicleDescription";
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.vehicleDescriptionDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.vehicleDescriptionDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.vehicleDescriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.vehicleDescriptionDataGridViewTextBoxColumn.Name = "vehicleDescriptionDataGridViewTextBoxColumn";
             this.vehicleDescriptionDataGridViewTextBoxColumn.ReadOnly = true;
@@ -344,17 +355,6 @@ namespace QWS_Local
             this.btnClearFilter.Size = new System.Drawing.Size(67, 22);
             this.btnClearFilter.Text = "Clear Filter";
             this.btnClearFilter.Click += new System.EventHandler(this.btnClearFilter_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(28, 261);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(450, 32);
-            this.btnCancel.TabIndex = 8;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // AxleConfigurationSearch
             // 

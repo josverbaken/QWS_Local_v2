@@ -55,6 +55,8 @@
             this.truckOwnerTextBox = new System.Windows.Forms.TextBox();
             this.regoTkTextBox = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnAddGVM = new System.Windows.Forms.Button();
+            this.btnAddTrailer = new System.Windows.Forms.Button();
             this.btnSearchNHVR = new System.Windows.Forms.Button();
             this.btnFindConfiguredTrucks = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -69,8 +71,7 @@
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.bsAxleConfiguration = new System.Windows.Forms.BindingSource(this.components);
             this.taAxleConfiguration = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
-            this.btnAddTrailer = new System.Windows.Forms.Button();
-            this.btnAddGVM = new System.Windows.Forms.Button();
+            this.btnCheckConfig = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
@@ -275,10 +276,10 @@
             this.tpDetails.Controls.Add(this.feeCodeTextBox);
             this.tpDetails.Controls.Add(this.truckOwnerTextBox);
             this.tpDetails.Controls.Add(this.regoTkTextBox);
-            this.tpDetails.Location = new System.Drawing.Point(4, 27);
+            this.tpDetails.Location = new System.Drawing.Point(4, 22);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(978, 253);
+            this.tpDetails.Size = new System.Drawing.Size(978, 258);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -325,6 +326,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
+            this.splitContainer1.Panel1.Controls.Add(this.btnCheckConfig);
             this.splitContainer1.Panel1.Controls.Add(this.btnAddGVM);
             this.splitContainer1.Panel1.Controls.Add(this.btnAddTrailer);
             this.splitContainer1.Panel1.Controls.Add(this.btnSearchNHVR);
@@ -337,6 +339,26 @@
             this.splitContainer1.Size = new System.Drawing.Size(1200, 623);
             this.splitContainer1.SplitterDistance = 210;
             this.splitContainer1.TabIndex = 4;
+            // 
+            // btnAddGVM
+            // 
+            this.btnAddGVM.Location = new System.Drawing.Point(48, 221);
+            this.btnAddGVM.Name = "btnAddGVM";
+            this.btnAddGVM.Size = new System.Drawing.Size(100, 33);
+            this.btnAddGVM.TabIndex = 6;
+            this.btnAddGVM.Text = "Config GVM";
+            this.btnAddGVM.UseVisualStyleBackColor = true;
+            this.btnAddGVM.Click += new System.EventHandler(this.btnAddGVM_Click);
+            // 
+            // btnAddTrailer
+            // 
+            this.btnAddTrailer.Location = new System.Drawing.Point(48, 138);
+            this.btnAddTrailer.Name = "btnAddTrailer";
+            this.btnAddTrailer.Size = new System.Drawing.Size(100, 33);
+            this.btnAddTrailer.TabIndex = 5;
+            this.btnAddTrailer.Text = "Add Trailer";
+            this.btnAddTrailer.UseVisualStyleBackColor = true;
+            this.btnAddTrailer.Click += new System.EventHandler(this.btnAddTrailer_Click);
             // 
             // btnSearchNHVR
             // 
@@ -460,25 +482,15 @@
             // 
             this.taAxleConfiguration.ClearBeforeFill = true;
             // 
-            // btnAddTrailer
+            // btnCheckConfig
             // 
-            this.btnAddTrailer.Location = new System.Drawing.Point(48, 99);
-            this.btnAddTrailer.Name = "btnAddTrailer";
-            this.btnAddTrailer.Size = new System.Drawing.Size(100, 33);
-            this.btnAddTrailer.TabIndex = 5;
-            this.btnAddTrailer.Text = "Add Trailer";
-            this.btnAddTrailer.UseVisualStyleBackColor = true;
-            this.btnAddTrailer.Click += new System.EventHandler(this.btnAddTrailer_Click);
-            // 
-            // btnAddGVM
-            // 
-            this.btnAddGVM.Location = new System.Drawing.Point(48, 221);
-            this.btnAddGVM.Name = "btnAddGVM";
-            this.btnAddGVM.Size = new System.Drawing.Size(100, 33);
-            this.btnAddGVM.TabIndex = 6;
-            this.btnAddGVM.Text = "Config GVM";
-            this.btnAddGVM.UseVisualStyleBackColor = true;
-            this.btnAddGVM.Click += new System.EventHandler(this.btnAddGVM_Click);
+            this.btnCheckConfig.Location = new System.Drawing.Point(48, 99);
+            this.btnCheckConfig.Name = "btnCheckConfig";
+            this.btnCheckConfig.Size = new System.Drawing.Size(100, 33);
+            this.btnCheckConfig.TabIndex = 7;
+            this.btnCheckConfig.Text = "Check Config";
+            this.btnCheckConfig.UseVisualStyleBackColor = true;
+            this.btnCheckConfig.Click += new System.EventHandler(this.btnCheckConfig_Click);
             // 
             // TruckConfigMaintenance
             // 
@@ -563,5 +575,6 @@
         private dsQWSLocalTableAdapters.AxleConfigurationTableAdapter taAxleConfiguration;
         private System.Windows.Forms.Button btnAddGVM;
         private System.Windows.Forms.Button btnAddTrailer;
+        private System.Windows.Forms.Button btnCheckConfig;
     }
 }
