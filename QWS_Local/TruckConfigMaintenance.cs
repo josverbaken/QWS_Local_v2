@@ -256,7 +256,8 @@ namespace QWS_Local
 
         private void btnAddTrailer_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("TODO add method for adding different trailers");
+            //MessageBox.Show("TODO add method for adding different trailers");
+            TruckConfigAdd();
         }
 
         private void btnAddGVM_Click(object sender, EventArgs e)

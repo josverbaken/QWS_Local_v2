@@ -342,7 +342,7 @@
             // 
             // btnAddGVM
             // 
-            this.btnAddGVM.Location = new System.Drawing.Point(48, 221);
+            this.btnAddGVM.Location = new System.Drawing.Point(48, 415);
             this.btnAddGVM.Name = "btnAddGVM";
             this.btnAddGVM.Size = new System.Drawing.Size(100, 33);
             this.btnAddGVM.TabIndex = 6;
@@ -356,13 +356,13 @@
             this.btnAddTrailer.Name = "btnAddTrailer";
             this.btnAddTrailer.Size = new System.Drawing.Size(100, 33);
             this.btnAddTrailer.TabIndex = 5;
-            this.btnAddTrailer.Text = "Add Trailer";
+            this.btnAddTrailer.Text = "Add Config";
             this.btnAddTrailer.UseVisualStyleBackColor = true;
             this.btnAddTrailer.Click += new System.EventHandler(this.btnAddTrailer_Click);
             // 
             // btnSearchNHVR
             // 
-            this.btnSearchNHVR.Location = new System.Drawing.Point(48, 260);
+            this.btnSearchNHVR.Location = new System.Drawing.Point(48, 454);
             this.btnSearchNHVR.Name = "btnSearchNHVR";
             this.btnSearchNHVR.Size = new System.Drawing.Size(100, 33);
             this.btnSearchNHVR.TabIndex = 4;
