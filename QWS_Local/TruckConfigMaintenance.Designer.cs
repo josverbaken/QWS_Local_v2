@@ -55,9 +55,9 @@
             this.truckOwnerTextBox = new System.Windows.Forms.TextBox();
             this.regoTkTextBox = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnCheckConfig = new System.Windows.Forms.Button();
             this.btnAddGVM = new System.Windows.Forms.Button();
             this.btnAddTrailer = new System.Windows.Forms.Button();
-            this.btnSearchNHVR = new System.Windows.Forms.Button();
             this.btnFindConfiguredTrucks = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -71,7 +71,6 @@
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.bsAxleConfiguration = new System.Windows.Forms.BindingSource(this.components);
             this.taAxleConfiguration = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
-            this.btnCheckConfig = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
@@ -329,7 +328,6 @@
             this.splitContainer1.Panel1.Controls.Add(this.btnCheckConfig);
             this.splitContainer1.Panel1.Controls.Add(this.btnAddGVM);
             this.splitContainer1.Panel1.Controls.Add(this.btnAddTrailer);
-            this.splitContainer1.Panel1.Controls.Add(this.btnSearchNHVR);
             this.splitContainer1.Panel1.Controls.Add(this.btnFindConfiguredTrucks);
             this.splitContainer1.Panel1.Controls.Add(this.txtRego);
             // 
@@ -339,6 +337,16 @@
             this.splitContainer1.Size = new System.Drawing.Size(1200, 623);
             this.splitContainer1.SplitterDistance = 210;
             this.splitContainer1.TabIndex = 4;
+            // 
+            // btnCheckConfig
+            // 
+            this.btnCheckConfig.Location = new System.Drawing.Point(48, 99);
+            this.btnCheckConfig.Name = "btnCheckConfig";
+            this.btnCheckConfig.Size = new System.Drawing.Size(100, 33);
+            this.btnCheckConfig.TabIndex = 7;
+            this.btnCheckConfig.Text = "Check Config";
+            this.btnCheckConfig.UseVisualStyleBackColor = true;
+            this.btnCheckConfig.Click += new System.EventHandler(this.btnCheckConfig_Click);
             // 
             // btnAddGVM
             // 
@@ -359,16 +367,6 @@
             this.btnAddTrailer.Text = "Add Config";
             this.btnAddTrailer.UseVisualStyleBackColor = true;
             this.btnAddTrailer.Click += new System.EventHandler(this.btnAddTrailer_Click);
-            // 
-            // btnSearchNHVR
-            // 
-            this.btnSearchNHVR.Location = new System.Drawing.Point(48, 454);
-            this.btnSearchNHVR.Name = "btnSearchNHVR";
-            this.btnSearchNHVR.Size = new System.Drawing.Size(100, 33);
-            this.btnSearchNHVR.TabIndex = 4;
-            this.btnSearchNHVR.Text = "NHVR";
-            this.btnSearchNHVR.UseVisualStyleBackColor = true;
-            this.btnSearchNHVR.Click += new System.EventHandler(this.btnSearchNHVR_Click);
             // 
             // btnFindConfiguredTrucks
             // 
@@ -482,16 +480,6 @@
             // 
             this.taAxleConfiguration.ClearBeforeFill = true;
             // 
-            // btnCheckConfig
-            // 
-            this.btnCheckConfig.Location = new System.Drawing.Point(48, 99);
-            this.btnCheckConfig.Name = "btnCheckConfig";
-            this.btnCheckConfig.Size = new System.Drawing.Size(100, 33);
-            this.btnCheckConfig.TabIndex = 7;
-            this.btnCheckConfig.Text = "Check Config";
-            this.btnCheckConfig.UseVisualStyleBackColor = true;
-            this.btnCheckConfig.Click += new System.EventHandler(this.btnCheckConfig_Click);
-            // 
             // TruckConfigMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -555,7 +543,6 @@
         private System.Windows.Forms.TextBox feeCodeTextBox;
         private System.Windows.Forms.TextBox truckOwnerTextBox;
         private System.Windows.Forms.TextBox regoTkTextBox;
-        private System.Windows.Forms.Button btnSearchNHVR;
         private System.Windows.Forms.DataGridViewTextBoxColumn regoTkDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn regoTrailerDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn axleConfigurationDataGridViewTextBoxColumn1;

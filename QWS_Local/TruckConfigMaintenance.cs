@@ -152,7 +152,7 @@ namespace QWS_Local
 
         private void btnSearchNHVR_Click(object sender, EventArgs e)
         {
-            SearchNHVR(CurrentConfigTruck().AxleConfiguration);
+            
         }
 
         private void SearchNHVR(string AxleConfig)
@@ -161,9 +161,12 @@ namespace QWS_Local
             DialogResult dr = frmNHVR.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                string msg = "NHVR ID = ";
-                msg += frmNHVR.NHVRID.ToString();
-                MessageBox.Show(msg);
+                int TruckTypeID = frmNHVR.NHVRID;
+                //string msg = "NHVR TruckTypeID = ";
+                //msg += frmNHVR.NHVRID.ToString();
+                //MessageBox.Show(msg);
+                TruckConfigNHVRAdd(CurrentConfigTruck().TruckConfigID, TruckTypeID);
+                SyncConfiguredTruckGVM();
             }
         }
 
@@ -235,6 +238,27 @@ namespace QWS_Local
             }
         }
 
+        private void TruckConfigNHVRAdd(int TruckConfigID, int TruckTypeID)
+        {
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "TruckConfigNHVRAdd";
+                cmd.Parameters.AddWithValue("@TruckConfigID", TruckConfigID);
+                cmd.Parameters.AddWithValue("@TruckTypeID",TruckTypeID);
+                sqlConnection.Open();
+                cmd.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "TruckConfigVehicleAdd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void TruckConfigAddTruck(string AxleConfig, string Rego, int Vehicles)
         {
             int myTruckConfigID = TruckConfigAdd(AxleConfig);
@@ -268,7 +292,7 @@ namespace QWS_Local
 
         private void btnAddGVM_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("configure gvm, need at least one combination with Road Access = All Roads\r\nPBS should show automatically");
+            SearchNHVR(CurrentConfigTruck().AxleConfiguration);
         }
 
         private void btnCheckConfig_Click(object sender, EventArgs e)
