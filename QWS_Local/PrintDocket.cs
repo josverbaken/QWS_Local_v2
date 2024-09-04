@@ -20,7 +20,7 @@ namespace QWS_Local
         private void PrintDocket_Load(object sender, EventArgs e)
         {            
             //GetDocketList();
-            this.reportViewer1.RefreshReport();
+            //this.reportViewer1.RefreshReport();
         }
 
         private void GetDocketList()
@@ -56,6 +56,24 @@ namespace QWS_Local
         private void btnRefreshDockets_Click(object sender, EventArgs e)
         {
             GetDocketList();
+        }
+
+        private void btnGetDocket_Click(object sender, EventArgs e)
+        {
+            GetDeliveryDocket(System.Convert.ToInt32(txtDocketNo.Text));
+        }
+
+        private void GetDeliveryDocket(int DocNum)
+        {
+            try
+            {
+                taDeliveryDocketRpt.Fill(dsDocketReport.DeliveryDocketRpt, DocNum);
+                reportViewer1.RefreshReport();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
