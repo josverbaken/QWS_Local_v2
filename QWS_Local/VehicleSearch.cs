@@ -35,15 +35,16 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public VehicleSearch(string CardCode, string TkAxleConfig)
+        public VehicleSearch(string CardCode, string AxleConfig, bool Exact)
         {
             InitializeComponent();
             Search4Vehicle(CardCode,true);
             this.txtSearch.Text = CardCode;
             //TODO set axle config filter
             //this.bsVehicleDetails.Filter = "AxleConfiguration like '" + TkAxleConfig + "%' and IsLeadVehicle = 0";
-            MessageBox.Show("Truck Axle config = " + TkAxleConfig);
-            FilterByTrailers();
+            MessageBox.Show("Truck Axle config = " + AxleConfig + " Exact = " + Exact.ToString());
+            FilterByAxleConfig(AxleConfig,Exact);
+            //FilterByTrailers();
         }
 
         public VehicleSearch(string strSearch, bool IsCardCode)
@@ -110,9 +111,21 @@ namespace QWS_Local
             FilterByTrailers();
         }
 
+        private void FilterByAxleConfig(string AxleConfig, bool Exact)
+        {
+            if (Exact == true) 
+            {
+                this.bsVehicleDetails.Filter = "AxleConfiguration like '" + AxleConfig + "'";
+            }
+            else
+            {
+                this.bsVehicleDetails.Filter = "AxleConfiguration like '" + AxleConfig + "%'";
+            }
+        }
+
         private void FilterByTrailers()
         {
-                this.bsVehicleDetails.Filter = "IsLeadVehicle = 0";
+            this.bsVehicleDetails.Filter = "IsLeadVehicle = 0";
         }
 
         private void btnTruck_Click(object sender, EventArgs e)

@@ -273,9 +273,26 @@ namespace QWS_Local
 
         private void TruckConfigAddTrailer(int TruckConfigID, int Position)
         {
+            // search vehicles by trailer axleconfiguration
+            int iVehicles = CurrentConfigTruck().Vehicles;
+
+            string TruckAxleConfig = CurrentVehicle().AxleConfiguration;
+            string TrailerAxleConfig = CurrentVehicle().AxleConfiguration;
+            string CombinationAxleConfig = CurrentConfigTruck().AxleConfiguration;
+            int iBreak = TruckAxleConfig.Length - 1;
+
+            switch (iVehicles)
+            {
+                case 2: // T&T or ST
+                    TrailerAxleConfig = CombinationAxleConfig.Substring(iBreak, CombinationAxleConfig.Length - iBreak); //keep R or A
+                    break;
+                    case 3: // BD
+                    break;  
+                default:
+                    break;
+            }
             string Trailer;
-            // /*TODO*/ filter to trailers and truck axles
-            VehicleSearch frmVehicleSearch = new VehicleSearch(CurrentVehicle().CardCode, CurrentVehicle().AxleConfiguration);
+            VehicleSearch frmVehicleSearch = new VehicleSearch(CurrentVehicle().CardCode, TrailerAxleConfig, true);
             DialogResult dr = frmVehicleSearch.ShowDialog();
             if (dr == DialogResult.OK)
             {
@@ -286,7 +303,7 @@ namespace QWS_Local
 
         private void btnAddTrailer_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("TODO add method for adding different trailers");
+            // Add new configuration for selected truck / prime mover.
             TruckConfigAdd();
         }
 
