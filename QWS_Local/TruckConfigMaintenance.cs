@@ -329,20 +329,14 @@ namespace QWS_Local
                 bool blConfigOK = true;
                 switch (CfgVehicleCount)
                 {
-                    case 1: // truck only, ask if want to add trailer/s
-                        DialogResult dr = MessageBox.Show("Do you want to add trailer/s?", "Truck Only", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (dr == DialogResult.Yes)
-                        {
-                            //TruckConfigAdd(); //wrong method
-                            // which trailer
-                        }
+                    case 1: // truck only, do nothing
                         break;
                     case 2:
                         if (CurrentConfigTruck().RegoTr1.Length == 0)
                         {
                             MessageBox.Show("Please add trailer #1.");
                             blConfigOK = false;
-                            //TruckConfigAddTrailer(CurrentConfigTruck().TruckConfigID, 2);
+                            TruckConfigAddTrailer(CurrentConfigTruck().TruckConfigID, 2);
                         }
                         break;
                     case 3:
@@ -385,6 +379,12 @@ namespace QWS_Local
                 }
             }
 
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //TODO delete or inactive?
+            MessageBox.Show("Delete - to be implemented");
         }
     }
 }

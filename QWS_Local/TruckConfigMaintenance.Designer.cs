@@ -71,6 +71,7 @@
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.bsAxleConfiguration = new System.Windows.Forms.BindingSource(this.components);
             this.taAxleConfiguration = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
@@ -325,6 +326,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
+            this.splitContainer1.Panel1.Controls.Add(this.btnDelete);
             this.splitContainer1.Panel1.Controls.Add(this.btnCheckConfig);
             this.splitContainer1.Panel1.Controls.Add(this.btnAddGVM);
             this.splitContainer1.Panel1.Controls.Add(this.btnAddTrailer);
@@ -480,6 +482,16 @@
             // 
             this.taAxleConfiguration.ClearBeforeFill = true;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(48, 177);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(100, 33);
+            this.btnDelete.TabIndex = 8;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // TruckConfigMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -563,5 +575,6 @@
         private System.Windows.Forms.Button btnAddGVM;
         private System.Windows.Forms.Button btnAddTrailer;
         private System.Windows.Forms.Button btnCheckConfig;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
