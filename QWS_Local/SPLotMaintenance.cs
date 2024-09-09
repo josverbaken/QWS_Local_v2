@@ -23,7 +23,6 @@ namespace QWS_Local
             this.taStockpileBOM.Fill(this.dsTIQ2.StockpileBOM);
             // TODO: This line of code loads data into the 'dsTIQ2.StockpileLotAllocation' table. You can move, or remove it, as needed.
             this.taStockpileLotAllocation.Fill(this.dsTIQ2.StockpileLotAllocation);
-
         }
 
         private void btnFindItem_Click(object sender, EventArgs e)
@@ -59,5 +58,26 @@ namespace QWS_Local
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnGetReportData_Click(object sender, EventArgs e)
+        {
+            GetReportData();
+        }
+
+        private void GetReportData()
+        {
+            try
+            {
+                int SPLotNo;
+                SPLotNo = System.Convert.ToInt32(txtSPLotNo.Text);
+                this.taSPLotNoAudit.Fill(this.dsTIQ2.SPLotNoAudit, txtItem2Report.Text, SPLotNo);
+                reportViewer1.RefreshReport();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 }
