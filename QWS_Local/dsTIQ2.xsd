@@ -800,6 +800,25 @@ where ItemCode like @ItemCode</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SPLotItemsMapTableAdapter" GeneratorDataComponentClassName="SPLotItemsMapTableAdapter" Name="SPLotItemsMap" UserDataComponentName="SPLotItemsMapTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.SPLotItemsMap" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        SPLotItemsMap.*
+FROM            SPLotItemsMap</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ItemCode" DataSetColumn="ItemCode" />
+              <Mapping SourceColumn="ItemName" DataSetColumn="ItemName" />
+              <Mapping SourceColumn="BaseItemCode" DataSetColumn="BaseItemCode" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1304,39 +1323,39 @@ where ItemCode like @ItemCode</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SPLotNoAudit" msprop:Generator_RowClassName="SPLotNoAuditRow" msprop:Generator_RowEvHandlerName="SPLotNoAuditRowChangeEventHandler" msprop:Generator_RowDeletedName="SPLotNoAuditRowDeleted" msprop:Generator_RowDeletingName="SPLotNoAuditRowDeleting" msprop:Generator_RowEvArgName="SPLotNoAuditRowChangeEvent" msprop:Generator_TablePropName="SPLotNoAudit" msprop:Generator_RowChangedName="SPLotNoAuditRowChanged" msprop:Generator_UserTableName="SPLotNoAudit" msprop:Generator_RowChangingName="SPLotNoAuditRowChanging" msprop:Generator_TableClassName="SPLotNoAuditDataTable" msprop:Generator_TableVarName="tableSPLotNoAudit">
+        <xs:element name="SPLotNoAudit" msprop:Generator_RowEvHandlerName="SPLotNoAuditRowChangeEventHandler" msprop:Generator_RowDeletedName="SPLotNoAuditRowDeleted" msprop:Generator_RowDeletingName="SPLotNoAuditRowDeleting" msprop:Generator_RowEvArgName="SPLotNoAuditRowChangeEvent" msprop:Generator_TablePropName="SPLotNoAudit" msprop:Generator_RowChangedName="SPLotNoAuditRowChanged" msprop:Generator_UserTableName="SPLotNoAudit" msprop:Generator_RowChangingName="SPLotNoAuditRowChanging" msprop:Generator_RowClassName="SPLotNoAuditRow" msprop:Generator_TableClassName="SPLotNoAuditDataTable" msprop:Generator_TableVarName="tableSPLotNoAudit">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="DocNum" msprop:Generator_UserColumnName="DocNum" msprop:Generator_ColumnPropNameInTable="DocNumColumn" msprop:Generator_ColumnPropNameInRow="DocNum" msprop:Generator_ColumnVarNameInTable="columnDocNum" type="xs:int" />
-              <xs:element name="DocketLine" msprop:Generator_UserColumnName="DocketLine" msprop:Generator_ColumnPropNameInTable="DocketLineColumn" msprop:Generator_ColumnPropNameInRow="DocketLine" msprop:Generator_ColumnVarNameInTable="columnDocketLine" type="xs:int" />
-              <xs:element name="WarehouseCode" msprop:Generator_UserColumnName="WarehouseCode" msprop:Generator_ColumnPropNameInTable="WarehouseCodeColumn" msprop:Generator_ColumnPropNameInRow="WarehouseCode" msprop:Generator_ColumnVarNameInTable="columnWarehouseCode">
+              <xs:element name="DocNum" msprop:Generator_ColumnPropNameInTable="DocNumColumn" msprop:Generator_ColumnPropNameInRow="DocNum" msprop:Generator_UserColumnName="DocNum" msprop:Generator_ColumnVarNameInTable="columnDocNum" type="xs:int" />
+              <xs:element name="DocketLine" msprop:Generator_ColumnPropNameInTable="DocketLineColumn" msprop:Generator_ColumnPropNameInRow="DocketLine" msprop:Generator_UserColumnName="DocketLine" msprop:Generator_ColumnVarNameInTable="columnDocketLine" type="xs:int" />
+              <xs:element name="WarehouseCode" msprop:Generator_ColumnPropNameInTable="WarehouseCodeColumn" msprop:Generator_ColumnPropNameInRow="WarehouseCode" msprop:Generator_UserColumnName="WarehouseCode" msprop:Generator_ColumnVarNameInTable="columnWarehouseCode">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="BaseEntry" msprop:Generator_UserColumnName="BaseEntry" msprop:Generator_ColumnPropNameInTable="BaseEntryColumn" msprop:Generator_ColumnPropNameInRow="BaseEntry" msprop:Generator_ColumnVarNameInTable="columnBaseEntry" type="xs:int" />
-              <xs:element name="ItemCode" msprop:Generator_UserColumnName="ItemCode" msprop:Generator_ColumnPropNameInTable="ItemCodeColumn" msprop:Generator_ColumnPropNameInRow="ItemCode" msprop:Generator_ColumnVarNameInTable="columnItemCode">
+              <xs:element name="BaseEntry" msprop:Generator_ColumnPropNameInTable="BaseEntryColumn" msprop:Generator_ColumnPropNameInRow="BaseEntry" msprop:Generator_UserColumnName="BaseEntry" msprop:Generator_ColumnVarNameInTable="columnBaseEntry" type="xs:int" />
+              <xs:element name="ItemCode" msprop:Generator_ColumnPropNameInTable="ItemCodeColumn" msprop:Generator_ColumnPropNameInRow="ItemCode" msprop:Generator_UserColumnName="ItemCode" msprop:Generator_ColumnVarNameInTable="columnItemCode">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ItemDescription" msprop:Generator_UserColumnName="ItemDescription" msprop:Generator_ColumnPropNameInTable="ItemDescriptionColumn" msprop:Generator_ColumnPropNameInRow="ItemDescription" msprop:Generator_ColumnVarNameInTable="columnItemDescription">
+              <xs:element name="ItemDescription" msprop:Generator_ColumnPropNameInTable="ItemDescriptionColumn" msprop:Generator_ColumnPropNameInRow="ItemDescription" msprop:Generator_UserColumnName="ItemDescription" msprop:Generator_ColumnVarNameInTable="columnItemDescription">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ItemQA" msprop:Generator_UserColumnName="ItemQA" msprop:Generator_ColumnPropNameInTable="ItemQAColumn" msprop:Generator_ColumnPropNameInRow="ItemQA" msprop:Generator_ColumnVarNameInTable="columnItemQA" type="xs:boolean" />
-              <xs:element name="ItmsGrpCod" msprop:Generator_UserColumnName="ItmsGrpCod" msprop:Generator_ColumnPropNameInTable="ItmsGrpCodColumn" msprop:Generator_ColumnPropNameInRow="ItmsGrpCod" msprop:Generator_ColumnVarNameInTable="columnItmsGrpCod" type="xs:int" />
-              <xs:element name="StockpileLot" msprop:Generator_UserColumnName="StockpileLot" msprop:Generator_ColumnPropNameInTable="StockpileLotColumn" msprop:Generator_ColumnPropNameInRow="StockpileLot" msprop:Generator_ColumnVarNameInTable="columnStockpileLot" type="xs:int" />
-              <xs:element name="Quantity" msprop:Generator_UserColumnName="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" type="xs:decimal" />
-              <xs:element name="CreatedDTTM" msprop:Generator_UserColumnName="CreatedDTTM" msprop:Generator_ColumnPropNameInTable="CreatedDTTMColumn" msprop:Generator_ColumnPropNameInRow="CreatedDTTM" msprop:Generator_ColumnVarNameInTable="columnCreatedDTTM" type="xs:dateTime" />
-              <xs:element name="BaseItemCode" msprop:Generator_UserColumnName="BaseItemCode" msprop:Generator_ColumnPropNameInTable="BaseItemCodeColumn" msprop:Generator_ColumnPropNameInRow="BaseItemCode" msprop:Generator_ColumnVarNameInTable="columnBaseItemCode">
+              <xs:element name="ItemQA" msprop:Generator_ColumnPropNameInTable="ItemQAColumn" msprop:Generator_ColumnPropNameInRow="ItemQA" msprop:Generator_UserColumnName="ItemQA" msprop:Generator_ColumnVarNameInTable="columnItemQA" type="xs:boolean" />
+              <xs:element name="ItmsGrpCod" msprop:Generator_ColumnPropNameInTable="ItmsGrpCodColumn" msprop:Generator_ColumnPropNameInRow="ItmsGrpCod" msprop:Generator_UserColumnName="ItmsGrpCod" msprop:Generator_ColumnVarNameInTable="columnItmsGrpCod" type="xs:int" />
+              <xs:element name="StockpileLot" msprop:Generator_ColumnPropNameInTable="StockpileLotColumn" msprop:Generator_ColumnPropNameInRow="StockpileLot" msprop:Generator_UserColumnName="StockpileLot" msprop:Generator_ColumnVarNameInTable="columnStockpileLot" type="xs:int" />
+              <xs:element name="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_UserColumnName="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" type="xs:decimal" />
+              <xs:element name="CreatedDTTM" msprop:Generator_ColumnPropNameInTable="CreatedDTTMColumn" msprop:Generator_ColumnPropNameInRow="CreatedDTTM" msprop:Generator_UserColumnName="CreatedDTTM" msprop:Generator_ColumnVarNameInTable="columnCreatedDTTM" type="xs:dateTime" />
+              <xs:element name="BaseItemCode" msprop:Generator_ColumnPropNameInTable="BaseItemCodeColumn" msprop:Generator_ColumnPropNameInRow="BaseItemCode" msprop:Generator_UserColumnName="BaseItemCode" msprop:Generator_ColumnVarNameInTable="columnBaseItemCode">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="15" />
@@ -1346,25 +1365,52 @@ where ItemCode like @ItemCode</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StockpileManualAllocation" msprop:Generator_RowEvHandlerName="StockpileManualAllocationRowChangeEventHandler" msprop:Generator_RowDeletedName="StockpileManualAllocationRowDeleted" msprop:Generator_RowDeletingName="StockpileManualAllocationRowDeleting" msprop:Generator_RowEvArgName="StockpileManualAllocationRowChangeEvent" msprop:Generator_TablePropName="StockpileManualAllocation" msprop:Generator_RowChangedName="StockpileManualAllocationRowChanged" msprop:Generator_RowChangingName="StockpileManualAllocationRowChanging" msprop:Generator_TableClassName="StockpileManualAllocationDataTable" msprop:Generator_RowClassName="StockpileManualAllocationRow" msprop:Generator_TableVarName="tableStockpileManualAllocation" msprop:Generator_UserTableName="StockpileManualAllocation">
+        <xs:element name="StockpileManualAllocation" msprop:Generator_RowClassName="StockpileManualAllocationRow" msprop:Generator_RowEvHandlerName="StockpileManualAllocationRowChangeEventHandler" msprop:Generator_RowDeletedName="StockpileManualAllocationRowDeleted" msprop:Generator_RowDeletingName="StockpileManualAllocationRowDeleting" msprop:Generator_RowEvArgName="StockpileManualAllocationRowChangeEvent" msprop:Generator_TablePropName="StockpileManualAllocation" msprop:Generator_RowChangedName="StockpileManualAllocationRowChanged" msprop:Generator_UserTableName="StockpileManualAllocation" msprop:Generator_RowChangingName="StockpileManualAllocationRowChanging" msprop:Generator_TableClassName="StockpileManualAllocationDataTable" msprop:Generator_TableVarName="tableStockpileManualAllocation">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="AllocationID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="AllocationID" msprop:Generator_ColumnPropNameInTable="AllocationIDColumn" msprop:Generator_ColumnVarNameInTable="columnAllocationID" msprop:Generator_UserColumnName="AllocationID" type="xs:int" />
-              <xs:element name="ItemCode" msprop:Generator_ColumnPropNameInRow="ItemCode" msprop:Generator_ColumnPropNameInTable="ItemCodeColumn" msprop:Generator_ColumnVarNameInTable="columnItemCode" msprop:Generator_UserColumnName="ItemCode">
+              <xs:element name="AllocationID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="AllocationID" msprop:Generator_ColumnPropNameInTable="AllocationIDColumn" msprop:Generator_ColumnPropNameInRow="AllocationID" msprop:Generator_ColumnVarNameInTable="columnAllocationID" type="xs:int" />
+              <xs:element name="ItemCode" msprop:Generator_UserColumnName="ItemCode" msprop:Generator_ColumnPropNameInTable="ItemCodeColumn" msprop:Generator_ColumnPropNameInRow="ItemCode" msprop:Generator_ColumnVarNameInTable="columnItemCode">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SPLotNo" msprop:Generator_ColumnPropNameInRow="SPLotNo" msprop:Generator_ColumnPropNameInTable="SPLotNoColumn" msprop:Generator_ColumnVarNameInTable="columnSPLotNo" msprop:Generator_UserColumnName="SPLotNo" type="xs:int" />
-              <xs:element name="DocketNum" msprop:Generator_ColumnPropNameInRow="DocketNum" msprop:Generator_ColumnPropNameInTable="DocketNumColumn" msprop:Generator_ColumnVarNameInTable="columnDocketNum" msprop:Generator_UserColumnName="DocketNum" type="xs:int" />
-              <xs:element name="Tonnes" msprop:Generator_ColumnPropNameInRow="Tonnes" msprop:Generator_ColumnPropNameInTable="TonnesColumn" msprop:Generator_ColumnVarNameInTable="columnTonnes" msprop:Generator_UserColumnName="Tonnes" type="xs:decimal" />
-              <xs:element name="Reversal" msprop:Generator_ColumnPropNameInRow="Reversal" msprop:Generator_ColumnPropNameInTable="ReversalColumn" msprop:Generator_ColumnVarNameInTable="columnReversal" msprop:Generator_UserColumnName="Reversal" type="xs:boolean" />
-              <xs:element name="Comment" msprop:Generator_ColumnPropNameInRow="Comment" msprop:Generator_ColumnPropNameInTable="CommentColumn" msprop:Generator_ColumnVarNameInTable="columnComment" msprop:Generator_UserColumnName="Comment">
+              <xs:element name="SPLotNo" msprop:Generator_UserColumnName="SPLotNo" msprop:Generator_ColumnPropNameInTable="SPLotNoColumn" msprop:Generator_ColumnPropNameInRow="SPLotNo" msprop:Generator_ColumnVarNameInTable="columnSPLotNo" type="xs:int" />
+              <xs:element name="DocketNum" msprop:Generator_UserColumnName="DocketNum" msprop:Generator_ColumnPropNameInTable="DocketNumColumn" msprop:Generator_ColumnPropNameInRow="DocketNum" msprop:Generator_ColumnVarNameInTable="columnDocketNum" type="xs:int" />
+              <xs:element name="Tonnes" msprop:Generator_UserColumnName="Tonnes" msprop:Generator_ColumnPropNameInTable="TonnesColumn" msprop:Generator_ColumnPropNameInRow="Tonnes" msprop:Generator_ColumnVarNameInTable="columnTonnes" type="xs:decimal" />
+              <xs:element name="Reversal" msprop:Generator_UserColumnName="Reversal" msprop:Generator_ColumnPropNameInTable="ReversalColumn" msprop:Generator_ColumnPropNameInRow="Reversal" msprop:Generator_ColumnVarNameInTable="columnReversal" type="xs:boolean" />
+              <xs:element name="Comment" msprop:Generator_UserColumnName="Comment" msprop:Generator_ColumnPropNameInTable="CommentColumn" msprop:Generator_ColumnPropNameInRow="Comment" msprop:Generator_ColumnVarNameInTable="columnComment">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SPLotItemsMap" msprop:Generator_RowEvHandlerName="SPLotItemsMapRowChangeEventHandler" msprop:Generator_RowDeletedName="SPLotItemsMapRowDeleted" msprop:Generator_RowDeletingName="SPLotItemsMapRowDeleting" msprop:Generator_RowEvArgName="SPLotItemsMapRowChangeEvent" msprop:Generator_TablePropName="SPLotItemsMap" msprop:Generator_RowChangedName="SPLotItemsMapRowChanged" msprop:Generator_RowChangingName="SPLotItemsMapRowChanging" msprop:Generator_TableClassName="SPLotItemsMapDataTable" msprop:Generator_RowClassName="SPLotItemsMapRow" msprop:Generator_TableVarName="tableSPLotItemsMap" msprop:Generator_UserTableName="SPLotItemsMap">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ItemCode" msprop:Generator_ColumnPropNameInRow="ItemCode" msprop:Generator_ColumnPropNameInTable="ItemCodeColumn" msprop:Generator_ColumnVarNameInTable="columnItemCode" msprop:Generator_UserColumnName="ItemCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItemName" msprop:Generator_ColumnPropNameInRow="ItemName" msprop:Generator_ColumnPropNameInTable="ItemNameColumn" msprop:Generator_ColumnVarNameInTable="columnItemName" msprop:Generator_UserColumnName="ItemName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BaseItemCode" msprop:Generator_ColumnPropNameInRow="BaseItemCode" msprop:Generator_ColumnPropNameInTable="BaseItemCodeColumn" msprop:Generator_ColumnVarNameInTable="columnBaseItemCode" msprop:Generator_UserColumnName="BaseItemCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1407,10 +1453,14 @@ where ItemCode like @ItemCode</CommandText>
       <xs:selector xpath=".//mstns:StockpileManualAllocation" />
       <xs:field xpath="mstns:AllocationID" />
     </xs:unique>
+    <xs:unique name="SPLotItemsMap_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SPLotItemsMap" />
+      <xs:field xpath="mstns:ItemCode" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_WBDocketLines_WBDockets" msdata:parent="WBDockets" msdata:child="WBDocketLines" msdata:parentkey="DocNum" msdata:childkey="DocNum" msprop:Generator_UserParentTable="WBDockets" msprop:Generator_UserChildTable="WBDocketLines" msprop:Generator_RelationVarName="relationFK_WBDocketLines_WBDockets" msprop:Generator_ChildPropName="GetWBDocketLinesRows" msprop:Generator_ParentPropName="WBDocketsRow" msprop:Generator_UserRelationName="FK_WBDocketLines_WBDockets" />
+      <msdata:Relationship name="FK_WBDocketLines_WBDockets" msdata:parent="WBDockets" msdata:child="WBDocketLines" msdata:parentkey="DocNum" msdata:childkey="DocNum" msprop:Generator_UserParentTable="WBDockets" msprop:Generator_UserChildTable="WBDocketLines" msprop:Generator_RelationVarName="relationFK_WBDocketLines_WBDockets" msprop:Generator_ChildPropName="GetWBDocketLinesRows" msprop:Generator_UserRelationName="FK_WBDocketLines_WBDockets" msprop:Generator_ParentPropName="WBDocketsRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

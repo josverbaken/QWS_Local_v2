@@ -19,8 +19,10 @@ namespace QWS_Local
 
         private void SPLotMaintenance_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsTIQ2.SPLotItemsMap' table. You can move, or remove it, as needed.
+            this.taSPLotItemsMap.Fill(this.dsTIQ2.SPLotItemsMap);
             // TODO: This line of code loads data into the 'dsTIQ2.StockpileBOM' table. You can move, or remove it, as needed.
-            this.taStockpileBOM.Fill(this.dsTIQ2.StockpileBOM);
+            //this.taStockpileBOM.Fill(this.dsTIQ2.StockpileBOM);
             // TODO: This line of code loads data into the 'dsTIQ2.StockpileLotAllocation' table. You can move, or remove it, as needed.
             this.taStockpileLotAllocation.Fill(this.dsTIQ2.StockpileLotAllocation);
         }
@@ -34,17 +36,12 @@ namespace QWS_Local
         {
             try
             {
-                taStockpileLotAllocation.FillByItemCode(dsTIQ2.StockpileLotAllocation, txtItemCode.Text);
+                taStockpileLotAllocation.FillByItemCode(dsTIQ2.StockpileLotAllocation, CurrentItemsMap().ItemCode);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-           private void button1_Click(object sender, EventArgs e)
-        {
-            ShowBOM4ItemCode(txtItemCode.Text);
         }
 
         private void ShowBOM4ItemCode(string ItemCode)
@@ -113,6 +110,21 @@ namespace QWS_Local
 
         }
 
+        private dsTIQ2.SPLotItemsMapRow CurrentItemsMap()
+        {
+            try
+            {
+                DataRow myDR = ((DataRowView)bsSPLotItemsMap.Current).Row;
+                dsTIQ2.SPLotItemsMapRow itemsMapRow = (dsTIQ2.SPLotItemsMapRow)myDR;
+                return itemsMapRow;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
         private void bsStockpileLotAllocation_CurrentChanged(object sender, EventArgs e)
         {
 
@@ -151,6 +163,11 @@ namespace QWS_Local
             {
                 this.taStockpileManualAllocation.Fill(this.dsTIQ2.StockpileManualAllocation);
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
