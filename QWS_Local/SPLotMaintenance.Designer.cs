@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource7 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpSPLots = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -37,8 +37,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.BaseItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.btnFindItem = new System.Windows.Forms.Button();
             this.tpDockets = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.label3 = new System.Windows.Forms.Label();
@@ -86,7 +84,6 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.baseItemCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tpSPLots.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -172,10 +169,7 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.button1);
             this.splitContainer2.Panel2.Controls.Add(this.btnSave);
-            this.splitContainer2.Panel2.Controls.Add(this.btnRefresh);
-            this.splitContainer2.Panel2.Controls.Add(this.btnFindItem);
             this.splitContainer2.Size = new System.Drawing.Size(672, 550);
             this.splitContainer2.SplitterDistance = 275;
             this.splitContainer2.TabIndex = 1;
@@ -206,32 +200,13 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(100, 151);
+            this.btnSave.Location = new System.Drawing.Point(20, 18);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 29);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Location = new System.Drawing.Point(100, 116);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(100, 29);
-            this.btnRefresh.TabIndex = 1;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            // 
-            // btnFindItem
-            // 
-            this.btnFindItem.Location = new System.Drawing.Point(100, 81);
-            this.btnFindItem.Name = "btnFindItem";
-            this.btnFindItem.Size = new System.Drawing.Size(100, 29);
-            this.btnFindItem.TabIndex = 0;
-            this.btnFindItem.Text = "Find";
-            this.btnFindItem.UseVisualStyleBackColor = true;
-            this.btnFindItem.Click += new System.EventHandler(this.btnFindItem_Click);
             // 
             // tpDockets
             // 
@@ -311,9 +286,9 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.bsSPLotNoAudit;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource7.Name = "DataSet1";
+            reportDataSource7.Value = this.bsSPLotNoAudit;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource7);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "QWS_Local.SPLotNoAudit.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
@@ -588,6 +563,7 @@
             // 
             this.bsSPLotItemsMap.DataMember = "SPLotItemsMap";
             this.bsSPLotItemsMap.DataSource = this.dsTIQ2;
+            this.bsSPLotItemsMap.CurrentChanged += new System.EventHandler(this.bsSPLotItemsMap_CurrentChanged);
             // 
             // taSPLotItemsMap
             // 
@@ -616,16 +592,6 @@
             this.baseItemCodeDataGridViewTextBoxColumn.Name = "baseItemCodeDataGridViewTextBoxColumn";
             this.baseItemCodeDataGridViewTextBoxColumn.ReadOnly = true;
             this.baseItemCodeDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(286, 121);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 29);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Load Items Map";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // SPLotMaintenance
             // 
@@ -678,8 +644,6 @@
         private System.Windows.Forms.TabPage tpSPLots;
         private System.Windows.Forms.TabPage tpDockets;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.Button btnFindItem;
         private System.Windows.Forms.DataGridView dataGridView1;
         private dsTIQ2 dsTIQ2;
         private System.Windows.Forms.BindingSource bsStockpileLotAllocation;
@@ -731,6 +695,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn baseItemCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button1;
     }
 }

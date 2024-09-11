@@ -19,17 +19,8 @@ namespace QWS_Local
 
         private void SPLotMaintenance_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsTIQ2.SPLotItemsMap' table. You can move, or remove it, as needed.
             this.taSPLotItemsMap.Fill(this.dsTIQ2.SPLotItemsMap);
-            // TODO: This line of code loads data into the 'dsTIQ2.StockpileBOM' table. You can move, or remove it, as needed.
-            //this.taStockpileBOM.Fill(this.dsTIQ2.StockpileBOM);
-            // TODO: This line of code loads data into the 'dsTIQ2.StockpileLotAllocation' table. You can move, or remove it, as needed.
             this.taStockpileLotAllocation.Fill(this.dsTIQ2.StockpileLotAllocation);
-        }
-
-        private void btnFindItem_Click(object sender, EventArgs e)
-        {
-            FindLotsByItemCode();
         }
 
         private void FindLotsByItemCode()
@@ -125,11 +116,6 @@ namespace QWS_Local
             }
         }
 
-        private void bsStockpileLotAllocation_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSaveManualAllocation_Click(object sender, EventArgs e)
         {
             SaveManualAllocation();
@@ -165,9 +151,9 @@ namespace QWS_Local
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void bsSPLotItemsMap_CurrentChanged(object sender, EventArgs e)
         {
-
+            FindLotsByItemCode();
         }
     }
 }
