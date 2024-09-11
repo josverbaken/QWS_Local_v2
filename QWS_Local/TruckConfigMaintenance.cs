@@ -337,6 +337,8 @@ namespace QWS_Local
                             MessageBox.Show("Please add trailer #1.");
                             blConfigOK = false;
                             TruckConfigAddTrailer(CurrentConfigTruck().TruckConfigID, 2);
+                            GetConfiguredTruck(CurrentConfigTruck().RegoTk);
+                            SyncConfiguredTruckGVM();
                         }
                         break;
                     case 3:
