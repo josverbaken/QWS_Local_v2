@@ -55,6 +55,7 @@
             this.truckOwnerTextBox = new System.Windows.Forms.TextBox();
             this.regoTkTextBox = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnCheckConfig = new System.Windows.Forms.Button();
             this.btnAddGVM = new System.Windows.Forms.Button();
             this.btnAddTrailer = new System.Windows.Forms.Button();
@@ -71,7 +72,6 @@
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.bsAxleConfiguration = new System.Windows.Forms.BindingSource(this.components);
             this.taAxleConfiguration = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
-            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
@@ -340,6 +340,16 @@
             this.splitContainer1.SplitterDistance = 210;
             this.splitContainer1.TabIndex = 4;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(48, 177);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(100, 33);
+            this.btnDelete.TabIndex = 8;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // btnCheckConfig
             // 
             this.btnCheckConfig.Location = new System.Drawing.Point(48, 99);
@@ -481,16 +491,6 @@
             // taAxleConfiguration
             // 
             this.taAxleConfiguration.ClearBeforeFill = true;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(48, 177);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(100, 33);
-            this.btnDelete.TabIndex = 8;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // TruckConfigMaintenance
             // 

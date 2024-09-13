@@ -85,11 +85,7 @@ namespace QWS_Local
             if (dr1 == DialogResult.OK)
             {
                 string SelectedAxleConfig = frmAxleConfig.SelectedAxleConfig;
-                string msg = "Selected axle config = ";
-                msg += SelectedAxleConfig;
                 dsQWSLocal.AxleConfigurationRow axleConfigurationRow = frmAxleConfig._AxleConfigurationRow;
-                msg += " vehicle count = " + axleConfigurationRow.Vehicles.ToString();
-                //MessageBox.Show(msg);
                 TruckConfigAddTruck(SelectedAxleConfig, CurrentVehicle().Rego, axleConfigurationRow.Vehicles);
             }            
         }
@@ -150,22 +146,13 @@ namespace QWS_Local
             }
         }
 
-        private void btnSearchNHVR_Click(object sender, EventArgs e)
+         private void SearchNHVR()
         {
-            
-        }
-
-        private void SearchNHVR(string AxleConfig)
-        {
-            NHVR_GVM_Search frmNHVR = new NHVR_GVM_Search(AxleConfig);
+            NHVR_GVM_Search frmNHVR = new NHVR_GVM_Search(CurrentConfigTruck().AxleConfiguration, CurrentConfigTruck().MassAccreditationLabel);
             DialogResult dr = frmNHVR.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                int TruckTypeID = frmNHVR.NHVRID;
-                //string msg = "NHVR TruckTypeID = ";
-                //msg += frmNHVR.NHVRID.ToString();
-                //MessageBox.Show(msg);
-                TruckConfigNHVRAdd(CurrentConfigTruck().TruckConfigID, TruckTypeID);
+                TruckConfigNHVRAdd(CurrentConfigTruck().TruckConfigID, frmNHVR.NHVRID);
                 SyncConfiguredTruckGVM();
             }
         }
@@ -309,7 +296,7 @@ namespace QWS_Local
 
         private void btnAddGVM_Click(object sender, EventArgs e)
         {
-            SearchNHVR(CurrentConfigTruck().AxleConfiguration);
+            SearchNHVR();
         }
 
         private void btnCheckConfig_Click(object sender, EventArgs e)

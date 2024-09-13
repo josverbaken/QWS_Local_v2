@@ -18,19 +18,19 @@ namespace QWS_Local
         private static string RoadAccessFilter = "";
         private static int myNHVRID;
         private static string AxleConfiguration;
-        private static dsQWSLocal.NHVLRow myNHVLRow;
+        private static string MassAccreditationLabel;
+        private static dsQWSLocal2024.NHVRRow myNHVRRow;
 
         public NHVR_GVM_Search()
         {
             InitializeComponent();
         }
 
-        public NHVR_GVM_Search(string AxleConfig)
+        public NHVR_GVM_Search(string AxleConfig, string MassAccreditation)
         {
             InitializeComponent();
             AxleConfiguration = AxleConfig;
-            LoadAxleConfiguration();
-            LoadByAxleConfig(AxleConfiguration);
+            MassAccreditationLabel = MassAccreditation;
         }
 
         public  int NHVRID
@@ -38,21 +38,54 @@ namespace QWS_Local
             get { return myNHVRID; }
         }
 
-        public static dsQWSLocal.NHVLRow NHVLRow
+        public static dsQWSLocal2024.NHVRRow NHVRRow
         {
-            get { return myNHVLRow; }
-        }            
+            get { return myNHVRRow; }
+        }
 
-        private void LoadAxleConfiguration()
+        private void NHVR_GVM_Search_Load(object sender, EventArgs e)
         {
-            //SchemeCodeFilter = "SchemeCode like '%'";
-            this.taAxleConfig.Fill(this.dsQWSLocal.AxleConfiguration);
+            LoadAxleConfiguration(AxleConfiguration);
+            LoadByAxleConfig(AxleConfiguration);
+            if (MassAccreditationLabel.Length > 0)
+            {
+                txtMassMgmtAccred.Text = MassAccreditationLabel;
+            }
+            else
+            {
+                txtMassMgmtAccred.Text = "n/a";
+            }
+        }
+
+        private void LoadAxleConfiguration(string AxleConfig)
+        {
+            this.taAxleConfiguration.FillByAxleConfig(this.dsQWSLocal2024.AxleConfiguration, AxleConfig);
+        }
+
+
+        private void LoadByAxleConfig(string AxleConfig)
+        {
+            this.taNHVR.FillByAxleConfig(this.dsQWSLocal2024.NHVR, AxleConfig);
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            bool ok2continue = CheckSelection();
+            if (ok2continue == true)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
+        private bool CheckSelection()
+        {
+            if (CurrentNHVR().MassMgmtRqd == true && MassAccreditationLabel.Length < 4)
+            {
+                MessageBox.Show("Unable to select as Mass Management Accreditation not recorded against truck!");
+                return false;
+            }
+            return true;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -61,149 +94,14 @@ namespace QWS_Local
             this.Close();
         }
 
-        private void LoadByAxleConfig(string AxleConfig)
+       
+        private dsQWSLocal2024.NHVRRow CurrentNHVR()
         {
-            this.taNHVL.FillBy(this.dsQWSLocal.NHVL,AxleConfig);
-            AxleConfigFilter = "AxleConfiguration like '" + AxleConfig + "%'";
-            bsNHVL.Filter = AxleConfigFilter;
-        }
-  
-         private void SetAxleConfigFilter()
-        {
-            try
-            {
-                string myFilter = "AxleConfiguration like '" + AxleConfiguration + "%'";
-                if (SchemeCodeFilter.Length > 0) 
-                {
-                    myFilter += " and ";
-                    myFilter += SchemeCodeFilter;
-                }
-
-                if (SteerAxleFilter.Length > 0)
-                {
-                    myFilter += " and ";
-                    myFilter += SteerAxleFilter;
-                }
-                if (RoadAccessFilter.Length > 0)
-                {   myFilter += " and ";
-                    myFilter += RoadAccessFilter;
-                }
-                bsNHVL.Filter = myFilter;
-                // TODO test filter why just and Trailer
-                }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            DataRow myDR = ((DataRowView)bsNHVR.Current).Row;
+            dsQWSLocal2024.NHVRRow NHVLRow = (dsQWSLocal2024.NHVRRow)myDR;
+            myNHVRRow = NHVRRow;
+            return NHVRRow;
         }
 
-        private void rbSchemeGML_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbSchemeGML.Checked)
-            {
-                SchemeCodeFilter = "SchemeCode like 'GML'";
-                SetAxleConfigFilter();
-            }
-        }
-
-        private void rbSchemeOther_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbSchemeOther.Checked)
-            {
-                SchemeCodeFilter = "SchemeCode not like 'GML'";
-                SetAxleConfigFilter();
-            }
-        }
-
-        private void rbSchemeAll_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbSchemeAll.Checked)
-            {
-                SchemeCodeFilter = "SchemeCode like '%'";
-                SetAxleConfigFilter();
-            }
-        }
-
-        private void rbSteer05_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbSteer05.Checked)
-            {
-                SteerAxleFilter = "SteerAxleAllowance = true";
-                SetAxleConfigFilter();
-            }
-        }
-
-        private void rbSteerZero_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbSteerZero.Checked)
-            {
-                SteerAxleFilter = "SteerAxleAllowance = false";
-                SetAxleConfigFilter();
-            }
-        }
-
-        private void rbSteerAll_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbSteerAll.Checked)
-            {
-                SteerAxleFilter = "";
-                SetAxleConfigFilter();
-            }
-        }
-     
-        private dsQWSLocal.NHVLRow CurrentNHVL()
-        {
-            DataRow myDR = ((DataRowView)bsNHVL.Current).Row;
-            dsQWSLocal.NHVLRow NHVLRow = (dsQWSLocal.NHVLRow)myDR;
-            myNHVLRow = NHVLRow;
-            return NHVLRow;
-        }
-
-        private void bsNHVL_CurrentChanged(object sender, EventArgs e)
-        {
-            //myNHVLRow = (dsQWSLocal.NHVLRow)bsNHVL.Current;
-            SyncNHVL2AxleConfiguration();
-        }
-
-        private void SyncNHVL2AxleConfiguration()
-        {
-            myNHVRID = CurrentNHVL().TruckTypeID;
-           int myIndex =  bsAxleConfig.Find("AxleConfiguration", CurrentNHVL().AxleConfiguration);
-            if (myIndex >=0)
-            {
-                bsAxleConfig.Position = myIndex;
-            }
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbAllRoads.Checked)
-            {
-                RoadAccessFilter = "RoadAccess like 'All Roads'";
-                SetAxleConfigFilter();
-            }
-            else
-            {
-                RoadAccessFilter = "";
-            }
-        }
-
-        private void rbRoadAccessAll_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbRoadAccessAll.Checked)
-            {
-                RoadAccessFilter = "";
-                SetAxleConfigFilter();
-            }
-        }
-
-        private void rbRoadAccessOther_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbRoadAccessOther.Checked)
-            {
-                RoadAccessFilter = "RoadAccess not like 'All Roads'";
-                SetAxleConfigFilter();
-            }
-        }
     }
 }

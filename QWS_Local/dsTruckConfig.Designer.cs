@@ -2687,6 +2687,8 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnMaxAxles;
             
+            private global::System.Data.DataColumn columnMassAccreditationLabel;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ConfiguredTrucksDataTable() {
@@ -2962,6 +2964,14 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn MassAccreditationLabelColumn {
+                get {
+                    return this.columnMassAccreditationLabel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3026,7 +3036,8 @@ namespace QWS_Local {
                         string FeeCode, 
                         string FeeConditions, 
                         decimal MaxGVM, 
-                        int MaxAxles) {
+                        int MaxAxles, 
+                        string MassAccreditationLabel) {
                 ConfiguredTrucksRow rowConfiguredTrucksRow = ((ConfiguredTrucksRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RegoTk,
@@ -3058,7 +3069,8 @@ namespace QWS_Local {
                         FeeCode,
                         FeeConditions,
                         MaxGVM,
-                        MaxAxles};
+                        MaxAxles,
+                        MassAccreditationLabel};
                 rowConfiguredTrucksRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowConfiguredTrucksRow);
                 return rowConfiguredTrucksRow;
@@ -3111,6 +3123,7 @@ namespace QWS_Local {
                 this.columnFeeConditions = base.Columns["FeeConditions"];
                 this.columnMaxGVM = base.Columns["MaxGVM"];
                 this.columnMaxAxles = base.Columns["MaxAxles"];
+                this.columnMassAccreditationLabel = base.Columns["MassAccreditationLabel"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3176,6 +3189,8 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnMaxGVM);
                 this.columnMaxAxles = new global::System.Data.DataColumn("MaxAxles", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMaxAxles);
+                this.columnMassAccreditationLabel = new global::System.Data.DataColumn("MassAccreditationLabel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMassAccreditationLabel);
                 this.columnRegoTk.AllowDBNull = false;
                 this.columnRegoTk.MaxLength = 6;
                 this.columnRegoTr1.MaxLength = 6;
@@ -3215,6 +3230,8 @@ namespace QWS_Local {
                 this.columnFeeConditions.MaxLength = 5000;
                 this.columnMaxGVM.AllowDBNull = false;
                 this.columnMaxAxles.AllowDBNull = false;
+                this.columnMassAccreditationLabel.AllowDBNull = false;
+                this.columnMassAccreditationLabel.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6321,6 +6338,17 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string MassAccreditationLabel {
+                get {
+                    return ((string)(this[this.tableConfiguredTrucks.MassAccreditationLabelColumn]));
+                }
+                set {
+                    this[this.tableConfiguredTrucks.MassAccreditationLabelColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsRegoTr1Null() {
                 return this.IsNull(this.tableConfiguredTrucks.RegoTr1Column);
             }
@@ -8692,6 +8720,7 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)";
             tableMapping.ColumnMappings.Add("FeeConditions", "FeeConditions");
             tableMapping.ColumnMappings.Add("MaxGVM", "MaxGVM");
             tableMapping.ColumnMappings.Add("MaxAxles", "MaxAxles");
+            tableMapping.ColumnMappings.Add("MassAccreditationLabel", "MassAccreditationLabel");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
