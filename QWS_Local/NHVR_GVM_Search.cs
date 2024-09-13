@@ -78,7 +78,8 @@ namespace QWS_Local
         {
             if (CurrentNHVR().MassMgmtRqd == true && MassAccreditationLabel.Length < 4)
             {
-                MessageBox.Show("Unable to select as Mass Management Accreditation not recorded against truck!");
+                string msg = "Unable to select as Mass Management Accreditation not recorded against truck!";
+                MessageBox.Show(msg,"Accreditation Not Record!",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return false;
             }
             return true;

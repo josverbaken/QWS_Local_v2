@@ -57,8 +57,6 @@ namespace QWS_Local
 
         private void AxleConfigurationSearch_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsQWSLocal2024.AxleConfiguration' table. You can move, or remove it, as needed.
-            this.taAxleConfig.Fill(this.dsQWSLocal2024.AxleConfiguration);
             try
             {
                 string myFilter = "";
