@@ -243,7 +243,7 @@ namespace QWS_Local
                 string myAxleConfig = axleConfigurationSearch._AxleConfigurationRow.AxleConfiguration;
                 txtAxleConfig.Text = myAxleConfig;
                 CurrentVehicle().AxleConfiguration = myAxleConfig;
-                CurrentVehicle().IsLeadVehicle = axleConfigurationSearch._AxleConfigurationRow.IsLeadVehicle; // set/sync
+                CurrentVehicle().IsLeadVehicle = true; //TODO change to dsQWSLocal2024 axleConfigurationSearch._AxleConfigurationRow.IsLeadVehicle; // set/sync
                 this.axleConfigurationTableAdapter.FillBy(dsQWSLocal.AxleConfiguration,myAxleConfig); // WHY - for the picture!
             }
         }

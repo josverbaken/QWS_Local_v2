@@ -12,14 +12,14 @@ namespace QWS_Local
 {
     public partial class AxleConfigurationSearch : Form
     {
-        private dsQWSLocal.AxleConfigurationRow myAxleConfigurationRow;
+        private dsQWSLocal2024.AxleConfigurationRow myAxleConfigurationRow;
 
         private bool myIsLeadVehicle;
         private int myAxles;
         private string myCoupling;
         private string myAxleConfiguration = "";
 
-        public dsQWSLocal.AxleConfigurationRow _AxleConfigurationRow
+        public dsQWSLocal2024.AxleConfigurationRow _AxleConfigurationRow
         {
             get { return myAxleConfigurationRow; }
         }
@@ -50,17 +50,19 @@ namespace QWS_Local
         private void axleConfigurationBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.axleConfigurationBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dsQWSLocal);
+            this.bsAxleConfig.EndEdit();
+            this.tableAdapterManager1.UpdateAll(this.dsQWSLocal2024);
 
         }
 
         private void AxleConfigurationSearch_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsQWSLocal2024.AxleConfiguration' table. You can move, or remove it, as needed.
+            this.taAxleConfig.Fill(this.dsQWSLocal2024.AxleConfiguration);
             try
             {
                 string myFilter = "";
-                this.axleConfigurationTableAdapter.FillByView(this.dsQWSLocal.AxleConfiguration);
+                this.taAxleConfig.FillByView(this.dsQWSLocal2024.AxleConfiguration);
                 if (myAxleConfiguration.Length > 0)
                 {
                     myFilter = "AxleConfiguration like '" + myAxleConfiguration + "%'";
@@ -78,7 +80,7 @@ namespace QWS_Local
                     }
 
                 }
-                this.axleConfigurationBindingSource.Filter = myFilter;             
+                this.bsAxleConfig.Filter = myFilter;             
             }
             catch (Exception ex)
             {
@@ -95,8 +97,8 @@ namespace QWS_Local
         {
             try
             {
-                DataRow myDR = ((DataRowView)axleConfigurationBindingSource.Current).Row;
-                dsQWSLocal.AxleConfigurationRow axleConfigRow = (dsQWSLocal.AxleConfigurationRow)myDR;
+                DataRow myDR = ((DataRowView)bsAxleConfig.Current).Row;
+                dsQWSLocal2024.AxleConfigurationRow axleConfigRow = (dsQWSLocal2024.AxleConfigurationRow)myDR;
                 myAxleConfigurationRow = axleConfigRow;
                 myAxleConfiguration = axleConfigRow.AxleConfiguration;
                 this.DialogResult = DialogResult.OK;
@@ -112,23 +114,23 @@ namespace QWS_Local
         {
             if (tabControl1.SelectedTab == tabPage2)
             {
-                axleConfigurationBindingSource.Filter = "";
+                bsAxleConfig.Filter = "";
             }
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            this.axleConfigurationTableAdapter.Fill(this.dsQWSLocal.AxleConfiguration);
+            this.taAxleConfig.Fill(this.dsQWSLocal2024.AxleConfiguration);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            dsQWSLocal.AxleConfiguration.Clear();
+            dsQWSLocal2024.AxleConfiguration.Clear();
         }
 
         private void btnClearFilter_Click(object sender, EventArgs e)
         {
-            axleConfigurationBindingSource.Filter = "";
+            bsAxleConfig.Filter = "";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

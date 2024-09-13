@@ -85,7 +85,7 @@ namespace QWS_Local
             if (dr1 == DialogResult.OK)
             {
                 string SelectedAxleConfig = frmAxleConfig.SelectedAxleConfig;
-                dsQWSLocal.AxleConfigurationRow axleConfigurationRow = frmAxleConfig._AxleConfigurationRow;
+                dsQWSLocal2024.AxleConfigurationRow axleConfigurationRow = frmAxleConfig._AxleConfigurationRow;
                 TruckConfigAddTruck(SelectedAxleConfig, CurrentVehicle().Rego, axleConfigurationRow.Vehicles);
             }            
         }

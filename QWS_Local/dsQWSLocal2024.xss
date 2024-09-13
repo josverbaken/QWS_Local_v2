@@ -9,10 +9,10 @@
     <Shape ID="DesignTable:TruckDriver" ZOrder="5" X="211" Y="73" Height="343" Width="259" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:Person" ZOrder="4" X="518" Y="82" Height="305" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="235" />
     <Shape ID="DesignTable:NHVR" ZOrder="3" X="272" Y="465" Height="324" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
-    <Shape ID="DesignTable:AxleConfiguration" ZOrder="2" X="662" Y="463" Height="248" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
+    <Shape ID="DesignTable:AxleConfiguration" ZOrder="1" X="662" Y="402" Height="286" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="197" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:FK_NHVL_AxleConfiguration" ZOrder="1" LineWidth="11">
+    <Connector ID="DesignRelation:FK_NHVL_AxleConfiguration" ZOrder="2" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>662</X>

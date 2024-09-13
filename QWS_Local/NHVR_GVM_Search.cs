@@ -12,11 +12,7 @@ namespace QWS_Local
 {
     public partial class NHVR_GVM_Search : Form
     {
-        private static string SchemeCodeFilter = "";
-        private static string SteerAxleFilter = "";
-        private static string AxleConfigFilter = "";
-        private static string RoadAccessFilter = "";
-        private static int myNHVRID;
+        private static int myNHVRID = 0;
         private static string AxleConfiguration;
         private static string MassAccreditationLabel;
         private static dsQWSLocal2024.NHVRRow myNHVRRow;
@@ -98,7 +94,7 @@ namespace QWS_Local
         private dsQWSLocal2024.NHVRRow CurrentNHVR()
         {
             DataRow myDR = ((DataRowView)bsNHVR.Current).Row;
-            dsQWSLocal2024.NHVRRow NHVLRow = (dsQWSLocal2024.NHVRRow)myDR;
+            dsQWSLocal2024.NHVRRow NHVRRow = (dsQWSLocal2024.NHVRRow)myDR;
             myNHVRRow = NHVRRow;
             return NHVRRow;
         }
