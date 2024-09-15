@@ -30,12 +30,17 @@ namespace QWS_Local
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AxleConfiguration));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvAxleConfiguration = new System.Windows.Forms.DataGridView();
-            this.bsAxleConfiguration = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
-            this.taAxleConfiguration = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
+            this.axleConfigurationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.axlesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.axleGroupsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vehicles = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.compartmentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schematicDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -56,22 +61,17 @@ namespace QWS_Local
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.axleConfigurationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehicleTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.axlesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.axleGroupsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Vehicles = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.compartmentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehicleDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schematicDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
+            this.bsAxleConfig = new System.Windows.Forms.BindingSource(this.components);
+            this.taAxleConfig = new QWS_Local.dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAxleConfiguration)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfiguration)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvAxleConfiguration
@@ -88,7 +88,7 @@ namespace QWS_Local
             this.compartmentsDataGridViewTextBoxColumn,
             this.vehicleDescriptionDataGridViewTextBoxColumn,
             this.schematicDataGridViewImageColumn});
-            this.dgvAxleConfiguration.DataSource = this.bsAxleConfiguration;
+            this.dgvAxleConfiguration.DataSource = this.bsAxleConfig;
             this.dgvAxleConfiguration.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAxleConfiguration.Location = new System.Drawing.Point(0, 0);
             this.dgvAxleConfiguration.Name = "dgvAxleConfiguration";
@@ -97,24 +97,65 @@ namespace QWS_Local
             this.dgvAxleConfiguration.Size = new System.Drawing.Size(1171, 423);
             this.dgvAxleConfiguration.TabIndex = 0;
             // 
-            // bsAxleConfiguration
+            // axleConfigurationDataGridViewTextBoxColumn
             // 
-            this.bsAxleConfiguration.DataMember = "AxleConfiguration";
-            this.bsAxleConfiguration.DataSource = this.dsQWSLocal;
+            this.axleConfigurationDataGridViewTextBoxColumn.DataPropertyName = "AxleConfiguration";
+            this.axleConfigurationDataGridViewTextBoxColumn.HeaderText = "AxleConfiguration";
+            this.axleConfigurationDataGridViewTextBoxColumn.Name = "axleConfigurationDataGridViewTextBoxColumn";
             // 
-            // dsQWSLocal
+            // vehicleTypeDataGridViewTextBoxColumn
             // 
-            this.dsQWSLocal.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.vehicleTypeDataGridViewTextBoxColumn.DataPropertyName = "VehicleType";
+            this.vehicleTypeDataGridViewTextBoxColumn.HeaderText = "VehicleType";
+            this.vehicleTypeDataGridViewTextBoxColumn.Name = "vehicleTypeDataGridViewTextBoxColumn";
+            this.vehicleTypeDataGridViewTextBoxColumn.Width = 80;
             // 
-            // taAxleConfiguration
+            // axlesDataGridViewTextBoxColumn
             // 
-            this.taAxleConfiguration.ClearBeforeFill = true;
+            this.axlesDataGridViewTextBoxColumn.DataPropertyName = "Axles";
+            this.axlesDataGridViewTextBoxColumn.HeaderText = "Axles";
+            this.axlesDataGridViewTextBoxColumn.Name = "axlesDataGridViewTextBoxColumn";
+            this.axlesDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // axleGroupsDataGridViewTextBoxColumn
+            // 
+            this.axleGroupsDataGridViewTextBoxColumn.DataPropertyName = "AxleGroups";
+            this.axleGroupsDataGridViewTextBoxColumn.HeaderText = "AxleGroups";
+            this.axleGroupsDataGridViewTextBoxColumn.Name = "axleGroupsDataGridViewTextBoxColumn";
+            this.axleGroupsDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // Vehicles
+            // 
+            this.Vehicles.DataPropertyName = "Vehicles";
+            this.Vehicles.HeaderText = "Vehicles";
+            this.Vehicles.Name = "Vehicles";
+            // 
+            // compartmentsDataGridViewTextBoxColumn
+            // 
+            this.compartmentsDataGridViewTextBoxColumn.DataPropertyName = "Compartments";
+            this.compartmentsDataGridViewTextBoxColumn.HeaderText = "Compartments";
+            this.compartmentsDataGridViewTextBoxColumn.Name = "compartmentsDataGridViewTextBoxColumn";
+            this.compartmentsDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // vehicleDescriptionDataGridViewTextBoxColumn
+            // 
+            this.vehicleDescriptionDataGridViewTextBoxColumn.DataPropertyName = "VehicleDescription";
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.vehicleDescriptionDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.vehicleDescriptionDataGridViewTextBoxColumn.HeaderText = "VehicleDescription";
+            this.vehicleDescriptionDataGridViewTextBoxColumn.Name = "vehicleDescriptionDataGridViewTextBoxColumn";
+            this.vehicleDescriptionDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // schematicDataGridViewImageColumn
+            // 
+            this.schematicDataGridViewImageColumn.DataPropertyName = "Schematic";
+            this.schematicDataGridViewImageColumn.HeaderText = "Schematic";
+            this.schematicDataGridViewImageColumn.Name = "schematicDataGridViewImageColumn";
+            this.schematicDataGridViewImageColumn.Width = 450;
             // 
             // bindingNavigator1
             // 
             this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.bindingNavigator1.BindingSource = this.bsAxleConfiguration;
             this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator1.DeleteItem = null;
             this.bindingNavigator1.Dock = System.Windows.Forms.DockStyle.None;
@@ -312,61 +353,19 @@ namespace QWS_Local
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // axleConfigurationDataGridViewTextBoxColumn
+            // dsQWSLocal2024
             // 
-            this.axleConfigurationDataGridViewTextBoxColumn.DataPropertyName = "AxleConfiguration";
-            this.axleConfigurationDataGridViewTextBoxColumn.HeaderText = "AxleConfiguration";
-            this.axleConfigurationDataGridViewTextBoxColumn.Name = "axleConfigurationDataGridViewTextBoxColumn";
+            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
+            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // vehicleTypeDataGridViewTextBoxColumn
+            // bsAxleConfig
             // 
-            this.vehicleTypeDataGridViewTextBoxColumn.DataPropertyName = "VehicleType";
-            this.vehicleTypeDataGridViewTextBoxColumn.HeaderText = "VehicleType";
-            this.vehicleTypeDataGridViewTextBoxColumn.Name = "vehicleTypeDataGridViewTextBoxColumn";
-            this.vehicleTypeDataGridViewTextBoxColumn.Width = 80;
+            this.bsAxleConfig.DataMember = "AxleConfiguration";
+            this.bsAxleConfig.DataSource = this.dsQWSLocal2024;
             // 
-            // axlesDataGridViewTextBoxColumn
+            // taAxleConfig
             // 
-            this.axlesDataGridViewTextBoxColumn.DataPropertyName = "Axles";
-            this.axlesDataGridViewTextBoxColumn.HeaderText = "Axles";
-            this.axlesDataGridViewTextBoxColumn.Name = "axlesDataGridViewTextBoxColumn";
-            this.axlesDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // axleGroupsDataGridViewTextBoxColumn
-            // 
-            this.axleGroupsDataGridViewTextBoxColumn.DataPropertyName = "AxleGroups";
-            this.axleGroupsDataGridViewTextBoxColumn.HeaderText = "AxleGroups";
-            this.axleGroupsDataGridViewTextBoxColumn.Name = "axleGroupsDataGridViewTextBoxColumn";
-            this.axleGroupsDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // Vehicles
-            // 
-            this.Vehicles.DataPropertyName = "Vehicles";
-            this.Vehicles.HeaderText = "Vehicles";
-            this.Vehicles.Name = "Vehicles";
-            // 
-            // compartmentsDataGridViewTextBoxColumn
-            // 
-            this.compartmentsDataGridViewTextBoxColumn.DataPropertyName = "Compartments";
-            this.compartmentsDataGridViewTextBoxColumn.HeaderText = "Compartments";
-            this.compartmentsDataGridViewTextBoxColumn.Name = "compartmentsDataGridViewTextBoxColumn";
-            this.compartmentsDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // vehicleDescriptionDataGridViewTextBoxColumn
-            // 
-            this.vehicleDescriptionDataGridViewTextBoxColumn.DataPropertyName = "VehicleDescription";
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.vehicleDescriptionDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.vehicleDescriptionDataGridViewTextBoxColumn.HeaderText = "VehicleDescription";
-            this.vehicleDescriptionDataGridViewTextBoxColumn.Name = "vehicleDescriptionDataGridViewTextBoxColumn";
-            this.vehicleDescriptionDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // schematicDataGridViewImageColumn
-            // 
-            this.schematicDataGridViewImageColumn.DataPropertyName = "Schematic";
-            this.schematicDataGridViewImageColumn.HeaderText = "Schematic";
-            this.schematicDataGridViewImageColumn.Name = "schematicDataGridViewImageColumn";
-            this.schematicDataGridViewImageColumn.Width = 450;
+            this.taAxleConfig.ClearBeforeFill = true;
             // 
             // AxleConfiguration
             // 
@@ -378,8 +377,6 @@ namespace QWS_Local
             this.Text = "Axle_Configuration";
             this.Load += new System.EventHandler(this.Axle_Configuration_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAxleConfiguration)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfiguration)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
@@ -388,6 +385,8 @@ namespace QWS_Local
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -395,9 +394,6 @@ namespace QWS_Local
         #endregion
 
         private System.Windows.Forms.DataGridView dgvAxleConfiguration;
-        private dsQWSLocal dsQWSLocal;
-        private System.Windows.Forms.BindingSource bsAxleConfiguration;
-        private dsQWSLocalTableAdapters.AxleConfigurationTableAdapter taAxleConfiguration;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -426,5 +422,8 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn compartmentsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vehicleDescriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn schematicDataGridViewImageColumn;
+        private dsQWSLocal2024 dsQWSLocal2024;
+        private System.Windows.Forms.BindingSource bsAxleConfig;
+        private dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter taAxleConfig;
     }
 }

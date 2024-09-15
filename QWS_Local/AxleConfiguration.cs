@@ -20,17 +20,15 @@ namespace QWS_Local
 
         private void Axle_Configuration_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsQWSLocal.AxleConfiguration' table. You can move, or remove it, as needed.
-            this.taAxleConfiguration.Fill(this.dsQWSLocal.AxleConfiguration);
-            this.bsAxleConfiguration.Sort = "AxleConfiguration";
-            //this.dgvAxleConfiguration.rowhei
+            this.taAxleConfig.Fill(this.dsQWSLocal2024.AxleConfiguration);
+            this.bsAxleConfig.Sort = "AxleConfiguration";
         }
 
               private void tspUpdate_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.bsAxleConfiguration.EndEdit();
-            this.taAxleConfiguration.Update(this.dsQWSLocal.AxleConfiguration);
+            this.bsAxleConfig.EndEdit();
+            this.taAxleConfig.Update(this.dsQWSLocal2024.AxleConfiguration);
         }
 
         private void btnUpload_Click(object sender, EventArgs e)
@@ -42,8 +40,8 @@ namespace QWS_Local
         {
             try
             {
-                DataRow myDR = ((DataRowView)bsAxleConfiguration.Current).Row;
-                dsQWSLocal.AxleConfigurationRow axleconfigRow = (dsQWSLocal.AxleConfigurationRow)myDR;
+                DataRow myDR = ((DataRowView)bsAxleConfig.Current).Row;
+                dsQWSLocal2024.AxleConfigurationRow axleconfigRow = (dsQWSLocal2024.AxleConfigurationRow)myDR;
                 OpenFileDialog openFileDialog = this.openFileDialog1;
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -62,23 +60,22 @@ namespace QWS_Local
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Upload Error");
-                //throw;
             }
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            this.bsAxleConfiguration.Filter = "VehicleType like 'cmb'";
+            this.bsAxleConfig.Filter = "VehicleType like 'cmb'";
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            this.bsAxleConfiguration.Filter = "";
+            this.bsAxleConfig.Filter = "";
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            this.bsAxleConfiguration.Filter = "VehicleType not like 'cmb'";
+            this.bsAxleConfig.Filter = "VehicleType not like 'cmb'";
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
@@ -86,7 +83,7 @@ namespace QWS_Local
             string searchPattern = "AxleConfiguration like '";
             searchPattern += tspSearchPattern.Text;
             searchPattern += "%'"; 
-            this.bsAxleConfiguration.Filter = searchPattern;
+            this.bsAxleConfig.Filter = searchPattern;
         }
     }
 }
