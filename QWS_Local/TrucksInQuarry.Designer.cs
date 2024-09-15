@@ -48,7 +48,7 @@ namespace QWS_Local
             System.Windows.Forms.Label materialLabel;
             System.Windows.Forms.Label schemeCodeLabel;
             System.Windows.Forms.Label label1;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.btnChange = new System.Windows.Forms.Button();
@@ -105,14 +105,14 @@ namespace QWS_Local
             this.button3 = new System.Windows.Forms.Button();
             this.bsWBDocketLines = new System.Windows.Forms.BindingSource(this.components);
             this.bsWBDockets = new System.Windows.Forms.BindingSource(this.components);
-            this.bsAxleConfig = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
-            this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
-            this.taAxleConfig = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.taWBDockets = new QWS_Local.dsTIQ2TableAdapters.WBDocketsTableAdapter();
             this.taWBDocketLines = new QWS_Local.dsTIQ2TableAdapters.WBDocketLinesTableAdapter();
+            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
+            this.bsAxleConfiguration = new System.Windows.Forms.BindingSource(this.components);
+            this.taAxleConfiguration = new QWS_Local.dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
+            this.tableAdapterManager2 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
             entryDTTMLabel = new System.Windows.Forms.Label();
             sAPOrderLabel = new System.Windows.Forms.Label();
             roadAccessLabel = new System.Windows.Forms.Label();
@@ -148,8 +148,8 @@ namespace QWS_Local
             this.tpDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsWBDocketLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsWBDockets)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfiguration)).BeginInit();
             this.SuspendLayout();
             // 
             // entryDTTMLabel
@@ -541,9 +541,9 @@ namespace QWS_Local
             // releaseDTTMDataGridViewTextBoxColumn
             // 
             this.releaseDTTMDataGridViewTextBoxColumn.DataPropertyName = "ReleaseDTTM";
-            dataGridViewCellStyle2.Format = "HH:mm";
-            dataGridViewCellStyle2.NullValue = null;
-            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Format = "HH:mm";
+            dataGridViewCellStyle3.NullValue = null;
+            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.releaseDTTMDataGridViewTextBoxColumn.HeaderText = "Time";
             this.releaseDTTMDataGridViewTextBoxColumn.Name = "releaseDTTMDataGridViewTextBoxColumn";
             this.releaseDTTMDataGridViewTextBoxColumn.ReadOnly = true;
@@ -936,40 +936,6 @@ namespace QWS_Local
             this.bsWBDockets.DataMember = "WBDockets";
             this.bsWBDockets.DataSource = this.dsTIQ2;
             // 
-            // bsAxleConfig
-            // 
-            this.bsAxleConfig.DataMember = "AxleConfiguration";
-            this.bsAxleConfig.DataSource = this.dsQWSLocal;
-            // 
-            // dsQWSLocal
-            // 
-            this.dsQWSLocal.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.AxleConfigurationTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.NHVLTableAdapter = null;
-            this.tableAdapterManager.PBS_ConfigSchemeTableAdapter = null;
-            this.tableAdapterManager.PBS_ConfigTableAdapter = null;
-            this.tableAdapterManager.PBSTableAdapter = null;
-            this.tableAdapterManager.SchemeCodesTableAdapter = null;
-            this.tableAdapterManager.TruckConfigTableAdapter = null;
-            this.tableAdapterManager.TruckConfigVehicleTableAdapter = null;
-            this.tableAdapterManager.TrucksInQuarryTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.VehiclePBSTableAdapter = null;
-            this.tableAdapterManager.VehiclePrefCustomersTableAdapter = null;
-            this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
-            this.tableAdapterManager.VehicleTableAdapter = null;
-            this.tableAdapterManager.VehicleTypeTableAdapter = null;
-            // 
-            // taAxleConfig
-            // 
-            this.taAxleConfig.ClearBeforeFill = true;
-            // 
             // taTIQ2
             // 
             this.taTIQ2.ClearBeforeFill = true;
@@ -992,6 +958,27 @@ namespace QWS_Local
             // taWBDocketLines
             // 
             this.taWBDocketLines.ClearBeforeFill = true;
+            // 
+            // dsQWSLocal2024
+            // 
+            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
+            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bsAxleConfiguration
+            // 
+            this.bsAxleConfiguration.DataMember = "AxleConfiguration";
+            this.bsAxleConfiguration.DataSource = this.dsQWSLocal2024;
+            // 
+            // taAxleConfiguration
+            // 
+            this.taAxleConfiguration.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager2
+            // 
+            this.tableAdapterManager2.AxleConfigurationTableAdapter = this.taAxleConfiguration;
+            this.tableAdapterManager2.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager2.NHVRTableAdapter = null;
+            this.tableAdapterManager2.UpdateOrder = QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // TrucksInQuarry
             // 
@@ -1026,8 +1013,8 @@ namespace QWS_Local
             this.tpDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsWBDocketLines)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsWBDockets)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfiguration)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1037,7 +1024,6 @@ namespace QWS_Local
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private dsQWSLocal dsQWSLocal;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
@@ -1049,12 +1035,9 @@ namespace QWS_Local
         private System.Windows.Forms.TabPage tpDetails;
         private System.Windows.Forms.TextBox sAPOrderTextBox;
         private System.Windows.Forms.TextBox queueStatusTextBox;
-        private dsQWSLocalTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.TextBox feeCodeTextBox;
         private System.Windows.Forms.TextBox roadAccessTextBox;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.BindingSource bsAxleConfig;
-        private dsQWSLocalTableAdapters.AxleConfigurationTableAdapter taAxleConfig;
         private System.Windows.Forms.TextBox txtRego;
         private System.Windows.Forms.Button btnTINRemove;
         private System.Windows.Forms.Button btnWeigh;
@@ -1098,5 +1081,9 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
         private System.Windows.Forms.DataGridViewTextBoxColumn driverDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TruckOwner;
+        private dsQWSLocal2024 dsQWSLocal2024;
+        private System.Windows.Forms.BindingSource bsAxleConfiguration;
+        private dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter taAxleConfiguration;
+        private dsQWSLocal2024TableAdapters.TableAdapterManager tableAdapterManager2;
     }
 }

@@ -22,6 +22,8 @@ namespace QWS_Local
 
         private void Vehicle_Maintenance_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsQWSLocal2024.AxleConfiguration' table. You can move, or remove it, as needed.
+            this.taAxleConfig.Fill(this.dsQWSLocal2024.AxleConfiguration);
             try
             {
                 txtJurisdiction.Text = Properties.Settings.Default.defaultJurisdiction;
@@ -160,7 +162,7 @@ namespace QWS_Local
         {
             try
             {
-                int iCount = this.axleConfigurationTableAdapter.FillBy(dsQWSLocal.AxleConfiguration,AxleConfig);
+                int iCount = this.taAxleConfig.FillByAxleConfig(dsQWSLocal2024.AxleConfiguration,AxleConfig);
                 if (iCount != 1)
                 {
                     MessageBox.Show("Axle config error");
@@ -244,7 +246,7 @@ namespace QWS_Local
                 txtAxleConfig.Text = myAxleConfig;
                 CurrentVehicle().AxleConfiguration = myAxleConfig;
                 CurrentVehicle().IsLeadVehicle = true; //TODO change to dsQWSLocal2024 axleConfigurationSearch._AxleConfigurationRow.IsLeadVehicle; // set/sync
-                this.axleConfigurationTableAdapter.FillBy(dsQWSLocal.AxleConfiguration,myAxleConfig); // WHY - for the picture!
+                this.taAxleConfig.FillByAxleConfig(dsQWSLocal2024.AxleConfiguration, myAxleConfig); // WHY - for the picture!
             }
         }
 

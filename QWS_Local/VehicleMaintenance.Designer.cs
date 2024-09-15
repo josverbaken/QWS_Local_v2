@@ -44,8 +44,8 @@ namespace QWS_Local
             System.Windows.Forms.Label label7;
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label9;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VehicleMaintenance));
             System.Windows.Forms.Label label10;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VehicleMaintenance));
             this.txtRego = new System.Windows.Forms.TextBox();
             this.vehicleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal = new QWS_Local.dsQWSLocal();
@@ -103,6 +103,7 @@ namespace QWS_Local
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpOverview = new System.Windows.Forms.TabPage();
+            this.textBox14 = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.prefCustomerDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -110,7 +111,6 @@ namespace QWS_Local
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
@@ -122,11 +122,15 @@ namespace QWS_Local
             this.tpPrefCust = new System.Windows.Forms.TabPage();
             this.btnLoadPrefCustomers = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnSaveMassMgmtAccred = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnRefreshPBS = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnSetTruckOwner = new System.Windows.Forms.Button();
-            this.btnRefreshPBS = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnSaveMassMgmtAccred = new System.Windows.Forms.Button();
+            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
+            this.bsAxleConfig = new System.Windows.Forms.BindingSource(this.components);
+            this.taAxleConfig = new QWS_Local.dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
+            this.tableAdapterManager1 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
             vINLabel = new System.Windows.Forms.Label();
             makeLabel = new System.Windows.Forms.Label();
             modelLabel = new System.Windows.Forms.Label();
@@ -162,11 +166,13 @@ namespace QWS_Local
             this.tpDetails.SuspendLayout();
             this.tpPrefCust.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).BeginInit();
             this.SuspendLayout();
             // 
             // vINLabel
@@ -322,6 +328,17 @@ namespace QWS_Local
             label9.TabIndex = 43;
             label9.Text = "VIN:";
             label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(56, 293);
+            label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(153, 18);
+            label10.TabIndex = 76;
+            label10.Text = "Mass Mgmnt Accred :";
+            label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtRego
             // 
@@ -891,6 +908,16 @@ namespace QWS_Local
             this.tpOverview.TabIndex = 0;
             this.tpOverview.Text = "Overview";
             // 
+            // textBox14
+            // 
+            this.textBox14.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "MassAccreditationLabel", true));
+            this.textBox14.Location = new System.Drawing.Point(233, 290);
+            this.textBox14.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.ReadOnly = true;
+            this.textBox14.Size = new System.Drawing.Size(107, 24);
+            this.textBox14.TabIndex = 75;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView4);
@@ -970,16 +997,6 @@ namespace QWS_Local
             this.textBox13.ReadOnly = true;
             this.textBox13.Size = new System.Drawing.Size(394, 24);
             this.textBox13.TabIndex = 42;
-            // 
-            // textBox14
-            // 
-            this.textBox14.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vehicleBindingSource, "MassAccreditationLabel", true));
-            this.textBox14.Location = new System.Drawing.Point(233, 290);
-            this.textBox14.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.ReadOnly = true;
-            this.textBox14.Size = new System.Drawing.Size(107, 24);
-            this.textBox14.TabIndex = 75;
             // 
             // textBox10
             // 
@@ -1091,9 +1108,9 @@ namespace QWS_Local
             this.tpPrefCust.Controls.Add(this.btnSavePrefCustomers);
             this.tpPrefCust.Controls.Add(this.dataGridView2);
             this.tpPrefCust.Controls.Add(this.btnSetPrefCustomer);
-            this.tpPrefCust.Location = new System.Drawing.Point(4, 27);
+            this.tpPrefCust.Location = new System.Drawing.Point(4, 22);
             this.tpPrefCust.Name = "tpPrefCust";
-            this.tpPrefCust.Size = new System.Drawing.Size(1163, 445);
+            this.tpPrefCust.Size = new System.Drawing.Size(1163, 450);
             this.tpPrefCust.TabIndex = 2;
             this.tpPrefCust.Text = "Preferred Customers";
             this.tpPrefCust.UseVisualStyleBackColor = true;
@@ -1118,12 +1135,53 @@ namespace QWS_Local
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(label5);
             this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Location = new System.Drawing.Point(4, 27);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1163, 445);
+            this.tabPage1.Size = new System.Drawing.Size(1163, 450);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "NHVR Checker App";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnSaveMassMgmtAccred
+            // 
+            this.btnSaveMassMgmtAccred.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSaveMassMgmtAccred.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveMassMgmtAccred.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveMassMgmtAccred.Location = new System.Drawing.Point(359, 35);
+            this.btnSaveMassMgmtAccred.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSaveMassMgmtAccred.Name = "btnSaveMassMgmtAccred";
+            this.btnSaveMassMgmtAccred.Size = new System.Drawing.Size(130, 32);
+            this.btnSaveMassMgmtAccred.TabIndex = 83;
+            this.btnSaveMassMgmtAccred.Text = "Save";
+            this.btnSaveMassMgmtAccred.UseVisualStyleBackColor = false;
+            this.btnSaveMassMgmtAccred.Click += new System.EventHandler(this.btnSaveMassMgmtAccred_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.btnRefreshPBS);
+            this.groupBox1.Controls.Add(this.btnAddPBS);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Location = new System.Drawing.Point(69, 90);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(451, 181);
+            this.groupBox1.TabIndex = 83;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "PBS Vehicle Approval/s";
+            // 
+            // btnRefreshPBS
+            // 
+            this.btnRefreshPBS.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnRefreshPBS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefreshPBS.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefreshPBS.Location = new System.Drawing.Point(290, 116);
+            this.btnRefreshPBS.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRefreshPBS.Name = "btnRefreshPBS";
+            this.btnRefreshPBS.Size = new System.Drawing.Size(130, 32);
+            this.btnRefreshPBS.TabIndex = 82;
+            this.btnRefreshPBS.Text = "Refresh";
+            this.btnRefreshPBS.UseVisualStyleBackColor = false;
+            this.btnRefreshPBS.Click += new System.EventHandler(this.btnRefreshPBS_Click);
             // 
             // splitContainer1
             // 
@@ -1167,57 +1225,26 @@ namespace QWS_Local
             this.btnSetTruckOwner.UseVisualStyleBackColor = false;
             this.btnSetTruckOwner.Click += new System.EventHandler(this.btnSetTruckOwner_Click);
             // 
-            // label10
+            // dsQWSLocal2024
             // 
-            label10.AutoSize = true;
-            label10.Location = new System.Drawing.Point(56, 293);
-            label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(153, 18);
-            label10.TabIndex = 76;
-            label10.Text = "Mass Mgmnt Accred :";
-            label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
+            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // btnRefreshPBS
+            // bsAxleConfig
             // 
-            this.btnRefreshPBS.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnRefreshPBS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefreshPBS.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefreshPBS.Location = new System.Drawing.Point(290, 116);
-            this.btnRefreshPBS.Margin = new System.Windows.Forms.Padding(4);
-            this.btnRefreshPBS.Name = "btnRefreshPBS";
-            this.btnRefreshPBS.Size = new System.Drawing.Size(130, 32);
-            this.btnRefreshPBS.TabIndex = 82;
-            this.btnRefreshPBS.Text = "Refresh";
-            this.btnRefreshPBS.UseVisualStyleBackColor = false;
-            this.btnRefreshPBS.Click += new System.EventHandler(this.btnRefreshPBS_Click);
+            this.bsAxleConfig.DataMember = "AxleConfiguration";
+            this.bsAxleConfig.DataSource = this.dsQWSLocal2024;
             // 
-            // groupBox1
+            // taAxleConfig
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Controls.Add(this.btnRefreshPBS);
-            this.groupBox1.Controls.Add(this.btnAddPBS);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(69, 90);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(451, 181);
-            this.groupBox1.TabIndex = 83;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "PBS Vehicle Approval/s";
+            this.taAxleConfig.ClearBeforeFill = true;
             // 
-            // btnSaveMassMgmtAccred
+            // tableAdapterManager1
             // 
-            this.btnSaveMassMgmtAccred.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSaveMassMgmtAccred.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveMassMgmtAccred.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveMassMgmtAccred.Location = new System.Drawing.Point(359, 35);
-            this.btnSaveMassMgmtAccred.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSaveMassMgmtAccred.Name = "btnSaveMassMgmtAccred";
-            this.btnSaveMassMgmtAccred.Size = new System.Drawing.Size(130, 32);
-            this.btnSaveMassMgmtAccred.TabIndex = 83;
-            this.btnSaveMassMgmtAccred.Text = "Save";
-            this.btnSaveMassMgmtAccred.UseVisualStyleBackColor = false;
-            this.btnSaveMassMgmtAccred.Click += new System.EventHandler(this.btnSaveMassMgmtAccred_Click);
+            this.tableAdapterManager1.AxleConfigurationTableAdapter = this.taAxleConfig;
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.NHVRTableAdapter = null;
+            this.tableAdapterManager1.UpdateOrder = QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // VehicleMaintenance
             // 
@@ -1255,12 +1282,14 @@ namespace QWS_Local
             this.tpPrefCust.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1348,5 +1377,9 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnSaveMassMgmtAccred;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnRefreshPBS;
+        private dsQWSLocal2024 dsQWSLocal2024;
+        private System.Windows.Forms.BindingSource bsAxleConfig;
+        private dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter taAxleConfig;
+        private dsQWSLocal2024TableAdapters.TableAdapterManager tableAdapterManager1;
     }
 }

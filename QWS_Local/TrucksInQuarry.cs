@@ -24,11 +24,12 @@ namespace QWS_Local
 
         private void TrucksInQuarry_Load(object sender, EventArgs e)
         {
-            this.taAxleConfig.Fill(this.dsQWSLocal.AxleConfiguration);
+            int iRows =  this.taAxleConfiguration.Fill(this.dsQWSLocal2024.AxleConfiguration);
             // set up and down arrows
             //button3.Text = ""+ (char)24;
             //button2.Text = ""+ (char)25;
             // TODO: find a nicer solution, probably images/icons
+            iRows += 1;
             this.KeyPreview = true;
         }
 
@@ -168,7 +169,7 @@ namespace QWS_Local
 
            private void SyncAxleConfig(string AxleConfig)
         {
-           bsAxleConfig.Position = bsAxleConfig.Find("AxleConfiguration", AxleConfig);
+           bsAxleConfiguration.Position = bsAxleConfiguration.Find("AxleConfiguration", AxleConfig);
         }
 
         private void btnTINRemove_Click(object sender, EventArgs e)
@@ -206,10 +207,13 @@ namespace QWS_Local
                     SyncAxleConfig(AxleConfig);
                     txtRego.Text = CurrentTIQ().Rego;
                     // also load associated picture from bsAxleConfig
-                    DataRow myRow = ((DataRowView)bsAxleConfig.Current).Row;
-                    dsQWSLocal.AxleConfigurationRow myAxleConfigRow = (dsQWSLocal.AxleConfigurationRow)myRow;
-                    MemoryStream ms = new MemoryStream((byte[])myAxleConfigRow.Schematic);
-                    pictureBox1.Image = new Bitmap(ms);
+                    if (bsAxleConfiguration.Count > 0)
+                    {
+                        DataRow myRow = ((DataRowView)bsAxleConfiguration.Current).Row;
+                        dsQWSLocal2024.AxleConfigurationRow myAxleConfigRow = (dsQWSLocal2024.AxleConfigurationRow)myRow;
+                        MemoryStream ms = new MemoryStream((byte[])myAxleConfigRow.Schematic);
+                        pictureBox1.Image = new Bitmap(ms);
+                    }
                 }
             }
             catch (Exception ex)
