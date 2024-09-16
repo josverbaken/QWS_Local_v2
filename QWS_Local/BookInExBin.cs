@@ -49,7 +49,7 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public BookInExBin(int myTIQID,string myTIQType,string mySplitTruckConfig,int myTruckConfigID, string myCardCode, string myCustomerName, bool myIsPrefCust , dsQWSLocal.TruckDriverRow driverRow)
+        public BookInExBin(int myTIQID,string myTIQType,string mySplitTruckConfig,int myTruckConfigID, string myCardCode, string myCustomerName, bool myIsPrefCust , dsQWSLocal2024.TruckDriverRow driverRow)
         {
             InitializeComponent();
             TIQID = myTIQID;
@@ -77,7 +77,7 @@ namespace QWS_Local
         private int TIQID;
         private string CardCode;
         private string CustomerName;
-        private dsQWSLocal.TruckDriverRow DriverRow;
+        private dsQWSLocal2024.TruckDriverRow DriverRow;
 
         private void BookInExBin_Load(object sender, EventArgs e)
         {
@@ -132,8 +132,8 @@ namespace QWS_Local
 
         private void LoadDriver()
         {
-            dsQWSLocal.TruckDriver.Clear();
-            dsQWSLocal.TruckDriver.ImportRow(DriverRow);
+            dsQWSLocal2024.TruckDriver.Clear();
+            dsQWSLocal2024.TruckDriver.ImportRow(DriverRow);
         }
 
         private dsTruckConfig.ConfiguredTruckGVMRow CurrentTruckGVM()
@@ -616,7 +616,6 @@ namespace QWS_Local
             ChangeCustomer();
         }
 
-        //private dsQWSLocal.BusinessRow ChangeCustomer()
         private void ChangeCustomer()
         {
             BusinessSearch frmBusinessSearch = new BusinessSearch();

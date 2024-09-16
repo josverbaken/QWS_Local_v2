@@ -15,7 +15,7 @@ namespace QWS_Local
         private static int TruckConfigID;
         private static int TIQID;
         private string LoadType = "TK";
-        private dsQWSLocal.TruckDriverRow DriverRow;
+        private dsQWSLocal2024.TruckDriverRow DriverRow;
         private bool FormLoaded = false;
 
         public BookInDelivery()
@@ -23,7 +23,7 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public BookInDelivery(int myTIQID, int myTruckConfigID, dsQWSLocal.TruckDriverRow driverRow)
+        public BookInDelivery(int myTIQID, int myTruckConfigID, dsQWSLocal2024.TruckDriverRow driverRow)
         {
             InitializeComponent();
             TIQID = myTIQID;
@@ -63,11 +63,8 @@ namespace QWS_Local
 
         private void LoadDriver()
         {
-            dsQWSLocal.TruckDriver.Clear();
-            dsQWSLocal.TruckDriver.ImportRow(DriverRow);
-            //bsDriver.Position = 0;
-            //DataRow myRow = ((DataRowView)bsDriver.Current).Row;
-            //dsQWSLocal.TruckDriverRow myDriverRow = (dsQWSLocal.TruckDriverRow)myRow;
+            dsQWSLocal2024.TruckDriver.Clear();
+            dsQWSLocal2024.TruckDriver.ImportRow(DriverRow);
         }
 
         private void btnBookIn_Click(object sender, EventArgs e)

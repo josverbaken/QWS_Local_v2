@@ -71,7 +71,7 @@ namespace QWS_Local
             {
                 btnRetare.Enabled = false;
                 btnRetare.BackColor = SystemColors.Control;
-                dsQWSLocal.TruckDriver.Clear();
+                dsQWSLocal2024.TruckDriver.Clear();
                 dsTruckConfig.ConfiguredTrucks.Clear();
                 int iCount = taConfiguredTrucks.FillByRego(dsTruckConfig.ConfiguredTrucks, Rego);
                 if (iCount > 0)
@@ -168,12 +168,12 @@ namespace QWS_Local
             GetTruckDriver();
         }
 
-        private dsQWSLocal.TruckDriverRow CurrentTruckDriver()
+        private dsQWSLocal2024.TruckDriverRow CurrentTruckDriver()
         {
             if (bsTruckDriver.Count > 0)
             {
                 DataRow myRow = ((DataRowView)bsTruckDriver.Current).Row;
-                dsQWSLocal.TruckDriverRow myTruckDriverRow = (dsQWSLocal.TruckDriverRow)myRow;
+                dsQWSLocal2024.TruckDriverRow myTruckDriverRow = (dsQWSLocal2024.TruckDriverRow)myRow;
                 return myTruckDriverRow;
             }
             return null;
@@ -229,7 +229,7 @@ namespace QWS_Local
             bool blOkay2Proceed = false;
             if (DriverID > 0) // driver pre-selected on prior iteration
             {
-                taTruckDriver.FillByCardCode(dsQWSLocal.TruckDriver, CurrentConfigTruck().CardCode);
+                taTruckDriver1.FillByCardCode(dsQWSLocal2024.TruckDriver, CurrentConfigTruck().CardCode);
                 int index = bsTruckDriver.Find("CntctCode", DriverID);
                 if (index > 0)
                 {
@@ -243,8 +243,8 @@ namespace QWS_Local
                 DialogResult dr = frmTruckDriverSearch.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    dsQWSLocal.TruckDriver.Clear();
-                    dsQWSLocal.TruckDriver.ImportRow(frmTruckDriverSearch.TruckDriverRow);
+                    dsQWSLocal2024.TruckDriver.Clear();
+                    dsQWSLocal2024.TruckDriver.ImportRow(frmTruckDriverSearch.TruckDriverRow);
                     bsTruckDriver.Position = 0;
                     blOkay2Proceed = true;
                 }
@@ -253,7 +253,7 @@ namespace QWS_Local
             if (blOkay2Proceed == true)
             {
                 DataRow myRow = ((DataRowView)bsTruckDriver.Current).Row;
-                dsQWSLocal.TruckDriverRow myTruckDriverRow = (dsQWSLocal.TruckDriverRow)myRow;
+                dsQWSLocal2024.TruckDriverRow myTruckDriverRow = (dsQWSLocal2024.TruckDriverRow)myRow;
                 if (myTruckDriverRow.LicenseExp < DateTime.Now)
                 {
                     txtLicenseExp.BackColor = Color.Salmon;
