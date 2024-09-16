@@ -152,7 +152,9 @@ namespace QWS_Local
             DialogResult dr = frmNHVR.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                TruckConfigNHVRAdd(CurrentConfigTruck().TruckConfigID, frmNHVR.NHVRID);
+                int myTruckConfigID = CurrentConfigTruck().TruckConfigID;
+                int myTrucktypeID = frmNHVR.NHVRID;
+                TruckConfigNHVRAdd(myTruckConfigID, myTrucktypeID);
                 SyncConfiguredTruckGVM();
             }
         }

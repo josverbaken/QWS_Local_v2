@@ -69,6 +69,7 @@ namespace QWS_Local
             bool ok2continue = CheckSelection();
             if (ok2continue == true)
             {
+                myNHVRID = CurrentNHVR().TruckTypeID;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
