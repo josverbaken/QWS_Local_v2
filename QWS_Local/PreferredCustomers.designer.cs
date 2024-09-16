@@ -30,47 +30,26 @@ namespace QWS_Local
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dsTruckConfig = new QWS_Local.dsTruckConfig();
-            this.bsVehiclePrefCustomers = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
-            this.taVehiclePrefCustomers = new QWS_Local.dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnSelect = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.isDefaultDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.cardCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prefCustomerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsVehiclePrefCustomers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
+            this.bsPrefCustomers2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
+            this.btnSelect = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.taPrefCustomers2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dsTruckConfig
-            // 
-            this.dsTruckConfig.DataSetName = "dsTruckConfig";
-            this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bsVehiclePrefCustomers
-            // 
-            this.bsVehiclePrefCustomers.DataMember = "VehiclePrefCustomers";
-            this.bsVehiclePrefCustomers.DataSource = this.dsQWSLocal;
-            // 
-            // dsQWSLocal
-            // 
-            this.dsQWSLocal.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // taVehiclePrefCustomers
-            // 
-            this.taVehiclePrefCustomers.ClearBeforeFill = true;
             // 
             // dataGridView1
             // 
@@ -84,13 +63,60 @@ namespace QWS_Local
             this.prefCustomerDataGridViewTextBoxColumn,
             this.commentDataGridViewTextBoxColumn,
             this.activeDataGridViewCheckBoxColumn});
-            this.dataGridView1.DataSource = this.bsVehiclePrefCustomers;
+            this.dataGridView1.DataSource = this.bsPrefCustomers2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(910, 177);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // isDefaultDataGridViewCheckBoxColumn
+            // 
+            this.isDefaultDataGridViewCheckBoxColumn.DataPropertyName = "IsDefault";
+            this.isDefaultDataGridViewCheckBoxColumn.HeaderText = "IsDefault";
+            this.isDefaultDataGridViewCheckBoxColumn.Name = "isDefaultDataGridViewCheckBoxColumn";
+            this.isDefaultDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // cardCodeDataGridViewTextBoxColumn
+            // 
+            this.cardCodeDataGridViewTextBoxColumn.DataPropertyName = "CardCode";
+            this.cardCodeDataGridViewTextBoxColumn.HeaderText = "CardCode";
+            this.cardCodeDataGridViewTextBoxColumn.Name = "cardCodeDataGridViewTextBoxColumn";
+            this.cardCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // prefCustomerDataGridViewTextBoxColumn
+            // 
+            this.prefCustomerDataGridViewTextBoxColumn.DataPropertyName = "PrefCustomer";
+            this.prefCustomerDataGridViewTextBoxColumn.HeaderText = "Pref Customer";
+            this.prefCustomerDataGridViewTextBoxColumn.Name = "prefCustomerDataGridViewTextBoxColumn";
+            this.prefCustomerDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prefCustomerDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // commentDataGridViewTextBoxColumn
+            // 
+            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
+            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
+            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
+            this.commentDataGridViewTextBoxColumn.ReadOnly = true;
+            this.commentDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // activeDataGridViewCheckBoxColumn
+            // 
+            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
+            this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
+            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
+            this.activeDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // bsPrefCustomers2
+            // 
+            this.bsPrefCustomers2.DataMember = "VehiclePrefCustomers";
+            this.bsPrefCustomers2.DataSource = this.dsQWSLocal2024;
+            // 
+            // dsQWSLocal2024
+            // 
+            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
+            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnSelect
             // 
@@ -131,42 +157,9 @@ namespace QWS_Local
             this.splitContainer1.SplitterDistance = 177;
             this.splitContainer1.TabIndex = 3;
             // 
-            // isDefaultDataGridViewCheckBoxColumn
+            // taPrefCustomers2
             // 
-            this.isDefaultDataGridViewCheckBoxColumn.DataPropertyName = "IsDefault";
-            this.isDefaultDataGridViewCheckBoxColumn.HeaderText = "IsDefault";
-            this.isDefaultDataGridViewCheckBoxColumn.Name = "isDefaultDataGridViewCheckBoxColumn";
-            this.isDefaultDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // cardCodeDataGridViewTextBoxColumn
-            // 
-            this.cardCodeDataGridViewTextBoxColumn.DataPropertyName = "CardCode";
-            this.cardCodeDataGridViewTextBoxColumn.HeaderText = "CardCode";
-            this.cardCodeDataGridViewTextBoxColumn.Name = "cardCodeDataGridViewTextBoxColumn";
-            this.cardCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // prefCustomerDataGridViewTextBoxColumn
-            // 
-            this.prefCustomerDataGridViewTextBoxColumn.DataPropertyName = "PrefCustomer";
-            this.prefCustomerDataGridViewTextBoxColumn.HeaderText = "Pref Customer";
-            this.prefCustomerDataGridViewTextBoxColumn.Name = "prefCustomerDataGridViewTextBoxColumn";
-            this.prefCustomerDataGridViewTextBoxColumn.ReadOnly = true;
-            this.prefCustomerDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // commentDataGridViewTextBoxColumn
-            // 
-            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
-            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
-            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
-            this.commentDataGridViewTextBoxColumn.ReadOnly = true;
-            this.commentDataGridViewTextBoxColumn.Width = 300;
-            // 
-            // activeDataGridViewCheckBoxColumn
-            // 
-            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
-            this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
-            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
-            this.activeDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.taPrefCustomers2.ClearBeforeFill = true;
             // 
             // PreferredCustomers
             // 
@@ -177,10 +170,9 @@ namespace QWS_Local
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Preferred Customers";
             this.Load += new System.EventHandler(this.PreferredCustomers_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsVehiclePrefCustomers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -190,11 +182,6 @@ namespace QWS_Local
         }
 
         #endregion
-
-        private dsTruckConfig dsTruckConfig;
-        private System.Windows.Forms.BindingSource bsVehiclePrefCustomers;
-        private dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter taVehiclePrefCustomers;
-        private dsQWSLocal dsQWSLocal;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Button btnCancel;
@@ -204,5 +191,8 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn prefCustomerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
+        private dsQWSLocal2024 dsQWSLocal2024;
+        private System.Windows.Forms.BindingSource bsPrefCustomers2;
+        private dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter taPrefCustomers2;
     }
 }

@@ -25,9 +25,9 @@ namespace QWS_Local
 
         private string myRego; // used in GetPrefCustomers
 
-        private dsQWSLocal.VehiclePrefCustomersRow myCustomersRow;
+        private dsQWSLocal2024.VehiclePrefCustomersRow myCustomersRow;
 
-        public dsQWSLocal.VehiclePrefCustomersRow customersRow
+        public dsQWSLocal2024.VehiclePrefCustomersRow customersRow
         {
             get { return myCustomersRow; }
         }
@@ -36,7 +36,7 @@ namespace QWS_Local
         {
             try
             {
-                this.taVehiclePrefCustomers.FillBy(this.dsQWSLocal.VehiclePrefCustomers, myRego);
+                this.taPrefCustomers2.FillBy(this.dsQWSLocal2024.VehiclePrefCustomers, myRego);
             }
             catch (System.Exception ex)
             {
@@ -48,13 +48,13 @@ namespace QWS_Local
         private void PreferredCustomers_Load(object sender, EventArgs e)
         {
             GetPrefCustomers();
-            bsVehiclePrefCustomers.Sort = "IsDefault DESC, PrefCustomer ASC";
+            bsPrefCustomers2.Sort = "IsDefault DESC, PrefCustomer ASC";
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            DataRow dataRow = ((DataRowView)bsVehiclePrefCustomers.Current).Row;
-            myCustomersRow = (dsQWSLocal.VehiclePrefCustomersRow)dataRow;
+            DataRow dataRow = ((DataRowView)bsPrefCustomers2.Current).Row;
+            myCustomersRow = (dsQWSLocal2024.VehiclePrefCustomersRow)dataRow;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

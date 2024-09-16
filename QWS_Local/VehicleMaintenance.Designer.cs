@@ -97,8 +97,6 @@ namespace QWS_Local
             this.prefCustomerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.bsVehiclePrefCustomers = new System.Windows.Forms.BindingSource(this.components);
-            this.taVehiclePrefCustomers = new QWS_Local.dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter();
             this.btnSavePrefCustomers = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -131,6 +129,8 @@ namespace QWS_Local
             this.bsAxleConfig = new System.Windows.Forms.BindingSource(this.components);
             this.taAxleConfig = new QWS_Local.dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
+            this.bsPrefCustomers = new System.Windows.Forms.BindingSource(this.components);
+            this.taPrefCustomers = new QWS_Local.dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter();
             vINLabel = new System.Windows.Forms.Label();
             makeLabel = new System.Windows.Forms.Label();
             modelLabel = new System.Windows.Forms.Label();
@@ -156,7 +156,6 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsVehiclePBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsVehiclePrefCustomers)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpOverview.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -173,6 +172,7 @@ namespace QWS_Local
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).BeginInit();
             this.SuspendLayout();
             // 
             // vINLabel
@@ -798,7 +798,7 @@ namespace QWS_Local
             this.prefCustomerDataGridViewTextBoxColumn,
             this.commentDataGridViewTextBoxColumn,
             this.activeDataGridViewCheckBoxColumn});
-            this.dataGridView2.DataSource = this.bsVehiclePrefCustomers;
+            this.dataGridView2.DataSource = this.bsPrefCustomers;
             this.dataGridView2.Location = new System.Drawing.Point(100, 84);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(911, 285);
@@ -835,15 +835,6 @@ namespace QWS_Local
             this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
             this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
             this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
-            // 
-            // bsVehiclePrefCustomers
-            // 
-            this.bsVehiclePrefCustomers.DataMember = "VehiclePrefCustomers";
-            this.bsVehiclePrefCustomers.DataSource = this.dsQWSLocal;
-            // 
-            // taVehiclePrefCustomers
-            // 
-            this.taVehiclePrefCustomers.ClearBeforeFill = true;
             // 
             // btnSavePrefCustomers
             // 
@@ -937,7 +928,7 @@ namespace QWS_Local
             this.dataGridView4.ColumnHeadersVisible = false;
             this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.prefCustomerDataGridViewTextBoxColumn1});
-            this.dataGridView4.DataSource = this.bsVehiclePrefCustomers;
+            this.dataGridView4.DataSource = this.bsPrefCustomers;
             this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView4.Location = new System.Drawing.Point(3, 20);
             this.dataGridView4.Name = "dataGridView4";
@@ -1108,9 +1099,9 @@ namespace QWS_Local
             this.tpPrefCust.Controls.Add(this.btnSavePrefCustomers);
             this.tpPrefCust.Controls.Add(this.dataGridView2);
             this.tpPrefCust.Controls.Add(this.btnSetPrefCustomer);
-            this.tpPrefCust.Location = new System.Drawing.Point(4, 22);
+            this.tpPrefCust.Location = new System.Drawing.Point(4, 27);
             this.tpPrefCust.Name = "tpPrefCust";
-            this.tpPrefCust.Size = new System.Drawing.Size(1163, 450);
+            this.tpPrefCust.Size = new System.Drawing.Size(1163, 445);
             this.tpPrefCust.TabIndex = 2;
             this.tpPrefCust.Text = "Preferred Customers";
             this.tpPrefCust.UseVisualStyleBackColor = true;
@@ -1245,6 +1236,16 @@ namespace QWS_Local
             this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager1.NHVRTableAdapter = null;
             this.tableAdapterManager1.UpdateOrder = QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager1.VehiclePrefCustomersTableAdapter = null;
+            // 
+            // bsPrefCustomers
+            // 
+            this.bsPrefCustomers.DataMember = "VehiclePrefCustomers";
+            this.bsPrefCustomers.DataSource = this.dsQWSLocal2024;
+            // 
+            // taPrefCustomers
+            // 
+            this.taPrefCustomers.ClearBeforeFill = true;
             // 
             // VehicleMaintenance
             // 
@@ -1269,7 +1270,6 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsVehiclePBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsVehiclePrefCustomers)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpOverview.ResumeLayout(false);
             this.tpOverview.PerformLayout();
@@ -1290,6 +1290,7 @@ namespace QWS_Local
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1342,8 +1343,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnAddPBS;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.BindingSource bsVehiclePrefCustomers;
-        private dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter taVehiclePrefCustomers;
         private System.Windows.Forms.Button btnSavePrefCustomers;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TabControl tabControl1;
@@ -1381,5 +1380,7 @@ namespace QWS_Local
         private System.Windows.Forms.BindingSource bsAxleConfig;
         private dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter taAxleConfig;
         private dsQWSLocal2024TableAdapters.TableAdapterManager tableAdapterManager1;
+        private System.Windows.Forms.BindingSource bsPrefCustomers;
+        private dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter taPrefCustomers;
     }
 }

@@ -314,7 +314,7 @@ namespace QWS_Local
 
         private bool SetExBinCustomer()
         {
-            int iCust = taPrefCustomers.FillBy(dsQWSLocal.VehiclePrefCustomers, CurrentConfigTruck().RegoTk);
+            int iCust = taPrefCustomers2.FillBy(dsQWSLocal2024.VehiclePrefCustomers, CurrentConfigTruck().RegoTk);
             if (iCust > 0)
             {
                 if (GetPrefCustomer() == true)

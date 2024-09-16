@@ -58,8 +58,6 @@ namespace QWS_Local
             this.txtFeeCode = new System.Windows.Forms.TextBox();
             this.txtFeeCodeConditions = new System.Windows.Forms.TextBox();
             this.txtLicenseExp = new System.Windows.Forms.TextBox();
-            this.bsTruckDriver = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.txtInductionExp = new System.Windows.Forms.TextBox();
             this.licenseTypeTextBox = new System.Windows.Forms.TextBox();
             this.mobTextBox = new System.Windows.Forms.TextBox();
@@ -77,17 +75,21 @@ namespace QWS_Local
             this.btnImported = new System.Windows.Forms.Button();
             this.btnExBin = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.bsPrefCustomers = new System.Windows.Forms.BindingSource(this.components);
             this.taConfiguredTrucks = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
-            this.taTruckDriver = new QWS_Local.dsQWSLocalTableAdapters.TruckDriverTableAdapter();
-            this.tableAdapterManager1 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
-            this.taPrefCustomers = new QWS_Local.dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter();
-            this.taTIQ = new QWS_Local.dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter();
             this.pictureSchematic = new System.Windows.Forms.PictureBox();
             this.tableAdapterManager2 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.txtTruckConfig = new System.Windows.Forms.TextBox();
             this.btnNext = new System.Windows.Forms.Button();
+            this.bsTruckDriver = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
+            this.taTruckDriver = new QWS_Local.dsQWSLocalTableAdapters.TruckDriverTableAdapter();
+            this.tableAdapterManager1 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
+            this.taTIQ = new QWS_Local.dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter();
+            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
+            this.bsPrefCustomers2 = new System.Windows.Forms.BindingSource(this.components);
+            this.taPrefCustomers2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter();
+            this.tableAdapterManager3 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -100,12 +102,13 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSchematic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers2)).BeginInit();
             this.SuspendLayout();
             // 
             // cardCodeLabel
@@ -350,16 +353,6 @@ namespace QWS_Local
             this.txtLicenseExp.Size = new System.Drawing.Size(100, 23);
             this.txtLicenseExp.TabIndex = 74;
             // 
-            // bsTruckDriver
-            // 
-            this.bsTruckDriver.DataMember = "TruckDriver";
-            this.bsTruckDriver.DataSource = this.dsQWSLocal;
-            // 
-            // dsQWSLocal
-            // 
-            this.dsQWSLocal.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // txtInductionExp
             // 
             this.txtInductionExp.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "InductionExp", true));
@@ -546,11 +539,6 @@ namespace QWS_Local
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Truck Driver";
             // 
-            // bsPrefCustomers
-            // 
-            this.bsPrefCustomers.DataMember = "VehiclePrefCustomers";
-            this.bsPrefCustomers.DataSource = this.dsQWSLocal;
-            // 
             // taConfiguredTrucks
             // 
             this.taConfiguredTrucks.ClearBeforeFill = true;
@@ -560,6 +548,56 @@ namespace QWS_Local
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // pictureSchematic
+            // 
+            this.pictureSchematic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureSchematic.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.bsConfiguredTrucks, "Schematic", true));
+            this.pictureSchematic.Location = new System.Drawing.Point(63, 56);
+            this.pictureSchematic.Name = "pictureSchematic";
+            this.pictureSchematic.Size = new System.Drawing.Size(450, 150);
+            this.pictureSchematic.TabIndex = 0;
+            this.pictureSchematic.TabStop = false;
+            // 
+            // tableAdapterManager2
+            // 
+            this.tableAdapterManager2.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager2.Connection = null;
+            this.tableAdapterManager2.StockpileBOMTableAdapter = null;
+            this.tableAdapterManager2.StockpileLotAllocationTableAdapter = null;
+            this.tableAdapterManager2.StockpileManualAllocationTableAdapter = null;
+            this.tableAdapterManager2.TIQTableAdapter = null;
+            this.tableAdapterManager2.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager2.WBDocketLinesTableAdapter = null;
+            this.tableAdapterManager2.WBDocketsTableAdapter = null;
+            // 
+            // txtTruckConfig
+            // 
+            this.txtTruckConfig.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "VehicleType", true));
+            this.txtTruckConfig.Location = new System.Drawing.Point(480, 212);
+            this.txtTruckConfig.Name = "txtTruckConfig";
+            this.txtTruckConfig.Size = new System.Drawing.Size(33, 23);
+            this.txtTruckConfig.TabIndex = 81;
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(322, 406);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(84, 23);
+            this.btnNext.TabIndex = 75;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // bsTruckDriver
+            // 
+            this.bsTruckDriver.DataMember = "TruckDriver";
+            this.bsTruckDriver.DataSource = this.dsQWSLocal;
+            // 
+            // dsQWSLocal
+            // 
+            this.dsQWSLocal.DataSetName = "dsQWSLocal";
+            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // taTruckDriver
             // 
@@ -585,52 +623,31 @@ namespace QWS_Local
             this.tableAdapterManager1.VehicleTableAdapter = null;
             this.tableAdapterManager1.VehicleTypeTableAdapter = null;
             // 
-            // taPrefCustomers
-            // 
-            this.taPrefCustomers.ClearBeforeFill = true;
-            // 
             // taTIQ
             // 
             this.taTIQ.ClearBeforeFill = true;
             // 
-            // pictureSchematic
+            // dsQWSLocal2024
             // 
-            this.pictureSchematic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureSchematic.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.bsConfiguredTrucks, "Schematic", true));
-            this.pictureSchematic.Location = new System.Drawing.Point(63, 56);
-            this.pictureSchematic.Name = "pictureSchematic";
-            this.pictureSchematic.Size = new System.Drawing.Size(450, 150);
-            this.pictureSchematic.TabIndex = 0;
-            this.pictureSchematic.TabStop = false;
+            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
+            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // tableAdapterManager2
+            // bsPrefCustomers2
             // 
-            this.tableAdapterManager2.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager2.Connection = null;
-            this.tableAdapterManager2.StockpileBOMTableAdapter = null;
-            this.tableAdapterManager2.StockpileLotAllocationTableAdapter = null;
-            this.tableAdapterManager2.TIQTableAdapter = null;
-            this.tableAdapterManager2.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager2.WBDocketLinesTableAdapter = null;
-            this.tableAdapterManager2.WBDocketsTableAdapter = null;
+            this.bsPrefCustomers2.DataMember = "VehiclePrefCustomers";
+            this.bsPrefCustomers2.DataSource = this.dsQWSLocal2024;
             // 
-            // txtTruckConfig
+            // taPrefCustomers2
             // 
-            this.txtTruckConfig.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "VehicleType", true));
-            this.txtTruckConfig.Location = new System.Drawing.Point(480, 212);
-            this.txtTruckConfig.Name = "txtTruckConfig";
-            this.txtTruckConfig.Size = new System.Drawing.Size(33, 23);
-            this.txtTruckConfig.TabIndex = 81;
+            this.taPrefCustomers2.ClearBeforeFill = true;
             // 
-            // btnNext
+            // tableAdapterManager3
             // 
-            this.btnNext.Location = new System.Drawing.Point(322, 406);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(84, 23);
-            this.btnNext.TabIndex = 75;
-            this.btnNext.Text = "Next";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            this.tableAdapterManager3.AxleConfigurationTableAdapter = null;
+            this.tableAdapterManager3.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager3.NHVRTableAdapter = null;
+            this.tableAdapterManager3.UpdateOrder = QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager3.VehiclePrefCustomersTableAdapter = this.taPrefCustomers2;
             // 
             // BookInTruckStep1
             // 
@@ -665,14 +682,15 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSchematic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -716,8 +734,6 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnImported;
         private System.Windows.Forms.Button btnExBin;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.BindingSource bsPrefCustomers;
-        private dsQWSLocalTableAdapters.VehiclePrefCustomersTableAdapter taPrefCustomers;
         private dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter taTIQ;
         private dsTIQ2TableAdapters.TableAdapterManager tableAdapterManager2;
         private System.Windows.Forms.DataGridViewTextBoxColumn regoTkDataGridViewTextBoxColumn;
@@ -729,5 +745,9 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnHold;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnNext;
+        private dsQWSLocal2024 dsQWSLocal2024;
+        private System.Windows.Forms.BindingSource bsPrefCustomers2;
+        private dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter taPrefCustomers2;
+        private dsQWSLocal2024TableAdapters.TableAdapterManager tableAdapterManager3;
     }
 }

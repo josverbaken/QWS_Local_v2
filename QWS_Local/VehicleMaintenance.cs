@@ -22,8 +22,6 @@ namespace QWS_Local
 
         private void Vehicle_Maintenance_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsQWSLocal2024.AxleConfiguration' table. You can move, or remove it, as needed.
-            this.taAxleConfig.Fill(this.dsQWSLocal2024.AxleConfiguration);
             try
             {
                 txtJurisdiction.Text = Properties.Settings.Default.defaultJurisdiction;
@@ -110,7 +108,7 @@ namespace QWS_Local
                             break;
                         case int n when(n > 1):
                             VehicleSearch vehicleSearch = new VehicleSearch(strSearch, false);
-                            dsQWSLocal.Clear();
+                            dsQWSLocal2024.Clear();
                             DialogResult dr1 = vehicleSearch.ShowDialog();
                             if (dr1 == DialogResult.OK)
                             {
@@ -134,7 +132,7 @@ namespace QWS_Local
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                dsQWSLocal.Clear();
+                dsQWSLocal2024.Clear();
                 txtRego.Focus();
             }
 
@@ -294,7 +292,7 @@ namespace QWS_Local
                 if (dr == DialogResult.OK)
                 {
                     AddVehiclePreCustomer(frmBusinessSearch.SAPCode, frmBusinessSearch.BusinessName);
-                    bsVehiclePrefCustomers.EndEdit();
+                    bsPrefCustomers.EndEdit();
                 }
                 else if (dr == DialogResult.Abort)
                 {
@@ -612,8 +610,8 @@ namespace QWS_Local
         {
             try
             {
-                DataRow dr = dsQWSLocal.VehiclePrefCustomers.NewRow();
-                dsQWSLocal.VehiclePrefCustomersRow vehiclePrefCustomersRow = (dsQWSLocal.VehiclePrefCustomersRow)dr;
+                DataRow dr = dsQWSLocal2024.VehiclePrefCustomers.NewRow();
+                dsQWSLocal2024.VehiclePrefCustomersRow vehiclePrefCustomersRow = (dsQWSLocal2024.VehiclePrefCustomersRow)dr;
                 vehiclePrefCustomersRow.Rego = CurrentVehicle().Rego;
                 vehiclePrefCustomersRow.CardCode = CardCode;
                 vehiclePrefCustomersRow.PrefCustomer = CardName;
@@ -621,7 +619,7 @@ namespace QWS_Local
                 vehiclePrefCustomersRow.Active = true;
                 vehiclePrefCustomersRow.Comment = "";
                 vehiclePrefCustomersRow.Rank = 0;
-                dsQWSLocal.VehiclePrefCustomers.AddVehiclePrefCustomersRow(vehiclePrefCustomersRow);                
+                dsQWSLocal2024.VehiclePrefCustomers.AddVehiclePrefCustomersRow(vehiclePrefCustomersRow);                
             }
             catch (Exception ex)
             {
@@ -631,8 +629,8 @@ namespace QWS_Local
 
         private void btnSavePrefCustomers_Click(object sender, EventArgs e)
         {
-            bsVehiclePrefCustomers.EndEdit();
-            taVehiclePrefCustomers.Update(dsQWSLocal.VehiclePrefCustomers);
+            bsPrefCustomers.EndEdit();
+            taPrefCustomers.Update(dsQWSLocal2024.VehiclePrefCustomers);
         }
 
         private void btnLoadPrefCustomers_Click(object sender, EventArgs e)
@@ -642,8 +640,8 @@ namespace QWS_Local
 
         private void LoadPrefCustomers()
         {
-            taVehiclePrefCustomers.FillBy(dsQWSLocal.VehiclePrefCustomers, CurrentVehicle().Rego);
-            bsVehiclePrefCustomers.Sort = "IsDefault DESC, PrefCustomer ASC";
+            taPrefCustomers.FillBy(dsQWSLocal2024.VehiclePrefCustomers, CurrentVehicle().Rego);
+            bsPrefCustomers.Sort = "IsDefault DESC, PrefCustomer ASC";
         }
 
         private void VehicleMaintenance_KeyDown(object sender, KeyEventArgs e)
