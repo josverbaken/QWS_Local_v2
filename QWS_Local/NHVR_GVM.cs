@@ -26,21 +26,21 @@ namespace QWS_Local
 
         private void NHVR_GVM_Load(object sender, EventArgs e)
         {
-            this.nHVLTableAdapter.Fill(this.dsQWSLocal1.NHVL);
+            this.taNHVR2.Fill(this.dsQWSLocal2024.NHVR);
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.bsNHVR.EndEdit();
-            this.nHVLTableAdapter.Update(this.dsQWSLocal1.NHVL);
+            this.bsNHVR2.EndEdit();
+            this.taNHVR2.Update(this.dsQWSLocal2024.NHVR);
         }
 
         private void rbClear_CheckedChanged(object sender, EventArgs e)
         {
             if (rbClear.Checked)
             {
-                bsNHVR.Filter = "";
+                bsNHVR2.Filter = "";
                 //ApplyNHVRFilter();  
             }
         }
@@ -76,7 +76,7 @@ namespace QWS_Local
             {
                 NHVRFilter+= " and " + MassMgmtFilter;
             }
-            bsNHVR.Filter = NHVRFilter;
+            bsNHVR2.Filter = NHVRFilter;
         }
 
             private void btnApply_Click(object sender, EventArgs e)

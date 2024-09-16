@@ -101,12 +101,21 @@ namespace QWS_Local
 
         private void closeAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            for (int x = 0; x < this.MdiChildren.Length; x++)
+            CloseMDIChildren();
+        }
+
+        private void CloseMDIChildren()
+        {
+            // except home page = TrucksInQuarry
+           while (this.MdiChildren.Length>1)
             {
-                Form tempChild = (Form)this.MdiChildren[x];
-                if (tempChild.Name != "TrucksInQuarry")
+                for (int x = 0; x < 2; x++)
                 {
-                    this.MdiChildren[x].Close();
+                    Form tempChild = (Form)this.MdiChildren[x];
+                    if (tempChild.Name != "TrucksInQuarry")
+                    {
+                        this.MdiChildren[x].Close();
+                    }
                 }
             }
         }

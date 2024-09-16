@@ -32,6 +32,13 @@ namespace QWS_Local
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NHVR_GVM));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnApply = new System.Windows.Forms.Button();
+            this.txtAxleConfig = new System.Windows.Forms.TextBox();
+            this.rbClear = new System.Windows.Forms.RadioButton();
+            this.rbGML = new System.Windows.Forms.RadioButton();
+            this.rbMassMgmt = new System.Windows.Forms.RadioButton();
+            this.rbRFS = new System.Windows.Forms.RadioButton();
+            this.rbSteer = new System.Windows.Forms.RadioButton();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -58,17 +65,9 @@ namespace QWS_Local
             this.gCMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gVMTruckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.massMgmtRqdDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.bsNHVR = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSLocal1 = new QWS_Local.dsQWSLocal();
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
-            this.nHVLTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.NHVLTableAdapter();
-            this.rbSteer = new System.Windows.Forms.RadioButton();
-            this.rbRFS = new System.Windows.Forms.RadioButton();
-            this.rbMassMgmt = new System.Windows.Forms.RadioButton();
-            this.rbGML = new System.Windows.Forms.RadioButton();
-            this.rbClear = new System.Windows.Forms.RadioButton();
-            this.txtAxleConfig = new System.Windows.Forms.TextBox();
-            this.btnApply = new System.Windows.Forms.Button();
+            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
+            this.bsNHVR2 = new System.Windows.Forms.BindingSource(this.components);
+            this.taNHVR2 = new QWS_Local.dsQWSLocal2024TableAdapters.NHVRTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -76,9 +75,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsNHVR)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsNHVR2)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -107,6 +105,82 @@ namespace QWS_Local
             this.splitContainer1.SplitterDistance = 59;
             this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // btnApply
+            // 
+            this.btnApply.Location = new System.Drawing.Point(908, 32);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(75, 23);
+            this.btnApply.TabIndex = 7;
+            this.btnApply.Text = "Apply";
+            this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
+            // 
+            // txtAxleConfig
+            // 
+            this.txtAxleConfig.Location = new System.Drawing.Point(46, 32);
+            this.txtAxleConfig.Name = "txtAxleConfig";
+            this.txtAxleConfig.Size = new System.Drawing.Size(100, 24);
+            this.txtAxleConfig.TabIndex = 6;
+            // 
+            // rbClear
+            // 
+            this.rbClear.AutoSize = true;
+            this.rbClear.Location = new System.Drawing.Point(808, 30);
+            this.rbClear.Name = "rbClear";
+            this.rbClear.Size = new System.Drawing.Size(61, 22);
+            this.rbClear.TabIndex = 5;
+            this.rbClear.TabStop = true;
+            this.rbClear.Text = "Clear";
+            this.rbClear.UseVisualStyleBackColor = true;
+            this.rbClear.CheckedChanged += new System.EventHandler(this.rbClear_CheckedChanged);
+            // 
+            // rbGML
+            // 
+            this.rbGML.AutoSize = true;
+            this.rbGML.Location = new System.Drawing.Point(732, 30);
+            this.rbGML.Name = "rbGML";
+            this.rbGML.Size = new System.Drawing.Size(59, 22);
+            this.rbGML.TabIndex = 4;
+            this.rbGML.TabStop = true;
+            this.rbGML.Text = "GML";
+            this.rbGML.UseVisualStyleBackColor = true;
+            this.rbGML.CheckedChanged += new System.EventHandler(this.rbGML_CheckedChanged);
+            // 
+            // rbMassMgmt
+            // 
+            this.rbMassMgmt.AutoSize = true;
+            this.rbMassMgmt.Location = new System.Drawing.Point(471, 30);
+            this.rbMassMgmt.Name = "rbMassMgmt";
+            this.rbMassMgmt.Size = new System.Drawing.Size(238, 22);
+            this.rbMassMgmt.TabIndex = 3;
+            this.rbMassMgmt.TabStop = true;
+            this.rbMassMgmt.Text = "Mass Management Accrediation";
+            this.rbMassMgmt.UseVisualStyleBackColor = true;
+            this.rbMassMgmt.CheckedChanged += new System.EventHandler(this.rbMassMgmt_CheckedChanged);
+            // 
+            // rbRFS
+            // 
+            this.rbRFS.AutoSize = true;
+            this.rbRFS.Location = new System.Drawing.Point(398, 30);
+            this.rbRFS.Name = "rbRFS";
+            this.rbRFS.Size = new System.Drawing.Size(56, 22);
+            this.rbRFS.TabIndex = 2;
+            this.rbRFS.TabStop = true;
+            this.rbRFS.Text = "RFS";
+            this.rbRFS.UseVisualStyleBackColor = true;
+            // 
+            // rbSteer
+            // 
+            this.rbSteer.AutoSize = true;
+            this.rbSteer.Location = new System.Drawing.Point(213, 30);
+            this.rbSteer.Name = "rbSteer";
+            this.rbSteer.Size = new System.Drawing.Size(163, 22);
+            this.rbSteer.TabIndex = 1;
+            this.rbSteer.TabStop = true;
+            this.rbSteer.Text = "Steer Axle Allowance";
+            this.rbSteer.UseVisualStyleBackColor = true;
+            this.rbSteer.CheckedChanged += new System.EventHandler(this.rbSteer_CheckedChanged);
             // 
             // bindingNavigator1
             // 
@@ -242,7 +316,7 @@ namespace QWS_Local
             this.gCMDataGridViewTextBoxColumn,
             this.gVMTruckDataGridViewTextBoxColumn,
             this.massMgmtRqdDataGridViewCheckBoxColumn});
-            this.dataGridView1.DataSource = this.bsNHVR;
+            this.dataGridView1.DataSource = this.bsNHVR2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
@@ -254,6 +328,7 @@ namespace QWS_Local
             this.truckTypeIDDataGridViewTextBoxColumn.DataPropertyName = "TruckTypeID";
             this.truckTypeIDDataGridViewTextBoxColumn.HeaderText = "TruckTypeID";
             this.truckTypeIDDataGridViewTextBoxColumn.Name = "truckTypeIDDataGridViewTextBoxColumn";
+            this.truckTypeIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // axleConfigurationDataGridViewTextBoxColumn
             // 
@@ -327,100 +402,19 @@ namespace QWS_Local
             this.massMgmtRqdDataGridViewCheckBoxColumn.HeaderText = "MassMgmtRqd";
             this.massMgmtRqdDataGridViewCheckBoxColumn.Name = "massMgmtRqdDataGridViewCheckBoxColumn";
             // 
-            // bsNHVR
+            // dsQWSLocal2024
             // 
-            this.bsNHVR.DataMember = "NHVL";
-            this.bsNHVR.DataSource = this.dsQWSLocal1;
+            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
+            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // dsQWSLocal1
+            // bsNHVR2
             // 
-            this.dsQWSLocal1.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.bsNHVR2.DataMember = "NHVR";
+            this.bsNHVR2.DataSource = this.dsQWSLocal2024;
             // 
-            // dsQWSLocal
+            // taNHVR2
             // 
-            this.dsQWSLocal.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // nHVLTableAdapter
-            // 
-            this.nHVLTableAdapter.ClearBeforeFill = true;
-            // 
-            // rbSteer
-            // 
-            this.rbSteer.AutoSize = true;
-            this.rbSteer.Location = new System.Drawing.Point(213, 30);
-            this.rbSteer.Name = "rbSteer";
-            this.rbSteer.Size = new System.Drawing.Size(163, 22);
-            this.rbSteer.TabIndex = 1;
-            this.rbSteer.TabStop = true;
-            this.rbSteer.Text = "Steer Axle Allowance";
-            this.rbSteer.UseVisualStyleBackColor = true;
-            this.rbSteer.CheckedChanged += new System.EventHandler(this.rbSteer_CheckedChanged);
-            // 
-            // rbRFS
-            // 
-            this.rbRFS.AutoSize = true;
-            this.rbRFS.Location = new System.Drawing.Point(398, 30);
-            this.rbRFS.Name = "rbRFS";
-            this.rbRFS.Size = new System.Drawing.Size(56, 22);
-            this.rbRFS.TabIndex = 2;
-            this.rbRFS.TabStop = true;
-            this.rbRFS.Text = "RFS";
-            this.rbRFS.UseVisualStyleBackColor = true;
-            // 
-            // rbMassMgmt
-            // 
-            this.rbMassMgmt.AutoSize = true;
-            this.rbMassMgmt.Location = new System.Drawing.Point(471, 30);
-            this.rbMassMgmt.Name = "rbMassMgmt";
-            this.rbMassMgmt.Size = new System.Drawing.Size(238, 22);
-            this.rbMassMgmt.TabIndex = 3;
-            this.rbMassMgmt.TabStop = true;
-            this.rbMassMgmt.Text = "Mass Management Accrediation";
-            this.rbMassMgmt.UseVisualStyleBackColor = true;
-            this.rbMassMgmt.CheckedChanged += new System.EventHandler(this.rbMassMgmt_CheckedChanged);
-            // 
-            // rbGML
-            // 
-            this.rbGML.AutoSize = true;
-            this.rbGML.Location = new System.Drawing.Point(732, 30);
-            this.rbGML.Name = "rbGML";
-            this.rbGML.Size = new System.Drawing.Size(59, 22);
-            this.rbGML.TabIndex = 4;
-            this.rbGML.TabStop = true;
-            this.rbGML.Text = "GML";
-            this.rbGML.UseVisualStyleBackColor = true;
-            this.rbGML.CheckedChanged += new System.EventHandler(this.rbGML_CheckedChanged);
-            // 
-            // rbClear
-            // 
-            this.rbClear.AutoSize = true;
-            this.rbClear.Location = new System.Drawing.Point(808, 30);
-            this.rbClear.Name = "rbClear";
-            this.rbClear.Size = new System.Drawing.Size(61, 22);
-            this.rbClear.TabIndex = 5;
-            this.rbClear.TabStop = true;
-            this.rbClear.Text = "Clear";
-            this.rbClear.UseVisualStyleBackColor = true;
-            this.rbClear.CheckedChanged += new System.EventHandler(this.rbClear_CheckedChanged);
-            // 
-            // txtAxleConfig
-            // 
-            this.txtAxleConfig.Location = new System.Drawing.Point(46, 32);
-            this.txtAxleConfig.Name = "txtAxleConfig";
-            this.txtAxleConfig.Size = new System.Drawing.Size(100, 24);
-            this.txtAxleConfig.TabIndex = 6;
-            // 
-            // btnApply
-            // 
-            this.btnApply.Location = new System.Drawing.Point(908, 32);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(75, 23);
-            this.btnApply.TabIndex = 7;
-            this.btnApply.Text = "Apply";
-            this.btnApply.UseVisualStyleBackColor = true;
-            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
+            this.taNHVR2.ClearBeforeFill = true;
             // 
             // NHVR_GVM
             // 
@@ -442,9 +436,8 @@ namespace QWS_Local
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsNHVR)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsNHVR2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -464,11 +457,7 @@ namespace QWS_Local
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private dsQWSLocal dsQWSLocal;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private dsQWSLocal dsQWSLocal1;
-        private System.Windows.Forms.BindingSource bsNHVR;
-        private dsQWSLocalTableAdapters.NHVLTableAdapter nHVLTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn truckTypeIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn axleConfigurationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn truckTypeDescriptionDataGridViewTextBoxColumn;
@@ -489,5 +478,8 @@ namespace QWS_Local
         private System.Windows.Forms.RadioButton rbSteer;
         private System.Windows.Forms.TextBox txtAxleConfig;
         private System.Windows.Forms.Button btnApply;
+        private dsQWSLocal2024 dsQWSLocal2024;
+        private System.Windows.Forms.BindingSource bsNHVR2;
+        private dsQWSLocal2024TableAdapters.NHVRTableAdapter taNHVR2;
     }
 }

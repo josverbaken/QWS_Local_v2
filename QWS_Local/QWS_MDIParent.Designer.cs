@@ -36,12 +36,9 @@
             this.axleConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nHVRGCMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vehicleRegFeeCodesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.businessPlusPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deliveryOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bookInTruckStep1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.truckConfigMaintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trafficCamerasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockpileLotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printDocketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,12 +78,9 @@
             this.axleConfigurationToolStripMenuItem,
             this.nHVRGCMToolStripMenuItem,
             this.vehicleRegFeeCodesToolStripMenuItem,
-            this.businessPlusPersonToolStripMenuItem,
             this.itemSearchToolStripMenuItem,
             this.deliveryOrdersToolStripMenuItem,
-            this.bookInTruckStep1ToolStripMenuItem,
             this.truckConfigMaintToolStripMenuItem,
-            this.trafficCamerasToolStripMenuItem,
             this.stockpileLotToolStripMenuItem});
             this.pBSMaintenanceToolStripMenuItem.Name = "pBSMaintenanceToolStripMenuItem";
             this.pBSMaintenanceToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
@@ -127,13 +121,6 @@
             this.vehicleRegFeeCodesToolStripMenuItem.Text = "Vehicle Reg Fee Codes";
             this.vehicleRegFeeCodesToolStripMenuItem.Click += new System.EventHandler(this.vehicleRegFeeCodesToolStripMenuItem_Click);
             // 
-            // businessPlusPersonToolStripMenuItem
-            // 
-            this.businessPlusPersonToolStripMenuItem.Name = "businessPlusPersonToolStripMenuItem";
-            this.businessPlusPersonToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
-            this.businessPlusPersonToolStripMenuItem.Text = "Business plus Person";
-            this.businessPlusPersonToolStripMenuItem.Click += new System.EventHandler(this.businessPlusPersonToolStripMenuItem_Click);
-            // 
             // itemSearchToolStripMenuItem
             // 
             this.itemSearchToolStripMenuItem.Name = "itemSearchToolStripMenuItem";
@@ -148,26 +135,12 @@
             this.deliveryOrdersToolStripMenuItem.Text = "Delivery Orders";
             this.deliveryOrdersToolStripMenuItem.Click += new System.EventHandler(this.deliveryOrdersToolStripMenuItem_Click);
             // 
-            // bookInTruckStep1ToolStripMenuItem
-            // 
-            this.bookInTruckStep1ToolStripMenuItem.Name = "bookInTruckStep1ToolStripMenuItem";
-            this.bookInTruckStep1ToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
-            this.bookInTruckStep1ToolStripMenuItem.Text = "BookInTruckStep1";
-            this.bookInTruckStep1ToolStripMenuItem.Click += new System.EventHandler(this.bookInTruckStep1ToolStripMenuItem_Click);
-            // 
             // truckConfigMaintToolStripMenuItem
             // 
             this.truckConfigMaintToolStripMenuItem.Name = "truckConfigMaintToolStripMenuItem";
             this.truckConfigMaintToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
             this.truckConfigMaintToolStripMenuItem.Text = "TruckConfigMaint";
             this.truckConfigMaintToolStripMenuItem.Click += new System.EventHandler(this.truckConfigMaintToolStripMenuItem_Click);
-            // 
-            // trafficCamerasToolStripMenuItem
-            // 
-            this.trafficCamerasToolStripMenuItem.Name = "trafficCamerasToolStripMenuItem";
-            this.trafficCamerasToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
-            this.trafficCamerasToolStripMenuItem.Text = "Traffic Cameras";
-            this.trafficCamerasToolStripMenuItem.Click += new System.EventHandler(this.trafficCamerasToolStripMenuItem_Click);
             // 
             // stockpileLotToolStripMenuItem
             // 
@@ -194,7 +167,7 @@
             // closeAllToolStripMenuItem
             // 
             this.closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
-            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.closeAllToolStripMenuItem.Text = "Close All";
             this.closeAllToolStripMenuItem.Click += new System.EventHandler(this.closeAllToolStripMenuItem_Click);
             // 
@@ -234,17 +207,14 @@
         private System.Windows.Forms.ToolStripMenuItem axleConfigurationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nHVRGCMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vehicleRegFeeCodesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem businessPlusPersonToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem itemSearchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deliveryOrdersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bookInTruckStep1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem windowsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tIQToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printDocketToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem truckConfigMaintToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem trafficCamerasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stockpileLotToolStripMenuItem;
     }
 }
