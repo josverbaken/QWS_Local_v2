@@ -47,7 +47,7 @@ namespace QWS_Local
                 dsTruckConfig.ConfiguredTrucks.Clear();
                 dsTruckConfig.ConfiguredTruckGVM.Clear();
                 int iVehicleConfig = this.taConfiguredTrucks.FillByRego(this.dsTruckConfig.ConfiguredTrucks, Rego);
-                int iVehicle = this.taVehicle.FillBy(dsQWSLocal.Vehicle, Rego);
+                int iVehicle = this.taVehicle2.FillBy(dsQWSLocal2024.Vehicle, Rego);
                 if (iVehicle == 0)
                 {
                     DialogResult dr2 = MessageBox.Show("Vehicle not on record. Do you want to add it?", "Vehicle not found!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -90,12 +90,12 @@ namespace QWS_Local
             }            
         }
 
-        private dsQWSLocal.VehicleRow CurrentVehicle()
+        private dsQWSLocal2024.VehicleRow CurrentVehicle()
         {
             try
             {
-                DataRow myDR = ((DataRowView)bsVehicle.Current).Row;
-                dsQWSLocal.VehicleRow vehicleRow = (dsQWSLocal.VehicleRow)myDR;
+                DataRow myDR = ((DataRowView)bsVehicle2.Current).Row;
+                dsQWSLocal2024.VehicleRow vehicleRow = (dsQWSLocal2024.VehicleRow)myDR;
                 return vehicleRow;
             }
             catch (Exception ex)

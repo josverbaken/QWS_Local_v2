@@ -66,12 +66,13 @@
             this.tpConfigGVMDetails = new System.Windows.Forms.TabPage();
             this.tableAdapterManager = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
             this.taConfiguredTrucks = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
-            this.bsVehicle = new System.Windows.Forms.BindingSource(this.components);
-            this.taVehicle = new QWS_Local.dsQWSLocalTableAdapters.VehicleTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.bsAxleConfiguration = new System.Windows.Forms.BindingSource(this.components);
             this.taAxleConfiguration = new QWS_Local.dsQWSLocalTableAdapters.AxleConfigurationTableAdapter();
+            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
+            this.bsVehicle2 = new System.Windows.Forms.BindingSource(this.components);
+            this.taVehicle2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleTableAdapter();
+            this.tableAdapterManager2 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
@@ -91,9 +92,9 @@
             this.splitContainer2.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tpConfigGVMList.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfiguration)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVehicle2)).BeginInit();
             this.SuspendLayout();
             // 
             // txtRego
@@ -276,10 +277,10 @@
             this.tpDetails.Controls.Add(this.feeCodeTextBox);
             this.tpDetails.Controls.Add(this.truckOwnerTextBox);
             this.tpDetails.Controls.Add(this.regoTkTextBox);
-            this.tpDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpDetails.Location = new System.Drawing.Point(4, 27);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(978, 258);
+            this.tpDetails.Size = new System.Drawing.Size(978, 253);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -450,20 +451,6 @@
             // 
             this.taConfiguredTrucks.ClearBeforeFill = true;
             // 
-            // dsQWSLocal
-            // 
-            this.dsQWSLocal.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bsVehicle
-            // 
-            this.bsVehicle.DataMember = "Vehicle";
-            this.bsVehicle.DataSource = this.dsQWSLocal;
-            // 
-            // taVehicle
-            // 
-            this.taVehicle.ClearBeforeFill = true;
-            // 
             // tableAdapterManager1
             // 
             this.tableAdapterManager1.AxleConfigurationTableAdapter = null;
@@ -480,17 +467,34 @@
             this.tableAdapterManager1.VehiclePBSTableAdapter = null;
             this.tableAdapterManager1.VehiclePrefCustomersTableAdapter = null;
             this.tableAdapterManager1.VehicleRegFeeCodesTableAdapter = null;
-            this.tableAdapterManager1.VehicleTableAdapter = this.taVehicle;
             this.tableAdapterManager1.VehicleTypeTableAdapter = null;
-            // 
-            // bsAxleConfiguration
-            // 
-            this.bsAxleConfiguration.DataMember = "AxleConfiguration";
-            this.bsAxleConfiguration.DataSource = this.dsQWSLocal;
             // 
             // taAxleConfiguration
             // 
             this.taAxleConfiguration.ClearBeforeFill = true;
+            // 
+            // dsQWSLocal2024
+            // 
+            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
+            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bsVehicle2
+            // 
+            this.bsVehicle2.DataMember = "Vehicle";
+            this.bsVehicle2.DataSource = this.dsQWSLocal2024;
+            // 
+            // taVehicle2
+            // 
+            this.taVehicle2.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager2
+            // 
+            this.tableAdapterManager2.AxleConfigurationTableAdapter = null;
+            this.tableAdapterManager2.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager2.NHVRTableAdapter = null;
+            this.tableAdapterManager2.UpdateOrder = QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager2.VehiclePrefCustomersTableAdapter = null;
+            this.tableAdapterManager2.VehicleTableAdapter = this.taVehicle2;
             // 
             // TruckConfigMaintenance
             // 
@@ -525,9 +529,9 @@
             this.splitContainer2.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tpConfigGVMList.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsVehicle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfiguration)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVehicle2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -566,9 +570,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn schemeCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn schemeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gCMDataGridViewTextBoxColumn;
-        private dsQWSLocal dsQWSLocal;
-        private System.Windows.Forms.BindingSource bsVehicle;
-        private dsQWSLocalTableAdapters.VehicleTableAdapter taVehicle;
         private dsQWSLocalTableAdapters.TableAdapterManager tableAdapterManager1;
         private System.Windows.Forms.BindingSource bsAxleConfiguration;
         private dsQWSLocalTableAdapters.AxleConfigurationTableAdapter taAxleConfiguration;
@@ -576,5 +577,9 @@
         private System.Windows.Forms.Button btnAddTrailer;
         private System.Windows.Forms.Button btnCheckConfig;
         private System.Windows.Forms.Button btnDelete;
+        private dsQWSLocal2024 dsQWSLocal2024;
+        private System.Windows.Forms.BindingSource bsVehicle2;
+        private dsQWSLocal2024TableAdapters.VehicleTableAdapter taVehicle2;
+        private dsQWSLocal2024TableAdapters.TableAdapterManager tableAdapterManager2;
     }
 }
