@@ -50,18 +50,18 @@ namespace QWS_Local
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FeeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Schematic = new System.Windows.Forms.DataGridViewImageColumn();
-            this.bsVehicleDetails = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
-            this.vehicleDetailsTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.VehicleDetailsTableAdapter();
+            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
+            this.bsVehicleDetails2 = new System.Windows.Forms.BindingSource(this.components);
+            this.taVehicleDetails2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleDetailsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails2)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -191,7 +191,7 @@ namespace QWS_Local
             this.dataGridViewTextBoxColumn13,
             this.FeeCode,
             this.Schematic});
-            this.vehicleDataGridView.DataSource = this.bsVehicleDetails;
+            this.vehicleDataGridView.DataSource = this.bsVehicleDetails2;
             this.vehicleDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.vehicleDataGridView.Location = new System.Drawing.Point(0, 0);
             this.vehicleDataGridView.Name = "vehicleDataGridView";
@@ -252,16 +252,6 @@ namespace QWS_Local
             this.Schematic.ReadOnly = true;
             this.Schematic.Width = 450;
             // 
-            // bsVehicleDetails
-            // 
-            this.bsVehicleDetails.DataMember = "VehicleDetails";
-            this.bsVehicleDetails.DataSource = this.dsQWSLocal;
-            // 
-            // dsQWSLocal
-            // 
-            this.dsQWSLocal.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.AxleConfigurationTableAdapter = null;
@@ -276,13 +266,25 @@ namespace QWS_Local
             this.tableAdapterManager.TruckConfigVehicleTableAdapter = null;
             this.tableAdapterManager.TrucksInQuarryTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.VehiclePBSTableAdapter = null;
+            this.tableAdapterManager.VehiclePrefCustomersTableAdapter = null;
             this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager.VehicleTableAdapter = null;
             this.tableAdapterManager.VehicleTypeTableAdapter = null;
             // 
-            // vehicleDetailsTableAdapter
+            // dsQWSLocal2024
             // 
-            this.vehicleDetailsTableAdapter.ClearBeforeFill = true;
+            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
+            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bsVehicleDetails2
+            // 
+            this.bsVehicleDetails2.DataMember = "VehicleDetails";
+            this.bsVehicleDetails2.DataSource = this.dsQWSLocal2024;
+            // 
+            // taVehicleDetails2
+            // 
+            this.taVehicleDetails2.ClearBeforeFill = true;
             // 
             // VehicleSearch
             // 
@@ -304,8 +306,8 @@ namespace QWS_Local
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -313,7 +315,6 @@ namespace QWS_Local
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private dsQWSLocal dsQWSLocal;
         private dsQWSLocalTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripTextBox txtSearch;
@@ -321,8 +322,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridView vehicleDataGridView;
         private System.Windows.Forms.ToolStripButton btnSelect;
         private System.Windows.Forms.ToolStripButton btnCancel;
-        private System.Windows.Forms.BindingSource bsVehicleDetails;
-        private dsQWSLocalTableAdapters.VehicleDetailsTableAdapter vehicleDetailsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
@@ -335,5 +334,8 @@ namespace QWS_Local
         private System.Windows.Forms.ToolStripButton btnTruck;
         private System.Windows.Forms.ToolStripButton btnClear;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private dsQWSLocal2024 dsQWSLocal2024;
+        private System.Windows.Forms.BindingSource bsVehicleDetails2;
+        private dsQWSLocal2024TableAdapters.VehicleDetailsTableAdapter taVehicleDetails2;
     }
 }

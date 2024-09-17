@@ -66,14 +66,14 @@ namespace QWS_Local
             {
                 if (IsCardCode)
                 {
-                    this.vehicleDetailsTableAdapter.FillBySAPCode(this.dsQWSLocal.VehicleDetails, strSearch);
+                    this.taVehicleDetails2.FillByCardCode(this.dsQWSLocal2024.VehicleDetails, strSearch);
                     //this.bsVehicleDetails.Filter = "IsLeadVehicle = 1";
                     // maybe pass in as a parameter from calling form
                     // maybe create function for filter
                 }
                 else
                 {
-                    this.vehicleDetailsTableAdapter.FillBy(this.dsQWSLocal.VehicleDetails, strSearch);
+                    this.taVehicleDetails2.FillBy(this.dsQWSLocal2024.VehicleDetails, strSearch);
                 }
             }
             catch (Exception ex)
@@ -84,10 +84,10 @@ namespace QWS_Local
 
         private void VehicleSet()
         {
-            if (bsVehicleDetails.Count > 0)
+            if (bsVehicleDetails2.Count > 0)
             {
-                DataRow myDR = ((DataRowView)bsVehicleDetails.Current).Row;
-                dsQWSLocal.VehicleDetailsRow vehicleDetailsRow = (dsQWSLocal.VehicleDetailsRow)myDR;
+                DataRow myDR = ((DataRowView)bsVehicleDetails2.Current).Row;
+                dsQWSLocal2024.VehicleDetailsRow vehicleDetailsRow = (dsQWSLocal2024.VehicleDetailsRow)myDR;
                 myRego = vehicleDetailsRow.Rego;
                 myCardCode = vehicleDetailsRow.CardCode;
             }
@@ -115,27 +115,27 @@ namespace QWS_Local
         {
             if (Exact == true) 
             {
-                this.bsVehicleDetails.Filter = "AxleConfiguration like '" + AxleConfig + "'";
+                this.bsVehicleDetails2.Filter = "AxleConfiguration like '" + AxleConfig + "'";
             }
             else
             {
-                this.bsVehicleDetails.Filter = "AxleConfiguration like '" + AxleConfig + "%'";
+                this.bsVehicleDetails2.Filter = "AxleConfiguration like '" + AxleConfig + "%'";
             }
         }
 
         private void FilterByTrailers()
         {
-            this.bsVehicleDetails.Filter = "IsLeadVehicle = 0";
+            this.bsVehicleDetails2.Filter = "IsLeadVehicle = 0";
         }
 
         private void btnTruck_Click(object sender, EventArgs e)
         {
-                this.bsVehicleDetails.Filter = "IsLeadVehicle = 1";
+                this.bsVehicleDetails2.Filter = "IsLeadVehicle = 1";
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            this.bsVehicleDetails.Filter = "";
+            this.bsVehicleDetails2.Filter = "";
         }
     }
 }
