@@ -31,10 +31,18 @@ namespace QWS_Local
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VehicleRegFeeCodes));
-            this.vehicleRegFeeCodesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.vehicleRegFeeCodesTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.VehicleRegFeeCodesTableAdapter();
+            this.feeCodeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jurisdictionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.feeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.feeTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.feeConditionsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Coupling = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Axles = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsLeadVehicle = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.MaxTrailers = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maxAxlesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maxGVMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -48,36 +56,18 @@ namespace QWS_Local
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.feeCodeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jurisdictionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.feeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.feeTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.feeConditionsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Coupling = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Axles = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsLeadVehicle = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.MaxTrailers = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxAxlesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxGVMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleRegFeeCodesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
+            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
+            this.bsFeeCodes = new System.Windows.Forms.BindingSource(this.components);
+            this.taFeeCodes = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsFeeCodes)).BeginInit();
             this.SuspendLayout();
-            // 
-            // vehicleRegFeeCodesBindingSource
-            // 
-            this.vehicleRegFeeCodesBindingSource.DataMember = "VehicleRegFeeCodes";
-            this.vehicleRegFeeCodesBindingSource.DataSource = this.dsQWSLocal;
-            // 
-            // dsQWSLocal
-            // 
-            this.dsQWSLocal.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dataGridView1
             // 
@@ -96,21 +86,84 @@ namespace QWS_Local
             this.MaxTrailers,
             this.maxAxlesDataGridViewTextBoxColumn,
             this.maxGVMDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.vehicleRegFeeCodesBindingSource;
+            this.dataGridView1.DataSource = this.bsFeeCodes;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1200, 596);
             this.dataGridView1.TabIndex = 0;
             // 
-            // vehicleRegFeeCodesTableAdapter
+            // feeCodeIDDataGridViewTextBoxColumn
             // 
-            this.vehicleRegFeeCodesTableAdapter.ClearBeforeFill = true;
+            this.feeCodeIDDataGridViewTextBoxColumn.DataPropertyName = "FeeCodeID";
+            this.feeCodeIDDataGridViewTextBoxColumn.HeaderText = "FeeCodeID";
+            this.feeCodeIDDataGridViewTextBoxColumn.Name = "feeCodeIDDataGridViewTextBoxColumn";
+            this.feeCodeIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // jurisdictionDataGridViewTextBoxColumn
+            // 
+            this.jurisdictionDataGridViewTextBoxColumn.DataPropertyName = "Jurisdiction";
+            this.jurisdictionDataGridViewTextBoxColumn.HeaderText = "Jurisdiction";
+            this.jurisdictionDataGridViewTextBoxColumn.Name = "jurisdictionDataGridViewTextBoxColumn";
+            // 
+            // feeCodeDataGridViewTextBoxColumn
+            // 
+            this.feeCodeDataGridViewTextBoxColumn.DataPropertyName = "FeeCode";
+            this.feeCodeDataGridViewTextBoxColumn.HeaderText = "FeeCode";
+            this.feeCodeDataGridViewTextBoxColumn.Name = "feeCodeDataGridViewTextBoxColumn";
+            // 
+            // feeTypeDataGridViewTextBoxColumn
+            // 
+            this.feeTypeDataGridViewTextBoxColumn.DataPropertyName = "FeeType";
+            this.feeTypeDataGridViewTextBoxColumn.HeaderText = "FeeType";
+            this.feeTypeDataGridViewTextBoxColumn.Name = "feeTypeDataGridViewTextBoxColumn";
+            // 
+            // feeConditionsDataGridViewTextBoxColumn
+            // 
+            this.feeConditionsDataGridViewTextBoxColumn.DataPropertyName = "FeeConditions";
+            this.feeConditionsDataGridViewTextBoxColumn.HeaderText = "FeeConditions";
+            this.feeConditionsDataGridViewTextBoxColumn.Name = "feeConditionsDataGridViewTextBoxColumn";
+            this.feeConditionsDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // Coupling
+            // 
+            this.Coupling.DataPropertyName = "Coupling";
+            this.Coupling.HeaderText = "Coupling";
+            this.Coupling.Name = "Coupling";
+            // 
+            // Axles
+            // 
+            this.Axles.DataPropertyName = "Axles";
+            this.Axles.HeaderText = "Axles";
+            this.Axles.Name = "Axles";
+            // 
+            // IsLeadVehicle
+            // 
+            this.IsLeadVehicle.DataPropertyName = "IsLeadVehicle";
+            this.IsLeadVehicle.HeaderText = "IsLeadVehicle";
+            this.IsLeadVehicle.Name = "IsLeadVehicle";
+            // 
+            // MaxTrailers
+            // 
+            this.MaxTrailers.DataPropertyName = "MaxTrailers";
+            this.MaxTrailers.HeaderText = "MaxTrailers";
+            this.MaxTrailers.Name = "MaxTrailers";
+            // 
+            // maxAxlesDataGridViewTextBoxColumn
+            // 
+            this.maxAxlesDataGridViewTextBoxColumn.DataPropertyName = "MaxAxles";
+            this.maxAxlesDataGridViewTextBoxColumn.HeaderText = "MaxAxles";
+            this.maxAxlesDataGridViewTextBoxColumn.Name = "maxAxlesDataGridViewTextBoxColumn";
+            // 
+            // maxGVMDataGridViewTextBoxColumn
+            // 
+            this.maxGVMDataGridViewTextBoxColumn.DataPropertyName = "MaxGVM";
+            this.maxGVMDataGridViewTextBoxColumn.HeaderText = "MaxGVM";
+            this.maxGVMDataGridViewTextBoxColumn.Name = "maxGVMDataGridViewTextBoxColumn";
             // 
             // bindingNavigator1
             // 
             this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.bindingNavigator1.BindingSource = this.vehicleRegFeeCodesBindingSource;
             this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator1.DeleteItem = null;
             this.bindingNavigator1.Dock = System.Windows.Forms.DockStyle.None;
@@ -243,73 +296,19 @@ namespace QWS_Local
             // 
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.bindingNavigator1);
             // 
-            // feeCodeIDDataGridViewTextBoxColumn
+            // dsQWSLocal2024
             // 
-            this.feeCodeIDDataGridViewTextBoxColumn.DataPropertyName = "FeeCodeID";
-            this.feeCodeIDDataGridViewTextBoxColumn.HeaderText = "FeeCodeID";
-            this.feeCodeIDDataGridViewTextBoxColumn.Name = "feeCodeIDDataGridViewTextBoxColumn";
-            this.feeCodeIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
+            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // jurisdictionDataGridViewTextBoxColumn
+            // bsFeeCodes
             // 
-            this.jurisdictionDataGridViewTextBoxColumn.DataPropertyName = "Jurisdiction";
-            this.jurisdictionDataGridViewTextBoxColumn.HeaderText = "Jurisdiction";
-            this.jurisdictionDataGridViewTextBoxColumn.Name = "jurisdictionDataGridViewTextBoxColumn";
+            this.bsFeeCodes.DataMember = "VehicleRegFeeCodes";
+            this.bsFeeCodes.DataSource = this.dsQWSLocal2024;
             // 
-            // feeCodeDataGridViewTextBoxColumn
+            // taFeeCodes
             // 
-            this.feeCodeDataGridViewTextBoxColumn.DataPropertyName = "FeeCode";
-            this.feeCodeDataGridViewTextBoxColumn.HeaderText = "FeeCode";
-            this.feeCodeDataGridViewTextBoxColumn.Name = "feeCodeDataGridViewTextBoxColumn";
-            // 
-            // feeTypeDataGridViewTextBoxColumn
-            // 
-            this.feeTypeDataGridViewTextBoxColumn.DataPropertyName = "FeeType";
-            this.feeTypeDataGridViewTextBoxColumn.HeaderText = "FeeType";
-            this.feeTypeDataGridViewTextBoxColumn.Name = "feeTypeDataGridViewTextBoxColumn";
-            // 
-            // feeConditionsDataGridViewTextBoxColumn
-            // 
-            this.feeConditionsDataGridViewTextBoxColumn.DataPropertyName = "FeeConditions";
-            this.feeConditionsDataGridViewTextBoxColumn.HeaderText = "FeeConditions";
-            this.feeConditionsDataGridViewTextBoxColumn.Name = "feeConditionsDataGridViewTextBoxColumn";
-            this.feeConditionsDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // Coupling
-            // 
-            this.Coupling.DataPropertyName = "Coupling";
-            this.Coupling.HeaderText = "Coupling";
-            this.Coupling.Name = "Coupling";
-            // 
-            // Axles
-            // 
-            this.Axles.DataPropertyName = "Axles";
-            this.Axles.HeaderText = "Axles";
-            this.Axles.Name = "Axles";
-            // 
-            // IsLeadVehicle
-            // 
-            this.IsLeadVehicle.DataPropertyName = "IsLeadVehicle";
-            this.IsLeadVehicle.HeaderText = "IsLeadVehicle";
-            this.IsLeadVehicle.Name = "IsLeadVehicle";
-            // 
-            // MaxTrailers
-            // 
-            this.MaxTrailers.DataPropertyName = "MaxTrailers";
-            this.MaxTrailers.HeaderText = "MaxTrailers";
-            this.MaxTrailers.Name = "MaxTrailers";
-            // 
-            // maxAxlesDataGridViewTextBoxColumn
-            // 
-            this.maxAxlesDataGridViewTextBoxColumn.DataPropertyName = "MaxAxles";
-            this.maxAxlesDataGridViewTextBoxColumn.HeaderText = "MaxAxles";
-            this.maxAxlesDataGridViewTextBoxColumn.Name = "maxAxlesDataGridViewTextBoxColumn";
-            // 
-            // maxGVMDataGridViewTextBoxColumn
-            // 
-            this.maxGVMDataGridViewTextBoxColumn.DataPropertyName = "MaxGVM";
-            this.maxGVMDataGridViewTextBoxColumn.HeaderText = "MaxGVM";
-            this.maxGVMDataGridViewTextBoxColumn.Name = "maxGVMDataGridViewTextBoxColumn";
+            this.taFeeCodes.ClearBeforeFill = true;
             // 
             // VehicleRegFeeCodes
             // 
@@ -322,8 +321,6 @@ namespace QWS_Local
             this.Name = "VehicleRegFeeCodes";
             this.Text = "VehicleRegFeeCodes";
             this.Load += new System.EventHandler(this.VehicleRegFeeCodes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.vehicleRegFeeCodesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
@@ -333,15 +330,14 @@ namespace QWS_Local
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsFeeCodes)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
-        private dsQWSLocal dsQWSLocal;
-        private System.Windows.Forms.BindingSource vehicleRegFeeCodesBindingSource;
-        private dsQWSLocalTableAdapters.VehicleRegFeeCodesTableAdapter vehicleRegFeeCodesTableAdapter;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -366,5 +362,8 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn MaxTrailers;
         private System.Windows.Forms.DataGridViewTextBoxColumn maxAxlesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maxGVMDataGridViewTextBoxColumn;
+        private dsQWSLocal2024 dsQWSLocal2024;
+        private System.Windows.Forms.BindingSource bsFeeCodes;
+        private dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter taFeeCodes;
     }
 }

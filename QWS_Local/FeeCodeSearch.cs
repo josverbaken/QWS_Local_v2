@@ -12,9 +12,9 @@ namespace QWS_Local
 {
     public partial class FeeCodeSearch : Form
     {
-        private dsQWSLocal.VehicleRegFeeCodesRow myFeeCodeRow;
+        private dsQWSLocal2024.VehicleRegFeeCodesRow myFeeCodeRow;
 
-        public dsQWSLocal.VehicleRegFeeCodesRow _FeeCodeRow
+        public dsQWSLocal2024.VehicleRegFeeCodesRow _FeeCodeRow
         {
             get { return myFeeCodeRow; }
         }
@@ -24,10 +24,10 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        private dsQWSLocal.VehicleRegFeeCodesRow CurrentVehicleRegFeeCode()
+        private dsQWSLocal2024.VehicleRegFeeCodesRow CurrentVehicleRegFeeCode()
         {
-            DataRow myDR = ((DataRowView)vehicleRegFeeCodesBindingSource.Current).Row;
-            dsQWSLocal.VehicleRegFeeCodesRow feeCodesRow = (dsQWSLocal.VehicleRegFeeCodesRow)myDR;
+            DataRow myDR = ((DataRowView)bsFeeCodes.Current).Row;
+            dsQWSLocal2024.VehicleRegFeeCodesRow feeCodesRow = (dsQWSLocal2024.VehicleRegFeeCodesRow)myDR;
             return feeCodesRow;           
         }
 
@@ -47,7 +47,7 @@ namespace QWS_Local
 
         private void FeeCodeSearch_Load(object sender, EventArgs e)
         {
-            this.vehicleRegFeeCodesTableAdapter.Fill(this.dsQWSLocal.VehicleRegFeeCodes);
+            this.taFeeCodes.Fill(this.dsQWSLocal2024.VehicleRegFeeCodes);
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace QWS_Local
 
         private void ClearFilters()
         {
-            vehicleRegFeeCodesBindingSource.RemoveFilter();
+            bsFeeCodes.RemoveFilter();
         }
 
         private void rbFeeCode_CheckedChanged(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace QWS_Local
            if (rbFeeCode.Checked == true)
             {
                 string strFilter = "FeeCode like '%" + this.feeCodeTextBox.Text + "%'";
-                vehicleRegFeeCodesBindingSource.Filter = strFilter;
+                bsFeeCodes.Filter = strFilter;
             }
         }
 
@@ -83,8 +83,21 @@ namespace QWS_Local
             if (rbCoupling.Checked == true)
             {
                 string strFilter = "Coupling like '" + this.couplingTextBox.Text + "'";
-                vehicleRegFeeCodesBindingSource.Filter = strFilter;
+                bsFeeCodes.Filter = strFilter;
             }
+        }
+
+        private void vehicleRegFeeCodesBindingSource1BindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.bsFeeCodes.EndEdit();
+            this.tableAdapterManager1.UpdateAll(this.dsQWSLocal2024);
+
+        }
+
+        private void FeeCodeSearch_Load_1(object sender, EventArgs e)
+        {
+            // nothing yet
         }
     }
 }

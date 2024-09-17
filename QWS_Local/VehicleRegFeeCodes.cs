@@ -21,7 +21,7 @@ namespace QWS_Local
         {
             try
             {
-                this.vehicleRegFeeCodesTableAdapter.Fill(this.dsQWSLocal.VehicleRegFeeCodes);
+                this.taFeeCodes.Fill(this.dsQWSLocal2024.VehicleRegFeeCodes);
             }
             catch (Exception ex)
             {
@@ -29,13 +29,12 @@ namespace QWS_Local
             }
 
         }
-
  
         private void toolStripButton1_Click_1(object sender, EventArgs e)
         {
             this.Validate();
-            this.vehicleRegFeeCodesBindingSource.EndEdit();
-            this.vehicleRegFeeCodesTableAdapter.Update(this.dsQWSLocal.VehicleRegFeeCodes);
+            this.bsFeeCodes.EndEdit();
+            this.taFeeCodes.Update(this.dsQWSLocal2024.VehicleRegFeeCodes);
         }
     }
 }
