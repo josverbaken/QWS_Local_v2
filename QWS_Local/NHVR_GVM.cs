@@ -14,10 +14,8 @@ namespace QWS_Local
     {
         private string NHVRFilter = "";
         private string GMLFilter = "";
-        private string AxleCfgFilter = "";
         private string SteerAxleFilter = "";
         private string MassMgmtFilter = "";
-        private string RFSFilter = "";
 
         public NHVR_GVM()
         {

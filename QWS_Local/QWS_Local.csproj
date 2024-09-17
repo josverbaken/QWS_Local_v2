@@ -236,6 +236,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsDocketReport.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsPBS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPBS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsQWSLocal.cs">
       <DependentUpon>dsQWSLocal.xsd</DependentUpon>
     </Compile>
@@ -531,6 +536,17 @@
     </None>
     <None Include="dsDocketReport.xss">
       <DependentUpon>dsDocketReport.xsd</DependentUpon>
+    </None>
+    <None Include="dsPBS.xsc">
+      <DependentUpon>dsPBS.xsd</DependentUpon>
+    </None>
+    <None Include="dsPBS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPBS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsPBS.xss">
+      <DependentUpon>dsPBS.xsd</DependentUpon>
     </None>
     <None Include="dsQWSLocal.xsc">
       <DependentUpon>dsQWSLocal.xsd</DependentUpon>

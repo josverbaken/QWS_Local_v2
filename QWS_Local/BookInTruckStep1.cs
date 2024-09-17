@@ -13,7 +13,6 @@ namespace QWS_Local
 {
     public partial class BookInTruckStep1 : Form
     {
-        private static bool FormLoaded = false;
         private static DateTime EntryDTTM;
         private static string CustCardCode;
         private static string ExBinCustomer;
@@ -144,7 +143,6 @@ namespace QWS_Local
 
         private void BookInTruckStep1_Load(object sender, EventArgs e)
         {
-            FormLoaded = true;
             this.KeyPreview = true;
             if (CallingMessage.Length > 0)
             {

@@ -22,6 +22,10 @@ namespace QWS_Local
 
         private void Vehicle_Maintenance_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsQWSLocal2024.VehicleRegFeeCodes' table. You can move, or remove it, as needed.
+            this.taFeeCodes.Fill(this.dsQWSLocal2024.VehicleRegFeeCodes);
+            // TODO: This line of code loads data into the 'dsQWSLocal2024.VehiclePBS' table. You can move, or remove it, as needed.
+            this.taVehiclePBS2.Fill(this.dsQWSLocal2024.VehiclePBS);
             try
             {
                 txtJurisdiction.Text = Properties.Settings.Default.defaultJurisdiction;
@@ -142,7 +146,7 @@ namespace QWS_Local
         {
             try
             {
-                int iCount =  this.vehicleRegFeeCodesTableAdapter.FillByID(this.dsQWSLocal.VehicleRegFeeCodes,FeeCodeID);
+                int iCount =  this.taFeeCodes.FillByID(this.dsQWSLocal2024.VehicleRegFeeCodes,FeeCodeID);
                 if (iCount != 1)
                 {
                     MessageBox.Show("Fee Code Error");
@@ -152,7 +156,7 @@ namespace QWS_Local
             {
                 string strError = ex.Message;
                 strError += " !";
-                vehicleRegFeeCodesBindingSource.Position = vehicleRegFeeCodesBindingSource.Find("FeeCodeID", Properties.Settings.Default.defaultFeeCodeID);
+                bsFeeCodes.Position = bsFeeCodes.Find("FeeCodeID", Properties.Settings.Default.defaultFeeCodeID);
             }
         }
 
@@ -168,7 +172,7 @@ namespace QWS_Local
             }
             catch (Exception)
             {
-                axleConfigurationBindingSource.Position = axleConfigurationBindingSource.Find("AxleConfiguration", Properties.Settings.Default.defaultAxleConfig);
+                bsAxleConfig.Position = bsAxleConfig.Find("AxleConfiguration", Properties.Settings.Default.defaultAxleConfig);
             }
         }
 
@@ -188,12 +192,12 @@ namespace QWS_Local
 
         private void btnSetAxleConfig_Click(object sender, EventArgs e) => AxleConfiguration();
 
-        private dsQWSLocal.VehicleRegFeeCodesRow CurrentFeeCode()
+        private dsQWSLocal2024.VehicleRegFeeCodesRow CurrentFeeCode()
         {
             try
             {
-                DataRow myFeeCode = ((DataRowView)vehicleRegFeeCodesBindingSource.Current).Row;
-            dsQWSLocal.VehicleRegFeeCodesRow vehicleRegFeeCodesRow = (dsQWSLocal.VehicleRegFeeCodesRow)myFeeCode;
+                DataRow myFeeCode = ((DataRowView)bsFeeCodes.Current).Row;
+            dsQWSLocal2024.VehicleRegFeeCodesRow vehicleRegFeeCodesRow = (dsQWSLocal2024.VehicleRegFeeCodesRow)myFeeCode;
             return vehicleRegFeeCodesRow;
             }
             catch (Exception ex)
@@ -215,12 +219,12 @@ namespace QWS_Local
             }
         }
 
-        private dsQWSLocal.AxleConfigurationRow CurrentAxleConfiguration()
+        private dsQWSLocal2024.AxleConfigurationRow CurrentAxleConfiguration()
         {
             try
             {
-                DataRow myAxleConfig = ((DataRowView)axleConfigurationBindingSource.Current).Row;
-                dsQWSLocal.AxleConfigurationRow axleConfigurationRow = (dsQWSLocal.AxleConfigurationRow)myAxleConfig;
+                DataRow myAxleConfig = ((DataRowView)bsAxleConfig.Current).Row;
+                dsQWSLocal2024.AxleConfigurationRow axleConfigurationRow = (dsQWSLocal2024.AxleConfigurationRow)myAxleConfig;
                 return axleConfigurationRow;
             }
             catch (Exception ex)
@@ -359,7 +363,7 @@ namespace QWS_Local
         private void SetFeeCode()
         { 
             int iCount = -1;
-            iCount = vehicleRegFeeCodesTableAdapter.FillByBoth(dsQWSLocal.VehicleRegFeeCodes, txtFeeCode.Text,txtJurisdiction.Text);
+            iCount = taFeeCodes.FillByBoth(dsQWSLocal2024.VehicleRegFeeCodes, txtFeeCode.Text,txtJurisdiction.Text);
             if (iCount != 1)
             {
                 MessageBox.Show("exact fee code not found");
@@ -385,7 +389,7 @@ namespace QWS_Local
             {
                 CurrentVehicle().FeeCodeID = feeCodeSearch._FeeCodeRow.FeeCodeID;
 
-                this.vehicleRegFeeCodesTableAdapter.FillByBoth(this.dsQWSLocal.VehicleRegFeeCodes, feeCodeSearch._FeeCodeRow.FeeCode, feeCodeSearch._FeeCodeRow.Jurisdiction);
+                this.taFeeCodes.FillByBoth(this.dsQWSLocal2024.VehicleRegFeeCodes, feeCodeSearch._FeeCodeRow.FeeCode, feeCodeSearch._FeeCodeRow.Jurisdiction);
 
                 txtRegoExpiryDT.Focus();
             }
@@ -534,8 +538,8 @@ namespace QWS_Local
         {
             try
             {
-                bsVehiclePBS.EndEdit();
-                this.taVehiclePBS.Update(dsQWSLocal.VehiclePBS);
+                bsVehiclePBS2.EndEdit();
+                this.taVehiclePBS2.Update(dsQWSLocal2024.VehiclePBS);
             }
             catch (Exception ex)
             {
@@ -547,7 +551,7 @@ namespace QWS_Local
         {
             try
             {
-              int iCount =  this.taVehiclePBS.FillBy(this.dsQWSLocal.VehiclePBS,Rego);
+              int iCount =  this.taVehiclePBS2.FillBy(this.dsQWSLocal2024.VehiclePBS,Rego);
                 iCount += 1;
             }
             catch (Exception ex)
@@ -567,12 +571,12 @@ namespace QWS_Local
                 MessageBox.Show(ex.Message);            }
         }
 
-        private dsQWSLocal.VehiclePBSRow NewVehiclePBS()
+        private dsQWSLocal2024.VehiclePBSRow NewVehiclePBS()
         {
             try
             {
-                DataRow dr = dsQWSLocal.VehiclePBS.NewRow();
-            dsQWSLocal.VehiclePBSRow vehiclePBSRow = (dsQWSLocal.VehiclePBSRow)dr;
+                DataRow dr = dsQWSLocal2024.VehiclePBS.NewRow();
+            dsQWSLocal2024.VehiclePBSRow vehiclePBSRow = (dsQWSLocal2024.VehiclePBSRow)dr;
             vehiclePBSRow.Rego = CurrentVehicle().Rego;
                 vehiclePBSRow.VehicleApproval = -9;
                 return vehiclePBSRow;
@@ -593,11 +597,11 @@ namespace QWS_Local
         {
             try
             {
-                DataRow dr = dsQWSLocal.VehiclePBS.NewRow();
-                dsQWSLocal.VehiclePBSRow vehiclePBSRow = (dsQWSLocal.VehiclePBSRow)dr;
+                DataRow dr = dsQWSLocal2024.VehiclePBS.NewRow();
+                dsQWSLocal2024.VehiclePBSRow vehiclePBSRow = (dsQWSLocal2024.VehiclePBSRow)dr;
                 vehiclePBSRow.Rego = CurrentVehicle().Rego;
                 vehiclePBSRow.VehicleApproval = 0; // System.Convert.ToInt32(txtPBS_VA.Text);
-                dsQWSLocal.VehiclePBS.AddVehiclePBSRow(vehiclePBSRow);
+                dsQWSLocal2024.VehiclePBS.AddVehiclePBSRow(vehiclePBSRow);
                 //txtPBS_VA.Text = "";
             }
             catch (Exception ex)

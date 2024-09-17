@@ -648,7 +648,6 @@
         private dsTIQ2 dsTIQ2;
         private System.Windows.Forms.BindingSource bsStockpileLotAllocation;
         private dsTIQ2TableAdapters.StockpileLotAllocationTableAdapter taStockpileLotAllocation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn allocationIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mCODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn BaseItemCode;
