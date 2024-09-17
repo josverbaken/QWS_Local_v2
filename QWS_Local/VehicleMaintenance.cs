@@ -44,8 +44,8 @@ namespace QWS_Local
             {
                 CurrentVehicle().Rego = CurrentVehicle().Rego.ToUpper();
                 this.Validate();
-                this.vehicleBindingSource.EndEdit();
-                this.vehicleTableAdapter.Update(dsQWSLocal.Vehicle);
+                this.bsVehicle.EndEdit();
+                this.taVehicle.Update(dsQWSLocal2024.Vehicle);
             }
             catch (Exception ex)
             {
@@ -53,12 +53,12 @@ namespace QWS_Local
             }
         }
 
-        private dsQWSLocal.VehicleRow CurrentVehicle()
+        private dsQWSLocal2024.VehicleRow CurrentVehicle()
         {
             try
             {
-                DataRow myDR = ((DataRowView)vehicleBindingSource.Current).Row;
-                dsQWSLocal.VehicleRow vehicleRow = (dsQWSLocal.VehicleRow)myDR;
+                DataRow myDR = ((DataRowView)bsVehicle.Current).Row;
+                dsQWSLocal2024.VehicleRow vehicleRow = (dsQWSLocal2024.VehicleRow)myDR;
                 return vehicleRow;
             }
             catch (Exception ex)
@@ -78,12 +78,12 @@ namespace QWS_Local
                     string strSearch = this.txtRego.Text;
                     string _SAPCode = "";
                     string _Owner = "";
-                    if (vehicleBindingSource.Count > 0) //to carry over owner for new truck 
+                    if (bsVehicle.Count > 0) //to carry over owner for new truck 
                     {
                         _SAPCode = CurrentVehicle().CardCode;
                         _Owner = CurrentVehicle().Owner;
                     }
-                    int iRows = this.vehicleTableAdapter.FillBy(dsQWSLocal.Vehicle, strSearch);
+                    int iRows = this.taVehicle.FillBy(dsQWSLocal2024.Vehicle, strSearch);
                     switch (iRows)
                     {
                         case 0: DialogResult dr = MessageBox.Show("No Vehicles Found! Do you wish to add this Rego?","Add New Vehicle", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
@@ -94,7 +94,7 @@ namespace QWS_Local
                                 {
                                     CurrentVehicle().CardCode = _SAPCode;
                                     CurrentVehicle().Owner = _Owner;
-                                    vehicleBindingSource.EndEdit();
+                                    bsVehicle.EndEdit();
                                 }
                                 txtVIN.Focus();
                             }
@@ -112,7 +112,7 @@ namespace QWS_Local
                             DialogResult dr1 = vehicleSearch.ShowDialog();
                             if (dr1 == DialogResult.OK)
                             {
-                                iRows = this.vehicleTableAdapter.FillBy(dsQWSLocal.Vehicle, vehicleSearch.Rego);
+                                iRows = this.taVehicle.FillBy(dsQWSLocal2024.Vehicle, vehicleSearch.Rego);
                                 iRows += 2;
                                 SynchAxleConfig(CurrentVehicle().AxleConfiguration);
                                 SynchFeeCode(CurrentVehicle().FeeCodeID);
@@ -263,7 +263,7 @@ namespace QWS_Local
                 { 
                     CurrentVehicle().CardCode = businessSearch.SAPCode;
                     CurrentVehicle().Owner = businessSearch.BusinessName;
-                    vehicleBindingSource.EndEdit();
+                    bsVehicle.EndEdit();
                     txtVehicleMake.Focus();
                 }
                 else if (dr == DialogResult.Abort )
@@ -408,7 +408,7 @@ namespace QWS_Local
             }
             else
             {
-                int iCount = this.vehicleTableAdapter.FillBy(dsQWSLocal.Vehicle, newRego);
+                int iCount = this.taVehicle.FillBy(dsQWSLocal2024.Vehicle, newRego);
                 if (iCount == 0)
                 {
                     AddVehicle(newRego);
@@ -425,9 +425,9 @@ namespace QWS_Local
 
         private void AddVehicle(string newRego)
         {
-            dsQWSLocal.Vehicle.Clear();
-            DataRow dr = dsQWSLocal.Vehicle.NewRow();
-            dsQWSLocal.VehicleRow vehicleRow = (dsQWSLocal.VehicleRow)dr;
+            dsQWSLocal2024.Vehicle.Clear();
+            DataRow dr = dsQWSLocal2024.Vehicle.NewRow();
+            dsQWSLocal2024.VehicleRow vehicleRow = (dsQWSLocal2024.VehicleRow)dr;
             vehicleRow.Rego = newRego; //don't overwrite user input
             vehicleRow.VIN = "";
             vehicleRow.CardCode = "";
@@ -436,7 +436,7 @@ namespace QWS_Local
             vehicleRow.Model = "";
             vehicleRow.CreateDTTM = DateTime.Now;
             vehicleRow.RegistrationExpiryDT = DateTime.Now;
-            dsQWSLocal.Vehicle.AddVehicleRow(vehicleRow);
+            dsQWSLocal2024.Vehicle.AddVehicleRow(vehicleRow);
             SynchAxleConfig("tba");
             SynchFeeCode(0); // 0 = unspecified, see database
             txtRego.Focus();
@@ -444,9 +444,9 @@ namespace QWS_Local
 
         private void AddTruck(string SAPCode, string Owner)
         {
-            dsQWSLocal.Vehicle.Clear();
-            DataRow dr = dsQWSLocal.Vehicle.NewRow();
-            dsQWSLocal.VehicleRow vehicleRow = (dsQWSLocal.VehicleRow)dr;
+            dsQWSLocal2024.Vehicle.Clear();
+            DataRow dr = dsQWSLocal2024.Vehicle.NewRow();
+            dsQWSLocal2024.VehicleRow vehicleRow = (dsQWSLocal2024.VehicleRow)dr;
             vehicleRow.Rego = "NewReg";
             vehicleRow.VIN = "";
             vehicleRow.CardCode = SAPCode;
@@ -454,7 +454,7 @@ namespace QWS_Local
             vehicleRow.Make = "";
             vehicleRow.Model = "";
             vehicleRow.RegistrationExpiryDT = DateTime.Now;
-            dsQWSLocal.Vehicle.AddVehicleRow(vehicleRow);
+            dsQWSLocal2024.Vehicle.AddVehicleRow(vehicleRow);
             SynchAxleConfig("tba");
             SynchFeeCode(0);
             txtRego.Focus();
@@ -512,8 +512,8 @@ namespace QWS_Local
             DialogResult dr1 = vehicleSearch.ShowDialog();
             if (dr1 == DialogResult.OK)
             {
-                dsQWSLocal.Clear();
-                int iRows = this.vehicleTableAdapter.FillBy(dsQWSLocal.Vehicle, vehicleSearch.Rego);
+                dsQWSLocal2024.Clear();
+                int iRows = this.taVehicle.FillBy(dsQWSLocal2024.Vehicle, vehicleSearch.Rego);
                 iRows += 2;
                 SynchAxleConfig(CurrentVehicle().AxleConfiguration);
                 SynchFeeCode(CurrentVehicle().FeeCodeID);

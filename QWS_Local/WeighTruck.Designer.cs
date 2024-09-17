@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbAuto = new System.Windows.Forms.RadioButton();
+            this.rbManual = new System.Windows.Forms.RadioButton();
             this.rbWB3 = new System.Windows.Forms.RadioButton();
             this.rbWB2 = new System.Windows.Forms.RadioButton();
             this.rbWB1 = new System.Windows.Forms.RadioButton();
             this.mtxtWeight = new System.Windows.Forms.MaskedTextBox();
-            this.rbManual = new System.Windows.Forms.RadioButton();
-            this.rbAuto = new System.Windows.Forms.RadioButton();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
             this.txtInstruction = new System.Windows.Forms.TextBox();
@@ -48,12 +48,33 @@
             // 
             this.groupBox1.Controls.Add(this.rbAuto);
             this.groupBox1.Controls.Add(this.rbManual);
-            this.groupBox1.Location = new System.Drawing.Point(43, 85);
+            this.groupBox1.Location = new System.Drawing.Point(43, 119);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(346, 71);
             this.groupBox1.TabIndex = 59;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Weighing Mode";
+            // 
+            // rbAuto
+            // 
+            this.rbAuto.AutoSize = true;
+            this.rbAuto.Location = new System.Drawing.Point(128, 34);
+            this.rbAuto.Name = "rbAuto";
+            this.rbAuto.Size = new System.Drawing.Size(56, 22);
+            this.rbAuto.TabIndex = 0;
+            this.rbAuto.Text = "Auto";
+            this.rbAuto.UseVisualStyleBackColor = true;
+            this.rbAuto.CheckedChanged += new System.EventHandler(this.rbAuto_CheckedChanged);
+            // 
+            // rbManual
+            // 
+            this.rbManual.AutoSize = true;
+            this.rbManual.Location = new System.Drawing.Point(248, 34);
+            this.rbManual.Name = "rbManual";
+            this.rbManual.Size = new System.Drawing.Size(74, 22);
+            this.rbManual.TabIndex = 1;
+            this.rbManual.Text = "Manual";
+            this.rbManual.UseVisualStyleBackColor = true;
             // 
             // rbWB3
             // 
@@ -104,27 +125,6 @@
             this.mtxtWeight.TabIndex = 2;
             this.mtxtWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // rbManual
-            // 
-            this.rbManual.AutoSize = true;
-            this.rbManual.Location = new System.Drawing.Point(248, 34);
-            this.rbManual.Name = "rbManual";
-            this.rbManual.Size = new System.Drawing.Size(74, 22);
-            this.rbManual.TabIndex = 1;
-            this.rbManual.Text = "Manual";
-            this.rbManual.UseVisualStyleBackColor = true;
-            // 
-            // rbAuto
-            // 
-            this.rbAuto.AutoSize = true;
-            this.rbAuto.Location = new System.Drawing.Point(128, 34);
-            this.rbAuto.Name = "rbAuto";
-            this.rbAuto.Size = new System.Drawing.Size(56, 22);
-            this.rbAuto.TabIndex = 0;
-            this.rbAuto.Text = "Auto";
-            this.rbAuto.UseVisualStyleBackColor = true;
-            this.rbAuto.CheckedChanged += new System.EventHandler(this.rbAuto_CheckedChanged);
-            // 
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -167,7 +167,7 @@
             this.panel1.Controls.Add(this.rbWB1);
             this.panel1.Controls.Add(this.rbWB2);
             this.panel1.Controls.Add(this.rbWB3);
-            this.panel1.Location = new System.Drawing.Point(43, 162);
+            this.panel1.Location = new System.Drawing.Point(43, 74);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(346, 39);
             this.panel1.TabIndex = 69;

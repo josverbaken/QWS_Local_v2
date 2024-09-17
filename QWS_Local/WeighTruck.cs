@@ -57,12 +57,12 @@ namespace QWS_Local
 
         private void WeighTruck_Load(object sender, EventArgs e)
         {
-            txtInstruction.Text = Instruction;  
             if (Properties.Settings.Default.WBCount > 1)
             {
                 rbWB1.Visible = true;
                 rbWB2.Visible = true;
-                rbWB3.Visible = true;   
+                rbWB3.Visible = true;
+                Instruction += "\r\nSelect Weighbridge.";
             }
             else
             {
@@ -70,6 +70,7 @@ namespace QWS_Local
                 rbWB2.Visible= false;
                 rbWB3.Visible= false;
             }
+            txtInstruction.Text = Instruction;
             if (Properties.Settings.Default.AutoWeigh == true)
             {
                 rbAuto.Checked = true;
