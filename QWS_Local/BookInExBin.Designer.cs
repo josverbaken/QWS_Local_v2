@@ -787,6 +787,7 @@ namespace QWS_Local
             // 
             // mobTextBox
             // 
+            this.mobTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Mob", true));
             this.mobTextBox.Location = new System.Drawing.Point(553, 99);
             this.mobTextBox.Name = "mobTextBox";
             this.mobTextBox.Size = new System.Drawing.Size(100, 23);
@@ -794,6 +795,7 @@ namespace QWS_Local
             // 
             // personTextBox
             // 
+            this.personTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Person", true));
             this.personTextBox.Location = new System.Drawing.Point(553, 70);
             this.personTextBox.Name = "personTextBox";
             this.personTextBox.Size = new System.Drawing.Size(247, 23);
@@ -1982,6 +1984,7 @@ namespace QWS_Local
             this.tableAdapterManager4.NHVRTableAdapter = null;
             this.tableAdapterManager4.UpdateOrder = QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager4.VehiclePrefCustomersTableAdapter = null;
+            this.tableAdapterManager4.VehicleTableAdapter = null;
             // 
             // BookInExBin
             // 

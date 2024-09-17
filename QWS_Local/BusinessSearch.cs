@@ -51,12 +51,12 @@ namespace QWS_Local
             {
                 //if (txtSAPCode.Text != "Name or SAP Code")
                 //{
-                   int iCount = this.businessTableAdapter.FillByNameOrCode(this.dsQWSLocal.Business, txtSearch.Text);
+                   int iCount = this.taBusiness.FillByNameOrCode(this.dsQWSLocal2024.Business, txtSearch.Text);
                    //if (iCount > 0)
                    // {
                    //     txtSAPCode.Text = "Name or SAP Code";
                    // }
-                   //iCount += 2;
+                   iCount += 2;
                 //}
             }
             catch (Exception ex)
@@ -78,8 +78,8 @@ namespace QWS_Local
 
         private void SetOwnerParams()
         {
-            DataRow dataRow = ((DataRowView)businessBindingSource.Current).Row;
-            dsQWSLocal.BusinessRow businessRow = (dsQWSLocal.BusinessRow)dataRow;
+            DataRow dataRow = ((DataRowView)bsBusiness.Current).Row;
+            dsQWSLocal2024.BusinessRow businessRow = (dsQWSLocal2024.BusinessRow)dataRow;
             mySAPCode = businessRow.SAPCode;
             myBusinessName = businessRow.TradingName;
         }

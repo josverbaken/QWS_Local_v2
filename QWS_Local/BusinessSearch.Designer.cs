@@ -49,8 +49,12 @@ namespace QWS_Local
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.businessBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
+            this.sAPCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tradingNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DefaultContact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OfficePhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsBusiness = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
             this.tpDetails = new System.Windows.Forms.TabPage();
             this.sAPCodeTextBox = new System.Windows.Forms.TextBox();
             this.documentOwnerTextBox = new System.Windows.Forms.TextBox();
@@ -64,13 +68,8 @@ namespace QWS_Local
             this.btnDown = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
             this.btnUp = new System.Windows.Forms.Button();
-            this.businessTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.BusinessTableAdapter();
-            this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
-            this.sAPCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tradingNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccountStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DefaultContact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OfficePhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taBusiness = new QWS_Local.dsQWSLocal2024TableAdapters.BusinessTableAdapter();
+            this.tableAdapterManager1 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
             sAPCodeLabel = new System.Windows.Forms.Label();
             tradingNameLabel = new System.Windows.Forms.Label();
             alternateNameLabel = new System.Windows.Forms.Label();
@@ -91,8 +90,8 @@ namespace QWS_Local
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.businessBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsBusiness)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
             this.tpDetails.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -186,6 +185,7 @@ namespace QWS_Local
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.AutoScroll = true;
             this.splitContainer1.Panel1.Controls.Add(this.btnCancelNotFound);
             this.splitContainer1.Panel1.Controls.Add(this.txtSearch);
             this.splitContainer1.Panel1.Controls.Add(this.btnCancel1);
@@ -313,10 +313,9 @@ namespace QWS_Local
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.sAPCodeDataGridViewTextBoxColumn,
             this.tradingNameDataGridViewTextBoxColumn,
-            this.AccountStatus,
             this.DefaultContact,
             this.OfficePhone});
-            this.dataGridView1.DataSource = this.businessBindingSource;
+            this.dataGridView1.DataSource = this.bsBusiness;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
@@ -324,15 +323,42 @@ namespace QWS_Local
             this.dataGridView1.Size = new System.Drawing.Size(804, 479);
             this.dataGridView1.TabIndex = 0;
             // 
-            // businessBindingSource
+            // sAPCodeDataGridViewTextBoxColumn
             // 
-            this.businessBindingSource.DataMember = "Business";
-            this.businessBindingSource.DataSource = this.dsQWSLocal;
+            this.sAPCodeDataGridViewTextBoxColumn.DataPropertyName = "SAPCode";
+            this.sAPCodeDataGridViewTextBoxColumn.HeaderText = "SAPCode";
+            this.sAPCodeDataGridViewTextBoxColumn.Name = "sAPCodeDataGridViewTextBoxColumn";
+            this.sAPCodeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dsQWSLocal
+            // tradingNameDataGridViewTextBoxColumn
             // 
-            this.dsQWSLocal.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.tradingNameDataGridViewTextBoxColumn.DataPropertyName = "TradingName";
+            this.tradingNameDataGridViewTextBoxColumn.HeaderText = "Customer";
+            this.tradingNameDataGridViewTextBoxColumn.Name = "tradingNameDataGridViewTextBoxColumn";
+            this.tradingNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tradingNameDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // DefaultContact
+            // 
+            this.DefaultContact.HeaderText = "Contact";
+            this.DefaultContact.Name = "DefaultContact";
+            this.DefaultContact.ReadOnly = true;
+            // 
+            // OfficePhone
+            // 
+            this.OfficePhone.HeaderText = "Phone";
+            this.OfficePhone.Name = "OfficePhone";
+            this.OfficePhone.ReadOnly = true;
+            // 
+            // bsBusiness
+            // 
+            this.bsBusiness.DataMember = "Business";
+            this.bsBusiness.DataSource = this.dsQWSLocal2024;
+            // 
+            // dsQWSLocal2024
+            // 
+            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
+            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tpDetails
             // 
@@ -364,7 +390,7 @@ namespace QWS_Local
             // 
             // sAPCodeTextBox
             // 
-            this.sAPCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.businessBindingSource, "SAPCode", true));
+            this.sAPCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsBusiness, "SAPCode", true));
             this.sAPCodeTextBox.Location = new System.Drawing.Point(165, 31);
             this.sAPCodeTextBox.Name = "sAPCodeTextBox";
             this.sAPCodeTextBox.Size = new System.Drawing.Size(84, 24);
@@ -372,7 +398,7 @@ namespace QWS_Local
             // 
             // documentOwnerTextBox
             // 
-            this.documentOwnerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.businessBindingSource, "DocumentOwner", true));
+            this.documentOwnerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsBusiness, "DocumentOwner", true));
             this.documentOwnerTextBox.Location = new System.Drawing.Point(165, 211);
             this.documentOwnerTextBox.Name = "documentOwnerTextBox";
             this.documentOwnerTextBox.Size = new System.Drawing.Size(269, 24);
@@ -380,7 +406,7 @@ namespace QWS_Local
             // 
             // tradingNameTextBox
             // 
-            this.tradingNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.businessBindingSource, "TradingName", true));
+            this.tradingNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsBusiness, "TradingName", true));
             this.tradingNameTextBox.Location = new System.Drawing.Point(165, 61);
             this.tradingNameTextBox.Name = "tradingNameTextBox";
             this.tradingNameTextBox.Size = new System.Drawing.Size(269, 24);
@@ -388,7 +414,7 @@ namespace QWS_Local
             // 
             // pORequiredTextBox
             // 
-            this.pORequiredTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.businessBindingSource, "PORequired", true));
+            this.pORequiredTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsBusiness, "PORequired", true));
             this.pORequiredTextBox.Location = new System.Drawing.Point(401, 181);
             this.pORequiredTextBox.Name = "pORequiredTextBox";
             this.pORequiredTextBox.Size = new System.Drawing.Size(33, 24);
@@ -396,7 +422,7 @@ namespace QWS_Local
             // 
             // alternateNameTextBox
             // 
-            this.alternateNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.businessBindingSource, "AlternateName", true));
+            this.alternateNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsBusiness, "AlternateName", true));
             this.alternateNameTextBox.Location = new System.Drawing.Point(165, 91);
             this.alternateNameTextBox.Name = "alternateNameTextBox";
             this.alternateNameTextBox.Size = new System.Drawing.Size(269, 24);
@@ -404,7 +430,7 @@ namespace QWS_Local
             // 
             // accountStatusTextBox
             // 
-            this.accountStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.businessBindingSource, "AccountStatus", true));
+            this.accountStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsBusiness, "AccountStatus", true));
             this.accountStatusTextBox.Location = new System.Drawing.Point(165, 181);
             this.accountStatusTextBox.Name = "accountStatusTextBox";
             this.accountStatusTextBox.Size = new System.Drawing.Size(29, 24);
@@ -412,7 +438,7 @@ namespace QWS_Local
             // 
             // groupTextBox
             // 
-            this.groupTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.businessBindingSource, "Group", true));
+            this.groupTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsBusiness, "Group", true));
             this.groupTextBox.Location = new System.Drawing.Point(165, 121);
             this.groupTextBox.Name = "groupTextBox";
             this.groupTextBox.Size = new System.Drawing.Size(269, 24);
@@ -420,7 +446,7 @@ namespace QWS_Local
             // 
             // aBNTextBox
             // 
-            this.aBNTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.businessBindingSource, "ABN", true));
+            this.aBNTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsBusiness, "ABN", true));
             this.aBNTextBox.Location = new System.Drawing.Point(305, 31);
             this.aBNTextBox.Name = "aBNTextBox";
             this.aBNTextBox.Size = new System.Drawing.Size(129, 24);
@@ -428,7 +454,7 @@ namespace QWS_Local
             // 
             // aCTypeTextBox
             // 
-            this.aCTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.businessBindingSource, "ACType", true));
+            this.aCTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsBusiness, "ACType", true));
             this.aCTypeTextBox.Location = new System.Drawing.Point(165, 151);
             this.aCTypeTextBox.Name = "aCTypeTextBox";
             this.aCTypeTextBox.Size = new System.Drawing.Size(269, 24);
@@ -474,63 +500,19 @@ namespace QWS_Local
             this.btnUp.Text = "up";
             this.btnUp.UseVisualStyleBackColor = false;
             // 
-            // businessTableAdapter
+            // taBusiness
             // 
-            this.businessTableAdapter.ClearBeforeFill = true;
+            this.taBusiness.ClearBeforeFill = true;
             // 
-            // tableAdapterManager
+            // tableAdapterManager1
             // 
-            this.tableAdapterManager.AxleConfigurationTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.NHVLTableAdapter = null;
-            this.tableAdapterManager.PBS_ConfigSchemeTableAdapter = null;
-            this.tableAdapterManager.PBS_ConfigTableAdapter = null;
-            this.tableAdapterManager.PBSTableAdapter = null;
-            this.tableAdapterManager.SchemeCodesTableAdapter = null;
-            this.tableAdapterManager.TruckConfigTableAdapter = null;
-            this.tableAdapterManager.TruckConfigVehicleTableAdapter = null;
-            this.tableAdapterManager.TrucksInQuarryTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.VehiclePBSTableAdapter = null;
-            this.tableAdapterManager.VehiclePrefCustomersTableAdapter = null;
-            this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
-            this.tableAdapterManager.VehicleTableAdapter = null;
-            this.tableAdapterManager.VehicleTypeTableAdapter = null;
-            // 
-            // sAPCodeDataGridViewTextBoxColumn
-            // 
-            this.sAPCodeDataGridViewTextBoxColumn.DataPropertyName = "SAPCode";
-            this.sAPCodeDataGridViewTextBoxColumn.HeaderText = "CardCode";
-            this.sAPCodeDataGridViewTextBoxColumn.Name = "sAPCodeDataGridViewTextBoxColumn";
-            this.sAPCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tradingNameDataGridViewTextBoxColumn
-            // 
-            this.tradingNameDataGridViewTextBoxColumn.DataPropertyName = "TradingName";
-            this.tradingNameDataGridViewTextBoxColumn.HeaderText = "Business Partner";
-            this.tradingNameDataGridViewTextBoxColumn.Name = "tradingNameDataGridViewTextBoxColumn";
-            this.tradingNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tradingNameDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // AccountStatus
-            // 
-            this.AccountStatus.DataPropertyName = "AccountStatus";
-            this.AccountStatus.HeaderText = "AC Status";
-            this.AccountStatus.Name = "AccountStatus";
-            this.AccountStatus.ReadOnly = true;
-            // 
-            // DefaultContact
-            // 
-            this.DefaultContact.HeaderText = "Contact";
-            this.DefaultContact.Name = "DefaultContact";
-            this.DefaultContact.ReadOnly = true;
-            // 
-            // OfficePhone
-            // 
-            this.OfficePhone.HeaderText = "Phone";
-            this.OfficePhone.Name = "OfficePhone";
-            this.OfficePhone.ReadOnly = true;
+            this.tableAdapterManager1.AxleConfigurationTableAdapter = null;
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.Connection = null;
+            this.tableAdapterManager1.NHVRTableAdapter = null;
+            this.tableAdapterManager1.UpdateOrder = QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager1.VehiclePrefCustomersTableAdapter = null;
+            this.tableAdapterManager1.VehicleTableAdapter = null;
             // 
             // BusinessSearch
             // 
@@ -557,8 +539,8 @@ namespace QWS_Local
             this.tabControl1.ResumeLayout(false);
             this.tpList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.businessBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsBusiness)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
             this.tpDetails.ResumeLayout(false);
             this.tpDetails.PerformLayout();
             this.ResumeLayout(false);
@@ -568,9 +550,6 @@ namespace QWS_Local
         #endregion
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private dsQWSLocal dsQWSLocal;
-        private System.Windows.Forms.BindingSource businessBindingSource;
-        private dsQWSLocalTableAdapters.BusinessTableAdapter businessTableAdapter;
         private System.Windows.Forms.TextBox documentOwnerTextBox;
         private System.Windows.Forms.TextBox pORequiredTextBox;
         private System.Windows.Forms.TextBox accountStatusTextBox;
@@ -580,7 +559,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox alternateNameTextBox;
         private System.Windows.Forms.TextBox tradingNameTextBox;
         private System.Windows.Forms.TextBox sAPCodeTextBox;
-        private dsQWSLocalTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpList;
         private System.Windows.Forms.TabPage tpDetails;
@@ -593,9 +571,12 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Button btnCancelNotFound;
+        private dsQWSLocal2024 dsQWSLocal2024;
+        private System.Windows.Forms.BindingSource bsBusiness;
+        private dsQWSLocal2024TableAdapters.BusinessTableAdapter taBusiness;
+        private dsQWSLocal2024TableAdapters.TableAdapterManager tableAdapterManager1;
         private System.Windows.Forms.DataGridViewTextBoxColumn sAPCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tradingNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AccountStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn DefaultContact;
         private System.Windows.Forms.DataGridViewTextBoxColumn OfficePhone;
     }

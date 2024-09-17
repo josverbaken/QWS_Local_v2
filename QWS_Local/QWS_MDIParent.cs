@@ -54,12 +54,6 @@ namespace QWS_Local
             frmFeeCodes.Show();
         }
 
-         private void businessPlusPersonToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            BusinessPlusPerson frmBusiness = new BusinessPlusPerson();
-            frmBusiness.MdiParent = this;
-            frmBusiness.Show();
-        }
 
         private void itemSearchToolStripMenuItem_Click(object sender, EventArgs e)
         {

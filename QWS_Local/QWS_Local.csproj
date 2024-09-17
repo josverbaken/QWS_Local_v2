@@ -208,12 +208,6 @@
       <DependentUpon>BookInTruckStep1.cs</DependentUpon>
     </Compile>
     <Compile Include="BusinessPartner.cs" />
-    <Compile Include="BusinessPlusPerson.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BusinessPlusPerson.Designer.cs">
-      <DependentUpon>BusinessPlusPerson.cs</DependentUpon>
-    </Compile>
     <Compile Include="BusinessSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -424,9 +418,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BookInTruckStep1.resx">
       <DependentUpon>BookInTruckStep1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BusinessPlusPerson.resx">
-      <DependentUpon>BusinessPlusPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BusinessSearch.resx">
       <DependentUpon>BusinessSearch.cs</DependentUpon>
