@@ -24,6 +24,12 @@ namespace QWS_Local
 
         private void PBS_Maintenance_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsPBS.PBS_ConfigScheme' table. You can move, or remove it, as needed.
+            this.taPBS_ConfigScheme.Fill(this.dsPBS.PBS_ConfigScheme);
+            // TODO: This line of code loads data into the 'dsPBS.PBS_Config' table. You can move, or remove it, as needed.
+            this.taPBS_Config.Fill(this.dsPBS.PBS_Config);
+            // TODO: This line of code loads data into the 'dsPBS.PBS' table. You can move, or remove it, as needed.
+            this.taPBS.Fill(this.dsPBS.PBS);
             this.pBS_ConfigSchemeTableAdapter.Fill(this.dsQWSLocal.PBS_ConfigScheme);
             this.pBS_ConfigTableAdapter.Fill(this.dsQWSLocal.PBS_Config);
             this.pBSTableAdapter.Fill(this.dsQWSLocal.PBS);
