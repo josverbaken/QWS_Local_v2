@@ -51,11 +51,7 @@ namespace QWS_Local
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripContainer2 = new System.Windows.Forms.ToolStripContainer();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.pBS_ConfigBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pBSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSLocal = new QWS_Local.dsQWSLocal();
             this.pBS_LevelTextBox = new System.Windows.Forms.TextBox();
-            this.pBS_ConfigSchemeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.btnSetCardCode = new System.Windows.Forms.Button();
             this.chkMassMgmtRqd = new System.Windows.Forms.CheckBox();
             this.driveAxleLoadUOMTextBox = new System.Windows.Forms.TextBox();
@@ -114,18 +110,14 @@ namespace QWS_Local
             this.pBSBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.txtPBS2Find = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.pBSTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.PBSTableAdapter();
-            this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
-            this.pBS_ConfigTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.PBS_ConfigTableAdapter();
-            this.pBS_ConfigSchemeTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.PBS_ConfigSchemeTableAdapter();
             this.dsPBS = new QWS_Local.dsPBS();
             this.bsPBS = new System.Windows.Forms.BindingSource(this.components);
             this.taPBS = new QWS_Local.dsPBSTableAdapters.PBSTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsPBSTableAdapters.TableAdapterManager();
-            this.bsPBS_Config = new System.Windows.Forms.BindingSource(this.components);
-            this.taPBS_Config = new QWS_Local.dsPBSTableAdapters.PBS_ConfigTableAdapter();
-            this.bsPBS_ConfigScheme = new System.Windows.Forms.BindingSource(this.components);
             this.taPBS_ConfigScheme = new QWS_Local.dsPBSTableAdapters.PBS_ConfigSchemeTableAdapter();
+            this.taPBS_Config = new QWS_Local.dsPBSTableAdapters.PBS_ConfigTableAdapter();
+            this.bsPBS_Config = new System.Windows.Forms.BindingSource(this.components);
+            this.bsPBS_ConfigScheme = new System.Windows.Forms.BindingSource(this.components);
             pBS_IDLabel = new System.Windows.Forms.Label();
             vehicleApprovalLabel = new System.Windows.Forms.Label();
             versionLabel = new System.Windows.Forms.Label();
@@ -146,10 +138,6 @@ namespace QWS_Local
             this.toolStripContainer2.ContentPanel.SuspendLayout();
             this.toolStripContainer2.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBS_ConfigBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBSBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBS_ConfigSchemeBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).BeginInit();
             this.bindingNavigator2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
@@ -383,12 +371,12 @@ namespace QWS_Local
             this.toolStripContainer2.ContentPanel.Controls.Add(pBS_IDLabel);
             this.toolStripContainer2.ContentPanel.Controls.Add(this.pBS_IDTextBox);
             this.toolStripContainer2.ContentPanel.Margin = new System.Windows.Forms.Padding(4);
-            this.toolStripContainer2.ContentPanel.Size = new System.Drawing.Size(1576, 777);
+            this.toolStripContainer2.ContentPanel.Size = new System.Drawing.Size(1067, 777);
             this.toolStripContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer2.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer2.Margin = new System.Windows.Forms.Padding(4);
             this.toolStripContainer2.Name = "toolStripContainer2";
-            this.toolStripContainer2.Size = new System.Drawing.Size(1576, 802);
+            this.toolStripContainer2.Size = new System.Drawing.Size(1067, 802);
             this.toolStripContainer2.TabIndex = 1;
             this.toolStripContainer2.Text = "toolStripContainer2";
             // 
@@ -398,40 +386,20 @@ namespace QWS_Local
             // 
             // textBox2
             // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigBindingSource, "AxleConfiguration", true));
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS_Config, "AxleConfiguration", true));
             this.textBox2.Location = new System.Drawing.Point(202, 407);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(148, 24);
             this.textBox2.TabIndex = 69;
             // 
-            // pBS_ConfigBindingSource
-            // 
-            this.pBS_ConfigBindingSource.DataMember = "FK_PBS_Config_PBS";
-            this.pBS_ConfigBindingSource.DataSource = this.pBSBindingSource;
-            // 
-            // pBSBindingSource
-            // 
-            this.pBSBindingSource.DataMember = "PBS";
-            this.pBSBindingSource.DataSource = this.dsQWSLocal;
-            // 
-            // dsQWSLocal
-            // 
-            this.dsQWSLocal.DataSetName = "dsQWSLocal";
-            this.dsQWSLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // pBS_LevelTextBox
             // 
-            this.pBS_LevelTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigSchemeBindingSource1, "PBS_Level", true));
+            this.pBS_LevelTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS_ConfigScheme, "PBS_Level", true));
             this.pBS_LevelTextBox.Location = new System.Drawing.Point(771, 326);
             this.pBS_LevelTextBox.Name = "pBS_LevelTextBox";
             this.pBS_LevelTextBox.Size = new System.Drawing.Size(100, 24);
             this.pBS_LevelTextBox.TabIndex = 68;
-            // 
-            // pBS_ConfigSchemeBindingSource1
-            // 
-            this.pBS_ConfigSchemeBindingSource1.DataMember = "FK_PBS_ConfigScheme_PBS_Config";
-            this.pBS_ConfigSchemeBindingSource1.DataSource = this.pBS_ConfigBindingSource;
             // 
             // btnSetCardCode
             // 
@@ -446,7 +414,7 @@ namespace QWS_Local
             // chkMassMgmtRqd
             // 
             this.chkMassMgmtRqd.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.chkMassMgmtRqd.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.pBS_ConfigSchemeBindingSource1, "MassMgmtRqd", true));
+            this.chkMassMgmtRqd.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bsPBS_ConfigScheme, "MassMgmtRqd", true));
             this.chkMassMgmtRqd.Location = new System.Drawing.Point(527, 389);
             this.chkMassMgmtRqd.Name = "chkMassMgmtRqd";
             this.chkMassMgmtRqd.Size = new System.Drawing.Size(299, 24);
@@ -457,7 +425,7 @@ namespace QWS_Local
             // 
             // driveAxleLoadUOMTextBox
             // 
-            this.driveAxleLoadUOMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigSchemeBindingSource1, "DriveAxleLoadUOM", true));
+            this.driveAxleLoadUOMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS_ConfigScheme, "DriveAxleLoadUOM", true));
             this.driveAxleLoadUOMTextBox.Location = new System.Drawing.Point(877, 479);
             this.driveAxleLoadUOMTextBox.Name = "driveAxleLoadUOMTextBox";
             this.driveAxleLoadUOMTextBox.Size = new System.Drawing.Size(100, 24);
@@ -465,7 +433,7 @@ namespace QWS_Local
             // 
             // driveAxleLoadTextBox
             // 
-            this.driveAxleLoadTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigSchemeBindingSource1, "DriveAxleLoad", true));
+            this.driveAxleLoadTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS_ConfigScheme, "DriveAxleLoad", true));
             this.driveAxleLoadTextBox.Location = new System.Drawing.Point(771, 479);
             this.driveAxleLoadTextBox.Name = "driveAxleLoadTextBox";
             this.driveAxleLoadTextBox.Size = new System.Drawing.Size(100, 24);
@@ -473,7 +441,7 @@ namespace QWS_Local
             // 
             // gVMTruckTextBox
             // 
-            this.gVMTruckTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigSchemeBindingSource1, "GVMTruck", true));
+            this.gVMTruckTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS_ConfigScheme, "GVMTruck", true));
             this.gVMTruckTextBox.Location = new System.Drawing.Point(771, 449);
             this.gVMTruckTextBox.Name = "gVMTruckTextBox";
             this.gVMTruckTextBox.Size = new System.Drawing.Size(100, 24);
@@ -481,7 +449,7 @@ namespace QWS_Local
             // 
             // txtPBSConfigSchemeID
             // 
-            this.txtPBSConfigSchemeID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigSchemeBindingSource1, "PBS_ConfigSchemeID", true));
+            this.txtPBSConfigSchemeID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS_ConfigScheme, "PBS_ConfigSchemeID", true));
             this.txtPBSConfigSchemeID.Location = new System.Drawing.Point(770, 296);
             this.txtPBSConfigSchemeID.Name = "txtPBSConfigSchemeID";
             this.txtPBSConfigSchemeID.ReadOnly = true;
@@ -490,7 +458,7 @@ namespace QWS_Local
             // 
             // gCMTextBox1
             // 
-            this.gCMTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigSchemeBindingSource1, "GCM", true));
+            this.gCMTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS_ConfigScheme, "GCM", true));
             this.gCMTextBox1.Location = new System.Drawing.Point(771, 419);
             this.gCMTextBox1.Name = "gCMTextBox1";
             this.gCMTextBox1.Size = new System.Drawing.Size(100, 24);
@@ -498,7 +466,7 @@ namespace QWS_Local
             // 
             // schemeCodeTextBox1
             // 
-            this.schemeCodeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigSchemeBindingSource1, "SchemeCode", true));
+            this.schemeCodeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS_ConfigScheme, "SchemeCode", true));
             this.schemeCodeTextBox1.Location = new System.Drawing.Point(771, 356);
             this.schemeCodeTextBox1.Name = "schemeCodeTextBox1";
             this.schemeCodeTextBox1.Size = new System.Drawing.Size(100, 24);
@@ -507,7 +475,7 @@ namespace QWS_Local
             // bindingNavigator2
             // 
             this.bindingNavigator2.AddNewItem = this.toolStripButton1;
-            this.bindingNavigator2.BindingSource = this.pBS_ConfigSchemeBindingSource1;
+            this.bindingNavigator2.BindingSource = this.bsPBS_ConfigScheme;
             this.bindingNavigator2.CountItem = this.toolStripLabel1;
             this.bindingNavigator2.DeleteItem = this.toolStripButton2;
             this.bindingNavigator2.Dock = System.Windows.Forms.DockStyle.None;
@@ -634,7 +602,7 @@ namespace QWS_Local
             // 
             // textBox1
             // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigBindingSource, "BridgeAssessment", true));
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS_Config, "BridgeAssessment", true));
             this.textBox1.Location = new System.Drawing.Point(202, 375);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
@@ -644,7 +612,7 @@ namespace QWS_Local
             // bindingNavigator1
             // 
             this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem1;
-            this.bindingNavigator1.BindingSource = this.pBS_ConfigBindingSource;
+            this.bindingNavigator1.BindingSource = this.bsPBS_Config;
             this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem1;
             this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem1;
             this.bindingNavigator1.Dock = System.Windows.Forms.DockStyle.None;
@@ -770,7 +738,7 @@ namespace QWS_Local
             // 
             // tableNoTextBox
             // 
-            this.tableNoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigBindingSource, "TableNo", true));
+            this.tableNoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS_Config, "TableNo", true));
             this.tableNoTextBox.Location = new System.Drawing.Point(202, 343);
             this.tableNoTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.tableNoTextBox.Name = "tableNoTextBox";
@@ -779,7 +747,7 @@ namespace QWS_Local
             // 
             // txtPBS_Config_ID
             // 
-            this.txtPBS_Config_ID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBS_ConfigBindingSource, "PBS_ConfigID", true));
+            this.txtPBS_Config_ID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS_Config, "PBS_ConfigID", true));
             this.txtPBS_Config_ID.Location = new System.Drawing.Point(202, 311);
             this.txtPBS_Config_ID.Margin = new System.Windows.Forms.Padding(4);
             this.txtPBS_Config_ID.Name = "txtPBS_Config_ID";
@@ -789,7 +757,7 @@ namespace QWS_Local
             // 
             // txtOperator
             // 
-            this.txtOperator.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBSBindingSource, "Operator", true));
+            this.txtOperator.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS, "Operator", true));
             this.txtOperator.Location = new System.Drawing.Point(202, 194);
             this.txtOperator.Margin = new System.Windows.Forms.Padding(4);
             this.txtOperator.Name = "txtOperator";
@@ -798,7 +766,7 @@ namespace QWS_Local
             // 
             // txtCardCode
             // 
-            this.txtCardCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBSBindingSource, "CardCode", true));
+            this.txtCardCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS, "CardCode", true));
             this.txtCardCode.Location = new System.Drawing.Point(202, 162);
             this.txtCardCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtCardCode.Name = "txtCardCode";
@@ -808,7 +776,7 @@ namespace QWS_Local
             // 
             // approvalDTDateTimePicker
             // 
-            this.approvalDTDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.pBSBindingSource, "ApprovalDT", true));
+            this.approvalDTDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bsPBS, "ApprovalDT", true));
             this.approvalDTDateTimePicker.Location = new System.Drawing.Point(204, 130);
             this.approvalDTDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.approvalDTDateTimePicker.Name = "approvalDTDateTimePicker";
@@ -817,7 +785,7 @@ namespace QWS_Local
             // 
             // versionTextBox
             // 
-            this.versionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBSBindingSource, "Version", true));
+            this.versionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS, "Version", true));
             this.versionTextBox.Location = new System.Drawing.Point(204, 98);
             this.versionTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.versionTextBox.Name = "versionTextBox";
@@ -826,7 +794,7 @@ namespace QWS_Local
             // 
             // vehicleApprovalTextBox
             // 
-            this.vehicleApprovalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBSBindingSource, "VehicleApproval", true));
+            this.vehicleApprovalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS, "VehicleApproval", true));
             this.vehicleApprovalTextBox.Location = new System.Drawing.Point(204, 66);
             this.vehicleApprovalTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.vehicleApprovalTextBox.Name = "vehicleApprovalTextBox";
@@ -835,7 +803,7 @@ namespace QWS_Local
             // 
             // pBS_IDTextBox
             // 
-            this.pBS_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pBSBindingSource, "PBS_ID", true));
+            this.pBS_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS, "PBS_ID", true));
             this.pBS_IDTextBox.Location = new System.Drawing.Point(204, 34);
             this.pBS_IDTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.pBS_IDTextBox.Name = "pBS_IDTextBox";
@@ -846,7 +814,7 @@ namespace QWS_Local
             // pBSBindingNavigator
             // 
             this.pBSBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.pBSBindingNavigator.BindingSource = this.pBSBindingSource;
+            this.pBSBindingNavigator.BindingSource = this.bsPBS;
             this.pBSBindingNavigator.CountItem = this.bindingNavigatorCountItem;
             this.pBSBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
             this.pBSBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -872,7 +840,7 @@ namespace QWS_Local
             this.pBSBindingNavigator.Name = "pBSBindingNavigator";
             this.pBSBindingNavigator.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.pBSBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.pBSBindingNavigator.Size = new System.Drawing.Size(1576, 25);
+            this.pBSBindingNavigator.Size = new System.Drawing.Size(1067, 25);
             this.pBSBindingNavigator.TabIndex = 2;
             this.pBSBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -986,37 +954,6 @@ namespace QWS_Local
             this.toolStripButton7.Text = "Find";
             this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
             // 
-            // pBSTableAdapter
-            // 
-            this.pBSTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.AxleConfigurationTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.NHVLTableAdapter = null;
-            this.tableAdapterManager.PBS_ConfigSchemeTableAdapter = null;
-            this.tableAdapterManager.PBS_ConfigTableAdapter = null;
-            this.tableAdapterManager.PBSTableAdapter = this.pBSTableAdapter;
-            this.tableAdapterManager.SchemeCodesTableAdapter = null;
-            this.tableAdapterManager.TruckConfigTableAdapter = null;
-            this.tableAdapterManager.TruckConfigVehicleTableAdapter = null;
-            this.tableAdapterManager.TrucksInQuarryTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.VehiclePBSTableAdapter = null;
-            this.tableAdapterManager.VehiclePrefCustomersTableAdapter = null;
-            this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
-            this.tableAdapterManager.VehicleTableAdapter = null;
-            this.tableAdapterManager.VehicleTypeTableAdapter = null;
-            // 
-            // pBS_ConfigTableAdapter
-            // 
-            this.pBS_ConfigTableAdapter.ClearBeforeFill = true;
-            // 
-            // pBS_ConfigSchemeTableAdapter
-            // 
-            this.pBS_ConfigSchemeTableAdapter.ClearBeforeFill = true;
-            // 
             // dsPBS
             // 
             this.dsPBS.DataSetName = "dsPBS";
@@ -1039,29 +976,29 @@ namespace QWS_Local
             this.tableAdapterManager1.PBSTableAdapter = this.taPBS;
             this.tableAdapterManager1.UpdateOrder = QWS_Local.dsPBSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // bsPBS_Config
+            // taPBS_ConfigScheme
             // 
-            this.bsPBS_Config.DataMember = "FK_PBS_Config_PBS";
-            this.bsPBS_Config.DataSource = this.bsPBS;
+            this.taPBS_ConfigScheme.ClearBeforeFill = true;
             // 
             // taPBS_Config
             // 
             this.taPBS_Config.ClearBeforeFill = true;
+            // 
+            // bsPBS_Config
+            // 
+            this.bsPBS_Config.DataMember = "FK_PBS_Config_PBS";
+            this.bsPBS_Config.DataSource = this.bsPBS;
             // 
             // bsPBS_ConfigScheme
             // 
             this.bsPBS_ConfigScheme.DataMember = "FK_PBS_ConfigScheme_PBS_Config";
             this.bsPBS_ConfigScheme.DataSource = this.bsPBS_Config;
             // 
-            // taPBS_ConfigScheme
-            // 
-            this.taPBS_ConfigScheme.ClearBeforeFill = true;
-            // 
             // PBSMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1576, 802);
+            this.ClientSize = new System.Drawing.Size(1067, 802);
             this.Controls.Add(this.pBSBindingNavigator);
             this.Controls.Add(this.toolStripContainer2);
             this.Controls.Add(this.toolStripContainer1);
@@ -1078,10 +1015,6 @@ namespace QWS_Local
             this.toolStripContainer2.TopToolStripPanel.PerformLayout();
             this.toolStripContainer2.ResumeLayout(false);
             this.toolStripContainer2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBS_ConfigBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBSBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBS_ConfigSchemeBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).EndInit();
             this.bindingNavigator2.ResumeLayout(false);
             this.bindingNavigator2.PerformLayout();
@@ -1105,10 +1038,6 @@ namespace QWS_Local
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripContainer toolStripContainer2;
-        private dsQWSLocal dsQWSLocal;
-        private System.Windows.Forms.BindingSource pBSBindingSource;
-        private dsQWSLocalTableAdapters.PBSTableAdapter pBSTableAdapter;
-        private dsQWSLocalTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingNavigator pBSBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -1128,8 +1057,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox versionTextBox;
         private System.Windows.Forms.TextBox vehicleApprovalTextBox;
         private System.Windows.Forms.TextBox pBS_IDTextBox;
-        private dsQWSLocalTableAdapters.PBS_ConfigTableAdapter pBS_ConfigTableAdapter;
-        private System.Windows.Forms.BindingSource pBS_ConfigBindingSource;
         private System.Windows.Forms.TextBox tableNoTextBox;
         private System.Windows.Forms.TextBox txtPBS_Config_ID;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
@@ -1148,7 +1075,6 @@ namespace QWS_Local
         private System.Windows.Forms.ToolStripButton toolStripButton8;
         private System.Windows.Forms.ToolStripTextBox txtPBS2Find;
         private System.Windows.Forms.TextBox textBox1;
-        private dsQWSLocalTableAdapters.PBS_ConfigSchemeTableAdapter pBS_ConfigSchemeTableAdapter;
         private System.Windows.Forms.BindingNavigator bindingNavigator2;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
@@ -1163,7 +1089,6 @@ namespace QWS_Local
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton tspSavePBSConfigScheme;
         private System.Windows.Forms.TextBox schemeCodeTextBox1;
-        private System.Windows.Forms.BindingSource pBS_ConfigSchemeBindingSource1;
         private System.Windows.Forms.TextBox gCMTextBox1;
         private System.Windows.Forms.CheckBox chkMassMgmtRqd;
         private System.Windows.Forms.TextBox driveAxleLoadUOMTextBox;

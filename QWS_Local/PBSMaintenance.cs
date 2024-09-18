@@ -24,15 +24,9 @@ namespace QWS_Local
 
         private void PBS_Maintenance_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsPBS.PBS_ConfigScheme' table. You can move, or remove it, as needed.
-            this.taPBS_ConfigScheme.Fill(this.dsPBS.PBS_ConfigScheme);
-            // TODO: This line of code loads data into the 'dsPBS.PBS_Config' table. You can move, or remove it, as needed.
-            this.taPBS_Config.Fill(this.dsPBS.PBS_Config);
-            // TODO: This line of code loads data into the 'dsPBS.PBS' table. You can move, or remove it, as needed.
             this.taPBS.Fill(this.dsPBS.PBS);
-            this.pBS_ConfigSchemeTableAdapter.Fill(this.dsQWSLocal.PBS_ConfigScheme);
-            this.pBS_ConfigTableAdapter.Fill(this.dsQWSLocal.PBS_Config);
-            this.pBSTableAdapter.Fill(this.dsQWSLocal.PBS);
+            this.taPBS_Config.Fill(this.dsPBS.PBS_Config);
+            this.taPBS_ConfigScheme.Fill(this.dsPBS.PBS_ConfigScheme);
         }
 
         private void PBS_Save()
@@ -40,8 +34,8 @@ namespace QWS_Local
             try
             {
                 this.Validate();
-                this.pBSBindingSource.EndEdit();
-                this.tableAdapterManager.UpdateAll(this.dsQWSLocal);
+                this.bsPBS.EndEdit();
+                this.tableAdapterManager1.UpdateAll(this.dsPBS);
             }
             catch (Exception e)
             {
@@ -63,8 +57,8 @@ namespace QWS_Local
         {
             try
             {
-                int foundIndex = this.pBSBindingSource.Find("VehicleApproval", txtPBS2Find.Text);
-                this.pBSBindingSource.Position = foundIndex;
+                int foundIndex = this.bsPBS.Find("VehicleApproval", txtPBS2Find.Text);
+                this.bsPBS.Position = foundIndex;
             }
             catch (Exception ex)
             {
@@ -82,8 +76,8 @@ namespace QWS_Local
             try
             {
                 this.Validate();
-                this.pBS_ConfigBindingSource.EndEdit();
-                this.pBS_ConfigTableAdapter.Update(this.dsQWSLocal);
+                this.bsPBS_Config.EndEdit();
+                this.taPBS_ConfigScheme.Update(this.dsPBS);
             }
             catch (Exception e)
             {
@@ -96,8 +90,8 @@ namespace QWS_Local
             try
             {
                 this.Validate();
-                this.pBS_ConfigSchemeBindingSource1.EndEdit();
-                int iCount = this.pBS_ConfigSchemeTableAdapter.Update(this.dsQWSLocal);
+                this.bsPBS_ConfigScheme.EndEdit();
+                int iCount = this.taPBS_ConfigScheme.Update(this.dsPBS);
                 iCount += 1;
             }
             catch (Exception ex)
@@ -147,12 +141,12 @@ namespace QWS_Local
             CurrentPBSConfigScheme().PBS_ConfigID = CurrentPBSConfig().PBS_ConfigID;
         }
 
-        private dsQWSLocal.PBS_ConfigRow CurrentPBSConfig()
+        private dsPBS.PBS_ConfigRow CurrentPBSConfig()
         {
            try
             {
-                DataRow myDR = ((DataRowView)pBS_ConfigBindingSource.Current).Row;
-                dsQWSLocal.PBS_ConfigRow PBS_ConfigRow = (dsQWSLocal.PBS_ConfigRow)myDR;
+                DataRow myDR = ((DataRowView)bsPBS_Config.Current).Row;
+                dsPBS.PBS_ConfigRow PBS_ConfigRow = (dsPBS.PBS_ConfigRow)myDR;
                 return PBS_ConfigRow;
             }
             catch (Exception ex)
@@ -162,12 +156,12 @@ namespace QWS_Local
             }
         }
 
-        private dsQWSLocal.PBS_ConfigSchemeRow CurrentPBSConfigScheme()
+        private dsPBS.PBS_ConfigSchemeRow CurrentPBSConfigScheme()
         {
             try
             {
-                DataRow myDR = ((DataRowView)pBS_ConfigSchemeBindingSource1.Current).Row;
-                dsQWSLocal.PBS_ConfigSchemeRow PBS_ConfigSchemeRow = (dsQWSLocal.PBS_ConfigSchemeRow)myDR;
+                DataRow myDR = ((DataRowView)bsPBS_ConfigScheme.Current).Row;
+                dsPBS.PBS_ConfigSchemeRow PBS_ConfigSchemeRow = (dsPBS.PBS_ConfigSchemeRow)myDR;
                 return PBS_ConfigSchemeRow;
             }
             catch (Exception ex)
