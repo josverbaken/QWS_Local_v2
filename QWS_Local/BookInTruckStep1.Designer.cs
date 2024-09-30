@@ -83,7 +83,6 @@ namespace QWS_Local
             this.tableAdapterManager2 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.txtTruckConfig = new System.Windows.Forms.TextBox();
             this.btnNext = new System.Windows.Forms.Button();
-            this.taTIQ = new QWS_Local.dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter();
             this.bsPrefCustomers2 = new System.Windows.Forms.BindingSource(this.components);
             this.taPrefCustomers2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter();
             this.tableAdapterManager3 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
@@ -596,10 +595,6 @@ namespace QWS_Local
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // taTIQ
-            // 
-            this.taTIQ.ClearBeforeFill = true;
-            // 
             // bsPrefCustomers2
             // 
             this.bsPrefCustomers2.DataMember = "VehiclePrefCustomers";
@@ -705,7 +700,6 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnImported;
         private System.Windows.Forms.Button btnExBin;
         private System.Windows.Forms.GroupBox groupBox3;
-        private dsQWSLocalTableAdapters.TrucksInQuarryTableAdapter taTIQ;
         private dsTIQ2TableAdapters.TableAdapterManager tableAdapterManager2;
         private System.Windows.Forms.DataGridViewTextBoxColumn regoTkDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn regoTrailerDataGridViewTextBoxColumn;

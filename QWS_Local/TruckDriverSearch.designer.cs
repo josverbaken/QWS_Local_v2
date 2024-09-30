@@ -59,7 +59,6 @@ namespace QWS_Local
             this.txtInfo = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSelectDriver = new System.Windows.Forms.Button();
-            this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taTruckDriver2024 = new QWS_Local.dsQWSLocal2024TableAdapters.TruckDriverTableAdapter();
             licenseTypeLabel = new System.Windows.Forms.Label();
             sAPUpdateDTTMLabel = new System.Windows.Forms.Label();
@@ -371,26 +370,6 @@ namespace QWS_Local
             this.btnSelectDriver.UseVisualStyleBackColor = true;
             this.btnSelectDriver.Click += new System.EventHandler(this.btnSelectDriver_Click);
             // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.AxleConfigurationTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.NHVLTableAdapter = null;
-            this.tableAdapterManager.PBS_ConfigSchemeTableAdapter = null;
-            this.tableAdapterManager.PBS_ConfigTableAdapter = null;
-            this.tableAdapterManager.PBSTableAdapter = null;
-            this.tableAdapterManager.SchemeCodesTableAdapter = null;
-            this.tableAdapterManager.TruckConfigTableAdapter = null;
-            this.tableAdapterManager.TruckConfigVehicleTableAdapter = null;
-            this.tableAdapterManager.TrucksInQuarryTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.VehiclePBSTableAdapter = null;
-            this.tableAdapterManager.VehiclePrefCustomersTableAdapter = null;
-            this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
-            this.tableAdapterManager.VehicleTableAdapter = null;
-            this.tableAdapterManager.VehicleTypeTableAdapter = null;
-            // 
             // taTruckDriver2024
             // 
             this.taTruckDriver2024.ClearBeforeFill = true;
@@ -442,7 +421,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox personTextBox;
         private System.Windows.Forms.TextBox cardCodeTextBox;
         private System.Windows.Forms.TextBox tradingNameTextBox;
-        private dsQWSLocalTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.TextBox activeTextBox;
         private System.Windows.Forms.TextBox txtInfo;
         private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewTextBoxColumn;
