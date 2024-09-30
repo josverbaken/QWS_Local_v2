@@ -50,9 +50,8 @@ namespace QWS_Local
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FeeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Schematic = new System.Windows.Forms.DataGridViewImageColumn();
-            this.tableAdapterManager = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
-            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
             this.bsVehicleDetails2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
             this.taVehicleDetails2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleDetailsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -60,8 +59,8 @@ namespace QWS_Local
             this.splitContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -252,35 +251,15 @@ namespace QWS_Local
             this.Schematic.ReadOnly = true;
             this.Schematic.Width = 450;
             // 
-            // tableAdapterManager
+            // bsVehicleDetails2
             // 
-            this.tableAdapterManager.AxleConfigurationTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.NHVLTableAdapter = null;
-            this.tableAdapterManager.PBS_ConfigSchemeTableAdapter = null;
-            this.tableAdapterManager.PBS_ConfigTableAdapter = null;
-            this.tableAdapterManager.PBSTableAdapter = null;
-            this.tableAdapterManager.SchemeCodesTableAdapter = null;
-            this.tableAdapterManager.TruckConfigTableAdapter = null;
-            this.tableAdapterManager.TruckConfigVehicleTableAdapter = null;
-            this.tableAdapterManager.TrucksInQuarryTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.VehiclePBSTableAdapter = null;
-            this.tableAdapterManager.VehiclePrefCustomersTableAdapter = null;
-            this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
-            this.tableAdapterManager.VehicleTableAdapter = null;
-            this.tableAdapterManager.VehicleTypeTableAdapter = null;
+            this.bsVehicleDetails2.DataMember = "VehicleDetails";
+            this.bsVehicleDetails2.DataSource = this.dsQWSLocal2024;
             // 
             // dsQWSLocal2024
             // 
             this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
             this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bsVehicleDetails2
-            // 
-            this.bsVehicleDetails2.DataMember = "VehicleDetails";
-            this.bsVehicleDetails2.DataSource = this.dsQWSLocal2024;
             // 
             // taVehicleDetails2
             // 
@@ -306,8 +285,8 @@ namespace QWS_Local
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -315,7 +294,6 @@ namespace QWS_Local
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private dsQWSLocalTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripTextBox txtSearch;
         private System.Windows.Forms.ToolStripButton btnSearch;

@@ -56,6 +56,7 @@ namespace QWS_Local
             this.tareTextBox = new System.Windows.Forms.TextBox();
             this.btnFeeCodesMore = new System.Windows.Forms.Button();
             this.txtJurisdiction = new System.Windows.Forms.TextBox();
+            this.bsFeeCodes = new System.Windows.Forms.BindingSource(this.components);
             this.txtRegoExpiryDT = new System.Windows.Forms.TextBox();
             this.btnIdentificationSave = new System.Windows.Forms.Button();
             this.btnFindVehicle = new System.Windows.Forms.Button();
@@ -120,11 +121,8 @@ namespace QWS_Local
             this.taAxleConfig = new QWS_Local.dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
             this.taPrefCustomers = new QWS_Local.dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter();
-            this.jurisdictionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jurisdictionTableAdapter = new QWS_Local.dsQWSLocalTableAdapters.JurisdictionTableAdapter();
             this.taVehicle = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleTableAdapter();
             this.taVehiclePBS2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehiclePBSTableAdapter();
-            this.bsFeeCodes = new System.Windows.Forms.BindingSource(this.components);
             this.taFeeCodes = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter();
             vINLabel = new System.Windows.Forms.Label();
             makeLabel = new System.Windows.Forms.Label();
@@ -143,6 +141,7 @@ namespace QWS_Local
             label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsFeeCodes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -164,8 +163,6 @@ namespace QWS_Local
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jurisdictionBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsFeeCodes)).BeginInit();
             this.SuspendLayout();
             // 
             // vINLabel
@@ -430,6 +427,11 @@ namespace QWS_Local
             this.txtJurisdiction.Name = "txtJurisdiction";
             this.txtJurisdiction.Size = new System.Drawing.Size(148, 24);
             this.txtJurisdiction.TabIndex = 9;
+            // 
+            // bsFeeCodes
+            // 
+            this.bsFeeCodes.DataMember = "VehicleRegFeeCodes";
+            this.bsFeeCodes.DataSource = this.dsQWSLocal2024;
             // 
             // txtRegoExpiryDT
             // 
@@ -974,10 +976,10 @@ namespace QWS_Local
             this.tpDetails.Controls.Add(this.textBox8);
             this.tpDetails.Controls.Add(this.txtVIN);
             this.tpDetails.Controls.Add(vINLabel);
-            this.tpDetails.Location = new System.Drawing.Point(4, 27);
+            this.tpDetails.Location = new System.Drawing.Point(4, 22);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(1163, 445);
+            this.tpDetails.Size = new System.Drawing.Size(1163, 450);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -1052,9 +1054,9 @@ namespace QWS_Local
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(label5);
             this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Location = new System.Drawing.Point(4, 27);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1163, 445);
+            this.tabPage1.Size = new System.Drawing.Size(1163, 450);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "NHVR Checker App";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1166,10 +1168,6 @@ namespace QWS_Local
             // 
             this.taPrefCustomers.ClearBeforeFill = true;
             // 
-            // jurisdictionTableAdapter
-            // 
-            this.jurisdictionTableAdapter.ClearBeforeFill = true;
-            // 
             // taVehicle
             // 
             this.taVehicle.ClearBeforeFill = true;
@@ -1177,11 +1175,6 @@ namespace QWS_Local
             // taVehiclePBS2
             // 
             this.taVehiclePBS2.ClearBeforeFill = true;
-            // 
-            // bsFeeCodes
-            // 
-            this.bsFeeCodes.DataMember = "VehicleRegFeeCodes";
-            this.bsFeeCodes.DataSource = this.dsQWSLocal2024;
             // 
             // taFeeCodes
             // 
@@ -1202,6 +1195,7 @@ namespace QWS_Local
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VehicleMaintenance_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsFeeCodes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -1227,8 +1221,6 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jurisdictionBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsFeeCodes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1240,8 +1232,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox txtVehicleMake;
         private System.Windows.Forms.TextBox modelTextBox;
         private System.Windows.Forms.TextBox tareTextBox;
-        private System.Windows.Forms.BindingSource jurisdictionBindingSource;
-        private dsQWSLocalTableAdapters.JurisdictionTableAdapter jurisdictionTableAdapter;
         private System.Windows.Forms.TextBox txtAxleConfig;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtFeeCode;
