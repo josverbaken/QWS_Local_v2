@@ -349,12 +349,6 @@
     <Compile Include="TareTruck.Designer.cs">
       <DependentUpon>TareTruck.cs</DependentUpon>
     </Compile>
-    <Compile Include="TIQDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TIQDetail.Designer.cs">
-      <DependentUpon>TIQDetail.cs</DependentUpon>
-    </Compile>
     <Compile Include="TIQRemove.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -484,9 +478,6 @@
     <EmbeddedResource Include="SPLotNoAudit.rdlc" />
     <EmbeddedResource Include="TareTruck.resx">
       <DependentUpon>TareTruck.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TIQDetail.resx">
-      <DependentUpon>TIQDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TIQRemove.resx">
       <DependentUpon>TIQRemove.cs</DependentUpon>

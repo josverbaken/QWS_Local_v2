@@ -83,6 +83,8 @@ namespace QWS_Local
             this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.mobTextBox = new System.Windows.Forms.TextBox();
+            this.bsTruckDriver = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
             this.personTextBox = new System.Windows.Forms.TextBox();
             this.ownerTextBox = new System.Windows.Forms.TextBox();
             this.regoTkTextBox = new System.Windows.Forms.TextBox();
@@ -203,11 +205,8 @@ namespace QWS_Local
             this.taConfiguredTrucks = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
             this.taDriver = new QWS_Local.dsQWSLocalTableAdapters.TruckDriverTableAdapter();
-            this.tableAdapterManager2 = new QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager3 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
-            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
-            this.bsTruckDriver = new System.Windows.Forms.BindingSource(this.components);
             this.taTruckDriver = new QWS_Local.dsQWSLocal2024TableAdapters.TruckDriverTableAdapter();
             this.tableAdapterManager4 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
             gCMLabel = new System.Windows.Forms.Label();
@@ -264,6 +263,8 @@ namespace QWS_Local
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel2.SuspendLayout();
@@ -294,8 +295,6 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).BeginInit();
             this.SuspendLayout();
             // 
             // gCMLabel
@@ -792,6 +791,16 @@ namespace QWS_Local
             this.mobTextBox.Name = "mobTextBox";
             this.mobTextBox.Size = new System.Drawing.Size(100, 23);
             this.mobTextBox.TabIndex = 80;
+            // 
+            // bsTruckDriver
+            // 
+            this.bsTruckDriver.DataMember = "TruckDriver";
+            this.bsTruckDriver.DataSource = this.dsQWSLocal2024;
+            // 
+            // dsQWSLocal2024
+            // 
+            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
+            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // personTextBox
             // 
@@ -1927,26 +1936,6 @@ namespace QWS_Local
             // 
             this.taDriver.ClearBeforeFill = true;
             // 
-            // tableAdapterManager2
-            // 
-            this.tableAdapterManager2.AxleConfigurationTableAdapter = null;
-            this.tableAdapterManager2.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager2.Connection = null;
-            this.tableAdapterManager2.NHVLTableAdapter = null;
-            this.tableAdapterManager2.PBS_ConfigSchemeTableAdapter = null;
-            this.tableAdapterManager2.PBS_ConfigTableAdapter = null;
-            this.tableAdapterManager2.PBSTableAdapter = null;
-            this.tableAdapterManager2.SchemeCodesTableAdapter = null;
-            this.tableAdapterManager2.TruckConfigTableAdapter = null;
-            this.tableAdapterManager2.TruckConfigVehicleTableAdapter = null;
-            this.tableAdapterManager2.TrucksInQuarryTableAdapter = null;
-            this.tableAdapterManager2.UpdateOrder = QWS_Local.dsQWSLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager2.VehiclePBSTableAdapter = null;
-            this.tableAdapterManager2.VehiclePrefCustomersTableAdapter = null;
-            this.tableAdapterManager2.VehicleRegFeeCodesTableAdapter = null;
-            this.tableAdapterManager2.VehicleTableAdapter = null;
-            this.tableAdapterManager2.VehicleTypeTableAdapter = null;
-            // 
             // taTIQ2
             // 
             this.taTIQ2.ClearBeforeFill = true;
@@ -1962,16 +1951,6 @@ namespace QWS_Local
             this.tableAdapterManager3.WBDocketLinesTableAdapter = null;
             this.tableAdapterManager3.WBDocketsTableAdapter = null;
             // 
-            // dsQWSLocal2024
-            // 
-            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
-            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bsTruckDriver
-            // 
-            this.bsTruckDriver.DataMember = "TruckDriver";
-            this.bsTruckDriver.DataSource = this.dsQWSLocal2024;
-            // 
             // taTruckDriver
             // 
             this.taTruckDriver.ClearBeforeFill = true;
@@ -1983,7 +1962,9 @@ namespace QWS_Local
             this.tableAdapterManager4.Connection = null;
             this.tableAdapterManager4.NHVRTableAdapter = null;
             this.tableAdapterManager4.UpdateOrder = QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager4.VehiclePBSTableAdapter = null;
             this.tableAdapterManager4.VehiclePrefCustomersTableAdapter = null;
+            this.tableAdapterManager4.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager4.VehicleTableAdapter = null;
             // 
             // BookInExBin
@@ -2007,6 +1988,8 @@ namespace QWS_Local
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
@@ -2043,8 +2026,6 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2103,7 +2084,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn orderStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage tpTruckconfig;
         private dsQWSLocalTableAdapters.TruckDriverTableAdapter taDriver;
-        private dsQWSLocalTableAdapters.TableAdapterManager tableAdapterManager2;
         private System.Windows.Forms.TextBox mobTextBox;
         private System.Windows.Forms.TextBox personTextBox;
         private dsTIQ2 dsTIQ2;
