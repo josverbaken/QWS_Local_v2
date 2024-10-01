@@ -45,7 +45,6 @@ namespace QWS_Local
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label9;
             System.Windows.Forms.Label label10;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VehicleMaintenance));
             this.txtRego = new System.Windows.Forms.TextBox();
             this.bsVehicle = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
@@ -368,6 +367,7 @@ namespace QWS_Local
             // 
             // txtOwner
             // 
+            this.txtOwner.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehicle, "Owner", true));
             this.txtOwner.Location = new System.Drawing.Point(13, 174);
             this.txtOwner.Margin = new System.Windows.Forms.Padding(4);
             this.txtOwner.Name = "txtOwner";
@@ -525,6 +525,7 @@ namespace QWS_Local
             // 
             // textBox8
             // 
+            this.textBox8.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsAxleConfig, "VehicleDescription", true));
             this.textBox8.Location = new System.Drawing.Point(696, 254);
             this.textBox8.Margin = new System.Windows.Forms.Padding(4);
             this.textBox8.Name = "textBox8";
@@ -536,6 +537,7 @@ namespace QWS_Local
             // 
             // textBox1
             // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsFeeCodes, "FeeConditions", true));
             this.textBox1.Location = new System.Drawing.Point(696, 127);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
@@ -547,6 +549,7 @@ namespace QWS_Local
             // 
             // textBox6
             // 
+            this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsFeeCodes, "FeeType", true));
             this.textBox6.Location = new System.Drawing.Point(696, 95);
             this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
@@ -638,6 +641,7 @@ namespace QWS_Local
             // 
             // txtSAPCode
             // 
+            this.txtSAPCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehicle, "CardCode", true));
             this.txtSAPCode.Location = new System.Drawing.Point(393, 174);
             this.txtSAPCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtSAPCode.Name = "txtSAPCode";
@@ -647,7 +651,7 @@ namespace QWS_Local
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.bsAxleConfig, "Schematic", true));
             this.pictureBox1.Location = new System.Drawing.Point(13, 14);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
@@ -976,10 +980,10 @@ namespace QWS_Local
             this.tpDetails.Controls.Add(this.textBox8);
             this.tpDetails.Controls.Add(this.txtVIN);
             this.tpDetails.Controls.Add(vINLabel);
-            this.tpDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpDetails.Location = new System.Drawing.Point(4, 27);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(1163, 450);
+            this.tpDetails.Size = new System.Drawing.Size(1163, 445);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;

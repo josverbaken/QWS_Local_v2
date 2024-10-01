@@ -31,7 +31,7 @@ namespace QWS_Local
             return feeCodesRow;           
         }
 
-        private void FindFeeCode()
+        private void SetFeeCode()
         {
             try
             {
@@ -47,16 +47,19 @@ namespace QWS_Local
 
         private void FeeCodeSearch_Load(object sender, EventArgs e)
         {
-            this.taFeeCodes.Fill(this.dsQWSLocal2024.VehicleRegFeeCodes);
+            int iRows = this.taFeeCodes.Fill(this.dsQWSLocal2024.VehicleRegFeeCodes);
+            iRows += 2;
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            FindFeeCode();
+            SetFeeCode();
         }
-
+   
         private void ClearFilters()
         {
+            rbFeeCode.Checked = false;
+            rbCoupling.Checked = false;
             bsFeeCodes.RemoveFilter();
         }
 
@@ -69,16 +72,8 @@ namespace QWS_Local
             }
         }
 
-
-        private void rbClearFilters_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbClearFilters.Checked == true)
-            {
-                ClearFilters();
-            }
-        }
-
-        private void rbCoupling_CheckedChanged(object sender, EventArgs e)
+ 
+       private void rbCoupling_CheckedChanged(object sender, EventArgs e)
         {
             if (rbCoupling.Checked == true)
             {
@@ -91,13 +86,18 @@ namespace QWS_Local
         {
             this.Validate();
             this.bsFeeCodes.EndEdit();
-            this.tableAdapterManager1.UpdateAll(this.dsQWSLocal2024);
-
+            this.tamQWSLocal2024.UpdateAll(this.dsQWSLocal2024);
         }
 
-        private void FeeCodeSearch_Load_1(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            // nothing yet
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void btnClearFilters_Click(object sender, EventArgs e)
+        {
+            ClearFilters();
         }
     }
 }

@@ -395,7 +395,7 @@ namespace QWS_Local
             }
             else
             {
-                MessageBox.Show("cancelled");
+                MessageBox.Show("Cancelled","Fee Code Search",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
             }   
         }
 
