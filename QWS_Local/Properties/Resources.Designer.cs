@@ -78,37 +78,7 @@ namespace QWS_Local.Properties {
                 object obj = ResourceManager.GetObject("Artboard_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Search_1 {
-            get {
-                object obj = ResourceManager.GetObject("Search_1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap generic {
-            get {
-                object obj = ResourceManager.GetObject("Search_2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Search_Engine {
-            get {
-                object obj = ResourceManager.GetObject("Search_Engine", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
+        }               
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
