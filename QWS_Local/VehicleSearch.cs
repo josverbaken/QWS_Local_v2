@@ -62,6 +62,14 @@ namespace QWS_Local
                     //this.bsVehicleDetails.Filter = "IsLeadVehicle = 1";
                     // maybe pass in as a parameter from calling form
                     // maybe create function for filter
+                    // testing 20241002
+                    if (bsVehicleDetails3.Count > 0)
+                    {
+                        DataRow myDR = ((DataRowView)bsVehicleDetails3.Current).Row;
+                        dsQWSLocal2024.VehicleDetailsRow vehicleDetailsRow = (dsQWSLocal2024.VehicleDetailsRow)myDR;
+                        myRego = vehicleDetailsRow.Rego;
+                        myCardCode = vehicleDetailsRow.CardCode;
+                    }
                 }
                 else
                 {

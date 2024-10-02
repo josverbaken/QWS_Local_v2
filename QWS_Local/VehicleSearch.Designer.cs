@@ -32,17 +32,6 @@ namespace QWS_Local
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.vehicleDataGridView = new System.Windows.Forms.DataGridView();
-            this.bsVehicleDetails2 = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
-            this.taVehicleDetails2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleDetailsTableAdapter();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VehicleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FeeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Schematic = new System.Windows.Forms.DataGridViewImageColumn();
-            this.RegistrationExpDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearch1 = new System.Windows.Forms.TextBox();
             this.rbTrucks = new System.Windows.Forms.RadioButton();
             this.rbTrailers = new System.Windows.Forms.RadioButton();
@@ -54,16 +43,27 @@ namespace QWS_Local
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnFind = new System.Windows.Forms.Button();
+            this.bsVehicleDetails2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
+            this.taVehicleDetails2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleDetailsTableAdapter();
+            this.bsVehicleDetails3 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FeeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Schematic = new System.Windows.Forms.DataGridViewImageColumn();
+            this.RegistrationExpDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails3)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -96,13 +96,11 @@ namespace QWS_Local
             this.vehicleDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.VehicleType,
             this.dataGridViewTextBoxColumn13,
             this.FeeCode,
             this.Schematic,
             this.RegistrationExpDT});
-            this.vehicleDataGridView.DataSource = this.bsVehicleDetails2;
+            this.vehicleDataGridView.DataSource = this.bsVehicleDetails3;
             this.vehicleDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.vehicleDataGridView.Location = new System.Drawing.Point(3, 3);
             this.vehicleDataGridView.Name = "vehicleDataGridView";
@@ -110,79 +108,6 @@ namespace QWS_Local
             this.vehicleDataGridView.RowTemplate.Height = 150;
             this.vehicleDataGridView.Size = new System.Drawing.Size(1050, 586);
             this.vehicleDataGridView.TabIndex = 0;
-            // 
-            // bsVehicleDetails2
-            // 
-            this.bsVehicleDetails2.DataMember = "VehicleDetails";
-            this.bsVehicleDetails2.DataSource = this.dsQWSLocal2024;
-            // 
-            // dsQWSLocal2024
-            // 
-            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
-            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // taVehicleDetails2
-            // 
-            this.taVehicleDetails2.ClearBeforeFill = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Rego";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Rego";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Owner";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Owner";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 250;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Make";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Make";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 150;
-            // 
-            // VehicleType
-            // 
-            this.VehicleType.DataPropertyName = "VehicleType";
-            this.VehicleType.HeaderText = "VehicleType";
-            this.VehicleType.Name = "VehicleType";
-            this.VehicleType.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "AxleConfiguration";
-            this.dataGridViewTextBoxColumn13.HeaderText = "AxleConfiguration";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            // 
-            // FeeCode
-            // 
-            this.FeeCode.DataPropertyName = "FeeCode";
-            this.FeeCode.HeaderText = "FeeCode";
-            this.FeeCode.Name = "FeeCode";
-            this.FeeCode.ReadOnly = true;
-            // 
-            // Schematic
-            // 
-            this.Schematic.DataPropertyName = "Schematic";
-            this.Schematic.HeaderText = "Schematic";
-            this.Schematic.Name = "Schematic";
-            this.Schematic.ReadOnly = true;
-            this.Schematic.Width = 450;
-            // 
-            // RegistrationExpDT
-            // 
-            this.RegistrationExpDT.DataPropertyName = "RegistrationExpDT";
-            this.RegistrationExpDT.HeaderText = "RegistrationExpDT";
-            this.RegistrationExpDT.Name = "RegistrationExpDT";
-            this.RegistrationExpDT.ReadOnly = true;
             // 
             // txtSearch1
             // 
@@ -284,7 +209,7 @@ namespace QWS_Local
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 69);
+            this.tabPage2.Size = new System.Drawing.Size(1056, 592);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -298,6 +223,69 @@ namespace QWS_Local
             this.btnFind.Text = "Find";
             this.btnFind.UseVisualStyleBackColor = true;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
+            // bsVehicleDetails2
+            // 
+            this.bsVehicleDetails2.DataMember = "VehicleDetails";
+            this.bsVehicleDetails2.DataSource = this.dsQWSLocal2024;
+            // 
+            // dsQWSLocal2024
+            // 
+            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
+            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // taVehicleDetails2
+            // 
+            this.taVehicleDetails2.ClearBeforeFill = true;
+            // 
+            // bsVehicleDetails3
+            // 
+            this.bsVehicleDetails3.DataMember = "VehicleDetails";
+            this.bsVehicleDetails3.DataSource = this.dsQWSLocal2024;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Rego";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Rego";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Owner";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Owner";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 250;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "AxleConfiguration";
+            this.dataGridViewTextBoxColumn13.HeaderText = "AxleConfiguration";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            // 
+            // FeeCode
+            // 
+            this.FeeCode.DataPropertyName = "FeeCode";
+            this.FeeCode.HeaderText = "FeeCode";
+            this.FeeCode.Name = "FeeCode";
+            this.FeeCode.ReadOnly = true;
+            // 
+            // Schematic
+            // 
+            this.Schematic.DataPropertyName = "Schematic";
+            this.Schematic.HeaderText = "Schematic";
+            this.Schematic.Name = "Schematic";
+            this.Schematic.ReadOnly = true;
+            this.Schematic.Width = 450;
+            // 
+            // RegistrationExpDT
+            // 
+            this.RegistrationExpDT.DataPropertyName = "RegistrationExpDT";
+            this.RegistrationExpDT.HeaderText = "RegistrationExpDT";
+            this.RegistrationExpDT.Name = "RegistrationExpDT";
+            this.RegistrationExpDT.ReadOnly = true;
             // 
             // VehicleSearch
             // 
@@ -317,12 +305,13 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -334,14 +323,6 @@ namespace QWS_Local
         private dsQWSLocal2024 dsQWSLocal2024;
         private System.Windows.Forms.BindingSource bsVehicleDetails2;
         private dsQWSLocal2024TableAdapters.VehicleDetailsTableAdapter taVehicleDetails2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VehicleType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FeeCode;
-        private System.Windows.Forms.DataGridViewImageColumn Schematic;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RegistrationExpDT;
         private System.Windows.Forms.Button btnSelect1;
         private System.Windows.Forms.Button btnCancel1;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -353,5 +334,12 @@ namespace QWS_Local
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnFind;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FeeCode;
+        private System.Windows.Forms.DataGridViewImageColumn Schematic;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RegistrationExpDT;
+        private System.Windows.Forms.BindingSource bsVehicleDetails3;
     }
 }
