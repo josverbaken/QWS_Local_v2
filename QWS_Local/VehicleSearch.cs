@@ -39,12 +39,9 @@ namespace QWS_Local
         {
             InitializeComponent();
             Search4Vehicle(CardCode,true);
-            this.txtSearch.Text = CardCode;
-            //TODO set axle config filter
-            //this.bsVehicleDetails.Filter = "AxleConfiguration like '" + TkAxleConfig + "%' and IsLeadVehicle = 0";
-            MessageBox.Show("Truck Axle config = " + AxleConfig + " Exact = " + Exact.ToString());
+            this.txtSearch1.Text = CardCode;
+            //MessageBox.Show("Truck Axle config = " + AxleConfig + " Exact = " + Exact.ToString());
             FilterByAxleConfig(AxleConfig,Exact);
-            //FilterByTrailers();
         }
 
         public VehicleSearch(string strSearch, bool IsCardCode)
@@ -52,12 +49,7 @@ namespace QWS_Local
             InitializeComponent();
             Search4Vehicle(strSearch, IsCardCode);
             // prime search textbox
-            this.txtSearch.Text = strSearch;
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            Search4Vehicle(this.txtSearch.Text, false);
+            this.txtSearch1.Text = strSearch;
         }
 
         private void Search4Vehicle(string strSearch, bool IsCardCode)
@@ -93,24 +85,7 @@ namespace QWS_Local
             }
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            VehicleSet();
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-        }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-            FilterByTrailers();
-        }
-
+ 
         private void FilterByAxleConfig(string AxleConfig, bool Exact)
         {
             if (Exact == true) 
@@ -128,14 +103,43 @@ namespace QWS_Local
             this.bsVehicleDetails2.Filter = "IsLeadVehicle = 0";
         }
 
-        private void btnTruck_Click(object sender, EventArgs e)
-        {
-                this.bsVehicleDetails2.Filter = "IsLeadVehicle = 1";
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
+        private void btnClearFilter_Click(object sender, EventArgs e)
         {
             this.bsVehicleDetails2.Filter = "";
+        }
+
+        private void rbTrucks_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbTrucks.Checked == true)
+            {
+                this.bsVehicleDetails2.Filter = "IsLeadVehicle = 1";
+            }
+        }
+
+        private void rbTrailers_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbTrailers.Checked == true)
+            {
+                this.bsVehicleDetails2.Filter = "IsLeadVehicle = 1";
+            }
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            Search4Vehicle(this.txtSearch1.Text, false);
+        }
+
+        private void btnCancel1_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void btnSelect1_Click(object sender, EventArgs e)
+        {
+            VehicleSet();
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }
