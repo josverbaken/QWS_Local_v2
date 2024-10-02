@@ -213,6 +213,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutQWSLocal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutQWSLocal.Designer.cs">
+      <DependentUpon>AboutQWSLocal.cs</DependentUpon>
+    </Compile>
     <Compile Include="AxleConfigurationSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -431,6 +437,9 @@
     <Compile Include="WeighTruck.Designer.cs">
       <DependentUpon>WeighTruck.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AboutQWSLocal.resx">
+      <DependentUpon>AboutQWSLocal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AxleConfigurationSearch.resx">
       <DependentUpon>AxleConfigurationSearch.cs</DependentUpon>
     </EmbeddedResource>

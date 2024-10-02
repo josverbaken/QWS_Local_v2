@@ -122,11 +122,6 @@ namespace QWS_Local
             frmVehicle.Show();
         }
 
-        private void helloToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Read the supplied documentation first.");
-        }
-
         private void printDocketToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PrintDocket frmPrintDocket = new PrintDocket();
@@ -157,6 +152,18 @@ namespace QWS_Local
             frmSPLotMaintenance.MdiParent = this;
             frmSPLotMaintenance.WindowState = FormWindowState.Maximized;
             frmSPLotMaintenance.Show(); 
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutQWSLocal frmAbout = new AboutQWSLocal();
+            frmAbout.MdiParent = this;
+            frmAbout.Show();
+        }
+
+        private void onlineHelpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Read the supplied documentation first.");
         }
     }
 }
