@@ -158,6 +158,8 @@ namespace QWS_Local
         {
             AboutQWSLocal frmAbout = new AboutQWSLocal();
             frmAbout.MdiParent = this;
+            //frmAbout.WindowState = FormWindowState.Normal;
+            //frmAbout.Size = new Size(500, 350);
             frmAbout.Show();
         }
 

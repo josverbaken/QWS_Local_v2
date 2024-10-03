@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Deployment.Application;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -105,6 +106,27 @@ namespace QWS_Local
         private void okButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AboutQWSLocal_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ApplicationDeployment.IsNetworkDeployed)
+                {
+                    string deployedVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
+                    textBoxDescription.Text += " more info ";
+                    textBoxDescription.Text += deployedVersion;
+                }
+                else
+                {
+                    textBoxDescription.Text += "\r\n\r\nIsNetworkDeployed = False!";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                    }
         }
     }
 }
