@@ -10365,7 +10365,7 @@ FROM            VehicleDetails AS t0";
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SearchString", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "dbo.VehiclesByCardCode";
+            this._commandCollection[2].CommandText = "dbo.VehicleDetailsCardCode";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CardCode", global::System.Data.SqlDbType.VarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
