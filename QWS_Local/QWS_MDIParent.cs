@@ -163,7 +163,7 @@ namespace QWS_Local
 
         private void onlineHelpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Read the supplied documentation first.");
+            MessageBox.Show("Read the supplied documentation first. Online help is being created soon...");
         }
     }
 }

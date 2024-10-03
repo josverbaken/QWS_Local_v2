@@ -17,7 +17,7 @@
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>\\CH-DC-FS01\QWS_Software\</PublishUrl>
-    <Install>false</Install>
+    <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
@@ -30,7 +30,7 @@
     <PublisherName>Jos Verbaken</PublisherName>
     <SuiteName>Quarry Weighbridge System</SuiteName>
     <WebPage>QWSLocal</WebPage>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>0.5.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
