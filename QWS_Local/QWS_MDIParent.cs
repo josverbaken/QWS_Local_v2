@@ -19,9 +19,26 @@ namespace QWS_Local
 
         private void QWS_MDIParent_Load(object sender, EventArgs e)
         {
+            string msg = "QWS Local - ";
+            string SiteLabel = string.Empty;
+            // TODO refactor to cater for more than 2 sites
+            if (Properties.Settings.Default.SiteCode == "07")
+            {
+                SiteLabel = "Northern Quarries SiteID 07";
+            }
+            else if (Properties.Settings.Default.SiteCode == "02")
+            {
+                SiteLabel = "Stawell Quarry SiteID 02";
+            }
+            msg += SiteLabel;
+            string Username = Environment.UserName;
+            string MachineName = Environment.MachineName;
+            msg += " Username: " + Username;
+            msg += " Computer: " + MachineName;
             this.Size = new Size(1400, 800);
+            this.Text = msg;
             TrucksInQuarry frmTIQ = new TrucksInQuarry();
-            frmTIQ.MdiParent = this;
+            frmTIQ.MdiParent = this;            
             frmTIQ.Show();
         }
 
