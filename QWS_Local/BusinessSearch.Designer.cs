@@ -49,10 +49,6 @@ namespace QWS_Local
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.sAPCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tradingNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DefaultContact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OfficePhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsBusiness = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
             this.tpDetails = new System.Windows.Forms.TabPage();
@@ -70,6 +66,11 @@ namespace QWS_Local
             this.btnUp = new System.Windows.Forms.Button();
             this.taBusiness = new QWS_Local.dsQWSLocal2024TableAdapters.BusinessTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
+            this.AccountStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sAPCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tradingNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DefaultContact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OfficePhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             sAPCodeLabel = new System.Windows.Forms.Label();
             tradingNameLabel = new System.Windows.Forms.Label();
             alternateNameLabel = new System.Windows.Forms.Label();
@@ -311,6 +312,7 @@ namespace QWS_Local
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.AccountStatus,
             this.sAPCodeDataGridViewTextBoxColumn,
             this.tradingNameDataGridViewTextBoxColumn,
             this.DefaultContact,
@@ -322,33 +324,6 @@ namespace QWS_Local
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(804, 479);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // sAPCodeDataGridViewTextBoxColumn
-            // 
-            this.sAPCodeDataGridViewTextBoxColumn.DataPropertyName = "SAPCode";
-            this.sAPCodeDataGridViewTextBoxColumn.HeaderText = "SAPCode";
-            this.sAPCodeDataGridViewTextBoxColumn.Name = "sAPCodeDataGridViewTextBoxColumn";
-            this.sAPCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tradingNameDataGridViewTextBoxColumn
-            // 
-            this.tradingNameDataGridViewTextBoxColumn.DataPropertyName = "TradingName";
-            this.tradingNameDataGridViewTextBoxColumn.HeaderText = "Customer";
-            this.tradingNameDataGridViewTextBoxColumn.Name = "tradingNameDataGridViewTextBoxColumn";
-            this.tradingNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tradingNameDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // DefaultContact
-            // 
-            this.DefaultContact.HeaderText = "Contact";
-            this.DefaultContact.Name = "DefaultContact";
-            this.DefaultContact.ReadOnly = true;
-            // 
-            // OfficePhone
-            // 
-            this.OfficePhone.HeaderText = "Phone";
-            this.OfficePhone.Name = "OfficePhone";
-            this.OfficePhone.ReadOnly = true;
             // 
             // bsBusiness
             // 
@@ -511,8 +486,44 @@ namespace QWS_Local
             this.tableAdapterManager1.Connection = null;
             this.tableAdapterManager1.NHVRTableAdapter = null;
             this.tableAdapterManager1.UpdateOrder = QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager1.VehiclePBSTableAdapter = null;
             this.tableAdapterManager1.VehiclePrefCustomersTableAdapter = null;
+            this.tableAdapterManager1.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager1.VehicleTableAdapter = null;
+            // 
+            // AccountStatus
+            // 
+            this.AccountStatus.DataPropertyName = "AccountStatus";
+            this.AccountStatus.HeaderText = "Status";
+            this.AccountStatus.Name = "AccountStatus";
+            this.AccountStatus.ReadOnly = true;
+            // 
+            // sAPCodeDataGridViewTextBoxColumn
+            // 
+            this.sAPCodeDataGridViewTextBoxColumn.DataPropertyName = "SAPCode";
+            this.sAPCodeDataGridViewTextBoxColumn.HeaderText = "SAPCode";
+            this.sAPCodeDataGridViewTextBoxColumn.Name = "sAPCodeDataGridViewTextBoxColumn";
+            this.sAPCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tradingNameDataGridViewTextBoxColumn
+            // 
+            this.tradingNameDataGridViewTextBoxColumn.DataPropertyName = "TradingName";
+            this.tradingNameDataGridViewTextBoxColumn.HeaderText = "Customer";
+            this.tradingNameDataGridViewTextBoxColumn.Name = "tradingNameDataGridViewTextBoxColumn";
+            this.tradingNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tradingNameDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // DefaultContact
+            // 
+            this.DefaultContact.HeaderText = "Contact";
+            this.DefaultContact.Name = "DefaultContact";
+            this.DefaultContact.ReadOnly = true;
+            // 
+            // OfficePhone
+            // 
+            this.OfficePhone.HeaderText = "Phone";
+            this.OfficePhone.Name = "OfficePhone";
+            this.OfficePhone.ReadOnly = true;
             // 
             // BusinessSearch
             // 
@@ -575,6 +586,7 @@ namespace QWS_Local
         private System.Windows.Forms.BindingSource bsBusiness;
         private dsQWSLocal2024TableAdapters.BusinessTableAdapter taBusiness;
         private dsQWSLocal2024TableAdapters.TableAdapterManager tableAdapterManager1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AccountStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn sAPCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tradingNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn DefaultContact;
