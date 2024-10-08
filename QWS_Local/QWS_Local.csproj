@@ -30,7 +30,7 @@
     <PublisherName>Jos Verbaken</PublisherName>
     <SuiteName>Quarry Weighbridge System</SuiteName>
     <WebPage>QWSLocal</WebPage>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>0.5.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -371,6 +371,7 @@
     <Compile Include="QWS_MDIParent.Designer.cs">
       <DependentUpon>QWS_MDIParent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="SplitLoadType.cs">
       <SubType>Form</SubType>
     </Compile>
