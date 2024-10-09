@@ -120,8 +120,28 @@ namespace QWS_Local
                 }
                 else
                 {
+                    string deployedVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
                     textBoxDescription.Text += "\r\n\r\nIsNetworkDeployed = False!";
+                    textBoxDescription.Text += "\r\n\r\nAssembly Info: " + deployedVersion;
                 }
+                string msg = "\r\n\r\nSite : ";
+                string SiteLabel = string.Empty;
+                // TODO refactor to cater for more than 2 sites
+                if (Properties.Settings.Default.SiteCode == "07")
+                {
+                    SiteLabel = "07 Northern Quarries";
+                }
+                else if (Properties.Settings.Default.SiteCode == "02")
+                {
+                    SiteLabel = "02 Stawell Quarry";
+                }
+                msg += SiteLabel;
+                string DomainName = Environment.UserDomainName;
+                string Username = Environment.UserName;
+                string MachineName = Environment.MachineName;
+                msg += "\r\n\r\nUsername: " + DomainName + "\\" + Username;
+                msg += "\r\n\r\nComputer: " + MachineName;
+                textBoxDescription.Text += msg;
             }
             catch (Exception ex)
             {
