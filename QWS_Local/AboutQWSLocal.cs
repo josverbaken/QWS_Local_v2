@@ -115,14 +115,18 @@ namespace QWS_Local
                 if (ApplicationDeployment.IsNetworkDeployed)
                 {
                     string deployedVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
-                    textBoxDescription.Text += " more info ";
-                    textBoxDescription.Text += deployedVersion;
+                    labelVersion.Text = "Version : " + deployedVersion;
+                    //textBoxDescription.Text += " more info ";
+                    //textBoxDescription.Text += deployedVersion;
+                    //string deployedVersion2 = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                    //textBoxDescription.Text += "\r\nGetExecutingAssembly : " + deployedVersion2;
                 }
                 else
                 {
                     string deployedVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-                    textBoxDescription.Text += "\r\n\r\nIsNetworkDeployed = False!";
-                    textBoxDescription.Text += "\r\n\r\nAssembly Info: " + deployedVersion;
+                    labelVersion.Text = "Version : " + deployedVersion;
+                    //textBoxDescription.Text += "\r\n\r\nIsNetworkDeployed = False!";
+                    //textBoxDescription.Text += "\r\n\r\nAssembly Info: " + deployedVersion;
                 }
                 string msg = "\r\n\r\nSite : ";
                 string SiteLabel = string.Empty;
