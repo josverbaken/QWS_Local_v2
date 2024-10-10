@@ -32,6 +32,8 @@
             System.Windows.Forms.Label docDateLabel;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.bsDeliveryDocketRpt = new System.Windows.Forms.BindingSource(this.components);
+            this.dsDocketReport = new QWS_Local.dsDocketReport();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -64,11 +66,12 @@
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.docketListTableAdapter = new QWS_Local.dsQWSViewsTableAdapters.DocketListTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsQWSViewsTableAdapters.TableAdapterManager();
-            this.dsDocketReport = new QWS_Local.dsDocketReport();
-            this.dsDocketReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bsDeliveryDocketRpt = new System.Windows.Forms.BindingSource(this.components);
+            this.bsDocketReport = new System.Windows.Forms.BindingSource(this.components);
             this.taDeliveryDocketRpt = new QWS_Local.dsDocketReportTableAdapters.DeliveryDocketRptTableAdapter();
+            this.btnPrintPreview = new System.Windows.Forms.Button();
             docDateLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDeliveryDocketRpt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsDocketReport)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -83,9 +86,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dsDocketReport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsDocketReportBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsDeliveryDocketRpt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDocketReport)).BeginInit();
             this.SuspendLayout();
             // 
             // docDateLabel
@@ -96,6 +97,16 @@
             docDateLabel.Size = new System.Drawing.Size(75, 18);
             docDateLabel.TabIndex = 3;
             docDateLabel.Text = "Doc Date:";
+            // 
+            // bsDeliveryDocketRpt
+            // 
+            this.bsDeliveryDocketRpt.DataMember = "DeliveryDocketRpt";
+            this.bsDeliveryDocketRpt.DataSource = this.dsDocketReport;
+            // 
+            // dsDocketReport
+            // 
+            this.dsDocketReport.DataSetName = "dsDocketReport";
+            this.dsDocketReport.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabControl1
             // 
@@ -130,6 +141,7 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
+            this.splitContainer2.Panel1.Controls.Add(this.btnPrintPreview);
             this.splitContainer2.Panel1.Controls.Add(this.docNumTextBox);
             this.splitContainer2.Panel1.Controls.Add(docDateLabel);
             this.splitContainer2.Panel1.Controls.Add(this.btnGetDocketList);
@@ -165,7 +177,7 @@
             // 
             this.btnGetDocketList.Location = new System.Drawing.Point(4, 276);
             this.btnGetDocketList.Name = "btnGetDocketList";
-            this.btnGetDocketList.Size = new System.Drawing.Size(200, 23);
+            this.btnGetDocketList.Size = new System.Drawing.Size(200, 52);
             this.btnGetDocketList.TabIndex = 2;
             this.btnGetDocketList.Text = "Get List";
             this.btnGetDocketList.UseVisualStyleBackColor = true;
@@ -180,9 +192,9 @@
             // 
             // btnRefreshDockets
             // 
-            this.btnRefreshDockets.Location = new System.Drawing.Point(39, 131);
+            this.btnRefreshDockets.Location = new System.Drawing.Point(14, 45);
             this.btnRefreshDockets.Name = "btnRefreshDockets";
-            this.btnRefreshDockets.Size = new System.Drawing.Size(75, 23);
+            this.btnRefreshDockets.Size = new System.Drawing.Size(190, 56);
             this.btnRefreshDockets.TabIndex = 0;
             this.btnRefreshDockets.Text = "Refresh";
             this.btnRefreshDockets.UseVisualStyleBackColor = true;
@@ -403,24 +415,24 @@
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSViewsTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // dsDocketReport
+            // bsDocketReport
             // 
-            this.dsDocketReport.DataSetName = "dsDocketReport";
-            this.dsDocketReport.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dsDocketReportBindingSource
-            // 
-            this.dsDocketReportBindingSource.DataSource = this.dsDocketReport;
-            this.dsDocketReportBindingSource.Position = 0;
-            // 
-            // bsDeliveryDocketRpt
-            // 
-            this.bsDeliveryDocketRpt.DataMember = "DeliveryDocketRpt";
-            this.bsDeliveryDocketRpt.DataSource = this.dsDocketReport;
+            this.bsDocketReport.DataSource = this.dsDocketReport;
+            this.bsDocketReport.Position = 0;
             // 
             // taDeliveryDocketRpt
             // 
             this.taDeliveryDocketRpt.ClearBeforeFill = true;
+            // 
+            // btnPrintPreview
+            // 
+            this.btnPrintPreview.Location = new System.Drawing.Point(4, 444);
+            this.btnPrintPreview.Name = "btnPrintPreview";
+            this.btnPrintPreview.Size = new System.Drawing.Size(200, 52);
+            this.btnPrintPreview.TabIndex = 7;
+            this.btnPrintPreview.Text = "Print Preview";
+            this.btnPrintPreview.UseVisualStyleBackColor = true;
+            this.btnPrintPreview.Click += new System.EventHandler(this.btnPrintPreview_Click);
             // 
             // PrintDocket
             // 
@@ -433,6 +445,8 @@
             this.Name = "PrintDocket";
             this.Text = "PrintDocket";
             this.Load += new System.EventHandler(this.PrintDocket_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bsDeliveryDocketRpt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsDocketReport)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpList.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
@@ -449,9 +463,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dsDocketReport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsDocketReportBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsDeliveryDocketRpt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDocketReport)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -490,9 +502,10 @@
         private System.Windows.Forms.DateTimePicker dtpDocketList;
         private System.Windows.Forms.TextBox docNumTextBox;
         private dsQWSViewsTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingSource dsDocketReportBindingSource;
+        private System.Windows.Forms.BindingSource bsDocketReport;
         private dsDocketReport dsDocketReport;
         private System.Windows.Forms.BindingSource bsDeliveryDocketRpt;
         private dsDocketReportTableAdapters.DeliveryDocketRptTableAdapter taDeliveryDocketRpt;
+        private System.Windows.Forms.Button btnPrintPreview;
     }
 }

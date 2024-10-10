@@ -75,5 +75,34 @@ namespace QWS_Local
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnPrintPreview_Click(object sender, EventArgs e)
+        {
+            PrintPreview();
+        }
+
+        private void PrintPreview()
+        {
+            int myDocNum = 5500109;
+            myDocNum = CurrentDocketList().DocNum;
+            GetDeliveryDocket(myDocNum);
+            txtDocketNo.Text =  myDocNum.ToString();
+            tabControl1.SelectedTab = tpDocket;
+        }
+
+        private dsQWSViews.DocketListRow CurrentDocketList()
+        {
+            try
+            {
+                DataRow myDR = ((DataRowView)bsDocketList.Current).Row;
+                dsQWSViews.DocketListRow docketListRow = (dsQWSViews.DocketListRow)myDR;
+                return docketListRow;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
     }
 }
