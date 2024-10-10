@@ -32,6 +32,8 @@
             this.tIQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pBSMaintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pBSMaintenanceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pBS2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pBSUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vehicleMaintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.axleConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nHVRGCMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,8 +46,8 @@
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.onlineHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,10 +92,25 @@
             // 
             // pBSMaintenanceToolStripMenuItem1
             // 
+            this.pBSMaintenanceToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pBS2ToolStripMenuItem,
+            this.pBSUpdateToolStripMenuItem});
             this.pBSMaintenanceToolStripMenuItem1.Name = "pBSMaintenanceToolStripMenuItem1";
             this.pBSMaintenanceToolStripMenuItem1.Size = new System.Drawing.Size(227, 24);
             this.pBSMaintenanceToolStripMenuItem1.Text = "PBS Maintenance";
             this.pBSMaintenanceToolStripMenuItem1.Click += new System.EventHandler(this.pBSMaintenanceToolStripMenuItem1_Click);
+            // 
+            // pBS2ToolStripMenuItem
+            // 
+            this.pBS2ToolStripMenuItem.Name = "pBS2ToolStripMenuItem";
+            this.pBS2ToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
+            this.pBS2ToolStripMenuItem.Text = "PBS 2";
+            // 
+            // pBSUpdateToolStripMenuItem
+            // 
+            this.pBSUpdateToolStripMenuItem.Name = "pBSUpdateToolStripMenuItem";
+            this.pBSUpdateToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
+            this.pBSUpdateToolStripMenuItem.Text = "PBS Update";
             // 
             // vehicleMaintenanceToolStripMenuItem
             // 
@@ -182,19 +199,19 @@
             this.helloToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.helloToolStripMenuItem.Text = "Help";
             // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
             // onlineHelpToolStripMenuItem
             // 
             this.onlineHelpToolStripMenuItem.Name = "onlineHelpToolStripMenuItem";
-            this.onlineHelpToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.onlineHelpToolStripMenuItem.Size = new System.Drawing.Size(157, 24);
             this.onlineHelpToolStripMenuItem.Text = "Online Help";
             this.onlineHelpToolStripMenuItem.Click += new System.EventHandler(this.onlineHelpToolStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(157, 24);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // QWS_MDIParent
             // 
@@ -236,5 +253,7 @@
         private System.Windows.Forms.ToolStripMenuItem stockpileLotToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem onlineHelpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pBS2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pBSUpdateToolStripMenuItem;
     }
 }
