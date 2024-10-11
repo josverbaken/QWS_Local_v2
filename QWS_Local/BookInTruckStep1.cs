@@ -27,7 +27,9 @@ namespace QWS_Local
             OnHold,
             ExBin,
             Imported,
-            Delivery
+            Delivery,
+            Split,
+            ParkUp
         }
         private enum LoadType
         {
@@ -469,8 +471,13 @@ namespace QWS_Local
                         cmd.Parameters.AddWithValue("@MaterialDesc", "Retare Vehicle");
                         break;
                     case TIQType.OnHold:
-                        cmd.Parameters.AddWithValue("@QueueStatus", "O");
-                        cmd.Parameters.AddWithValue("@Material", "On Hold");
+                        cmd.Parameters.AddWithValue("@QueueStatus", "H");
+                        cmd.Parameters.AddWithValue("@Material", "Queue KPI Exceeded");
+                        cmd.Parameters.AddWithValue("@MaterialDesc", "Park up in holding bay.");
+                        break;
+                    case TIQType.ParkUp:
+                        cmd.Parameters.AddWithValue("@QueueStatus", "K");
+                        cmd.Parameters.AddWithValue("@Material", "Proceed to office");
                         cmd.Parameters.AddWithValue("@MaterialDesc", "Park up in holding bay.");
                         break;
                     case TIQType.ExBin:
@@ -542,7 +549,7 @@ namespace QWS_Local
             try
             {
                 string msg = "Put on hold, direct to park in holding bay and proceed to office to resolve driver issue.";
-                NewTIQ(TIQType.OnHold);
+                NewTIQ(TIQType.ParkUp);
                 MessageBox.Show(msg,"Put on hold.",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 this.Close();
             }

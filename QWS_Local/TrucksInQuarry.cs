@@ -729,8 +729,18 @@ namespace QWS_Local
                         CurrentTIQ().QueueStatus = "H";
                         break;
                     case "H":
-                        blSave = true;
-                        CurrentTIQ().QueueStatus = "Q";
+                        DialogResult drHold = MessageBox.Show("Has Queue KPI been met?","Queue KPI Hold", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (drHold == DialogResult.Yes)
+                        {
+                            blSave = true;
+                            CurrentTIQ().QueueStatus = "Q";
+                        }
+                        break;
+                    case "K":
+                        MessageBox.Show("Please continue booking in process.","Parked Up.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        break;
+                    case "P":
+                        MessageBox.Show("Please continue booking in process.", "In Progress.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         break;
                     default:
                         break;
