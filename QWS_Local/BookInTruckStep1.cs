@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Data.SqlClient;
+//using Microsoft.Data.SqlClient;
 
 namespace QWS_Local
 {
@@ -17,7 +18,8 @@ namespace QWS_Local
         private static string CustCardCode;
         private static string ExBinCustomer;
         private static bool IsPrefCust = false;
-        private static string CallingMessage="";
+        private static bool IsAlreadyBookedIn = false;
+        private static string CallingMessage = "";
         private static int DriverID = 0;
         private static string SplitTruckConfig = "Single";
 
@@ -51,7 +53,7 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public BookInTruckStep1(string Rego, int TruckConfigID, int myDriverID ,string mySplitTruckConfig, string Message)
+        public BookInTruckStep1(string Rego, int TruckConfigID, int myDriverID, string mySplitTruckConfig, string Message)
         {
             InitializeComponent();
             CallingMessage = Message;
@@ -79,10 +81,11 @@ namespace QWS_Local
                 {
                     EntryDTTM = DateTime.Now;
                     UpdateOwnerGUI();
+                    //TODO check if already booked in
                 }
                 else
                 {
-                    DialogResult dr = MessageBox.Show("Configuration not found! Press Okay to go to vehicle search.","Configuration not found.",MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    DialogResult dr = MessageBox.Show("Configuration not found! Press Okay to go to vehicle search.", "Configuration not found.", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if (dr == DialogResult.OK)
                     {
                         VehicleMaintenance vehicle = new VehicleMaintenance();
@@ -100,7 +103,7 @@ namespace QWS_Local
 
         private void UpdateOwnerGUI()
         {
-            if ( CurrentConfigTruck().CardStatus != "A")
+            if (CurrentConfigTruck().CardStatus != "A")
             {
                 txtCardStatus.BackColor = Color.Salmon;
             }
@@ -109,7 +112,7 @@ namespace QWS_Local
                 txtCardStatus.BackColor = Color.PaleGreen;
             }
 
-            if (CurrentConfigTruck().GroupCode == 117 )
+            if (CurrentConfigTruck().GroupCode == 117)
             {
                 chkACC.Checked = true;
             }
@@ -120,9 +123,9 @@ namespace QWS_Local
 
         }
 
-        private void SelectTruckConfig (int TruckConfigID)
+        private void SelectTruckConfig(int TruckConfigID)
         {
-            int index =  bsConfiguredTrucks.Find("TruckConfigID", TruckConfigID);
+            int index = bsConfiguredTrucks.Find("TruckConfigID", TruckConfigID);
             if (index >= 0)
             {
                 bsConfiguredTrucks.Position = index;
@@ -181,9 +184,9 @@ namespace QWS_Local
 
         private void CheckConfigOK2Proceed()
         {
-            btnGetDriver.Enabled = false;   
+            btnGetDriver.Enabled = false;
             bool OK2Proceed = false;
-            if(CurrentConfigTruck().RegoCheck == true)
+            if (CurrentConfigTruck().RegoCheck == true)
             {
                 OK2Proceed = true;
             }
@@ -200,7 +203,7 @@ namespace QWS_Local
             }
             if (OK2Proceed)
             {
-                btnGetDriver.Enabled = true;    
+                btnGetDriver.Enabled = true;
             }
         }
 
@@ -233,9 +236,9 @@ namespace QWS_Local
                 int index = bsTruckDriver.Find("CntctCode", DriverID);
                 if (index > 0)
                 {
-                    bsTruckDriver.Position = index; 
+                    bsTruckDriver.Position = index;
                 }
-                blOkay2Proceed = true;  
+                blOkay2Proceed = true;
             }
             else
             {
@@ -258,7 +261,7 @@ namespace QWS_Local
                 {
                     txtLicenseExp.BackColor = Color.Salmon;
                     blOkay2Cart = false;
-                    blOK4ExBin=false;
+                    blOK4ExBin = false;
                 }
                 else
                 {
@@ -291,7 +294,7 @@ namespace QWS_Local
                     }
                     btnImported.Enabled = false;
                 }
-                if (myTruckDriverRow.Position == "Authorised Cartage Contractor") 
+                if (myTruckDriverRow.Position == "Authorised Cartage Contractor")
                 {
                     if (chkACC.Checked == true && blInduction == true)
                     {
@@ -327,7 +330,7 @@ namespace QWS_Local
                     // Search customers
                     bool CustomerFound = GetExBinCustomer();
                     return CustomerFound;
-                }            
+                }
             }
             else
             {
@@ -384,7 +387,7 @@ namespace QWS_Local
             if (SetExBinCustomer() == true)
             {
                 BookInExBin(myTIQType);
-            }            
+            }
         }
 
         private void BookInExBin(TIQType myTIQType)
@@ -392,7 +395,7 @@ namespace QWS_Local
             int iTIQID = NewTIQ(myTIQType);
             if (iTIQID > 0)
             {
-                BookInExBin frmExBin = new BookInExBin(iTIQID,myTIQType.ToString() , SplitTruckConfig ,CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer,IsPrefCust ,CurrentTruckDriver());
+                BookInExBin frmExBin = new BookInExBin(iTIQID, myTIQType.ToString(), SplitTruckConfig, CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, IsPrefCust, CurrentTruckDriver());
                 frmExBin.MdiParent = this.MdiParent;
                 frmExBin.Show();
                 this.Close();
@@ -411,7 +414,7 @@ namespace QWS_Local
         private void BookInDeliveryOrder()
         {
             int iTIQID = NewTIQ(TIQType.Delivery);
-            if ( iTIQID > 0)
+            if (iTIQID > 0)
             {
                 BookInDelivery frmDelivery = new BookInDelivery(iTIQID, CurrentConfigTruck().TruckConfigID, CurrentTruckDriver());
                 frmDelivery.MdiParent = this.MdiParent;
@@ -420,7 +423,7 @@ namespace QWS_Local
             }
         }
 
-          private void btnRetare_Click(object sender, EventArgs e)
+        private void btnRetare_Click(object sender, EventArgs e)
         {
             txtTruckConfig.Text = LoadType.BD.ToString(); // TODO why?
             int iTIQID = NewTIQ(TIQType.Retare);
@@ -434,7 +437,7 @@ namespace QWS_Local
         private int NewTIQ(TIQType myTIQType)
         {
             try
-            {                
+            {
                 int iTIQID = 0;
                 SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
                 SqlCommand cmd = new SqlCommand();
@@ -482,8 +485,8 @@ namespace QWS_Local
                         break;
                     case TIQType.ExBin:
                         cmd.Parameters.AddWithValue("@QueueStatus", "P");
-                         cmd.Parameters.AddWithValue("@Material", "ExBin");
-                         cmd.Parameters.AddWithValue("@MaterialDesc", "tba");
+                        cmd.Parameters.AddWithValue("@Material", "ExBin");
+                        cmd.Parameters.AddWithValue("@MaterialDesc", "tba");
                         break;
                     case TIQType.Delivery:
                         cmd.Parameters.AddWithValue("@QueueStatus", "P");
@@ -494,9 +497,9 @@ namespace QWS_Local
                         cmd.Parameters.AddWithValue("@QueueStatus", "I");
                         cmd.Parameters.AddWithValue("@Material", "Imported");
                         cmd.Parameters.AddWithValue("@MaterialDesc", "tba");
-                        break ;
+                        break;
                     default:
-                        MessageBox.Show("Unhandled TIQ Type : " +  myTIQType,"Add TIQ ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Unhandled TIQ Type : " + myTIQType, "Add TIQ ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
                 cmd.Parameters.AddWithValue("@StockpileLotNo", 0);
@@ -523,7 +526,7 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("OverloadDesc", "");
                 cmd.Parameters.AddWithValue("Comment", "");
                 sqlConnection.Open();
-                iTIQID = System.Convert.ToInt32( cmd.ExecuteScalar());
+                iTIQID = System.Convert.ToInt32(cmd.ExecuteScalar());
                 sqlConnection.Close();
                 return iTIQID;
             }
@@ -534,7 +537,30 @@ namespace QWS_Local
             }
         }
 
-        private void btnImported_Click(object sender, EventArgs e)
+        private bool IsBookedIn(string Rego)
+        {
+            try
+            {
+                //int iTIQID = 0;
+                //SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                //SqlCommand cmd = new SqlCommand();
+                //cmd.Connection = sqlConnection;
+                //cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.CommandText = "IsInQueue";
+                //cmd.Parameters.AddWithValue("@Rego", Rego);
+                //cmd.Parameters.AddWithValue("@SiteID", Properties.Settings.Default.SiteID);
+                //sqlConnection.Open();
+                //iTIQID = System.Convert.ToInt32(cmd.ExecuteScalar());
+                //sqlConnection.Close();
+                return false;
+        }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "IsBookedIn", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+}
+    private void btnImported_Click(object sender, EventArgs e)
         {
             GoToBookInExBin(TIQType.Imported);
         }

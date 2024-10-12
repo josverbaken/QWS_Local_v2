@@ -103,13 +103,13 @@
             // pBS2ToolStripMenuItem
             // 
             this.pBS2ToolStripMenuItem.Name = "pBS2ToolStripMenuItem";
-            this.pBS2ToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
+            this.pBS2ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.pBS2ToolStripMenuItem.Text = "PBS 2";
             // 
             // pBSUpdateToolStripMenuItem
             // 
             this.pBSUpdateToolStripMenuItem.Name = "pBSUpdateToolStripMenuItem";
-            this.pBSUpdateToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
+            this.pBSUpdateToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.pBSUpdateToolStripMenuItem.Text = "PBS Update";
             // 
             // vehicleMaintenanceToolStripMenuItem
@@ -158,7 +158,7 @@
             // 
             this.truckConfigMaintToolStripMenuItem.Name = "truckConfigMaintToolStripMenuItem";
             this.truckConfigMaintToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
-            this.truckConfigMaintToolStripMenuItem.Text = "TruckConfigMaint";
+            this.truckConfigMaintToolStripMenuItem.Text = "Truck Configuration";
             this.truckConfigMaintToolStripMenuItem.Click += new System.EventHandler(this.truckConfigMaintToolStripMenuItem_Click);
             // 
             // stockpileLotToolStripMenuItem
@@ -224,7 +224,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QWS_MDIParent";
-            this.Text = "QWS_MDIParent";
+            this.Text = "Quarry Weighbridge System (QWS)";
             this.Load += new System.EventHandler(this.QWS_MDIParent_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
