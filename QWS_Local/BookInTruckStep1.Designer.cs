@@ -440,6 +440,7 @@ namespace QWS_Local
             // btnHold
             // 
             this.btnHold.BackColor = System.Drawing.SystemColors.Control;
+            this.btnHold.Enabled = false;
             this.btnHold.Location = new System.Drawing.Point(272, 103);
             this.btnHold.Name = "btnHold";
             this.btnHold.Size = new System.Drawing.Size(121, 38);

@@ -72,6 +72,7 @@ namespace QWS_Local
         {
             try
             {
+                btnHold.Enabled = false;
                 btnRetare.Enabled = false;
                 btnRetare.BackColor = SystemColors.Control;
                 dsQWSLocal2024.TruckDriver.Clear();
@@ -80,8 +81,14 @@ namespace QWS_Local
                 if (iCount > 0)
                 {
                     EntryDTTM = DateTime.Now;
-                    UpdateOwnerGUI();
-                    //TODO check if already booked in
+                    if (IsBookedIn(Rego) == true)
+                    {
+                        MessageBox.Show("Cannot proceed! \r\nTruck already in queue!", "Already Booked In!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    }
+                    else
+                    {
+                        UpdateOwnerGUI();
+                    }
                 }
                 else
                 {
@@ -120,7 +127,7 @@ namespace QWS_Local
             {
                 chkACC.Checked = false;
             }
-
+            btnHold.Enabled = true;
         }
 
         private void SelectTruckConfig(int TruckConfigID)
@@ -541,17 +548,20 @@ namespace QWS_Local
         {
             try
             {
-                //int iTIQID = 0;
-                //SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
-                //SqlCommand cmd = new SqlCommand();
-                //cmd.Connection = sqlConnection;
-                //cmd.CommandType = CommandType.StoredProcedure;
-                //cmd.CommandText = "IsInQueue";
-                //cmd.Parameters.AddWithValue("@Rego", Rego);
-                //cmd.Parameters.AddWithValue("@SiteID", Properties.Settings.Default.SiteID);
-                //sqlConnection.Open();
-                //iTIQID = System.Convert.ToInt32(cmd.ExecuteScalar());
-                //sqlConnection.Close();
+                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "IsInQueue";
+                cmd.Parameters.AddWithValue("@Rego", Rego);
+                cmd.Parameters.AddWithValue("@SiteID", Properties.Settings.Default.SiteID);
+                sqlConnection.Open();
+                int iTrucks = System.Convert.ToInt32(cmd.ExecuteScalar());
+                sqlConnection.Close();
+                if (iTrucks > 0) 
+                {
+                    return true;
+                }
                 return false;
         }
             catch (Exception ex)
