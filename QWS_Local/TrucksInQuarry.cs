@@ -378,7 +378,7 @@ namespace QWS_Local
                                 decimal Overweight = myWeight - myGVM;
                                 string msg = "Truck overloaded by : " + Overweight.ToString() + "t";
                                 MessageBox.Show(msg,"Overweight",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-                                // TODO clone or log somehow
+                                TIQStatusAudit(CurrentTIQ().TIQID, "O",myGVM,Overweight,msg);
                             }
                             else
                             {
@@ -603,6 +603,29 @@ namespace QWS_Local
             }
         }
 
+        private void TIQStatusAudit(int TIQID, string Status, decimal GVM, decimal Overweight, string Comment)
+        {
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "TIQStatusAuditAdd";
+                cmd.Parameters.AddWithValue("@TIQID", TIQID);
+                cmd.Parameters.AddWithValue("@Status", Status);
+                cmd.Parameters.AddWithValue("@GVM", GVM);
+                cmd.Parameters.AddWithValue("@Overweight", Overweight);
+                cmd.Parameters.AddWithValue("@Comments", Comment);
+                sqlConnection.Open();
+                cmd.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ReleaseSplit Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private bool LockTIQ(int TIQID)
         {
@@ -740,7 +763,11 @@ namespace QWS_Local
                         MessageBox.Show("Please continue booking in process.","Parked Up.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         break;
                     case "P":
-                        MessageBox.Show("Please continue booking in process.", "In Progress.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult dr = MessageBox.Show("Press Yes to continue booking in process.", "In Progress.", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        if (dr == DialogResult.Yes)
+                        {
+                            ContinueInProgress();
+                        }
                         break;
                     default:
                         break;
@@ -768,6 +795,13 @@ namespace QWS_Local
                 return true;
             }
             return false;
+        }
+
+        private void ContinueInProgress()
+        {
+            BookInTruckStep1 frmBookIn = new BookInTruckStep1(CurrentTIQ().TIQID, CurrentTIQ().Rego, CurrentTIQ().TruckConfigID, CurrentTIQ().DriverID, true);
+            frmBookIn.MdiParent = this.MdiParent;
+            frmBookIn.Show();
         }
 
         private void TrucksInQuarry_KeyDown(object sender, KeyEventArgs e)

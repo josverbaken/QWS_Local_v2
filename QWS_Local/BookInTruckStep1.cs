@@ -18,10 +18,11 @@ namespace QWS_Local
         private static string CustCardCode;
         private static string ExBinCustomer;
         private static bool IsPrefCust = false;
-        private static bool IsAlreadyBookedIn = false;
+        //private static bool IsAlreadyBookedIn = false;
         private static string CallingMessage = "";
         private static int DriverID = 0;
         private static string SplitTruckConfig = "Single";
+        private static int TIQID = 0;
 
         private enum TIQType
         {
@@ -53,11 +54,20 @@ namespace QWS_Local
             InitializeComponent();
         }
 
+        public BookInTruckStep1(int myTIQID, string Rego, int TruckConfigID, int myDriverID, bool Resume)
+        {
+            InitializeComponent();
+            FindTruckConfig(Rego, Resume);
+            SelectTruckConfig(TruckConfigID);
+            DriverID = myDriverID;
+            TIQID = myTIQID;
+        }
+
         public BookInTruckStep1(string Rego, int TruckConfigID, int myDriverID, string mySplitTruckConfig, string Message)
         {
             InitializeComponent();
             CallingMessage = Message;
-            FindTruckConfig(Rego);
+            FindTruckConfig(Rego, false);
             SelectTruckConfig(TruckConfigID);
             DriverID = myDriverID;
             SplitTruckConfig = mySplitTruckConfig;
@@ -65,10 +75,10 @@ namespace QWS_Local
 
         private void btnFindTruck_Click(object sender, EventArgs e)
         {
-            FindTruckConfig(txtTruckRego.Text);
+            FindTruckConfig(txtTruckRego.Text, false);
         }
 
-        private void FindTruckConfig(string Rego)
+        private void FindTruckConfig(string Rego, bool Resume)
         {
             try
             {
@@ -81,7 +91,7 @@ namespace QWS_Local
                 if (iCount > 0)
                 {
                     EntryDTTM = DateTime.Now;
-                    if (IsBookedIn(Rego) == true)
+                    if (IsBookedIn(Rego) == true && Resume == false)
                     {
                         MessageBox.Show("Cannot proceed! \r\nTruck already in queue!", "Already Booked In!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     }
@@ -399,10 +409,13 @@ namespace QWS_Local
 
         private void BookInExBin(TIQType myTIQType)
         {
-            int iTIQID = NewTIQ(myTIQType);
-            if (iTIQID > 0)
+            if (TIQID == 0)
             {
-                BookInExBin frmExBin = new BookInExBin(iTIQID, myTIQType.ToString(), SplitTruckConfig, CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, IsPrefCust, CurrentTruckDriver());
+                TIQID = NewTIQ(myTIQType);
+            }
+            if (TIQID > 0)
+            {
+                BookInExBin frmExBin = new BookInExBin(TIQID, myTIQType.ToString(), SplitTruckConfig, CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, IsPrefCust, CurrentTruckDriver());
                 frmExBin.MdiParent = this.MdiParent;
                 frmExBin.Show();
                 this.Close();
@@ -420,10 +433,13 @@ namespace QWS_Local
         }
         private void BookInDeliveryOrder()
         {
-            int iTIQID = NewTIQ(TIQType.Delivery);
-            if (iTIQID > 0)
+            if (TIQID == 0)
             {
-                BookInDelivery frmDelivery = new BookInDelivery(iTIQID, CurrentConfigTruck().TruckConfigID, CurrentTruckDriver());
+                 TIQID = NewTIQ(TIQType.Delivery);
+            }
+            if (TIQID > 0)
+            {
+                BookInDelivery frmDelivery = new BookInDelivery(TIQID, CurrentConfigTruck().TruckConfigID, CurrentTruckDriver());
                 frmDelivery.MdiParent = this.MdiParent;
                 frmDelivery.Show();
                 this.Close();
@@ -604,7 +620,7 @@ namespace QWS_Local
         {
             if (e.KeyCode == Keys.F3)
             {
-                FindTruckConfig(txtTruckRego.Text);
+                FindTruckConfig(txtTruckRego.Text, false);
             }
         }
 
