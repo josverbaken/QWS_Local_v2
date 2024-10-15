@@ -43,42 +43,6 @@ namespace QWS_Local
             frmTIQ.Show();
         }
 
-        private void pBSMaintenanceToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            PBSMaintenance frmPBSMaintenance = new PBSMaintenance();
-            frmPBSMaintenance.MdiParent = this;
-            frmPBSMaintenance.WindowState = FormWindowState.Maximized;
-            frmPBSMaintenance.Show();
-        }
-
-        private void axleConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AxleConfiguration frmAxle = new AxleConfiguration();
-            frmAxle.MdiParent = this;
-            frmAxle.Show();
-        }
-
-        private void nHVRGVMToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            NHVR_GVM frmGVM = new NHVR_GVM();
-            frmGVM.MdiParent = this;
-            frmGVM.Show();
-        }
-
-        private void vehicleRegFeeCodesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            VehicleRegFeeCodes frmFeeCodes = new VehicleRegFeeCodes();
-            frmFeeCodes.MdiParent = this;
-            frmFeeCodes.Show();
-        }
-
-
-        private void itemSearchToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ItemSearch frmItemSearch = new ItemSearch();
-            frmItemSearch.MdiParent = this;
-            frmItemSearch.Show();
-        }
         private void bookInTruckStep1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BookInTruckStep1 frmBookIn1 = new BookInTruckStep1();
@@ -88,9 +52,7 @@ namespace QWS_Local
 
         private void deliveryOrdersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DeliveryOrders frmDeliveryOrders = new DeliveryOrders();
-            frmDeliveryOrders.MdiParent = this;
-            frmDeliveryOrders.Show();
+          
         }
 
         public void BringTIQ2Front()
@@ -132,13 +94,7 @@ namespace QWS_Local
             }
         }
 
-        private void vehicleMaintenanceToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            VehicleMaintenance frmVehicle = new VehicleMaintenance();
-            frmVehicle.MdiParent = this;
-            frmVehicle.WindowState = FormWindowState.Maximized;
-            frmVehicle.Show();
-        }
+  
 
         private void printDocketToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -150,10 +106,6 @@ namespace QWS_Local
 
         private void truckConfigMaintToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TruckConfigMaintenance frmTruckConfigMaintenance = new TruckConfigMaintenance();
-            frmTruckConfigMaintenance.MdiParent = this;
-            frmTruckConfigMaintenance.WindowState = FormWindowState.Maximized;
-            frmTruckConfigMaintenance.Show();   
         }
     
         private void trafficCamerasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -166,10 +118,6 @@ namespace QWS_Local
 
         private void stockpileLotToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SPLotMaintenance frmSPLotMaintenance = new SPLotMaintenance();
-            frmSPLotMaintenance.MdiParent = this;
-            frmSPLotMaintenance.WindowState = FormWindowState.Maximized;
-            frmSPLotMaintenance.Show(); 
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -186,5 +134,74 @@ namespace QWS_Local
             MessageBox.Show("Read the supplied documentation first. Online help is being created soon...");
         }
 
+        private void deliveryOrdersToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DeliveryOrders frmDeliveryOrders = new DeliveryOrders();
+            frmDeliveryOrders.MdiParent = this;
+            frmDeliveryOrders.Show();
+        }
+
+        private void pBSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PBSMaintenance frmPBSMaintenance = new PBSMaintenance();
+            frmPBSMaintenance.MdiParent = this;
+            frmPBSMaintenance.WindowState = FormWindowState.Maximized;
+            frmPBSMaintenance.Show();
+
+        }
+
+        private void vehiclesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VehicleMaintenance frmVehicle = new VehicleMaintenance();
+            frmVehicle.MdiParent = this;
+            frmVehicle.WindowState = FormWindowState.Maximized;
+            frmVehicle.Show();
+        }
+
+        private void trucktrailerConfigToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TruckConfigMaintenance frmTruckConfigMaintenance = new TruckConfigMaintenance();
+            frmTruckConfigMaintenance.MdiParent = this;
+            frmTruckConfigMaintenance.WindowState = FormWindowState.Maximized;
+            frmTruckConfigMaintenance.Show();
+        }
+
+        private void axleConfigurationToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AxleConfiguration frmAxle = new AxleConfiguration();
+            frmAxle.MdiParent = this;
+            frmAxle.Show();
+        }
+
+        private void feeCodesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VehicleRegFeeCodes frmFeeCodes = new VehicleRegFeeCodes();
+            frmFeeCodes.MdiParent = this;
+            frmFeeCodes.Show();
+        }
+
+        private void nHVRGVMToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            NHVR_GVM frmGVM = new NHVR_GVM();
+            frmGVM.MdiParent = this;
+            frmGVM.Show();
+        }
+
+        private void itemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ItemSearch frmItemSearch = new ItemSearch();
+            frmItemSearch.MdiParent = this;
+            frmItemSearch.Show();
+
+        }
+
+        private void lotNumbersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SPLotMaintenance frmSPLotMaintenance = new SPLotMaintenance();
+            frmSPLotMaintenance.MdiParent = this;
+            frmSPLotMaintenance.WindowState = FormWindowState.Maximized;
+            frmSPLotMaintenance.Show();
+
+        }
     }
 }

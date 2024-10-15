@@ -31,23 +31,25 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tIQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pBSMaintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pBSMaintenanceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pBS2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pBSUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vehicleMaintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.axleConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nHVRGCMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vehicleRegFeeCodesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deliveryOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.truckConfigMaintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stockpileLotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.axleConfigurationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.feeCodesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nHVRGVMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maintainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pBSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trucktrailerConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.qualityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lotNumbersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deliveryOrdersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.printDocketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.onlineHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,96 +79,106 @@
             // pBSMaintenanceToolStripMenuItem
             // 
             this.pBSMaintenanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pBSMaintenanceToolStripMenuItem1,
-            this.vehicleMaintenanceToolStripMenuItem,
-            this.axleConfigurationToolStripMenuItem,
-            this.nHVRGCMToolStripMenuItem,
-            this.vehicleRegFeeCodesToolStripMenuItem,
-            this.itemSearchToolStripMenuItem,
-            this.deliveryOrdersToolStripMenuItem,
-            this.truckConfigMaintToolStripMenuItem,
-            this.stockpileLotToolStripMenuItem});
+            this.adminToolStripMenuItem,
+            this.maintainToolStripMenuItem,
+            this.qualityToolStripMenuItem,
+            this.salesToolStripMenuItem});
             this.pBSMaintenanceToolStripMenuItem.Name = "pBSMaintenanceToolStripMenuItem";
             this.pBSMaintenanceToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
             this.pBSMaintenanceToolStripMenuItem.Text = "Menu";
             // 
-            // pBSMaintenanceToolStripMenuItem1
+            // adminToolStripMenuItem
             // 
-            this.pBSMaintenanceToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pBS2ToolStripMenuItem,
-            this.pBSUpdateToolStripMenuItem});
-            this.pBSMaintenanceToolStripMenuItem1.Name = "pBSMaintenanceToolStripMenuItem1";
-            this.pBSMaintenanceToolStripMenuItem1.Size = new System.Drawing.Size(227, 24);
-            this.pBSMaintenanceToolStripMenuItem1.Text = "PBS Maintenance";
-            this.pBSMaintenanceToolStripMenuItem1.Click += new System.EventHandler(this.pBSMaintenanceToolStripMenuItem1_Click);
+            this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.axleConfigurationToolStripMenuItem1,
+            this.feeCodesToolStripMenuItem,
+            this.nHVRGVMToolStripMenuItem});
+            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
+            this.adminToolStripMenuItem.Text = "Admin";
             // 
-            // pBS2ToolStripMenuItem
+            // axleConfigurationToolStripMenuItem1
             // 
-            this.pBS2ToolStripMenuItem.Name = "pBS2ToolStripMenuItem";
-            this.pBS2ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.pBS2ToolStripMenuItem.Text = "PBS 2";
+            this.axleConfigurationToolStripMenuItem1.Name = "axleConfigurationToolStripMenuItem1";
+            this.axleConfigurationToolStripMenuItem1.Size = new System.Drawing.Size(202, 24);
+            this.axleConfigurationToolStripMenuItem1.Text = "Axle Configuration";
+            this.axleConfigurationToolStripMenuItem1.Click += new System.EventHandler(this.axleConfigurationToolStripMenuItem1_Click);
             // 
-            // pBSUpdateToolStripMenuItem
+            // feeCodesToolStripMenuItem
             // 
-            this.pBSUpdateToolStripMenuItem.Name = "pBSUpdateToolStripMenuItem";
-            this.pBSUpdateToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.pBSUpdateToolStripMenuItem.Text = "PBS Update";
+            this.feeCodesToolStripMenuItem.Name = "feeCodesToolStripMenuItem";
+            this.feeCodesToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.feeCodesToolStripMenuItem.Text = "Fee Codes";
+            this.feeCodesToolStripMenuItem.Click += new System.EventHandler(this.feeCodesToolStripMenuItem_Click);
             // 
-            // vehicleMaintenanceToolStripMenuItem
+            // nHVRGVMToolStripMenuItem
             // 
-            this.vehicleMaintenanceToolStripMenuItem.Name = "vehicleMaintenanceToolStripMenuItem";
-            this.vehicleMaintenanceToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
-            this.vehicleMaintenanceToolStripMenuItem.Text = "Vehicle Maintenance";
-            this.vehicleMaintenanceToolStripMenuItem.Click += new System.EventHandler(this.vehicleMaintenanceToolStripMenuItem_Click);
+            this.nHVRGVMToolStripMenuItem.Name = "nHVRGVMToolStripMenuItem";
+            this.nHVRGVMToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.nHVRGVMToolStripMenuItem.Text = "NHVR GVM";
+            this.nHVRGVMToolStripMenuItem.Click += new System.EventHandler(this.nHVRGVMToolStripMenuItem_Click_1);
             // 
-            // axleConfigurationToolStripMenuItem
+            // maintainToolStripMenuItem
             // 
-            this.axleConfigurationToolStripMenuItem.Name = "axleConfigurationToolStripMenuItem";
-            this.axleConfigurationToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
-            this.axleConfigurationToolStripMenuItem.Text = "Axle Configuration";
-            this.axleConfigurationToolStripMenuItem.Click += new System.EventHandler(this.axleConfigurationToolStripMenuItem_Click);
+            this.maintainToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.vehiclesToolStripMenuItem,
+            this.pBSToolStripMenuItem,
+            this.trucktrailerConfigToolStripMenuItem});
+            this.maintainToolStripMenuItem.Name = "maintainToolStripMenuItem";
+            this.maintainToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
+            this.maintainToolStripMenuItem.Text = "Maintain";
             // 
-            // nHVRGCMToolStripMenuItem
+            // vehiclesToolStripMenuItem
             // 
-            this.nHVRGCMToolStripMenuItem.Name = "nHVRGCMToolStripMenuItem";
-            this.nHVRGCMToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
-            this.nHVRGCMToolStripMenuItem.Text = "NHVR GCM";
-            this.nHVRGCMToolStripMenuItem.Click += new System.EventHandler(this.nHVRGVMToolStripMenuItem_Click);
+            this.vehiclesToolStripMenuItem.Name = "vehiclesToolStripMenuItem";
+            this.vehiclesToolStripMenuItem.Size = new System.Drawing.Size(205, 24);
+            this.vehiclesToolStripMenuItem.Text = "Vehicles";
+            this.vehiclesToolStripMenuItem.Click += new System.EventHandler(this.vehiclesToolStripMenuItem_Click);
             // 
-            // vehicleRegFeeCodesToolStripMenuItem
+            // pBSToolStripMenuItem
             // 
-            this.vehicleRegFeeCodesToolStripMenuItem.Name = "vehicleRegFeeCodesToolStripMenuItem";
-            this.vehicleRegFeeCodesToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
-            this.vehicleRegFeeCodesToolStripMenuItem.Text = "Vehicle Reg Fee Codes";
-            this.vehicleRegFeeCodesToolStripMenuItem.Click += new System.EventHandler(this.vehicleRegFeeCodesToolStripMenuItem_Click);
+            this.pBSToolStripMenuItem.Name = "pBSToolStripMenuItem";
+            this.pBSToolStripMenuItem.Size = new System.Drawing.Size(205, 24);
+            this.pBSToolStripMenuItem.Text = "PBS";
+            this.pBSToolStripMenuItem.Click += new System.EventHandler(this.pBSToolStripMenuItem_Click);
             // 
-            // itemSearchToolStripMenuItem
+            // trucktrailerConfigToolStripMenuItem
             // 
-            this.itemSearchToolStripMenuItem.Name = "itemSearchToolStripMenuItem";
-            this.itemSearchToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
-            this.itemSearchToolStripMenuItem.Text = "Item Search";
-            this.itemSearchToolStripMenuItem.Click += new System.EventHandler(this.itemSearchToolStripMenuItem_Click);
+            this.trucktrailerConfigToolStripMenuItem.Name = "trucktrailerConfigToolStripMenuItem";
+            this.trucktrailerConfigToolStripMenuItem.Size = new System.Drawing.Size(205, 24);
+            this.trucktrailerConfigToolStripMenuItem.Text = "Truck/trailer Config";
+            this.trucktrailerConfigToolStripMenuItem.Click += new System.EventHandler(this.trucktrailerConfigToolStripMenuItem_Click);
             // 
-            // deliveryOrdersToolStripMenuItem
+            // qualityToolStripMenuItem
             // 
-            this.deliveryOrdersToolStripMenuItem.Name = "deliveryOrdersToolStripMenuItem";
-            this.deliveryOrdersToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
-            this.deliveryOrdersToolStripMenuItem.Text = "Delivery Orders";
-            this.deliveryOrdersToolStripMenuItem.Click += new System.EventHandler(this.deliveryOrdersToolStripMenuItem_Click);
+            this.qualityToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lotNumbersToolStripMenuItem});
+            this.qualityToolStripMenuItem.Name = "qualityToolStripMenuItem";
+            this.qualityToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.qualityToolStripMenuItem.Text = "Quality";
             // 
-            // truckConfigMaintToolStripMenuItem
+            // lotNumbersToolStripMenuItem
             // 
-            this.truckConfigMaintToolStripMenuItem.Name = "truckConfigMaintToolStripMenuItem";
-            this.truckConfigMaintToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
-            this.truckConfigMaintToolStripMenuItem.Text = "Truck Configuration";
-            this.truckConfigMaintToolStripMenuItem.Click += new System.EventHandler(this.truckConfigMaintToolStripMenuItem_Click);
+            this.lotNumbersToolStripMenuItem.Name = "lotNumbersToolStripMenuItem";
+            this.lotNumbersToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.lotNumbersToolStripMenuItem.Text = "Lot Numbers";
+            this.lotNumbersToolStripMenuItem.Click += new System.EventHandler(this.lotNumbersToolStripMenuItem_Click);
             // 
-            // stockpileLotToolStripMenuItem
+            // salesToolStripMenuItem
             // 
-            this.stockpileLotToolStripMenuItem.Name = "stockpileLotToolStripMenuItem";
-            this.stockpileLotToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
-            this.stockpileLotToolStripMenuItem.Text = "Stockpile Lot";
-            this.stockpileLotToolStripMenuItem.Click += new System.EventHandler(this.stockpileLotToolStripMenuItem_Click);
+            this.salesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deliveryOrdersToolStripMenuItem1,
+            this.itemsToolStripMenuItem});
+            this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.salesToolStripMenuItem.Text = "Sales";
+            // 
+            // deliveryOrdersToolStripMenuItem1
+            // 
+            this.deliveryOrdersToolStripMenuItem1.Name = "deliveryOrdersToolStripMenuItem1";
+            this.deliveryOrdersToolStripMenuItem1.Size = new System.Drawing.Size(180, 24);
+            this.deliveryOrdersToolStripMenuItem1.Text = "Delivery Orders";
+            this.deliveryOrdersToolStripMenuItem1.Click += new System.EventHandler(this.deliveryOrdersToolStripMenuItem1_Click);
             // 
             // printDocketToolStripMenuItem
             // 
@@ -213,6 +225,13 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // itemsToolStripMenuItem
+            // 
+            this.itemsToolStripMenuItem.Name = "itemsToolStripMenuItem";
+            this.itemsToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.itemsToolStripMenuItem.Text = "Items";
+            this.itemsToolStripMenuItem.Click += new System.EventHandler(this.itemsToolStripMenuItem_Click);
+            // 
             // QWS_MDIParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -237,23 +256,25 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem pBSMaintenanceToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pBSMaintenanceToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem vehicleMaintenanceToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem axleConfigurationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nHVRGCMToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem vehicleRegFeeCodesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem itemSearchToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deliveryOrdersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem windowsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tIQToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printDocketToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem truckConfigMaintToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem stockpileLotToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem onlineHelpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pBS2ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pBSUpdateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem axleConfigurationToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem feeCodesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nHVRGVMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem maintainToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vehiclesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pBSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem trucktrailerConfigToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem qualityToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lotNumbersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deliveryOrdersToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem itemsToolStripMenuItem;
     }
 }
