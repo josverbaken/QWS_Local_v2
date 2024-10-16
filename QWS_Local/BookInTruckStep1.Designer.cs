@@ -71,7 +71,7 @@ namespace QWS_Local
             this.btnHold = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnCollected = new System.Windows.Forms.Button();
+            this.btnImportedPickUp = new System.Windows.Forms.Button();
             this.btnDelivery = new System.Windows.Forms.Button();
             this.btnRetare = new System.Windows.Forms.Button();
             this.btnImported = new System.Windows.Forms.Button();
@@ -415,7 +415,7 @@ namespace QWS_Local
             this.groupBox1.Controls.Add(this.btnHold);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.btnCollected);
+            this.groupBox1.Controls.Add(this.btnImportedPickUp);
             this.groupBox1.Controls.Add(this.btnDelivery);
             this.groupBox1.Controls.Add(this.btnRetare);
             this.groupBox1.Controls.Add(this.btnImported);
@@ -469,15 +469,16 @@ namespace QWS_Local
             this.label2.TabIndex = 59;
             this.label2.Text = "Outbound";
             // 
-            // btnCollected
+            // btnImportedPickUp
             // 
-            this.btnCollected.Enabled = false;
-            this.btnCollected.Location = new System.Drawing.Point(145, 104);
-            this.btnCollected.Name = "btnCollected";
-            this.btnCollected.Size = new System.Drawing.Size(121, 38);
-            this.btnCollected.TabIndex = 58;
-            this.btnCollected.Text = "Collected";
-            this.btnCollected.UseVisualStyleBackColor = true;
+            this.btnImportedPickUp.Enabled = false;
+            this.btnImportedPickUp.Location = new System.Drawing.Point(145, 104);
+            this.btnImportedPickUp.Name = "btnImportedPickUp";
+            this.btnImportedPickUp.Size = new System.Drawing.Size(121, 38);
+            this.btnImportedPickUp.TabIndex = 58;
+            this.btnImportedPickUp.Text = "Pick Up";
+            this.btnImportedPickUp.UseVisualStyleBackColor = true;
+            this.btnImportedPickUp.Click += new System.EventHandler(this.btnImportedPickUp_Click);
             // 
             // btnDelivery
             // 
@@ -695,7 +696,7 @@ namespace QWS_Local
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnCollected;
+        private System.Windows.Forms.Button btnImportedPickUp;
         private System.Windows.Forms.Button btnDelivery;
         private System.Windows.Forms.Button btnRetare;
         private System.Windows.Forms.Button btnImported;

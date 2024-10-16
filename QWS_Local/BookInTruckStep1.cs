@@ -30,6 +30,7 @@ namespace QWS_Local
             OnHold,
             ExBin,
             Imported,
+            ImportedPickUp,
             Delivery,
             Split,
             ParkUp
@@ -294,10 +295,11 @@ namespace QWS_Local
                     blInduction = true;
                     txtInductionExp.BackColor = Color.PaleGreen;
                 }
-                if (blOkay2Cart)
+                if (blOkay2Cart) // i.e. license and induction ok
                 {
                     btnExBin.Enabled = true;
                     btnImported.Enabled = true;
+                    btnImportedPickUp.Enabled = true;
                 }
                 else
                 {
@@ -310,6 +312,7 @@ namespace QWS_Local
                         btnExBin.Enabled = false;
                     }
                     btnImported.Enabled = false;
+                    btnImportedPickUp.Enabled = false;
                 }
                 if (myTruckDriverRow.Position == "Authorised Cartage Contractor")
                 {
@@ -327,6 +330,7 @@ namespace QWS_Local
                     btnExBin.Enabled = false;
                     btnDelivery.Enabled = false;
                     btnImported.Enabled = false;
+                    btnImportedPickUp.Enabled = false;
                 }
                 btnRetare.Enabled = true;
             }
@@ -462,6 +466,7 @@ namespace QWS_Local
             try
             {
                 int iTIQID = 0;
+                bool Okay2Proceed = true;
                 SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
@@ -521,8 +526,14 @@ namespace QWS_Local
                         cmd.Parameters.AddWithValue("@Material", "Imported");
                         cmd.Parameters.AddWithValue("@MaterialDesc", "tba");
                         break;
+                    case TIQType.ImportedPickUp:
+                        cmd.Parameters.AddWithValue("@QueueStatus", "I");
+                        cmd.Parameters.AddWithValue("@Material", "Imported PickUp");
+                        cmd.Parameters.AddWithValue("@MaterialDesc", "tba");
+                        break;
                     default:
                         MessageBox.Show("Unhandled TIQ Type : " + myTIQType, "Add TIQ ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Okay2Proceed = false;
                         break;
                 }
                 cmd.Parameters.AddWithValue("@StockpileLotNo", 0);
@@ -548,10 +559,17 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("OverloadPoints", 0);
                 cmd.Parameters.AddWithValue("OverloadDesc", "");
                 cmd.Parameters.AddWithValue("Comment", "");
-                sqlConnection.Open();
-                iTIQID = System.Convert.ToInt32(cmd.ExecuteScalar());
-                sqlConnection.Close();
-                return iTIQID;
+                if (Okay2Proceed == true)
+                {
+                    sqlConnection.Open();
+                    iTIQID = System.Convert.ToInt32(cmd.ExecuteScalar());
+                    sqlConnection.Close();
+                    return iTIQID;
+                }
+                else
+                {
+                    return -9;
+                }
             }
             catch (Exception ex)
             {
@@ -629,5 +647,9 @@ namespace QWS_Local
             CheckConfigOK2Proceed();
         }
 
+        private void btnImportedPickUp_Click(object sender, EventArgs e)
+        {
+            GoToBookInExBin(TIQType.ImportedPickUp);
+        }
     }
 }

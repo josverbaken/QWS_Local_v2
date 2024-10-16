@@ -97,7 +97,7 @@ namespace QWS_Local
             int iRow = taTIQ2.FillBy(dsTIQ2.TIQ, 7, TIQID);
             if (iRow != 1)
             {
-                MessageBox.Show("Error loading TIQ row!");
+                MessageBox.Show("Error loading TIQ row!","Form BookInExBin LoadTIQ",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
