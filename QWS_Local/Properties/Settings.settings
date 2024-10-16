@@ -44,7 +44,7 @@
       <Value Profile="(Default)">120</Value>
     </Setting>
     <Setting Name="AutoWeigh" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="WBCount" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">3</Value>
