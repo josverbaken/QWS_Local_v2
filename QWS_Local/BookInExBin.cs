@@ -22,6 +22,7 @@ namespace QWS_Local
             Retare,
             ExBin,
             Imported,
+            ImportedPickUp,
             Delivery
         }
 
@@ -59,17 +60,23 @@ namespace QWS_Local
             IsPrefCust = myIsPrefCust;
             SplitTruckConfig = mySplitTruckConfig;
             DriverRow = driverRow;
-            if (myTIQType == "Imported")
+            switch (myTIQType) 
             {
-                this.Text = "Book In Imported";
-                bsExBinOrders.Filter = "ItmsGrpCod = 138";
-                FormTIQType = TIQType.Imported;
-            }
-            else
-            {
-                this.Text = "Book In ExBin";
-                bsExBinOrders.Filter = "ItmsGrpCod <> 138"; 
-                FormTIQType = TIQType.ExBin;
+                case "Imported":
+                    this.Text = "Book In Imported";
+                    bsExBinOrders.Filter = "ItmsGrpCod = 138";
+                    FormTIQType = TIQType.Imported;
+                    break;
+                case "ImportedPickUp":
+                    this.Text = "Book In Imported PickUp";
+                    bsExBinOrders.Filter = "ItmsGrpCod = 139";//TODO pick in settings or config
+                    FormTIQType = TIQType.ImportedPickUp;
+                    break;
+                default:
+                    this.Text = "Book In ExBin";
+                    bsExBinOrders.Filter = "ItmsGrpCod <> 138";
+                    FormTIQType = TIQType.ExBin;
+                    break;
             }
         }
 
@@ -502,7 +509,7 @@ namespace QWS_Local
                 myTIQRow.AllocateDTTM = DateTime.Now;
                 myTIQRow.CartageCode = "";
                 myTIQRow.Payload = nudPayload.Value;
-                if (FormTIQType == TIQType.Imported)
+                if (FormTIQType == TIQType.Imported || FormTIQType == TIQType.ImportedPickUp)
                 {
                     myTIQRow.QueueStatus = "I";
                 }
