@@ -71,17 +71,25 @@ namespace QWS_Local
                 rbWB3.Visible= false;
             }
             txtInstruction.Text = Instruction;
+            mtxtWeight.ReadOnly = true;
             if (Properties.Settings.Default.AutoWeigh == true)
             {
                 rbAuto.Checked = true;
+                rbManual.Checked = false;
             }
             else
-            { 
-                rbAuto.Checked= false; 
+            {
+                rbAuto.Checked= false;
+                rbManual.Checked = true;
             }
         }
 
          private void rbAuto_CheckedChanged(object sender, EventArgs e)
+        {
+            SetWeighButtons();
+        }
+
+        private void SetWeighButtons()
         {
             if (rbAuto.Checked)
             {
@@ -90,21 +98,14 @@ namespace QWS_Local
             }
             else
             {
-                WeightFocus();
+                mtxtWeight.ReadOnly = false;
+                mtxtWeight.Focus();
             }
-        }
-
-        private void WeightFocus()
-        {
-            mtxtWeight.ReadOnly = false;
-            mtxtWeight.Focus();
         }
 
         private void WBn_CheckChanged(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.AutoWeigh == true)
-            {
-                if (rbWB1.Checked == true)
+                            if (rbWB1.Checked == true)
                 {
                     txtWBInfo.Text = "Getting weight from WB1";
                 }
@@ -116,7 +117,7 @@ namespace QWS_Local
                 {
                     txtWBInfo.Text = "Getting weight from WB3";
                 }
-            }
+            SetWeighButtons();
         }
     }
 }

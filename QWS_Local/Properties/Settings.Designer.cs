@@ -150,5 +150,23 @@ namespace QWS_Local.Properties {
                 return ((int)(this["WBCount"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("138")]
+        public int ImportedGrpCode {
+            get {
+                return ((int)(this["ImportedGrpCode"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("107")]
+        public int ImportedPickUpGrpCode {
+            get {
+                return ((int)(this["ImportedPickUpGrpCode"]));
+            }
+        }
     }
 }

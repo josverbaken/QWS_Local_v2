@@ -341,7 +341,7 @@ namespace QWS_Local
                         if (dr == DialogResult.OK)
                         {                          
                             CurrentTIQ().Tare = myWeight;
-                            CurrentTIQ().Nett = CurrentTIQ().Gross - myWeight;
+                            CurrentTIQ().Nett = CurrentTIQ().Gross - myWeight;//TODO ensure > 0 and challenge if less than MinMaterial ~ 8.0t
                             CurrentTIQ().QueueStatus = "E";
                             bsTIQ2.EndEdit();
                             taTIQ2.Update(dsTIQ2.TIQ);

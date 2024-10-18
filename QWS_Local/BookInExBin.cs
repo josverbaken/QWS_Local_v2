@@ -60,21 +60,25 @@ namespace QWS_Local
             IsPrefCust = myIsPrefCust;
             SplitTruckConfig = mySplitTruckConfig;
             DriverRow = driverRow;
+            int ImportedGrpCode = Properties.Settings.Default.ImportedGrpCode;
+            int ImportedPickUpGrpCode = Properties.Settings.Default.ImportedPickUpGrpCode;
+            string ImportGrpCod = ImportedGrpCode.ToString();
+            string ImportPUGrpCod = ImportedPickUpGrpCode.ToString();   
             switch (myTIQType) 
             {
                 case "Imported":
                     this.Text = "Book In Imported";
-                    bsExBinOrders.Filter = "ItmsGrpCod = 138";
+                    bsExBinOrders.Filter = "ItmsGrpCod = " + ImportGrpCod;
                     FormTIQType = TIQType.Imported;
                     break;
                 case "ImportedPickUp":
                     this.Text = "Book In Imported PickUp";
-                    bsExBinOrders.Filter = "ItmsGrpCod = 139";//TODO pick in settings or config
+                    bsExBinOrders.Filter = "ItmsGrpCod = " + ImportPUGrpCod;
                     FormTIQType = TIQType.ImportedPickUp;
                     break;
                 default:
                     this.Text = "Book In ExBin";
-                    bsExBinOrders.Filter = "ItmsGrpCod <> 138";
+                    bsExBinOrders.Filter = "ItmsGrpCod <> " + ImportGrpCod + " AND " + "ItmsGrpCod <> " + ImportPUGrpCod;
                     FormTIQType = TIQType.ExBin;
                     break;
             }
