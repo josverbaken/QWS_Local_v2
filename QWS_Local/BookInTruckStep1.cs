@@ -413,7 +413,7 @@ namespace QWS_Local
 
         private void BookInExBin(TIQType myTIQType)
         {
-            if (TIQID == 0)
+            if (TIQID == 0 && IsBookedIn(CurrentConfigTruck().RegoTk) == false)
             {
                 TIQID = NewTIQ(myTIQType);
             }
@@ -437,9 +437,9 @@ namespace QWS_Local
         }
         private void BookInDeliveryOrder()
         {
-            if (TIQID == 0)
+            if (TIQID == 0 && IsBookedIn(CurrentConfigTruck().RegoTk) == false)
             {
-                 TIQID = NewTIQ(TIQType.Delivery);
+                TIQID = NewTIQ(TIQType.Delivery);
             }
             if (TIQID > 0)
             {
@@ -453,8 +453,11 @@ namespace QWS_Local
         private void btnRetare_Click(object sender, EventArgs e)
         {
             txtTruckConfig.Text = LoadType.BD.ToString(); // TODO why?
-            int iTIQID = NewTIQ(TIQType.Retare);
-            if (iTIQID > 0)
+            if (TIQID == 0 && IsBookedIn(CurrentConfigTruck().RegoTk) == false)
+            {
+                TIQID = NewTIQ(TIQType.Retare);
+            }
+            if (TIQID > 0)
             {
                 ((QWS_MDIParent)this.MdiParent).BringTIQ2Front();
                 this.Close();
