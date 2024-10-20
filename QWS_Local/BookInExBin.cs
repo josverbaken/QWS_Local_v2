@@ -173,24 +173,24 @@ namespace QWS_Local
                 decimal myPayload = 0.0M;
                 decimal myPayloadTk = 0.0M;
                 decimal myPayloadTr = 0.0M;
-
                 decimal PayloadLimit;
-                if (CurrentTruckGVM().GCM > CurrentTruckGVM().MaxGVM && CurrentTruckGVM().MaxGVM > 0)
+                dsTruckConfig.ConfiguredTruckGVMRow myTruckConfigGVM = CurrentTruckGVM();
+                if (myTruckConfigGVM.GCM > myTruckConfigGVM.MaxGVM && myTruckConfigGVM.MaxGVM > 0)
                 {
-                    PayloadLimit = CurrentTruckGVM().MaxGVM - CurrentTruckGVM().Tare;
+                    PayloadLimit = myTruckConfigGVM.MaxGVM - myTruckConfigGVM.Tare;
                 }
                 else
                 {
-                    PayloadLimit = CurrentTruckGVM().GCM - CurrentTruckGVM().Tare;
+                    PayloadLimit = myTruckConfigGVM.GCM - myTruckConfigGVM.Tare;
                 }
 
                 myPayload = PayloadLimit;
                 nudPayload.Value = myPayload;
-                if (CurrentTruckGVM().Compartments > 1 && CurrentTruckGVM().AxleConfiguration.IndexOf("R") > 0)
+                if (myTruckConfigGVM.Compartments > 1 && myTruckConfigGVM.AxleConfiguration.IndexOf("R") > 0)
                     // TODO how to handle B-double
                 //if (CurrentTruckGVM().GCM != CurrentTruckGVM().GVMTruck)
                 {
-                    myPayloadTk = CurrentTruckGVM().GVMTruck - CurrentTruckGVM().TareTk;
+                    myPayloadTk = myTruckConfigGVM.GVMTruck - myTruckConfigGVM  .TareTk;
                     myPayloadTr = myPayload - myPayloadTk;
                     nudPayloadTk.Value = myPayloadTk;
                     nudPayloadTk.Enabled = true;

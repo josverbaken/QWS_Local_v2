@@ -420,6 +420,7 @@ namespace QWS_Local
             if (TIQID > 0)
             {
                 BookInExBin frmExBin = new BookInExBin(TIQID, myTIQType.ToString(), SplitTruckConfig, CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, IsPrefCust, CurrentTruckDriver());
+                TIQID = 0;
                 frmExBin.MdiParent = this.MdiParent;
                 frmExBin.Show();
                 this.Close();
@@ -444,6 +445,7 @@ namespace QWS_Local
             if (TIQID > 0)
             {
                 BookInDelivery frmDelivery = new BookInDelivery(TIQID, CurrentConfigTruck().TruckConfigID, CurrentTruckDriver());
+                TIQID = 0;
                 frmDelivery.MdiParent = this.MdiParent;
                 frmDelivery.Show();
                 this.Close();
@@ -470,6 +472,8 @@ namespace QWS_Local
             {
                 int iTIQID = 0;
                 bool Okay2Proceed = true;
+                dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
+                dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
                 SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
@@ -478,15 +482,15 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@ParentTIQID", 0);
                 cmd.Parameters.AddWithValue("@TIQOpen", true);
                 cmd.Parameters.AddWithValue("@SiteID", Properties.Settings.Default.SiteID);
-                cmd.Parameters.AddWithValue("@Rego", CurrentConfigTruck().RegoTk);
-                cmd.Parameters.AddWithValue("@RegoTr1", CurrentConfigTruck().RegoTr1);
-                cmd.Parameters.AddWithValue("@RegoTr2", CurrentConfigTruck().RegoTr2);
-                cmd.Parameters.AddWithValue("@RegoTr3", CurrentConfigTruck().RegoTr3);
-                cmd.Parameters.AddWithValue("@RegoTrailers", CurrentConfigTruck().RegoTrailer);
-                cmd.Parameters.AddWithValue("@TruckConfig", CurrentConfigTruck().VehicleType);
-                cmd.Parameters.AddWithValue("@TruckConfigID", CurrentConfigTruck().TruckConfigID);
-                cmd.Parameters.AddWithValue("@AxleConfiguration", CurrentConfigTruck().AxleConfiguration);
-                cmd.Parameters.AddWithValue("@FeeCode", CurrentConfigTruck().FeeCode);
+                cmd.Parameters.AddWithValue("@Rego", myConfigTruck.RegoTk);
+                cmd.Parameters.AddWithValue("@RegoTr1", myConfigTruck.RegoTr1);
+                cmd.Parameters.AddWithValue("@RegoTr2", myConfigTruck.RegoTr2);
+                cmd.Parameters.AddWithValue("@RegoTr3", myConfigTruck.RegoTr3);
+                cmd.Parameters.AddWithValue("@RegoTrailers", myConfigTruck.RegoTrailer);
+                cmd.Parameters.AddWithValue("@TruckConfig", myConfigTruck.VehicleType);
+                cmd.Parameters.AddWithValue("@TruckConfigID", myConfigTruck.TruckConfigID);
+                cmd.Parameters.AddWithValue("@AxleConfiguration", myConfigTruck.AxleConfiguration);
+                cmd.Parameters.AddWithValue("@FeeCode", myConfigTruck.FeeCode);
                 cmd.Parameters.AddWithValue("@ConfigSource", "n/a");
                 cmd.Parameters.AddWithValue("@SchemeCode", "n/a");
                 cmd.Parameters.AddWithValue("@RoadAccess", "n/a");
@@ -540,16 +544,16 @@ namespace QWS_Local
                         break;
                 }
                 cmd.Parameters.AddWithValue("@StockpileLotNo", 0);
-                cmd.Parameters.AddWithValue("@TruckOwnerCode", CurrentConfigTruck().CardCode);
-                cmd.Parameters.AddWithValue("@TruckOwner", CurrentConfigTruck().TruckOwner);
-                cmd.Parameters.AddWithValue("@DriverID", CurrentTruckDriver().CntctCode);
-                cmd.Parameters.AddWithValue("@Driver", CurrentTruckDriver().Person);
+                cmd.Parameters.AddWithValue("@TruckOwnerCode", myConfigTruck.CardCode);
+                cmd.Parameters.AddWithValue("@TruckOwner", myConfigTruck.TruckOwner);
+                cmd.Parameters.AddWithValue("@DriverID", myTruckDriver.CntctCode);
+                cmd.Parameters.AddWithValue("@Driver", myTruckDriver.Person);
                 cmd.Parameters.AddWithValue("@Payload", 0);
                 cmd.Parameters.AddWithValue("@PayloadSplit", ""); // text 12.5/20.5
                 cmd.Parameters.AddWithValue("@GCM", 0);
                 cmd.Parameters.AddWithValue("@GVMTruck", 0);
                 cmd.Parameters.AddWithValue("@Gross", 0.0M);
-                cmd.Parameters.AddWithValue("@Tare", CurrentConfigTruck().Tare);
+                cmd.Parameters.AddWithValue("@Tare", myConfigTruck.Tare);
                 cmd.Parameters.AddWithValue("@TareTk", 0);
                 cmd.Parameters.AddWithValue("@Nett", 0.0M);
                 cmd.Parameters.AddWithValue("@EntryDTTM", EntryDTTM);
