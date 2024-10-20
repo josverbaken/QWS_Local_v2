@@ -401,6 +401,7 @@ namespace QWS_Local
             // 
             // btnGetDriver
             // 
+            this.btnGetDriver.Enabled = false;
             this.btnGetDriver.Location = new System.Drawing.Point(301, 24);
             this.btnGetDriver.Name = "btnGetDriver";
             this.btnGetDriver.Size = new System.Drawing.Size(84, 23);

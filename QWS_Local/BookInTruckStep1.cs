@@ -20,7 +20,7 @@ namespace QWS_Local
         private static bool IsPrefCust = false;
         //private static bool IsAlreadyBookedIn = false;
         private static string CallingMessage = "";
-        private static int DriverID = 0;
+        //private static int DriverID = 0;
         private static string SplitTruckConfig = "Single";
         private static int TIQID = 0;
 
@@ -60,7 +60,8 @@ namespace QWS_Local
             InitializeComponent();
             FindTruckConfig(Rego, Resume);
             SelectTruckConfig(TruckConfigID);
-            DriverID = myDriverID;
+            //DriverID = myDriverID;
+            GetTruckDriver(myDriverID);
             TIQID = myTIQID;
         }
 
@@ -70,7 +71,8 @@ namespace QWS_Local
             CallingMessage = Message;
             FindTruckConfig(Rego, false);
             SelectTruckConfig(TruckConfigID);
-            DriverID = myDriverID;
+            //DriverID = myDriverID;
+            GetTruckDriver(myDriverID);
             SplitTruckConfig = mySplitTruckConfig;
         }
 
@@ -186,7 +188,7 @@ namespace QWS_Local
 
         private void btnGetDriver_Click(object sender, EventArgs e)
         {
-            GetTruckDriver();
+            GetTruckDriver(0);
         }
 
         private dsQWSLocal2024.TruckDriverRow CurrentTruckDriver()
@@ -204,7 +206,8 @@ namespace QWS_Local
         {
             btnGetDriver.Enabled = false;
             bool OK2Proceed = false;
-            if (CurrentConfigTruck().RegoCheck == true)
+            dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
+            if (myConfigTruck.RegoCheck == true)
             {
                 OK2Proceed = true;
             }
@@ -212,8 +215,8 @@ namespace QWS_Local
             {
                 MessageBox.Show("Rego expired - unable to proceed!");
             }
-            int myAxles = CurrentConfigTruck().Axles;
-            int myMaxAxles = CurrentConfigTruck().MaxAxles;
+            int myAxles = myConfigTruck.Axles;
+            int myMaxAxles = myConfigTruck.MaxAxles;
             if (myMaxAxles > 0 && myAxles > myMaxAxles)
             {
                 OK2Proceed = false;
@@ -241,7 +244,7 @@ namespace QWS_Local
             }
         }
 
-        private void GetTruckDriver()
+        private void GetTruckDriver(int DriverID)
         {
             bool blOkay2Cart = true;
             bool blOK4ExBin = true;
@@ -651,6 +654,7 @@ namespace QWS_Local
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            //check rego and axle conditions
             CheckConfigOK2Proceed();
         }
 
