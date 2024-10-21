@@ -250,14 +250,55 @@ namespace QWS_Local
 
         private void TruckConfigAddTruck(string AxleConfig, string Rego, int Vehicles)
         {
-            int myTruckConfigID = TruckConfigAdd(AxleConfig);
-            TruckConfigVehicleAdd(myTruckConfigID, Rego, 1, 0.0M);
-            for (int i = 1; i < Vehicles; i++) //0 taken by truck as above
+            // TODO check if already exists
+            // 1 - truck only
+            // 2 - T&T
+            // 3 - B-double
+            bool Okay2Continue = true;
+            DialogResult dr11;
+            switch (Vehicles)
             {
-                TruckConfigAddTrailer(myTruckConfigID, i + 1);
+                case 1:
+                    // check if rego and axleconfig already recorded
+                    if (bsConfiguredTrucks.Count > 0)
+                    {
+                        foreach (dsTruckConfig.ConfiguredTrucksRow myConfigTruck in dsTruckConfig.ConfiguredTrucks)
+                        {
+                            if (myConfigTruck.RegoTk == Rego)
+                            {
+                                Okay2Continue = false;
+                                MessageBox.Show("Already configured! \r\nCannot continue.","Duplicate Check", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                                break;
+                            }
+                        }
+                    }
+                    //dr11 = MessageBox.Show("Is duplicate?","Check b4 add.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    //if (dr11 == DialogResult.Yes) { Okay2Continue = false; }    
+                    break;
+                case 2:
+                    // check if rego and trailer regos in same sequence already recorded
+                    dr11 = MessageBox.Show("Is duplicate?", "Check b4 add.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr11 == DialogResult.Yes) { Okay2Continue = false; }
+                    break;
+                case 3:
+                    // check if rego and trailer regos in same sequence already recorded
+                    dr11 = MessageBox.Show("Is duplicate?", "Check b4 add.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr11 == DialogResult.Yes) { Okay2Continue = false; }
+                    break;
+                default:
+                    Okay2Continue=false;
+                    break;
             }
-
-            GetConfiguredTruck(Rego);
+            if (Okay2Continue == true)
+            {
+                int myTruckConfigID = TruckConfigAdd(AxleConfig);
+                TruckConfigVehicleAdd(myTruckConfigID, Rego, 1, 0.0M);
+                for (int i = 1; i < Vehicles; i++) //0 taken by truck as above
+                {
+                    TruckConfigAddTrailer(myTruckConfigID, i + 1);
+                }
+                GetConfiguredTruck(Rego);
+            }
         }
 
         private void TruckConfigAddTrailer(int TruckConfigID, int Position)
