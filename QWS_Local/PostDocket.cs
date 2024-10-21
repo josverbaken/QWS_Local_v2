@@ -35,23 +35,40 @@ namespace QWS_Local
 
         private void btnOkay_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            this.Close();   
+            if (myRow.Nett <= 0.0M)
+            {
+                //MessageBox.Show("Unable to proceed NETT <= 0!", "Zero Nett Weight.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                PostDocketCancel();
+            }
+            else
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.DialogResult=DialogResult.Cancel;
-            this.Close ();  
+            PostDocketCancel();
+        }
+
+        private void PostDocketCancel()
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
 
         private void PostDocket_Load(object sender, EventArgs e)
         {
             dsTIQ2.TIQ.Clear();
             dsTIQ2.TIQ.ImportRow(myRow);
-            if (myItemQA) 
+            if (myItemQA)
             {
                 GetSPLotNo();
+            }
+            if (myRow.Nett < 0.0M)
+            {
+                txtNett.BackColor = Color.LightSalmon;
             }
         }
 

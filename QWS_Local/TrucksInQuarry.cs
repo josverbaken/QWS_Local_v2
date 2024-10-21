@@ -234,7 +234,8 @@ namespace QWS_Local
                 DialogResult dr;
                 WeighTruck frmWeighTruck;
                 decimal myWeight;
-                switch (CurrentTIQ().QueueStatus)
+                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+                switch (myTIQRow.QueueStatus)
                 {
                     case "U":
                         dr = MessageBox.Show("Contact customer to confirm if OK to pick up.", "Queuestatus = U", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -242,7 +243,7 @@ namespace QWS_Local
                         {
                             if (CheckConfirmCustomer() == true)
                             {
-                                CurrentTIQ().QueueStatus = "Q";
+                                myTIQRow.QueueStatus = "Q";
                                 bsTIQ2.EndEdit();
                                 taTIQ2.Update(dsTIQ2.TIQ);
                                 RefreshQueue();
@@ -257,7 +258,7 @@ namespace QWS_Local
                         MessageBox.Show("Truck is still on hold, cannot proceed!", "Queuestatus = H", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         break;
                     case "T":
-                        if (CurrentTIQ().QueueStatus == "T" && CurrentTIQ().TruckConfig == "TT")
+                        if (myTIQRow.QueueStatus == "T" && myTIQRow.TruckConfig == "TT")
                         {
                             frmWeighTruck = new WeighTruck("Collect Tare of as split weight");
                             dr = frmWeighTruck.ShowDialog();
@@ -269,12 +270,12 @@ namespace QWS_Local
                         }
                         if (dr == DialogResult.OK)
                         {
-                            string myRego = CurrentTIQ().Rego;
-                            int myTruckConfigID = CurrentTIQ().TruckConfigID;
-                            int myDriverID = CurrentTIQ().DriverID;
+                            string myRego = myTIQRow.Rego;
+                            int myTruckConfigID = myTIQRow.TruckConfigID;
+                            int myDriverID = myTIQRow.DriverID;
                             decimal myTare = 0.0M;
                             decimal myTareTk = 0.0M;
-                            if (CurrentTIQ().TruckConfig != "TT")
+                            if (myTIQRow.TruckConfig != "TT")
                             {
                                 myTare = frmWeighTruck.Weight;
                             }
@@ -303,16 +304,16 @@ namespace QWS_Local
                         myWeight = frmWeighTruck.Weight;
                         if (dr == DialogResult.OK)
                         {
-                            if (myWeight > CurrentTIQ().GCM)
+                            if (myWeight > myTIQRow.GCM)
                             {
-                                ImportedOverload frmImportedOverload = new ImportedOverload(CurrentTIQ().DriverID, CurrentTIQ().Driver, myWeight, CurrentTIQ().GCM);
+                                ImportedOverload frmImportedOverload = new ImportedOverload(myTIQRow.DriverID, myTIQRow.Driver, myWeight, myTIQRow  .GCM);
                                 DialogResult dr2 = frmImportedOverload.ShowDialog();
                                 if (dr2 == DialogResult.OK)
                                 {
-                                    CurrentTIQ().Gross = myWeight;
-                                    CurrentTIQ().QueueStatus = "G";
-                                    CurrentTIQ().OverloadPoints = frmImportedOverload.OverloadPoints;
-                                    CurrentTIQ().OverloadDesc = frmImportedOverload.OverloadDesc;
+                                    myTIQRow.Gross = myWeight;
+                                    myTIQRow.QueueStatus = "G";
+                                    myTIQRow.OverloadPoints = frmImportedOverload.OverloadPoints;
+                                    myTIQRow.OverloadDesc = frmImportedOverload.OverloadDesc;
                                     bsTIQ2.EndEdit();
                                 }
                                 else
@@ -322,8 +323,8 @@ namespace QWS_Local
                             }
                             else
                             {
-                                CurrentTIQ().Gross = myWeight;
-                                CurrentTIQ().QueueStatus = "G";
+                                myTIQRow.Gross = myWeight;
+                                myTIQRow.QueueStatus = "G";
                                 bsTIQ2.EndEdit();
                             }
                             taTIQ2.Update(dsTIQ2.TIQ);
@@ -339,10 +340,10 @@ namespace QWS_Local
                         dr = frmWeighTruck.ShowDialog();
                         myWeight = frmWeighTruck.Weight;
                         if (dr == DialogResult.OK)
-                        {                          
-                            CurrentTIQ().Tare = myWeight;
-                            CurrentTIQ().Nett = CurrentTIQ().Gross - myWeight;//TODO ensure > 0 and challenge if less than MinMaterial ~ 8.0t
-                            CurrentTIQ().QueueStatus = "E";
+                        {
+                            myTIQRow.Tare = myWeight;
+                            myTIQRow.Nett = myTIQRow.Gross - myWeight;//TODO ensure > 0 and challenge if less than MinMaterial ~ 8.0t
+                            myTIQRow.QueueStatus = "E";
                             bsTIQ2.EndEdit();
                             taTIQ2.Update(dsTIQ2.TIQ);
 
@@ -352,7 +353,7 @@ namespace QWS_Local
                             }
                             else
                             {
-                                MessageBox.Show("Post docket - cancelled!");
+                                //MessageBox.Show("Post docket - cancelled!");
                             }
                         }
 
@@ -362,15 +363,15 @@ namespace QWS_Local
                         dr = frmWeighTruck.ShowDialog();                        
                         if (dr == DialogResult.OK)
                         {
-                            string myRego = CurrentTIQ().Rego;
-                            int myTruckConfigID = CurrentTIQ().TruckConfigID;
-                            int myDriverID = CurrentTIQ().DriverID;
-                            string myTruckConfig = CurrentTIQ().TruckConfig;
+                            string myRego = myTIQRow.Rego;
+                            int myTruckConfigID = myTIQRow.TruckConfigID;
+                            int myDriverID = myTIQRow.DriverID;
+                            string myTruckConfig = myTIQRow.TruckConfig;
 
-                            decimal myGVM = CurrentTIQ().GCM;
+                            decimal myGVM = myTIQRow.GCM;
                             if (myTruckConfig == "TKs")
                             {
-                                myGVM = CurrentTIQ().GVMTruck + CurrentTIQ().Tare - CurrentTIQ().TareTk;
+                                myGVM = myTIQRow.GVMTruck + myTIQRow.Tare - myTIQRow.TareTk;
                             }
                             myWeight = frmWeighTruck.Weight;
                             if (myWeight > myGVM)
@@ -378,13 +379,13 @@ namespace QWS_Local
                                 decimal Overweight = myWeight - myGVM;
                                 string msg = "Truck overloaded by : " + Overweight.ToString() + "t";
                                 MessageBox.Show(msg,"Overweight",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-                                TIQStatusAudit(CurrentTIQ().TIQID, "O",myGVM,Overweight,msg);
+                                TIQStatusAudit(myTIQRow.TIQID, "O",myGVM,Overweight,msg);
                             }
                             else
                             {
-                                decimal myQty = myWeight - CurrentTIQ().Tare;
-                                CurrentTIQ().Gross = myWeight;
-                                CurrentTIQ().Nett = myQty;
+                                decimal myQty = myWeight - myTIQRow.Tare;
+                                myTIQRow.Gross = myWeight;
+                                myTIQRow.Nett = myQty;
                                 bsTIQ2.EndEdit();
                                 taTIQ2.Update(dsTIQ2.TIQ);
 
@@ -394,14 +395,14 @@ namespace QWS_Local
                                     if (myTruckConfig == "TKs" || myTruckConfig == "BDa") 
                                     {
                                         // change status of TRs from S to Q
-                                        ReleaseSplit(CurrentTIQ().Rego, myWeight);
+                                        ReleaseSplit(myTIQRow.Rego, myWeight);
                                         RefreshQueue();
                                     }
 
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Post docket - cancelled!");
+                                    //MessageBox.Show("Post docket - cancelled!");
                                 }
                             }
                         }

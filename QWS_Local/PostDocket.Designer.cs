@@ -37,17 +37,17 @@
             this.regoTextBox = new System.Windows.Forms.TextBox();
             this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
-            this.nettTextBox = new System.Windows.Forms.TextBox();
+            this.txtNett = new System.Windows.Forms.TextBox();
             this.tareTextBox = new System.Windows.Forms.TextBox();
             this.txtGross = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.customerTextBox = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.bsSPLotNo = new System.Windows.Forms.BindingSource(this.components);
             this.txtInfo = new System.Windows.Forms.TextBox();
             this.materialDescTextBox = new System.Windows.Forms.TextBox();
             this.materialTextBox = new System.Windows.Forms.TextBox();
             this.custONTextBox = new System.Windows.Forms.TextBox();
+            this.bsSPLotNo = new System.Windows.Forms.BindingSource(this.components);
             this.btnOkay = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
@@ -106,7 +106,7 @@
             // 
             this.groupBox1.Controls.Add(this.regoTextBox);
             this.groupBox1.Controls.Add(nettLabel);
-            this.groupBox1.Controls.Add(this.nettTextBox);
+            this.groupBox1.Controls.Add(this.txtNett);
             this.groupBox1.Controls.Add(tareLabel);
             this.groupBox1.Controls.Add(this.tareTextBox);
             this.groupBox1.Controls.Add(grossLabel);
@@ -138,14 +138,15 @@
             this.dsTIQ2.DataSetName = "dsTIQ2";
             this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // nettTextBox
+            // txtNett
             // 
-            this.nettTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Nett", true));
-            this.nettTextBox.Location = new System.Drawing.Point(378, 119);
-            this.nettTextBox.Name = "nettTextBox";
-            this.nettTextBox.ReadOnly = true;
-            this.nettTextBox.Size = new System.Drawing.Size(100, 24);
-            this.nettTextBox.TabIndex = 7;
+            this.txtNett.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNett.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Nett", true));
+            this.txtNett.Location = new System.Drawing.Point(378, 119);
+            this.txtNett.Name = "txtNett";
+            this.txtNett.ReadOnly = true;
+            this.txtNett.Size = new System.Drawing.Size(100, 24);
+            this.txtNett.TabIndex = 7;
             // 
             // tareTextBox
             // 
@@ -200,11 +201,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "3) Check Material and PO#";
             // 
-            // bsSPLotNo
-            // 
-            this.bsSPLotNo.DataMember = "SPLotNoAssign";
-            this.bsSPLotNo.DataSource = this.dsTIQ2;
-            // 
             // txtInfo
             // 
             this.txtInfo.Location = new System.Drawing.Point(25, 159);
@@ -243,6 +239,11 @@
             this.custONTextBox.Size = new System.Drawing.Size(100, 29);
             this.custONTextBox.TabIndex = 1;
             // 
+            // bsSPLotNo
+            // 
+            this.bsSPLotNo.DataMember = "SPLotNoAssign";
+            this.bsSPLotNo.DataSource = this.dsTIQ2;
+            // 
             // btnOkay
             // 
             this.btnOkay.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -278,7 +279,9 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.StockpileBOMTableAdapter = null;
             this.tableAdapterManager.StockpileLotAllocationTableAdapter = null;
+            this.tableAdapterManager.StockpileManualAllocationTableAdapter = null;
             this.tableAdapterManager.TIQTableAdapter = this.taTIQ2;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.WBDocketLinesTableAdapter = null;
@@ -330,7 +333,7 @@
         private dsTIQ2TableAdapters.TIQTableAdapter taTIQ2;
         private dsTIQ2TableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.TextBox regoTextBox;
-        private System.Windows.Forms.TextBox nettTextBox;
+        private System.Windows.Forms.TextBox txtNett;
         private System.Windows.Forms.TextBox tareTextBox;
         private System.Windows.Forms.TextBox txtGross;
         private System.Windows.Forms.TextBox customerTextBox;
