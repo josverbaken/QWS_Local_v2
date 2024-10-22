@@ -251,44 +251,25 @@ namespace QWS_Local
         private void TruckConfigAddTruck(string AxleConfig, string Rego, int Vehicles)
         {
             // TODO check if already exists
-            // 1 - truck only
-            // 2 - T&T
+            // 1 - truck only if axle config contains R
+            // 2 - T&T or semi-trailer
             // 3 - B-double
+            // 4 - A-double
             bool Okay2Continue = true;
-            DialogResult dr11;
-            switch (Vehicles)
-            {
-                case 1:
-                    // check if rego and axleconfig already recorded
-                    if (bsConfiguredTrucks.Count > 0)
+            dsQWSLocal2024.VehicleRow myVehicle = CurrentVehicle();
+            // can only test for TK at this point of the process
+            if (bsConfiguredTrucks.Count > 0 && Vehicles == 1) 
+                {
+                    foreach (dsTruckConfig.ConfiguredTrucksRow myConfigTruck in dsTruckConfig.ConfiguredTrucks)
                     {
-                        foreach (dsTruckConfig.ConfiguredTrucksRow myConfigTruck in dsTruckConfig.ConfiguredTrucks)
+                        if (myConfigTruck.RegoTk == Rego && myVehicle.AxleConfiguration.Contains("R")== true)
                         {
-                            if (myConfigTruck.RegoTk == Rego)
-                            {
-                                Okay2Continue = false;
-                                MessageBox.Show("Already configured! \r\nCannot continue.","Duplicate Check", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-                                break;
-                            }
+                            Okay2Continue = false;
+                            MessageBox.Show("Already configured! \r\nCannot continue.","Duplicate Check", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                            break;
                         }
                     }
-                    //dr11 = MessageBox.Show("Is duplicate?","Check b4 add.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    //if (dr11 == DialogResult.Yes) { Okay2Continue = false; }    
-                    break;
-                case 2:
-                    // check if rego and trailer regos in same sequence already recorded
-                    dr11 = MessageBox.Show("Is duplicate?", "Check b4 add.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dr11 == DialogResult.Yes) { Okay2Continue = false; }
-                    break;
-                case 3:
-                    // check if rego and trailer regos in same sequence already recorded
-                    dr11 = MessageBox.Show("Is duplicate?", "Check b4 add.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dr11 == DialogResult.Yes) { Okay2Continue = false; }
-                    break;
-                default:
-                    Okay2Continue=false;
-                    break;
-            }
+                }     
             if (Okay2Continue == true)
             {
                 int myTruckConfigID = TruckConfigAdd(AxleConfig);
@@ -305,9 +286,9 @@ namespace QWS_Local
         {
             // search vehicles by trailer axleconfiguration
             int iVehicles = CurrentConfigTruck().Vehicles;
-
-            string TruckAxleConfig = CurrentVehicle().AxleConfiguration;
-            string TrailerAxleConfig = CurrentVehicle().AxleConfiguration;
+            dsQWSLocal2024.VehicleRow myVehicle = CurrentVehicle();
+            string TruckAxleConfig = myVehicle.AxleConfiguration;
+            string TrailerAxleConfig = myVehicle.AxleConfiguration;
             string CombinationAxleConfig = CurrentConfigTruck().AxleConfiguration;
             int iBreak = TruckAxleConfig.Length - 1;
 
@@ -316,13 +297,15 @@ namespace QWS_Local
                 case 2: // T&T or ST
                     TrailerAxleConfig = CombinationAxleConfig.Substring(iBreak, CombinationAxleConfig.Length - iBreak); //keep R or A
                     break;
-                    case 3: // BD
+                case 3: // BD
                     break;  
+                case 4: // A-Double with converter dolly
+                        break;
                 default:
                     break;
             }
             string Trailer;
-            VehicleSearch frmVehicleSearch = new VehicleSearch(CurrentVehicle().CardCode, TrailerAxleConfig, true);
+            VehicleSearch frmVehicleSearch = new VehicleSearch(myVehicle.CardCode, TrailerAxleConfig, true);
             DialogResult dr = frmVehicleSearch.ShowDialog();
             if (dr == DialogResult.OK)
             {
