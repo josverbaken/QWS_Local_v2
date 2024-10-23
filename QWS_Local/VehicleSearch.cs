@@ -96,6 +96,7 @@ namespace QWS_Local
  
         private void FilterByAxleConfig(string AxleConfig, bool Exact)
         {
+            rbClear.Checked=true; //to ensure desired filter 
             if (Exact == true) 
             {
                 this.bsVehicleDetails2.Filter = "AxleConfiguration like '" + AxleConfig + "'";
