@@ -27,7 +27,7 @@ namespace QWS_Local
 
         private void VehicleSearch_Load(object sender, EventArgs e)
         {
-            // nothing at present
+            rbClear.Checked = true;
         }
 
         public VehicleSearch()
@@ -63,9 +63,9 @@ namespace QWS_Local
                     // maybe pass in as a parameter from calling form
                     // maybe create function for filter
                     // testing 20241002
-                    if (bsVehicleDetails3.Count > 0)
+                    if (bsVehicleDetails2.Count > 0)
                     {
-                        DataRow myDR = ((DataRowView)bsVehicleDetails3.Current).Row;
+                        DataRow myDR = ((DataRowView)bsVehicleDetails2.Current).Row;
                         dsQWSLocal2024.VehicleDetailsRow vehicleDetailsRow = (dsQWSLocal2024.VehicleDetailsRow)myDR;
                         myRego = vehicleDetailsRow.Rego;
                         myCardCode = vehicleDetailsRow.CardCode;
@@ -114,6 +114,8 @@ namespace QWS_Local
         private void btnClearFilter_Click(object sender, EventArgs e)
         {
             this.bsVehicleDetails2.Filter = "";
+            rbTrailers.Checked = false;
+            
         }
 
         private void rbTrucks_CheckedChanged(object sender, EventArgs e)
@@ -128,7 +130,7 @@ namespace QWS_Local
         {
             if (rbTrailers.Checked == true)
             {
-                this.bsVehicleDetails2.Filter = "IsLeadVehicle = 1";
+                this.bsVehicleDetails2.Filter = "IsLeadVehicle = 0";
             }
         }
 
@@ -148,6 +150,14 @@ namespace QWS_Local
             VehicleSet();
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void rbClear_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbClear.Checked == true)
+            {
+                bsVehicleDetails2.Filter = "";
+            }
         }
     }
 }
