@@ -230,9 +230,12 @@ namespace QWS_Local
 
         private bool CheckRetareDue()
         {
+            // 20241023 also check if Tare = Zero
             double TareInterval = Properties.Settings.Default.RetareInterval;
-            DateTime RetareDT = CurrentConfigTruck().TareDT.AddDays(TareInterval);
-            if (RetareDT < DateTime.Today)
+            dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
+            DateTime RetareDT = myConfigTruck.TareDT.AddDays(TareInterval);
+            Decimal TareTruck = myConfigTruck.Tare;
+            if (RetareDT < DateTime.Today || TareTruck == 0.0M)
             {
                 btnRetare.BackColor = Color.Orange;
                 return true;
