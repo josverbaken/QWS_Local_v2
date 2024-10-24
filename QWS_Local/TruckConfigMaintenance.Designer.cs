@@ -55,7 +55,7 @@
             this.truckOwnerTextBox = new System.Windows.Forms.TextBox();
             this.regoTkTextBox = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnDeactivate = new System.Windows.Forms.Button();
             this.btnCheckConfig = new System.Windows.Forms.Button();
             this.btnAddGVM = new System.Windows.Forms.Button();
             this.btnAddTrailer = new System.Windows.Forms.Button();
@@ -323,7 +323,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
-            this.splitContainer1.Panel1.Controls.Add(this.btnDelete);
+            this.splitContainer1.Panel1.Controls.Add(this.btnDeactivate);
             this.splitContainer1.Panel1.Controls.Add(this.btnCheckConfig);
             this.splitContainer1.Panel1.Controls.Add(this.btnAddGVM);
             this.splitContainer1.Panel1.Controls.Add(this.btnAddTrailer);
@@ -337,24 +337,25 @@
             this.splitContainer1.SplitterDistance = 210;
             this.splitContainer1.TabIndex = 4;
             // 
-            // btnDelete
+            // btnDeactivate
             // 
-            this.btnDelete.Location = new System.Drawing.Point(48, 177);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(100, 33);
-            this.btnDelete.TabIndex = 8;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDeactivate.Location = new System.Drawing.Point(48, 138);
+            this.btnDeactivate.Name = "btnDeactivate";
+            this.btnDeactivate.Size = new System.Drawing.Size(100, 33);
+            this.btnDeactivate.TabIndex = 8;
+            this.btnDeactivate.Text = "Deactivate";
+            this.btnDeactivate.UseVisualStyleBackColor = true;
+            this.btnDeactivate.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnCheckConfig
             // 
-            this.btnCheckConfig.Location = new System.Drawing.Point(48, 99);
+            this.btnCheckConfig.Location = new System.Drawing.Point(48, 177);
             this.btnCheckConfig.Name = "btnCheckConfig";
             this.btnCheckConfig.Size = new System.Drawing.Size(100, 33);
             this.btnCheckConfig.TabIndex = 7;
             this.btnCheckConfig.Text = "Check Config";
             this.btnCheckConfig.UseVisualStyleBackColor = true;
+            this.btnCheckConfig.Visible = false;
             this.btnCheckConfig.Click += new System.EventHandler(this.btnCheckConfig_Click);
             // 
             // btnAddGVM
@@ -369,7 +370,7 @@
             // 
             // btnAddTrailer
             // 
-            this.btnAddTrailer.Location = new System.Drawing.Point(48, 138);
+            this.btnAddTrailer.Location = new System.Drawing.Point(48, 99);
             this.btnAddTrailer.Name = "btnAddTrailer";
             this.btnAddTrailer.Size = new System.Drawing.Size(100, 33);
             this.btnAddTrailer.TabIndex = 5;
@@ -548,7 +549,7 @@
         private System.Windows.Forms.Button btnAddGVM;
         private System.Windows.Forms.Button btnAddTrailer;
         private System.Windows.Forms.Button btnCheckConfig;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnDeactivate;
         private dsQWSLocal2024 dsQWSLocal2024;
         private System.Windows.Forms.BindingSource bsVehicle2;
         private dsQWSLocal2024TableAdapters.VehicleTableAdapter taVehicle2;
