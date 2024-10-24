@@ -26,6 +26,7 @@ namespace QWS_Local
 
         private enum TIQType
         {
+            EnterRego,
             Retare,
             OnHold,
             ExBin,
@@ -100,6 +101,7 @@ namespace QWS_Local
                     }
                     else
                     {
+                        TIQID = NewTIQ(TIQType.EnterRego);
                         UpdateOwnerGUI();
                     }
                 }
@@ -419,10 +421,11 @@ namespace QWS_Local
 
         private void BookInExBin(TIQType myTIQType)
         {
-            if (TIQID == 0 && IsBookedIn(CurrentConfigTruck().RegoTk) == false)
-            {
-                TIQID = NewTIQ(myTIQType);
-            }
+            //if (TIQID == 0 && IsBookedIn(CurrentConfigTruck().RegoTk) == false)
+            //{
+            //    TIQID = NewTIQ(myTIQType);
+            //}
+            // TODO update TIQ
             if (TIQID > 0)
             {
                 BookInExBin frmExBin = new BookInExBin(TIQID, myTIQType.ToString(), SplitTruckConfig, CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, IsPrefCust, CurrentTruckDriver());
@@ -479,7 +482,7 @@ namespace QWS_Local
                 int iTIQID = 0;
                 bool Okay2Proceed = true;
                 dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
-                dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
+                //dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
                 SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
@@ -507,53 +510,56 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@DeliveryAddress", "tba");
                 cmd.Parameters.AddWithValue("@CustON", "tba");
                 cmd.Parameters.AddWithValue("@CartageCode", "tba");
-                switch (myTIQType)
-                {
-                    case TIQType.Retare:
-                        cmd.Parameters.AddWithValue("@QueueStatus", "T");
-                        cmd.Parameters.AddWithValue("@Material", "Retare");
-                        cmd.Parameters.AddWithValue("@MaterialDesc", "Retare Vehicle");
-                        break;
-                    case TIQType.OnHold:
-                        cmd.Parameters.AddWithValue("@QueueStatus", "H");
-                        cmd.Parameters.AddWithValue("@Material", "Queue KPI Exceeded");
-                        cmd.Parameters.AddWithValue("@MaterialDesc", "Park up in holding bay.");
-                        break;
-                    case TIQType.ParkUp:
-                        cmd.Parameters.AddWithValue("@QueueStatus", "K");
-                        cmd.Parameters.AddWithValue("@Material", "Proceed to office");
-                        cmd.Parameters.AddWithValue("@MaterialDesc", "Park up in holding bay.");
-                        break;
-                    case TIQType.ExBin:
-                        cmd.Parameters.AddWithValue("@QueueStatus", "P");
-                        cmd.Parameters.AddWithValue("@Material", "ExBin");
-                        cmd.Parameters.AddWithValue("@MaterialDesc", "tba");
-                        break;
-                    case TIQType.Delivery:
-                        cmd.Parameters.AddWithValue("@QueueStatus", "P");
-                        cmd.Parameters.AddWithValue("@Material", "Delivery");
-                        cmd.Parameters.AddWithValue("@MaterialDesc", "tba");
-                        break;
-                    case TIQType.Imported:
-                        cmd.Parameters.AddWithValue("@QueueStatus", "I");
-                        cmd.Parameters.AddWithValue("@Material", "Imported");
-                        cmd.Parameters.AddWithValue("@MaterialDesc", "tba");
-                        break;
-                    case TIQType.ImportedPickUp:
-                        cmd.Parameters.AddWithValue("@QueueStatus", "I");
-                        cmd.Parameters.AddWithValue("@Material", "Imported PickUp");
-                        cmd.Parameters.AddWithValue("@MaterialDesc", "tba");
-                        break;
-                    default:
-                        MessageBox.Show("Unhandled TIQ Type : " + myTIQType, "Add TIQ ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        Okay2Proceed = false;
-                        break;
-                }
+                cmd.Parameters.AddWithValue("@QueueStatus", "P");
+                cmd.Parameters.AddWithValue("@Material", "Enter Rego");
+                cmd.Parameters.AddWithValue("@MaterialDesc", "Lead Vehicle Rego Entered");
+                //switch (myTIQType)
+                //{
+                //    case TIQType.Retare:
+                //        cmd.Parameters.AddWithValue("@QueueStatus", "T");
+                //        cmd.Parameters.AddWithValue("@Material", "Retare");
+                //        cmd.Parameters.AddWithValue("@MaterialDesc", "Retare Vehicle");
+                //        break;
+                //    case TIQType.OnHold:
+                //        cmd.Parameters.AddWithValue("@QueueStatus", "H");
+                //        cmd.Parameters.AddWithValue("@Material", "Queue KPI Exceeded");
+                //        cmd.Parameters.AddWithValue("@MaterialDesc", "Park up in holding bay.");
+                //        break;
+                //    case TIQType.ParkUp:
+                //        cmd.Parameters.AddWithValue("@QueueStatus", "K");
+                //        cmd.Parameters.AddWithValue("@Material", "Proceed to office");
+                //        cmd.Parameters.AddWithValue("@MaterialDesc", "Park up in holding bay.");
+                //        break;
+                //    case TIQType.ExBin:
+                //        cmd.Parameters.AddWithValue("@QueueStatus", "P");
+                //        cmd.Parameters.AddWithValue("@Material", "ExBin");
+                //        cmd.Parameters.AddWithValue("@MaterialDesc", "tba");
+                //        break;
+                //    case TIQType.Delivery:
+                //        cmd.Parameters.AddWithValue("@QueueStatus", "P");
+                //        cmd.Parameters.AddWithValue("@Material", "Delivery");
+                //        cmd.Parameters.AddWithValue("@MaterialDesc", "tba");
+                //        break;
+                //    case TIQType.Imported:
+                //        cmd.Parameters.AddWithValue("@QueueStatus", "I");
+                //        cmd.Parameters.AddWithValue("@Material", "Imported");
+                //        cmd.Parameters.AddWithValue("@MaterialDesc", "tba");
+                //        break;
+                //    case TIQType.ImportedPickUp:
+                //        cmd.Parameters.AddWithValue("@QueueStatus", "I");
+                //        cmd.Parameters.AddWithValue("@Material", "Imported PickUp");
+                //        cmd.Parameters.AddWithValue("@MaterialDesc", "tba");
+                //        break;
+                //    default:
+                //        MessageBox.Show("Unhandled TIQ Type : " + myTIQType, "Add TIQ ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //        Okay2Proceed = false;
+                //        break;
+                //}
                 cmd.Parameters.AddWithValue("@StockpileLotNo", 0);
                 cmd.Parameters.AddWithValue("@TruckOwnerCode", myConfigTruck.CardCode);
                 cmd.Parameters.AddWithValue("@TruckOwner", myConfigTruck.TruckOwner);
-                cmd.Parameters.AddWithValue("@DriverID", myTruckDriver.CntctCode);
-                cmd.Parameters.AddWithValue("@Driver", myTruckDriver.Person);
+                cmd.Parameters.AddWithValue("@DriverID", -9); // myTruckDriver.CntctCode);
+                cmd.Parameters.AddWithValue("@Driver", "Truck Driver TBA"); //myTruckDriver.Person);
                 cmd.Parameters.AddWithValue("@Payload", 0);
                 cmd.Parameters.AddWithValue("@PayloadSplit", ""); // text 12.5/20.5
                 cmd.Parameters.AddWithValue("@GCM", 0);
@@ -577,6 +583,7 @@ namespace QWS_Local
                     sqlConnection.Open();
                     iTIQID = System.Convert.ToInt32(cmd.ExecuteScalar());
                     sqlConnection.Close();
+                    TIQGet(iTIQID);
                     return iTIQID;
                 }
                 else
@@ -588,6 +595,19 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message, "NewTIQ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return -9;
+            }
+        }
+
+        private void TIQGet(int iTIQID)
+        {
+            try
+            {
+                int iRow = taTIQ.Fill(dsTIQ2.TIQ, 7);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -665,5 +685,6 @@ namespace QWS_Local
         {
             GoToBookInExBin(TIQType.ImportedPickUp);
         }
+
     }
 }
