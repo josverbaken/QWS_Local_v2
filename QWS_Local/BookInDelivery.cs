@@ -96,7 +96,7 @@ namespace QWS_Local
                     if (txtTruckConfig.Text == "TKs")
                     {
                         MessageBox.Show("To book in TRs", "Split Load", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        GoBack2BookIn(CurrentTIQ().Rego, CurrentTIQ().TruckConfigID, CurrentTIQ().DriverID);
+                        GoBack2BookIn(myTIQRow.Rego, myTIQRow.TruckConfigID, myTIQRow.DriverID,myTIQRow.TIQID);
                     }
                     else
                     {
@@ -391,10 +391,10 @@ namespace QWS_Local
             SetSplitLoadType();
         }
 
-        private void GoBack2BookIn(string Rego, int TruckConfigID, int DriverID)
+        private void GoBack2BookIn(string Rego, int TruckConfigID, int DriverID, int myParentTIQID)
         {
             //called after retare successful
-            BookInTruckStep1 frmBookInStep1 = new BookInTruckStep1(Rego, TruckConfigID, DriverID, CurrentTIQ().TruckConfig, "Called after book in TKs.");
+            BookInTruckStep1 frmBookInStep1 = new BookInTruckStep1(Rego, TruckConfigID, DriverID, myParentTIQID, CurrentTIQ().TruckConfig, "Called after book in TKs.");
             frmBookInStep1.MdiParent = this.MdiParent;
             frmBookInStep1.Show();
         }

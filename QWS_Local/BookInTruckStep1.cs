@@ -55,6 +55,7 @@ namespace QWS_Local
             InitializeComponent();
         }
 
+        // Resume in progress TIQ
         public BookInTruckStep1(int myTIQID, string Rego, int TruckConfigID, int myDriverID, bool Resume)
         {
             InitializeComponent();
@@ -69,9 +70,11 @@ namespace QWS_Local
             }
         }
 
-        public BookInTruckStep1(string Rego, int TruckConfigID, int myDriverID, string mySplitTruckConfig, string Message)
+        // Book in after updating Tare
+        public BookInTruckStep1(string Rego, int TruckConfigID, int myDriverID, int myParentTIQID, string mySplitTruckConfig, string Message)
         {
             InitializeComponent();
+            txtTruckRego.Text = Rego;
             CallingMessage = Message;
             FindTruckConfig(Rego, false);
             SelectTruckConfig(TruckConfigID);
@@ -80,6 +83,15 @@ namespace QWS_Local
                 GetTruckDriver(myDriverID);
             }
             SplitTruckConfig = mySplitTruckConfig;
+
+            //check rego and axle conditions
+            if (TIQID == 0)
+            {
+                TIQID = NewTIQ(TIQType.EnterRego, myParentTIQID);
+            }
+            CheckConfigOK2Proceed();
+
+
         }
 
         private void btnFindTruck_Click(object sender, EventArgs e)
@@ -563,12 +575,13 @@ namespace QWS_Local
             UpdateTIQ(TIQType.Retare);
             if (TIQID > 0)
             {
+                TIQID = 0;
                 ((QWS_MDIParent)this.MdiParent).BringTIQ2Front();
                 this.Close();
             }
         }
 
-        private int NewTIQ(TIQType myTIQType)
+        private int NewTIQ(TIQType myTIQType, int myParentTIQID)
         {
             try
             {
@@ -581,7 +594,7 @@ namespace QWS_Local
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "TIQAdd";
-                cmd.Parameters.AddWithValue("@ParentTIQID", 0);
+                cmd.Parameters.AddWithValue("@ParentTIQID", myParentTIQID);
                 cmd.Parameters.AddWithValue("@TIQOpen", true);
                 cmd.Parameters.AddWithValue("@SiteID", Properties.Settings.Default.SiteID);
                 cmd.Parameters.AddWithValue("@Rego", myConfigTruck.RegoTk);
@@ -731,7 +744,7 @@ namespace QWS_Local
             //check rego and axle conditions
             if (TIQID == 0)
             {
-                TIQID = NewTIQ(TIQType.EnterRego);
+                TIQID = NewTIQ(TIQType.EnterRego, 0);
             }
             CheckConfigOK2Proceed();
         }

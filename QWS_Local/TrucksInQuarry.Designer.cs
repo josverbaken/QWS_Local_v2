@@ -77,6 +77,7 @@ namespace QWS_Local
             this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.tpDetails = new System.Windows.Forms.TabPage();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.materialDescTextBox = new System.Windows.Forms.TextBox();
@@ -114,7 +115,7 @@ namespace QWS_Local
             this.bsAxleConfiguration = new System.Windows.Forms.BindingSource(this.components);
             this.taAxleConfiguration = new QWS_Local.dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             entryDTTMLabel = new System.Windows.Forms.Label();
             sAPOrderLabel = new System.Windows.Forms.Label();
             roadAccessLabel = new System.Windows.Forms.Label();
@@ -627,6 +628,7 @@ namespace QWS_Local
             // tpDetails
             // 
             this.tpDetails.AutoScroll = true;
+            this.tpDetails.Controls.Add(this.textBox3);
             this.tpDetails.Controls.Add(this.textBox2);
             this.tpDetails.Controls.Add(label1);
             this.tpDetails.Controls.Add(this.textBox1);
@@ -677,6 +679,17 @@ namespace QWS_Local
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "TIQID", true));
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(944, 174);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(100, 26);
+            this.textBox2.TabIndex = 76;
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox1
             // 
@@ -996,16 +1009,16 @@ namespace QWS_Local
             this.tableAdapterManager2.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager2.VehicleTableAdapter = null;
             // 
-            // textBox2
+            // textBox3
             // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "TIQID", true));
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(944, 232);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(100, 26);
-            this.textBox2.TabIndex = 76;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "ParentTIQID", true));
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(944, 206);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(100, 26);
+            this.textBox3.TabIndex = 77;
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TrucksInQuarry
             // 
@@ -1114,5 +1127,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn driverDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TruckOwner;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
