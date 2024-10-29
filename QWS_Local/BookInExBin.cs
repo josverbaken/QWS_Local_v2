@@ -13,9 +13,7 @@ namespace QWS_Local
     public partial class BookInExBin : Form
     {
         private bool FormLoaded = false;
-        //private string LoadType = "TK";
         private bool IsPrefCust = false;
-        private string SplitTruckConfig;
 
         private enum TIQType
         {
@@ -50,7 +48,7 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public BookInExBin(int myTIQID,string myTIQType,string mySplitTruckConfig,int myTruckConfigID, string myCardCode, string myCustomerName, bool myIsPrefCust , dsQWSLocal2024.TruckDriverRow driverRow)
+        public BookInExBin(int myTIQID,string myTIQType,int myTruckConfigID, string myCardCode, string myCustomerName, bool myIsPrefCust , dsQWSLocal2024.TruckDriverRow driverRow)
         {
             InitializeComponent();
             TIQID = myTIQID;
@@ -58,7 +56,6 @@ namespace QWS_Local
             CardCode = myCardCode;
             CustomerName = myCustomerName;
             IsPrefCust = myIsPrefCust;
-            SplitTruckConfig = mySplitTruckConfig;
             DriverRow = driverRow;
             int ImportedGrpCode = Properties.Settings.Default.ImportedGrpCode;
             int ImportedPickUpGrpCode = Properties.Settings.Default.ImportedPickUpGrpCode;
@@ -100,7 +97,6 @@ namespace QWS_Local
             FormLoaded = true;
             dataGridView4.ClearSelection();
             FormLoadType = LoadType.TK;
-            label13.Text = SplitTruckConfig.ToString();
         }
 
         private void LoadTIQ()
@@ -161,7 +157,7 @@ namespace QWS_Local
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message,"CurrentTruckGVM",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return null;
             }
         }
@@ -347,7 +343,7 @@ namespace QWS_Local
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "SetTIQOrderDetails");
             }
         }
 
@@ -365,7 +361,7 @@ namespace QWS_Local
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "CurrentTIQ");
                 return null;
             }
         }
@@ -384,7 +380,6 @@ namespace QWS_Local
         {
             if (bsExBinOrders.Count > 0 && FormLoaded == true && dataGridView4.SelectedRows.Count == 1)
             {
-                // TODO jut go to details if only 1 order!
                 DialogResult dr = MessageBox.Show("Move to details ?", "Choose Order", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dr == DialogResult.OK)
                 {
@@ -422,25 +417,39 @@ namespace QWS_Local
             if (CurrentTruckGVM().Compartments > 1)
             {
                 // check if split
-                switch (SplitTruckConfig)
+                switch (myTIQRow.TruckConfig)
                 {
-                    case "TKs":
+                    case "TRs":
                         txtTruckConfig.Text = "TRs";
-                        //CurrentTIQ().QueueStatus = "S";
                         btnSplitLoadType.Enabled = false;
-                        //FormLoadType = LoadType.TRs; //??
-                        bsTIQ2.EndEdit();
                         break;
-                    case "BDa":
+                    case "BDb":
                         txtTruckConfig.Text = "BDb";
                         btnSplitLoadType.Enabled = false;
-                        //CurrentTIQ().QueueStatus = "S";
-                        bsTIQ2.EndEdit();
                         break;
                     default:
                         btnSplitLoadType.Enabled = true;
                         break;
                 }
+                //switch (SplitTruckConfig)
+                //{
+                //    case "TKs":
+                //        txtTruckConfig.Text = "TRs";
+                //        //CurrentTIQ().QueueStatus = "S";
+                //        btnSplitLoadType.Enabled = false;
+                //        //FormLoadType = LoadType.TRs; //??
+                //        bsTIQ2.EndEdit();
+                //        break;
+                //    case "BDa":
+                //        txtTruckConfig.Text = "BDb";
+                //        btnSplitLoadType.Enabled = false;
+                //        //CurrentTIQ().QueueStatus = "S";
+                //        bsTIQ2.EndEdit();
+                //        break;
+                //    default:
+                //        btnSplitLoadType.Enabled = true;
+                //        break;
+                //}
             }
             else
             {
@@ -521,13 +530,15 @@ namespace QWS_Local
                 { 
                     if (IsPrefCust == true)
                     {
-                        if (SplitTruckConfig == "TKs" || SplitTruckConfig == "BDa")
+                        switch (myTIQRow.TruckConfig)
                         {
-                            myTIQRow.QueueStatus = "S";
-                        }
-                        else
-                        {
-                            myTIQRow.QueueStatus = "Q";
+                            case "TRs":
+                            case "BDb":
+                                myTIQRow.QueueStatus = "S";
+                                break;
+                            default:
+                                myTIQRow.QueueStatus="Q";
+                                break;
                         }
                     }
                     else
@@ -539,10 +550,14 @@ namespace QWS_Local
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 if (iRow == 1) // TODO test if split load
                 {
-                    if (txtTruckConfig.Text == "TKs")
+                    if (myTIQRow.TruckConfig == "TKs")
                     {
-                        MessageBox.Show("To book in TRs","Split Load", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        GoBack2BookIn(CurrentTIQ().Rego, CurrentTIQ().TIQID, CurrentTIQ().TruckConfigID, CurrentTIQ().DriverID);
+                        GoBack2BookIn(myTIQRow.Rego, myTIQRow.TruckConfigID, myTIQRow.DriverID, myTIQRow.TIQID, "TRs");
+                    }
+                    else if (myTIQRow.TruckConfig == "Bda")
+                    {
+                        // TODO handle split load for B-double
+                        MessageBox.Show("","Split B-double",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -618,7 +633,7 @@ namespace QWS_Local
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "SetExBinNoOrderItem");
             }
         }
 
@@ -645,10 +660,10 @@ namespace QWS_Local
             }
         }
 
-        private void GoBack2BookIn(string Rego, int TruckConfigID, int DriverID, int myParentTIQID)
+        private void GoBack2BookIn(string Rego, int TruckConfigID, int DriverID, int myParentTIQID, string TrailerConfig)
         {
-            //called after retare successful //TODO modify for split load
-            BookInTruckStep1 frmBookInStep1 = new BookInTruckStep1(Rego, TruckConfigID, DriverID, myParentTIQID,CurrentTIQ().TruckConfig, "Called after book in TKs");
+            // call to book in trailer for split load
+            BookInTruckStep1 frmBookInStep1 = new BookInTruckStep1(Rego, TruckConfigID, DriverID, myParentTIQID,CurrentTIQ().TruckConfig, "Called after book in TKs", TrailerConfig);
             frmBookInStep1.MdiParent = this.MdiParent;
             frmBookInStep1.Show();
         }

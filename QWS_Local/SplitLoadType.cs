@@ -52,7 +52,8 @@ namespace QWS_Local
         {
             if(rbTnT.Checked)
             {
-                if (AxleConfig.IndexOf("R") > 0)
+                //if (AxleConfig.IndexOf("R") > 0)
+                if (AxleConfig.Contains("R") == true)
                 {
                     formLoadType = LoadType.TT; 
                 }

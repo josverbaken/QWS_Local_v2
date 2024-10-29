@@ -44,11 +44,6 @@ namespace QWS_Local
             this.txtTruckRego = new System.Windows.Forms.TextBox();
             this.btnFindTruck = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.regoTkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.regoTrailerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RegoCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.nHVLDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TareDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtAxleConfig = new System.Windows.Forms.TextBox();
             this.txtVehicleDescription = new System.Windows.Forms.TextBox();
             this.cardCodeTextBox = new System.Windows.Forms.TextBox();
@@ -90,6 +85,12 @@ namespace QWS_Local
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.bsTIQ = new System.Windows.Forms.BindingSource(this.components);
             this.taTIQ = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
+            this.regoTkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.regoTrailerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegoCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.nHVLDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TareDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VehicleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -233,7 +234,8 @@ namespace QWS_Local
             this.regoTrailerDataGridViewTextBoxColumn,
             this.RegoCheck,
             this.nHVLDataGridViewTextBoxColumn,
-            this.TareDT});
+            this.TareDT,
+            this.VehicleType});
             this.dataGridView1.DataSource = this.bsConfiguredTrucks;
             this.dataGridView1.Location = new System.Drawing.Point(21, 250);
             this.dataGridView1.MultiSelect = false;
@@ -242,43 +244,6 @@ namespace QWS_Local
             this.dataGridView1.Size = new System.Drawing.Size(979, 150);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
-            // 
-            // regoTkDataGridViewTextBoxColumn
-            // 
-            this.regoTkDataGridViewTextBoxColumn.DataPropertyName = "RegoTk";
-            this.regoTkDataGridViewTextBoxColumn.HeaderText = "RegoTk";
-            this.regoTkDataGridViewTextBoxColumn.Name = "regoTkDataGridViewTextBoxColumn";
-            this.regoTkDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // regoTrailerDataGridViewTextBoxColumn
-            // 
-            this.regoTrailerDataGridViewTextBoxColumn.DataPropertyName = "RegoTrailer";
-            this.regoTrailerDataGridViewTextBoxColumn.HeaderText = "RegoTrailer";
-            this.regoTrailerDataGridViewTextBoxColumn.Name = "regoTrailerDataGridViewTextBoxColumn";
-            this.regoTrailerDataGridViewTextBoxColumn.ReadOnly = true;
-            this.regoTrailerDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // RegoCheck
-            // 
-            this.RegoCheck.DataPropertyName = "RegoCheck";
-            this.RegoCheck.HeaderText = "RegoCheck";
-            this.RegoCheck.Name = "RegoCheck";
-            this.RegoCheck.ReadOnly = true;
-            // 
-            // nHVLDataGridViewTextBoxColumn
-            // 
-            this.nHVLDataGridViewTextBoxColumn.DataPropertyName = "NHVL";
-            this.nHVLDataGridViewTextBoxColumn.HeaderText = "NHVL";
-            this.nHVLDataGridViewTextBoxColumn.Name = "nHVLDataGridViewTextBoxColumn";
-            this.nHVLDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nHVLDataGridViewTextBoxColumn.Width = 300;
-            // 
-            // TareDT
-            // 
-            this.TareDT.DataPropertyName = "TareDT";
-            this.TareDT.HeaderText = "TareDT";
-            this.TareDT.Name = "TareDT";
-            this.TareDT.ReadOnly = true;
             // 
             // txtAxleConfig
             // 
@@ -641,6 +606,50 @@ namespace QWS_Local
             // 
             this.taTIQ.ClearBeforeFill = true;
             // 
+            // regoTkDataGridViewTextBoxColumn
+            // 
+            this.regoTkDataGridViewTextBoxColumn.DataPropertyName = "RegoTk";
+            this.regoTkDataGridViewTextBoxColumn.HeaderText = "RegoTk";
+            this.regoTkDataGridViewTextBoxColumn.Name = "regoTkDataGridViewTextBoxColumn";
+            this.regoTkDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // regoTrailerDataGridViewTextBoxColumn
+            // 
+            this.regoTrailerDataGridViewTextBoxColumn.DataPropertyName = "RegoTrailer";
+            this.regoTrailerDataGridViewTextBoxColumn.HeaderText = "RegoTrailer";
+            this.regoTrailerDataGridViewTextBoxColumn.Name = "regoTrailerDataGridViewTextBoxColumn";
+            this.regoTrailerDataGridViewTextBoxColumn.ReadOnly = true;
+            this.regoTrailerDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // RegoCheck
+            // 
+            this.RegoCheck.DataPropertyName = "RegoCheck";
+            this.RegoCheck.HeaderText = "RegoCheck";
+            this.RegoCheck.Name = "RegoCheck";
+            this.RegoCheck.ReadOnly = true;
+            // 
+            // nHVLDataGridViewTextBoxColumn
+            // 
+            this.nHVLDataGridViewTextBoxColumn.DataPropertyName = "NHVL";
+            this.nHVLDataGridViewTextBoxColumn.HeaderText = "NHVL";
+            this.nHVLDataGridViewTextBoxColumn.Name = "nHVLDataGridViewTextBoxColumn";
+            this.nHVLDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nHVLDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // TareDT
+            // 
+            this.TareDT.DataPropertyName = "TareDT";
+            this.TareDT.HeaderText = "TareDT";
+            this.TareDT.Name = "TareDT";
+            this.TareDT.ReadOnly = true;
+            // 
+            // VehicleType
+            // 
+            this.VehicleType.DataPropertyName = "VehicleType";
+            this.VehicleType.HeaderText = "TruckConfig";
+            this.VehicleType.Name = "VehicleType";
+            this.VehicleType.ReadOnly = true;
+            // 
             // BookInTruckStep1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -725,11 +734,6 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnExBin;
         private System.Windows.Forms.GroupBox groupBox3;
         private dsTIQ2TableAdapters.TableAdapterManager tableAdapterManager2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn regoTkDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn regoTrailerDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn RegoCheck;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nHVLDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
         private System.Windows.Forms.TextBox txtTruckConfig;
         private System.Windows.Forms.Button btnHold;
         private System.Windows.Forms.Label label1;
@@ -742,5 +746,11 @@ namespace QWS_Local
         private dsTIQ2 dsTIQ2;
         private System.Windows.Forms.BindingSource bsTIQ;
         private dsTIQ2TableAdapters.TIQTableAdapter taTIQ;
+        private System.Windows.Forms.DataGridViewTextBoxColumn regoTkDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn regoTrailerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn RegoCheck;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nHVLDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VehicleType;
     }
 }

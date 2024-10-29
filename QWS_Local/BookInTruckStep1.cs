@@ -20,7 +20,6 @@ namespace QWS_Local
         private static string ExBinCustomer;
         private static bool IsPrefCust = false;
         private static string CallingMessage = "";
-        private static string SplitTruckConfig = "Single";
         private static int TIQID = 0;
 
         private enum TIQType
@@ -70,24 +69,23 @@ namespace QWS_Local
             }
         }
 
-        // Book in after updating Tare
-        public BookInTruckStep1(string Rego, int TruckConfigID, int myDriverID, int myParentTIQID, string mySplitTruckConfig, string Message)
+        // Book in after updating Tare or Split-load
+        public BookInTruckStep1(string Rego, int TruckConfigID, int myDriverID, int myParentTIQID, string mySplitTruckConfig, string Message, string TrailerConfig)
         {
             InitializeComponent();
             txtTruckRego.Text = Rego;
             CallingMessage = Message;
-            FindTruckConfig(Rego, false);
+            
+            FindTruckConfig(Rego, true); // Resume = true b/c split load
             SelectTruckConfig(TruckConfigID);
             if (myDriverID > 0)
             {
                 GetTruckDriver(myDriverID);
             }
-            SplitTruckConfig = mySplitTruckConfig;
-
             //check rego and axle conditions
             if (TIQID == 0)
             {
-                TIQID = NewTIQ(TIQType.EnterRego, myParentTIQID);
+                TIQID = NewTIQ(TIQType.EnterRego, myParentTIQID, TrailerConfig);
             }
             CheckConfigOK2Proceed();
 
@@ -394,7 +392,7 @@ namespace QWS_Local
             }
         }
 
-        private void UpdateTIQ(TIQType myTIQType)
+        private void UpdateTIQ(TIQType myTIQType, string TruckTrailerConfig)
         {
             bsTIQ.EndEdit();
             bsTruckDriver.EndEdit();    
@@ -404,12 +402,13 @@ namespace QWS_Local
             dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
             myTIQ.DriverID = myTruckDriver.CntctCode;
             myTIQ.Driver = myTruckDriver.Person;
+            myTIQ.AllocateDTTM = DateTime.Now;
             myTIQ.Rego = myConfigTruck.RegoTk;
             myTIQ.RegoTr1 = myConfigTruck.RegoTr1;
             myTIQ.RegoTr2 = myConfigTruck.RegoTr2;
             myTIQ.RegoTr3 = myConfigTruck.RegoTr3;
             myTIQ.RegoTrailers = myConfigTruck.RegoTrailer;
-            myTIQ.TruckConfig = myConfigTruck.VehicleType;
+            myTIQ.TruckConfig = TruckTrailerConfig; //myConfigTruck.VehicleType;
             myTIQ.TruckConfigID = myConfigTruck.TruckConfigID;
             myTIQ.AxleConfiguration = myConfigTruck.AxleConfiguration;
             myTIQ.FeeCode = myConfigTruck.FeeCode;
@@ -536,10 +535,12 @@ namespace QWS_Local
 
         private void BookInExBin(TIQType myTIQType)
         {
-            UpdateTIQ(myTIQType);
+            string myTruckTrailerConfig = CurrentConfigTruck().VehicleType.ToString();
+            // TODO check if split  
+            UpdateTIQ(myTIQType, myTruckTrailerConfig);
             if (TIQID > 0)
             {
-                BookInExBin frmExBin = new BookInExBin(TIQID, myTIQType.ToString(), SplitTruckConfig, CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, IsPrefCust, CurrentTruckDriver());
+                BookInExBin frmExBin = new BookInExBin(TIQID, myTIQType.ToString(), CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, IsPrefCust, CurrentTruckDriver());
                 TIQID = 0;
                 frmExBin.MdiParent = this.MdiParent;
                 frmExBin.Show();
@@ -558,7 +559,9 @@ namespace QWS_Local
         }
         private void BookInDeliveryOrder()
         {
-            UpdateTIQ(TIQType.Delivery);
+            string myTruckTrailerConfig = CurrentConfigTruck().VehicleType;
+            // TODO check if split
+            UpdateTIQ(TIQType.Delivery, myTruckTrailerConfig);
             if (TIQID > 0)
             {
                 BookInDelivery frmDelivery = new BookInDelivery(TIQID, CurrentConfigTruck().TruckConfigID, CurrentTruckDriver());
@@ -571,8 +574,8 @@ namespace QWS_Local
 
         private void btnRetare_Click(object sender, EventArgs e)
         {
-            txtTruckConfig.Text = LoadType.BD.ToString(); // TODO why?
-            UpdateTIQ(TIQType.Retare);
+            //txtTruckConfig.Text = LoadType.BD.ToString(); // TODO why?
+            UpdateTIQ(TIQType.Retare, CurrentConfigTruck().VehicleType);
             if (TIQID > 0)
             {
                 TIQID = 0;
@@ -581,7 +584,7 @@ namespace QWS_Local
             }
         }
 
-        private int NewTIQ(TIQType myTIQType, int myParentTIQID)
+        private int NewTIQ(TIQType myTIQType, int myParentTIQID, string TruckOrTrailerConfig)
         {
             try
             {
@@ -602,7 +605,7 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@RegoTr2", myConfigTruck.RegoTr2);
                 cmd.Parameters.AddWithValue("@RegoTr3", myConfigTruck.RegoTr3);
                 cmd.Parameters.AddWithValue("@RegoTrailers", myConfigTruck.RegoTrailer);
-                cmd.Parameters.AddWithValue("@TruckConfig", myConfigTruck.VehicleType);
+                cmd.Parameters.AddWithValue("@TruckConfig", TruckOrTrailerConfig); // myConfigTruck.VehicleType);
                 cmd.Parameters.AddWithValue("@TruckConfigID", myConfigTruck.TruckConfigID);
                 cmd.Parameters.AddWithValue("@AxleConfiguration", myConfigTruck.AxleConfiguration);
                 cmd.Parameters.AddWithValue("@FeeCode", myConfigTruck.FeeCode);
@@ -716,7 +719,7 @@ namespace QWS_Local
             try
             {
                 string msg = "Put on hold, direct to park in holding bay and proceed to office to resolve driver issue.";
-                UpdateTIQ(TIQType.ParkUp);
+                UpdateTIQ(TIQType.ParkUp, CurrentConfigTruck().VehicleType);
                 MessageBox.Show(msg,"Put on hold.",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 this.Close();
             }
@@ -744,7 +747,7 @@ namespace QWS_Local
             //check rego and axle conditions
             if (TIQID == 0)
             {
-                TIQID = NewTIQ(TIQType.EnterRego, 0);
+                TIQID = NewTIQ(TIQType.EnterRego, 0, CurrentConfigTruck().VehicleType);
             }
             CheckConfigOK2Proceed();
         }
