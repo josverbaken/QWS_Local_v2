@@ -203,5 +203,13 @@ namespace QWS_Local
             frmSPLotMaintenance.Show();
 
         }
+
+        private void operatorRolesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OperatorRoles frmOperatorRoles = new OperatorRoles();
+            frmOperatorRoles.MdiParent = this;
+            frmOperatorRoles.WindowState = FormWindowState.Maximized;
+            frmOperatorRoles.Show();
+        }
     }
 }
