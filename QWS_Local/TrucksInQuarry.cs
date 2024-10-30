@@ -31,6 +31,7 @@ namespace QWS_Local
             // TODO: find a nicer solution, probably images/icons
             iRows += 1;
             this.KeyPreview = true;
+            RefreshQueue();
         }
 
         public void ClearTIQ()
@@ -365,6 +366,7 @@ namespace QWS_Local
                         if (dr == DialogResult.OK)
                         {
                             string myRego = myTIQRow.Rego;
+                            int myTIQID = myTIQRow.TIQID;
                             int myTruckConfigID = myTIQRow.TruckConfigID;
                             int myDriverID = myTIQRow.DriverID;
                             string myTruckConfig = myTIQRow.TruckConfig;
@@ -396,7 +398,13 @@ namespace QWS_Local
                                     if (myTruckConfig == "TKs" || myTruckConfig == "BDa") 
                                     {
                                         // change status of TRs from S to Q
-                                        ReleaseSplit(myTIQRow.Rego, myWeight);
+                                        // confirm Trailer row exists
+                                        int myPosition = bsTIQ2.Find("ParentTIQID", myTIQID);
+                                        if (myPosition >= 0)
+                                        {
+                                            bsTIQ2.Position = myPosition;
+                                            ReleaseSplit(myTIQRow.Rego, myWeight);
+                                        }
                                         RefreshQueue();
                                     }
 

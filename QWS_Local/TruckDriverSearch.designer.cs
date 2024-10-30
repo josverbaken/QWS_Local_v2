@@ -366,7 +366,7 @@ namespace QWS_Local
             this.btnSelectDriver.Name = "btnSelectDriver";
             this.btnSelectDriver.Size = new System.Drawing.Size(150, 62);
             this.btnSelectDriver.TabIndex = 1;
-            this.btnSelectDriver.Text = "Select and Close";
+            this.btnSelectDriver.Text = "Select";
             this.btnSelectDriver.UseVisualStyleBackColor = true;
             this.btnSelectDriver.Click += new System.EventHandler(this.btnSelectDriver_Click);
             // 

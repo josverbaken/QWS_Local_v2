@@ -75,21 +75,20 @@ namespace QWS_Local
             InitializeComponent();
             txtTruckRego.Text = Rego;
             CallingMessage = Message;
-            
+            // Retrieve Truck and Driver
             FindTruckConfig(Rego, true); // Resume = true b/c split load
             SelectTruckConfig(TruckConfigID);
             if (myDriverID > 0)
             {
                 GetTruckDriver(myDriverID);
             }
-            //check rego and axle conditions
+            // Create new TIQ
             if (TIQID == 0)
             {
                 TIQID = NewTIQ(TIQType.EnterRego, myParentTIQID, TrailerConfig);
             }
+            //check rego and axle conditions
             CheckConfigOK2Proceed();
-
-
         }
 
         private void btnFindTruck_Click(object sender, EventArgs e)
@@ -199,6 +198,7 @@ namespace QWS_Local
             }
             else
             {
+                MessageBox.Show("CurrentConfigTruck Zero Rows!");
                 return null;
             }
         }
@@ -395,8 +395,10 @@ namespace QWS_Local
         private void UpdateTIQ(TIQType myTIQType, string TruckTrailerConfig)
         {
             bsTIQ.EndEdit();
-            bsTruckDriver.EndEdit();    
+            bsTruckDriver.EndEdit();
             // update TIQ
+            //int myPosition = bsTIQ.Find("TIQID", myTIQID);
+            //bsTIQ.Position = myPosition;
             dsTIQ2.TIQRow myTIQ = CurrentTIQ();
             dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
             dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
@@ -455,6 +457,7 @@ namespace QWS_Local
                     MessageBox.Show("Unhandled TIQ Type : " + myTIQType, "Add TIQ ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
             }
+            bsTIQ.EndEdit();
             taTIQ.Update(dsTIQ2.TIQ);
         }
 
@@ -591,7 +594,6 @@ namespace QWS_Local
                 int iTIQID = 0;
                 bool Okay2Proceed = true;
                 dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
-                //dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
                 SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
@@ -669,8 +671,9 @@ namespace QWS_Local
         {
             try
             {
-                int iRow = taTIQ.Fill(dsTIQ2.TIQ, 7);
-
+                dsTIQ2.Clear();
+                //int iRow = taTIQ.Fill(dsTIQ2.TIQ, 7);
+                int iRow = taTIQ.FillBy(dsTIQ2.TIQ, 7, iTIQID); // 1 row only!
             }
             catch (Exception ex)
             {

@@ -15,6 +15,12 @@ namespace QWS_Local
         private bool FormLoaded = false;
         private bool IsPrefCust = false;
 
+        private int TruckConfigID;
+        private int TIQID;
+        private string CardCode;
+        private string CustomerName;
+        private dsQWSLocal2024.TruckDriverRow DriverRow;
+
         private enum TIQType
         {
             Retare,
@@ -81,12 +87,6 @@ namespace QWS_Local
             }
         }
 
-        private int TruckConfigID;
-        private int TIQID;
-        private string CardCode;
-        private string CustomerName;
-        private dsQWSLocal2024.TruckDriverRow DriverRow;
-
         private void BookInExBin_Load(object sender, EventArgs e)
         {
             LoadTIQ();
@@ -101,11 +101,15 @@ namespace QWS_Local
 
         private void LoadTIQ()
         {
-            int iRow = taTIQ2.FillBy(dsTIQ2.TIQ, 7, TIQID);
+            int SiteID = Properties.Settings.Default.SiteID;
+            dsTIQ2.Clear();
+            int iRow = taTIQ2.FillBy(dsTIQ2.TIQ, SiteID, TIQID);
             if (iRow != 1)
             {
                 MessageBox.Show("Error loading TIQ row!","Form BookInExBin LoadTIQ",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
+            dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+            string myDriver = myTIQRow.Driver;
         }
 
         private void SetExBinNoOrderCustomer()
