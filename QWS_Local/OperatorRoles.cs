@@ -26,8 +26,9 @@ namespace QWS_Local
         {
             try
             {
-                int iRows = taOperatorRoles.Fill(dsAdmin.OperatorRolesDetailed, OperatorID);
+                int iRows = taOperatorRolesDetailed.Fill(dsAdmin.OperatorRolesDetailed, OperatorID);
                 iRows += 1;
+                this.reportViewer1.RefreshReport();
             }
             catch (Exception ex)
             {
@@ -37,8 +38,73 @@ namespace QWS_Local
 
         private void OperatorRoles_Load(object sender, EventArgs e)
         {
+            this.taRoleFunctions.Fill(this.dsAdmin.RoleFunctions);
+            this.operatorRolesTableAdapter.Fill(this.dsAdmin.OperatorRoles);
+            this.taFunctions.Fill(this.dsAdmin.Functions);
+            this.taRole.Fill(this.dsAdmin.Role);
+            this.taOperator.Fill(this.dsAdmin.Operator);
+        }
 
-            this.reportViewer1.RefreshReport();
+        private void btnSaveOperator_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                taOperator.Update(dsAdmin.Operator);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnSaveRole_Click(object sender, EventArgs e)
+        {
+            taRole.Update(dsAdmin.Role);
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                taFunctions.Update(dsAdmin.Functions);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnSaveOperatorRoles_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                operatorRolesTableAdapter.Update(dsAdmin.OperatorRoles);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnSaveRoleFunctions_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                taRoleFunctions.Update(dsAdmin.RoleFunctions);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
+    
 }
