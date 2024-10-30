@@ -11,12 +11,15 @@
               <TextRun>
                 <Value>Conundrum Holdings Pty Ltd</Value>
                 <Style>
+                  <FontFamily>Courier New</FontFamily>
                   <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
@@ -42,15 +45,19 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!CardName.Value, "DocketReportDateset")</Value>
-                <Style />
+                <Style>
+                  <FontFamily>Courier New</FontFamily>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>CardName</rd:DefaultName>
-        <Top>5.44724cm</Top>
-        <Left>0.81703cm</Left>
+        <Top>4.90953cm</Top>
+        <Left>0.47307cm</Left>
         <Height>0.6cm</Height>
         <Width>5.04cm</Width>
         <ZIndex>1</ZIndex>
@@ -72,15 +79,19 @@
             <TextRuns>
               <TextRun>
                 <Value>=Sum(Fields!DocNum.Value, "DocketReportDateset")</Value>
-                <Style />
+                <Style>
+                  <FontFamily>Courier New</FontFamily>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>DocNum</rd:DefaultName>
         <Top>2.32516cm</Top>
-        <Left>0.86995cm</Left>
+        <Left>0.47307cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>2</ZIndex>
@@ -102,15 +113,19 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!DocDate.Value, "DocketReportDateset")</Value>
-                <Style />
+                <Style>
+                  <FontFamily>Courier New</FontFamily>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>DocDate</rd:DefaultName>
         <Top>3.27766cm</Top>
-        <Left>0.89641cm</Left>
+        <Left>0.47307cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>3</ZIndex>
@@ -132,15 +147,19 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!DocTime.Value, "DocketReportDateset")</Value>
-                <Style />
+                <Style>
+                  <FontFamily>Courier New</FontFamily>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>DocTime</rd:DefaultName>
         <Top>4.2037cm</Top>
-        <Left>0.81703cm</Left>
+        <Left>0.47307cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>4</ZIndex>
@@ -162,15 +181,19 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!CardCode.Value, "DocketReportDateset")</Value>
-                <Style />
+                <Style>
+                  <FontFamily>Courier New</FontFamily>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>CardCode</rd:DefaultName>
-        <Top>6.55849cm</Top>
-        <Left>0.94932cm</Left>
+        <Top>5.68592cm</Top>
+        <Left>0.47307cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>5</ZIndex>
@@ -192,15 +215,19 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!PurchaseOrder.Value, "DocketReportDateset")</Value>
-                <Style />
+                <Style>
+                  <FontFamily>Courier New</FontFamily>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>PurchaseOrder</rd:DefaultName>
-        <Top>8.3312cm</Top>
-        <Left>1.0287cm</Left>
+        <Top>6.46231cm</Top>
+        <Left>0.47307cm</Left>
         <Height>0.6cm</Height>
         <Width>4.82833cm</Width>
         <ZIndex>6</ZIndex>
@@ -222,15 +249,19 @@
             <TextRuns>
               <TextRun>
                 <Value>="Phone : " &amp; iif(left(cstr(sum(Fields!DocNum.Value, "DocketReportDateset")),1)=7,"(03) 9408 7566","(03) 5359 5259") &amp; " something else" &amp; vbcrlf &amp; "abc" &amp; vbcrlf &amp; "qwe"</Value>
-                <Style />
+                <Style>
+                  <FontFamily>Courier New</FontFamily>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>DocTime1</rd:DefaultName>
-        <Top>10.26266cm</Top>
-        <Left>1.08162cm</Left>
+        <Top>7.2387cm</Top>
+        <Left>0.47307cm</Left>
         <Height>3.72208cm</Height>
         <Width>4.77542cm</Width>
         <ZIndex>7</ZIndex>
@@ -245,14 +276,14 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>300mm</Height>
+    <Height>164.53332mm</Height>
     <Style />
   </Body>
   <Width>74mm</Width>
   <Page>
-    <PageHeight>300mm</PageHeight>
+    <PageHeight>250mm</PageHeight>
     <PageWidth>80mm</PageWidth>
-    <InteractiveHeight>300mm</InteractiveHeight>
+    <InteractiveHeight>250cm</InteractiveHeight>
     <InteractiveWidth>80mm</InteractiveWidth>
     <LeftMargin>2mm</LeftMargin>
     <RightMargin>2mm</RightMargin>

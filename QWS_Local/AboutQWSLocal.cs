@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Deployment.Application;
 using System.Drawing;
 using System.Linq;
@@ -146,11 +147,26 @@ namespace QWS_Local
                 msg += "\r\n\r\nUsername: " + DomainName + "\\" + Username;
                 msg += "\r\n\r\nComputer: " + MachineName;
                 textBoxDescription.Text += msg;
+                int iCount = this.taOperator.FillBy(this.dsAdmin.Operator,Username);
+                if ( iCount ==1)
+                {
+                    DataRow myRow = ((DataRowView)bsOperator.Current).Row;
+                    dsAdmin.OperatorRow myOperatorRow = (dsAdmin.OperatorRow)myRow;
+                    int OperatorID = myOperatorRow.OperatorID;
+                    taOperatorRolesDetailed.Fill(dsAdmin.OperatorRolesDetailed, OperatorID);
+                }
+                labelCompanyName.Text = "Conundrum Holdings!@#";
+                label1.Text = "Jos was here.";
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                     }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
