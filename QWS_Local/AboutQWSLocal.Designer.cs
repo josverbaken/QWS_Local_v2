@@ -33,21 +33,19 @@
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnClose = new System.Windows.Forms.Button();
             this.bsOperatorRolesDetailed = new System.Windows.Forms.BindingSource(this.components);
             this.dsAdmin = new QWS_Local.dsAdmin();
+            this.btnClose = new System.Windows.Forms.Button();
             this.bsOperator = new System.Windows.Forms.BindingSource(this.components);
             this.taOperator = new QWS_Local.dsAdminTableAdapters.OperatorTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsAdminTableAdapters.TableAdapterManager();
             this.taOperatorRolesDetailed = new QWS_Local.dsAdminTableAdapters.OperatorRolesDetailedTableAdapter();
-            this.roleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roleDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wBOFunctionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.functionDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.roleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wBOFunctionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             roleLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -97,25 +95,13 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.roleDataGridViewTextBoxColumn,
-            this.roleDescriptionDataGridViewTextBoxColumn,
-            this.wBOFunctionDataGridViewTextBoxColumn,
-            this.functionDescriptionDataGridViewTextBoxColumn});
+            this.wBOFunctionDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.bsOperatorRolesDetailed;
-            this.dataGridView1.Location = new System.Drawing.Point(34, 373);
+            this.dataGridView1.Location = new System.Drawing.Point(591, 196);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1053, 287);
+            this.dataGridView1.Size = new System.Drawing.Size(525, 287);
             this.dataGridView1.TabIndex = 25;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(969, 23);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(118, 49);
-            this.btnClose.TabIndex = 26;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // bsOperatorRolesDetailed
             // 
@@ -126,6 +112,16 @@
             // 
             this.dsAdmin.DataSetName = "dsAdmin";
             this.dsAdmin.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(998, 489);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(118, 49);
+            this.btnClose.TabIndex = 26;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // bsOperator
             // 
@@ -150,37 +146,6 @@
             // 
             this.taOperatorRolesDetailed.ClearBeforeFill = true;
             // 
-            // roleDataGridViewTextBoxColumn
-            // 
-            this.roleDataGridViewTextBoxColumn.DataPropertyName = "Role";
-            this.roleDataGridViewTextBoxColumn.HeaderText = "Role";
-            this.roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
-            this.roleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // roleDescriptionDataGridViewTextBoxColumn
-            // 
-            this.roleDescriptionDataGridViewTextBoxColumn.DataPropertyName = "RoleDescription";
-            this.roleDescriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.roleDescriptionDataGridViewTextBoxColumn.Name = "roleDescriptionDataGridViewTextBoxColumn";
-            this.roleDescriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.roleDescriptionDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // wBOFunctionDataGridViewTextBoxColumn
-            // 
-            this.wBOFunctionDataGridViewTextBoxColumn.DataPropertyName = "WBOFunction";
-            this.wBOFunctionDataGridViewTextBoxColumn.HeaderText = "WBOFunction";
-            this.wBOFunctionDataGridViewTextBoxColumn.Name = "wBOFunctionDataGridViewTextBoxColumn";
-            this.wBOFunctionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.wBOFunctionDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // functionDescriptionDataGridViewTextBoxColumn
-            // 
-            this.functionDescriptionDataGridViewTextBoxColumn.DataPropertyName = "FunctionDescription";
-            this.functionDescriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.functionDescriptionDataGridViewTextBoxColumn.Name = "functionDescriptionDataGridViewTextBoxColumn";
-            this.functionDescriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.functionDescriptionDataGridViewTextBoxColumn.Width = 500;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -193,7 +158,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(387, 67);
+            this.label2.Location = new System.Drawing.Point(387, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 18);
             this.label2.TabIndex = 33;
@@ -202,7 +167,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(387, 113);
+            this.label3.Location = new System.Drawing.Point(387, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 18);
             this.label3.TabIndex = 34;
@@ -211,17 +176,33 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(387, 147);
+            this.label4.Location = new System.Drawing.Point(387, 89);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 18);
             this.label4.TabIndex = 35;
             this.label4.Text = "label4";
             // 
+            // roleDataGridViewTextBoxColumn
+            // 
+            this.roleDataGridViewTextBoxColumn.DataPropertyName = "Role";
+            this.roleDataGridViewTextBoxColumn.HeaderText = "Role";
+            this.roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
+            this.roleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.roleDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // wBOFunctionDataGridViewTextBoxColumn
+            // 
+            this.wBOFunctionDataGridViewTextBoxColumn.DataPropertyName = "WBOFunction";
+            this.wBOFunctionDataGridViewTextBoxColumn.HeaderText = "Function";
+            this.wBOFunctionDataGridViewTextBoxColumn.Name = "wBOFunctionDataGridViewTextBoxColumn";
+            this.wBOFunctionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.wBOFunctionDataGridViewTextBoxColumn.Width = 250;
+            // 
             // AboutQWSLocal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1133, 704);
+            this.ClientSize = new System.Drawing.Size(1133, 559);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -263,13 +244,11 @@
         private System.Windows.Forms.PictureBox logoPictureBox;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.DataGridViewTextBoxColumn roleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn roleDescriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn wBOFunctionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn functionDescriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wBOFunctionDataGridViewTextBoxColumn;
     }
 }
