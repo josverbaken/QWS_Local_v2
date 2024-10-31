@@ -124,11 +124,9 @@ namespace QWS_Local
             if (iOrders == 0) 
             { 
                 this.tabControl2.SelectedTab = tpExBinNoOrder; 
-                rbExBinNoOrder.Checked = true;
             }
             else
             {
-                rbExBinSAPOrder.Checked = true;
                 if (iOrders == 1) 
                 { 
                     tabControl2.SelectedTab = tpOrderDetails; 
@@ -200,7 +198,7 @@ namespace QWS_Local
                 }
                 else
                 {
-                    txtPayloadSplit.Text = myPayload.ToString(); //string.Empty;
+                    txtPayloadSplit.Text = string.Empty; // value to write to TIQ determined later
                     nudPayloadTk.Enabled = false;
                     nudPayloadTr.Enabled = false;
                 }
@@ -230,11 +228,6 @@ namespace QWS_Local
             {
                 MessageBox.Show("Payload split > total Payload!");
             }
-        }
-
-        private void btnPayload_Click(object sender, EventArgs e)
-        {
-            CalcPayload();
         }
 
         private void nudPayload_ValueChanged(object sender, EventArgs e)
@@ -435,25 +428,6 @@ namespace QWS_Local
                         btnSplitLoadType.Enabled = true;
                         break;
                 }
-                //switch (SplitTruckConfig)
-                //{
-                //    case "TKs":
-                //        txtTruckConfig.Text = "TRs";
-                //        //CurrentTIQ().QueueStatus = "S";
-                //        btnSplitLoadType.Enabled = false;
-                //        //FormLoadType = LoadType.TRs; //??
-                //        bsTIQ2.EndEdit();
-                //        break;
-                //    case "BDa":
-                //        txtTruckConfig.Text = "BDb";
-                //        btnSplitLoadType.Enabled = false;
-                //        //CurrentTIQ().QueueStatus = "S";
-                //        bsTIQ2.EndEdit();
-                //        break;
-                //    default:
-                //        btnSplitLoadType.Enabled = true;
-                //        break;
-                //}
             }
             else
             {
@@ -490,15 +464,19 @@ namespace QWS_Local
             switch (LoadType)
             {
                 case "TK":
-                case "BD":
                     txtGVMTruck.Visible = false;
                     txtTareTruck.Visible = false;
                     txtPayloadSplit.Visible = false;
                     nudPayloadTk.Visible = false;
                     nudPayloadTr.Visible = false;
-                    //lblPayloadSplit.Visible = false;
-                    // issue with databound labels
-                    label7.Visible = false;
+                    break;
+                case "BD":
+                    txtGVMTruck.Visible = false;
+                    txtTareTruck.Visible = false;
+                    txtPayloadSplit.Visible = false;
+                    txtPayloadSplit.Visible = true;
+                    nudPayloadTk.Visible = false;
+                    nudPayloadTr.Visible = false;
                     break;
                 default:
                     txtGVMTruck.Visible = true;
@@ -506,8 +484,6 @@ namespace QWS_Local
                     txtPayloadSplit.Visible = true;
                     nudPayloadTk.Visible = true;
                     nudPayloadTr.Visible = true;
-                    //lblPayloadSplit.Visible = true;
-                    label7.Visible = true;
                     break;            
             }
         }
@@ -525,7 +501,6 @@ namespace QWS_Local
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 myTIQRow.AllocateDTTM = DateTime.Now;
                 myTIQRow.CartageCode = "";
-                myTIQRow.Payload = nudPayload.Value;
                 if (FormTIQType == TIQType.Imported || FormTIQType == TIQType.ImportedPickUp)
                 {
                     myTIQRow.QueueStatus = "I";
@@ -582,7 +557,7 @@ namespace QWS_Local
             myTIQRow.Payload = nudPayload.Value;
             if (txtPayloadSplit.Text.Length == 0)
             {
-                txtPayloadSplit.Text = nudPayload.Value.ToString();
+                myTIQRow.PayloadSplit = nudPayload.Value.ToString();
             }
             else
             {
@@ -631,7 +606,6 @@ namespace QWS_Local
                     myTIQRow.MaterialDesc = itemRow.ItemName;
                     bsTIQ2.EndEdit();
                     tabControl2.SelectedTab = tpTruckconfig;
-                    rbExBinNoOrder.Checked = true;  
                     }
             }
             }
