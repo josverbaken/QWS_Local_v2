@@ -17,11 +17,11 @@ namespace QWS_Local
         {
             InitializeComponent();
             this.Text = String.Format("About {0}", AssemblyTitle);
-            this.labelProductName.Text = AssemblyProduct;
-            this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
-            this.labelCopyright.Text = AssemblyCopyright;
-            this.labelCompanyName.Text = AssemblyCompany;
-            this.textBoxDescription.Text = AssemblyDescription;
+            this.label1.Text = AssemblyProduct;
+            this.label2.Text = String.Format("Version {0}", AssemblyVersion);
+            this.label3.Text = AssemblyCopyright;
+            this.label4.Text = AssemblyCompany;
+            //this.textBoxDescription.Text = AssemblyDescription;
         }
 
         #region Assembly Attribute Accessors
@@ -116,18 +116,12 @@ namespace QWS_Local
                 if (ApplicationDeployment.IsNetworkDeployed)
                 {
                     string deployedVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
-                    labelVersion.Text = "Version : " + deployedVersion;
-                    //textBoxDescription.Text += " more info ";
-                    //textBoxDescription.Text += deployedVersion;
-                    //string deployedVersion2 = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-                    //textBoxDescription.Text += "\r\nGetExecutingAssembly : " + deployedVersion2;
+                    label2.Text = "Version : " + deployedVersion;
                 }
                 else
                 {
                     string deployedVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-                    labelVersion.Text = "Version : " + deployedVersion;
-                    //textBoxDescription.Text += "\r\n\r\nIsNetworkDeployed = False!";
-                    //textBoxDescription.Text += "\r\n\r\nAssembly Info: " + deployedVersion;
+                    label2.Text = "Version : " + deployedVersion;
                 }
                 string msg = "\r\n\r\nSite : ";
                 string SiteLabel = string.Empty;
@@ -155,8 +149,6 @@ namespace QWS_Local
                     int OperatorID = myOperatorRow.OperatorID;
                     taOperatorRolesDetailed.Fill(dsAdmin.OperatorRolesDetailed, OperatorID);
                 }
-                labelCompanyName.Text = "Conundrum Holdings!@#";
-                label1.Text = "Jos was here.";
             }
             catch (Exception ex)
             {
