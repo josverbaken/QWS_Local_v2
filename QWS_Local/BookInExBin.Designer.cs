@@ -171,6 +171,7 @@ namespace QWS_Local
             this.btnSetTruckConfig = new System.Windows.Forms.Button();
             this.tpPayload = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.cartageTextBox1 = new System.Windows.Forms.TextBox();
@@ -206,7 +207,6 @@ namespace QWS_Local
             this.tableAdapterManager3 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.taTruckDriver = new QWS_Local.dsQWSLocal2024TableAdapters.TruckDriverTableAdapter();
             this.tableAdapterManager4 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
-            this.textBox10 = new System.Windows.Forms.TextBox();
             gCMLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
@@ -701,6 +701,15 @@ namespace QWS_Local
             maxGVMLabel.TabIndex = 28;
             maxGVMLabel.Text = "Max GVM:";
             // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new System.Drawing.Point(363, 63);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(70, 17);
+            label16.TabIndex = 81;
+            label16.Text = "Doc Num:";
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1070,9 +1079,9 @@ namespace QWS_Local
             this.tpOrderDetails.Controls.Add(this.docNumTextBox1);
             this.tpOrderDetails.Controls.Add(this.btnSetExBinOrder);
             this.tpOrderDetails.Controls.Add(this.btnRefreshOrders);
-            this.tpOrderDetails.Location = new System.Drawing.Point(4, 25);
+            this.tpOrderDetails.Location = new System.Drawing.Point(4, 22);
             this.tpOrderDetails.Name = "tpOrderDetails";
-            this.tpOrderDetails.Size = new System.Drawing.Size(1419, 293);
+            this.tpOrderDetails.Size = new System.Drawing.Size(1419, 296);
             this.tpOrderDetails.TabIndex = 3;
             this.tpOrderDetails.Text = "Order Details";
             this.tpOrderDetails.UseVisualStyleBackColor = true;
@@ -1640,6 +1649,15 @@ namespace QWS_Local
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Customer / Order Summary";
             // 
+            // textBox10
+            // 
+            this.textBox10.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "DocNum", true));
+            this.textBox10.Location = new System.Drawing.Point(439, 60);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
+            this.textBox10.Size = new System.Drawing.Size(81, 23);
+            this.textBox10.TabIndex = 82;
+            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(439, 89);
@@ -1943,24 +1961,6 @@ namespace QWS_Local
             this.tableAdapterManager4.VehiclePrefCustomersTableAdapter = null;
             this.tableAdapterManager4.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager4.VehicleTableAdapter = null;
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Location = new System.Drawing.Point(363, 63);
-            label16.Name = "label16";
-            label16.Size = new System.Drawing.Size(70, 17);
-            label16.TabIndex = 81;
-            label16.Text = "Doc Num:";
-            // 
-            // textBox10
-            // 
-            this.textBox10.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsExBinOrders, "DocNum", true));
-            this.textBox10.Location = new System.Drawing.Point(439, 60);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(81, 23);
-            this.textBox10.TabIndex = 82;
             // 
             // BookInExBin
             // 

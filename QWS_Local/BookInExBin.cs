@@ -30,24 +30,7 @@ namespace QWS_Local
             Delivery
         }
 
-        private enum LoadType
-        {
-            TK,
-            TT,
-            TKs,
-            TRs,
-            ST,
-            BD,
-            BDa,
-            BDb,
-            AD,
-            ADa,
-            ADb
-        }
-
         private TIQType FormTIQType;
-
-        private LoadType FormLoadType;
 
         public BookInExBin()
         {
@@ -96,7 +79,6 @@ namespace QWS_Local
             SetExBinNoOrderCustomer();
             FormLoaded = true;
             dataGridView4.ClearSelection();
-            FormLoadType = LoadType.TK;
         }
 
         private void LoadTIQ()
@@ -401,17 +383,18 @@ namespace QWS_Local
         private void SetTIQTruckconfig()
         {
             dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
-            decimal myGCM = CurrentTruckGVM().GCM;
-            decimal myMaxGVM = CurrentTruckGVM().MaxGVM;
+            dsTruckConfig.ConfiguredTruckGVMRow myTruckGVM = CurrentTruckGVM();
+            decimal myGCM = myTruckGVM.GCM;
+            decimal myMaxGVM = myTruckGVM.MaxGVM;
             if (myGCM > myMaxGVM && myMaxGVM > 0)
             {
                 myGCM = myMaxGVM;
             }
             myTIQRow.GCM = myGCM;
-            myTIQRow.GVMTruck = CurrentTruckGVM().GVMTruck;
+            myTIQRow.GVMTruck = myTruckGVM.GVMTruck;
             bsTIQ2.EndEdit();
             tabControl2.SelectedTab = tpPayload;
-            if (CurrentTruckGVM().Compartments > 1)
+            if (myTruckGVM.Compartments > 1)
             {
                 // check if split
                 switch (myTIQRow.TruckConfig)
@@ -434,7 +417,7 @@ namespace QWS_Local
                 btnSplitLoadType.Enabled = false;
             }
             CalcPayload();
-            SetSplitLoadGUI(FormLoadType.ToString());
+            SetSplitLoadGUI(myTIQRow.TruckConfig);
         }
 
         private void btnSplitLoadType_Click(object sender, EventArgs e)
@@ -477,6 +460,13 @@ namespace QWS_Local
                     txtPayloadSplit.Visible = true;
                     nudPayloadTk.Visible = false;
                     nudPayloadTr.Visible = false;
+                    break;
+                case "TT":
+                    txtGVMTruck.Visible = true;
+                    txtTareTruck.Visible = true;
+                    txtPayloadSplit.Visible = true;
+                    nudPayloadTk.Visible = true;
+                    nudPayloadTr.Visible = true;
                     break;
                 default:
                     txtGVMTruck.Visible = true;
@@ -562,10 +552,6 @@ namespace QWS_Local
             else
             {
                 myTIQRow.PayloadSplit = txtPayloadSplit.Text;
-            }
-            if (FormLoadType.ToString().Length == 3)
-            {
-                myTIQRow.TruckConfig = FormLoadType.ToString();
             }
             bsTIQ2.EndEdit();
         }
