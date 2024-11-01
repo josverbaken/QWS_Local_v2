@@ -632,6 +632,25 @@ namespace QWS_Local
             frmBookInStep1.Show();
         }
 
+        private void btnUpdatePayloadSplit_Click(object sender, EventArgs e)
+        {
+            PayloadSplitRefreshGUI();
+        }
 
+        private void PayloadSplitRefreshGUI()
+        {            
+            decimal myPayloadTk = nudPayloadTk.Value;
+            decimal myPayloadTr = nudPayloadTr.Value;
+            decimal myPayload = myPayloadTk + myPayloadTr;
+            if (myPayload <= nudPayload.Value)
+            {
+                txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString() + " (" + myPayload.ToString() + ")";
+            }
+            else
+            {
+                MessageBox.Show("Invalid weights!");
+                CalcPayload();
+            }
+        }
     }
 }

@@ -207,6 +207,7 @@ namespace QWS_Local
             this.tableAdapterManager3 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.taTruckDriver = new QWS_Local.dsQWSLocal2024TableAdapters.TruckDriverTableAdapter();
             this.tableAdapterManager4 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
+            this.btnUpdatePayloadSplit = new System.Windows.Forms.Button();
             gCMLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
@@ -1336,9 +1337,9 @@ namespace QWS_Local
             // tpTruckconfig
             // 
             this.tpTruckconfig.Controls.Add(this.splitContainer4);
-            this.tpTruckconfig.Location = new System.Drawing.Point(4, 25);
+            this.tpTruckconfig.Location = new System.Drawing.Point(4, 22);
             this.tpTruckconfig.Name = "tpTruckconfig";
-            this.tpTruckconfig.Size = new System.Drawing.Size(1419, 293);
+            this.tpTruckconfig.Size = new System.Drawing.Size(1419, 296);
             this.tpTruckconfig.TabIndex = 2;
             this.tpTruckconfig.Text = "Truck config";
             this.tpTruckconfig.UseVisualStyleBackColor = true;
@@ -1356,7 +1357,7 @@ namespace QWS_Local
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.btnSetTruckConfig);
-            this.splitContainer4.Size = new System.Drawing.Size(1419, 293);
+            this.splitContainer4.Size = new System.Drawing.Size(1419, 296);
             this.splitContainer4.SplitterDistance = 985;
             this.splitContainer4.TabIndex = 103;
             // 
@@ -1368,7 +1369,7 @@ namespace QWS_Local
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(985, 293);
+            this.tabControl1.Size = new System.Drawing.Size(985, 296);
             this.tabControl1.TabIndex = 70;
             // 
             // tpList
@@ -1377,7 +1378,7 @@ namespace QWS_Local
             this.tpList.Location = new System.Drawing.Point(4, 25);
             this.tpList.Name = "tpList";
             this.tpList.Padding = new System.Windows.Forms.Padding(3);
-            this.tpList.Size = new System.Drawing.Size(977, 264);
+            this.tpList.Size = new System.Drawing.Size(977, 267);
             this.tpList.TabIndex = 0;
             this.tpList.Text = "List";
             this.tpList.UseVisualStyleBackColor = true;
@@ -1399,7 +1400,7 @@ namespace QWS_Local
             this.dataGridView3.Location = new System.Drawing.Point(3, 3);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.Size = new System.Drawing.Size(971, 258);
+            this.dataGridView3.Size = new System.Drawing.Size(971, 261);
             this.dataGridView3.TabIndex = 69;
             // 
             // roadAccessDataGridViewTextBoxColumn
@@ -1788,6 +1789,7 @@ namespace QWS_Local
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnUpdatePayloadSplit);
             this.groupBox3.Controls.Add(this.txtPayloadSplit);
             this.groupBox3.Controls.Add(label6);
             this.groupBox3.Controls.Add(label5);
@@ -1961,6 +1963,17 @@ namespace QWS_Local
             this.tableAdapterManager4.VehiclePrefCustomersTableAdapter = null;
             this.tableAdapterManager4.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager4.VehicleTableAdapter = null;
+            // 
+            // btnUpdatePayloadSplit
+            // 
+            this.btnUpdatePayloadSplit.Location = new System.Drawing.Point(171, 123);
+            this.btnUpdatePayloadSplit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdatePayloadSplit.Name = "btnUpdatePayloadSplit";
+            this.btnUpdatePayloadSplit.Size = new System.Drawing.Size(102, 28);
+            this.btnUpdatePayloadSplit.TabIndex = 115;
+            this.btnUpdatePayloadSplit.Text = "Recalculate";
+            this.btnUpdatePayloadSplit.UseVisualStyleBackColor = true;
+            this.btnUpdatePayloadSplit.Click += new System.EventHandler(this.btnUpdatePayloadSplit_Click);
             // 
             // BookInExBin
             // 
@@ -2158,5 +2171,6 @@ namespace QWS_Local
         private dsQWSLocal2024TableAdapters.TruckDriverTableAdapter taTruckDriver;
         private dsQWSLocal2024TableAdapters.TableAdapterManager tableAdapterManager4;
         private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Button btnUpdatePayloadSplit;
     }
 }
