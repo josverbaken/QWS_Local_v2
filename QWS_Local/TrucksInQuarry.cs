@@ -389,25 +389,23 @@ namespace QWS_Local
                                 decimal myQty = myWeight - myTIQRow.Tare;
                                 myTIQRow.Gross = myWeight;
                                 myTIQRow.Nett = myQty;
+                                string myTruckRego = myTIQRow.Rego;
                                 bsTIQ2.EndEdit();
                                 taTIQ2.Update(dsTIQ2.TIQ);
 
                                 if (ConfirmPostDocket())
                                 {
-                                    PostDocket();
                                     if (myTruckConfig == "TKs" || myTruckConfig == "BDa") 
                                     {
-                                        // change status of TRs from S to Q
                                         // confirm Trailer row exists
                                         int myPosition = bsTIQ2.Find("ParentTIQID", myTIQID);
                                         if (myPosition >= 0)
                                         {
-                                            bsTIQ2.Position = myPosition;
-                                            ReleaseSplit(myTIQRow.Rego, myWeight);
+                                            // change status of TRs from S to Q
+                                            ReleaseSplit(myTruckRego, myWeight); // TODO error because row has been removed!
                                         }
-                                        RefreshQueue();
                                     }
-
+                                    PostDocket();
                                 }
                                 else
                                 {
