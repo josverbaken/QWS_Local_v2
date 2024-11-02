@@ -83,7 +83,7 @@ namespace QWS_Local
                 GetTruckDriver(myDriverID);
             }
             // Create new TIQ
-            if (TIQID == 0)
+            if (TIQID == 0) 
             {
                 TIQID = NewTIQ(TIQType.EnterRego, myParentTIQID, TrailerConfig);
             }
@@ -538,11 +538,13 @@ namespace QWS_Local
 
         private void BookInExBin(TIQType myTIQType)
         {
-            string myTruckTrailerConfig = CurrentConfigTruck().VehicleType.ToString();
+            //string myTruckTrailerConfig = CurrentConfigTruck().VehicleType.ToString();
             // TODO check if split  
-            UpdateTIQ(myTIQType, myTruckTrailerConfig);
+            //UpdateTIQ(myTIQType, myTruckTrailerConfig);
             if (TIQID > 0)
             {
+                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+                UpdateTIQ(myTIQType, myTIQRow.TruckConfig);
                 BookInExBin frmExBin = new BookInExBin(TIQID, myTIQType.ToString(), CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, IsPrefCust, CurrentTruckDriver());
                 TIQID = 0;
                 frmExBin.MdiParent = this.MdiParent;
@@ -564,9 +566,11 @@ namespace QWS_Local
         {
             string myTruckTrailerConfig = CurrentConfigTruck().VehicleType;
             // TODO check if split
-            UpdateTIQ(TIQType.Delivery, myTruckTrailerConfig);
+            //UpdateTIQ(TIQType.Delivery, myTruckTrailerConfig);
             if (TIQID > 0)
             {
+                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+                UpdateTIQ(TIQType.Delivery, myTIQRow.TruckConfig);
                 BookInDelivery frmDelivery = new BookInDelivery(TIQID, CurrentConfigTruck().TruckConfigID, CurrentTruckDriver());
                 TIQID = 0;
                 frmDelivery.MdiParent = this.MdiParent;
@@ -578,9 +582,11 @@ namespace QWS_Local
         private void btnRetare_Click(object sender, EventArgs e)
         {
             //txtTruckConfig.Text = LoadType.BD.ToString(); // TODO why?
-            UpdateTIQ(TIQType.Retare, CurrentConfigTruck().VehicleType);
+            //UpdateTIQ(TIQType.Retare, CurrentConfigTruck().VehicleType);
             if (TIQID > 0)
             {
+                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+                UpdateTIQ(TIQType.Retare, myTIQRow.TruckConfig);
                 TIQID = 0;
                 ((QWS_MDIParent)this.MdiParent).BringTIQ2Front();
                 this.Close();
@@ -594,6 +600,19 @@ namespace QWS_Local
                 int iTIQID = 0;
                 bool Okay2Proceed = true;
                 dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
+                string myQStatus = "P";
+                if (TruckOrTrailerConfig == "TRs")
+                {
+                    myQStatus = "S";
+                }
+                int myDriverID = -9;
+                string myDriver = "Truck Driver TBA";
+                if (bsTruckDriver.Count == 1)
+                {
+                    dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
+                    myDriverID = myTruckDriver.CntctCode;
+                    myDriver = myTruckDriver.Person;
+                }
                 SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
@@ -621,14 +640,14 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@DeliveryAddress", "tba");
                 cmd.Parameters.AddWithValue("@CustON", "tba");
                 cmd.Parameters.AddWithValue("@CartageCode", "tba");
-                cmd.Parameters.AddWithValue("@QueueStatus", "P");
+                cmd.Parameters.AddWithValue("@QueueStatus", myQStatus);
                 cmd.Parameters.AddWithValue("@Material", "Enter Rego");
                 cmd.Parameters.AddWithValue("@MaterialDesc", "Lead Vehicle Rego Entered");
                 cmd.Parameters.AddWithValue("@StockpileLotNo", 0);
                 cmd.Parameters.AddWithValue("@TruckOwnerCode", myConfigTruck.CardCode);
                 cmd.Parameters.AddWithValue("@TruckOwner", myConfigTruck.TruckOwner);
-                cmd.Parameters.AddWithValue("@DriverID", -9);
-                cmd.Parameters.AddWithValue("@Driver", "Truck Driver TBA");
+                cmd.Parameters.AddWithValue("@DriverID", myDriverID);
+                cmd.Parameters.AddWithValue("@Driver", myDriver);
                 cmd.Parameters.AddWithValue("@Payload", 0);
                 cmd.Parameters.AddWithValue("@PayloadSplit", ""); // text 12.5/20.5
                 cmd.Parameters.AddWithValue("@GCM", 0);
