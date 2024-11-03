@@ -177,12 +177,14 @@ namespace QWS_Local
                     nudPayloadTr.Value = myPayloadTr;
                     nudPayloadTr.Enabled = true;
                     txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString() + " (" + myPayload.ToString() + ")";
+                    btnUpdatePayloadSplit.Enabled = true;
                 }
                 else
                 {
                     txtPayloadSplit.Text = string.Empty; // value to write to TIQ determined later
                     nudPayloadTk.Enabled = false;
                     nudPayloadTr.Enabled = false;
+                    btnUpdatePayloadSplit.Enabled = false;
                 }
                 bsTIQ2.EndEdit();
             }

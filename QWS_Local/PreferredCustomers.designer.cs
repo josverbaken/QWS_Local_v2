@@ -124,7 +124,7 @@ namespace QWS_Local
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(129, 42);
             this.btnSelect.TabIndex = 1;
-            this.btnSelect.Text = "Select and Close";
+            this.btnSelect.Text = "Select";
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
@@ -164,6 +164,7 @@ namespace QWS_Local
             // PreferredCustomers
             // 
             this.ClientSize = new System.Drawing.Size(910, 282);
+            this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "PreferredCustomers";
