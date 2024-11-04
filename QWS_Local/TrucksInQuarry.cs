@@ -261,7 +261,7 @@ namespace QWS_Local
                     case "T":
                         if (myTIQRow.QueueStatus == "T" && myTIQRow.TruckConfig == "TT")
                         {
-                            frmWeighTruck = new WeighTruck("Collect Tare of as split weight");
+                            frmWeighTruck = new WeighTruck("Collect Tare of truck as split weight");
                             dr = frmWeighTruck.ShowDialog();
                         }
                         else
@@ -293,7 +293,7 @@ namespace QWS_Local
                             }
                             RetareTruck(myTareTk, myTare);
                             RefreshQueue();
-                            GoBack2BookIn(myRego, myTruckConfigID, myDriverID, myParentTIQID, myTIQRow.TruckConfig);
+                            GoBack2BookIn(myRego, myTruckConfigID, myDriverID, myParentTIQID, myTIQRow.TruckConfig, "Retare.");
                         }
                         else
                         {
@@ -343,6 +343,17 @@ namespace QWS_Local
                         myWeight = frmWeighTruck.Weight;
                         if (dr == DialogResult.OK)
                         {
+                            bool RetareDue = false;
+                            string myRego = myTIQRow.Rego;
+                            int myTruckConfigID = myTIQRow.TruckConfigID;
+                            int myDriverID = myTIQRow.DriverID;
+                            int myParentTIQID = myTIQRow.TIQID;
+                            string myTruckConfig = myTIQRow.TruckConfig;
+
+                            if (myTIQRow.Tare == 0.00M)
+                            {
+                                RetareDue = true;
+                            }
                             myTIQRow.Tare = myWeight;
                             myTIQRow.Nett = myTIQRow.Gross - myWeight;//TODO ensure > 0 and challenge if less than MinMaterial ~ 8.0t
                             myTIQRow.QueueStatus = "E";
@@ -352,6 +363,11 @@ namespace QWS_Local
                             if (ConfirmPostDocket())
                             {
                                 PostDocket();
+                                // GoBack2BookIn - might need a different signature for Re-Tare
+                                if (RetareDue == true)
+                                {
+                                    GoBack2BookIn(myRego, myTruckConfigID, myDriverID, myParentTIQID, myTruckConfig,"Imported load.");
+                                }
                             }
                             else
                             {
@@ -432,10 +448,12 @@ namespace QWS_Local
 
         }
 
-        private void GoBack2BookIn(string Rego, int TruckConfigID, int DriverID, int ParentTIQID, string TrailerConfig) // after retare only
+        private void GoBack2BookIn(string Rego, int TruckConfigID, int DriverID, int ParentTIQID, string TrailerConfig, string Caller)
         {
-            //called after retare successful
-            BookInTruckStep1 frmBookInStep1 = new BookInTruckStep1(Rego, TruckConfigID, DriverID, ParentTIQID ,"TruckConfig", "Called after successful retare.", TrailerConfig );
+            //called after retare successful or Import with retare due
+            string msg = "Called after ";
+            msg += Caller;
+            BookInTruckStep1 frmBookInStep1 = new BookInTruckStep1(Rego, TruckConfigID, DriverID, ParentTIQID ,"TruckConfig", msg, TrailerConfig );
             frmBookInStep1.MdiParent = this.MdiParent;
             frmBookInStep1.Show();
         }

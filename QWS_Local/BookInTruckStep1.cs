@@ -222,7 +222,7 @@ namespace QWS_Local
             this.KeyPreview = true;
             if (CallingMessage.Length > 0)
             {
-                MessageBox.Show(CallingMessage);
+                MessageBox.Show(CallingMessage, "Follow on book in.",MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -241,18 +241,7 @@ namespace QWS_Local
         {
             GetTruckDriver(0);
         }
-
-        //private dsQWSLocal2024.TruckDriverRow CurrentTruckDriver()
-        //{
-        //    if (bsTruckDriver.Count > 0)
-        //    {
-        //        DataRow myRow = ((DataRowView)bsTruckDriver.Current).Row;
-        //        dsQWSLocal2024.TruckDriverRow myTruckDriverRow = (dsQWSLocal2024.TruckDriverRow)myRow;
-        //        return myTruckDriverRow;
-        //    }
-        //    return null;
-        //}
-
+  
         private void CheckConfigOK2Proceed()
         {
             btnGetDriver.Enabled = false;
@@ -385,7 +374,8 @@ namespace QWS_Local
                 {
                     btnExBin.Enabled = false;
                     btnDelivery.Enabled = false;
-                    btnImported.Enabled = false;
+                    //btnImported.Enabled = false;
+                    btnImported.Enabled = true; //these arrive fully loaded, so get tare after unloading
                     btnImportedPickUp.Enabled = false;
                 }
                 btnRetare.Enabled = true;
@@ -565,8 +555,6 @@ namespace QWS_Local
         private void BookInDeliveryOrder()
         {
             string myTruckTrailerConfig = CurrentConfigTruck().VehicleType;
-            // TODO check if split
-            //UpdateTIQ(TIQType.Delivery, myTruckTrailerConfig);
             if (TIQID > 0)
             {
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
@@ -581,8 +569,6 @@ namespace QWS_Local
 
         private void btnRetare_Click(object sender, EventArgs e)
         {
-            //txtTruckConfig.Text = LoadType.BD.ToString(); // TODO why?
-            //UpdateTIQ(TIQType.Retare, CurrentConfigTruck().VehicleType);
             if (TIQID > 0)
             {
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
