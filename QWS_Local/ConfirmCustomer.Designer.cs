@@ -211,9 +211,15 @@
             // 
             // tableAdapterManager
             // 
+            this.tableAdapterManager.AxleConfigurationTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.NHVRTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.VehiclePBSTableAdapter = null;
+            this.tableAdapterManager.VehiclePrefCustomersTableAdapter = null;
+            this.tableAdapterManager.VehicleRegFeeCodesTableAdapter = null;
+            this.tableAdapterManager.VehicleTableAdapter = null;
             // 
             // taPerson
             // 
@@ -365,7 +371,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ConfirmCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ConfirmCustomer";
+            this.Text = "Confirm Non-Preferred Customer";
             this.Load += new System.EventHandler(this.ConfirmCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bsDriver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();

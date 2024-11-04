@@ -43,6 +43,8 @@ namespace QWS_Local
             this.MaxTrailers = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxAxlesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxGVMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsFeeCodes = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -56,17 +58,15 @@ namespace QWS_Local
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
-            this.bsFeeCodes = new System.Windows.Forms.BindingSource(this.components);
             this.taFeeCodes = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsFeeCodes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsFeeCodes)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -160,6 +160,16 @@ namespace QWS_Local
             this.maxGVMDataGridViewTextBoxColumn.DataPropertyName = "MaxGVM";
             this.maxGVMDataGridViewTextBoxColumn.HeaderText = "MaxGVM";
             this.maxGVMDataGridViewTextBoxColumn.Name = "maxGVMDataGridViewTextBoxColumn";
+            // 
+            // bsFeeCodes
+            // 
+            this.bsFeeCodes.DataMember = "VehicleRegFeeCodes";
+            this.bsFeeCodes.DataSource = this.dsQWSLocal2024;
+            // 
+            // dsQWSLocal2024
+            // 
+            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
+            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigator1
             // 
@@ -296,16 +306,6 @@ namespace QWS_Local
             // 
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.bindingNavigator1);
             // 
-            // dsQWSLocal2024
-            // 
-            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
-            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bsFeeCodes
-            // 
-            this.bsFeeCodes.DataMember = "VehicleRegFeeCodes";
-            this.bsFeeCodes.DataSource = this.dsQWSLocal2024;
-            // 
             // taFeeCodes
             // 
             this.taFeeCodes.ClearBeforeFill = true;
@@ -319,9 +319,11 @@ namespace QWS_Local
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VehicleRegFeeCodes";
-            this.Text = "VehicleRegFeeCodes";
+            this.Text = "Vehicle Registration Fee Codes";
             this.Load += new System.EventHandler(this.VehicleRegFeeCodes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsFeeCodes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
@@ -330,8 +332,6 @@ namespace QWS_Local
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsFeeCodes)).EndInit();
             this.ResumeLayout(false);
 
         }

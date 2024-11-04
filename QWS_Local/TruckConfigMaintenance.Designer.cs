@@ -70,6 +70,7 @@
             this.bsVehicle2 = new System.Windows.Forms.BindingSource(this.components);
             this.taVehicle2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleTableAdapter();
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
@@ -323,6 +324,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
+            this.splitContainer1.Panel1.Controls.Add(this.btnClose);
             this.splitContainer1.Panel1.Controls.Add(this.btnDeactivate);
             this.splitContainer1.Panel1.Controls.Add(this.btnCheckConfig);
             this.splitContainer1.Panel1.Controls.Add(this.btnAddGVM);
@@ -473,16 +475,27 @@
             this.tableAdapterManager2.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager2.VehicleTableAdapter = this.taVehicle2;
             // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(48, 560);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(100, 33);
+            this.btnClose.TabIndex = 9;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // TruckConfigMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 623);
+            this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TruckConfigMaintenance";
-            this.Text = "TruckConfigMaintenance";
+            this.Text = "Truck and Trailer Configuration Maintenance";
             this.Load += new System.EventHandler(this.TruckConfigMaintenance_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TruckConfigMaintenance_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -554,5 +567,6 @@
         private System.Windows.Forms.BindingSource bsVehicle2;
         private dsQWSLocal2024TableAdapters.VehicleTableAdapter taVehicle2;
         private dsQWSLocal2024TableAdapters.TableAdapterManager tableAdapterManager2;
+        private System.Windows.Forms.Button btnClose;
     }
 }

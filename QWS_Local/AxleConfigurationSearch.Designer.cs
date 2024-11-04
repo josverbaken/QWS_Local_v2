@@ -33,6 +33,10 @@ namespace QWS_Local
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AxleConfigurationSearch));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.axleConfigurationDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsAxleConfig = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
             this.btnCancel = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSelect = new System.Windows.Forms.Button();
@@ -44,10 +48,6 @@ namespace QWS_Local
             this.btnLoad = new System.Windows.Forms.ToolStripButton();
             this.btnClear = new System.Windows.Forms.ToolStripButton();
             this.btnClearFilter = new System.Windows.Forms.ToolStripButton();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsAxleConfig = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
             this.taAxleConfig = new QWS_Local.dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -55,14 +55,14 @@ namespace QWS_Local
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axleConfigurationDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -108,6 +108,31 @@ namespace QWS_Local
             this.axleConfigurationDataGridView.Size = new System.Drawing.Size(648, 586);
             this.axleConfigurationDataGridView.TabIndex = 0;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "AxleConfiguration";
+            this.dataGridViewTextBoxColumn1.HeaderText = "AxleConfiguration";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "VehicleDescription";
+            this.dataGridViewTextBoxColumn6.HeaderText = "VehicleDescription";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 450;
+            // 
+            // bsAxleConfig
+            // 
+            this.bsAxleConfig.DataMember = "AxleConfiguration";
+            this.bsAxleConfig.DataSource = this.dsQWSLocal2024;
+            // 
+            // dsQWSLocal2024
+            // 
+            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
+            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(28, 208);
@@ -138,7 +163,7 @@ namespace QWS_Local
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(286, 32);
             this.btnSelect.TabIndex = 0;
-            this.btnSelect.Text = "Select and Close";
+            this.btnSelect.Text = "Select";
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
@@ -232,31 +257,6 @@ namespace QWS_Local
             this.btnClearFilter.Text = "Clear Filter";
             this.btnClearFilter.Click += new System.EventHandler(this.btnClearFilter_Click);
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "AxleConfiguration";
-            this.dataGridViewTextBoxColumn1.HeaderText = "AxleConfiguration";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "VehicleDescription";
-            this.dataGridViewTextBoxColumn6.HeaderText = "VehicleDescription";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 450;
-            // 
-            // bsAxleConfig
-            // 
-            this.bsAxleConfig.DataMember = "AxleConfiguration";
-            this.bsAxleConfig.DataSource = this.dsQWSLocal2024;
-            // 
-            // dsQWSLocal2024
-            // 
-            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
-            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // taAxleConfig
             // 
             this.taAxleConfig.ClearBeforeFill = true;
@@ -267,6 +267,10 @@ namespace QWS_Local
             this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager1.NHVRTableAdapter = null;
             this.tableAdapterManager1.UpdateOrder = QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager1.VehiclePBSTableAdapter = null;
+            this.tableAdapterManager1.VehiclePrefCustomersTableAdapter = null;
+            this.tableAdapterManager1.VehicleRegFeeCodesTableAdapter = null;
+            this.tableAdapterManager1.VehicleTableAdapter = null;
             // 
             // AxleConfigurationSearch
             // 
@@ -278,13 +282,15 @@ namespace QWS_Local
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AxleConfigurationSearch";
-            this.Text = "AxleConfigurationSearch";
+            this.Text = "Axle Configuration Search";
             this.Load += new System.EventHandler(this.AxleConfigurationSearch_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.axleConfigurationDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -293,8 +299,6 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
             this.ResumeLayout(false);
 
         }

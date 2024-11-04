@@ -38,7 +38,7 @@
             System.Windows.Forms.Label tareLabel;
             System.Windows.Forms.Label tareTkLabel;
             System.Windows.Forms.Label truckConfigIDLabel;
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnUpdateTare = new System.Windows.Forms.Button();
             this.txtTareTk = new System.Windows.Forms.TextBox();
             this.txtTare = new System.Windows.Forms.TextBox();
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
@@ -56,6 +56,7 @@
             this.truckConfigIDTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
             regoLabel = new System.Windows.Forms.Label();
             truckConfigLabel = new System.Windows.Forms.Label();
             axleConfigurationLabel = new System.Windows.Forms.Label();
@@ -158,16 +159,16 @@
             truckConfigIDLabel.TabIndex = 19;
             truckConfigIDLabel.Text = "Truck Config ID:";
             // 
-            // button1
+            // btnUpdateTare
             // 
-            this.button1.Location = new System.Drawing.Point(214, 141);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 32);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Update";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnUpdateTare.Location = new System.Drawing.Point(214, 141);
+            this.btnUpdateTare.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdateTare.Name = "btnUpdateTare";
+            this.btnUpdateTare.Size = new System.Drawing.Size(290, 60);
+            this.btnUpdateTare.TabIndex = 0;
+            this.btnUpdateTare.Text = "Update";
+            this.btnUpdateTare.UseVisualStyleBackColor = true;
+            this.btnUpdateTare.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtTareTk
             // 
@@ -202,6 +203,9 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.StockpileBOMTableAdapter = null;
+            this.tableAdapterManager.StockpileLotAllocationTableAdapter = null;
+            this.tableAdapterManager.StockpileManualAllocationTableAdapter = null;
             this.tableAdapterManager.TIQTableAdapter = this.taTIQ;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.WBDocketLinesTableAdapter = null;
@@ -240,7 +244,7 @@
             this.truckOwnerTextBox.Location = new System.Drawing.Point(214, 317);
             this.truckOwnerTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.truckOwnerTextBox.Name = "truckOwnerTextBox";
-            this.truckOwnerTextBox.Size = new System.Drawing.Size(148, 24);
+            this.truckOwnerTextBox.Size = new System.Drawing.Size(290, 24);
             this.truckOwnerTextBox.TabIndex = 10;
             // 
             // truckOwnerCodeTextBox
@@ -305,11 +309,23 @@
             this.label2.TabIndex = 22;
             this.label2.Text = "Tare";
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(214, 493);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(290, 32);
+            this.btnCancel.TabIndex = 23;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
             // TareTruck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(440, 531);
+            this.ClientSize = new System.Drawing.Size(529, 555);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(truckConfigIDLabel);
@@ -332,12 +348,12 @@
             this.Controls.Add(this.regoTextBox);
             this.Controls.Add(this.txtTare);
             this.Controls.Add(this.txtTareTk);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnUpdateTare);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TareTruck";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "TareTruck";
+            this.Text = "Tare Truck";
             this.Load += new System.EventHandler(this.TareTruck_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).EndInit();
@@ -348,7 +364,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUpdateTare;
         private System.Windows.Forms.TextBox txtTareTk;
         private System.Windows.Forms.TextBox txtTare;
         private dsTIQ2 dsTIQ2;
@@ -366,5 +382,6 @@
         private System.Windows.Forms.TextBox truckConfigIDTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

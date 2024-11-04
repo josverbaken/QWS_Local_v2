@@ -104,22 +104,6 @@ namespace QWS_Local
             frmPrintDocket.Show();
         }
 
-        private void truckConfigMaintToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-    
-        private void trafficCamerasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TrafficCameras frmTrafficCameras = new TrafficCameras();
-            frmTrafficCameras.MdiParent = this;
-            frmTrafficCameras.WindowState = FormWindowState.Maximized;
-            frmTrafficCameras.Show();
-        }
-
-        private void stockpileLotToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutQWSLocal frmAbout = new AboutQWSLocal();

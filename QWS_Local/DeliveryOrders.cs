@@ -47,5 +47,10 @@ namespace QWS_Local
         {
             this.deliveryOrdersAllTableAdapter.Fill(this.dsBookIn.DeliveryOrdersAll);
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();   
+        }
     }
 }

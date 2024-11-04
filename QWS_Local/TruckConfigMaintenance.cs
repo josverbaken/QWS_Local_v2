@@ -445,5 +445,10 @@ namespace QWS_Local
             //TODO delete or inactive?
             MessageBox.Show("Delete - to be implemented");
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();  
+        }
     }
 }

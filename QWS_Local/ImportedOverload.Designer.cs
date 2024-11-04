@@ -410,6 +410,9 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.StockpileBOMTableAdapter = null;
+            this.tableAdapterManager.StockpileLotAllocationTableAdapter = null;
+            this.tableAdapterManager.StockpileManualAllocationTableAdapter = null;
             this.tableAdapterManager.TIQTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.WBDocketLinesTableAdapter = null;
@@ -426,7 +429,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ImportedOverload";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ImportedOverload";
+            this.Text = "Imported Overload";
             this.Load += new System.EventHandler(this.ImportedOverload_Load);
             this.tabControl1.ResumeLayout(false);
             this.tpOverload.ResumeLayout(false);

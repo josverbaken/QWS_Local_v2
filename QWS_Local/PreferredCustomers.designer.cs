@@ -120,7 +120,7 @@ namespace QWS_Local
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(386, 29);
+            this.btnSelect.Location = new System.Drawing.Point(754, 29);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(129, 42);
             this.btnSelect.TabIndex = 1;

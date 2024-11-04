@@ -30,13 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label docDateLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.bsDeliveryDocketRpt = new System.Windows.Forms.BindingSource(this.components);
             this.dsDocketReport = new QWS_Local.dsDocketReport();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.btnPrintPreview = new System.Windows.Forms.Button();
             this.docNumTextBox = new System.Windows.Forms.TextBox();
             this.bsDocketList = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWS = new QWS_Local.dsQWSViews();
@@ -68,7 +69,7 @@
             this.tableAdapterManager = new QWS_Local.dsQWSViewsTableAdapters.TableAdapterManager();
             this.bsDocketReport = new System.Windows.Forms.BindingSource(this.components);
             this.taDeliveryDocketRpt = new QWS_Local.dsDocketReportTableAdapters.DeliveryDocketRptTableAdapter();
-            this.btnPrintPreview = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             docDateLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bsDeliveryDocketRpt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDocketReport)).BeginInit();
@@ -141,6 +142,7 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
+            this.splitContainer2.Panel1.Controls.Add(this.btnClose);
             this.splitContainer2.Panel1.Controls.Add(this.btnPrintPreview);
             this.splitContainer2.Panel1.Controls.Add(this.docNumTextBox);
             this.splitContainer2.Panel1.Controls.Add(docDateLabel);
@@ -154,6 +156,16 @@
             this.splitContainer2.Size = new System.Drawing.Size(1184, 584);
             this.splitContainer2.SplitterDistance = 214;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // btnPrintPreview
+            // 
+            this.btnPrintPreview.Location = new System.Drawing.Point(4, 411);
+            this.btnPrintPreview.Name = "btnPrintPreview";
+            this.btnPrintPreview.Size = new System.Drawing.Size(200, 52);
+            this.btnPrintPreview.TabIndex = 7;
+            this.btnPrintPreview.Text = "Print Preview";
+            this.btnPrintPreview.UseVisualStyleBackColor = true;
+            this.btnPrintPreview.Click += new System.EventHandler(this.btnPrintPreview_Click);
             // 
             // docNumTextBox
             // 
@@ -239,9 +251,9 @@
             // docDateDataGridViewTextBoxColumn
             // 
             this.docDateDataGridViewTextBoxColumn.DataPropertyName = "DocDate";
-            dataGridViewCellStyle1.Format = "t";
-            dataGridViewCellStyle1.NullValue = null;
-            this.docDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "t";
+            dataGridViewCellStyle2.NullValue = null;
+            this.docDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.docDateDataGridViewTextBoxColumn.HeaderText = "Time";
             this.docDateDataGridViewTextBoxColumn.Name = "docDateDataGridViewTextBoxColumn";
             this.docDateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -395,9 +407,9 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DocketReportDateset";
-            reportDataSource1.Value = this.bsDeliveryDocketRpt;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource2.Name = "DocketReportDateset";
+            reportDataSource2.Value = this.bsDeliveryDocketRpt;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "QWS_Local.DocketRpt.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
@@ -424,26 +436,27 @@
             // 
             this.taDeliveryDocketRpt.ClearBeforeFill = true;
             // 
-            // btnPrintPreview
+            // btnClose
             // 
-            this.btnPrintPreview.Location = new System.Drawing.Point(4, 444);
-            this.btnPrintPreview.Name = "btnPrintPreview";
-            this.btnPrintPreview.Size = new System.Drawing.Size(200, 52);
-            this.btnPrintPreview.TabIndex = 7;
-            this.btnPrintPreview.Text = "Print Preview";
-            this.btnPrintPreview.UseVisualStyleBackColor = true;
-            this.btnPrintPreview.Click += new System.EventHandler(this.btnPrintPreview_Click);
+            this.btnClose.Location = new System.Drawing.Point(4, 516);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(200, 52);
+            this.btnClose.TabIndex = 8;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // PrintDocket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 623);
+            this.ControlBox = false;
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PrintDocket";
-            this.Text = "PrintDocket";
+            this.Text = "Print Docket";
             this.Load += new System.EventHandler(this.PrintDocket_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bsDeliveryDocketRpt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDocketReport)).EndInit();
@@ -507,5 +520,6 @@
         private System.Windows.Forms.BindingSource bsDeliveryDocketRpt;
         private dsDocketReportTableAdapters.DeliveryDocketRptTableAdapter taDeliveryDocketRpt;
         private System.Windows.Forms.Button btnPrintPreview;
+        private System.Windows.Forms.Button btnClose;
     }
 }

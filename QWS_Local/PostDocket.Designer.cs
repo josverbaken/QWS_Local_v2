@@ -306,7 +306,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PostDocket";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "PostDocket";
+            this.Text = "Post Docket";
             this.Load += new System.EventHandler(this.PostDocket_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
