@@ -382,46 +382,47 @@ namespace QWS_Local
             }
             else
             {
-                int CfgVehicleCount = CurrentConfigTruck().Vehicles;
+                dsTruckConfig.ConfiguredTrucksRow myTruck = CurrentConfigTruck();
+                int CfgVehicleCount = myTruck.Vehicles;
                 bool blConfigOK = true;
                 switch (CfgVehicleCount)
                 {
                     case 1: // truck only, do nothing
                         break;
                     case 2:
-                        if (CurrentConfigTruck().RegoTr1.Length == 0)
+                        if (myTruck.RegoTr1.Length == 0)
                         {
                             MessageBox.Show("Please add trailer #1.");
                             blConfigOK = false;
-                            TruckConfigAddTrailer(CurrentConfigTruck().TruckConfigID, 2);
-                            GetConfiguredTruck(CurrentConfigTruck().RegoTk);
+                            TruckConfigAddTrailer(myTruck.TruckConfigID, 2);
+                            GetConfiguredTruck(myTruck.RegoTk);
                             SyncConfiguredTruckGVM();
                         }
                         break;
                     case 3:
-                        if (CurrentConfigTruck().RegoTr1.Length == 0)
+                        if (myTruck.RegoTr1.Length == 0)
                         {
                             MessageBox.Show("Please add trailer #1.");
                             blConfigOK = false;
                         }
-                        if (CurrentConfigTruck().RegoTr2.Length == 0)
+                        if (myTruck.RegoTr2.Length == 0)
                         {
                             MessageBox.Show("Please add trailer #2.");
                             blConfigOK = false;
                         }
                         break;
                     case 4:
-                        if (CurrentConfigTruck().RegoTr1.Length == 0)
+                        if (myTruck.RegoTr1.Length == 0)
                         {
                             MessageBox.Show("Please add trailer #1.");
                             blConfigOK =false;
                         }
-                        if (CurrentConfigTruck().RegoTr2.Length == 0)
+                        if (myTruck.RegoTr2.Length == 0)
                         {
                             MessageBox.Show("Please add trailer #2.");
                             blConfigOK =false;  
                         }
-                        if (CurrentConfigTruck().RegoTr3.Length == 0)
+                        if (myTruck.RegoTr3.Length == 0)
                         {
                             MessageBox.Show("Please add trailer #3.");
                             blConfigOK =false;
@@ -443,7 +444,7 @@ namespace QWS_Local
         private void btnDelete_Click(object sender, EventArgs e)
         {
             //TODO delete or inactive?
-            MessageBox.Show("Delete - to be implemented");
+            MessageBox.Show("Delete - to be implemented","Delete or De-activate Configuration.",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         private void btnClose_Click(object sender, EventArgs e)

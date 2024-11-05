@@ -29,6 +29,31 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label vehicleTypeLabel;
+            System.Windows.Forms.Label axlesLabel;
+            System.Windows.Forms.Label axleGroupsLabel;
+            System.Windows.Forms.Label compartmentsLabel;
+            System.Windows.Forms.Label vehiclesLabel;
+            System.Windows.Forms.Label maxGVMLabel;
+            System.Windows.Forms.Label maxAxlesLabel;
+            System.Windows.Forms.Label massAccreditationLabelLabel;
+            System.Windows.Forms.Label feeConditionsLabel;
+            System.Windows.Forms.Label regoTrailerLabel;
+            System.Windows.Forms.Label axleConfigurationLabel;
+            System.Windows.Forms.Label configSourceLabel;
+            System.Windows.Forms.Label pBS_LevelLabel;
+            System.Windows.Forms.Label bridgeAssessmentLabel;
+            System.Windows.Forms.Label schemeCodeLabel;
+            System.Windows.Forms.Label schemeLabel;
+            System.Windows.Forms.Label gCMLabel;
+            System.Windows.Forms.Label gVMTruckLabel;
+            System.Windows.Forms.Label driveAxleLoadLabel;
+            System.Windows.Forms.Label driveAxleLoadUOMLabel;
+            System.Windows.Forms.Label trTkRatioLabel;
+            System.Windows.Forms.Label compartmentsLabel1;
+            System.Windows.Forms.Label roadAccessLabel;
+            System.Windows.Forms.Label maxAxlesLabel1;
+            System.Windows.Forms.Label maxGVMLabel1;
             this.txtRego = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.roadAccessDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +80,7 @@
             this.truckOwnerTextBox = new System.Windows.Forms.TextBox();
             this.regoTkTextBox = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnClose = new System.Windows.Forms.Button();
             this.btnDeactivate = new System.Windows.Forms.Button();
             this.btnCheckConfig = new System.Windows.Forms.Button();
             this.btnAddGVM = new System.Windows.Forms.Button();
@@ -70,7 +96,60 @@
             this.bsVehicle2 = new System.Windows.Forms.BindingSource(this.components);
             this.taVehicle2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleTableAdapter();
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
-            this.btnClose = new System.Windows.Forms.Button();
+            this.tareTextBox = new System.Windows.Forms.TextBox();
+            this.tareDTTextBox = new System.Windows.Forms.TextBox();
+            this.regoTrailerTextBox = new System.Windows.Forms.TextBox();
+            this.axleConfigurationTextBox = new System.Windows.Forms.TextBox();
+            this.vehicleTypeTextBox = new System.Windows.Forms.TextBox();
+            this.axlesTextBox = new System.Windows.Forms.TextBox();
+            this.axleGroupsTextBox = new System.Windows.Forms.TextBox();
+            this.compartmentsTextBox = new System.Windows.Forms.TextBox();
+            this.vehiclesTextBox = new System.Windows.Forms.TextBox();
+            this.maxGVMTextBox = new System.Windows.Forms.TextBox();
+            this.maxAxlesTextBox = new System.Windows.Forms.TextBox();
+            this.massAccreditationLabelTextBox = new System.Windows.Forms.TextBox();
+            this.feeConditionsTextBox = new System.Windows.Forms.TextBox();
+            this.regoTrailerTextBox1 = new System.Windows.Forms.TextBox();
+            this.axleConfigurationTextBox1 = new System.Windows.Forms.TextBox();
+            this.configSourceTextBox = new System.Windows.Forms.TextBox();
+            this.pBS_LevelTextBox = new System.Windows.Forms.TextBox();
+            this.bridgeAssessmentTextBox = new System.Windows.Forms.TextBox();
+            this.schemeCodeTextBox = new System.Windows.Forms.TextBox();
+            this.schemeTextBox = new System.Windows.Forms.TextBox();
+            this.gCMTextBox = new System.Windows.Forms.TextBox();
+            this.gVMTruckTextBox = new System.Windows.Forms.TextBox();
+            this.driveAxleLoadTextBox = new System.Windows.Forms.TextBox();
+            this.driveAxleLoadUOMTextBox = new System.Windows.Forms.TextBox();
+            this.trTkRatioTextBox = new System.Windows.Forms.TextBox();
+            this.compartmentsTextBox1 = new System.Windows.Forms.TextBox();
+            this.roadAccessTextBox = new System.Windows.Forms.TextBox();
+            this.maxAxlesTextBox1 = new System.Windows.Forms.TextBox();
+            this.maxGVMTextBox1 = new System.Windows.Forms.TextBox();
+            vehicleTypeLabel = new System.Windows.Forms.Label();
+            axlesLabel = new System.Windows.Forms.Label();
+            axleGroupsLabel = new System.Windows.Forms.Label();
+            compartmentsLabel = new System.Windows.Forms.Label();
+            vehiclesLabel = new System.Windows.Forms.Label();
+            maxGVMLabel = new System.Windows.Forms.Label();
+            maxAxlesLabel = new System.Windows.Forms.Label();
+            massAccreditationLabelLabel = new System.Windows.Forms.Label();
+            feeConditionsLabel = new System.Windows.Forms.Label();
+            regoTrailerLabel = new System.Windows.Forms.Label();
+            axleConfigurationLabel = new System.Windows.Forms.Label();
+            configSourceLabel = new System.Windows.Forms.Label();
+            pBS_LevelLabel = new System.Windows.Forms.Label();
+            bridgeAssessmentLabel = new System.Windows.Forms.Label();
+            schemeCodeLabel = new System.Windows.Forms.Label();
+            schemeLabel = new System.Windows.Forms.Label();
+            gCMLabel = new System.Windows.Forms.Label();
+            gVMTruckLabel = new System.Windows.Forms.Label();
+            driveAxleLoadLabel = new System.Windows.Forms.Label();
+            driveAxleLoadUOMLabel = new System.Windows.Forms.Label();
+            trTkRatioLabel = new System.Windows.Forms.Label();
+            compartmentsLabel1 = new System.Windows.Forms.Label();
+            roadAccessLabel = new System.Windows.Forms.Label();
+            maxAxlesLabel1 = new System.Windows.Forms.Label();
+            maxGVMLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
@@ -90,6 +169,7 @@
             this.splitContainer2.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tpConfigGVMList.SuspendLayout();
+            this.tpConfigGVMDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicle2)).BeginInit();
             this.SuspendLayout();
@@ -270,14 +350,37 @@
             // 
             // tpDetails
             // 
+            this.tpDetails.AutoScroll = true;
+            this.tpDetails.Controls.Add(feeConditionsLabel);
+            this.tpDetails.Controls.Add(this.feeConditionsTextBox);
+            this.tpDetails.Controls.Add(massAccreditationLabelLabel);
+            this.tpDetails.Controls.Add(this.massAccreditationLabelTextBox);
+            this.tpDetails.Controls.Add(maxAxlesLabel);
+            this.tpDetails.Controls.Add(this.maxAxlesTextBox);
+            this.tpDetails.Controls.Add(maxGVMLabel);
+            this.tpDetails.Controls.Add(this.maxGVMTextBox);
+            this.tpDetails.Controls.Add(vehiclesLabel);
+            this.tpDetails.Controls.Add(this.vehiclesTextBox);
+            this.tpDetails.Controls.Add(compartmentsLabel);
+            this.tpDetails.Controls.Add(this.compartmentsTextBox);
+            this.tpDetails.Controls.Add(axleGroupsLabel);
+            this.tpDetails.Controls.Add(this.axleGroupsTextBox);
+            this.tpDetails.Controls.Add(axlesLabel);
+            this.tpDetails.Controls.Add(this.axlesTextBox);
+            this.tpDetails.Controls.Add(vehicleTypeLabel);
+            this.tpDetails.Controls.Add(this.vehicleTypeTextBox);
+            this.tpDetails.Controls.Add(this.axleConfigurationTextBox);
+            this.tpDetails.Controls.Add(this.regoTrailerTextBox);
+            this.tpDetails.Controls.Add(this.tareDTTextBox);
+            this.tpDetails.Controls.Add(this.tareTextBox);
             this.tpDetails.Controls.Add(this.schematicPictureBox);
             this.tpDetails.Controls.Add(this.feeCodeTextBox);
             this.tpDetails.Controls.Add(this.truckOwnerTextBox);
             this.tpDetails.Controls.Add(this.regoTkTextBox);
-            this.tpDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpDetails.Location = new System.Drawing.Point(4, 27);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(978, 258);
+            this.tpDetails.Size = new System.Drawing.Size(978, 253);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -294,7 +397,7 @@
             // feeCodeTextBox
             // 
             this.feeCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "FeeCode", true));
-            this.feeCodeTextBox.Location = new System.Drawing.Point(630, 23);
+            this.feeCodeTextBox.Location = new System.Drawing.Point(812, 23);
             this.feeCodeTextBox.Name = "feeCodeTextBox";
             this.feeCodeTextBox.Size = new System.Drawing.Size(100, 24);
             this.feeCodeTextBox.TabIndex = 5;
@@ -338,6 +441,16 @@
             this.splitContainer1.Size = new System.Drawing.Size(1200, 623);
             this.splitContainer1.SplitterDistance = 210;
             this.splitContainer1.TabIndex = 4;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(48, 560);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(100, 33);
+            this.btnClose.TabIndex = 9;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnDeactivate
             // 
@@ -432,10 +545,43 @@
             // 
             // tpConfigGVMDetails
             // 
-            this.tpConfigGVMDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpConfigGVMDetails.AutoScroll = true;
+            this.tpConfigGVMDetails.Controls.Add(maxGVMLabel1);
+            this.tpConfigGVMDetails.Controls.Add(this.maxGVMTextBox1);
+            this.tpConfigGVMDetails.Controls.Add(maxAxlesLabel1);
+            this.tpConfigGVMDetails.Controls.Add(this.maxAxlesTextBox1);
+            this.tpConfigGVMDetails.Controls.Add(roadAccessLabel);
+            this.tpConfigGVMDetails.Controls.Add(this.roadAccessTextBox);
+            this.tpConfigGVMDetails.Controls.Add(compartmentsLabel1);
+            this.tpConfigGVMDetails.Controls.Add(this.compartmentsTextBox1);
+            this.tpConfigGVMDetails.Controls.Add(trTkRatioLabel);
+            this.tpConfigGVMDetails.Controls.Add(this.trTkRatioTextBox);
+            this.tpConfigGVMDetails.Controls.Add(driveAxleLoadUOMLabel);
+            this.tpConfigGVMDetails.Controls.Add(this.driveAxleLoadUOMTextBox);
+            this.tpConfigGVMDetails.Controls.Add(driveAxleLoadLabel);
+            this.tpConfigGVMDetails.Controls.Add(this.driveAxleLoadTextBox);
+            this.tpConfigGVMDetails.Controls.Add(gVMTruckLabel);
+            this.tpConfigGVMDetails.Controls.Add(this.gVMTruckTextBox);
+            this.tpConfigGVMDetails.Controls.Add(gCMLabel);
+            this.tpConfigGVMDetails.Controls.Add(this.gCMTextBox);
+            this.tpConfigGVMDetails.Controls.Add(schemeLabel);
+            this.tpConfigGVMDetails.Controls.Add(this.schemeTextBox);
+            this.tpConfigGVMDetails.Controls.Add(schemeCodeLabel);
+            this.tpConfigGVMDetails.Controls.Add(this.schemeCodeTextBox);
+            this.tpConfigGVMDetails.Controls.Add(bridgeAssessmentLabel);
+            this.tpConfigGVMDetails.Controls.Add(this.bridgeAssessmentTextBox);
+            this.tpConfigGVMDetails.Controls.Add(pBS_LevelLabel);
+            this.tpConfigGVMDetails.Controls.Add(this.pBS_LevelTextBox);
+            this.tpConfigGVMDetails.Controls.Add(configSourceLabel);
+            this.tpConfigGVMDetails.Controls.Add(this.configSourceTextBox);
+            this.tpConfigGVMDetails.Controls.Add(axleConfigurationLabel);
+            this.tpConfigGVMDetails.Controls.Add(this.axleConfigurationTextBox1);
+            this.tpConfigGVMDetails.Controls.Add(regoTrailerLabel);
+            this.tpConfigGVMDetails.Controls.Add(this.regoTrailerTextBox1);
+            this.tpConfigGVMDetails.Location = new System.Drawing.Point(4, 27);
             this.tpConfigGVMDetails.Name = "tpConfigGVMDetails";
             this.tpConfigGVMDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpConfigGVMDetails.Size = new System.Drawing.Size(978, 309);
+            this.tpConfigGVMDetails.Size = new System.Drawing.Size(978, 304);
             this.tpConfigGVMDetails.TabIndex = 1;
             this.tpConfigGVMDetails.Text = "Details";
             this.tpConfigGVMDetails.UseVisualStyleBackColor = true;
@@ -475,15 +621,462 @@
             this.tableAdapterManager2.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager2.VehicleTableAdapter = this.taVehicle2;
             // 
-            // btnClose
+            // tareTextBox
             // 
-            this.btnClose.Location = new System.Drawing.Point(48, 560);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(100, 33);
-            this.btnClose.TabIndex = 9;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.tareTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "Tare", true));
+            this.tareTextBox.Location = new System.Drawing.Point(503, 83);
+            this.tareTextBox.Name = "tareTextBox";
+            this.tareTextBox.Size = new System.Drawing.Size(100, 24);
+            this.tareTextBox.TabIndex = 8;
+            // 
+            // tareDTTextBox
+            // 
+            this.tareDTTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "TareDT", true));
+            this.tareDTTextBox.Location = new System.Drawing.Point(609, 83);
+            this.tareDTTextBox.Name = "tareDTTextBox";
+            this.tareDTTextBox.Size = new System.Drawing.Size(197, 24);
+            this.tareDTTextBox.TabIndex = 9;
+            // 
+            // regoTrailerTextBox
+            // 
+            this.regoTrailerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "RegoTrailer", true));
+            this.regoTrailerTextBox.Location = new System.Drawing.Point(609, 23);
+            this.regoTrailerTextBox.Name = "regoTrailerTextBox";
+            this.regoTrailerTextBox.Size = new System.Drawing.Size(197, 24);
+            this.regoTrailerTextBox.TabIndex = 10;
+            // 
+            // axleConfigurationTextBox
+            // 
+            this.axleConfigurationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "AxleConfiguration", true));
+            this.axleConfigurationTextBox.Location = new System.Drawing.Point(503, 113);
+            this.axleConfigurationTextBox.Name = "axleConfigurationTextBox";
+            this.axleConfigurationTextBox.Size = new System.Drawing.Size(100, 24);
+            this.axleConfigurationTextBox.TabIndex = 11;
+            // 
+            // vehicleTypeLabel
+            // 
+            vehicleTypeLabel.AutoSize = true;
+            vehicleTypeLabel.Location = new System.Drawing.Point(605, 116);
+            vehicleTypeLabel.Name = "vehicleTypeLabel";
+            vehicleTypeLabel.Size = new System.Drawing.Size(95, 18);
+            vehicleTypeLabel.TabIndex = 11;
+            vehicleTypeLabel.Text = "Vehicle Type:";
+            // 
+            // vehicleTypeTextBox
+            // 
+            this.vehicleTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "VehicleType", true));
+            this.vehicleTypeTextBox.Location = new System.Drawing.Point(706, 113);
+            this.vehicleTypeTextBox.Name = "vehicleTypeTextBox";
+            this.vehicleTypeTextBox.Size = new System.Drawing.Size(100, 24);
+            this.vehicleTypeTextBox.TabIndex = 12;
+            // 
+            // axlesLabel
+            // 
+            axlesLabel.AutoSize = true;
+            axlesLabel.Location = new System.Drawing.Point(28, 177);
+            axlesLabel.Name = "axlesLabel";
+            axlesLabel.Size = new System.Drawing.Size(47, 18);
+            axlesLabel.TabIndex = 12;
+            axlesLabel.Text = "Axles:";
+            // 
+            // axlesTextBox
+            // 
+            this.axlesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "Axles", true));
+            this.axlesTextBox.Location = new System.Drawing.Point(81, 174);
+            this.axlesTextBox.Name = "axlesTextBox";
+            this.axlesTextBox.Size = new System.Drawing.Size(100, 24);
+            this.axlesTextBox.TabIndex = 13;
+            // 
+            // axleGroupsLabel
+            // 
+            axleGroupsLabel.AutoSize = true;
+            axleGroupsLabel.Location = new System.Drawing.Point(188, 177);
+            axleGroupsLabel.Name = "axleGroupsLabel";
+            axleGroupsLabel.Size = new System.Drawing.Size(93, 18);
+            axleGroupsLabel.TabIndex = 13;
+            axleGroupsLabel.Text = "Axle Groups:";
+            // 
+            // axleGroupsTextBox
+            // 
+            this.axleGroupsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "AxleGroups", true));
+            this.axleGroupsTextBox.Location = new System.Drawing.Point(287, 174);
+            this.axleGroupsTextBox.Name = "axleGroupsTextBox";
+            this.axleGroupsTextBox.Size = new System.Drawing.Size(100, 24);
+            this.axleGroupsTextBox.TabIndex = 14;
+            // 
+            // compartmentsLabel
+            // 
+            compartmentsLabel.AutoSize = true;
+            compartmentsLabel.Location = new System.Drawing.Point(397, 177);
+            compartmentsLabel.Name = "compartmentsLabel";
+            compartmentsLabel.Size = new System.Drawing.Size(111, 18);
+            compartmentsLabel.TabIndex = 15;
+            compartmentsLabel.Text = "Compartments:";
+            // 
+            // compartmentsTextBox
+            // 
+            this.compartmentsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "Compartments", true));
+            this.compartmentsTextBox.Location = new System.Drawing.Point(514, 174);
+            this.compartmentsTextBox.Name = "compartmentsTextBox";
+            this.compartmentsTextBox.Size = new System.Drawing.Size(100, 24);
+            this.compartmentsTextBox.TabIndex = 16;
+            // 
+            // vehiclesLabel
+            // 
+            vehiclesLabel.AutoSize = true;
+            vehiclesLabel.Location = new System.Drawing.Point(633, 177);
+            vehiclesLabel.Name = "vehiclesLabel";
+            vehiclesLabel.Size = new System.Drawing.Size(67, 18);
+            vehiclesLabel.TabIndex = 17;
+            vehiclesLabel.Text = "Vehicles:";
+            // 
+            // vehiclesTextBox
+            // 
+            this.vehiclesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "Vehicles", true));
+            this.vehiclesTextBox.Location = new System.Drawing.Point(706, 174);
+            this.vehiclesTextBox.Name = "vehiclesTextBox";
+            this.vehiclesTextBox.Size = new System.Drawing.Size(100, 24);
+            this.vehiclesTextBox.TabIndex = 18;
+            // 
+            // maxGVMLabel
+            // 
+            maxGVMLabel.AutoSize = true;
+            maxGVMLabel.Location = new System.Drawing.Point(29, 207);
+            maxGVMLabel.Name = "maxGVMLabel";
+            maxGVMLabel.Size = new System.Drawing.Size(78, 18);
+            maxGVMLabel.TabIndex = 18;
+            maxGVMLabel.Text = "Max GVM:";
+            // 
+            // maxGVMTextBox
+            // 
+            this.maxGVMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "MaxGVM", true));
+            this.maxGVMTextBox.Location = new System.Drawing.Point(113, 204);
+            this.maxGVMTextBox.Name = "maxGVMTextBox";
+            this.maxGVMTextBox.Size = new System.Drawing.Size(100, 24);
+            this.maxGVMTextBox.TabIndex = 19;
+            // 
+            // maxAxlesLabel
+            // 
+            maxAxlesLabel.AutoSize = true;
+            maxAxlesLabel.Location = new System.Drawing.Point(217, 207);
+            maxAxlesLabel.Name = "maxAxlesLabel";
+            maxAxlesLabel.Size = new System.Drawing.Size(79, 18);
+            maxAxlesLabel.TabIndex = 20;
+            maxAxlesLabel.Text = "Max Axles:";
+            // 
+            // maxAxlesTextBox
+            // 
+            this.maxAxlesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "MaxAxles", true));
+            this.maxAxlesTextBox.Location = new System.Drawing.Point(302, 204);
+            this.maxAxlesTextBox.Name = "maxAxlesTextBox";
+            this.maxAxlesTextBox.Size = new System.Drawing.Size(100, 24);
+            this.maxAxlesTextBox.TabIndex = 21;
+            // 
+            // massAccreditationLabelLabel
+            // 
+            massAccreditationLabelLabel.AutoSize = true;
+            massAccreditationLabelLabel.Location = new System.Drawing.Point(417, 207);
+            massAccreditationLabelLabel.Name = "massAccreditationLabelLabel";
+            massAccreditationLabelLabel.Size = new System.Drawing.Size(177, 18);
+            massAccreditationLabelLabel.TabIndex = 22;
+            massAccreditationLabelLabel.Text = "Mass Accreditation Label:";
+            // 
+            // massAccreditationLabelTextBox
+            // 
+            this.massAccreditationLabelTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "MassAccreditationLabel", true));
+            this.massAccreditationLabelTextBox.Location = new System.Drawing.Point(600, 204);
+            this.massAccreditationLabelTextBox.Name = "massAccreditationLabelTextBox";
+            this.massAccreditationLabelTextBox.Size = new System.Drawing.Size(100, 24);
+            this.massAccreditationLabelTextBox.TabIndex = 23;
+            // 
+            // feeConditionsLabel
+            // 
+            feeConditionsLabel.AutoSize = true;
+            feeConditionsLabel.Location = new System.Drawing.Point(500, 147);
+            feeConditionsLabel.Name = "feeConditionsLabel";
+            feeConditionsLabel.Size = new System.Drawing.Size(112, 18);
+            feeConditionsLabel.TabIndex = 24;
+            feeConditionsLabel.Text = "Fee Conditions:";
+            // 
+            // feeConditionsTextBox
+            // 
+            this.feeConditionsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "FeeConditions", true));
+            this.feeConditionsTextBox.Location = new System.Drawing.Point(618, 144);
+            this.feeConditionsTextBox.Name = "feeConditionsTextBox";
+            this.feeConditionsTextBox.Size = new System.Drawing.Size(294, 24);
+            this.feeConditionsTextBox.TabIndex = 25;
+            // 
+            // regoTrailerLabel
+            // 
+            regoTrailerLabel.AutoSize = true;
+            regoTrailerLabel.Location = new System.Drawing.Point(58, 23);
+            regoTrailerLabel.Name = "regoTrailerLabel";
+            regoTrailerLabel.Size = new System.Drawing.Size(93, 18);
+            regoTrailerLabel.TabIndex = 0;
+            regoTrailerLabel.Text = "Rego Trailer:";
+            // 
+            // regoTrailerTextBox1
+            // 
+            this.regoTrailerTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "RegoTrailer", true));
+            this.regoTrailerTextBox1.Location = new System.Drawing.Point(157, 20);
+            this.regoTrailerTextBox1.Name = "regoTrailerTextBox1";
+            this.regoTrailerTextBox1.Size = new System.Drawing.Size(100, 24);
+            this.regoTrailerTextBox1.TabIndex = 1;
+            // 
+            // axleConfigurationLabel
+            // 
+            axleConfigurationLabel.AutoSize = true;
+            axleConfigurationLabel.Location = new System.Drawing.Point(20, 53);
+            axleConfigurationLabel.Name = "axleConfigurationLabel";
+            axleConfigurationLabel.Size = new System.Drawing.Size(131, 18);
+            axleConfigurationLabel.TabIndex = 2;
+            axleConfigurationLabel.Text = "Axle Configuration:";
+            // 
+            // axleConfigurationTextBox1
+            // 
+            this.axleConfigurationTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "AxleConfiguration", true));
+            this.axleConfigurationTextBox1.Location = new System.Drawing.Point(157, 50);
+            this.axleConfigurationTextBox1.Name = "axleConfigurationTextBox1";
+            this.axleConfigurationTextBox1.Size = new System.Drawing.Size(100, 24);
+            this.axleConfigurationTextBox1.TabIndex = 3;
+            // 
+            // configSourceLabel
+            // 
+            configSourceLabel.AutoSize = true;
+            configSourceLabel.Location = new System.Drawing.Point(44, 83);
+            configSourceLabel.Name = "configSourceLabel";
+            configSourceLabel.Size = new System.Drawing.Size(107, 18);
+            configSourceLabel.TabIndex = 4;
+            configSourceLabel.Text = "Config Source:";
+            // 
+            // configSourceTextBox
+            // 
+            this.configSourceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "ConfigSource", true));
+            this.configSourceTextBox.Location = new System.Drawing.Point(157, 80);
+            this.configSourceTextBox.Name = "configSourceTextBox";
+            this.configSourceTextBox.Size = new System.Drawing.Size(100, 24);
+            this.configSourceTextBox.TabIndex = 5;
+            // 
+            // pBS_LevelLabel
+            // 
+            pBS_LevelLabel.AutoSize = true;
+            pBS_LevelLabel.Location = new System.Drawing.Point(717, 25);
+            pBS_LevelLabel.Name = "pBS_LevelLabel";
+            pBS_LevelLabel.Size = new System.Drawing.Size(80, 18);
+            pBS_LevelLabel.TabIndex = 6;
+            pBS_LevelLabel.Text = "PBS Level:";
+            // 
+            // pBS_LevelTextBox
+            // 
+            this.pBS_LevelTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "PBS_Level", true));
+            this.pBS_LevelTextBox.Location = new System.Drawing.Point(803, 22);
+            this.pBS_LevelTextBox.Name = "pBS_LevelTextBox";
+            this.pBS_LevelTextBox.Size = new System.Drawing.Size(100, 24);
+            this.pBS_LevelTextBox.TabIndex = 7;
+            // 
+            // bridgeAssessmentLabel
+            // 
+            bridgeAssessmentLabel.AutoSize = true;
+            bridgeAssessmentLabel.Location = new System.Drawing.Point(657, 55);
+            bridgeAssessmentLabel.Name = "bridgeAssessmentLabel";
+            bridgeAssessmentLabel.Size = new System.Drawing.Size(140, 18);
+            bridgeAssessmentLabel.TabIndex = 8;
+            bridgeAssessmentLabel.Text = "Bridge Assessment:";
+            // 
+            // bridgeAssessmentTextBox
+            // 
+            this.bridgeAssessmentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "BridgeAssessment", true));
+            this.bridgeAssessmentTextBox.Location = new System.Drawing.Point(803, 52);
+            this.bridgeAssessmentTextBox.Name = "bridgeAssessmentTextBox";
+            this.bridgeAssessmentTextBox.Size = new System.Drawing.Size(100, 24);
+            this.bridgeAssessmentTextBox.TabIndex = 9;
+            // 
+            // schemeCodeLabel
+            // 
+            schemeCodeLabel.AutoSize = true;
+            schemeCodeLabel.Location = new System.Drawing.Point(690, 85);
+            schemeCodeLabel.Name = "schemeCodeLabel";
+            schemeCodeLabel.Size = new System.Drawing.Size(107, 18);
+            schemeCodeLabel.TabIndex = 10;
+            schemeCodeLabel.Text = "Scheme Code:";
+            // 
+            // schemeCodeTextBox
+            // 
+            this.schemeCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "SchemeCode", true));
+            this.schemeCodeTextBox.Location = new System.Drawing.Point(803, 82);
+            this.schemeCodeTextBox.Name = "schemeCodeTextBox";
+            this.schemeCodeTextBox.Size = new System.Drawing.Size(100, 24);
+            this.schemeCodeTextBox.TabIndex = 11;
+            // 
+            // schemeLabel
+            // 
+            schemeLabel.AutoSize = true;
+            schemeLabel.Location = new System.Drawing.Point(496, 88);
+            schemeLabel.Name = "schemeLabel";
+            schemeLabel.Size = new System.Drawing.Size(67, 18);
+            schemeLabel.TabIndex = 12;
+            schemeLabel.Text = "Scheme:";
+            // 
+            // schemeTextBox
+            // 
+            this.schemeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "Scheme", true));
+            this.schemeTextBox.Location = new System.Drawing.Point(569, 85);
+            this.schemeTextBox.Name = "schemeTextBox";
+            this.schemeTextBox.Size = new System.Drawing.Size(100, 24);
+            this.schemeTextBox.TabIndex = 13;
+            // 
+            // gCMLabel
+            // 
+            gCMLabel.AutoSize = true;
+            gCMLabel.Location = new System.Drawing.Point(103, 113);
+            gCMLabel.Name = "gCMLabel";
+            gCMLabel.Size = new System.Drawing.Size(48, 18);
+            gCMLabel.TabIndex = 14;
+            gCMLabel.Text = "GCM:";
+            // 
+            // gCMTextBox
+            // 
+            this.gCMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "GCM", true));
+            this.gCMTextBox.Location = new System.Drawing.Point(157, 110);
+            this.gCMTextBox.Name = "gCMTextBox";
+            this.gCMTextBox.Size = new System.Drawing.Size(100, 24);
+            this.gCMTextBox.TabIndex = 15;
+            // 
+            // gVMTruckLabel
+            // 
+            gVMTruckLabel.AutoSize = true;
+            gVMTruckLabel.Location = new System.Drawing.Point(278, 113);
+            gVMTruckLabel.Name = "gVMTruckLabel";
+            gVMTruckLabel.Size = new System.Drawing.Size(84, 18);
+            gVMTruckLabel.TabIndex = 16;
+            gVMTruckLabel.Text = "GVMTruck:";
+            // 
+            // gVMTruckTextBox
+            // 
+            this.gVMTruckTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "GVMTruck", true));
+            this.gVMTruckTextBox.Location = new System.Drawing.Point(368, 110);
+            this.gVMTruckTextBox.Name = "gVMTruckTextBox";
+            this.gVMTruckTextBox.Size = new System.Drawing.Size(100, 24);
+            this.gVMTruckTextBox.TabIndex = 17;
+            // 
+            // driveAxleLoadLabel
+            // 
+            driveAxleLoadLabel.AutoSize = true;
+            driveAxleLoadLabel.Location = new System.Drawing.Point(37, 173);
+            driveAxleLoadLabel.Name = "driveAxleLoadLabel";
+            driveAxleLoadLabel.Size = new System.Drawing.Size(114, 18);
+            driveAxleLoadLabel.TabIndex = 18;
+            driveAxleLoadLabel.Text = "Drive Axle Load:";
+            // 
+            // driveAxleLoadTextBox
+            // 
+            this.driveAxleLoadTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "DriveAxleLoad", true));
+            this.driveAxleLoadTextBox.Location = new System.Drawing.Point(157, 170);
+            this.driveAxleLoadTextBox.Name = "driveAxleLoadTextBox";
+            this.driveAxleLoadTextBox.Size = new System.Drawing.Size(100, 24);
+            this.driveAxleLoadTextBox.TabIndex = 19;
+            // 
+            // driveAxleLoadUOMLabel
+            // 
+            driveAxleLoadUOMLabel.AutoSize = true;
+            driveAxleLoadUOMLabel.Location = new System.Drawing.Point(279, 173);
+            driveAxleLoadUOMLabel.Name = "driveAxleLoadUOMLabel";
+            driveAxleLoadUOMLabel.Size = new System.Drawing.Size(154, 18);
+            driveAxleLoadUOMLabel.TabIndex = 20;
+            driveAxleLoadUOMLabel.Text = "Drive Axle Load UOM:";
+            // 
+            // driveAxleLoadUOMTextBox
+            // 
+            this.driveAxleLoadUOMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "DriveAxleLoadUOM", true));
+            this.driveAxleLoadUOMTextBox.Location = new System.Drawing.Point(439, 170);
+            this.driveAxleLoadUOMTextBox.Name = "driveAxleLoadUOMTextBox";
+            this.driveAxleLoadUOMTextBox.Size = new System.Drawing.Size(100, 24);
+            this.driveAxleLoadUOMTextBox.TabIndex = 21;
+            // 
+            // trTkRatioLabel
+            // 
+            trTkRatioLabel.AutoSize = true;
+            trTkRatioLabel.Location = new System.Drawing.Point(568, 173);
+            trTkRatioLabel.Name = "trTkRatioLabel";
+            trTkRatioLabel.Size = new System.Drawing.Size(86, 18);
+            trTkRatioLabel.TabIndex = 22;
+            trTkRatioLabel.Text = "Tr Tk Ratio:";
+            // 
+            // trTkRatioTextBox
+            // 
+            this.trTkRatioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "TrTkRatio", true));
+            this.trTkRatioTextBox.Location = new System.Drawing.Point(660, 170);
+            this.trTkRatioTextBox.Name = "trTkRatioTextBox";
+            this.trTkRatioTextBox.Size = new System.Drawing.Size(100, 24);
+            this.trTkRatioTextBox.TabIndex = 23;
+            // 
+            // compartmentsLabel1
+            // 
+            compartmentsLabel1.AutoSize = true;
+            compartmentsLabel1.Location = new System.Drawing.Point(40, 203);
+            compartmentsLabel1.Name = "compartmentsLabel1";
+            compartmentsLabel1.Size = new System.Drawing.Size(111, 18);
+            compartmentsLabel1.TabIndex = 24;
+            compartmentsLabel1.Text = "Compartments:";
+            // 
+            // compartmentsTextBox1
+            // 
+            this.compartmentsTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "Compartments", true));
+            this.compartmentsTextBox1.Location = new System.Drawing.Point(157, 200);
+            this.compartmentsTextBox1.Name = "compartmentsTextBox1";
+            this.compartmentsTextBox1.Size = new System.Drawing.Size(100, 24);
+            this.compartmentsTextBox1.TabIndex = 25;
+            // 
+            // roadAccessLabel
+            // 
+            roadAccessLabel.AutoSize = true;
+            roadAccessLabel.Location = new System.Drawing.Point(297, 23);
+            roadAccessLabel.Name = "roadAccessLabel";
+            roadAccessLabel.Size = new System.Drawing.Size(101, 18);
+            roadAccessLabel.TabIndex = 26;
+            roadAccessLabel.Text = "Road Access:";
+            // 
+            // roadAccessTextBox
+            // 
+            this.roadAccessTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "RoadAccess", true));
+            this.roadAccessTextBox.Location = new System.Drawing.Point(404, 20);
+            this.roadAccessTextBox.Name = "roadAccessTextBox";
+            this.roadAccessTextBox.Size = new System.Drawing.Size(100, 24);
+            this.roadAccessTextBox.TabIndex = 27;
+            // 
+            // maxAxlesLabel1
+            // 
+            maxAxlesLabel1.AutoSize = true;
+            maxAxlesLabel1.Location = new System.Drawing.Point(72, 233);
+            maxAxlesLabel1.Name = "maxAxlesLabel1";
+            maxAxlesLabel1.Size = new System.Drawing.Size(79, 18);
+            maxAxlesLabel1.TabIndex = 28;
+            maxAxlesLabel1.Text = "Max Axles:";
+            // 
+            // maxAxlesTextBox1
+            // 
+            this.maxAxlesTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "MaxAxles", true));
+            this.maxAxlesTextBox1.Location = new System.Drawing.Point(157, 230);
+            this.maxAxlesTextBox1.Name = "maxAxlesTextBox1";
+            this.maxAxlesTextBox1.Size = new System.Drawing.Size(100, 24);
+            this.maxAxlesTextBox1.TabIndex = 29;
+            // 
+            // maxGVMLabel1
+            // 
+            maxGVMLabel1.AutoSize = true;
+            maxGVMLabel1.Location = new System.Drawing.Point(73, 143);
+            maxGVMLabel1.Name = "maxGVMLabel1";
+            maxGVMLabel1.Size = new System.Drawing.Size(78, 18);
+            maxGVMLabel1.TabIndex = 30;
+            maxGVMLabel1.Text = "Max GVM:";
+            // 
+            // maxGVMTextBox1
+            // 
+            this.maxGVMTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "MaxGVM", true));
+            this.maxGVMTextBox1.Location = new System.Drawing.Point(157, 140);
+            this.maxGVMTextBox1.Name = "maxGVMTextBox1";
+            this.maxGVMTextBox1.Size = new System.Drawing.Size(100, 24);
+            this.maxGVMTextBox1.TabIndex = 31;
             // 
             // TruckConfigMaintenance
             // 
@@ -519,6 +1112,8 @@
             this.splitContainer2.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tpConfigGVMList.ResumeLayout(false);
+            this.tpConfigGVMDetails.ResumeLayout(false);
+            this.tpConfigGVMDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicle2)).EndInit();
             this.ResumeLayout(false);
@@ -568,5 +1163,34 @@
         private dsQWSLocal2024TableAdapters.VehicleTableAdapter taVehicle2;
         private dsQWSLocal2024TableAdapters.TableAdapterManager tableAdapterManager2;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.TextBox tareDTTextBox;
+        private System.Windows.Forms.TextBox tareTextBox;
+        private System.Windows.Forms.TextBox feeConditionsTextBox;
+        private System.Windows.Forms.TextBox massAccreditationLabelTextBox;
+        private System.Windows.Forms.TextBox maxAxlesTextBox;
+        private System.Windows.Forms.TextBox maxGVMTextBox;
+        private System.Windows.Forms.TextBox vehiclesTextBox;
+        private System.Windows.Forms.TextBox compartmentsTextBox;
+        private System.Windows.Forms.TextBox axleGroupsTextBox;
+        private System.Windows.Forms.TextBox axlesTextBox;
+        private System.Windows.Forms.TextBox vehicleTypeTextBox;
+        private System.Windows.Forms.TextBox axleConfigurationTextBox;
+        private System.Windows.Forms.TextBox regoTrailerTextBox;
+        private System.Windows.Forms.TextBox configSourceTextBox;
+        private System.Windows.Forms.TextBox axleConfigurationTextBox1;
+        private System.Windows.Forms.TextBox regoTrailerTextBox1;
+        private System.Windows.Forms.TextBox maxGVMTextBox1;
+        private System.Windows.Forms.TextBox maxAxlesTextBox1;
+        private System.Windows.Forms.TextBox roadAccessTextBox;
+        private System.Windows.Forms.TextBox compartmentsTextBox1;
+        private System.Windows.Forms.TextBox trTkRatioTextBox;
+        private System.Windows.Forms.TextBox driveAxleLoadUOMTextBox;
+        private System.Windows.Forms.TextBox driveAxleLoadTextBox;
+        private System.Windows.Forms.TextBox gVMTruckTextBox;
+        private System.Windows.Forms.TextBox gCMTextBox;
+        private System.Windows.Forms.TextBox schemeTextBox;
+        private System.Windows.Forms.TextBox schemeCodeTextBox;
+        private System.Windows.Forms.TextBox bridgeAssessmentTextBox;
+        private System.Windows.Forms.TextBox pBS_LevelTextBox;
     }
 }
