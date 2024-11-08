@@ -65,17 +65,31 @@ namespace QWS_Local
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
+            AcceptSelect();
+        }
+
+        private void AcceptSelect()
+        {
             DataRow dataRow = ((DataRowView)bsItem.Current).Row;
             dsQWSViews.ItemRow itemRow = (dsQWSViews.ItemRow)dataRow;
             ItemRow = itemRow;
             this.DialogResult = DialogResult.OK;
-            this.Close();   
+            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult= DialogResult.Cancel;
             this.Close();
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                AcceptSelect();
+            }
         }
     }
 }

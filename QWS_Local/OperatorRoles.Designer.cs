@@ -29,13 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource5 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.bsOperatorRolesDetailed = new System.Windows.Forms.BindingSource(this.components);
             this.dsAdmin = new QWS_Local.dsAdmin();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btnClose = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
-            this.txtOperatorID = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -47,6 +44,13 @@
             this.tpOperator = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.operatorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.domainDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genericDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.PIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bsOperator = new System.Windows.Forms.BindingSource(this.components);
             this.btnSaveOperator = new System.Windows.Forms.Button();
             this.tpRole = new System.Windows.Forms.TabPage();
@@ -83,19 +87,8 @@
             this.taFunctions = new QWS_Local.dsAdminTableAdapters.FunctionsTableAdapter();
             this.operatorRolesTableAdapter = new QWS_Local.dsAdminTableAdapters.OperatorRolesTableAdapter();
             this.taRoleFunctions = new QWS_Local.dsAdminTableAdapters.RoleFunctionsTableAdapter();
-            this.operatorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.domainDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genericDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.PIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bsOperatorRolesDetailed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -139,70 +132,31 @@
             this.dsAdmin.DataSetName = "dsAdmin";
             this.dsAdmin.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.btnClose);
-            this.splitContainer1.Panel1.Controls.Add(this.btnFind);
-            this.splitContainer1.Panel1.Controls.Add(this.txtOperatorID);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(995, 590);
-            this.splitContainer1.SplitterDistance = 210;
-            this.splitContainer1.SplitterWidth = 6;
-            this.splitContainer1.TabIndex = 0;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(58, 172);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(112, 32);
-            this.btnClose.TabIndex = 2;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(58, 104);
+            this.btnFind.Location = new System.Drawing.Point(162, 32);
             this.btnFind.Margin = new System.Windows.Forms.Padding(4);
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(112, 32);
+            this.btnFind.Size = new System.Drawing.Size(215, 32);
             this.btnFind.TabIndex = 1;
-            this.btnFind.Text = "Find";
+            this.btnFind.Text = "View Operator Roles";
             this.btnFind.UseVisualStyleBackColor = true;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
-            // txtOperatorID
-            // 
-            this.txtOperatorID.Location = new System.Drawing.Point(58, 49);
-            this.txtOperatorID.Margin = new System.Windows.Forms.Padding(4);
-            this.txtOperatorID.Name = "txtOperatorID";
-            this.txtOperatorID.Size = new System.Drawing.Size(112, 24);
-            this.txtOperatorID.TabIndex = 0;
-            // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tpList);
-            this.tabControl1.Controls.Add(this.tpDetails);
-            this.tabControl1.Controls.Add(this.tpOperator);
             this.tabControl1.Controls.Add(this.tpRole);
             this.tabControl1.Controls.Add(this.tpFunction);
+            this.tabControl1.Controls.Add(this.tpOperator);
+            this.tabControl1.Controls.Add(this.tpList);
+            this.tabControl1.Controls.Add(this.tpDetails);
             this.tabControl1.Controls.Add(this.tpOperatorConfig);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(779, 590);
+            this.tabControl1.Size = new System.Drawing.Size(995, 590);
             this.tabControl1.TabIndex = 0;
             // 
             // tpList
@@ -263,11 +217,11 @@
             // tpDetails
             // 
             this.tpDetails.Controls.Add(this.reportViewer1);
-            this.tpDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpDetails.Location = new System.Drawing.Point(4, 27);
             this.tpDetails.Margin = new System.Windows.Forms.Padding(4);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(4);
-            this.tpDetails.Size = new System.Drawing.Size(771, 564);
+            this.tpDetails.Size = new System.Drawing.Size(771, 559);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -275,14 +229,14 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "ReportDataSet";
-            reportDataSource1.Value = this.bsOperatorRolesDetailed;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource5.Name = "ReportDataSet";
+            reportDataSource5.Value = this.bsOperatorRolesDetailed;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource5);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "QWS_Local.OperatorRolesDetailed.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(4, 4);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(763, 556);
+            this.reportViewer1.Size = new System.Drawing.Size(763, 551);
             this.reportViewer1.TabIndex = 0;
             // 
             // tpOperator
@@ -290,7 +244,7 @@
             this.tpOperator.Controls.Add(this.splitContainer2);
             this.tpOperator.Location = new System.Drawing.Point(4, 27);
             this.tpOperator.Name = "tpOperator";
-            this.tpOperator.Size = new System.Drawing.Size(771, 559);
+            this.tpOperator.Size = new System.Drawing.Size(987, 559);
             this.tpOperator.TabIndex = 2;
             this.tpOperator.Text = "Operator";
             this.tpOperator.UseVisualStyleBackColor = true;
@@ -310,7 +264,8 @@
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainer2.Panel2.Controls.Add(this.btnSaveOperator);
-            this.splitContainer2.Size = new System.Drawing.Size(771, 559);
+            this.splitContainer2.Panel2.Controls.Add(this.btnFind);
+            this.splitContainer2.Size = new System.Drawing.Size(987, 559);
             this.splitContainer2.SplitterDistance = 447;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -330,8 +285,51 @@
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(771, 447);
+            this.dataGridView2.Size = new System.Drawing.Size(987, 447);
             this.dataGridView2.TabIndex = 0;
+            // 
+            // operatorIDDataGridViewTextBoxColumn
+            // 
+            this.operatorIDDataGridViewTextBoxColumn.DataPropertyName = "OperatorID";
+            this.operatorIDDataGridViewTextBoxColumn.HeaderText = "OperatorID";
+            this.operatorIDDataGridViewTextBoxColumn.Name = "operatorIDDataGridViewTextBoxColumn";
+            this.operatorIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "FirstName";
+            this.FirstName.Name = "FirstName";
+            // 
+            // LastName
+            // 
+            this.LastName.DataPropertyName = "LastName";
+            this.LastName.HeaderText = "LastName";
+            this.LastName.Name = "LastName";
+            // 
+            // domainDataGridViewTextBoxColumn
+            // 
+            this.domainDataGridViewTextBoxColumn.DataPropertyName = "Domain";
+            this.domainDataGridViewTextBoxColumn.HeaderText = "Domain";
+            this.domainDataGridViewTextBoxColumn.Name = "domainDataGridViewTextBoxColumn";
+            // 
+            // genericDataGridViewCheckBoxColumn
+            // 
+            this.genericDataGridViewCheckBoxColumn.DataPropertyName = "Generic";
+            this.genericDataGridViewCheckBoxColumn.HeaderText = "Generic";
+            this.genericDataGridViewCheckBoxColumn.Name = "genericDataGridViewCheckBoxColumn";
+            // 
+            // PIN
+            // 
+            this.PIN.DataPropertyName = "PIN";
+            this.PIN.HeaderText = "PIN";
+            this.PIN.Name = "PIN";
+            // 
+            // activeDataGridViewCheckBoxColumn
+            // 
+            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
+            this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
+            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
             // 
             // bsOperator
             // 
@@ -635,56 +633,12 @@
             // 
             this.taRoleFunctions.ClearBeforeFill = true;
             // 
-            // operatorIDDataGridViewTextBoxColumn
-            // 
-            this.operatorIDDataGridViewTextBoxColumn.DataPropertyName = "OperatorID";
-            this.operatorIDDataGridViewTextBoxColumn.HeaderText = "OperatorID";
-            this.operatorIDDataGridViewTextBoxColumn.Name = "operatorIDDataGridViewTextBoxColumn";
-            this.operatorIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // FirstName
-            // 
-            this.FirstName.DataPropertyName = "FirstName";
-            this.FirstName.HeaderText = "FirstName";
-            this.FirstName.Name = "FirstName";
-            // 
-            // LastName
-            // 
-            this.LastName.DataPropertyName = "LastName";
-            this.LastName.HeaderText = "LastName";
-            this.LastName.Name = "LastName";
-            // 
-            // domainDataGridViewTextBoxColumn
-            // 
-            this.domainDataGridViewTextBoxColumn.DataPropertyName = "Domain";
-            this.domainDataGridViewTextBoxColumn.HeaderText = "Domain";
-            this.domainDataGridViewTextBoxColumn.Name = "domainDataGridViewTextBoxColumn";
-            // 
-            // genericDataGridViewCheckBoxColumn
-            // 
-            this.genericDataGridViewCheckBoxColumn.DataPropertyName = "Generic";
-            this.genericDataGridViewCheckBoxColumn.HeaderText = "Generic";
-            this.genericDataGridViewCheckBoxColumn.Name = "genericDataGridViewCheckBoxColumn";
-            // 
-            // PIN
-            // 
-            this.PIN.DataPropertyName = "PIN";
-            this.PIN.HeaderText = "PIN";
-            this.PIN.Name = "PIN";
-            // 
-            // activeDataGridViewCheckBoxColumn
-            // 
-            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
-            this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
-            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
-            // 
             // OperatorRoles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(995, 590);
-            this.ControlBox = false;
-            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "OperatorRoles";
@@ -692,11 +646,6 @@
             this.Load += new System.EventHandler(this.OperatorRoles_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bsOperatorRolesDetailed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).EndInit();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tpList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -733,11 +682,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnFind;
-        private System.Windows.Forms.TextBox txtOperatorID;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpList;
         private System.Windows.Forms.DataGridView dataGridView1;

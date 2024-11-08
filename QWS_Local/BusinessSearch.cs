@@ -36,7 +36,7 @@ namespace QWS_Local
         }
         private void BusinessSearch_Load(object sender, EventArgs e)
         {
-            // nothing at present
+            this.KeyPreview = true;
             btnSearch.Focus();
         }
 
@@ -115,14 +115,7 @@ namespace QWS_Local
             SetOwnerParams();
             this.Close();
         }
-
-        private void btnCancelNotFound_Click(object sender, EventArgs e)
-        {
-            //business not found
-            this.DialogResult = DialogResult.Abort; //distinguish from cancel, WBO is saying the BP not found
-            this.Close();
-        }
-
+   
         private void btnInfo_Click(object sender, EventArgs e)
         {
             ShowDetailsTab();
@@ -131,6 +124,14 @@ namespace QWS_Local
         private void ShowDetailsTab()
         {
             tabControl1.SelectedTab = tpDetails;
+        }
+
+        private void BusinessSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F3)
+            {
+                SearchByCode();
+            }
         }
     }
 

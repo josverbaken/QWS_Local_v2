@@ -39,7 +39,6 @@ namespace QWS_Local
             this.bsPrefCustomers2 = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
             this.btnSelect = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.taPrefCustomers2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -128,16 +127,6 @@ namespace QWS_Local
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(540, 29);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(94, 42);
-            this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -152,7 +141,6 @@ namespace QWS_Local
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.btnSelect);
-            this.splitContainer1.Panel2.Controls.Add(this.btnCancel);
             this.splitContainer1.Size = new System.Drawing.Size(910, 282);
             this.splitContainer1.SplitterDistance = 177;
             this.splitContainer1.TabIndex = 3;
@@ -163,10 +151,13 @@ namespace QWS_Local
             // 
             // PreferredCustomers
             // 
+            this.AcceptButton = this.btnSelect;
             this.ClientSize = new System.Drawing.Size(910, 282);
-            this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(500, 300);
             this.Name = "PreferredCustomers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Preferred Customers";
@@ -185,7 +176,6 @@ namespace QWS_Local
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnSelect;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isDefaultDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cardCodeDataGridViewTextBoxColumn;

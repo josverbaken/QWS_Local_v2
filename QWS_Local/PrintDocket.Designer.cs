@@ -69,7 +69,6 @@
             this.tableAdapterManager = new QWS_Local.dsQWSViewsTableAdapters.TableAdapterManager();
             this.bsDocketReport = new System.Windows.Forms.BindingSource(this.components);
             this.taDeliveryDocketRpt = new QWS_Local.dsDocketReportTableAdapters.DeliveryDocketRptTableAdapter();
-            this.btnClose = new System.Windows.Forms.Button();
             docDateLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bsDeliveryDocketRpt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDocketReport)).BeginInit();
@@ -142,7 +141,6 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
-            this.splitContainer2.Panel1.Controls.Add(this.btnClose);
             this.splitContainer2.Panel1.Controls.Add(this.btnPrintPreview);
             this.splitContainer2.Panel1.Controls.Add(this.docNumTextBox);
             this.splitContainer2.Panel1.Controls.Add(docDateLabel);
@@ -436,22 +434,11 @@
             // 
             this.taDeliveryDocketRpt.ClearBeforeFill = true;
             // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(4, 516);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(200, 52);
-            this.btnClose.TabIndex = 8;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // PrintDocket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 623);
-            this.ControlBox = false;
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -520,6 +507,5 @@
         private System.Windows.Forms.BindingSource bsDeliveryDocketRpt;
         private dsDocketReportTableAdapters.DeliveryDocketRptTableAdapter taDeliveryDocketRpt;
         private System.Windows.Forms.Button btnPrintPreview;
-        private System.Windows.Forms.Button btnClose;
     }
 }

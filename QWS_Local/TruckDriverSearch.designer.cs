@@ -57,7 +57,6 @@ namespace QWS_Local
             this.cardCodeTextBox = new System.Windows.Forms.TextBox();
             this.tradingNameTextBox = new System.Windows.Forms.TextBox();
             this.txtInfo = new System.Windows.Forms.TextBox();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.btnSelectDriver = new System.Windows.Forms.Button();
             this.taTruckDriver2024 = new QWS_Local.dsQWSLocal2024TableAdapters.TruckDriverTableAdapter();
             licenseTypeLabel = new System.Windows.Forms.Label();
@@ -205,7 +204,6 @@ namespace QWS_Local
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.txtInfo);
-            this.splitContainer1.Panel2.Controls.Add(this.btnCancel);
             this.splitContainer1.Panel2.Controls.Add(this.btnSelectDriver);
             this.splitContainer1.Size = new System.Drawing.Size(1195, 430);
             this.splitContainer1.SplitterDistance = 311;
@@ -348,17 +346,6 @@ namespace QWS_Local
             this.txtInfo.Size = new System.Drawing.Size(445, 24);
             this.txtInfo.TabIndex = 5;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(747, 21);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(150, 62);
-            this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // btnSelectDriver
             // 
             this.btnSelectDriver.Location = new System.Drawing.Point(560, 21);
@@ -376,13 +363,15 @@ namespace QWS_Local
             // 
             // TruckDriverSearch
             // 
+            this.AcceptButton = this.btnSelectDriver;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1058, 432);
-            this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TruckDriverSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Truck Driver Search";
@@ -408,7 +397,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button btnSelectDriver;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpList;
         private System.Windows.Forms.TabPage tpDetails;

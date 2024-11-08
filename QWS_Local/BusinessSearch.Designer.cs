@@ -40,15 +40,17 @@ namespace QWS_Local
             System.Windows.Forms.Label pORequiredLabel;
             System.Windows.Forms.Label documentOwnerLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btnCancelNotFound = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnCancel1 = new System.Windows.Forms.Button();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.AccountStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sAPCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tradingNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DefaultContact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OfficePhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsBusiness = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
             this.tpDetails = new System.Windows.Forms.TabPage();
@@ -61,16 +63,8 @@ namespace QWS_Local
             this.groupTextBox = new System.Windows.Forms.TextBox();
             this.aBNTextBox = new System.Windows.Forms.TextBox();
             this.aCTypeTextBox = new System.Windows.Forms.TextBox();
-            this.btnDown = new System.Windows.Forms.Button();
-            this.btnInfo = new System.Windows.Forms.Button();
-            this.btnUp = new System.Windows.Forms.Button();
             this.taBusiness = new QWS_Local.dsQWSLocal2024TableAdapters.BusinessTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
-            this.AccountStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sAPCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tradingNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DefaultContact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OfficePhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             sAPCodeLabel = new System.Windows.Forms.Label();
             tradingNameLabel = new System.Windows.Forms.Label();
             alternateNameLabel = new System.Windows.Forms.Label();
@@ -84,10 +78,6 @@ namespace QWS_Local
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -187,32 +177,16 @@ namespace QWS_Local
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
-            this.splitContainer1.Panel1.Controls.Add(this.btnCancelNotFound);
             this.splitContainer1.Panel1.Controls.Add(this.txtSearch);
-            this.splitContainer1.Panel1.Controls.Add(this.btnCancel1);
             this.splitContainer1.Panel1.Controls.Add(this.btnSelect);
             this.splitContainer1.Panel1.Controls.Add(this.btnSearch);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
+            this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer1.Size = new System.Drawing.Size(1000, 628);
             this.splitContainer1.SplitterDistance = 108;
             this.splitContainer1.TabIndex = 1;
-            // 
-            // btnCancelNotFound
-            // 
-            this.btnCancelNotFound.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCancelNotFound.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelNotFound.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelNotFound.Location = new System.Drawing.Point(670, 24);
-            this.btnCancelNotFound.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancelNotFound.Name = "btnCancelNotFound";
-            this.btnCancelNotFound.Size = new System.Drawing.Size(157, 49);
-            this.btnCancelNotFound.TabIndex = 68;
-            this.btnCancelNotFound.Text = "Cancel - Not Found";
-            this.btnCancelNotFound.UseVisualStyleBackColor = false;
-            this.btnCancelNotFound.Click += new System.EventHandler(this.btnCancelNotFound_Click);
             // 
             // txtSearch
             // 
@@ -221,20 +195,6 @@ namespace QWS_Local
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(211, 35);
             this.txtSearch.TabIndex = 67;
-            // 
-            // btnCancel1
-            // 
-            this.btnCancel1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCancel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel1.Location = new System.Drawing.Point(541, 24);
-            this.btnCancel1.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancel1.Name = "btnCancel1";
-            this.btnCancel1.Size = new System.Drawing.Size(112, 49);
-            this.btnCancel1.TabIndex = 64;
-            this.btnCancel1.Text = "Cancel";
-            this.btnCancel1.UseVisualStyleBackColor = false;
-            this.btnCancel1.Click += new System.EventHandler(this.btnCancel1_Click);
             // 
             // btnSelect
             // 
@@ -264,34 +224,16 @@ namespace QWS_Local
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.tabControl1);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.btnDown);
-            this.splitContainer2.Panel2.Controls.Add(this.btnInfo);
-            this.splitContainer2.Panel2.Controls.Add(this.btnUp);
-            this.splitContainer2.Size = new System.Drawing.Size(1000, 516);
-            this.splitContainer2.SplitterDistance = 818;
-            this.splitContainer2.TabIndex = 57;
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tpList);
             this.tabControl1.Controls.Add(this.tpDetails);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(818, 516);
+            this.tabControl1.Size = new System.Drawing.Size(1000, 516);
             this.tabControl1.TabIndex = 18;
             // 
             // tpList
@@ -300,7 +242,7 @@ namespace QWS_Local
             this.tpList.Location = new System.Drawing.Point(4, 27);
             this.tpList.Name = "tpList";
             this.tpList.Padding = new System.Windows.Forms.Padding(3);
-            this.tpList.Size = new System.Drawing.Size(810, 485);
+            this.tpList.Size = new System.Drawing.Size(992, 485);
             this.tpList.TabIndex = 0;
             this.tpList.Text = "List";
             this.tpList.UseVisualStyleBackColor = true;
@@ -322,8 +264,42 @@ namespace QWS_Local
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(804, 479);
+            this.dataGridView1.Size = new System.Drawing.Size(986, 479);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // AccountStatus
+            // 
+            this.AccountStatus.DataPropertyName = "AccountStatus";
+            this.AccountStatus.HeaderText = "Status";
+            this.AccountStatus.Name = "AccountStatus";
+            this.AccountStatus.ReadOnly = true;
+            // 
+            // sAPCodeDataGridViewTextBoxColumn
+            // 
+            this.sAPCodeDataGridViewTextBoxColumn.DataPropertyName = "SAPCode";
+            this.sAPCodeDataGridViewTextBoxColumn.HeaderText = "SAPCode";
+            this.sAPCodeDataGridViewTextBoxColumn.Name = "sAPCodeDataGridViewTextBoxColumn";
+            this.sAPCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tradingNameDataGridViewTextBoxColumn
+            // 
+            this.tradingNameDataGridViewTextBoxColumn.DataPropertyName = "TradingName";
+            this.tradingNameDataGridViewTextBoxColumn.HeaderText = "Customer";
+            this.tradingNameDataGridViewTextBoxColumn.Name = "tradingNameDataGridViewTextBoxColumn";
+            this.tradingNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tradingNameDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // DefaultContact
+            // 
+            this.DefaultContact.HeaderText = "Contact";
+            this.DefaultContact.Name = "DefaultContact";
+            this.DefaultContact.ReadOnly = true;
+            // 
+            // OfficePhone
+            // 
+            this.OfficePhone.HeaderText = "Phone";
+            this.OfficePhone.Name = "OfficePhone";
+            this.OfficePhone.ReadOnly = true;
             // 
             // bsBusiness
             // 
@@ -435,46 +411,6 @@ namespace QWS_Local
             this.aCTypeTextBox.Size = new System.Drawing.Size(269, 24);
             this.aCTypeTextBox.TabIndex = 9;
             // 
-            // btnDown
-            // 
-            this.btnDown.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDown.Location = new System.Drawing.Point(18, 102);
-            this.btnDown.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDown.Name = "btnDown";
-            this.btnDown.Size = new System.Drawing.Size(86, 49);
-            this.btnDown.TabIndex = 55;
-            this.btnDown.Text = "down";
-            this.btnDown.UseVisualStyleBackColor = false;
-            // 
-            // btnInfo
-            // 
-            this.btnInfo.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInfo.Location = new System.Drawing.Point(18, 210);
-            this.btnInfo.Margin = new System.Windows.Forms.Padding(4);
-            this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(86, 49);
-            this.btnInfo.TabIndex = 54;
-            this.btnInfo.Text = "info";
-            this.btnInfo.UseVisualStyleBackColor = false;
-            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
-            // 
-            // btnUp
-            // 
-            this.btnUp.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUp.Location = new System.Drawing.Point(18, 30);
-            this.btnUp.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUp.Name = "btnUp";
-            this.btnUp.Size = new System.Drawing.Size(86, 49);
-            this.btnUp.TabIndex = 56;
-            this.btnUp.Text = "up";
-            this.btnUp.UseVisualStyleBackColor = false;
-            // 
             // taBusiness
             // 
             this.taBusiness.ClearBeforeFill = true;
@@ -491,62 +427,27 @@ namespace QWS_Local
             this.tableAdapterManager1.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager1.VehicleTableAdapter = null;
             // 
-            // AccountStatus
-            // 
-            this.AccountStatus.DataPropertyName = "AccountStatus";
-            this.AccountStatus.HeaderText = "Status";
-            this.AccountStatus.Name = "AccountStatus";
-            this.AccountStatus.ReadOnly = true;
-            // 
-            // sAPCodeDataGridViewTextBoxColumn
-            // 
-            this.sAPCodeDataGridViewTextBoxColumn.DataPropertyName = "SAPCode";
-            this.sAPCodeDataGridViewTextBoxColumn.HeaderText = "SAPCode";
-            this.sAPCodeDataGridViewTextBoxColumn.Name = "sAPCodeDataGridViewTextBoxColumn";
-            this.sAPCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tradingNameDataGridViewTextBoxColumn
-            // 
-            this.tradingNameDataGridViewTextBoxColumn.DataPropertyName = "TradingName";
-            this.tradingNameDataGridViewTextBoxColumn.HeaderText = "Customer";
-            this.tradingNameDataGridViewTextBoxColumn.Name = "tradingNameDataGridViewTextBoxColumn";
-            this.tradingNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tradingNameDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // DefaultContact
-            // 
-            this.DefaultContact.HeaderText = "Contact";
-            this.DefaultContact.Name = "DefaultContact";
-            this.DefaultContact.ReadOnly = true;
-            // 
-            // OfficePhone
-            // 
-            this.OfficePhone.HeaderText = "Phone";
-            this.OfficePhone.Name = "OfficePhone";
-            this.OfficePhone.ReadOnly = true;
-            // 
             // BusinessSearch
             // 
+            this.AcceptButton = this.btnSelect;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 628);
-            this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "BusinessSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Business Search";
             this.Load += new System.EventHandler(this.BusinessSearch_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BusinessSearch_KeyDown);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tpList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -573,15 +474,9 @@ namespace QWS_Local
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpList;
         private System.Windows.Forms.TabPage tpDetails;
-        private System.Windows.Forms.Button btnInfo;
-        private System.Windows.Forms.Button btnDown;
-        private System.Windows.Forms.Button btnUp;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Button btnCancel1;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.Button btnCancelNotFound;
         private dsQWSLocal2024 dsQWSLocal2024;
         private System.Windows.Forms.BindingSource bsBusiness;
         private dsQWSLocal2024TableAdapters.BusinessTableAdapter taBusiness;

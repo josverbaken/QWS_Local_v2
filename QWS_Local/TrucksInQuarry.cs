@@ -24,6 +24,7 @@ namespace QWS_Local
 
         private void TrucksInQuarry_Load(object sender, EventArgs e)
         {
+            FormText4Site();
             int iRows =  this.taAxleConfiguration.Fill(this.dsQWSLocal2024.AxleConfiguration);
             // set up and down arrows
             //button3.Text = ""+ (char)24;
@@ -32,6 +33,20 @@ namespace QWS_Local
             iRows += 1;
             this.KeyPreview = true;
             RefreshQueue();
+        }
+
+        private void FormText4Site()
+        {
+            string FormText = "Trucks In Quarry - ";
+            if (Properties.Settings.Default.SiteCode == "07")
+            {
+                FormText += "07 Northern Quarries";
+            }
+            else if (Properties.Settings.Default.SiteCode == "02")
+            {
+                FormText += "02 Stawell Quarry";
+            }
+            this.Text = FormText;
         }
 
         public void ClearTIQ()
@@ -71,27 +86,10 @@ namespace QWS_Local
             frmBookIn.MdiParent = this.MdiParent;
             frmBookIn.Show();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ShowTIQDetail();
-        }
-
+     
         private void ShowTIQDetail()
         {
             tabControl1.SelectedTab = tpDetails;
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            //move up
-            TIQRowUp();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //move down
-            TIQRowDown();
         }
 
         private void TIQRowDown()

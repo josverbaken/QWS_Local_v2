@@ -33,9 +33,10 @@
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.roleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wBOFunctionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsOperatorRolesDetailed = new System.Windows.Forms.BindingSource(this.components);
             this.dsAdmin = new QWS_Local.dsAdmin();
-            this.btnClose = new System.Windows.Forms.Button();
             this.bsOperator = new System.Windows.Forms.BindingSource(this.components);
             this.taOperator = new QWS_Local.dsAdminTableAdapters.OperatorTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsAdminTableAdapters.TableAdapterManager();
@@ -44,8 +45,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.roleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wBOFunctionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             roleLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -103,6 +102,22 @@
             this.dataGridView1.Size = new System.Drawing.Size(525, 287);
             this.dataGridView1.TabIndex = 25;
             // 
+            // roleDataGridViewTextBoxColumn
+            // 
+            this.roleDataGridViewTextBoxColumn.DataPropertyName = "Role";
+            this.roleDataGridViewTextBoxColumn.HeaderText = "Role";
+            this.roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
+            this.roleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.roleDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // wBOFunctionDataGridViewTextBoxColumn
+            // 
+            this.wBOFunctionDataGridViewTextBoxColumn.DataPropertyName = "WBOFunction";
+            this.wBOFunctionDataGridViewTextBoxColumn.HeaderText = "Function";
+            this.wBOFunctionDataGridViewTextBoxColumn.Name = "wBOFunctionDataGridViewTextBoxColumn";
+            this.wBOFunctionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.wBOFunctionDataGridViewTextBoxColumn.Width = 250;
+            // 
             // bsOperatorRolesDetailed
             // 
             this.bsOperatorRolesDetailed.DataMember = "OperatorRolesDetailed";
@@ -112,16 +127,6 @@
             // 
             this.dsAdmin.DataSetName = "dsAdmin";
             this.dsAdmin.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(998, 489);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(118, 49);
-            this.btnClose.TabIndex = 26;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // bsOperator
             // 
@@ -182,22 +187,6 @@
             this.label4.TabIndex = 35;
             this.label4.Text = "label4";
             // 
-            // roleDataGridViewTextBoxColumn
-            // 
-            this.roleDataGridViewTextBoxColumn.DataPropertyName = "Role";
-            this.roleDataGridViewTextBoxColumn.HeaderText = "Role";
-            this.roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
-            this.roleDataGridViewTextBoxColumn.ReadOnly = true;
-            this.roleDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // wBOFunctionDataGridViewTextBoxColumn
-            // 
-            this.wBOFunctionDataGridViewTextBoxColumn.DataPropertyName = "WBOFunction";
-            this.wBOFunctionDataGridViewTextBoxColumn.HeaderText = "Function";
-            this.wBOFunctionDataGridViewTextBoxColumn.Name = "wBOFunctionDataGridViewTextBoxColumn";
-            this.wBOFunctionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.wBOFunctionDataGridViewTextBoxColumn.Width = 250;
-            // 
             // AboutQWSLocal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -210,7 +199,6 @@
             this.Controls.Add(this.logoPictureBox);
             this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnClose);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -243,7 +231,6 @@
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.PictureBox logoPictureBox;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

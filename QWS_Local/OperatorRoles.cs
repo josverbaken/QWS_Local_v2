@@ -17,9 +17,46 @@ namespace QWS_Local
             InitializeComponent();
         }
 
+
+
+        private void OperatorRoles_Load(object sender, EventArgs e)
+        {
+            this.taRoleFunctions.Fill(this.dsAdmin.RoleFunctions);
+            this.operatorRolesTableAdapter.Fill(this.dsAdmin.OperatorRoles);
+            this.taFunctions.Fill(this.dsAdmin.Functions);
+            this.taRole.Fill(this.dsAdmin.Role);
+            this.taOperator.Fill(this.dsAdmin.Operator);
+        }
+
+        dsAdmin.OperatorRow CurrentOperator()
+        {
+            try
+            {
+                if (bsOperator.Count > 0)
+                {
+                    DataRow myRow = ((DataRowView)bsOperator.Current).Row;
+                    dsAdmin.OperatorRow myOperator = (dsAdmin.OperatorRow)myRow;
+                    return myOperator;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
         private void btnFind_Click(object sender, EventArgs e)
         {
-            FindOperatorRoles(Convert.ToInt32(txtOperatorID.Text));
+            ViewOperatorRoles();
+        }
+
+        private void ViewOperatorRoles()
+        {
+            int OperatorID = CurrentOperator().OperatorID;
+            FindOperatorRoles(OperatorID);
+            tabControl1.SelectedTab = tpDetails;
         }
 
         private void FindOperatorRoles(int OperatorID)
@@ -36,14 +73,6 @@ namespace QWS_Local
             }
         }
 
-        private void OperatorRoles_Load(object sender, EventArgs e)
-        {
-            this.taRoleFunctions.Fill(this.dsAdmin.RoleFunctions);
-            this.operatorRolesTableAdapter.Fill(this.dsAdmin.OperatorRoles);
-            this.taFunctions.Fill(this.dsAdmin.Functions);
-            this.taRole.Fill(this.dsAdmin.Role);
-            this.taOperator.Fill(this.dsAdmin.Operator);
-        }
 
         private void btnSaveOperator_Click(object sender, EventArgs e)
         {
@@ -105,6 +134,8 @@ namespace QWS_Local
                 MessageBox.Show(ex.Message);
             }
         }
+
+      
     }
     
 }

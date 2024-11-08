@@ -59,10 +59,5 @@ namespace QWS_Local
             this.Close();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
     }
 }

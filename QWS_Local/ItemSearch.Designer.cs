@@ -46,7 +46,6 @@ namespace QWS_Local
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.taItem = new QWS_Local.dsQWSViewsTableAdapters.ItemTableAdapter();
-            this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSViews)).BeginInit();
@@ -78,6 +77,7 @@ namespace QWS_Local
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(993, 623);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
             // itemCodeDataGridViewTextBoxColumn
             // 
@@ -148,7 +148,6 @@ namespace QWS_Local
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.btnCancel);
             this.splitContainer1.Panel1.Controls.Add(this.btnSelect);
             this.splitContainer1.Panel1.Controls.Add(this.radioButton3);
             this.splitContainer1.Panel1.Controls.Add(this.radioButton2);
@@ -214,26 +213,17 @@ namespace QWS_Local
             // 
             this.taItem.ClearBeforeFill = true;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(18, 551);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(154, 39);
-            this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // ItemSearch
             // 
+            this.AcceptButton = this.btnSelect;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 623);
-            this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ItemSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Item Search";
@@ -268,6 +258,5 @@ namespace QWS_Local
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.Button btnSelect;
-        private System.Windows.Forms.Button btnCancel;
     }
 }
