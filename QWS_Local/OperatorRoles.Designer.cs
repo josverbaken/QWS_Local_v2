@@ -47,12 +47,6 @@
             this.tpOperator = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.operatorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usernameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.domainDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genericDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsOperator = new System.Windows.Forms.BindingSource(this.components);
             this.btnSaveOperator = new System.Windows.Forms.Button();
             this.tpRole = new System.Windows.Forms.TabPage();
@@ -66,6 +60,9 @@
             this.tpFunction = new System.Windows.Forms.TabPage();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.functionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsFunctions = new System.Windows.Forms.BindingSource(this.components);
             this.btnSaveFunctions = new System.Windows.Forms.Button();
             this.tpOperatorConfig = new System.Windows.Forms.TabPage();
@@ -86,9 +83,13 @@
             this.taFunctions = new QWS_Local.dsAdminTableAdapters.FunctionsTableAdapter();
             this.operatorRolesTableAdapter = new QWS_Local.dsAdminTableAdapters.OperatorRolesTableAdapter();
             this.taRoleFunctions = new QWS_Local.dsAdminTableAdapters.RoleFunctionsTableAdapter();
-            this.functionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operatorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.domainDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genericDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.PIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bsOperatorRolesDetailed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -287,9 +288,9 @@
             // tpOperator
             // 
             this.tpOperator.Controls.Add(this.splitContainer2);
-            this.tpOperator.Location = new System.Drawing.Point(4, 22);
+            this.tpOperator.Location = new System.Drawing.Point(4, 27);
             this.tpOperator.Name = "tpOperator";
-            this.tpOperator.Size = new System.Drawing.Size(771, 564);
+            this.tpOperator.Size = new System.Drawing.Size(771, 559);
             this.tpOperator.TabIndex = 2;
             this.tpOperator.Text = "Operator";
             this.tpOperator.UseVisualStyleBackColor = true;
@@ -309,8 +310,8 @@
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainer2.Panel2.Controls.Add(this.btnSaveOperator);
-            this.splitContainer2.Size = new System.Drawing.Size(771, 564);
-            this.splitContainer2.SplitterDistance = 452;
+            this.splitContainer2.Size = new System.Drawing.Size(771, 559);
+            this.splitContainer2.SplitterDistance = 447;
             this.splitContainer2.TabIndex = 0;
             // 
             // dataGridView2
@@ -319,54 +320,18 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.operatorIDDataGridViewTextBoxColumn,
-            this.usernameDataGridViewTextBoxColumn1,
+            this.FirstName,
+            this.LastName,
             this.domainDataGridViewTextBoxColumn,
             this.genericDataGridViewCheckBoxColumn,
-            this.activeDataGridViewCheckBoxColumn,
-            this.passwordDataGridViewTextBoxColumn});
+            this.PIN,
+            this.activeDataGridViewCheckBoxColumn});
             this.dataGridView2.DataSource = this.bsOperator;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(771, 452);
+            this.dataGridView2.Size = new System.Drawing.Size(771, 447);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // operatorIDDataGridViewTextBoxColumn
-            // 
-            this.operatorIDDataGridViewTextBoxColumn.DataPropertyName = "OperatorID";
-            this.operatorIDDataGridViewTextBoxColumn.HeaderText = "OperatorID";
-            this.operatorIDDataGridViewTextBoxColumn.Name = "operatorIDDataGridViewTextBoxColumn";
-            this.operatorIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // usernameDataGridViewTextBoxColumn1
-            // 
-            this.usernameDataGridViewTextBoxColumn1.DataPropertyName = "Username";
-            this.usernameDataGridViewTextBoxColumn1.HeaderText = "Username";
-            this.usernameDataGridViewTextBoxColumn1.Name = "usernameDataGridViewTextBoxColumn1";
-            // 
-            // domainDataGridViewTextBoxColumn
-            // 
-            this.domainDataGridViewTextBoxColumn.DataPropertyName = "Domain";
-            this.domainDataGridViewTextBoxColumn.HeaderText = "Domain";
-            this.domainDataGridViewTextBoxColumn.Name = "domainDataGridViewTextBoxColumn";
-            // 
-            // genericDataGridViewCheckBoxColumn
-            // 
-            this.genericDataGridViewCheckBoxColumn.DataPropertyName = "Generic";
-            this.genericDataGridViewCheckBoxColumn.HeaderText = "Generic";
-            this.genericDataGridViewCheckBoxColumn.Name = "genericDataGridViewCheckBoxColumn";
-            // 
-            // activeDataGridViewCheckBoxColumn
-            // 
-            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
-            this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
-            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
             // 
             // bsOperator
             // 
@@ -387,9 +352,9 @@
             // tpRole
             // 
             this.tpRole.Controls.Add(this.splitContainer3);
-            this.tpRole.Location = new System.Drawing.Point(4, 22);
+            this.tpRole.Location = new System.Drawing.Point(4, 27);
             this.tpRole.Name = "tpRole";
-            this.tpRole.Size = new System.Drawing.Size(771, 564);
+            this.tpRole.Size = new System.Drawing.Size(771, 559);
             this.tpRole.TabIndex = 3;
             this.tpRole.Text = "Role";
             this.tpRole.UseVisualStyleBackColor = true;
@@ -409,8 +374,8 @@
             // 
             this.splitContainer3.Panel2.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainer3.Panel2.Controls.Add(this.btnSaveRole);
-            this.splitContainer3.Size = new System.Drawing.Size(771, 564);
-            this.splitContainer3.SplitterDistance = 426;
+            this.splitContainer3.Size = new System.Drawing.Size(771, 559);
+            this.splitContainer3.SplitterDistance = 422;
             this.splitContainer3.TabIndex = 0;
             // 
             // dataGridView3
@@ -425,7 +390,7 @@
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(0, 0);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(771, 426);
+            this.dataGridView3.Size = new System.Drawing.Size(771, 422);
             this.dataGridView3.TabIndex = 0;
             // 
             // roleIDDataGridViewTextBoxColumn
@@ -509,6 +474,27 @@
             this.dataGridView4.Size = new System.Drawing.Size(771, 446);
             this.dataGridView4.TabIndex = 0;
             // 
+            // functionIDDataGridViewTextBoxColumn
+            // 
+            this.functionIDDataGridViewTextBoxColumn.DataPropertyName = "FunctionID";
+            this.functionIDDataGridViewTextBoxColumn.HeaderText = "FunctionID";
+            this.functionIDDataGridViewTextBoxColumn.Name = "functionIDDataGridViewTextBoxColumn";
+            this.functionIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "WBOFunction";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Function";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 200;
+            // 
+            // descriptionDataGridViewTextBoxColumn1
+            // 
+            this.descriptionDataGridViewTextBoxColumn1.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn1.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn1.Name = "descriptionDataGridViewTextBoxColumn1";
+            this.descriptionDataGridViewTextBoxColumn1.Width = 400;
+            // 
             // bsFunctions
             // 
             this.bsFunctions.DataMember = "Functions";
@@ -531,9 +517,9 @@
             this.tpOperatorConfig.Controls.Add(this.btnSaveOperatorRoles);
             this.tpOperatorConfig.Controls.Add(this.dataGridView6);
             this.tpOperatorConfig.Controls.Add(this.dataGridView5);
-            this.tpOperatorConfig.Location = new System.Drawing.Point(4, 22);
+            this.tpOperatorConfig.Location = new System.Drawing.Point(4, 27);
             this.tpOperatorConfig.Name = "tpOperatorConfig";
-            this.tpOperatorConfig.Size = new System.Drawing.Size(771, 564);
+            this.tpOperatorConfig.Size = new System.Drawing.Size(771, 559);
             this.tpOperatorConfig.TabIndex = 5;
             this.tpOperatorConfig.Text = "Operator Config";
             this.tpOperatorConfig.UseVisualStyleBackColor = true;
@@ -649,26 +635,48 @@
             // 
             this.taRoleFunctions.ClearBeforeFill = true;
             // 
-            // functionIDDataGridViewTextBoxColumn
+            // operatorIDDataGridViewTextBoxColumn
             // 
-            this.functionIDDataGridViewTextBoxColumn.DataPropertyName = "FunctionID";
-            this.functionIDDataGridViewTextBoxColumn.HeaderText = "FunctionID";
-            this.functionIDDataGridViewTextBoxColumn.Name = "functionIDDataGridViewTextBoxColumn";
-            this.functionIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.operatorIDDataGridViewTextBoxColumn.DataPropertyName = "OperatorID";
+            this.operatorIDDataGridViewTextBoxColumn.HeaderText = "OperatorID";
+            this.operatorIDDataGridViewTextBoxColumn.Name = "operatorIDDataGridViewTextBoxColumn";
+            this.operatorIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn1
+            // FirstName
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "WBOFunction";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Function";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 200;
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "FirstName";
+            this.FirstName.Name = "FirstName";
             // 
-            // descriptionDataGridViewTextBoxColumn1
+            // LastName
             // 
-            this.descriptionDataGridViewTextBoxColumn1.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn1.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn1.Name = "descriptionDataGridViewTextBoxColumn1";
-            this.descriptionDataGridViewTextBoxColumn1.Width = 400;
+            this.LastName.DataPropertyName = "LastName";
+            this.LastName.HeaderText = "LastName";
+            this.LastName.Name = "LastName";
+            // 
+            // domainDataGridViewTextBoxColumn
+            // 
+            this.domainDataGridViewTextBoxColumn.DataPropertyName = "Domain";
+            this.domainDataGridViewTextBoxColumn.HeaderText = "Domain";
+            this.domainDataGridViewTextBoxColumn.Name = "domainDataGridViewTextBoxColumn";
+            // 
+            // genericDataGridViewCheckBoxColumn
+            // 
+            this.genericDataGridViewCheckBoxColumn.DataPropertyName = "Generic";
+            this.genericDataGridViewCheckBoxColumn.HeaderText = "Generic";
+            this.genericDataGridViewCheckBoxColumn.Name = "genericDataGridViewCheckBoxColumn";
+            // 
+            // PIN
+            // 
+            this.PIN.DataPropertyName = "PIN";
+            this.PIN.HeaderText = "PIN";
+            this.PIN.Name = "PIN";
+            // 
+            // activeDataGridViewCheckBoxColumn
+            // 
+            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
+            this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
+            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
             // 
             // OperatorRoles
             // 
@@ -747,12 +755,6 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.BindingSource bsOperator;
         private dsAdminTableAdapters.OperatorTableAdapter taOperator;
-        private System.Windows.Forms.DataGridViewTextBoxColumn operatorIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn domainDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn genericDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.BindingSource bsRole;
@@ -785,5 +787,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn functionIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn operatorIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn domainDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn genericDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PIN;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
     }
 }

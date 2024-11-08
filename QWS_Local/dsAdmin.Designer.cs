@@ -797,15 +797,17 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnOperatorID;
             
-            private global::System.Data.DataColumn columnUsername;
-            
             private global::System.Data.DataColumn columnDomain;
             
             private global::System.Data.DataColumn columnGeneric;
             
             private global::System.Data.DataColumn columnActive;
             
-            private global::System.Data.DataColumn columnPassword;
+            private global::System.Data.DataColumn columnFirstName;
+            
+            private global::System.Data.DataColumn columnLastName;
+            
+            private global::System.Data.DataColumn columnPIN;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -850,14 +852,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn UsernameColumn {
-                get {
-                    return this.columnUsername;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn DomainColumn {
                 get {
                     return this.columnDomain;
@@ -882,9 +876,25 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PasswordColumn {
+            public global::System.Data.DataColumn FirstNameColumn {
                 get {
-                    return this.columnPassword;
+                    return this.columnFirstName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn LastNameColumn {
+                get {
+                    return this.columnLastName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PINColumn {
+                get {
+                    return this.columnPIN;
                 }
             }
             
@@ -925,15 +935,16 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public OperatorRow AddOperatorRow(string Username, string Domain, bool Generic, bool Active, string Password) {
+            public OperatorRow AddOperatorRow(string Domain, bool Generic, bool Active, string FirstName, string LastName, int PIN) {
                 OperatorRow rowOperatorRow = ((OperatorRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Username,
                         Domain,
                         Generic,
                         Active,
-                        Password};
+                        FirstName,
+                        LastName,
+                        PIN};
                 rowOperatorRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOperatorRow);
                 return rowOperatorRow;
@@ -964,11 +975,12 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnOperatorID = base.Columns["OperatorID"];
-                this.columnUsername = base.Columns["Username"];
                 this.columnDomain = base.Columns["Domain"];
                 this.columnGeneric = base.Columns["Generic"];
                 this.columnActive = base.Columns["Active"];
-                this.columnPassword = base.Columns["Password"];
+                this.columnFirstName = base.Columns["FirstName"];
+                this.columnLastName = base.Columns["LastName"];
+                this.columnPIN = base.Columns["PIN"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -976,16 +988,18 @@ namespace QWS_Local {
             private void InitClass() {
                 this.columnOperatorID = new global::System.Data.DataColumn("OperatorID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOperatorID);
-                this.columnUsername = new global::System.Data.DataColumn("Username", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUsername);
                 this.columnDomain = new global::System.Data.DataColumn("Domain", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDomain);
                 this.columnGeneric = new global::System.Data.DataColumn("Generic", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGeneric);
                 this.columnActive = new global::System.Data.DataColumn("Active", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnActive);
-                this.columnPassword = new global::System.Data.DataColumn("Password", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPassword);
+                this.columnFirstName = new global::System.Data.DataColumn("FirstName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFirstName);
+                this.columnLastName = new global::System.Data.DataColumn("LastName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLastName);
+                this.columnPIN = new global::System.Data.DataColumn("PIN", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPIN);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnOperatorID}, true));
                 this.columnOperatorID.AutoIncrement = true;
@@ -994,14 +1008,15 @@ namespace QWS_Local {
                 this.columnOperatorID.AllowDBNull = false;
                 this.columnOperatorID.ReadOnly = true;
                 this.columnOperatorID.Unique = true;
-                this.columnUsername.AllowDBNull = false;
-                this.columnUsername.MaxLength = 50;
                 this.columnDomain.AllowDBNull = false;
                 this.columnDomain.MaxLength = 50;
                 this.columnGeneric.AllowDBNull = false;
                 this.columnActive.AllowDBNull = false;
-                this.columnPassword.AllowDBNull = false;
-                this.columnPassword.MaxLength = 50;
+                this.columnFirstName.AllowDBNull = false;
+                this.columnFirstName.MaxLength = 50;
+                this.columnLastName.AllowDBNull = false;
+                this.columnLastName.MaxLength = 50;
+                this.columnPIN.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2373,17 +2388,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Username {
-                get {
-                    return ((string)(this[this.tableOperator.UsernameColumn]));
-                }
-                set {
-                    this[this.tableOperator.UsernameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Domain {
                 get {
                     return ((string)(this[this.tableOperator.DomainColumn]));
@@ -2417,12 +2421,34 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Password {
+            public string FirstName {
                 get {
-                    return ((string)(this[this.tableOperator.PasswordColumn]));
+                    return ((string)(this[this.tableOperator.FirstNameColumn]));
                 }
                 set {
-                    this[this.tableOperator.PasswordColumn] = value;
+                    this[this.tableOperator.FirstNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string LastName {
+                get {
+                    return ((string)(this[this.tableOperator.LastNameColumn]));
+                }
+                set {
+                    this[this.tableOperator.LastNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int PIN {
+                get {
+                    return ((int)(this[this.tableOperator.PINColumn]));
+                }
+                set {
+                    this[this.tableOperator.PINColumn] = value;
                 }
             }
             
@@ -3200,51 +3226,53 @@ namespace QWS_Local.dsAdminTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Operator";
             tableMapping.ColumnMappings.Add("OperatorID", "OperatorID");
-            tableMapping.ColumnMappings.Add("Username", "Username");
             tableMapping.ColumnMappings.Add("Domain", "Domain");
             tableMapping.ColumnMappings.Add("Generic", "Generic");
             tableMapping.ColumnMappings.Add("Active", "Active");
-            tableMapping.ColumnMappings.Add("Password", "Password");
+            tableMapping.ColumnMappings.Add("FirstName", "FirstName");
+            tableMapping.ColumnMappings.Add("LastName", "LastName");
+            tableMapping.ColumnMappings.Add("PIN", "PIN");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Operator] WHERE (([OperatorID] = @Original_OperatorID) AND ([Usernam" +
-                "e] = @Original_Username) AND ([Domain] = @Original_Domain) AND ([Generic] = @Ori" +
-                "ginal_Generic) AND ([Active] = @Original_Active) AND ([Password] = @Original_Pas" +
-                "sword))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Operator] WHERE (([OperatorID] = @Original_OperatorID) AND ([FirstName] = @Original_FirstName) AND ([LastName] = @Original_LastName) AND ([Domain] = @Original_Domain) AND ([Generic] = @Original_Generic) AND ([Active] = @Original_Active) AND ([PIN] = @Original_PIN))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OperatorID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OperatorID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Domain", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Domain", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Generic", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Generic", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Active", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PIN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PIN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Operator] ([Username], [Domain], [Generic], [Active], [Password]) VALUES (@Username, @Domain, @Generic, @Active, @Password);
-SELECT OperatorID, Username, Domain, Generic, Active, Password FROM Operator AS t0 WHERE (OperatorID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Operator] ([FirstName], [LastName], [Domain], [Generic], [Active], [PIN]) VALUES (@FirstName, @LastName, @Domain, @Generic, @Active, @PIN);
+SELECT OperatorID, FirstName, LastName, Domain, Generic, Active, PIN FROM Operator AS t0 WHERE (OperatorID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Domain", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Domain", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Generic", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Generic", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Active", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PIN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Operator] SET [Username] = @Username, [Domain] = @Domain, [Generic] = @Generic, [Active] = @Active, [Password] = @Password WHERE (([OperatorID] = @Original_OperatorID) AND ([Username] = @Original_Username) AND ([Domain] = @Original_Domain) AND ([Generic] = @Original_Generic) AND ([Active] = @Original_Active) AND ([Password] = @Original_Password));
-SELECT OperatorID, Username, Domain, Generic, Active, Password FROM Operator AS t0 WHERE (OperatorID = @OperatorID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Operator] SET [FirstName] = @FirstName, [LastName] = @LastName, [Domain] = @Domain, [Generic] = @Generic, [Active] = @Active, [PIN] = @PIN WHERE (([OperatorID] = @Original_OperatorID) AND ([FirstName] = @Original_FirstName) AND ([LastName] = @Original_LastName) AND ([Domain] = @Original_Domain) AND ([Generic] = @Original_Generic) AND ([Active] = @Original_Active) AND ([PIN] = @Original_PIN));
+SELECT OperatorID, FirstName, LastName, Domain, Generic, Active, PIN FROM Operator AS t0 WHERE (OperatorID = @OperatorID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Domain", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Domain", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Generic", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Generic", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Active", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PIN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OperatorID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OperatorID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Domain", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Domain", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Generic", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Generic", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Active", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PIN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PIN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OperatorID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "OperatorID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -3261,15 +3289,15 @@ SELECT OperatorID, Username, Domain, Generic, Active, Password FROM Operator AS 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        OperatorID, Username, Domain, Generic, Active, Password\r\nFROM      " +
-                "      Operator AS t0";
+            this._commandCollection[0].CommandText = "SELECT        OperatorID, FirstName, LastName, Domain, Generic, Active, PIN\r\nFROM" +
+                "            Operator AS t0";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        OperatorID, Username, Domain, Generic, Active, Password\r\nFROM      " +
-                "      Operator AS t0\r\nwhere username like @UserName";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].CommandText = "dbo.OperatorGetByUsername";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3300,13 +3328,13 @@ SELECT OperatorID, Username, Domain, Generic, Active, Password FROM Operator AS 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(dsAdmin.OperatorDataTable dataTable, string UserName) {
+        public virtual int FillBy(dsAdmin.OperatorDataTable dataTable, string Username) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((UserName == null)) {
-                throw new global::System.ArgumentNullException("UserName");
+            if ((Username == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(UserName));
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Username));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3319,13 +3347,13 @@ SELECT OperatorID, Username, Domain, Generic, Active, Password FROM Operator AS 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual dsAdmin.OperatorDataTable GetDataBy(string UserName) {
+        public virtual dsAdmin.OperatorDataTable GetDataBy(string Username) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((UserName == null)) {
-                throw new global::System.ArgumentNullException("UserName");
+            if ((Username == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(UserName));
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Username));
             }
             dsAdmin.OperatorDataTable dataTable = new dsAdmin.OperatorDataTable();
             this.Adapter.Fill(dataTable);
@@ -3365,28 +3393,29 @@ SELECT OperatorID, Username, Domain, Generic, Active, Password FROM Operator AS 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_OperatorID, string Original_Username, string Original_Domain, bool Original_Generic, bool Original_Active, string Original_Password) {
+        public virtual int Delete(int Original_OperatorID, string Original_FirstName, string Original_LastName, string Original_Domain, bool Original_Generic, bool Original_Active, int Original_PIN) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_OperatorID));
-            if ((Original_Username == null)) {
-                throw new global::System.ArgumentNullException("Original_Username");
+            if ((Original_FirstName == null)) {
+                throw new global::System.ArgumentNullException("Original_FirstName");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Username));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_FirstName));
+            }
+            if ((Original_LastName == null)) {
+                throw new global::System.ArgumentNullException("Original_LastName");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_LastName));
             }
             if ((Original_Domain == null)) {
                 throw new global::System.ArgumentNullException("Original_Domain");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Domain));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Domain));
             }
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((bool)(Original_Generic));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((bool)(Original_Active));
-            if ((Original_Password == null)) {
-                throw new global::System.ArgumentNullException("Original_Password");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Password));
-            }
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((bool)(Original_Generic));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((bool)(Original_Active));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_PIN));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3407,27 +3436,28 @@ SELECT OperatorID, Username, Domain, Generic, Active, Password FROM Operator AS 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Username, string Domain, bool Generic, bool Active, string Password) {
-            if ((Username == null)) {
-                throw new global::System.ArgumentNullException("Username");
+        public virtual int Insert(string FirstName, string LastName, string Domain, bool Generic, bool Active, int PIN) {
+            if ((FirstName == null)) {
+                throw new global::System.ArgumentNullException("FirstName");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Username));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(FirstName));
+            }
+            if ((LastName == null)) {
+                throw new global::System.ArgumentNullException("LastName");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(LastName));
             }
             if ((Domain == null)) {
                 throw new global::System.ArgumentNullException("Domain");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Domain));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Domain));
             }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((bool)(Generic));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((bool)(Active));
-            if ((Password == null)) {
-                throw new global::System.ArgumentNullException("Password");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Password));
-            }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((bool)(Generic));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((bool)(Active));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(PIN));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3448,49 +3478,51 @@ SELECT OperatorID, Username, Domain, Generic, Active, Password FROM Operator AS 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Username, string Domain, bool Generic, bool Active, string Password, int Original_OperatorID, string Original_Username, string Original_Domain, bool Original_Generic, bool Original_Active, string Original_Password, int OperatorID) {
-            if ((Username == null)) {
-                throw new global::System.ArgumentNullException("Username");
+        public virtual int Update(string FirstName, string LastName, string Domain, bool Generic, bool Active, int PIN, int Original_OperatorID, string Original_FirstName, string Original_LastName, string Original_Domain, bool Original_Generic, bool Original_Active, int Original_PIN, int OperatorID) {
+            if ((FirstName == null)) {
+                throw new global::System.ArgumentNullException("FirstName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Username));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(FirstName));
+            }
+            if ((LastName == null)) {
+                throw new global::System.ArgumentNullException("LastName");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(LastName));
             }
             if ((Domain == null)) {
                 throw new global::System.ArgumentNullException("Domain");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Domain));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Domain));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((bool)(Generic));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((bool)(Active));
-            if ((Password == null)) {
-                throw new global::System.ArgumentNullException("Password");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Password));
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_OperatorID));
-            if ((Original_Username == null)) {
-                throw new global::System.ArgumentNullException("Original_Username");
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((bool)(Generic));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((bool)(Active));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(PIN));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_OperatorID));
+            if ((Original_FirstName == null)) {
+                throw new global::System.ArgumentNullException("Original_FirstName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Username));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_FirstName));
+            }
+            if ((Original_LastName == null)) {
+                throw new global::System.ArgumentNullException("Original_LastName");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_LastName));
             }
             if ((Original_Domain == null)) {
                 throw new global::System.ArgumentNullException("Original_Domain");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Domain));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Domain));
             }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((bool)(Original_Generic));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((bool)(Original_Active));
-            if ((Original_Password == null)) {
-                throw new global::System.ArgumentNullException("Original_Password");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Password));
-            }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(OperatorID));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((bool)(Original_Generic));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((bool)(Original_Active));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_PIN));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(OperatorID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3511,8 +3543,8 @@ SELECT OperatorID, Username, Domain, Generic, Active, Password FROM Operator AS 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Username, string Domain, bool Generic, bool Active, string Password, int Original_OperatorID, string Original_Username, string Original_Domain, bool Original_Generic, bool Original_Active, string Original_Password) {
-            return this.Update(Username, Domain, Generic, Active, Password, Original_OperatorID, Original_Username, Original_Domain, Original_Generic, Original_Active, Original_Password, Original_OperatorID);
+        public virtual int Update(string FirstName, string LastName, string Domain, bool Generic, bool Active, int PIN, int Original_OperatorID, string Original_FirstName, string Original_LastName, string Original_Domain, bool Original_Generic, bool Original_Active, int Original_PIN) {
+            return this.Update(FirstName, LastName, Domain, Generic, Active, PIN, Original_OperatorID, Original_FirstName, Original_LastName, Original_Domain, Original_Generic, Original_Active, Original_PIN, Original_OperatorID);
         }
     }
     

@@ -7,18 +7,18 @@
 <DiagramLayout xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ex:showrelationlabel="False" ViewPortX="-10" ViewPortY="-10" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:OperatorRolesDetailed" ZOrder="10" X="70" Y="70" Height="172" Width="277" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
-    <Shape ID="DesignTable:Operator" ZOrder="9" X="444" Y="76" Height="210" Width="208" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
-    <Shape ID="DesignTable:Role" ZOrder="8" X="117" Y="400" Height="134" Width="170" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
-    <Shape ID="DesignTable:Functions" ZOrder="1" X="484" Y="388" Height="134" Width="200" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
-    <Shape ID="DesignTable:OperatorRoles" ZOrder="7" X="147" Y="637" Height="115" Width="228" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
-    <Shape ID="DesignTable:RoleFunctions" ZOrder="4" X="627" Y="659" Height="115" Width="226" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
+    <Shape ID="DesignTable:Operator" ZOrder="1" X="444" Y="76" Height="229" Width="206" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
+    <Shape ID="DesignTable:Role" ZOrder="9" X="117" Y="400" Height="134" Width="170" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
+    <Shape ID="DesignTable:Functions" ZOrder="2" X="484" Y="388" Height="134" Width="200" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
+    <Shape ID="DesignTable:OperatorRoles" ZOrder="8" X="147" Y="637" Height="115" Width="228" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
+    <Shape ID="DesignTable:RoleFunctions" ZOrder="5" X="627" Y="659" Height="115" Width="226" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:FK_OperatorRoles_Operator" ZOrder="6" LineWidth="11">
+    <Connector ID="DesignRelation:FK_OperatorRoles_Operator" ZOrder="7" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>461</X>
-          <Y>286</Y>
+          <Y>305</Y>
         </Point>
         <Point>
           <X>461</X>
@@ -30,7 +30,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_OperatorRoles_Role" ZOrder="5" LineWidth="11">
+    <Connector ID="DesignRelation:FK_OperatorRoles_Role" ZOrder="6" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>217</X>
@@ -42,7 +42,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_RoleFunctions_Function" ZOrder="3" LineWidth="11">
+    <Connector ID="DesignRelation:FK_RoleFunctions_Function" ZOrder="4" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>655</X>
@@ -54,7 +54,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_RoleFunctions_Role" ZOrder="2" LineWidth="11">
+    <Connector ID="DesignRelation:FK_RoleFunctions_Role" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>270</X>

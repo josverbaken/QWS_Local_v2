@@ -141,6 +141,10 @@ namespace QWS_Local
                 msg += "\r\n\r\nUsername: " + DomainName + "\\" + Username;
                 msg += "\r\n\r\nComputer: " + MachineName;
                 textBoxDescription.Text += msg;
+                if (Username.Contains(".") == false) 
+                {
+                    Username += ".";
+                }
                 int iCount = this.taOperator.FillBy(this.dsAdmin.Operator,Username);
                 if ( iCount ==1)
                 {

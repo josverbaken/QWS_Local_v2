@@ -944,6 +944,7 @@ namespace QWS_Local
             // 
             // WBO
             // 
+            this.WBO.DataPropertyName = "FeeCode";
             this.WBO.HeaderText = "WBO";
             this.WBO.Name = "WBO";
             this.WBO.ReadOnly = true;
