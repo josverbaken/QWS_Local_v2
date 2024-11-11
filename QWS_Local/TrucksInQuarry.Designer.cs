@@ -104,6 +104,7 @@ namespace QWS_Local
             this.queueStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.releaseDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.regoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TruckConfig = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.driverDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -149,7 +150,7 @@ namespace QWS_Local
             entryDTTMLabel.AutoSize = true;
             entryDTTMLabel.Location = new System.Drawing.Point(708, 17);
             entryDTTMLabel.Name = "entryDTTMLabel";
-            entryDTTMLabel.Size = new System.Drawing.Size(116, 24);
+            entryDTTMLabel.Size = new System.Drawing.Size(97, 20);
             entryDTTMLabel.TabIndex = 2;
             entryDTTMLabel.Text = "Entry DTTM:";
             // 
@@ -158,7 +159,7 @@ namespace QWS_Local
             sAPOrderLabel.AutoSize = true;
             sAPOrderLabel.Location = new System.Drawing.Point(59, 113);
             sAPOrderLabel.Name = "sAPOrderLabel";
-            sAPOrderLabel.Size = new System.Drawing.Size(101, 24);
+            sAPOrderLabel.Size = new System.Drawing.Size(85, 20);
             sAPOrderLabel.TabIndex = 10;
             sAPOrderLabel.Text = "SAPOrder:";
             // 
@@ -167,7 +168,7 @@ namespace QWS_Local
             roadAccessLabel.AutoSize = true;
             roadAccessLabel.Location = new System.Drawing.Point(439, 209);
             roadAccessLabel.Name = "roadAccessLabel";
-            roadAccessLabel.Size = new System.Drawing.Size(127, 24);
+            roadAccessLabel.Size = new System.Drawing.Size(108, 20);
             roadAccessLabel.TabIndex = 32;
             roadAccessLabel.Text = "Road Access:";
             // 
@@ -176,7 +177,7 @@ namespace QWS_Local
             deliveryAddressLabel.AutoSize = true;
             deliveryAddressLabel.Location = new System.Drawing.Point(13, 145);
             deliveryAddressLabel.Name = "deliveryAddressLabel";
-            deliveryAddressLabel.Size = new System.Drawing.Size(157, 24);
+            deliveryAddressLabel.Size = new System.Drawing.Size(131, 20);
             deliveryAddressLabel.TabIndex = 40;
             deliveryAddressLabel.Text = "Delivery Address:";
             // 
@@ -185,7 +186,7 @@ namespace QWS_Local
             stockpileLotNoLabel.AutoSize = true;
             stockpileLotNoLabel.Location = new System.Drawing.Point(698, 235);
             stockpileLotNoLabel.Name = "stockpileLotNoLabel";
-            stockpileLotNoLabel.Size = new System.Drawing.Size(91, 24);
+            stockpileLotNoLabel.Size = new System.Drawing.Size(78, 20);
             stockpileLotNoLabel.TabIndex = 42;
             stockpileLotNoLabel.Text = "Stockpile:";
             // 
@@ -194,7 +195,7 @@ namespace QWS_Local
             custONLabel.AutoSize = true;
             custONLabel.Location = new System.Drawing.Point(391, 116);
             custONLabel.Name = "custONLabel";
-            custONLabel.Size = new System.Drawing.Size(86, 24);
+            custONLabel.Size = new System.Drawing.Size(73, 20);
             custONLabel.TabIndex = 54;
             custONLabel.Text = "Cust ON:";
             // 
@@ -203,7 +204,7 @@ namespace QWS_Local
             regoLabel.AutoSize = true;
             regoLabel.Location = new System.Drawing.Point(92, 17);
             regoLabel.Name = "regoLabel";
-            regoLabel.Size = new System.Drawing.Size(61, 24);
+            regoLabel.Size = new System.Drawing.Size(52, 20);
             regoLabel.TabIndex = 55;
             regoLabel.Text = "Rego:";
             // 
@@ -212,7 +213,7 @@ namespace QWS_Local
             driverLabel.AutoSize = true;
             driverLabel.Location = new System.Drawing.Point(90, 81);
             driverLabel.Name = "driverLabel";
-            driverLabel.Size = new System.Drawing.Size(64, 24);
+            driverLabel.Size = new System.Drawing.Size(54, 20);
             driverLabel.TabIndex = 56;
             driverLabel.Text = "Driver:";
             // 
@@ -221,7 +222,7 @@ namespace QWS_Local
             truckOwnerLabel.AutoSize = true;
             truckOwnerLabel.Location = new System.Drawing.Point(42, 49);
             truckOwnerLabel.Name = "truckOwnerLabel";
-            truckOwnerLabel.Size = new System.Drawing.Size(125, 24);
+            truckOwnerLabel.Size = new System.Drawing.Size(102, 20);
             truckOwnerLabel.TabIndex = 59;
             truckOwnerLabel.Text = "Truck Owner:";
             // 
@@ -230,7 +231,7 @@ namespace QWS_Local
             cartageCodeLabel.AutoSize = true;
             cartageCodeLabel.Location = new System.Drawing.Point(32, 209);
             cartageCodeLabel.Name = "cartageCodeLabel";
-            cartageCodeLabel.Size = new System.Drawing.Size(131, 24);
+            cartageCodeLabel.Size = new System.Drawing.Size(112, 20);
             cartageCodeLabel.TabIndex = 62;
             cartageCodeLabel.Text = "Cartage Code:";
             // 
@@ -239,7 +240,7 @@ namespace QWS_Local
             payloadSplitLabel.AutoSize = true;
             payloadSplitLabel.Location = new System.Drawing.Point(764, 148);
             payloadSplitLabel.Name = "payloadSplitLabel";
-            payloadSplitLabel.Size = new System.Drawing.Size(122, 24);
+            payloadSplitLabel.Size = new System.Drawing.Size(104, 20);
             payloadSplitLabel.TabIndex = 64;
             payloadSplitLabel.Text = "Payload Split:";
             // 
@@ -248,7 +249,7 @@ namespace QWS_Local
             tareLabel1.AutoSize = true;
             tareLabel1.Location = new System.Drawing.Point(893, 81);
             tareLabel1.Name = "tareLabel1";
-            tareLabel1.Size = new System.Drawing.Size(54, 24);
+            tareLabel1.Size = new System.Drawing.Size(45, 20);
             tareLabel1.TabIndex = 65;
             tareLabel1.Text = "Tare:";
             // 
@@ -257,7 +258,7 @@ namespace QWS_Local
             tareTkLabel1.AutoSize = true;
             tareTkLabel1.Location = new System.Drawing.Point(872, 113);
             tareTkLabel1.Name = "tareTkLabel1";
-            tareTkLabel1.Size = new System.Drawing.Size(80, 24);
+            tareTkLabel1.Size = new System.Drawing.Size(66, 20);
             tareTkLabel1.TabIndex = 66;
             tareTkLabel1.Text = "Tare Tk:";
             // 
@@ -266,7 +267,7 @@ namespace QWS_Local
             gCMLabel.AutoSize = true;
             gCMLabel.Location = new System.Drawing.Point(712, 81);
             gCMLabel.Name = "gCMLabel";
-            gCMLabel.Size = new System.Drawing.Size(58, 24);
+            gCMLabel.Size = new System.Drawing.Size(50, 20);
             gCMLabel.TabIndex = 67;
             gCMLabel.Text = "GCM:";
             // 
@@ -275,7 +276,7 @@ namespace QWS_Local
             gVMTruckLabel.AutoSize = true;
             gVMTruckLabel.Location = new System.Drawing.Point(671, 113);
             gVMTruckLabel.Name = "gVMTruckLabel";
-            gVMTruckLabel.Size = new System.Drawing.Size(106, 24);
+            gVMTruckLabel.Size = new System.Drawing.Size(89, 20);
             gVMTruckLabel.TabIndex = 68;
             gVMTruckLabel.Text = "GVMTruck:";
             // 
@@ -284,7 +285,7 @@ namespace QWS_Local
             materialLabel.AutoSize = true;
             materialLabel.Location = new System.Drawing.Point(75, 177);
             materialLabel.Name = "materialLabel";
-            materialLabel.Size = new System.Drawing.Size(80, 24);
+            materialLabel.Size = new System.Drawing.Size(69, 20);
             materialLabel.TabIndex = 69;
             materialLabel.Text = "Material:";
             // 
@@ -293,7 +294,7 @@ namespace QWS_Local
             schemeCodeLabel.AutoSize = true;
             schemeCodeLabel.Location = new System.Drawing.Point(433, 241);
             schemeCodeLabel.Name = "schemeCodeLabel";
-            schemeCodeLabel.Size = new System.Drawing.Size(137, 24);
+            schemeCodeLabel.Size = new System.Drawing.Size(114, 20);
             schemeCodeLabel.TabIndex = 58;
             schemeCodeLabel.Text = "Scheme Code:";
             // 
@@ -302,7 +303,7 @@ namespace QWS_Local
             label1.AutoSize = true;
             label1.Location = new System.Drawing.Point(882, 46);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(64, 24);
+            label1.Size = new System.Drawing.Size(56, 20);
             label1.TabIndex = 75;
             label1.Text = "Gross:";
             // 
@@ -331,7 +332,7 @@ namespace QWS_Local
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer2.Size = new System.Drawing.Size(1200, 692);
-            this.splitContainer2.SplitterDistance = 347;
+            this.splitContainer2.SplitterDistance = 293;
             this.splitContainer2.TabIndex = 0;
             // 
             // btnChange
@@ -339,7 +340,7 @@ namespace QWS_Local
             this.btnChange.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChange.Location = new System.Drawing.Point(147, 287);
+            this.btnChange.Location = new System.Drawing.Point(191, 225);
             this.btnChange.Margin = new System.Windows.Forms.Padding(4);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(166, 49);
@@ -352,7 +353,7 @@ namespace QWS_Local
             this.button5.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(919, 287);
+            this.button5.Location = new System.Drawing.Point(963, 225);
             this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(86, 49);
@@ -366,7 +367,7 @@ namespace QWS_Local
             this.btnTINRemove.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnTINRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTINRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTINRemove.Location = new System.Drawing.Point(675, 287);
+            this.btnTINRemove.Location = new System.Drawing.Point(719, 225);
             this.btnTINRemove.Margin = new System.Windows.Forms.Padding(4);
             this.btnTINRemove.Name = "btnTINRemove";
             this.btnTINRemove.Size = new System.Drawing.Size(114, 49);
@@ -380,7 +381,7 @@ namespace QWS_Local
             this.btnWeigh.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnWeigh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWeigh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWeigh.Location = new System.Drawing.Point(507, 287);
+            this.btnWeigh.Location = new System.Drawing.Point(551, 225);
             this.btnWeigh.Margin = new System.Windows.Forms.Padding(4);
             this.btnWeigh.Name = "btnWeigh";
             this.btnWeigh.Size = new System.Drawing.Size(160, 49);
@@ -394,10 +395,10 @@ namespace QWS_Local
             this.btnAddTIQ.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnAddTIQ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddTIQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddTIQ.Location = new System.Drawing.Point(28, 287);
+            this.btnAddTIQ.Location = new System.Drawing.Point(13, 225);
             this.btnAddTIQ.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddTIQ.Name = "btnAddTIQ";
-            this.btnAddTIQ.Size = new System.Drawing.Size(111, 49);
+            this.btnAddTIQ.Size = new System.Drawing.Size(170, 49);
             this.btnAddTIQ.TabIndex = 50;
             this.btnAddTIQ.Text = "Add";
             this.btnAddTIQ.UseVisualStyleBackColor = false;
@@ -408,7 +409,7 @@ namespace QWS_Local
             this.btnTINReleaseHold.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnTINReleaseHold.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTINReleaseHold.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTINReleaseHold.Location = new System.Drawing.Point(321, 287);
+            this.btnTINReleaseHold.Location = new System.Drawing.Point(365, 225);
             this.btnTINReleaseHold.Margin = new System.Windows.Forms.Padding(4);
             this.btnTINReleaseHold.Name = "btnTINReleaseHold";
             this.btnTINReleaseHold.Size = new System.Drawing.Size(178, 49);
@@ -440,7 +441,7 @@ namespace QWS_Local
             // 
             this.btnTINRefresh.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnTINRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTINRefresh.Location = new System.Drawing.Point(797, 287);
+            this.btnTINRefresh.Location = new System.Drawing.Point(841, 225);
             this.btnTINRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnTINRefresh.Name = "btnTINRefresh";
             this.btnTINRefresh.Size = new System.Drawing.Size(114, 49);
@@ -454,20 +455,20 @@ namespace QWS_Local
             this.tabControl1.Controls.Add(this.tpList);
             this.tabControl1.Controls.Add(this.tpDetails);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1200, 341);
+            this.tabControl1.Size = new System.Drawing.Size(1200, 395);
             this.tabControl1.TabIndex = 1;
             // 
             // tpList
             // 
             this.tpList.Controls.Add(this.dataGridView1);
-            this.tpList.Location = new System.Drawing.Point(4, 33);
+            this.tpList.Location = new System.Drawing.Point(4, 29);
             this.tpList.Name = "tpList";
             this.tpList.Padding = new System.Windows.Forms.Padding(3);
-            this.tpList.Size = new System.Drawing.Size(1192, 304);
+            this.tpList.Size = new System.Drawing.Size(1192, 362);
             this.tpList.TabIndex = 0;
             this.tpList.Text = "List";
             this.tpList.UseVisualStyleBackColor = true;
@@ -482,6 +483,7 @@ namespace QWS_Local
             this.queueStatusDataGridViewTextBoxColumn,
             this.releaseDTTMDataGridViewTextBoxColumn,
             this.regoDataGridViewTextBoxColumn,
+            this.TruckConfig,
             this.driverDataGridViewTextBoxColumn,
             this.Customer,
             this.materialDescDataGridViewTextBoxColumn,
@@ -493,7 +495,7 @@ namespace QWS_Local
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1186, 298);
+            this.dataGridView1.Size = new System.Drawing.Size(1186, 356);
             this.dataGridView1.TabIndex = 0;
             // 
             // bsTIQ2
@@ -554,10 +556,10 @@ namespace QWS_Local
             this.tpDetails.Controls.Add(this.sAPOrderTextBox);
             this.tpDetails.Controls.Add(this.queueStatusTextBox);
             this.tpDetails.Controls.Add(entryDTTMLabel);
-            this.tpDetails.Location = new System.Drawing.Point(4, 33);
+            this.tpDetails.Location = new System.Drawing.Point(4, 29);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(1192, 304);
+            this.tpDetails.Size = new System.Drawing.Size(1192, 308);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -590,7 +592,7 @@ namespace QWS_Local
             this.textBox1.Location = new System.Drawing.Point(944, 43);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 29);
+            this.textBox1.Size = new System.Drawing.Size(100, 26);
             this.textBox1.TabIndex = 74;
             // 
             // textBox4
@@ -599,7 +601,7 @@ namespace QWS_Local
             this.textBox4.Location = new System.Drawing.Point(813, 14);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(178, 29);
+            this.textBox4.Size = new System.Drawing.Size(178, 26);
             this.textBox4.TabIndex = 73;
             // 
             // materialDescTextBox
@@ -608,7 +610,7 @@ namespace QWS_Local
             this.materialDescTextBox.Location = new System.Drawing.Point(150, 174);
             this.materialDescTextBox.Name = "materialDescTextBox";
             this.materialDescTextBox.ReadOnly = true;
-            this.materialDescTextBox.Size = new System.Drawing.Size(392, 29);
+            this.materialDescTextBox.Size = new System.Drawing.Size(392, 26);
             this.materialDescTextBox.TabIndex = 71;
             // 
             // materialTextBox
@@ -617,7 +619,7 @@ namespace QWS_Local
             this.materialTextBox.Location = new System.Drawing.Point(553, 174);
             this.materialTextBox.Name = "materialTextBox";
             this.materialTextBox.ReadOnly = true;
-            this.materialTextBox.Size = new System.Drawing.Size(100, 29);
+            this.materialTextBox.Size = new System.Drawing.Size(100, 26);
             this.materialTextBox.TabIndex = 70;
             // 
             // gVMTruckTextBox
@@ -626,7 +628,7 @@ namespace QWS_Local
             this.gVMTruckTextBox.Location = new System.Drawing.Point(768, 110);
             this.gVMTruckTextBox.Name = "gVMTruckTextBox";
             this.gVMTruckTextBox.ReadOnly = true;
-            this.gVMTruckTextBox.Size = new System.Drawing.Size(100, 29);
+            this.gVMTruckTextBox.Size = new System.Drawing.Size(100, 26);
             this.gVMTruckTextBox.TabIndex = 69;
             // 
             // gCMTextBox
@@ -635,7 +637,7 @@ namespace QWS_Local
             this.gCMTextBox.Location = new System.Drawing.Point(768, 78);
             this.gCMTextBox.Name = "gCMTextBox";
             this.gCMTextBox.ReadOnly = true;
-            this.gCMTextBox.Size = new System.Drawing.Size(100, 29);
+            this.gCMTextBox.Size = new System.Drawing.Size(100, 26);
             this.gCMTextBox.TabIndex = 68;
             // 
             // tareTkTextBox1
@@ -644,7 +646,7 @@ namespace QWS_Local
             this.tareTkTextBox1.Location = new System.Drawing.Point(944, 110);
             this.tareTkTextBox1.Name = "tareTkTextBox1";
             this.tareTkTextBox1.ReadOnly = true;
-            this.tareTkTextBox1.Size = new System.Drawing.Size(100, 29);
+            this.tareTkTextBox1.Size = new System.Drawing.Size(100, 26);
             this.tareTkTextBox1.TabIndex = 67;
             // 
             // tareTextBox1
@@ -653,7 +655,7 @@ namespace QWS_Local
             this.tareTextBox1.Location = new System.Drawing.Point(944, 78);
             this.tareTextBox1.Name = "tareTextBox1";
             this.tareTextBox1.ReadOnly = true;
-            this.tareTextBox1.Size = new System.Drawing.Size(100, 29);
+            this.tareTextBox1.Size = new System.Drawing.Size(100, 26);
             this.tareTextBox1.TabIndex = 66;
             // 
             // payloadSplitTextBox
@@ -662,7 +664,7 @@ namespace QWS_Local
             this.payloadSplitTextBox.Location = new System.Drawing.Point(876, 142);
             this.payloadSplitTextBox.Name = "payloadSplitTextBox";
             this.payloadSplitTextBox.ReadOnly = true;
-            this.payloadSplitTextBox.Size = new System.Drawing.Size(168, 29);
+            this.payloadSplitTextBox.Size = new System.Drawing.Size(168, 26);
             this.payloadSplitTextBox.TabIndex = 65;
             // 
             // cartageCodeTextBox
@@ -671,7 +673,7 @@ namespace QWS_Local
             this.cartageCodeTextBox.Location = new System.Drawing.Point(150, 206);
             this.cartageCodeTextBox.Name = "cartageCodeTextBox";
             this.cartageCodeTextBox.ReadOnly = true;
-            this.cartageCodeTextBox.Size = new System.Drawing.Size(100, 29);
+            this.cartageCodeTextBox.Size = new System.Drawing.Size(100, 26);
             this.cartageCodeTextBox.TabIndex = 63;
             // 
             // truckConfigTextBox
@@ -680,7 +682,7 @@ namespace QWS_Local
             this.truckConfigTextBox.Location = new System.Drawing.Point(515, 14);
             this.truckConfigTextBox.Name = "truckConfigTextBox";
             this.truckConfigTextBox.ReadOnly = true;
-            this.truckConfigTextBox.Size = new System.Drawing.Size(68, 29);
+            this.truckConfigTextBox.Size = new System.Drawing.Size(68, 26);
             this.truckConfigTextBox.TabIndex = 62;
             // 
             // truckOwnerCodeTextBox
@@ -689,7 +691,7 @@ namespace QWS_Local
             this.truckOwnerCodeTextBox.Location = new System.Drawing.Point(553, 46);
             this.truckOwnerCodeTextBox.Name = "truckOwnerCodeTextBox";
             this.truckOwnerCodeTextBox.ReadOnly = true;
-            this.truckOwnerCodeTextBox.Size = new System.Drawing.Size(100, 29);
+            this.truckOwnerCodeTextBox.Size = new System.Drawing.Size(100, 26);
             this.truckOwnerCodeTextBox.TabIndex = 61;
             // 
             // truckOwnerTextBox
@@ -698,7 +700,7 @@ namespace QWS_Local
             this.truckOwnerTextBox.Location = new System.Drawing.Point(150, 46);
             this.truckOwnerTextBox.Name = "truckOwnerTextBox";
             this.truckOwnerTextBox.ReadOnly = true;
-            this.truckOwnerTextBox.Size = new System.Drawing.Size(392, 29);
+            this.truckOwnerTextBox.Size = new System.Drawing.Size(392, 26);
             this.truckOwnerTextBox.TabIndex = 60;
             // 
             // schemeCodeTextBox
@@ -707,7 +709,7 @@ namespace QWS_Local
             this.schemeCodeTextBox.Location = new System.Drawing.Point(553, 238);
             this.schemeCodeTextBox.Name = "schemeCodeTextBox";
             this.schemeCodeTextBox.ReadOnly = true;
-            this.schemeCodeTextBox.Size = new System.Drawing.Size(100, 29);
+            this.schemeCodeTextBox.Size = new System.Drawing.Size(100, 26);
             this.schemeCodeTextBox.TabIndex = 59;
             // 
             // axleConfigurationTextBox
@@ -716,7 +718,7 @@ namespace QWS_Local
             this.axleConfigurationTextBox.Location = new System.Drawing.Point(454, 14);
             this.axleConfigurationTextBox.Name = "axleConfigurationTextBox";
             this.axleConfigurationTextBox.ReadOnly = true;
-            this.axleConfigurationTextBox.Size = new System.Drawing.Size(55, 29);
+            this.axleConfigurationTextBox.Size = new System.Drawing.Size(55, 26);
             this.axleConfigurationTextBox.TabIndex = 58;
             // 
             // driverTextBox
@@ -725,7 +727,7 @@ namespace QWS_Local
             this.driverTextBox.Location = new System.Drawing.Point(150, 78);
             this.driverTextBox.Name = "driverTextBox";
             this.driverTextBox.ReadOnly = true;
-            this.driverTextBox.Size = new System.Drawing.Size(224, 29);
+            this.driverTextBox.Size = new System.Drawing.Size(224, 26);
             this.driverTextBox.TabIndex = 57;
             // 
             // regoTextBox
@@ -734,7 +736,7 @@ namespace QWS_Local
             this.regoTextBox.Location = new System.Drawing.Point(150, 14);
             this.regoTextBox.Name = "regoTextBox";
             this.regoTextBox.ReadOnly = true;
-            this.regoTextBox.Size = new System.Drawing.Size(100, 29);
+            this.regoTextBox.Size = new System.Drawing.Size(100, 26);
             this.regoTextBox.TabIndex = 56;
             // 
             // custONTextBox
@@ -743,7 +745,7 @@ namespace QWS_Local
             this.custONTextBox.Location = new System.Drawing.Point(480, 113);
             this.custONTextBox.Name = "custONTextBox";
             this.custONTextBox.ReadOnly = true;
-            this.custONTextBox.Size = new System.Drawing.Size(173, 29);
+            this.custONTextBox.Size = new System.Drawing.Size(173, 26);
             this.custONTextBox.TabIndex = 55;
             // 
             // stockpileLotNoTextBox
@@ -752,7 +754,7 @@ namespace QWS_Local
             this.stockpileLotNoTextBox.Location = new System.Drawing.Point(790, 232);
             this.stockpileLotNoTextBox.Name = "stockpileLotNoTextBox";
             this.stockpileLotNoTextBox.ReadOnly = true;
-            this.stockpileLotNoTextBox.Size = new System.Drawing.Size(78, 29);
+            this.stockpileLotNoTextBox.Size = new System.Drawing.Size(78, 26);
             this.stockpileLotNoTextBox.TabIndex = 43;
             // 
             // deliveryAddressTextBox
@@ -761,7 +763,7 @@ namespace QWS_Local
             this.deliveryAddressTextBox.Location = new System.Drawing.Point(150, 142);
             this.deliveryAddressTextBox.Name = "deliveryAddressTextBox";
             this.deliveryAddressTextBox.ReadOnly = true;
-            this.deliveryAddressTextBox.Size = new System.Drawing.Size(503, 29);
+            this.deliveryAddressTextBox.Size = new System.Drawing.Size(503, 26);
             this.deliveryAddressTextBox.TabIndex = 41;
             // 
             // feeCodeTextBox
@@ -770,7 +772,7 @@ namespace QWS_Local
             this.feeCodeTextBox.Location = new System.Drawing.Point(594, 14);
             this.feeCodeTextBox.Name = "feeCodeTextBox";
             this.feeCodeTextBox.ReadOnly = true;
-            this.feeCodeTextBox.Size = new System.Drawing.Size(59, 29);
+            this.feeCodeTextBox.Size = new System.Drawing.Size(59, 26);
             this.feeCodeTextBox.TabIndex = 35;
             // 
             // roadAccessTextBox
@@ -779,7 +781,7 @@ namespace QWS_Local
             this.roadAccessTextBox.Location = new System.Drawing.Point(553, 206);
             this.roadAccessTextBox.Name = "roadAccessTextBox";
             this.roadAccessTextBox.ReadOnly = true;
-            this.roadAccessTextBox.Size = new System.Drawing.Size(100, 29);
+            this.roadAccessTextBox.Size = new System.Drawing.Size(100, 26);
             this.roadAccessTextBox.TabIndex = 33;
             // 
             // sAPOrderTextBox
@@ -788,7 +790,7 @@ namespace QWS_Local
             this.sAPOrderTextBox.Location = new System.Drawing.Point(150, 110);
             this.sAPOrderTextBox.Name = "sAPOrderTextBox";
             this.sAPOrderTextBox.ReadOnly = true;
-            this.sAPOrderTextBox.Size = new System.Drawing.Size(100, 29);
+            this.sAPOrderTextBox.Size = new System.Drawing.Size(100, 26);
             this.sAPOrderTextBox.TabIndex = 11;
             // 
             // queueStatusTextBox
@@ -885,6 +887,14 @@ namespace QWS_Local
             this.regoDataGridViewTextBoxColumn.HeaderText = "Rego";
             this.regoDataGridViewTextBoxColumn.Name = "regoDataGridViewTextBoxColumn";
             this.regoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // TruckConfig
+            // 
+            this.TruckConfig.DataPropertyName = "TruckConfig";
+            this.TruckConfig.HeaderText = "Cfg";
+            this.TruckConfig.Name = "TruckConfig";
+            this.TruckConfig.ReadOnly = true;
+            this.TruckConfig.Width = 70;
             // 
             // driverDataGridViewTextBoxColumn
             // 
@@ -1016,6 +1026,7 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn queueStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn releaseDTTMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn regoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TruckConfig;
         private System.Windows.Forms.DataGridViewTextBoxColumn driverDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
         private System.Windows.Forms.DataGridViewTextBoxColumn materialDescDataGridViewTextBoxColumn;

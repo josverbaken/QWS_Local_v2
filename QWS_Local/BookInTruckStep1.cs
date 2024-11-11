@@ -19,6 +19,7 @@ namespace QWS_Local
         private static string CustCardCode;
         private static string ExBinCustomer;
         private static bool IsPrefCust = false;
+        private static bool DGVLoaded = false;
         private static string CallingMessage = "";
         private static int TIQID = 0;
 
@@ -100,6 +101,7 @@ namespace QWS_Local
         {
             try
             {
+                DGVLoaded = false;
                 btnHold.Enabled = false;
                 btnRetare.Enabled = false;
                 btnRetare.BackColor = SystemColors.Control;
@@ -116,6 +118,8 @@ namespace QWS_Local
                     else
                     {
                         UpdateOwnerGUI();
+                        dataGridView1.ClearSelection();
+                        DGVLoaded = true;
                     }
                 }
                 else
@@ -752,10 +756,22 @@ namespace QWS_Local
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            ProceedAfterRegoSelection("");
+        }
+
+        private void ProceedAfterRegoSelection(string myVehicleType)
+        {
             //check rego and axle conditions
             if (TIQID == 0)
             {
-                TIQID = NewTIQ(TIQType.EnterRego, 0, CurrentConfigTruck().VehicleType);
+                if (myVehicleType.Length == 0)
+                {
+                    TIQID = NewTIQ(TIQType.EnterRego, 0, CurrentConfigTruck().VehicleType);
+                }
+                else
+                {
+                    TIQID = NewTIQ(TIQType.EnterRego, 0, myVehicleType);
+                }
             }
             CheckConfigOK2Proceed();
         }
@@ -765,5 +781,36 @@ namespace QWS_Local
             GoToBookInExBin(TIQType.ImportedPickUp);
         }
 
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (DGVLoaded == true)
+            {
+                dsTruckConfig.ConfiguredTrucksRow myTruck = CurrentConfigTruck();
+                switch (myTruck.VehicleType)
+                {
+                    case "TT":
+                        //check if split load
+                        DialogResult drTT = MessageBox.Show("Do you want to process as split load?","2 Compartments", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                        if (drTT == DialogResult.Yes)
+                        {
+                            SplitLoadType frmSplitLoad = new SplitLoadType(myTruck.AxleConfiguration);
+                            DialogResult drSplit = frmSplitLoad.ShowDialog();
+                            if (drSplit == DialogResult.OK)
+                            {
+                                ProceedAfterRegoSelection(frmSplitLoad.strSplitLoadType);
+                            }
+                        }
+                        break;
+                    case "BD":
+                        // check if split load
+                        break;
+
+                    default:
+                        ProceedAfterRegoSelection("");
+                          break;
+                }
+                
+            }
+        }
     }
 }
