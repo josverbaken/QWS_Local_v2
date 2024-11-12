@@ -155,6 +155,7 @@ namespace QWS_Local
                 decimal myPayloadTr = 0.0M;
                 decimal PayloadLimit;
                 dsTruckConfig.ConfiguredTruckGVMRow myTruckConfigGVM = CurrentTruckGVM();
+                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 if (myTruckConfigGVM.GCM > myTruckConfigGVM.MaxGVM && myTruckConfigGVM.MaxGVM > 0)
                 {
                     PayloadLimit = myTruckConfigGVM.MaxGVM - myTruckConfigGVM.Tare;
@@ -166,26 +167,71 @@ namespace QWS_Local
 
                 myPayload = PayloadLimit;
                 nudPayload.Value = myPayload;
-                if (myTruckConfigGVM.Compartments > 1 && myTruckConfigGVM.AxleConfiguration.IndexOf("R") > 0)
-                    // TODO how to handle B-double
-                //if (CurrentTruckGVM().GCM != CurrentTruckGVM().GVMTruck)
+                switch (myTIQRow.TruckConfig)
                 {
-                    myPayloadTk = myTruckConfigGVM.GVMTruck - myTruckConfigGVM  .TareTk;
-                    myPayloadTr = myPayload - myPayloadTk;
-                    nudPayloadTk.Value = myPayloadTk;
-                    nudPayloadTk.Enabled = true;
-                    nudPayloadTr.Value = myPayloadTr;
-                    nudPayloadTr.Enabled = true;
-                    txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString() + " (" + myPayload.ToString() + ")";
-                    btnUpdatePayloadSplit.Enabled = true;
+                    case "TT":
+                        myPayloadTk = myTruckConfigGVM.GVMTruck - myTruckConfigGVM.TareTk;
+                        myPayloadTr = myPayload - myPayloadTk;
+                        nudPayloadTk.Value = myPayloadTk;
+                        nudPayloadTk.Enabled = true;
+                        nudPayloadTr.Value = myPayloadTr;
+                        nudPayloadTr.Enabled = true;
+                        txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString();
+                        //+ " (" + myPayload.ToString() + ")";
+                        btnUpdatePayloadSplit.Enabled = true;
+                        break;
+                    case "TKs":
+                        myPayloadTk = myTruckConfigGVM.GVMTruck - myTruckConfigGVM.TareTk;
+                        myPayloadTr = myPayload - myPayloadTk;
+                        nudPayloadTk.Value = myPayloadTk;
+                        nudPayloadTk.Enabled = true;
+                        nudPayloadTr.Value = myPayloadTr;
+                        nudPayloadTr.Enabled = false;
+                        txtPayloadSplit.Text = myPayloadTk.ToString();
+                        //+ " / " + myPayloadTr.ToString();
+                        //+ " (" + myPayload.ToString() + ")";
+                        btnUpdatePayloadSplit.Enabled = true;
+                        break;
+                    case "TRs":
+                        myPayloadTk = myTruckConfigGVM.GVMTruck - myTruckConfigGVM.TareTk;
+                        myPayloadTr = myPayload - myPayloadTk;
+                        nudPayloadTk.Value = myPayloadTk;
+                        nudPayloadTk.Enabled = false;
+                        nudPayloadTr.Value = myPayloadTr;
+                        nudPayloadTr.Enabled = true;
+                        txtPayloadSplit.Text = myPayloadTr.ToString();
+                        //txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString();
+                        //+ " (" + myPayload.ToString() + ")";
+                        btnUpdatePayloadSplit.Enabled = true;
+                        break;
+                    default:
+                        txtPayloadSplit.Text = string.Empty; // value to write to TIQ determined later
+                        nudPayloadTk.Enabled = false;
+                        nudPayloadTr.Enabled = false;
+                        btnUpdatePayloadSplit.Enabled = false;
+                        break;
                 }
-                else
-                {
-                    txtPayloadSplit.Text = string.Empty; // value to write to TIQ determined later
-                    nudPayloadTk.Enabled = false;
-                    nudPayloadTr.Enabled = false;
-                    btnUpdatePayloadSplit.Enabled = false;
-                }
+                //if (myTruckConfigGVM.Compartments > 1 && myTruckConfigGVM.AxleConfiguration.IndexOf("R") > 0)
+                //    // TODO how to handle B-double
+                ////if (CurrentTruckGVM().GCM != CurrentTruckGVM().GVMTruck)
+                //{
+                //    myPayloadTk = myTruckConfigGVM.GVMTruck - myTruckConfigGVM  .TareTk;
+                //    myPayloadTr = myPayload - myPayloadTk;
+                //    nudPayloadTk.Value = myPayloadTk;
+                //    nudPayloadTk.Enabled = true;
+                //    nudPayloadTr.Value = myPayloadTr;
+                //    nudPayloadTr.Enabled = true;
+                //    txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString();
+                //    //+ " (" + myPayload.ToString() + ")";
+                //    btnUpdatePayloadSplit.Enabled = true;
+                //}
+                //else
+                //{
+                //    txtPayloadSplit.Text = string.Empty; // value to write to TIQ determined later
+                //    nudPayloadTk.Enabled = false;
+                //    nudPayloadTr.Enabled = false;
+                //    btnUpdatePayloadSplit.Enabled = false;
+                //}
                 bsTIQ2.EndEdit();
             }
             catch (Exception ex)
@@ -395,54 +441,12 @@ namespace QWS_Local
             myTIQRow.GCM = myGCM;
             myTIQRow.GVMTruck = myTruckGVM.GVMTruck;
             bsTIQ2.EndEdit();
-            tabControl2.SelectedTab = tpPayload;
-            if (myTruckGVM.Compartments > 1)
-            {
-                // check if split
-                switch (myTIQRow.TruckConfig)
-                {
-                    case "TRs":
-                        txtTruckConfig.Text = "TRs";
-                        btnSplitLoadType.Enabled = false;
-                        break;
-                    case "BDb":
-                        txtTruckConfig.Text = "BDb";
-                        btnSplitLoadType.Enabled = false;
-                        break;
-                    default:
-                        btnSplitLoadType.Enabled = true;
-                        break;
-                }
-            }
-            else
-            {
-                btnSplitLoadType.Enabled = false;
-            }
+            tabControl2.SelectedTab = tpPayload;        
             CalcPayload();
             SetSplitLoadGUI(myTIQRow.TruckConfig);
         }
 
-        private void btnSplitLoadType_Click(object sender, EventArgs e)
-        {
-            SetSplitLoadType();
-        }
 
-        private void SetSplitLoadType()
-        {
-            string AxleConfig = CurrentTruckGVM().AxleConfiguration;
-            SplitLoadType frmLoadType = new SplitLoadType(AxleConfig);
-            DialogResult dr = frmLoadType.ShowDialog();
-            if (dr == DialogResult.OK)
-            {
-                txtTruckConfig.Text = frmLoadType.strSplitLoadType;
-                bsTIQ2.EndEdit();
-                SetSplitLoadGUI(frmLoadType.strSplitLoadType);
-            }
-            else
-            {
-                txtTruckConfig.Text = "Cancelled!";
-            }
-        }
 
         private void SetSplitLoadGUI(string LoadType)
         {
@@ -464,6 +468,20 @@ namespace QWS_Local
                     nudPayloadTr.Visible = false;
                     break;
                 case "TT":
+                    txtGVMTruck.Visible = true;
+                    txtTareTruck.Visible = true;
+                    txtPayloadSplit.Visible = true;
+                    nudPayloadTk.Visible = true;
+                    nudPayloadTr.Visible = true;
+                    break;
+                case "TKs":
+                    txtGVMTruck.Visible = true;
+                    txtTareTruck.Visible = true;
+                    txtPayloadSplit.Visible = true;
+                    nudPayloadTk.Visible = true;
+                    nudPayloadTr.Visible = false;
+                    break;
+                case "TRs":
                     txtGVMTruck.Visible = true;
                     txtTareTruck.Visible = true;
                     txtPayloadSplit.Visible = true;

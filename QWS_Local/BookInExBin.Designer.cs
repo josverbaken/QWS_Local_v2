@@ -37,8 +37,8 @@ namespace QWS_Local
             System.Windows.Forms.Label mobLabel;
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label4;
-            System.Windows.Forms.Label label5;
-            System.Windows.Forms.Label label6;
+            System.Windows.Forms.Label lblTRs;
+            System.Windows.Forms.Label lblTKs;
             System.Windows.Forms.Label docNumLabel1;
             System.Windows.Forms.Label deliveryDateLabel1;
             System.Windows.Forms.Label customerLabel1;
@@ -184,10 +184,9 @@ namespace QWS_Local
             this.custONTextBox = new System.Windows.Forms.TextBox();
             this.customerCodeTextBox = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.txtTruckConfig = new System.Windows.Forms.TextBox();
-            this.btnSplitLoadType = new System.Windows.Forms.Button();
             this.btnBookIn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnUpdatePayloadSplit = new System.Windows.Forms.Button();
             this.txtPayloadSplit = new System.Windows.Forms.TextBox();
             this.nudPayloadTk = new System.Windows.Forms.NumericUpDown();
             this.nudPayloadTr = new System.Windows.Forms.NumericUpDown();
@@ -207,7 +206,7 @@ namespace QWS_Local
             this.tableAdapterManager3 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.taTruckDriver = new QWS_Local.dsQWSLocal2024TableAdapters.TruckDriverTableAdapter();
             this.tableAdapterManager4 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
-            this.btnUpdatePayloadSplit = new System.Windows.Forms.Button();
+            this.truckConfigTextBox = new System.Windows.Forms.TextBox();
             gCMLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
@@ -215,8 +214,8 @@ namespace QWS_Local
             mobLabel = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
-            label5 = new System.Windows.Forms.Label();
-            label6 = new System.Windows.Forms.Label();
+            lblTRs = new System.Windows.Forms.Label();
+            lblTKs = new System.Windows.Forms.Label();
             docNumLabel1 = new System.Windows.Forms.Label();
             deliveryDateLabel1 = new System.Windows.Forms.Label();
             customerLabel1 = new System.Windows.Forms.Label();
@@ -360,23 +359,23 @@ namespace QWS_Local
             label4.TabIndex = 70;
             label4.Text = "Payload";
             // 
-            // label5
+            // lblTRs
             // 
-            label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(369, 99);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(34, 17);
-            label5.TabIndex = 71;
-            label5.Text = "TRs";
+            lblTRs.AutoSize = true;
+            lblTRs.Location = new System.Drawing.Point(369, 99);
+            lblTRs.Name = "lblTRs";
+            lblTRs.Size = new System.Drawing.Size(34, 17);
+            lblTRs.TabIndex = 71;
+            lblTRs.Text = "TRs";
             // 
-            // label6
+            // lblTKs
             // 
-            label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(370, 73);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(33, 17);
-            label6.TabIndex = 72;
-            label6.Text = "TKs";
+            lblTKs.AutoSize = true;
+            lblTKs.Location = new System.Drawing.Point(370, 73);
+            lblTKs.Name = "lblTKs";
+            lblTKs.Size = new System.Drawing.Size(33, 17);
+            lblTKs.TabIndex = 72;
+            lblTKs.Text = "TKs";
             // 
             // docNumLabel1
             // 
@@ -737,6 +736,7 @@ namespace QWS_Local
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
+            this.splitContainer2.Panel1.Controls.Add(this.truckConfigTextBox);
             this.splitContainer2.Panel1.Controls.Add(this.label13);
             this.splitContainer2.Panel1.Controls.Add(this.label15);
             this.splitContainer2.Panel1.Controls.Add(this.textBox4);
@@ -1473,7 +1473,7 @@ namespace QWS_Local
             this.tpDetails.Location = new System.Drawing.Point(4, 22);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(977, 267);
+            this.tpDetails.Size = new System.Drawing.Size(977, 270);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -1612,8 +1612,6 @@ namespace QWS_Local
             // tpPayload
             // 
             this.tpPayload.Controls.Add(this.groupBox2);
-            this.tpPayload.Controls.Add(this.txtTruckConfig);
-            this.tpPayload.Controls.Add(this.btnSplitLoadType);
             this.tpPayload.Controls.Add(this.btnBookIn);
             this.tpPayload.Controls.Add(this.groupBox3);
             this.tpPayload.Location = new System.Drawing.Point(4, 25);
@@ -1756,29 +1754,9 @@ namespace QWS_Local
             this.textBox7.Size = new System.Drawing.Size(290, 23);
             this.textBox7.TabIndex = 1;
             // 
-            // txtTruckConfig
-            // 
-            this.txtTruckConfig.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "TruckConfig", true));
-            this.txtTruckConfig.Location = new System.Drawing.Point(1076, 151);
-            this.txtTruckConfig.Name = "txtTruckConfig";
-            this.txtTruckConfig.Size = new System.Drawing.Size(100, 23);
-            this.txtTruckConfig.TabIndex = 110;
-            this.txtTruckConfig.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnSplitLoadType
-            // 
-            this.btnSplitLoadType.Location = new System.Drawing.Point(1053, 116);
-            this.btnSplitLoadType.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSplitLoadType.Name = "btnSplitLoadType";
-            this.btnSplitLoadType.Size = new System.Drawing.Size(158, 28);
-            this.btnSplitLoadType.TabIndex = 111;
-            this.btnSplitLoadType.Text = "Split Load Type";
-            this.btnSplitLoadType.UseVisualStyleBackColor = true;
-            this.btnSplitLoadType.Click += new System.EventHandler(this.btnSplitLoadType_Click);
-            // 
             // btnBookIn
             // 
-            this.btnBookIn.Location = new System.Drawing.Point(1053, 183);
+            this.btnBookIn.Location = new System.Drawing.Point(1070, 185);
             this.btnBookIn.Margin = new System.Windows.Forms.Padding(4);
             this.btnBookIn.Name = "btnBookIn";
             this.btnBookIn.Size = new System.Drawing.Size(158, 28);
@@ -1791,8 +1769,8 @@ namespace QWS_Local
             // 
             this.groupBox3.Controls.Add(this.btnUpdatePayloadSplit);
             this.groupBox3.Controls.Add(this.txtPayloadSplit);
-            this.groupBox3.Controls.Add(label6);
-            this.groupBox3.Controls.Add(label5);
+            this.groupBox3.Controls.Add(lblTKs);
+            this.groupBox3.Controls.Add(lblTRs);
             this.groupBox3.Controls.Add(label4);
             this.groupBox3.Controls.Add(label3);
             this.groupBox3.Controls.Add(this.nudPayloadTk);
@@ -1811,11 +1789,22 @@ namespace QWS_Local
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Truck Details";
             // 
+            // btnUpdatePayloadSplit
+            // 
+            this.btnUpdatePayloadSplit.Location = new System.Drawing.Point(19, 123);
+            this.btnUpdatePayloadSplit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdatePayloadSplit.Name = "btnUpdatePayloadSplit";
+            this.btnUpdatePayloadSplit.Size = new System.Drawing.Size(102, 28);
+            this.btnUpdatePayloadSplit.TabIndex = 115;
+            this.btnUpdatePayloadSplit.Text = "Recalculate";
+            this.btnUpdatePayloadSplit.UseVisualStyleBackColor = true;
+            this.btnUpdatePayloadSplit.Click += new System.EventHandler(this.btnUpdatePayloadSplit_Click);
+            // 
             // txtPayloadSplit
             // 
-            this.txtPayloadSplit.Location = new System.Drawing.Point(280, 126);
+            this.txtPayloadSplit.Location = new System.Drawing.Point(201, 126);
             this.txtPayloadSplit.Name = "txtPayloadSplit";
-            this.txtPayloadSplit.Size = new System.Drawing.Size(142, 23);
+            this.txtPayloadSplit.Size = new System.Drawing.Size(155, 23);
             this.txtPayloadSplit.TabIndex = 74;
             this.txtPayloadSplit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -1964,16 +1953,13 @@ namespace QWS_Local
             this.tableAdapterManager4.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager4.VehicleTableAdapter = null;
             // 
-            // btnUpdatePayloadSplit
+            // truckConfigTextBox
             // 
-            this.btnUpdatePayloadSplit.Location = new System.Drawing.Point(171, 123);
-            this.btnUpdatePayloadSplit.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUpdatePayloadSplit.Name = "btnUpdatePayloadSplit";
-            this.btnUpdatePayloadSplit.Size = new System.Drawing.Size(102, 28);
-            this.btnUpdatePayloadSplit.TabIndex = 115;
-            this.btnUpdatePayloadSplit.Text = "Recalculate";
-            this.btnUpdatePayloadSplit.UseVisualStyleBackColor = true;
-            this.btnUpdatePayloadSplit.Click += new System.EventHandler(this.btnUpdatePayloadSplit_Click);
+            this.truckConfigTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "TruckConfig", true));
+            this.truckConfigTextBox.Location = new System.Drawing.Point(364, 12);
+            this.truckConfigTextBox.Name = "truckConfigTextBox";
+            this.truckConfigTextBox.Size = new System.Drawing.Size(100, 23);
+            this.truckConfigTextBox.TabIndex = 84;
             // 
             // BookInExBin
             // 
@@ -1984,7 +1970,7 @@ namespace QWS_Local
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BookInExBin";
-            this.Text = "BookInExBin";
+            this.Text = "Book In Order";
             this.Load += new System.EventHandler(this.BookInExBin_Load);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -2023,7 +2009,6 @@ namespace QWS_Local
             this.tpDetails.ResumeLayout(false);
             this.tpDetails.PerformLayout();
             this.tpPayload.ResumeLayout(false);
-            this.tpPayload.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
@@ -2119,8 +2104,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox txtSupplied;
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Button btnSetTruckConfig;
-        private System.Windows.Forms.TextBox txtTruckConfig;
-        private System.Windows.Forms.Button btnSplitLoadType;
         private System.Windows.Forms.Button btnBookIn;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textBox1;
@@ -2172,5 +2155,6 @@ namespace QWS_Local
         private dsQWSLocal2024TableAdapters.TableAdapterManager tableAdapterManager4;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Button btnUpdatePayloadSplit;
+        private System.Windows.Forms.TextBox truckConfigTextBox;
     }
 }

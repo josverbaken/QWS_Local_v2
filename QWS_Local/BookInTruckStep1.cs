@@ -783,13 +783,12 @@ namespace QWS_Local
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            if (DGVLoaded == true)
+            if (DGVLoaded == true && bsTIQ.Count == 0) // TIQ created on initialise when called with trailer config and parent tiq
             {
                 dsTruckConfig.ConfiguredTrucksRow myTruck = CurrentConfigTruck();
                 switch (myTruck.VehicleType)
                 {
-                    case "TT":
-                        //check if split load
+                    case "TT":                       
                         DialogResult drTT = MessageBox.Show("Do you want to process as split load?","2 Compartments", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                         if (drTT == DialogResult.Yes)
                         {
