@@ -64,7 +64,7 @@
             // 
             // textBoxDescription
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(34, 196);
+            this.textBoxDescription.Location = new System.Drawing.Point(34, 220);
             this.textBoxDescription.Margin = new System.Windows.Forms.Padding(9, 4, 4, 4);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
@@ -81,7 +81,7 @@
             this.logoPictureBox.Location = new System.Drawing.Point(34, 12);
             this.logoPictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.logoPictureBox.Name = "logoPictureBox";
-            this.logoPictureBox.Size = new System.Drawing.Size(334, 176);
+            this.logoPictureBox.Size = new System.Drawing.Size(200, 200);
             this.logoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logoPictureBox.TabIndex = 24;
             this.logoPictureBox.TabStop = false;

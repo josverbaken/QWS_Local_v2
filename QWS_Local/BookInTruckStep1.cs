@@ -22,6 +22,8 @@ namespace QWS_Local
         private static bool DGVLoaded = false;
         private static string CallingMessage = "";
         private static int TIQID = 0;
+        private static string Username = Environment.UserName;
+
 
         private enum TIQType
         {
@@ -390,12 +392,11 @@ namespace QWS_Local
         {
             bsTIQ.EndEdit();
             bsTruckDriver.EndEdit();
-            // update TIQ
-            //int myPosition = bsTIQ.Find("TIQID", myTIQID);
-            //bsTIQ.Position = myPosition;
+            
             dsTIQ2.TIQRow myTIQ = CurrentTIQ();
             dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
             dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
+            myTIQ.Operator = Username;
             myTIQ.DriverID = myTruckDriver.CntctCode;
             myTIQ.Driver = myTruckDriver.Person;
             myTIQ.AllocateDTTM = DateTime.Now;
@@ -611,6 +612,7 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@ParentTIQID", myParentTIQID);
                 cmd.Parameters.AddWithValue("@TIQOpen", true);
                 cmd.Parameters.AddWithValue("@SiteID", Properties.Settings.Default.SiteID);
+                cmd.Parameters.AddWithValue("@Operator", Username);
                 cmd.Parameters.AddWithValue("@Rego", myConfigTruck.RegoTk);
                 cmd.Parameters.AddWithValue("@RegoTr1", myConfigTruck.RegoTr1);
                 cmd.Parameters.AddWithValue("@RegoTr2", myConfigTruck.RegoTr2);

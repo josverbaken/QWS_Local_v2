@@ -559,7 +559,7 @@ namespace QWS_Local
             this.tpDetails.Location = new System.Drawing.Point(4, 29);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(1192, 308);
+            this.tpDetails.Size = new System.Drawing.Size(1192, 362);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -930,7 +930,7 @@ namespace QWS_Local
             // 
             // WBO
             // 
-            this.WBO.DataPropertyName = "FeeCode";
+            this.WBO.DataPropertyName = "Operator";
             this.WBO.HeaderText = "WBO";
             this.WBO.Name = "WBO";
             this.WBO.ReadOnly = true;
