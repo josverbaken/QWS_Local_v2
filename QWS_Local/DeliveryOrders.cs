@@ -26,7 +26,7 @@ namespace QWS_Local
         {
             if (rbTruck.Checked)
             {
-                MessageBox.Show("TODO set filter to truck only.");
+                bsDeliveryOrdersAll.Filter = "CartageCode like '%6-%'";
             }
         }
 
@@ -34,7 +34,7 @@ namespace QWS_Local
         {
             if (rbTnT.Checked)
             {
-                MessageBox.Show("TODO set filter to truck and trailer.");
+                bsDeliveryOrdersAll.Filter = "CartageCode like '%7-%'";
             }
         }
 
@@ -45,12 +45,14 @@ namespace QWS_Local
 
         private void GetDeliveryOrders()
         {
-            this.deliveryOrdersAllTableAdapter.Fill(this.dsBookIn.DeliveryOrdersAll);
+            this.taDeliveryOrdersAll.Fill(this.dsBookIn.DeliveryOrdersAll);
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void rbClear_CheckedChanged(object sender, EventArgs e)
         {
-            this.Close();   
+            bsDeliveryOrdersAll.Filter = "";
         }
+
+        // TODO discuss whether we need to show Closed orders here
     }
 }

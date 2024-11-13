@@ -380,21 +380,21 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
               </xs:element>
               <xs:element name="Generic" msprop:Generator_ColumnPropNameInTable="GenericColumn" msprop:Generator_ColumnPropNameInRow="Generic" msprop:Generator_UserColumnName="Generic" msprop:Generator_ColumnVarNameInTable="columnGeneric" type="xs:boolean" />
               <xs:element name="Active" msprop:Generator_ColumnPropNameInTable="ActiveColumn" msprop:Generator_ColumnPropNameInRow="Active" msprop:Generator_UserColumnName="Active" msprop:Generator_ColumnVarNameInTable="columnActive" type="xs:boolean" />
-              <xs:element name="FirstName" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_ColumnVarNameInTable="columnFirstName" msprop:Generator_UserColumnName="FirstName">
+              <xs:element name="FirstName" msprop:Generator_UserColumnName="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnVarNameInTable="columnFirstName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="LastName" msprop:Generator_ColumnPropNameInRow="LastName" msprop:Generator_ColumnPropNameInTable="LastNameColumn" msprop:Generator_ColumnVarNameInTable="columnLastName" msprop:Generator_UserColumnName="LastName">
+              <xs:element name="LastName" msprop:Generator_UserColumnName="LastName" msprop:Generator_ColumnPropNameInTable="LastNameColumn" msprop:Generator_ColumnPropNameInRow="LastName" msprop:Generator_ColumnVarNameInTable="columnLastName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PIN" msprop:Generator_ColumnPropNameInRow="PIN" msprop:Generator_ColumnPropNameInTable="PINColumn" msprop:Generator_ColumnVarNameInTable="columnPIN" msprop:Generator_UserColumnName="PIN" type="xs:int" />
+              <xs:element name="PIN" msprop:Generator_UserColumnName="PIN" msprop:Generator_ColumnPropNameInTable="PINColumn" msprop:Generator_ColumnPropNameInRow="PIN" msprop:Generator_ColumnVarNameInTable="columnPIN" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -483,10 +483,10 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_OperatorRoles_Operator" msdata:parent="Operator" msdata:child="OperatorRoles" msdata:parentkey="OperatorID" msdata:childkey="OperatorID" msprop:Generator_UserParentTable="Operator" msprop:Generator_UserChildTable="OperatorRoles" msprop:Generator_RelationVarName="relationFK_OperatorRoles_Operator" msprop:Generator_ChildPropName="GetOperatorRolesRows" msprop:Generator_ParentPropName="OperatorRow" msprop:Generator_UserRelationName="FK_OperatorRoles_Operator" />
-      <msdata:Relationship name="FK_OperatorRoles_Role" msdata:parent="Role" msdata:child="OperatorRoles" msdata:parentkey="RoleID" msdata:childkey="RoleID" msprop:Generator_UserParentTable="Role" msprop:Generator_UserChildTable="OperatorRoles" msprop:Generator_RelationVarName="relationFK_OperatorRoles_Role" msprop:Generator_ChildPropName="GetOperatorRolesRows" msprop:Generator_ParentPropName="RoleRow" msprop:Generator_UserRelationName="FK_OperatorRoles_Role" />
-      <msdata:Relationship name="FK_RoleFunctions_Function" msdata:parent="Functions" msdata:child="RoleFunctions" msdata:parentkey="FunctionID" msdata:childkey="FunctionID" msprop:Generator_UserParentTable="Functions" msprop:Generator_UserChildTable="RoleFunctions" msprop:Generator_RelationVarName="relationFK_RoleFunctions_Function" msprop:Generator_ChildPropName="GetRoleFunctionsRows" msprop:Generator_ParentPropName="FunctionsRow" msprop:Generator_UserRelationName="FK_RoleFunctions_Function" />
-      <msdata:Relationship name="FK_RoleFunctions_Role" msdata:parent="Role" msdata:child="RoleFunctions" msdata:parentkey="RoleID" msdata:childkey="RoleID" msprop:Generator_UserParentTable="Role" msprop:Generator_UserChildTable="RoleFunctions" msprop:Generator_RelationVarName="relationFK_RoleFunctions_Role" msprop:Generator_ChildPropName="GetRoleFunctionsRows" msprop:Generator_ParentPropName="RoleRow" msprop:Generator_UserRelationName="FK_RoleFunctions_Role" />
+      <msdata:Relationship name="FK_OperatorRoles_Operator" msdata:parent="Operator" msdata:child="OperatorRoles" msdata:parentkey="OperatorID" msdata:childkey="OperatorID" msprop:Generator_UserParentTable="Operator" msprop:Generator_UserChildTable="OperatorRoles" msprop:Generator_RelationVarName="relationFK_OperatorRoles_Operator" msprop:Generator_ChildPropName="GetOperatorRolesRows" msprop:Generator_UserRelationName="FK_OperatorRoles_Operator" msprop:Generator_ParentPropName="OperatorRow" />
+      <msdata:Relationship name="FK_OperatorRoles_Role" msdata:parent="Role" msdata:child="OperatorRoles" msdata:parentkey="RoleID" msdata:childkey="RoleID" msprop:Generator_UserParentTable="Role" msprop:Generator_UserChildTable="OperatorRoles" msprop:Generator_RelationVarName="relationFK_OperatorRoles_Role" msprop:Generator_ChildPropName="GetOperatorRolesRows" msprop:Generator_UserRelationName="FK_OperatorRoles_Role" msprop:Generator_ParentPropName="RoleRow" />
+      <msdata:Relationship name="FK_RoleFunctions_Function" msdata:parent="Functions" msdata:child="RoleFunctions" msdata:parentkey="FunctionID" msdata:childkey="FunctionID" msprop:Generator_UserParentTable="Functions" msprop:Generator_UserChildTable="RoleFunctions" msprop:Generator_RelationVarName="relationFK_RoleFunctions_Function" msprop:Generator_ChildPropName="GetRoleFunctionsRows" msprop:Generator_UserRelationName="FK_RoleFunctions_Function" msprop:Generator_ParentPropName="FunctionsRow" />
+      <msdata:Relationship name="FK_RoleFunctions_Role" msdata:parent="Role" msdata:child="RoleFunctions" msdata:parentkey="RoleID" msdata:childkey="RoleID" msprop:Generator_UserParentTable="Role" msprop:Generator_UserChildTable="RoleFunctions" msprop:Generator_RelationVarName="relationFK_RoleFunctions_Role" msprop:Generator_ChildPropName="GetRoleFunctionsRows" msprop:Generator_UserRelationName="FK_RoleFunctions_Role" msprop:Generator_ParentPropName="RoleRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

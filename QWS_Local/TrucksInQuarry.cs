@@ -638,6 +638,7 @@ namespace QWS_Local
                 cmd.CommandText = "TIQStatusAuditAdd";
                 cmd.Parameters.AddWithValue("@TIQID", TIQID);
                 cmd.Parameters.AddWithValue("@Status", Status);
+                cmd.Parameters.AddWithValue("@Operator", System.Environment.UserName);
                 cmd.Parameters.AddWithValue("@GVM", GVM);
                 cmd.Parameters.AddWithValue("@Overweight", Overweight);
                 cmd.Parameters.AddWithValue("@Comments", Comment);
