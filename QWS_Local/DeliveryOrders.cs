@@ -20,13 +20,14 @@ namespace QWS_Local
         private void DeliveryOrders_Load(object sender, EventArgs e)
         {
             GetDeliveryOrders();
+            bsDeliveryOrdersAll.Filter = "OrderStatus like 'Open'";
         }
 
         private void rbTruck_CheckedChanged(object sender, EventArgs e)
         {
             if (rbTruck.Checked)
             {
-                bsDeliveryOrdersAll.Filter = "CartageCode like '%6-%'";
+                bsDeliveryOrdersAll.Filter = "CartageCode like '%6-%' and OrderStatus like 'Open'";
             }
         }
 
@@ -34,7 +35,7 @@ namespace QWS_Local
         {
             if (rbTnT.Checked)
             {
-                bsDeliveryOrdersAll.Filter = "CartageCode like '%7-%'";
+                bsDeliveryOrdersAll.Filter = "CartageCode like '%7-%' and OrderStatus like 'Open'";
             }
         }
 
@@ -50,7 +51,7 @@ namespace QWS_Local
 
         private void rbClear_CheckedChanged(object sender, EventArgs e)
         {
-            bsDeliveryOrdersAll.Filter = "";
+            bsDeliveryOrdersAll.Filter = "OrderStatus like 'Open'";
         }
 
         // TODO discuss whether we need to show Closed orders here

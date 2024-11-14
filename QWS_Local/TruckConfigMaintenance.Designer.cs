@@ -57,6 +57,7 @@
             System.Windows.Forms.Label tareLabel;
             System.Windows.Forms.Label tareTkLabel;
             System.Windows.Forms.Label tareDTLabel;
+            System.Windows.Forms.Label truckConfigIDLabel;
             this.txtRego = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.roadAccessDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -106,6 +107,9 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tpConfigGVMList = new System.Windows.Forms.TabPage();
             this.tpConfigGVMDetails = new System.Windows.Forms.TabPage();
+            this.tareDTTextBox1 = new System.Windows.Forms.TextBox();
+            this.tareTkTextBox = new System.Windows.Forms.TextBox();
+            this.tareTextBox1 = new System.Windows.Forms.TextBox();
             this.maxGVMTextBox1 = new System.Windows.Forms.TextBox();
             this.maxAxlesTextBox1 = new System.Windows.Forms.TextBox();
             this.roadAccessTextBox = new System.Windows.Forms.TextBox();
@@ -128,9 +132,7 @@
             this.bsVehicle2 = new System.Windows.Forms.BindingSource(this.components);
             this.taVehicle2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleTableAdapter();
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
-            this.tareTextBox1 = new System.Windows.Forms.TextBox();
-            this.tareTkTextBox = new System.Windows.Forms.TextBox();
-            this.tareDTTextBox1 = new System.Windows.Forms.TextBox();
+            this.truckConfigIDTextBox = new System.Windows.Forms.TextBox();
             vehicleTypeLabel = new System.Windows.Forms.Label();
             axlesLabel = new System.Windows.Forms.Label();
             axleGroupsLabel = new System.Windows.Forms.Label();
@@ -159,6 +161,7 @@
             tareLabel = new System.Windows.Forms.Label();
             tareTkLabel = new System.Windows.Forms.Label();
             tareDTLabel = new System.Windows.Forms.Label();
+            truckConfigIDLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
@@ -213,7 +216,7 @@
             // compartmentsLabel
             // 
             compartmentsLabel.AutoSize = true;
-            compartmentsLabel.Location = new System.Drawing.Point(397, 177);
+            compartmentsLabel.Location = new System.Drawing.Point(529, 177);
             compartmentsLabel.Name = "compartmentsLabel";
             compartmentsLabel.Size = new System.Drawing.Size(111, 18);
             compartmentsLabel.TabIndex = 15;
@@ -222,7 +225,7 @@
             // vehiclesLabel
             // 
             vehiclesLabel.AutoSize = true;
-            vehiclesLabel.Location = new System.Drawing.Point(633, 177);
+            vehiclesLabel.Location = new System.Drawing.Point(767, 177);
             vehiclesLabel.Name = "vehiclesLabel";
             vehiclesLabel.Size = new System.Drawing.Size(67, 18);
             vehiclesLabel.TabIndex = 17;
@@ -258,7 +261,7 @@
             // feeConditionsLabel
             // 
             feeConditionsLabel.AutoSize = true;
-            feeConditionsLabel.Location = new System.Drawing.Point(500, 147);
+            feeConditionsLabel.Location = new System.Drawing.Point(511, 147);
             feeConditionsLabel.Name = "feeConditionsLabel";
             feeConditionsLabel.Size = new System.Drawing.Size(112, 18);
             feeConditionsLabel.TabIndex = 24;
@@ -407,6 +410,33 @@
             maxGVMLabel1.Size = new System.Drawing.Size(78, 18);
             maxGVMLabel1.TabIndex = 30;
             maxGVMLabel1.Text = "Max GVM:";
+            // 
+            // tareLabel
+            // 
+            tareLabel.AutoSize = true;
+            tareLabel.Location = new System.Drawing.Point(285, 233);
+            tareLabel.Name = "tareLabel";
+            tareLabel.Size = new System.Drawing.Size(42, 18);
+            tareLabel.TabIndex = 32;
+            tareLabel.Text = "Tare:";
+            // 
+            // tareTkLabel
+            // 
+            tareTkLabel.AutoSize = true;
+            tareTkLabel.Location = new System.Drawing.Point(443, 233);
+            tareTkLabel.Name = "tareTkLabel";
+            tareTkLabel.Size = new System.Drawing.Size(63, 18);
+            tareTkLabel.TabIndex = 34;
+            tareTkLabel.Text = "Tare Tk:";
+            // 
+            // tareDTLabel
+            // 
+            tareDTLabel.AutoSize = true;
+            tareDTLabel.Location = new System.Drawing.Point(634, 233);
+            tareDTLabel.Name = "tareDTLabel";
+            tareDTLabel.Size = new System.Drawing.Size(66, 18);
+            tareDTLabel.TabIndex = 36;
+            tareDTLabel.Text = "Tare DT:";
             // 
             // txtRego
             // 
@@ -585,6 +615,8 @@
             // tpDetails
             // 
             this.tpDetails.AutoScroll = true;
+            this.tpDetails.Controls.Add(truckConfigIDLabel);
+            this.tpDetails.Controls.Add(this.truckConfigIDTextBox);
             this.tpDetails.Controls.Add(feeConditionsLabel);
             this.tpDetails.Controls.Add(this.feeConditionsTextBox);
             this.tpDetails.Controls.Add(massAccreditationLabelLabel);
@@ -622,7 +654,7 @@
             // feeConditionsTextBox
             // 
             this.feeConditionsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "FeeConditions", true));
-            this.feeConditionsTextBox.Location = new System.Drawing.Point(618, 144);
+            this.feeConditionsTextBox.Location = new System.Drawing.Point(646, 144);
             this.feeConditionsTextBox.Name = "feeConditionsTextBox";
             this.feeConditionsTextBox.Size = new System.Drawing.Size(294, 24);
             this.feeConditionsTextBox.TabIndex = 25;
@@ -654,7 +686,7 @@
             // vehiclesTextBox
             // 
             this.vehiclesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "Vehicles", true));
-            this.vehiclesTextBox.Location = new System.Drawing.Point(706, 174);
+            this.vehiclesTextBox.Location = new System.Drawing.Point(840, 174);
             this.vehiclesTextBox.Name = "vehiclesTextBox";
             this.vehiclesTextBox.Size = new System.Drawing.Size(100, 24);
             this.vehiclesTextBox.TabIndex = 18;
@@ -662,7 +694,7 @@
             // compartmentsTextBox
             // 
             this.compartmentsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "Compartments", true));
-            this.compartmentsTextBox.Location = new System.Drawing.Point(514, 174);
+            this.compartmentsTextBox.Location = new System.Drawing.Point(646, 174);
             this.compartmentsTextBox.Name = "compartmentsTextBox";
             this.compartmentsTextBox.Size = new System.Drawing.Size(100, 24);
             this.compartmentsTextBox.TabIndex = 16;
@@ -745,7 +777,7 @@
             this.truckOwnerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "TruckOwner", true));
             this.truckOwnerTextBox.Location = new System.Drawing.Point(503, 53);
             this.truckOwnerTextBox.Name = "truckOwnerTextBox";
-            this.truckOwnerTextBox.Size = new System.Drawing.Size(409, 24);
+            this.truckOwnerTextBox.Size = new System.Drawing.Size(437, 24);
             this.truckOwnerTextBox.TabIndex = 3;
             // 
             // regoTkTextBox
@@ -922,13 +954,37 @@
             this.tpConfigGVMDetails.Controls.Add(this.axleConfigurationTextBox1);
             this.tpConfigGVMDetails.Controls.Add(regoTrailerLabel);
             this.tpConfigGVMDetails.Controls.Add(this.regoTrailerTextBox1);
-            this.tpConfigGVMDetails.Location = new System.Drawing.Point(4, 27);
+            this.tpConfigGVMDetails.Location = new System.Drawing.Point(4, 22);
             this.tpConfigGVMDetails.Name = "tpConfigGVMDetails";
             this.tpConfigGVMDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpConfigGVMDetails.Size = new System.Drawing.Size(978, 304);
+            this.tpConfigGVMDetails.Size = new System.Drawing.Size(978, 309);
             this.tpConfigGVMDetails.TabIndex = 1;
             this.tpConfigGVMDetails.Text = "Details";
             this.tpConfigGVMDetails.UseVisualStyleBackColor = true;
+            // 
+            // tareDTTextBox1
+            // 
+            this.tareDTTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "TareDT", true));
+            this.tareDTTextBox1.Location = new System.Drawing.Point(706, 230);
+            this.tareDTTextBox1.Name = "tareDTTextBox1";
+            this.tareDTTextBox1.Size = new System.Drawing.Size(100, 24);
+            this.tareDTTextBox1.TabIndex = 37;
+            // 
+            // tareTkTextBox
+            // 
+            this.tareTkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "TareTk", true));
+            this.tareTkTextBox.Location = new System.Drawing.Point(512, 230);
+            this.tareTkTextBox.Name = "tareTkTextBox";
+            this.tareTkTextBox.Size = new System.Drawing.Size(100, 24);
+            this.tareTkTextBox.TabIndex = 35;
+            // 
+            // tareTextBox1
+            // 
+            this.tareTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "Tare", true));
+            this.tareTextBox1.Location = new System.Drawing.Point(333, 230);
+            this.tareTextBox1.Name = "tareTextBox1";
+            this.tareTextBox1.Size = new System.Drawing.Size(100, 24);
+            this.tareTextBox1.TabIndex = 33;
             // 
             // maxGVMTextBox1
             // 
@@ -1093,56 +1149,22 @@
             this.tableAdapterManager2.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager2.VehicleTableAdapter = this.taVehicle2;
             // 
-            // tareLabel
+            // truckConfigIDLabel
             // 
-            tareLabel.AutoSize = true;
-            tareLabel.Location = new System.Drawing.Point(285, 233);
-            tareLabel.Name = "tareLabel";
-            tareLabel.Size = new System.Drawing.Size(42, 18);
-            tareLabel.TabIndex = 32;
-            tareLabel.Text = "Tare:";
+            truckConfigIDLabel.AutoSize = true;
+            truckConfigIDLabel.Location = new System.Drawing.Point(719, 207);
+            truckConfigIDLabel.Name = "truckConfigIDLabel";
+            truckConfigIDLabel.Size = new System.Drawing.Size(115, 18);
+            truckConfigIDLabel.TabIndex = 26;
+            truckConfigIDLabel.Text = "Truck Config ID:";
             // 
-            // tareTextBox1
+            // truckConfigIDTextBox
             // 
-            this.tareTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "Tare", true));
-            this.tareTextBox1.Location = new System.Drawing.Point(333, 230);
-            this.tareTextBox1.Name = "tareTextBox1";
-            this.tareTextBox1.Size = new System.Drawing.Size(100, 24);
-            this.tareTextBox1.TabIndex = 33;
-            // 
-            // tareTkLabel
-            // 
-            tareTkLabel.AutoSize = true;
-            tareTkLabel.Location = new System.Drawing.Point(443, 233);
-            tareTkLabel.Name = "tareTkLabel";
-            tareTkLabel.Size = new System.Drawing.Size(63, 18);
-            tareTkLabel.TabIndex = 34;
-            tareTkLabel.Text = "Tare Tk:";
-            // 
-            // tareTkTextBox
-            // 
-            this.tareTkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "TareTk", true));
-            this.tareTkTextBox.Location = new System.Drawing.Point(512, 230);
-            this.tareTkTextBox.Name = "tareTkTextBox";
-            this.tareTkTextBox.Size = new System.Drawing.Size(100, 24);
-            this.tareTkTextBox.TabIndex = 35;
-            // 
-            // tareDTLabel
-            // 
-            tareDTLabel.AutoSize = true;
-            tareDTLabel.Location = new System.Drawing.Point(634, 233);
-            tareDTLabel.Name = "tareDTLabel";
-            tareDTLabel.Size = new System.Drawing.Size(66, 18);
-            tareDTLabel.TabIndex = 36;
-            tareDTLabel.Text = "Tare DT:";
-            // 
-            // tareDTTextBox1
-            // 
-            this.tareDTTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "TareDT", true));
-            this.tareDTTextBox1.Location = new System.Drawing.Point(706, 230);
-            this.tareDTTextBox1.Name = "tareDTTextBox1";
-            this.tareDTTextBox1.Size = new System.Drawing.Size(100, 24);
-            this.tareDTTextBox1.TabIndex = 37;
+            this.truckConfigIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "TruckConfigID", true));
+            this.truckConfigIDTextBox.Location = new System.Drawing.Point(840, 204);
+            this.truckConfigIDTextBox.Name = "truckConfigIDTextBox";
+            this.truckConfigIDTextBox.Size = new System.Drawing.Size(100, 24);
+            this.truckConfigIDTextBox.TabIndex = 27;
             // 
             // TruckConfigMaintenance
             // 
@@ -1261,5 +1283,6 @@
         private System.Windows.Forms.TextBox tareDTTextBox1;
         private System.Windows.Forms.TextBox tareTkTextBox;
         private System.Windows.Forms.TextBox tareTextBox1;
+        private System.Windows.Forms.TextBox truckConfigIDTextBox;
     }
 }

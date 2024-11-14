@@ -35,7 +35,30 @@ namespace QWS_Local
         {
             taConfiguredTruckGVM.Fill(this.dsTruckConfig.ConfiguredTruckGVM, "", TruckConfigID);
             LoadTIQ();
+            //dsTruckConfig.ConfiguredTruckGVMRow myTruckGVM = CurrentTruckGVM();
+            dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
             DeliveryOrdersLoad();
+            string strFilter = "CartageCode like '%";
+            switch (myTIQRow.TruckConfig)
+            {
+                case "TT":
+                    strFilter += "7-%'";
+                    break;
+                case "TKs":
+                    strFilter += "7-%'";
+                    break;
+                case "TRs":
+                    strFilter += "7-%'";
+                    break;
+                case "BD":
+                    strFilter += "7-%'";
+                    break;
+                default:
+                    strFilter += "6-%'";
+                    break;
+            }
+            strFilter += " and OrderStatus like 'Open'";
+            bsDeliveryOrders.Filter = strFilter;
             LoadDriver();
             FormLoaded = true;
             dataGridView1.ClearSelection();
