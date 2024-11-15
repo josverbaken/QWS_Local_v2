@@ -53,7 +53,7 @@
       <Value Profile="(Default)">138</Value>
     </Setting>
     <Setting Name="ImportedPickUpGrpCode" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">107</Value>
+      <Value Profile="(Default)">139</Value>
     </Setting>
   </Settings>
 </SettingsFile>
