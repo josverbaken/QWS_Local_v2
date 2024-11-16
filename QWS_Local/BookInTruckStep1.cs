@@ -548,9 +548,23 @@ namespace QWS_Local
             }
         }
 
+        private void BookInMaterial(TIQType myTIQType)
+        {
+            if (TIQID > 0)
+            {
+                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+                UpdateTIQ(myTIQType, myTIQRow.TruckConfig);
+                BookInExBin frmExBin = new BookInExBin(TIQID, myTIQType.ToString(), CurrentConfigTruck().TruckConfigID, "xxx", "", false, CurrentTruckDriver());
+                TIQID = 0;
+                frmExBin.MdiParent = this.MdiParent;
+                frmExBin.Show();
+                this.Close();
+            }
+        }
+
         private void btnDelivery_Click(object sender, EventArgs e)
         {
-            GoToBookInDelivery();
+            BookInMaterial(TIQType.Delivery);
         }
 
         private void GoToBookInDelivery()

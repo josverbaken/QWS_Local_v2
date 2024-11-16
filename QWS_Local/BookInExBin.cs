@@ -21,9 +21,8 @@ namespace QWS_Local
         private string CustomerName;
         private dsQWSLocal2024.TruckDriverRow DriverRow;
 
-        private enum TIQType
+        private enum TIQType // N.B. these match variables in SQL usp QuarryOrders
         {
-            Retare,
             ExBin,
             Imported,
             ImportedPickUp,
@@ -52,6 +51,16 @@ namespace QWS_Local
             string ImportPUGrpCod = ImportedPickUpGrpCode.ToString();   
             switch (myTIQType) 
             {
+                case "Delivery":
+                    this.Text = "Book In Delivery";
+                    bsExBinOrders.Filter = "";
+                    FormTIQType = TIQType.Delivery;
+                    break;
+                case "ExBin":
+                    this.Text = "Book In ExBin";
+                    bsExBinOrders.Filter = "ItmsGrpCod <> " + ImportGrpCod + " AND " + "ItmsGrpCod <> " + ImportPUGrpCod;
+                    FormTIQType = TIQType.ExBin;
+                    break;
                 case "Imported":
                     this.Text = "Book In Imported";
                     bsExBinOrders.Filter = "ItmsGrpCod = " + ImportGrpCod;
@@ -63,9 +72,7 @@ namespace QWS_Local
                     FormTIQType = TIQType.ImportedPickUp;
                     break;
                 default:
-                    this.Text = "Book In ExBin";
-                    bsExBinOrders.Filter = "ItmsGrpCod <> " + ImportGrpCod + " AND " + "ItmsGrpCod <> " + ImportPUGrpCod;
-                    FormTIQType = TIQType.ExBin;
+                    
                     break;
             }
         }
@@ -79,6 +86,27 @@ namespace QWS_Local
             SetExBinNoOrderCustomer();
             FormLoaded = true;
             dataGridView4.ClearSelection();
+            textBox11.Text = FormTIQType.ToString();
+            textBox12.Text = CardCode;
+            int CartageInt = 0;
+            switch (CurrentTIQ().TruckConfig)
+            {
+                case "TK":
+                    CartageInt = 6;
+                    break;
+                case "TT":
+                case "TKs":
+                case "TRS":
+                    CartageInt = 7;
+                    break;
+                case "BD":
+                    CartageInt = 7;
+                    break;
+                default :
+                    CartageInt = 7;
+                    break;  
+            }
+            textBox13.Text = CartageInt.ToString();
         }
 
         private void LoadTIQ()
@@ -670,6 +698,23 @@ namespace QWS_Local
             {
                 MessageBox.Show("Invalid weights!");
                 CalcPayload();
+            }
+        }
+   
+        private void btnQuarryOrdersLoad_Click(object sender, EventArgs e)
+        {
+            QuarryOrdersLoad(textBox11.Text, textBox12.Text, System.Convert.ToInt16(textBox13.Text));
+        }
+
+        private void QuarryOrdersLoad(string OrderType,  string CardCode, int CartageInt)
+        {
+            try
+            {
+                this.taQuarryOrders.Fill(this.dsBookIn.QuarryOrders, OrderType,CardCode, CartageInt);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
     }

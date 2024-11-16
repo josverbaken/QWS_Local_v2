@@ -76,8 +76,26 @@ namespace QWS_Local
             System.Windows.Forms.Label maxAxlesLabel;
             System.Windows.Forms.Label maxGVMLabel;
             System.Windows.Forms.Label label16;
+            System.Windows.Forms.Label docNumLabel;
+            System.Windows.Forms.Label deliveryDateLabel;
+            System.Windows.Forms.Label materialCodeLabel;
+            System.Windows.Forms.Label distanceLabel;
+            System.Windows.Forms.Label estTripTimeLabel;
+            System.Windows.Forms.Label nHVR_RouteIDLabel;
+            System.Windows.Forms.Label materialLabel;
+            System.Windows.Forms.Label cardCodeLabel;
+            System.Windows.Forms.Label customerLabel;
+            System.Windows.Forms.Label purchaseOrderLabel;
+            System.Windows.Forms.Label cartageCodeLabel;
+            System.Windows.Forms.Label cartageLabel;
+            System.Windows.Forms.Label quantityLabel;
+            System.Windows.Forms.Label openQtyLabel;
+            System.Windows.Forms.Label suppliedLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.truckConfigTextBox = new System.Windows.Forms.TextBox();
+            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -176,8 +194,6 @@ namespace QWS_Local
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.cartageTextBox1 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.materialDescTextBox = new System.Windows.Forms.TextBox();
             this.cartageCodeTextBox1 = new System.Windows.Forms.TextBox();
             this.deliveryAddressTextBox1 = new System.Windows.Forms.TextBox();
@@ -206,7 +222,61 @@ namespace QWS_Local
             this.tableAdapterManager3 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.taTruckDriver = new QWS_Local.dsQWSLocal2024TableAdapters.TruckDriverTableAdapter();
             this.tableAdapterManager4 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
-            this.truckConfigTextBox = new System.Windows.Forms.TextBox();
+            this.tpQuarryOrders = new System.Windows.Forms.TabPage();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tpQuarryOrdersList = new System.Windows.Forms.TabPage();
+            this.tpQuarryOrderDetails = new System.Windows.Forms.TabPage();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.btnQuarryOrdersLoad = new System.Windows.Forms.Button();
+            this.bsQuarryOrders = new System.Windows.Forms.BindingSource(this.components);
+            this.taQuarryOrders = new QWS_Local.dsBookInTableAdapters.QuarryOrdersTableAdapter();
+            this.docNumTextBox = new System.Windows.Forms.TextBox();
+            this.deliveryDateTextBox = new System.Windows.Forms.TextBox();
+            this.materialCodeTextBox = new System.Windows.Forms.TextBox();
+            this.distanceTextBox = new System.Windows.Forms.TextBox();
+            this.estTripTimeTextBox = new System.Windows.Forms.TextBox();
+            this.nHVR_RouteIDTextBox = new System.Windows.Forms.TextBox();
+            this.materialTextBox = new System.Windows.Forms.TextBox();
+            this.cardCodeTextBox = new System.Windows.Forms.TextBox();
+            this.customerTextBox = new System.Windows.Forms.TextBox();
+            this.purchaseOrderTextBox = new System.Windows.Forms.TextBox();
+            this.cartageCodeTextBox = new System.Windows.Forms.TextBox();
+            this.cartageTextBox = new System.Windows.Forms.TextBox();
+            this.quantityTextBox = new System.Windows.Forms.TextBox();
+            this.openQtyTextBox = new System.Windows.Forms.TextBox();
+            this.suppliedTextBox = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.docNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.docEntryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.docDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.purchaseOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cntctCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactMobileDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deliveryDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deliveryAddressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.distanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estTripTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nHVRRouteIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nHVRNetworkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nHVRMassLimitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nHVRConditionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nHVRCommentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instructionsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itmsGrpCodDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemQADataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.openQtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartageCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sAPUpdateDTTMDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             gCMLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
@@ -253,6 +323,21 @@ namespace QWS_Local
             maxAxlesLabel = new System.Windows.Forms.Label();
             maxGVMLabel = new System.Windows.Forms.Label();
             label16 = new System.Windows.Forms.Label();
+            docNumLabel = new System.Windows.Forms.Label();
+            deliveryDateLabel = new System.Windows.Forms.Label();
+            materialCodeLabel = new System.Windows.Forms.Label();
+            distanceLabel = new System.Windows.Forms.Label();
+            estTripTimeLabel = new System.Windows.Forms.Label();
+            nHVR_RouteIDLabel = new System.Windows.Forms.Label();
+            materialLabel = new System.Windows.Forms.Label();
+            cardCodeLabel = new System.Windows.Forms.Label();
+            customerLabel = new System.Windows.Forms.Label();
+            purchaseOrderLabel = new System.Windows.Forms.Label();
+            cartageCodeLabel = new System.Windows.Forms.Label();
+            cartageLabel = new System.Windows.Forms.Label();
+            quantityLabel = new System.Windows.Forms.Label();
+            openQtyLabel = new System.Windows.Forms.Label();
+            suppliedLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -260,6 +345,8 @@ namespace QWS_Local
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).BeginInit();
@@ -287,13 +374,17 @@ namespace QWS_Local
             this.tpDetails.SuspendLayout();
             this.tpPayload.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
+            this.tpQuarryOrders.SuspendLayout();
+            this.tabControl3.SuspendLayout();
+            this.tpQuarryOrdersList.SuspendLayout();
+            this.tpQuarryOrderDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsQuarryOrders)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // gCMLabel
@@ -736,6 +827,10 @@ namespace QWS_Local
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
+            this.splitContainer2.Panel1.Controls.Add(this.btnQuarryOrdersLoad);
+            this.splitContainer2.Panel1.Controls.Add(this.textBox13);
+            this.splitContainer2.Panel1.Controls.Add(this.textBox12);
+            this.splitContainer2.Panel1.Controls.Add(this.textBox11);
             this.splitContainer2.Panel1.Controls.Add(this.truckConfigTextBox);
             this.splitContainer2.Panel1.Controls.Add(this.label13);
             this.splitContainer2.Panel1.Controls.Add(this.label15);
@@ -755,6 +850,24 @@ namespace QWS_Local
             this.splitContainer2.Size = new System.Drawing.Size(1427, 554);
             this.splitContainer2.SplitterDistance = 228;
             this.splitContainer2.TabIndex = 3;
+            // 
+            // truckConfigTextBox
+            // 
+            this.truckConfigTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "TruckConfig", true));
+            this.truckConfigTextBox.Location = new System.Drawing.Point(364, 12);
+            this.truckConfigTextBox.Name = "truckConfigTextBox";
+            this.truckConfigTextBox.Size = new System.Drawing.Size(100, 23);
+            this.truckConfigTextBox.TabIndex = 84;
+            // 
+            // bsTIQ2
+            // 
+            this.bsTIQ2.DataMember = "TIQ";
+            this.bsTIQ2.DataSource = this.dsTIQ2;
+            // 
+            // dsTIQ2
+            // 
+            this.dsTIQ2.DataSetName = "dsTIQ2";
+            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label13
             // 
@@ -862,6 +975,7 @@ namespace QWS_Local
             // 
             // tabControl2
             // 
+            this.tabControl2.Controls.Add(this.tpQuarryOrders);
             this.tabControl2.Controls.Add(this.tpExBinOrders);
             this.tabControl2.Controls.Add(this.tpOrderDetails);
             this.tabControl2.Controls.Add(this.tpExBinNoOrder);
@@ -1080,9 +1194,9 @@ namespace QWS_Local
             this.tpOrderDetails.Controls.Add(this.docNumTextBox1);
             this.tpOrderDetails.Controls.Add(this.btnSetExBinOrder);
             this.tpOrderDetails.Controls.Add(this.btnRefreshOrders);
-            this.tpOrderDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpOrderDetails.Location = new System.Drawing.Point(4, 25);
             this.tpOrderDetails.Name = "tpOrderDetails";
-            this.tpOrderDetails.Size = new System.Drawing.Size(1419, 296);
+            this.tpOrderDetails.Size = new System.Drawing.Size(1419, 293);
             this.tpOrderDetails.TabIndex = 3;
             this.tpOrderDetails.Text = "Order Details";
             this.tpOrderDetails.UseVisualStyleBackColor = true;
@@ -1244,10 +1358,10 @@ namespace QWS_Local
             this.tpExBinNoOrder.Controls.Add(this.btnSetItem);
             this.tpExBinNoOrder.Controls.Add(this.btnExBinItems);
             this.tpExBinNoOrder.Controls.Add(this.button1);
-            this.tpExBinNoOrder.Location = new System.Drawing.Point(4, 22);
+            this.tpExBinNoOrder.Location = new System.Drawing.Point(4, 25);
             this.tpExBinNoOrder.Name = "tpExBinNoOrder";
             this.tpExBinNoOrder.Padding = new System.Windows.Forms.Padding(3);
-            this.tpExBinNoOrder.Size = new System.Drawing.Size(1419, 296);
+            this.tpExBinNoOrder.Size = new System.Drawing.Size(1419, 293);
             this.tpExBinNoOrder.TabIndex = 1;
             this.tpExBinNoOrder.Text = "Ex-Bin No Order";
             this.tpExBinNoOrder.UseVisualStyleBackColor = true;
@@ -1337,9 +1451,9 @@ namespace QWS_Local
             // tpTruckconfig
             // 
             this.tpTruckconfig.Controls.Add(this.splitContainer4);
-            this.tpTruckconfig.Location = new System.Drawing.Point(4, 22);
+            this.tpTruckconfig.Location = new System.Drawing.Point(4, 25);
             this.tpTruckconfig.Name = "tpTruckconfig";
-            this.tpTruckconfig.Size = new System.Drawing.Size(1419, 296);
+            this.tpTruckconfig.Size = new System.Drawing.Size(1419, 293);
             this.tpTruckconfig.TabIndex = 2;
             this.tpTruckconfig.Text = "Truck config";
             this.tpTruckconfig.UseVisualStyleBackColor = true;
@@ -1357,7 +1471,7 @@ namespace QWS_Local
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.btnSetTruckConfig);
-            this.splitContainer4.Size = new System.Drawing.Size(1419, 296);
+            this.splitContainer4.Size = new System.Drawing.Size(1419, 293);
             this.splitContainer4.SplitterDistance = 985;
             this.splitContainer4.TabIndex = 103;
             // 
@@ -1369,7 +1483,7 @@ namespace QWS_Local
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(985, 296);
+            this.tabControl1.Size = new System.Drawing.Size(985, 293);
             this.tabControl1.TabIndex = 70;
             // 
             // tpList
@@ -1378,7 +1492,7 @@ namespace QWS_Local
             this.tpList.Location = new System.Drawing.Point(4, 25);
             this.tpList.Name = "tpList";
             this.tpList.Padding = new System.Windows.Forms.Padding(3);
-            this.tpList.Size = new System.Drawing.Size(977, 267);
+            this.tpList.Size = new System.Drawing.Size(977, 264);
             this.tpList.TabIndex = 0;
             this.tpList.Text = "List";
             this.tpList.UseVisualStyleBackColor = true;
@@ -1400,7 +1514,7 @@ namespace QWS_Local
             this.dataGridView3.Location = new System.Drawing.Point(3, 3);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.Size = new System.Drawing.Size(971, 261);
+            this.dataGridView3.Size = new System.Drawing.Size(971, 258);
             this.dataGridView3.TabIndex = 69;
             // 
             // roadAccessDataGridViewTextBoxColumn
@@ -1690,16 +1804,6 @@ namespace QWS_Local
             this.textBox6.Size = new System.Drawing.Size(81, 23);
             this.textBox6.TabIndex = 12;
             // 
-            // bsTIQ2
-            // 
-            this.bsTIQ2.DataMember = "TIQ";
-            this.bsTIQ2.DataSource = this.dsTIQ2;
-            // 
-            // dsTIQ2
-            // 
-            this.dsTIQ2.DataSetName = "dsTIQ2";
-            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // materialDescTextBox
             // 
             this.materialDescTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "MaterialDesc", true));
@@ -1953,13 +2057,616 @@ namespace QWS_Local
             this.tableAdapterManager4.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager4.VehicleTableAdapter = null;
             // 
-            // truckConfigTextBox
+            // tpQuarryOrders
             // 
-            this.truckConfigTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "TruckConfig", true));
-            this.truckConfigTextBox.Location = new System.Drawing.Point(364, 12);
-            this.truckConfigTextBox.Name = "truckConfigTextBox";
-            this.truckConfigTextBox.Size = new System.Drawing.Size(100, 23);
-            this.truckConfigTextBox.TabIndex = 84;
+            this.tpQuarryOrders.Controls.Add(this.tabControl3);
+            this.tpQuarryOrders.Location = new System.Drawing.Point(4, 25);
+            this.tpQuarryOrders.Name = "tpQuarryOrders";
+            this.tpQuarryOrders.Size = new System.Drawing.Size(1419, 293);
+            this.tpQuarryOrders.TabIndex = 5;
+            this.tpQuarryOrders.Text = "Quarry Orders";
+            this.tpQuarryOrders.UseVisualStyleBackColor = true;
+            // 
+            // tabControl3
+            // 
+            this.tabControl3.Controls.Add(this.tpQuarryOrdersList);
+            this.tabControl3.Controls.Add(this.tpQuarryOrderDetails);
+            this.tabControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl3.Location = new System.Drawing.Point(0, 0);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(1419, 293);
+            this.tabControl3.TabIndex = 0;
+            // 
+            // tpQuarryOrdersList
+            // 
+            this.tpQuarryOrdersList.Controls.Add(this.dataGridView1);
+            this.tpQuarryOrdersList.Location = new System.Drawing.Point(4, 25);
+            this.tpQuarryOrdersList.Name = "tpQuarryOrdersList";
+            this.tpQuarryOrdersList.Padding = new System.Windows.Forms.Padding(3);
+            this.tpQuarryOrdersList.Size = new System.Drawing.Size(1411, 264);
+            this.tpQuarryOrdersList.TabIndex = 0;
+            this.tpQuarryOrdersList.Text = "List";
+            this.tpQuarryOrdersList.UseVisualStyleBackColor = true;
+            // 
+            // tpQuarryOrderDetails
+            // 
+            this.tpQuarryOrderDetails.Controls.Add(suppliedLabel);
+            this.tpQuarryOrderDetails.Controls.Add(this.suppliedTextBox);
+            this.tpQuarryOrderDetails.Controls.Add(openQtyLabel);
+            this.tpQuarryOrderDetails.Controls.Add(this.openQtyTextBox);
+            this.tpQuarryOrderDetails.Controls.Add(quantityLabel);
+            this.tpQuarryOrderDetails.Controls.Add(this.quantityTextBox);
+            this.tpQuarryOrderDetails.Controls.Add(cartageLabel);
+            this.tpQuarryOrderDetails.Controls.Add(this.cartageTextBox);
+            this.tpQuarryOrderDetails.Controls.Add(cartageCodeLabel);
+            this.tpQuarryOrderDetails.Controls.Add(this.cartageCodeTextBox);
+            this.tpQuarryOrderDetails.Controls.Add(purchaseOrderLabel);
+            this.tpQuarryOrderDetails.Controls.Add(this.purchaseOrderTextBox);
+            this.tpQuarryOrderDetails.Controls.Add(customerLabel);
+            this.tpQuarryOrderDetails.Controls.Add(this.customerTextBox);
+            this.tpQuarryOrderDetails.Controls.Add(cardCodeLabel);
+            this.tpQuarryOrderDetails.Controls.Add(this.cardCodeTextBox);
+            this.tpQuarryOrderDetails.Controls.Add(materialLabel);
+            this.tpQuarryOrderDetails.Controls.Add(this.materialTextBox);
+            this.tpQuarryOrderDetails.Controls.Add(nHVR_RouteIDLabel);
+            this.tpQuarryOrderDetails.Controls.Add(this.nHVR_RouteIDTextBox);
+            this.tpQuarryOrderDetails.Controls.Add(estTripTimeLabel);
+            this.tpQuarryOrderDetails.Controls.Add(this.estTripTimeTextBox);
+            this.tpQuarryOrderDetails.Controls.Add(distanceLabel);
+            this.tpQuarryOrderDetails.Controls.Add(this.distanceTextBox);
+            this.tpQuarryOrderDetails.Controls.Add(materialCodeLabel);
+            this.tpQuarryOrderDetails.Controls.Add(this.materialCodeTextBox);
+            this.tpQuarryOrderDetails.Controls.Add(deliveryDateLabel);
+            this.tpQuarryOrderDetails.Controls.Add(this.deliveryDateTextBox);
+            this.tpQuarryOrderDetails.Controls.Add(docNumLabel);
+            this.tpQuarryOrderDetails.Controls.Add(this.docNumTextBox);
+            this.tpQuarryOrderDetails.Location = new System.Drawing.Point(4, 25);
+            this.tpQuarryOrderDetails.Name = "tpQuarryOrderDetails";
+            this.tpQuarryOrderDetails.Padding = new System.Windows.Forms.Padding(3);
+            this.tpQuarryOrderDetails.Size = new System.Drawing.Size(1411, 264);
+            this.tpQuarryOrderDetails.TabIndex = 1;
+            this.tpQuarryOrderDetails.Text = "Details";
+            this.tpQuarryOrderDetails.UseVisualStyleBackColor = true;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(960, 99);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(100, 23);
+            this.textBox11.TabIndex = 85;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(960, 129);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(100, 23);
+            this.textBox12.TabIndex = 86;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(960, 160);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(100, 23);
+            this.textBox13.TabIndex = 87;
+            // 
+            // btnQuarryOrdersLoad
+            // 
+            this.btnQuarryOrdersLoad.Location = new System.Drawing.Point(960, 190);
+            this.btnQuarryOrdersLoad.Name = "btnQuarryOrdersLoad";
+            this.btnQuarryOrdersLoad.Size = new System.Drawing.Size(100, 23);
+            this.btnQuarryOrdersLoad.TabIndex = 88;
+            this.btnQuarryOrdersLoad.Text = "Quarry Orders";
+            this.btnQuarryOrdersLoad.UseVisualStyleBackColor = true;
+            this.btnQuarryOrdersLoad.Click += new System.EventHandler(this.btnQuarryOrdersLoad_Click);
+            // 
+            // bsQuarryOrders
+            // 
+            this.bsQuarryOrders.DataMember = "QuarryOrders";
+            this.bsQuarryOrders.DataSource = this.dsBookIn;
+            // 
+            // taQuarryOrders
+            // 
+            this.taQuarryOrders.ClearBeforeFill = true;
+            // 
+            // docNumLabel
+            // 
+            docNumLabel.AutoSize = true;
+            docNumLabel.Location = new System.Drawing.Point(77, 35);
+            docNumLabel.Name = "docNumLabel";
+            docNumLabel.Size = new System.Drawing.Size(70, 17);
+            docNumLabel.TabIndex = 0;
+            docNumLabel.Text = "Doc Num:";
+            // 
+            // docNumTextBox
+            // 
+            this.docNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "DocNum", true));
+            this.docNumTextBox.Location = new System.Drawing.Point(153, 32);
+            this.docNumTextBox.Name = "docNumTextBox";
+            this.docNumTextBox.Size = new System.Drawing.Size(100, 23);
+            this.docNumTextBox.TabIndex = 1;
+            // 
+            // deliveryDateLabel
+            // 
+            deliveryDateLabel.AutoSize = true;
+            deliveryDateLabel.Location = new System.Drawing.Point(50, 64);
+            deliveryDateLabel.Name = "deliveryDateLabel";
+            deliveryDateLabel.Size = new System.Drawing.Size(97, 17);
+            deliveryDateLabel.TabIndex = 2;
+            deliveryDateLabel.Text = "Delivery Date:";
+            // 
+            // deliveryDateTextBox
+            // 
+            this.deliveryDateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "DeliveryDate", true));
+            this.deliveryDateTextBox.Location = new System.Drawing.Point(153, 61);
+            this.deliveryDateTextBox.Name = "deliveryDateTextBox";
+            this.deliveryDateTextBox.Size = new System.Drawing.Size(100, 23);
+            this.deliveryDateTextBox.TabIndex = 3;
+            // 
+            // materialCodeLabel
+            // 
+            materialCodeLabel.AutoSize = true;
+            materialCodeLabel.Location = new System.Drawing.Point(48, 93);
+            materialCodeLabel.Name = "materialCodeLabel";
+            materialCodeLabel.Size = new System.Drawing.Size(99, 17);
+            materialCodeLabel.TabIndex = 4;
+            materialCodeLabel.Text = "Material Code:";
+            // 
+            // materialCodeTextBox
+            // 
+            this.materialCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "MaterialCode", true));
+            this.materialCodeTextBox.Location = new System.Drawing.Point(153, 90);
+            this.materialCodeTextBox.Name = "materialCodeTextBox";
+            this.materialCodeTextBox.Size = new System.Drawing.Size(100, 23);
+            this.materialCodeTextBox.TabIndex = 5;
+            // 
+            // distanceLabel
+            // 
+            distanceLabel.AutoSize = true;
+            distanceLabel.Location = new System.Drawing.Point(588, 122);
+            distanceLabel.Name = "distanceLabel";
+            distanceLabel.Size = new System.Drawing.Size(67, 17);
+            distanceLabel.TabIndex = 6;
+            distanceLabel.Text = "Distance:";
+            // 
+            // distanceTextBox
+            // 
+            this.distanceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "Distance", true));
+            this.distanceTextBox.Location = new System.Drawing.Point(661, 119);
+            this.distanceTextBox.Name = "distanceTextBox";
+            this.distanceTextBox.Size = new System.Drawing.Size(100, 23);
+            this.distanceTextBox.TabIndex = 7;
+            // 
+            // estTripTimeLabel
+            // 
+            estTripTimeLabel.AutoSize = true;
+            estTripTimeLabel.Location = new System.Drawing.Point(559, 151);
+            estTripTimeLabel.Name = "estTripTimeLabel";
+            estTripTimeLabel.Size = new System.Drawing.Size(96, 17);
+            estTripTimeLabel.TabIndex = 8;
+            estTripTimeLabel.Text = "Est Trip Time:";
+            // 
+            // estTripTimeTextBox
+            // 
+            this.estTripTimeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "EstTripTime", true));
+            this.estTripTimeTextBox.Location = new System.Drawing.Point(661, 148);
+            this.estTripTimeTextBox.Name = "estTripTimeTextBox";
+            this.estTripTimeTextBox.Size = new System.Drawing.Size(100, 23);
+            this.estTripTimeTextBox.TabIndex = 9;
+            // 
+            // nHVR_RouteIDLabel
+            // 
+            nHVR_RouteIDLabel.AutoSize = true;
+            nHVR_RouteIDLabel.Location = new System.Drawing.Point(545, 180);
+            nHVR_RouteIDLabel.Name = "nHVR_RouteIDLabel";
+            nHVR_RouteIDLabel.Size = new System.Drawing.Size(110, 17);
+            nHVR_RouteIDLabel.TabIndex = 10;
+            nHVR_RouteIDLabel.Text = "NHVR Route ID:";
+            // 
+            // nHVR_RouteIDTextBox
+            // 
+            this.nHVR_RouteIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "NHVR_RouteID", true));
+            this.nHVR_RouteIDTextBox.Location = new System.Drawing.Point(661, 177);
+            this.nHVR_RouteIDTextBox.Name = "nHVR_RouteIDTextBox";
+            this.nHVR_RouteIDTextBox.Size = new System.Drawing.Size(100, 23);
+            this.nHVR_RouteIDTextBox.TabIndex = 11;
+            // 
+            // materialLabel
+            // 
+            materialLabel.AutoSize = true;
+            materialLabel.Location = new System.Drawing.Point(85, 122);
+            materialLabel.Name = "materialLabel";
+            materialLabel.Size = new System.Drawing.Size(62, 17);
+            materialLabel.TabIndex = 12;
+            materialLabel.Text = "Material:";
+            // 
+            // materialTextBox
+            // 
+            this.materialTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "Material", true));
+            this.materialTextBox.Location = new System.Drawing.Point(153, 119);
+            this.materialTextBox.Name = "materialTextBox";
+            this.materialTextBox.Size = new System.Drawing.Size(275, 23);
+            this.materialTextBox.TabIndex = 13;
+            // 
+            // cardCodeLabel
+            // 
+            cardCodeLabel.AutoSize = true;
+            cardCodeLabel.Location = new System.Drawing.Point(354, 35);
+            cardCodeLabel.Name = "cardCodeLabel";
+            cardCodeLabel.Size = new System.Drawing.Size(79, 17);
+            cardCodeLabel.TabIndex = 14;
+            cardCodeLabel.Text = "Card Code:";
+            // 
+            // cardCodeTextBox
+            // 
+            this.cardCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "CardCode", true));
+            this.cardCodeTextBox.Location = new System.Drawing.Point(439, 32);
+            this.cardCodeTextBox.Name = "cardCodeTextBox";
+            this.cardCodeTextBox.Size = new System.Drawing.Size(100, 23);
+            this.cardCodeTextBox.TabIndex = 15;
+            // 
+            // customerLabel
+            // 
+            customerLabel.AutoSize = true;
+            customerLabel.Location = new System.Drawing.Point(361, 64);
+            customerLabel.Name = "customerLabel";
+            customerLabel.Size = new System.Drawing.Size(72, 17);
+            customerLabel.TabIndex = 16;
+            customerLabel.Text = "Customer:";
+            // 
+            // customerTextBox
+            // 
+            this.customerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "Customer", true));
+            this.customerTextBox.Location = new System.Drawing.Point(439, 61);
+            this.customerTextBox.Name = "customerTextBox";
+            this.customerTextBox.Size = new System.Drawing.Size(322, 23);
+            this.customerTextBox.TabIndex = 17;
+            // 
+            // purchaseOrderLabel
+            // 
+            purchaseOrderLabel.AutoSize = true;
+            purchaseOrderLabel.Location = new System.Drawing.Point(320, 93);
+            purchaseOrderLabel.Name = "purchaseOrderLabel";
+            purchaseOrderLabel.Size = new System.Drawing.Size(113, 17);
+            purchaseOrderLabel.TabIndex = 18;
+            purchaseOrderLabel.Text = "Purchase Order:";
+            // 
+            // purchaseOrderTextBox
+            // 
+            this.purchaseOrderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "PurchaseOrder", true));
+            this.purchaseOrderTextBox.Location = new System.Drawing.Point(439, 90);
+            this.purchaseOrderTextBox.Name = "purchaseOrderTextBox";
+            this.purchaseOrderTextBox.Size = new System.Drawing.Size(100, 23);
+            this.purchaseOrderTextBox.TabIndex = 19;
+            // 
+            // cartageCodeLabel
+            // 
+            cartageCodeLabel.AutoSize = true;
+            cartageCodeLabel.Location = new System.Drawing.Point(48, 151);
+            cartageCodeLabel.Name = "cartageCodeLabel";
+            cartageCodeLabel.Size = new System.Drawing.Size(99, 17);
+            cartageCodeLabel.TabIndex = 20;
+            cartageCodeLabel.Text = "Cartage Code:";
+            // 
+            // cartageCodeTextBox
+            // 
+            this.cartageCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "CartageCode", true));
+            this.cartageCodeTextBox.Location = new System.Drawing.Point(153, 148);
+            this.cartageCodeTextBox.Name = "cartageCodeTextBox";
+            this.cartageCodeTextBox.Size = new System.Drawing.Size(100, 23);
+            this.cartageCodeTextBox.TabIndex = 21;
+            // 
+            // cartageLabel
+            // 
+            cartageLabel.AutoSize = true;
+            cartageLabel.Location = new System.Drawing.Point(85, 180);
+            cartageLabel.Name = "cartageLabel";
+            cartageLabel.Size = new System.Drawing.Size(62, 17);
+            cartageLabel.TabIndex = 22;
+            cartageLabel.Text = "Cartage:";
+            // 
+            // cartageTextBox
+            // 
+            this.cartageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "Cartage", true));
+            this.cartageTextBox.Location = new System.Drawing.Point(153, 177);
+            this.cartageTextBox.Name = "cartageTextBox";
+            this.cartageTextBox.Size = new System.Drawing.Size(275, 23);
+            this.cartageTextBox.TabIndex = 23;
+            // 
+            // quantityLabel
+            // 
+            quantityLabel.AutoSize = true;
+            quantityLabel.Location = new System.Drawing.Point(881, 122);
+            quantityLabel.Name = "quantityLabel";
+            quantityLabel.Size = new System.Drawing.Size(65, 17);
+            quantityLabel.TabIndex = 24;
+            quantityLabel.Text = "Quantity:";
+            // 
+            // quantityTextBox
+            // 
+            this.quantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "Quantity", true));
+            this.quantityTextBox.Location = new System.Drawing.Point(952, 119);
+            this.quantityTextBox.Name = "quantityTextBox";
+            this.quantityTextBox.Size = new System.Drawing.Size(100, 23);
+            this.quantityTextBox.TabIndex = 25;
+            // 
+            // openQtyLabel
+            // 
+            openQtyLabel.AutoSize = true;
+            openQtyLabel.Location = new System.Drawing.Point(873, 151);
+            openQtyLabel.Name = "openQtyLabel";
+            openQtyLabel.Size = new System.Drawing.Size(73, 17);
+            openQtyLabel.TabIndex = 26;
+            openQtyLabel.Text = "Open Qty:";
+            // 
+            // openQtyTextBox
+            // 
+            this.openQtyTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "OpenQty", true));
+            this.openQtyTextBox.Location = new System.Drawing.Point(952, 148);
+            this.openQtyTextBox.Name = "openQtyTextBox";
+            this.openQtyTextBox.Size = new System.Drawing.Size(100, 23);
+            this.openQtyTextBox.TabIndex = 27;
+            // 
+            // suppliedLabel
+            // 
+            suppliedLabel.AutoSize = true;
+            suppliedLabel.Location = new System.Drawing.Point(879, 180);
+            suppliedLabel.Name = "suppliedLabel";
+            suppliedLabel.Size = new System.Drawing.Size(67, 17);
+            suppliedLabel.TabIndex = 28;
+            suppliedLabel.Text = "Supplied:";
+            // 
+            // suppliedTextBox
+            // 
+            this.suppliedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "Supplied", true));
+            this.suppliedTextBox.Location = new System.Drawing.Point(952, 177);
+            this.suppliedTextBox.Name = "suppliedTextBox";
+            this.suppliedTextBox.Size = new System.Drawing.Size(100, 23);
+            this.suppliedTextBox.TabIndex = 29;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.docNumDataGridViewTextBoxColumn,
+            this.docEntryDataGridViewTextBoxColumn,
+            this.docDateDataGridViewTextBoxColumn1,
+            this.cardCodeDataGridViewTextBoxColumn,
+            this.customerDataGridViewTextBoxColumn,
+            this.purchaseOrderDataGridViewTextBoxColumn,
+            this.cntctCodeDataGridViewTextBoxColumn,
+            this.contactNameDataGridViewTextBoxColumn,
+            this.contactMobileDataGridViewTextBoxColumn1,
+            this.deliveryDateDataGridViewTextBoxColumn,
+            this.deliveryAddressDataGridViewTextBoxColumn1,
+            this.distanceDataGridViewTextBoxColumn,
+            this.estTripTimeDataGridViewTextBoxColumn,
+            this.nHVRRouteIDDataGridViewTextBoxColumn,
+            this.nHVRNetworkDataGridViewTextBoxColumn,
+            this.nHVRMassLimitDataGridViewTextBoxColumn,
+            this.nHVRConditionDataGridViewTextBoxColumn,
+            this.nHVRCommentDataGridViewTextBoxColumn,
+            this.instructionsDataGridViewTextBoxColumn,
+            this.materialCodeDataGridViewTextBoxColumn,
+            this.materialDataGridViewTextBoxColumn,
+            this.itmsGrpCodDataGridViewTextBoxColumn1,
+            this.itemQADataGridViewTextBoxColumn1,
+            this.quantityDataGridViewTextBoxColumn1,
+            this.openQtyDataGridViewTextBoxColumn,
+            this.suppliedDataGridViewTextBoxColumn1,
+            this.cartageCodeDataGridViewTextBoxColumn,
+            this.cartageDataGridViewTextBoxColumn,
+            this.sAPUpdateDTTMDataGridViewTextBoxColumn1});
+            this.dataGridView1.DataSource = this.bsQuarryOrders;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1405, 258);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // docNumDataGridViewTextBoxColumn
+            // 
+            this.docNumDataGridViewTextBoxColumn.DataPropertyName = "DocNum";
+            this.docNumDataGridViewTextBoxColumn.HeaderText = "DocNum";
+            this.docNumDataGridViewTextBoxColumn.Name = "docNumDataGridViewTextBoxColumn";
+            this.docNumDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // docEntryDataGridViewTextBoxColumn
+            // 
+            this.docEntryDataGridViewTextBoxColumn.DataPropertyName = "DocEntry";
+            this.docEntryDataGridViewTextBoxColumn.HeaderText = "DocEntry";
+            this.docEntryDataGridViewTextBoxColumn.Name = "docEntryDataGridViewTextBoxColumn";
+            this.docEntryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // docDateDataGridViewTextBoxColumn1
+            // 
+            this.docDateDataGridViewTextBoxColumn1.DataPropertyName = "DocDate";
+            this.docDateDataGridViewTextBoxColumn1.HeaderText = "DocDate";
+            this.docDateDataGridViewTextBoxColumn1.Name = "docDateDataGridViewTextBoxColumn1";
+            this.docDateDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // cardCodeDataGridViewTextBoxColumn
+            // 
+            this.cardCodeDataGridViewTextBoxColumn.DataPropertyName = "CardCode";
+            this.cardCodeDataGridViewTextBoxColumn.HeaderText = "CardCode";
+            this.cardCodeDataGridViewTextBoxColumn.Name = "cardCodeDataGridViewTextBoxColumn";
+            this.cardCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // customerDataGridViewTextBoxColumn
+            // 
+            this.customerDataGridViewTextBoxColumn.DataPropertyName = "Customer";
+            this.customerDataGridViewTextBoxColumn.HeaderText = "Customer";
+            this.customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
+            this.customerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // purchaseOrderDataGridViewTextBoxColumn
+            // 
+            this.purchaseOrderDataGridViewTextBoxColumn.DataPropertyName = "PurchaseOrder";
+            this.purchaseOrderDataGridViewTextBoxColumn.HeaderText = "PurchaseOrder";
+            this.purchaseOrderDataGridViewTextBoxColumn.Name = "purchaseOrderDataGridViewTextBoxColumn";
+            this.purchaseOrderDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cntctCodeDataGridViewTextBoxColumn
+            // 
+            this.cntctCodeDataGridViewTextBoxColumn.DataPropertyName = "CntctCode";
+            this.cntctCodeDataGridViewTextBoxColumn.HeaderText = "CntctCode";
+            this.cntctCodeDataGridViewTextBoxColumn.Name = "cntctCodeDataGridViewTextBoxColumn";
+            this.cntctCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // contactNameDataGridViewTextBoxColumn
+            // 
+            this.contactNameDataGridViewTextBoxColumn.DataPropertyName = "ContactName";
+            this.contactNameDataGridViewTextBoxColumn.HeaderText = "ContactName";
+            this.contactNameDataGridViewTextBoxColumn.Name = "contactNameDataGridViewTextBoxColumn";
+            this.contactNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // contactMobileDataGridViewTextBoxColumn1
+            // 
+            this.contactMobileDataGridViewTextBoxColumn1.DataPropertyName = "ContactMobile";
+            this.contactMobileDataGridViewTextBoxColumn1.HeaderText = "ContactMobile";
+            this.contactMobileDataGridViewTextBoxColumn1.Name = "contactMobileDataGridViewTextBoxColumn1";
+            this.contactMobileDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // deliveryDateDataGridViewTextBoxColumn
+            // 
+            this.deliveryDateDataGridViewTextBoxColumn.DataPropertyName = "DeliveryDate";
+            this.deliveryDateDataGridViewTextBoxColumn.HeaderText = "DeliveryDate";
+            this.deliveryDateDataGridViewTextBoxColumn.Name = "deliveryDateDataGridViewTextBoxColumn";
+            this.deliveryDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // deliveryAddressDataGridViewTextBoxColumn1
+            // 
+            this.deliveryAddressDataGridViewTextBoxColumn1.DataPropertyName = "DeliveryAddress";
+            this.deliveryAddressDataGridViewTextBoxColumn1.HeaderText = "DeliveryAddress";
+            this.deliveryAddressDataGridViewTextBoxColumn1.Name = "deliveryAddressDataGridViewTextBoxColumn1";
+            this.deliveryAddressDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // distanceDataGridViewTextBoxColumn
+            // 
+            this.distanceDataGridViewTextBoxColumn.DataPropertyName = "Distance";
+            this.distanceDataGridViewTextBoxColumn.HeaderText = "Distance";
+            this.distanceDataGridViewTextBoxColumn.Name = "distanceDataGridViewTextBoxColumn";
+            this.distanceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // estTripTimeDataGridViewTextBoxColumn
+            // 
+            this.estTripTimeDataGridViewTextBoxColumn.DataPropertyName = "EstTripTime";
+            this.estTripTimeDataGridViewTextBoxColumn.HeaderText = "EstTripTime";
+            this.estTripTimeDataGridViewTextBoxColumn.Name = "estTripTimeDataGridViewTextBoxColumn";
+            this.estTripTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nHVRRouteIDDataGridViewTextBoxColumn
+            // 
+            this.nHVRRouteIDDataGridViewTextBoxColumn.DataPropertyName = "NHVR_RouteID";
+            this.nHVRRouteIDDataGridViewTextBoxColumn.HeaderText = "NHVR_RouteID";
+            this.nHVRRouteIDDataGridViewTextBoxColumn.Name = "nHVRRouteIDDataGridViewTextBoxColumn";
+            this.nHVRRouteIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nHVRNetworkDataGridViewTextBoxColumn
+            // 
+            this.nHVRNetworkDataGridViewTextBoxColumn.DataPropertyName = "NHVR_Network";
+            this.nHVRNetworkDataGridViewTextBoxColumn.HeaderText = "NHVR_Network";
+            this.nHVRNetworkDataGridViewTextBoxColumn.Name = "nHVRNetworkDataGridViewTextBoxColumn";
+            this.nHVRNetworkDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nHVRMassLimitDataGridViewTextBoxColumn
+            // 
+            this.nHVRMassLimitDataGridViewTextBoxColumn.DataPropertyName = "NHVR_MassLimit";
+            this.nHVRMassLimitDataGridViewTextBoxColumn.HeaderText = "NHVR_MassLimit";
+            this.nHVRMassLimitDataGridViewTextBoxColumn.Name = "nHVRMassLimitDataGridViewTextBoxColumn";
+            this.nHVRMassLimitDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nHVRConditionDataGridViewTextBoxColumn
+            // 
+            this.nHVRConditionDataGridViewTextBoxColumn.DataPropertyName = "NHVR_Condition";
+            this.nHVRConditionDataGridViewTextBoxColumn.HeaderText = "NHVR_Condition";
+            this.nHVRConditionDataGridViewTextBoxColumn.Name = "nHVRConditionDataGridViewTextBoxColumn";
+            this.nHVRConditionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nHVRCommentDataGridViewTextBoxColumn
+            // 
+            this.nHVRCommentDataGridViewTextBoxColumn.DataPropertyName = "NHVR_Comment";
+            this.nHVRCommentDataGridViewTextBoxColumn.HeaderText = "NHVR_Comment";
+            this.nHVRCommentDataGridViewTextBoxColumn.Name = "nHVRCommentDataGridViewTextBoxColumn";
+            this.nHVRCommentDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // instructionsDataGridViewTextBoxColumn
+            // 
+            this.instructionsDataGridViewTextBoxColumn.DataPropertyName = "Instructions";
+            this.instructionsDataGridViewTextBoxColumn.HeaderText = "Instructions";
+            this.instructionsDataGridViewTextBoxColumn.Name = "instructionsDataGridViewTextBoxColumn";
+            this.instructionsDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // materialCodeDataGridViewTextBoxColumn
+            // 
+            this.materialCodeDataGridViewTextBoxColumn.DataPropertyName = "MaterialCode";
+            this.materialCodeDataGridViewTextBoxColumn.HeaderText = "MaterialCode";
+            this.materialCodeDataGridViewTextBoxColumn.Name = "materialCodeDataGridViewTextBoxColumn";
+            this.materialCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // materialDataGridViewTextBoxColumn
+            // 
+            this.materialDataGridViewTextBoxColumn.DataPropertyName = "Material";
+            this.materialDataGridViewTextBoxColumn.HeaderText = "Material";
+            this.materialDataGridViewTextBoxColumn.Name = "materialDataGridViewTextBoxColumn";
+            this.materialDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // itmsGrpCodDataGridViewTextBoxColumn1
+            // 
+            this.itmsGrpCodDataGridViewTextBoxColumn1.DataPropertyName = "ItmsGrpCod";
+            this.itmsGrpCodDataGridViewTextBoxColumn1.HeaderText = "ItmsGrpCod";
+            this.itmsGrpCodDataGridViewTextBoxColumn1.Name = "itmsGrpCodDataGridViewTextBoxColumn1";
+            this.itmsGrpCodDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // itemQADataGridViewTextBoxColumn1
+            // 
+            this.itemQADataGridViewTextBoxColumn1.DataPropertyName = "ItemQA";
+            this.itemQADataGridViewTextBoxColumn1.HeaderText = "ItemQA";
+            this.itemQADataGridViewTextBoxColumn1.Name = "itemQADataGridViewTextBoxColumn1";
+            this.itemQADataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // quantityDataGridViewTextBoxColumn1
+            // 
+            this.quantityDataGridViewTextBoxColumn1.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn1.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn1.Name = "quantityDataGridViewTextBoxColumn1";
+            this.quantityDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // openQtyDataGridViewTextBoxColumn
+            // 
+            this.openQtyDataGridViewTextBoxColumn.DataPropertyName = "OpenQty";
+            this.openQtyDataGridViewTextBoxColumn.HeaderText = "OpenQty";
+            this.openQtyDataGridViewTextBoxColumn.Name = "openQtyDataGridViewTextBoxColumn";
+            this.openQtyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // suppliedDataGridViewTextBoxColumn1
+            // 
+            this.suppliedDataGridViewTextBoxColumn1.DataPropertyName = "Supplied";
+            this.suppliedDataGridViewTextBoxColumn1.HeaderText = "Supplied";
+            this.suppliedDataGridViewTextBoxColumn1.Name = "suppliedDataGridViewTextBoxColumn1";
+            this.suppliedDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // cartageCodeDataGridViewTextBoxColumn
+            // 
+            this.cartageCodeDataGridViewTextBoxColumn.DataPropertyName = "CartageCode";
+            this.cartageCodeDataGridViewTextBoxColumn.HeaderText = "CartageCode";
+            this.cartageCodeDataGridViewTextBoxColumn.Name = "cartageCodeDataGridViewTextBoxColumn";
+            this.cartageCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cartageDataGridViewTextBoxColumn
+            // 
+            this.cartageDataGridViewTextBoxColumn.DataPropertyName = "Cartage";
+            this.cartageDataGridViewTextBoxColumn.HeaderText = "Cartage";
+            this.cartageDataGridViewTextBoxColumn.Name = "cartageDataGridViewTextBoxColumn";
+            this.cartageDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sAPUpdateDTTMDataGridViewTextBoxColumn1
+            // 
+            this.sAPUpdateDTTMDataGridViewTextBoxColumn1.DataPropertyName = "SAPUpdateDTTM";
+            this.sAPUpdateDTTMDataGridViewTextBoxColumn1.HeaderText = "SAPUpdateDTTM";
+            this.sAPUpdateDTTMDataGridViewTextBoxColumn1.Name = "sAPUpdateDTTMDataGridViewTextBoxColumn1";
+            this.sAPUpdateDTTMDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // BookInExBin
             // 
@@ -1980,6 +2687,8 @@ namespace QWS_Local
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).EndInit();
@@ -2011,14 +2720,19 @@ namespace QWS_Local
             this.tpPayload.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayloadTr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
+            this.tpQuarryOrders.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
+            this.tpQuarryOrdersList.ResumeLayout(false);
+            this.tpQuarryOrderDetails.ResumeLayout(false);
+            this.tpQuarryOrderDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsQuarryOrders)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2156,5 +2870,60 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Button btnUpdatePayloadSplit;
         private System.Windows.Forms.TextBox truckConfigTextBox;
+        private System.Windows.Forms.TabPage tpQuarryOrders;
+        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabPage tpQuarryOrdersList;
+        private System.Windows.Forms.TabPage tpQuarryOrderDetails;
+        private System.Windows.Forms.Button btnQuarryOrdersLoad;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.BindingSource bsQuarryOrders;
+        private dsBookInTableAdapters.QuarryOrdersTableAdapter taQuarryOrders;
+        private System.Windows.Forms.TextBox suppliedTextBox;
+        private System.Windows.Forms.TextBox openQtyTextBox;
+        private System.Windows.Forms.TextBox quantityTextBox;
+        private System.Windows.Forms.TextBox cartageTextBox;
+        private System.Windows.Forms.TextBox cartageCodeTextBox;
+        private System.Windows.Forms.TextBox purchaseOrderTextBox;
+        private System.Windows.Forms.TextBox customerTextBox;
+        private System.Windows.Forms.TextBox cardCodeTextBox;
+        private System.Windows.Forms.TextBox materialTextBox;
+        private System.Windows.Forms.TextBox nHVR_RouteIDTextBox;
+        private System.Windows.Forms.TextBox estTripTimeTextBox;
+        private System.Windows.Forms.TextBox distanceTextBox;
+        private System.Windows.Forms.TextBox materialCodeTextBox;
+        private System.Windows.Forms.TextBox deliveryDateTextBox;
+        private System.Windows.Forms.TextBox docNumTextBox;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn docNumDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn docEntryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn docDateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cardCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn purchaseOrderDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cntctCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contactNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contactMobileDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deliveryDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deliveryAddressDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn distanceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estTripTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nHVRRouteIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nHVRNetworkDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nHVRMassLimitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nHVRConditionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nHVRCommentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn instructionsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materialCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materialDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itmsGrpCodDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemQADataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn openQtyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn suppliedDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cartageCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cartageDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sAPUpdateDTTMDataGridViewTextBoxColumn1;
     }
 }
