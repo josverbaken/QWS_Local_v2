@@ -1,7 +1,7 @@
 ﻿
 namespace QWS_Local
 {
-    partial class BookInExBin
+    partial class BookInMaterial
     {
         /// <summary>
         /// Required designer variable.

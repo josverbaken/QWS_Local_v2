@@ -45,7 +45,7 @@ namespace QWS_Local
 
         private void bookInTruckStep1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BookInTruckStep1 frmBookIn1 = new BookInTruckStep1();
+            BookInTruck frmBookIn1 = new BookInTruck();
             frmBookIn1.MdiParent = this;
             frmBookIn1.Show();
         }

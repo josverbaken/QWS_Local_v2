@@ -1,7 +1,7 @@
 ﻿
 namespace QWS_Local
 {
-    partial class BookInTruckStep1
+    partial class BookInTruck
     {
         /// <summary>
         /// Required designer variable.

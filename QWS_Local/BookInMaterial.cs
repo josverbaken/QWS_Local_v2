@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace QWS_Local
 {
-    public partial class BookInExBin : Form
+    public partial class BookInMaterial : Form
     {
         private bool FormLoaded = false;
         private bool IsPrefCust = false;
@@ -31,12 +31,12 @@ namespace QWS_Local
 
         private TIQType FormTIQType;
 
-        public BookInExBin()
+        public BookInMaterial()
         {
             InitializeComponent();
         }
 
-        public BookInExBin(int myTIQID,string myTIQType,int myTruckConfigID, string myCardCode, string myCustomerName, bool myIsPrefCust , dsQWSLocal2024.TruckDriverRow driverRow)
+        public BookInMaterial(int myTIQID,string myTIQType,int myTruckConfigID, string myCardCode, string myCustomerName, bool myIsPrefCust , dsQWSLocal2024.TruckDriverRow driverRow)
         {
             InitializeComponent();
             TIQID = myTIQID;
@@ -675,7 +675,7 @@ namespace QWS_Local
         private void GoBack2BookIn(string Rego, int TruckConfigID, int DriverID, int myParentTIQID, string TrailerConfig)
         {
             // call to book in trailer for split load
-            BookInTruckStep1 frmBookInStep1 = new BookInTruckStep1(Rego, TruckConfigID, DriverID, myParentTIQID,CurrentTIQ().TruckConfig, "Called after book in TKs", TrailerConfig);
+            BookInTruck frmBookInStep1 = new BookInTruck(Rego, TruckConfigID, DriverID, myParentTIQID,CurrentTIQ().TruckConfig, "Called after book in TKs", TrailerConfig);
             frmBookInStep1.MdiParent = this.MdiParent;
             frmBookInStep1.Show();
         }

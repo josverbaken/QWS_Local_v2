@@ -237,23 +237,17 @@
     <Compile Include="AxleConfiguration.Designer.cs">
       <DependentUpon>AxleConfiguration.cs</DependentUpon>
     </Compile>
-    <Compile Include="BookInDelivery.cs">
+    <Compile Include="BookInMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BookInDelivery.Designer.cs">
-      <DependentUpon>BookInDelivery.cs</DependentUpon>
+    <Compile Include="BookInMaterial.Designer.cs">
+      <DependentUpon>BookInMaterial.cs</DependentUpon>
     </Compile>
-    <Compile Include="BookInExBin.cs">
+    <Compile Include="BookInTruck.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BookInExBin.Designer.cs">
-      <DependentUpon>BookInExBin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BookInTruckStep1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BookInTruckStep1.Designer.cs">
-      <DependentUpon>BookInTruckStep1.cs</DependentUpon>
+    <Compile Include="BookInTruck.Designer.cs">
+      <DependentUpon>BookInTruck.cs</DependentUpon>
     </Compile>
     <Compile Include="BusinessPartner.cs" />
     <Compile Include="BusinessSearch.cs">
@@ -458,14 +452,11 @@
     <EmbeddedResource Include="AxleConfiguration.resx">
       <DependentUpon>AxleConfiguration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BookInDelivery.resx">
-      <DependentUpon>BookInDelivery.cs</DependentUpon>
+    <EmbeddedResource Include="BookInMaterial.resx">
+      <DependentUpon>BookInMaterial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BookInExBin.resx">
-      <DependentUpon>BookInExBin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BookInTruckStep1.resx">
-      <DependentUpon>BookInTruckStep1.cs</DependentUpon>
+    <EmbeddedResource Include="BookInTruck.resx">
+      <DependentUpon>BookInTruck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BusinessSearch.resx">
       <DependentUpon>BusinessSearch.cs</DependentUpon>

@@ -13,7 +13,7 @@ using static QWS_Local.dsQWSLocal2024;
 
 namespace QWS_Local
 {
-    public partial class BookInTruckStep1 : Form
+    public partial class BookInTruck : Form
     {
         private static DateTime EntryDTTM;
         private static string CustCardCode;
@@ -52,13 +52,13 @@ namespace QWS_Local
             ADb
         }
 
-        public BookInTruckStep1()
+        public BookInTruck()
         {
             InitializeComponent();
         }
 
         // Resume in progress TIQ
-        public BookInTruckStep1(int myTIQID, string Rego, int TruckConfigID, int myDriverID, bool Resume)
+        public BookInTruck(int myTIQID, string Rego, int TruckConfigID, int myDriverID, bool Resume)
         {
             InitializeComponent();
             txtTruckRego.Text = Rego;
@@ -73,7 +73,7 @@ namespace QWS_Local
         }
 
         // Book in after updating Tare or Split-load
-        public BookInTruckStep1(string Rego, int TruckConfigID, int myDriverID, int myParentTIQID, string mySplitTruckConfig, string Message, string TrailerConfig)
+        public BookInTruck(string Rego, int TruckConfigID, int myDriverID, int myParentTIQID, string mySplitTruckConfig, string Message, string TrailerConfig)
         {
             InitializeComponent();
             txtTruckRego.Text = Rego;
@@ -540,7 +540,7 @@ namespace QWS_Local
             {
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 UpdateTIQ(myTIQType, myTIQRow.TruckConfig);
-                BookInExBin frmExBin = new BookInExBin(TIQID, myTIQType.ToString(), CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, IsPrefCust, CurrentTruckDriver());
+                BookInMaterial frmExBin = new BookInMaterial(TIQID, myTIQType.ToString(), CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, IsPrefCust, CurrentTruckDriver());
                 TIQID = 0;
                 frmExBin.MdiParent = this.MdiParent;
                 frmExBin.Show();
@@ -554,7 +554,7 @@ namespace QWS_Local
             {
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 UpdateTIQ(myTIQType, myTIQRow.TruckConfig);
-                BookInExBin frmExBin = new BookInExBin(TIQID, myTIQType.ToString(), CurrentConfigTruck().TruckConfigID, "xxx", "", false, CurrentTruckDriver());
+                BookInMaterial frmExBin = new BookInMaterial(TIQID, myTIQType.ToString(), CurrentConfigTruck().TruckConfigID, "xxx", "", false, CurrentTruckDriver());
                 TIQID = 0;
                 frmExBin.MdiParent = this.MdiParent;
                 frmExBin.Show();
@@ -565,25 +565,6 @@ namespace QWS_Local
         private void btnDelivery_Click(object sender, EventArgs e)
         {
             BookInMaterial(TIQType.Delivery);
-        }
-
-        private void GoToBookInDelivery()
-        {
-            BookInDeliveryOrder();
-        }
-        private void BookInDeliveryOrder()
-        {
-            string myTruckTrailerConfig = CurrentConfigTruck().VehicleType;
-            if (TIQID > 0)
-            {
-                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
-                UpdateTIQ(TIQType.Delivery, myTIQRow.TruckConfig);
-                BookInDelivery frmDelivery = new BookInDelivery(TIQID, CurrentConfigTruck().TruckConfigID, CurrentTruckDriver());
-                TIQID = 0;
-                frmDelivery.MdiParent = this.MdiParent;
-                frmDelivery.Show();
-                this.Close();
-            }
         }
 
         private void btnRetare_Click(object sender, EventArgs e)

@@ -82,7 +82,7 @@ namespace QWS_Local
 
         private void BookInTruck()
         {
-            BookInTruckStep1 frmBookIn = new BookInTruckStep1();
+            BookInTruck frmBookIn = new BookInTruck();
             frmBookIn.MdiParent = this.MdiParent;
             frmBookIn.Show();
         }
@@ -451,7 +451,7 @@ namespace QWS_Local
             //called after retare successful or Import with retare due
             string msg = "Called after ";
             msg += Caller;
-            BookInTruckStep1 frmBookInStep1 = new BookInTruckStep1(Rego, TruckConfigID, DriverID, ParentTIQID ,"TruckConfig", msg, TrailerConfig );
+            BookInTruck frmBookInStep1 = new BookInTruck(Rego, TruckConfigID, DriverID, ParentTIQID ,"TruckConfig", msg, TrailerConfig );
             frmBookInStep1.MdiParent = this.MdiParent;
             frmBookInStep1.Show();
         }
@@ -824,7 +824,7 @@ namespace QWS_Local
 
         private void ContinueInProgress()
         {
-            BookInTruckStep1 frmBookIn = new BookInTruckStep1(CurrentTIQ().TIQID, CurrentTIQ().Rego, CurrentTIQ().TruckConfigID, CurrentTIQ().DriverID, true);
+            BookInTruck frmBookIn = new BookInTruck(CurrentTIQ().TIQID, CurrentTIQ().Rego, CurrentTIQ().TruckConfigID, CurrentTIQ().DriverID, true);
             frmBookIn.MdiParent = this.MdiParent;
             frmBookIn.Show();
         }
