@@ -113,42 +113,50 @@ namespace QWS_Local
 
         private void CalculatePoints()
         {
-            decimal TonnesCriterion = 0.5M;
-            decimal OverloadPercent;
-            int OverloadPoints = 5;
-            string msgSanction;
+            try
+            {
 
-            OverloadPercent = Gross / GVM;
-            txtOverloadPercent.Text = OverloadPercent.ToString("P", CultureInfo.InvariantCulture);
-            txtOverloadTonnes.Text = (Gross - GVM).ToString() + " t";
-            if (OverloadPercent >= 1.2M)
-            {
-                msgSanction = "Immediate Sanction Applies. tip off must be supervised, manager contacted, driver advised of immediate sanction and initiation of IRF";
-                OverloadPoints = Properties.Settings.Default.OverloadSevere;
-                txtOverloadCategory.Text = "Overload Severe";
-                MessageBox.Show(msgSanction, "Overload Category = SEVERE!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            //else if (OverloadPercent >= 1.05M)
-            //{
-            //    OverloadPoints = Properties.Settings.Default.OverloadSubstantial;
-            //    txtOverloadCategory.Text = "Overload Substantial";
-            //}
-            // Higher of 0.5t or 5%
-            else if (OverloadPercent >= 1.05M && (Gross - GVM) > TonnesCriterion)
-            {
-                OverloadPoints = Properties.Settings.Default.OverloadSubstantial;
-                txtOverloadCategory.Text = "Overload Substantial";
-            }
-            else
-            {
-                OverloadPoints = Properties.Settings.Default.OverloadMinor;
-                txtOverloadCategory.Text = "Overload Minor";
+                decimal TonnesCriterion = 0.5M;
+                decimal OverloadPercent;
+                int OverloadPoints = 5;
+                string msgSanction;
 
-            }
-            txtPointsDocket.Text = OverloadPoints.ToString();
-            myOverloadPoints = OverloadPoints;
-            myOverloadDesc = txtOverloadCategory.Text;
-            AccumulatedPoints(myOverloadPoints);
+                OverloadPercent = Gross / GVM;
+                txtOverloadPercent.Text = OverloadPercent.ToString("P", CultureInfo.InvariantCulture);
+                txtOverloadTonnes.Text = (Gross - GVM).ToString() + " t";
+                if (OverloadPercent >= 1.2M)
+                {
+                    msgSanction = "Immediate Sanction Applies. tip off must be supervised, manager contacted, driver advised of immediate sanction and initiation of IRF";
+                    OverloadPoints = Properties.Settings.Default.OverloadSevere;
+                    txtOverloadCategory.Text = "Overload Severe";
+                    MessageBox.Show(msgSanction, "Overload Category = SEVERE!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                //else if (OverloadPercent >= 1.05M)
+                //{
+                //    OverloadPoints = Properties.Settings.Default.OverloadSubstantial;
+                //    txtOverloadCategory.Text = "Overload Substantial";
+                //}
+                // Higher of 0.5t or 5%
+                else if (OverloadPercent >= 1.05M && (Gross - GVM) > TonnesCriterion)
+                {
+                    OverloadPoints = Properties.Settings.Default.OverloadSubstantial;
+                    txtOverloadCategory.Text = "Overload Substantial";
+                }
+                else
+                {
+                    OverloadPoints = Properties.Settings.Default.OverloadMinor;
+                    txtOverloadCategory.Text = "Overload Minor";
+
+                }
+                txtPointsDocket.Text = OverloadPoints.ToString();
+                myOverloadPoints = OverloadPoints;
+                myOverloadDesc = txtOverloadCategory.Text;
+                AccumulatedPoints(myOverloadPoints);
+                }
+            catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
         }
 
         private void AccumulatedPoints(int OverloadPoints)

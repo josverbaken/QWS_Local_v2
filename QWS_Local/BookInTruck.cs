@@ -18,7 +18,6 @@ namespace QWS_Local
         private static DateTime EntryDTTM;
         private static string CustCardCode = "xxx";
         private static string ExBinCustomer = "tba";
-        private static bool IsPrefCust = false;
         private static bool DGVLoaded = false;
         private static string CallingMessage = "";
         private static int TIQID = 0;
@@ -490,12 +489,12 @@ namespace QWS_Local
             {
                 CustCardCode = frmPrefCust.customersRow.CardCode;
                 ExBinCustomer = frmPrefCust.customersRow.PrefCustomer;
-                IsPrefCust = true;
+                //IsPrefCust = true;
                 return true;
             }
             else
             {
-                IsPrefCust = false;
+                //IsPrefCust = false;
                 return false;
             }
         }

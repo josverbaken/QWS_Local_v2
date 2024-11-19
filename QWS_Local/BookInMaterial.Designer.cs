@@ -93,15 +93,9 @@ namespace QWS_Local
             System.Windows.Forms.Label label5;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.btnQuarryOrdersLoad = new System.Windows.Forms.Button();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
             this.truckConfigTextBox = new System.Windows.Forms.TextBox();
             this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
@@ -947,13 +941,7 @@ namespace QWS_Local
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
-            this.splitContainer2.Panel1.Controls.Add(this.btnQuarryOrdersLoad);
-            this.splitContainer2.Panel1.Controls.Add(this.textBox13);
-            this.splitContainer2.Panel1.Controls.Add(this.textBox12);
-            this.splitContainer2.Panel1.Controls.Add(this.textBox11);
             this.splitContainer2.Panel1.Controls.Add(this.truckConfigTextBox);
-            this.splitContainer2.Panel1.Controls.Add(this.label13);
-            this.splitContainer2.Panel1.Controls.Add(this.label15);
             this.splitContainer2.Panel1.Controls.Add(this.textBox4);
             this.splitContainer2.Panel1.Controls.Add(mobLabel);
             this.splitContainer2.Panel1.Controls.Add(this.mobTextBox);
@@ -970,37 +958,6 @@ namespace QWS_Local
             this.splitContainer2.Size = new System.Drawing.Size(1427, 554);
             this.splitContainer2.SplitterDistance = 228;
             this.splitContainer2.TabIndex = 3;
-            // 
-            // btnQuarryOrdersLoad
-            // 
-            this.btnQuarryOrdersLoad.Location = new System.Drawing.Point(960, 190);
-            this.btnQuarryOrdersLoad.Name = "btnQuarryOrdersLoad";
-            this.btnQuarryOrdersLoad.Size = new System.Drawing.Size(100, 23);
-            this.btnQuarryOrdersLoad.TabIndex = 88;
-            this.btnQuarryOrdersLoad.Text = "Quarry Orders";
-            this.btnQuarryOrdersLoad.UseVisualStyleBackColor = true;
-            this.btnQuarryOrdersLoad.Click += new System.EventHandler(this.btnQuarryOrdersLoad_Click);
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(960, 160);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 23);
-            this.textBox13.TabIndex = 87;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(960, 129);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 23);
-            this.textBox12.TabIndex = 86;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(960, 99);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 23);
-            this.textBox11.TabIndex = 85;
             // 
             // truckConfigTextBox
             // 
@@ -1019,24 +976,6 @@ namespace QWS_Local
             // 
             this.dsTIQ2.DataSetName = "dsTIQ2";
             this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(746, 160);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(54, 17);
-            this.label13.TabIndex = 83;
-            this.label13.Text = "label13";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(553, 160);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(54, 17);
-            this.label15.TabIndex = 82;
-            this.label15.Text = "label15";
             // 
             // textBox4
             // 
@@ -1662,9 +1601,9 @@ namespace QWS_Local
             this.tpOrderDetails.Controls.Add(this.docNumTextBox1);
             this.tpOrderDetails.Controls.Add(this.btnSetExBinOrder);
             this.tpOrderDetails.Controls.Add(this.btnRefreshOrders);
-            this.tpOrderDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpOrderDetails.Location = new System.Drawing.Point(4, 25);
             this.tpOrderDetails.Name = "tpOrderDetails";
-            this.tpOrderDetails.Size = new System.Drawing.Size(1419, 296);
+            this.tpOrderDetails.Size = new System.Drawing.Size(1419, 293);
             this.tpOrderDetails.TabIndex = 3;
             this.tpOrderDetails.Text = "Order Details";
             this.tpOrderDetails.UseVisualStyleBackColor = true;
@@ -2706,7 +2645,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox txtCardCode;
         private System.Windows.Forms.TextBox txtCustomer;
         private System.Windows.Forms.TextBox txtCustON;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.SplitContainer splitContainer4;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpList;
@@ -2731,7 +2669,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox maxAxlesTextBox;
         private System.Windows.Forms.TextBox roadAccessTextBox;
         private System.Windows.Forms.TextBox configSourceTextBox;
-        private System.Windows.Forms.Label label13;
         private dsQWSLocal2024 dsQWSLocal2024;
         private System.Windows.Forms.BindingSource bsTruckDriver;
         private dsQWSLocal2024TableAdapters.TruckDriverTableAdapter taTruckDriver;
@@ -2743,10 +2680,6 @@ namespace QWS_Local
         private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage tpQuarryOrdersList;
         private System.Windows.Forms.TabPage tpQuarryOrderDetails;
-        private System.Windows.Forms.Button btnQuarryOrdersLoad;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.BindingSource bsQuarryOrders;
         private dsBookInTableAdapters.QuarryOrdersTableAdapter taQuarryOrders;
         private System.Windows.Forms.TextBox suppliedTextBox;

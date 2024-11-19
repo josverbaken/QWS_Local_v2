@@ -77,36 +77,38 @@ namespace QWS_Local
             }
         }
 
+        private int GetCartageInt()
+        {
+            int myCartageInt;
+            switch (CurrentTIQ().TruckConfig)
+            {
+                case "TK":
+                    myCartageInt = 6;
+                    break;
+                case "TT":
+                case "TKs":
+                case "TRS":
+                    myCartageInt = 7;
+                    break;
+                case "BD":
+                    myCartageInt = 7;
+                    break;
+                default:
+                    myCartageInt = 7;
+                    break;
+            }
+            return myCartageInt;
+        }
+
         private void BookInMaterial_Load(object sender, EventArgs e)
         {
             LoadTIQ();
             LoadConfiguredTruckGVM(TruckConfigID);
             LoadDriver();
-            ExBinOrdersLoad(CardCode);
+            QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
             SetExBinNoOrderCustomer();
             FormLoaded = true;
             dataGridView4.ClearSelection();
-            textBox11.Text = FormTIQType.ToString();
-            textBox12.Text = CardCode;
-            int CartageInt = 0;
-            switch (CurrentTIQ().TruckConfig)
-            {
-                case "TK":
-                    CartageInt = 6;
-                    break;
-                case "TT":
-                case "TKs":
-                case "TRS":
-                    CartageInt = 7;
-                    break;
-                case "BD":
-                    CartageInt = 7;
-                    break;
-                default:
-                    CartageInt = 7;
-                    break;
-            }
-            textBox13.Text = CartageInt.ToString();
         }
 
         private void LoadTIQ()
@@ -128,23 +130,7 @@ namespace QWS_Local
             txtCustomer.Text = CustomerName;
         }
 
-        private void ExBinOrdersLoad(string CardCode)
-        {
-            int iOrders = this.taExBinOrders.FillBy(this.dsBookIn.ExBinOrders,CardCode);
-            if (iOrders == 0) 
-            { 
-                this.tabControl2.SelectedTab = tpExBinNoOrder; 
-            }
-            else
-            {
-                if (iOrders == 1) 
-                { 
-                    tabControl2.SelectedTab = tpOrderDetails; 
-                }
-            }
-        }
-
-          private void LoadConfiguredTruckGVM(int myTruckConfigID)
+        private void LoadConfiguredTruckGVM(int myTruckConfigID)
         {
             taConfiguredTruckGVM.Fill(dsTruckConfig.ConfiguredTruckGVM, "", myTruckConfigID);
         }
@@ -312,8 +298,8 @@ namespace QWS_Local
                 DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
                 dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
                 myTIQRow.AllocateDTTM = DateTime.Now;
-                myTIQRow.SAPOrder = CurrentExBinOrder().DocNum;
-                if (CurrentExBinOrder().ItemQA == "Y")
+                myTIQRow.SAPOrder = CurrentQuarryOrder().DocNum;
+                if (CurrentQuarryOrder().ItemQA == "Y")
                 {
                     myTIQRow.StockpileLotNo = -9;
                 }
@@ -321,9 +307,9 @@ namespace QWS_Local
                 {
                     myTIQRow.StockpileLotNo = 0;
                 }
-                myTIQRow.CustON = CurrentExBinOrder().PurchaseOrder;
-                myTIQRow.Material = CurrentExBinOrder().MaterialCode;
-                myTIQRow.MaterialDesc = CurrentExBinOrder().Material;
+                myTIQRow.CustON = CurrentQuarryOrder().PurchaseOrder;
+                myTIQRow.Material = CurrentQuarryOrder().MaterialCode;
+                myTIQRow.MaterialDesc = CurrentQuarryOrder().Material;
                 myTIQRow.DeliveryAddress = "Ex-Bin";
                 myTIQRow.CartageCode = "";
                 myTIQRow.QueueStatus = "Q";
@@ -341,13 +327,13 @@ namespace QWS_Local
             }
         }
 
-        private dsBookIn.ExBinOrdersRow CurrentExBinOrder()
+        private dsBookIn.QuarryOrdersRow CurrentQuarryOrder()
         {
-            if (bsExBinOrders.Count >0)
+            if (bsQuarryOrders.Count > 0)
             {
-                DataRow myRow = ((DataRowView)bsExBinOrders.Current).Row;
-                dsBookIn.ExBinOrdersRow ExBinRow = (dsBookIn.ExBinOrdersRow)myRow;
-                return ExBinRow;
+                DataRow myRow = ((DataRowView)bsQuarryOrders.Current).Row;
+                dsBookIn.QuarryOrdersRow QuarryOrderRow = (dsBookIn.QuarryOrdersRow)myRow;
+                return QuarryOrderRow;
             }
             else
             {
@@ -372,7 +358,7 @@ namespace QWS_Local
 
         private void btnRefreshOrders_Click(object sender, EventArgs e)
         {
-            ExBinOrdersLoad(CardCode);
+            QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
         }
 
         private void btnSetExBinOrder_Click(object sender, EventArgs e)
@@ -385,14 +371,14 @@ namespace QWS_Local
             try
             {
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
-                myTIQRow.SAPOrder = CurrentExBinOrder().DocNum;
-                myTIQRow.CustomerCode = CurrentExBinOrder().CardCode;
-                myTIQRow.Customer = CurrentExBinOrder().Customer;
-                myTIQRow.CustON = CurrentExBinOrder().PurchaseOrder;
-                myTIQRow.Material = CurrentExBinOrder().MaterialCode;
-                myTIQRow.MaterialDesc = CurrentExBinOrder().Material;
-                myTIQRow.DeliveryAddress = CurrentExBinOrder().DeliveryAddress;
-                //myTIQRow.CartageCode = CurrentExBinOrder().CartageCode;  // ex bin so no cartage
+                myTIQRow.SAPOrder = CurrentQuarryOrder().DocNum;
+                myTIQRow.CustomerCode = CurrentQuarryOrder().CardCode;
+                myTIQRow.Customer = CurrentQuarryOrder().Customer;
+                myTIQRow.CustON = CurrentQuarryOrder().PurchaseOrder;
+                myTIQRow.Material = CurrentQuarryOrder().MaterialCode;
+                myTIQRow.MaterialDesc = CurrentQuarryOrder().Material;
+                myTIQRow.DeliveryAddress = CurrentQuarryOrder().DeliveryAddress;
+                //myTIQRow.CartageCode = CurrentQuarryOrder().CartageCode;  // ex bin so no cartage
                 bsTIQ2.EndEdit();
                 tabControl2.SelectedTab = tpTruckconfig;
             }
@@ -425,9 +411,9 @@ namespace QWS_Local
         {
             if (bsExBinOrders.Count > 0)
             {
-                txtQuantity.Text = CurrentExBinOrder().Quantity.ToString("#.00");
-                txtSupplied.Text = CurrentExBinOrder().Supplied.ToString("#.00");
-                txtOpenQty.Text = CurrentExBinOrder().OpenQty.ToString("#.00");
+                txtQuantity.Text = CurrentQuarryOrder().Quantity.ToString("#.00");
+                txtSupplied.Text = CurrentQuarryOrder().Supplied.ToString("#.00");
+                txtOpenQty.Text = CurrentQuarryOrder().OpenQty.ToString("#.00");
             }
         }
 
@@ -703,7 +689,7 @@ namespace QWS_Local
    
         private void btnQuarryOrdersLoad_Click(object sender, EventArgs e)
         {
-            QuarryOrdersLoad(textBox11.Text, textBox12.Text, System.Convert.ToInt16(textBox13.Text));
+            QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
         }
 
         private void QuarryOrdersLoad(string OrderType,  string CardCode, int CartageInt)
