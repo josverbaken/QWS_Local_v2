@@ -53,22 +53,18 @@ namespace QWS_Local
             {
                 case "Delivery":
                     this.Text = "Book In Delivery";
-                    bsExBinOrders.Filter = "";
                     FormTIQType = TIQType.Delivery;
                     break;
                 case "ExBin":
                     this.Text = "Book In ExBin";
-                    bsExBinOrders.Filter = "ItmsGrpCod <> " + ImportGrpCod + " AND " + "ItmsGrpCod <> " + ImportPUGrpCod;
                     FormTIQType = TIQType.ExBin;
                     break;
                 case "Imported":
                     this.Text = "Book In Imported";
-                    bsExBinOrders.Filter = "ItmsGrpCod = " + ImportGrpCod;
                     FormTIQType = TIQType.Imported;
                     break;
                 case "ImportedPickUp":
                     this.Text = "Book In Imported PickUp";
-                    bsExBinOrders.Filter = "ItmsGrpCod = " + ImportPUGrpCod;
                     FormTIQType = TIQType.ImportedPickUp;
                     break;
                 default:
@@ -108,7 +104,7 @@ namespace QWS_Local
             QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
             SetExBinNoOrderCustomer();
             FormLoaded = true;
-            dataGridView4.ClearSelection();
+            dgvQuarryOrders.ClearSelection();
         }
 
         private void LoadTIQ()
@@ -409,23 +405,11 @@ namespace QWS_Local
 
         private void TextBoxFormatDecimal()
         {
-            if (bsExBinOrders.Count > 0)
+            if (bsQuarryOrders.Count > 0)
             {
                 txtQuantity.Text = CurrentQuarryOrder().Quantity.ToString("#.00");
                 txtSupplied.Text = CurrentQuarryOrder().Supplied.ToString("#.00");
                 txtOpenQty.Text = CurrentQuarryOrder().OpenQty.ToString("#.00");
-            }
-        }
-
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            if (bsExBinOrders.Count > 0 && FormLoaded == true && dataGridView4.SelectedRows.Count == 1)
-            {
-                DialogResult dr = MessageBox.Show("Move to details ?", "Choose Order", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (dr == DialogResult.OK)
-                {
-                    tabControl2.SelectedTab = tpOrderDetails;
-                }
             }
         }
 
@@ -459,8 +443,6 @@ namespace QWS_Local
             CalcPayload();
             SetSplitLoadGUI(myTIQRow.TruckConfig);
         }
-
-
 
         private void SetSplitLoadGUI(string LoadType)
         {
@@ -589,10 +571,10 @@ namespace QWS_Local
             }
             bsTIQ2.EndEdit();
         }
-
-        private void dataGridView4_SelectionChanged(object sender, EventArgs e)
+    
+        private void dgvQuarryOrders_SelectionChanged(object sender, EventArgs e)
         {
-            if (bsExBinOrders.Count > 0 && FormLoaded == true && dataGridView4.SelectedRows.Count == 1)
+            if (bsQuarryOrders.Count > 0 && FormLoaded == true && dgvQuarryOrders.SelectedRows.Count == 1)
             {
                 DialogResult dr = MessageBox.Show("Move to details ?", "Choose Order", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dr == DialogResult.OK)

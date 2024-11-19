@@ -18,6 +18,7 @@ namespace QWS_Local
         private static DateTime EntryDTTM;
         private static string CustCardCode = "xxx";
         private static string ExBinCustomer = "tba";
+        private static bool IsPrefCust = false;
         private static bool DGVLoaded = false;
         private static string CallingMessage = "";
         private static int TIQID = 0;
@@ -462,10 +463,12 @@ namespace QWS_Local
                 if (GetPrefCustomer() == true)
                 {
                     // CardCode has been set
+                    IsPrefCust = true;
                     return true;
                 }
                 else
                 {
+                    IsPrefCust = false;
                     // Search customers
                     bool CustomerFound = GetExBinCustomer();
                     return CustomerFound;
@@ -535,7 +538,7 @@ namespace QWS_Local
             {
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 UpdateTIQ(myTIQType, myTIQRow.TruckConfig);
-                BookInMaterial frmExBin = new BookInMaterial(TIQID, myTIQType.ToString(), CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, false, CurrentTruckDriver());
+                BookInMaterial frmExBin = new BookInMaterial(TIQID, myTIQType.ToString(), CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, IsPrefCust, CurrentTruckDriver());
                 TIQID = 0;
                 frmExBin.MdiParent = this.MdiParent;
                 frmExBin.Show();
