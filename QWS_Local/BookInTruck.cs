@@ -16,8 +16,8 @@ namespace QWS_Local
     public partial class BookInTruck : Form
     {
         private static DateTime EntryDTTM;
-        private static string CustCardCode;
-        private static string ExBinCustomer;
+        private static string CustCardCode = "xxx";
+        private static string ExBinCustomer = "tba";
         private static bool IsPrefCust = false;
         private static bool DGVLoaded = false;
         private static string CallingMessage = "";
@@ -223,16 +223,15 @@ namespace QWS_Local
             }
         }
 
-        private void BookInTruckStep1_Load(object sender, EventArgs e)
+        private void BookInTruck_Load(object sender, EventArgs e)
         {
             this.KeyPreview = true;
             if (CallingMessage.Length > 0)
             {
-                MessageBox.Show(CallingMessage, "Follow on book in.",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(CallingMessage, "Follow on book in.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-        private bool CheckFeeCode()
+        private bool CheckFeeCode() // TODO check why unused!
         {
             int myAxles = CurrentConfigTruck().Axles;
             int myMaxAxles = CurrentConfigTruck().MaxAxles;
@@ -520,31 +519,14 @@ namespace QWS_Local
 
         private void btnExBin_Click(object sender, EventArgs e)
         {
-            GoToBookInExBin(TIQType.ExBin);
+            GoToBookInMaterial(TIQType.ExBin);
         }
 
-        private void GoToBookInExBin(TIQType myTIQType)
+        private void GoToBookInMaterial(TIQType myTIQType)
         {
             if (SetExBinCustomer() == true)
             {
-                BookInExBin(myTIQType);
-            }
-        }
-
-        private void BookInExBin(TIQType myTIQType)
-        {
-            //string myTruckTrailerConfig = CurrentConfigTruck().VehicleType.ToString();
-            // TODO check if split  
-            //UpdateTIQ(myTIQType, myTruckTrailerConfig);
-            if (TIQID > 0)
-            {
-                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
-                UpdateTIQ(myTIQType, myTIQRow.TruckConfig);
-                BookInMaterial frmExBin = new BookInMaterial(TIQID, myTIQType.ToString(), CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, IsPrefCust, CurrentTruckDriver());
-                TIQID = 0;
-                frmExBin.MdiParent = this.MdiParent;
-                frmExBin.Show();
-                this.Close();
+                BookInMaterial(myTIQType);
             }
         }
 
@@ -554,7 +536,7 @@ namespace QWS_Local
             {
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 UpdateTIQ(myTIQType, myTIQRow.TruckConfig);
-                BookInMaterial frmExBin = new BookInMaterial(TIQID, myTIQType.ToString(), CurrentConfigTruck().TruckConfigID, "xxx", "", false, CurrentTruckDriver());
+                BookInMaterial frmExBin = new BookInMaterial(TIQID, myTIQType.ToString(), CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, false, CurrentTruckDriver());
                 TIQID = 0;
                 frmExBin.MdiParent = this.MdiParent;
                 frmExBin.Show();
@@ -715,7 +697,7 @@ namespace QWS_Local
 }
     private void btnImported_Click(object sender, EventArgs e)
         {
-            GoToBookInExBin(TIQType.Imported);
+            GoToBookInMaterial(TIQType.Imported);
         }
     
         private void btnHold_Click(object sender, EventArgs e)
@@ -743,7 +725,7 @@ namespace QWS_Local
             dataGridView1.ClearSelection();
         }
 
-        private void BookInTruckStep1_KeyDown(object sender, KeyEventArgs e)
+        private void BookInTruck_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F3)
             {
@@ -775,7 +757,7 @@ namespace QWS_Local
 
         private void btnImportedPickUp_Click(object sender, EventArgs e)
         {
-            GoToBookInExBin(TIQType.ImportedPickUp);
+            GoToBookInMaterial(TIQType.ImportedPickUp);
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)

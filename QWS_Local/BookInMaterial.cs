@@ -77,7 +77,7 @@ namespace QWS_Local
             }
         }
 
-        private void BookInExBin_Load(object sender, EventArgs e)
+        private void BookInMaterial_Load(object sender, EventArgs e)
         {
             LoadTIQ();
             LoadConfiguredTruckGVM(TruckConfigID);
@@ -102,9 +102,9 @@ namespace QWS_Local
                 case "BD":
                     CartageInt = 7;
                     break;
-                default :
+                default:
                     CartageInt = 7;
-                    break;  
+                    break;
             }
             textBox13.Text = CartageInt.ToString();
         }

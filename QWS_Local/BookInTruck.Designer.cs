@@ -660,7 +660,7 @@ namespace QWS_Local
             this.textBox1.Size = new System.Drawing.Size(100, 23);
             this.textBox1.TabIndex = 82;
             // 
-            // BookInTruckStep1
+            // BookInTruck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -687,10 +687,11 @@ namespace QWS_Local
             this.Controls.Add(this.pictureSchematic);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "BookInTruckStep1";
-            this.Text = "BookInTruckStep1";
-            this.Load += new System.EventHandler(this.BookInTruckStep1_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BookInTruckStep1_KeyDown);
+            this.Name = "BookInTruck";
+            this.Text = "Book In Truck";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.BookInTruck_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BookInTruck_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
