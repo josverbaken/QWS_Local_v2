@@ -35,6 +35,7 @@
             this.axleConfigurationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.feeCodesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nHVRGVMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.operatorRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maintainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pBSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +51,8 @@
             this.helloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.onlineHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.operatorRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.auxillaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,7 +85,8 @@
             this.adminToolStripMenuItem,
             this.maintainToolStripMenuItem,
             this.qualityToolStripMenuItem,
-            this.salesToolStripMenuItem});
+            this.salesToolStripMenuItem,
+            this.auxillaryToolStripMenuItem});
             this.pBSMaintenanceToolStripMenuItem.Name = "pBSMaintenanceToolStripMenuItem";
             this.pBSMaintenanceToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
             this.pBSMaintenanceToolStripMenuItem.Text = "Menu";
@@ -119,6 +122,13 @@
             this.nHVRGVMToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
             this.nHVRGVMToolStripMenuItem.Text = "NHVR GVM";
             this.nHVRGVMToolStripMenuItem.Click += new System.EventHandler(this.nHVRGVMToolStripMenuItem_Click_1);
+            // 
+            // operatorRolesToolStripMenuItem
+            // 
+            this.operatorRolesToolStripMenuItem.Name = "operatorRolesToolStripMenuItem";
+            this.operatorRolesToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.operatorRolesToolStripMenuItem.Text = "Operator Roles";
+            this.operatorRolesToolStripMenuItem.Click += new System.EventHandler(this.operatorRolesToolStripMenuItem_Click);
             // 
             // maintainToolStripMenuItem
             // 
@@ -234,12 +244,20 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // operatorRolesToolStripMenuItem
+            // auxillaryToolStripMenuItem
             // 
-            this.operatorRolesToolStripMenuItem.Name = "operatorRolesToolStripMenuItem";
-            this.operatorRolesToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
-            this.operatorRolesToolStripMenuItem.Text = "Operator Roles";
-            this.operatorRolesToolStripMenuItem.Click += new System.EventHandler(this.operatorRolesToolStripMenuItem_Click);
+            this.auxillaryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sMSToolStripMenuItem});
+            this.auxillaryToolStripMenuItem.Name = "auxillaryToolStripMenuItem";
+            this.auxillaryToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.auxillaryToolStripMenuItem.Text = "Auxillary";
+            // 
+            // sMSToolStripMenuItem
+            // 
+            this.sMSToolStripMenuItem.Name = "sMSToolStripMenuItem";
+            this.sMSToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.sMSToolStripMenuItem.Text = "SMS";
+            this.sMSToolStripMenuItem.Click += new System.EventHandler(this.sMSToolStripMenuItem_Click);
             // 
             // QWS_MDIParent
             // 
@@ -286,5 +304,7 @@
         private System.Windows.Forms.ToolStripMenuItem deliveryOrdersToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem itemsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem operatorRolesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem auxillaryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sMSToolStripMenuItem;
     }
 }

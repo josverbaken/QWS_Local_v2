@@ -507,14 +507,34 @@ namespace QWS_Local
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 myTIQRow.AllocateDTTM = DateTime.Now;
                 myTIQRow.CartageCode = "";
-                if (FormTIQType == TIQType.Imported || FormTIQType == TIQType.ImportedPickUp)
+                switch (FormTIQType) // TODO review logic/flow
                 {
-                    myTIQRow.QueueStatus = "I";
-                }
-                else
-                { 
-                    if (IsPrefCust == true)
-                    {
+                    case TIQType.ExBin:
+                        if (IsPrefCust == true)
+                        {
+                            switch (myTIQRow.TruckConfig)
+                            {
+                                case "TRs":
+                                case "BDb":
+                                    myTIQRow.QueueStatus = "S";
+                                    break;
+                                default:
+                                    myTIQRow.QueueStatus = "Q";
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            myTIQRow.QueueStatus = "U";
+                        }
+                        break;
+                    case TIQType.Imported:
+                        myTIQRow.QueueStatus = "I";
+                        break;
+                    case TIQType.ImportedPickUp:
+                        myTIQRow.QueueStatus = "I";
+                        break;
+                    case TIQType.Delivery:
                         switch (myTIQRow.TruckConfig)
                         {
                             case "TRs":
@@ -522,14 +542,13 @@ namespace QWS_Local
                                 myTIQRow.QueueStatus = "S";
                                 break;
                             default:
-                                myTIQRow.QueueStatus="Q";
+                                myTIQRow.QueueStatus = "Q";
                                 break;
                         }
-                    }
-                    else
-                    {
-                        myTIQRow.QueueStatus = "U";
-                    }
+                        break;
+                    default:
+                        myTIQRow.QueueStatus = "Q";
+                        break;
                 }
                 bsTIQ2.EndEdit();
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);

@@ -195,5 +195,13 @@ namespace QWS_Local
             frmOperatorRoles.WindowState = FormWindowState.Maximized;
             frmOperatorRoles.Show();
         }
+
+        private void sMSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SMSGlobal frmSMS = new SMSGlobal();
+            frmSMS.MdiParent = this;
+            frmSMS.WindowState = FormWindowState.Maximized;
+            frmSMS.Show();
+        }
     }
 }
