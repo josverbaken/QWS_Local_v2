@@ -105,6 +105,11 @@ namespace QWS_Local
             SetExBinNoOrderCustomer();
             FormLoaded = true;
             dgvQuarryOrders.ClearSelection();
+            if (FormTIQType != TIQType.ExBin)
+            {
+                //tpExBinNoOrder.Hide(); // known not to work, must remove
+                tabControl2.TabPages.Remove(tpExBinNoOrder);
+            }
         }
 
         private void LoadTIQ()
@@ -703,6 +708,58 @@ namespace QWS_Local
             catch (System.Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void nudPayloadTk_ValueChanged(object sender, EventArgs e)
+        {
+            SplitPayloadNUDLimit("TK");
+        }
+
+        private void nudPayloadTr_ValueChanged(object sender, EventArgs e)
+        {
+            SplitPayloadNUDLimit("TR");
+        }
+
+        private void SplitPayloadNUDLimit(string TKTR)
+        {
+            decimal myPayload = 0.0M;
+            decimal myPayloadTk = 0.0M;
+            decimal myPayloadTr = 0.0M;
+            decimal PayloadLimit;
+            dsTruckConfig.ConfiguredTruckGVMRow myTruckConfigGVM = CurrentTruckGVM();
+            dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+            if (myTruckConfigGVM.GCM > myTruckConfigGVM.MaxGVM && myTruckConfigGVM.MaxGVM > 0)
+            {
+                PayloadLimit = myTruckConfigGVM.MaxGVM - myTruckConfigGVM.Tare;
+            }
+            else
+            {
+                PayloadLimit = myTruckConfigGVM.GCM - myTruckConfigGVM.Tare;
+            }
+
+            myPayload = PayloadLimit;
+
+            myPayloadTk = myTruckConfigGVM.GVMTruck - myTruckConfigGVM.TareTk;
+            myPayloadTr = myPayload - myPayloadTk;
+
+
+            switch (TKTR)
+            {
+                case "TK":
+                    if (nudPayloadTk.Value > myPayloadTk)
+                    {
+                        nudPayloadTk.Value = myPayloadTk;
+                        MessageBox.Show("Sorry - can only reduce payload!");
+                    }
+                    break;
+                case "TR":
+                    if (nudPayloadTr.Value > myPayloadTr)
+                    {
+                        nudPayloadTr.Value = myPayloadTr;
+                        MessageBox.Show("Sorry - can only reduce payload!");
+                    }
+                    break;
             }
         }
     }

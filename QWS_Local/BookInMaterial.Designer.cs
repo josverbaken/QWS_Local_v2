@@ -1040,9 +1040,9 @@ namespace QWS_Local
             this.tpOrderDetails.Controls.Add(this.docNumTextBox1);
             this.tpOrderDetails.Controls.Add(this.btnSetExBinOrder);
             this.tpOrderDetails.Controls.Add(this.btnRefreshOrders);
-            this.tpOrderDetails.Location = new System.Drawing.Point(4, 25);
+            this.tpOrderDetails.Location = new System.Drawing.Point(4, 22);
             this.tpOrderDetails.Name = "tpOrderDetails";
-            this.tpOrderDetails.Size = new System.Drawing.Size(1419, 293);
+            this.tpOrderDetails.Size = new System.Drawing.Size(1419, 296);
             this.tpOrderDetails.TabIndex = 3;
             this.tpOrderDetails.Text = "Order Details";
             this.tpOrderDetails.UseVisualStyleBackColor = true;
@@ -1442,7 +1442,7 @@ namespace QWS_Local
             this.tpDetails.Location = new System.Drawing.Point(4, 22);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(977, 267);
+            this.tpDetails.Size = new System.Drawing.Size(977, 270);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -1583,9 +1583,9 @@ namespace QWS_Local
             this.tpPayload.Controls.Add(this.groupBox2);
             this.tpPayload.Controls.Add(this.btnBookIn);
             this.tpPayload.Controls.Add(this.groupBox3);
-            this.tpPayload.Location = new System.Drawing.Point(4, 22);
+            this.tpPayload.Location = new System.Drawing.Point(4, 25);
             this.tpPayload.Name = "tpPayload";
-            this.tpPayload.Size = new System.Drawing.Size(1419, 296);
+            this.tpPayload.Size = new System.Drawing.Size(1419, 293);
             this.tpPayload.TabIndex = 4;
             this.tpPayload.Text = "Order Summary plus Payload";
             this.tpPayload.UseVisualStyleBackColor = true;
@@ -1780,6 +1780,7 @@ namespace QWS_Local
             this.nudPayloadTk.Size = new System.Drawing.Size(76, 23);
             this.nudPayloadTk.TabIndex = 68;
             this.nudPayloadTk.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nudPayloadTk.ValueChanged += new System.EventHandler(this.nudPayloadTk_ValueChanged);
             // 
             // nudPayloadTr
             // 
@@ -1795,6 +1796,7 @@ namespace QWS_Local
             this.nudPayloadTr.Size = new System.Drawing.Size(76, 23);
             this.nudPayloadTr.TabIndex = 67;
             this.nudPayloadTr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nudPayloadTr.ValueChanged += new System.EventHandler(this.nudPayloadTr_ValueChanged);
             // 
             // nudPayload
             // 
