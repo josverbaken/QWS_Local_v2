@@ -51,8 +51,6 @@
             this.helloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.onlineHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.auxillaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,8 +83,7 @@
             this.adminToolStripMenuItem,
             this.maintainToolStripMenuItem,
             this.qualityToolStripMenuItem,
-            this.salesToolStripMenuItem,
-            this.auxillaryToolStripMenuItem});
+            this.salesToolStripMenuItem});
             this.pBSMaintenanceToolStripMenuItem.Name = "pBSMaintenanceToolStripMenuItem";
             this.pBSMaintenanceToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
             this.pBSMaintenanceToolStripMenuItem.Text = "Menu";
@@ -244,21 +241,6 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // auxillaryToolStripMenuItem
-            // 
-            this.auxillaryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sMSToolStripMenuItem});
-            this.auxillaryToolStripMenuItem.Name = "auxillaryToolStripMenuItem";
-            this.auxillaryToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.auxillaryToolStripMenuItem.Text = "Auxillary";
-            // 
-            // sMSToolStripMenuItem
-            // 
-            this.sMSToolStripMenuItem.Name = "sMSToolStripMenuItem";
-            this.sMSToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.sMSToolStripMenuItem.Text = "SMS";
-            this.sMSToolStripMenuItem.Click += new System.EventHandler(this.sMSToolStripMenuItem_Click);
-            // 
             // QWS_MDIParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -304,7 +286,5 @@
         private System.Windows.Forms.ToolStripMenuItem deliveryOrdersToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem itemsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem operatorRolesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem auxillaryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sMSToolStripMenuItem;
     }
 }

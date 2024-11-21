@@ -17,6 +17,11 @@ namespace QWS_Local
             InitializeComponent();
         }
 
+        // Name Quarry2	
+        // Key  290ca44ec8ab926c392468fcbab3d8ac
+        // Secret   7465713937d2e2189d0a11e9a5be0f4b
+        // Date Dec 30, 2016 1:02:12 PM
+
         private void btnSend_Click(object sender, EventArgs e)
         {
             try
@@ -28,6 +33,17 @@ namespace QWS_Local
                 else
                 {
                     MessageBox.Show(txtMessage.Text + "\r\nTo send to " + txtMobilePhone.Text);
+
+                    // SMSGlobal API not compatible!@#
+                    //var client = new Client(new Credentials("SMSGLOBAL-API-KEY", "SMSGLOBAL-SECRET-KEY"));
+
+                    //var response = await client.SMS.SMSSend(new
+                    //{
+                    //    origin = "Test",
+                    //    destination = "DESTINATION-NUMBER",
+                    //    message = "This is a test message"
+                    //});
+
                 }
             }
             catch (Exception ex)

@@ -679,7 +679,8 @@ namespace QWS_Local
             decimal myPayload = myPayloadTk + myPayloadTr;
             if (myPayload <= nudPayload.Value)
             {
-                txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString() + " (" + myPayload.ToString() + ")";
+                //txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString() + " (" + myPayload.ToString() + ")";
+                txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString();
             }
             else
             {
