@@ -53,8 +53,11 @@ namespace QWS_Local
         {
             dataGridView1.ClearSelection();
             txtRego.Clear();
-            pictureBox1.Image = null;   
+            pictureBox1.Image = null;
         }
+
+
+
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -835,6 +838,21 @@ namespace QWS_Local
             {
                 GoToWeighTruck();
             }
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 1)
+            {
+                int DelaySeconds = Properties.Settings.Default.ClearTIQDelay * 1000;
+                ClearTIQDelayed(DelaySeconds);
+            }
+        }
+
+        private async void ClearTIQDelayed(int DelaySeconds)
+        {
+            await Task.Delay(DelaySeconds);
+            ClearTIQ();
         }
     }
 }

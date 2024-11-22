@@ -12,6 +12,12 @@ namespace QWS_Local
 {
     public partial class QWS_MDIParent : Form
     {
+        private string myUserName;
+        public string UserName
+        {
+            get { return myUserName; }
+        }
+
         public QWS_MDIParent()
         {
             InitializeComponent();
@@ -37,10 +43,24 @@ namespace QWS_Local
             //msg += " Username: " + DomainName + "\\" + Username;
             //msg += " Computer: " + MachineName;
             //this.Text = msg;
+            GetUsername();
             this.Size = new Size(1400, 800);
             TrucksInQuarry frmTIQ = new TrucksInQuarry();
             frmTIQ.MdiParent = this;            
             frmTIQ.Show();
+        }
+
+        private void GetUsername()
+        {
+            GenericLogin frmGenericLogin = new GenericLogin();
+            DialogResult dr = frmGenericLogin.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                string myLogin = frmGenericLogin.UserName;
+                //MessageBox.Show(myLogin);
+                myUserName = myLogin;
+                tspUserName.Text = myLogin;
+            }
         }
 
         private void bookInTruckStep1ToolStripMenuItem_Click(object sender, EventArgs e)

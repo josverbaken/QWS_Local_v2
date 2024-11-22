@@ -168,5 +168,14 @@ namespace QWS_Local.Properties {
                 return ((int)(this["ImportedPickUpGrpCode"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public int ClearTIQDelay {
+            get {
+                return ((int)(this["ClearTIQDelay"]));
+            }
+        }
     }
 }

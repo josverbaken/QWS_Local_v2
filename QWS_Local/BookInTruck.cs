@@ -22,7 +22,8 @@ namespace QWS_Local
         private static bool DGVLoaded = false;
         private static string CallingMessage = "";
         private static int TIQID = 0;
-        private static string Username = Environment.UserName;
+        private string myUserName;
+        private static string WBO = "Barney.Rubble";
 
 
         private enum TIQType
@@ -226,6 +227,9 @@ namespace QWS_Local
         private void BookInTruck_Load(object sender, EventArgs e)
         {
             this.KeyPreview = true;
+
+            var parent = this.MdiParent as QWS_MDIParent;
+            myUserName = parent.UserName;
             if (CallingMessage.Length > 0)
             {
                 MessageBox.Show(CallingMessage, "Follow on book in.", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -395,7 +399,7 @@ namespace QWS_Local
             dsTIQ2.TIQRow myTIQ = CurrentTIQ();
             dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
             dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
-            myTIQ.Operator = Username;
+            myTIQ.Operator = WBO;//myUsername;
             myTIQ.DriverID = myTruckDriver.CntctCode;
             myTIQ.Driver = myTruckDriver.Person;
             myTIQ.AllocateDTTM = DateTime.Now;
@@ -591,7 +595,7 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@ParentTIQID", myParentTIQID);
                 cmd.Parameters.AddWithValue("@TIQOpen", true);
                 cmd.Parameters.AddWithValue("@SiteID", Properties.Settings.Default.SiteID);
-                cmd.Parameters.AddWithValue("@Operator", Username);
+                cmd.Parameters.AddWithValue("@Operator", WBO); //myUsername);
                 cmd.Parameters.AddWithValue("@Rego", myConfigTruck.RegoTk);
                 cmd.Parameters.AddWithValue("@RegoTr1", myConfigTruck.RegoTr1);
                 cmd.Parameters.AddWithValue("@RegoTr2", myConfigTruck.RegoTr2);
