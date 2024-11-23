@@ -35,7 +35,6 @@
             this.rbWB2 = new System.Windows.Forms.RadioButton();
             this.rbWB1 = new System.Windows.Forms.RadioButton();
             this.mtxtWeight = new System.Windows.Forms.MaskedTextBox();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
             this.txtInstruction = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -125,29 +124,15 @@
             this.mtxtWeight.TabIndex = 2;
             this.mtxtWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(43, 264);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(110, 49);
-            this.btnCancel.TabIndex = 60;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // btnAccept
             // 
             this.btnAccept.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccept.Location = new System.Drawing.Point(260, 264);
+            this.btnAccept.Location = new System.Drawing.Point(43, 264);
             this.btnAccept.Margin = new System.Windows.Forms.Padding(4);
             this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(129, 49);
+            this.btnAccept.Size = new System.Drawing.Size(346, 49);
             this.btnAccept.TabIndex = 61;
             this.btnAccept.Text = "Accept";
             this.btnAccept.UseVisualStyleBackColor = false;
@@ -183,19 +168,20 @@
             // 
             // WeighTruck
             // 
+            this.AcceptButton = this.btnAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(436, 356);
-            this.ControlBox = false;
             this.Controls.Add(this.txtWBInfo);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtInstruction);
             this.Controls.Add(this.mtxtWeight);
             this.Controls.Add(this.btnAccept);
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "WeighTruck";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "WeighTruck";
@@ -215,7 +201,6 @@
         private System.Windows.Forms.MaskedTextBox mtxtWeight;
         private System.Windows.Forms.RadioButton rbManual;
         private System.Windows.Forms.RadioButton rbAuto;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.TextBox txtInstruction;
         private System.Windows.Forms.RadioButton rbWB3;

@@ -230,6 +230,7 @@ namespace QWS_Local
 
             var parent = this.MdiParent as QWS_MDIParent;
             myUserName = parent.UserName;
+            WBO = myUserName;
             if (CallingMessage.Length > 0)
             {
                 MessageBox.Show(CallingMessage, "Follow on book in.", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -774,16 +775,16 @@ namespace QWS_Local
                 switch (myTruck.VehicleType)
                 {
                     case "TT":                       
-                        DialogResult drTT = MessageBox.Show("Do you want to process as split load?","2 Compartments", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-                        if (drTT == DialogResult.Yes)
-                        {
+                        //DialogResult drTT = MessageBox.Show("Do you want to process as split load?","2 Compartments", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                        //if (drTT == DialogResult.Yes)
+                        //{
                             SplitLoadType frmSplitLoad = new SplitLoadType(myTruck.AxleConfiguration);
                             DialogResult drSplit = frmSplitLoad.ShowDialog();
                             if (drSplit == DialogResult.OK)
                             {
                                 ProceedAfterRegoSelection(frmSplitLoad.strSplitLoadType);
                             }
-                        }
+                        //}
                         break;
                     case "BD":
                         // check if split load

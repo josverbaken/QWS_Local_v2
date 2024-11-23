@@ -49,7 +49,6 @@
             this.custONTextBox = new System.Windows.Forms.TextBox();
             this.bsSPLotNo = new System.Windows.Forms.BindingSource(this.components);
             this.btnOkay = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.taSPLotNo = new QWS_Local.dsTIQ2TableAdapters.SPLotNoAssignTableAdapter();
@@ -249,28 +248,14 @@
             this.btnOkay.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnOkay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOkay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOkay.Location = new System.Drawing.Point(416, 537);
+            this.btnOkay.Location = new System.Drawing.Point(13, 537);
             this.btnOkay.Margin = new System.Windows.Forms.Padding(4);
             this.btnOkay.Name = "btnOkay";
-            this.btnOkay.Size = new System.Drawing.Size(114, 49);
+            this.btnOkay.Size = new System.Drawing.Size(517, 49);
             this.btnOkay.TabIndex = 63;
             this.btnOkay.Text = "OK";
             this.btnOkay.UseVisualStyleBackColor = false;
             this.btnOkay.Click += new System.EventHandler(this.btnOkay_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(12, 537);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(114, 49);
-            this.btnCancel.TabIndex = 64;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // taTIQ2
             // 
@@ -293,17 +278,18 @@
             // 
             // PostDocket
             // 
+            this.AcceptButton = this.btnOkay;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(550, 613);
-            this.ControlBox = false;
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOkay);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PostDocket";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Post Docket";
@@ -327,7 +313,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnOkay;
-        private System.Windows.Forms.Button btnCancel;
         private dsTIQ2 dsTIQ2;
         private System.Windows.Forms.BindingSource bsTIQ2;
         private dsTIQ2TableAdapters.TIQTableAdapter taTIQ2;

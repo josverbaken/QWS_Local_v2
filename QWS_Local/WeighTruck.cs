@@ -32,26 +32,28 @@ namespace QWS_Local
         }
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            ParseWeight();
-            this.DialogResult= DialogResult.OK;
-            this.Close();   
+             if (ParseWeight() == true)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Weight is zero!");
+            }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
-        private void ParseWeight()
+        private bool ParseWeight()
         {
             try
             {
-                myWeight = System.Convert.ToDecimal(mtxtWeight.Text);
+                bool WeightOK = Decimal.TryParse(mtxtWeight.Text, out myWeight);
+                return WeightOK;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                return false;   
             }
         }
 
@@ -105,7 +107,7 @@ namespace QWS_Local
 
         private void WBn_CheckChanged(object sender, EventArgs e)
         {
-                            if (rbWB1.Checked == true)
+                if (rbWB1.Checked == true)
                 {
                     txtWBInfo.Text = "Getting weight from WB1";
                 }
