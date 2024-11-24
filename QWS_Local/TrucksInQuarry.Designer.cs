@@ -61,10 +61,17 @@ namespace QWS_Local
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.queueStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.releaseDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.regoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TruckConfig = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.driverDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PayloadSplit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WBO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.tpDetails = new System.Windows.Forms.TabPage();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -92,13 +99,6 @@ namespace QWS_Local
             this.roadAccessTextBox = new System.Windows.Forms.TextBox();
             this.sAPOrderTextBox = new System.Windows.Forms.TextBox();
             this.queueStatusTextBox = new System.Windows.Forms.TextBox();
-            this.queueStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.releaseDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.regoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.driverDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.bsWBDocketLines = new System.Windows.Forms.BindingSource(this.components);
             this.bsWBDockets = new System.Windows.Forms.BindingSource(this.components);
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
@@ -135,9 +135,9 @@ namespace QWS_Local
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tpDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
+            this.tpDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsWBDocketLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsWBDockets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
@@ -338,7 +338,7 @@ namespace QWS_Local
             this.button5.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(966, 225);
+            this.button5.Location = new System.Drawing.Point(1047, 225);
             this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(112, 49);
@@ -352,7 +352,7 @@ namespace QWS_Local
             this.btnTINRemove.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnTINRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTINRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTINRemove.Location = new System.Drawing.Point(799, 225);
+            this.btnTINRemove.Location = new System.Drawing.Point(876, 225);
             this.btnTINRemove.Margin = new System.Windows.Forms.Padding(4);
             this.btnTINRemove.Name = "btnTINRemove";
             this.btnTINRemove.Size = new System.Drawing.Size(137, 49);
@@ -366,7 +366,7 @@ namespace QWS_Local
             this.btnWeigh.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnWeigh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWeigh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWeigh.Location = new System.Drawing.Point(375, 225);
+            this.btnWeigh.Location = new System.Drawing.Point(444, 225);
             this.btnWeigh.Margin = new System.Windows.Forms.Padding(4);
             this.btnWeigh.Name = "btnWeigh";
             this.btnWeigh.Size = new System.Drawing.Size(186, 49);
@@ -383,9 +383,9 @@ namespace QWS_Local
             this.btnAddTIQ.Location = new System.Drawing.Point(13, 225);
             this.btnAddTIQ.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddTIQ.Name = "btnAddTIQ";
-            this.btnAddTIQ.Size = new System.Drawing.Size(332, 49);
+            this.btnAddTIQ.Size = new System.Drawing.Size(397, 49);
             this.btnAddTIQ.TabIndex = 50;
-            this.btnAddTIQ.Text = "Add / Book In New Truck";
+            this.btnAddTIQ.Text = "Add / Book In New Truck (F2)";
             this.btnAddTIQ.UseVisualStyleBackColor = false;
             this.btnAddTIQ.Click += new System.EventHandler(this.btnAddTIQ_Click);
             // 
@@ -394,7 +394,7 @@ namespace QWS_Local
             this.btnTINReleaseHold.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnTINReleaseHold.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTINReleaseHold.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTINReleaseHold.Location = new System.Drawing.Point(591, 225);
+            this.btnTINReleaseHold.Location = new System.Drawing.Point(664, 225);
             this.btnTINReleaseHold.Margin = new System.Windows.Forms.Padding(4);
             this.btnTINReleaseHold.Name = "btnTINReleaseHold";
             this.btnTINReleaseHold.Size = new System.Drawing.Size(178, 49);
@@ -427,7 +427,7 @@ namespace QWS_Local
             this.btnTINRefresh.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnTINRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTINRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTINRefresh.Location = new System.Drawing.Point(1108, 225);
+            this.btnTINRefresh.Location = new System.Drawing.Point(1193, 225);
             this.btnTINRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnTINRefresh.Name = "btnTINRefresh";
             this.btnTINRefresh.Size = new System.Drawing.Size(114, 49);
@@ -485,6 +485,32 @@ namespace QWS_Local
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
+            // queueStatusDataGridViewTextBoxColumn
+            // 
+            this.queueStatusDataGridViewTextBoxColumn.DataPropertyName = "QueueStatus";
+            this.queueStatusDataGridViewTextBoxColumn.HeaderText = "QS";
+            this.queueStatusDataGridViewTextBoxColumn.Name = "queueStatusDataGridViewTextBoxColumn";
+            this.queueStatusDataGridViewTextBoxColumn.ReadOnly = true;
+            this.queueStatusDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // releaseDTTMDataGridViewTextBoxColumn
+            // 
+            this.releaseDTTMDataGridViewTextBoxColumn.DataPropertyName = "ReleaseDTTM";
+            dataGridViewCellStyle1.Format = "HH:mm";
+            dataGridViewCellStyle1.NullValue = null;
+            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.releaseDTTMDataGridViewTextBoxColumn.HeaderText = "Time";
+            this.releaseDTTMDataGridViewTextBoxColumn.Name = "releaseDTTMDataGridViewTextBoxColumn";
+            this.releaseDTTMDataGridViewTextBoxColumn.ReadOnly = true;
+            this.releaseDTTMDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // regoDataGridViewTextBoxColumn
+            // 
+            this.regoDataGridViewTextBoxColumn.DataPropertyName = "Rego";
+            this.regoDataGridViewTextBoxColumn.HeaderText = "Rego";
+            this.regoDataGridViewTextBoxColumn.Name = "regoDataGridViewTextBoxColumn";
+            this.regoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // TruckConfig
             // 
             this.TruckConfig.DataPropertyName = "TruckConfig";
@@ -493,6 +519,14 @@ namespace QWS_Local
             this.TruckConfig.ReadOnly = true;
             this.TruckConfig.Width = 70;
             // 
+            // driverDataGridViewTextBoxColumn
+            // 
+            this.driverDataGridViewTextBoxColumn.DataPropertyName = "Driver";
+            this.driverDataGridViewTextBoxColumn.HeaderText = "Driver";
+            this.driverDataGridViewTextBoxColumn.Name = "driverDataGridViewTextBoxColumn";
+            this.driverDataGridViewTextBoxColumn.ReadOnly = true;
+            this.driverDataGridViewTextBoxColumn.Width = 200;
+            // 
             // Customer
             // 
             this.Customer.DataPropertyName = "Customer";
@@ -500,6 +534,14 @@ namespace QWS_Local
             this.Customer.Name = "Customer";
             this.Customer.ReadOnly = true;
             this.Customer.Width = 250;
+            // 
+            // materialDescDataGridViewTextBoxColumn
+            // 
+            this.materialDescDataGridViewTextBoxColumn.DataPropertyName = "MaterialDesc";
+            this.materialDescDataGridViewTextBoxColumn.HeaderText = "Material / Instruction";
+            this.materialDescDataGridViewTextBoxColumn.Name = "materialDescDataGridViewTextBoxColumn";
+            this.materialDescDataGridViewTextBoxColumn.ReadOnly = true;
+            this.materialDescDataGridViewTextBoxColumn.Width = 250;
             // 
             // PayloadSplit
             // 
@@ -516,6 +558,17 @@ namespace QWS_Local
             this.WBO.Name = "WBO";
             this.WBO.ReadOnly = true;
             this.WBO.Width = 200;
+            // 
+            // bsTIQ2
+            // 
+            this.bsTIQ2.DataMember = "TIQ";
+            this.bsTIQ2.DataSource = this.dsTIQ2;
+            this.bsTIQ2.CurrentChanged += new System.EventHandler(this.bsTIQ2_CurrentChanged);
+            // 
+            // dsTIQ2
+            // 
+            this.dsTIQ2.DataSetName = "dsTIQ2";
+            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tpDetails
             // 
@@ -812,59 +865,6 @@ namespace QWS_Local
             this.queueStatusTextBox.TabIndex = 5;
             this.queueStatusTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // queueStatusDataGridViewTextBoxColumn
-            // 
-            this.queueStatusDataGridViewTextBoxColumn.DataPropertyName = "QueueStatus";
-            this.queueStatusDataGridViewTextBoxColumn.HeaderText = "QS";
-            this.queueStatusDataGridViewTextBoxColumn.Name = "queueStatusDataGridViewTextBoxColumn";
-            this.queueStatusDataGridViewTextBoxColumn.ReadOnly = true;
-            this.queueStatusDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // releaseDTTMDataGridViewTextBoxColumn
-            // 
-            this.releaseDTTMDataGridViewTextBoxColumn.DataPropertyName = "ReleaseDTTM";
-            dataGridViewCellStyle1.Format = "HH:mm";
-            dataGridViewCellStyle1.NullValue = null;
-            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.releaseDTTMDataGridViewTextBoxColumn.HeaderText = "Time";
-            this.releaseDTTMDataGridViewTextBoxColumn.Name = "releaseDTTMDataGridViewTextBoxColumn";
-            this.releaseDTTMDataGridViewTextBoxColumn.ReadOnly = true;
-            this.releaseDTTMDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // regoDataGridViewTextBoxColumn
-            // 
-            this.regoDataGridViewTextBoxColumn.DataPropertyName = "Rego";
-            this.regoDataGridViewTextBoxColumn.HeaderText = "Rego";
-            this.regoDataGridViewTextBoxColumn.Name = "regoDataGridViewTextBoxColumn";
-            this.regoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // driverDataGridViewTextBoxColumn
-            // 
-            this.driverDataGridViewTextBoxColumn.DataPropertyName = "Driver";
-            this.driverDataGridViewTextBoxColumn.HeaderText = "Driver";
-            this.driverDataGridViewTextBoxColumn.Name = "driverDataGridViewTextBoxColumn";
-            this.driverDataGridViewTextBoxColumn.ReadOnly = true;
-            this.driverDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // materialDescDataGridViewTextBoxColumn
-            // 
-            this.materialDescDataGridViewTextBoxColumn.DataPropertyName = "MaterialDesc";
-            this.materialDescDataGridViewTextBoxColumn.HeaderText = "Material / Instruction";
-            this.materialDescDataGridViewTextBoxColumn.Name = "materialDescDataGridViewTextBoxColumn";
-            this.materialDescDataGridViewTextBoxColumn.ReadOnly = true;
-            this.materialDescDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // bsTIQ2
-            // 
-            this.bsTIQ2.DataMember = "TIQ";
-            this.bsTIQ2.DataSource = this.dsTIQ2;
-            this.bsTIQ2.CurrentChanged += new System.EventHandler(this.bsTIQ2_CurrentChanged);
-            // 
-            // dsTIQ2
-            // 
-            this.dsTIQ2.DataSetName = "dsTIQ2";
-            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // bsWBDocketLines
             // 
             this.bsWBDocketLines.DataMember = "WBDocketLines";
@@ -946,10 +946,10 @@ namespace QWS_Local
             this.tabControl1.ResumeLayout(false);
             this.tpList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tpDetails.ResumeLayout(false);
-            this.tpDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
+            this.tpDetails.ResumeLayout(false);
+            this.tpDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsWBDocketLines)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsWBDockets)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();

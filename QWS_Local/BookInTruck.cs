@@ -433,12 +433,18 @@ namespace QWS_Local
                     myTIQ.MaterialDesc = "Park up in holding bay.";
                     break;
                 case TIQType.ExBin:
-                    myTIQ.QueueStatus = "P";
+                    if (myTIQ.QueueStatus.Equals("X") == false)
+                    {
+                        myTIQ.QueueStatus = "P";
+                    }
                     myTIQ.Material = "ExBin";
                     myTIQ.MaterialDesc = "tba";
                     break;
                 case TIQType.Delivery:
-                    myTIQ.QueueStatus = "P";
+                    if (myTIQ.QueueStatus.Equals("X") == false)
+                    {
+                        myTIQ.QueueStatus = "P";
+                    }
                     myTIQ.Material = "Delivery";
                     myTIQ.MaterialDesc = "tba";
                     break;
@@ -576,9 +582,16 @@ namespace QWS_Local
                 bool Okay2Proceed = true;
                 dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
                 string myQStatus = "P";
-                if (TruckOrTrailerConfig == "TRs")
+                if (TruckOrTrailerConfig == "TRs") // TODO differentiate b/n split and trailer only
                 {
-                    myQStatus = "S";
+                    if (IsBookedIn(CurrentConfigTruck().RegoTk) == true)
+                    {
+                        myQStatus = "S";
+                    }
+                    else
+                    {
+                        myQStatus = "X";
+                    }
                 }
                 int myDriverID = -9;
                 string myDriver = "Truck Driver TBA";

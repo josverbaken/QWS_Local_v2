@@ -32,7 +32,7 @@ namespace QWS_Local
         }
         private void btnAccept_Click(object sender, EventArgs e)
         {
-             if (ParseWeight() == true)
+             if (ParseWeight() == true && myWeight > 0.0M)
             {
                 this.DialogResult = DialogResult.OK;
                 this.Close();

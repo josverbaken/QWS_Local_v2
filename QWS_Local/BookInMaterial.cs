@@ -521,7 +521,10 @@ namespace QWS_Local
                             {
                                 case "TRs":
                                 case "BDb":
-                                    myTIQRow.QueueStatus = "S";
+                                    if (myTIQRow.QueueStatus.Equals("X") == false)
+                                    {
+                                        myTIQRow.QueueStatus = "S";
+                                    }
                                     break;
                                 default:
                                     myTIQRow.QueueStatus = "Q";
@@ -544,7 +547,10 @@ namespace QWS_Local
                         {
                             case "TRs":
                             case "BDb":
-                                myTIQRow.QueueStatus = "S";
+                                if(myTIQRow.QueueStatus.Equals("X") == false)
+                                {
+                                    myTIQRow.QueueStatus = "S";
+                                }
                                 break;
                             default:
                                 myTIQRow.QueueStatus = "Q";

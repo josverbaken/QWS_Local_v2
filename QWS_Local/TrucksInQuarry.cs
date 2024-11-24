@@ -834,9 +834,14 @@ namespace QWS_Local
 
         private void TrucksInQuarry_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F9)
+            switch (e.KeyCode)
             {
-                GoToWeighTruck();
+                case Keys.F9:
+                    GoToWeighTruck();
+                    break;
+                case Keys.F2:
+                    BookInTruck();
+                    break;
             }
         }
 
