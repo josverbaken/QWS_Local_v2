@@ -438,6 +438,25 @@ namespace QWS_Local
                     case "S":
                         MessageBox.Show("Please process truck first!", "Split Load", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         break;
+
+                    case "X": // Trailer Only Split Load
+                        frmWeighTruck = new WeighTruck("Collect weight with both truck and trailer on weighbridge.");
+                        dr = frmWeighTruck.ShowDialog();
+                        myWeight = frmWeighTruck.Weight;
+                        if (dr == DialogResult.OK)
+                        {
+                            string myRego = myTIQRow.Rego;
+                            int myTruckConfigID = myTIQRow.TruckConfigID;
+                            int myDriverID = myTIQRow.DriverID;
+                            int myParentTIQID = myTIQRow.TIQID;
+                            string myTruckConfig = myTIQRow.TruckConfig;
+                            myTIQRow.Tare = myWeight;
+                            myTIQRow.QueueStatus = "Q";
+                            bsTIQ2.EndEdit();
+                            taTIQ2.Update(dsTIQ2.TIQ);
+                        }
+                        break;
+
                     default:
                         break;
                 }
