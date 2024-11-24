@@ -16,6 +16,9 @@ namespace QWS_Local
     public partial class TrucksInQuarry : Form
     {
         private int mySPLotNo;
+        private string WeighbridgeOperator;
+        private string ComputerName;
+        private string Domain;
 
         public TrucksInQuarry()
         {
@@ -31,6 +34,10 @@ namespace QWS_Local
             //button2.Text = ""+ (char)25;
             // TODO: find a nicer solution, probably images/icons
             iRows += 1;
+            var parent = this.MdiParent as QWS_MDIParent;
+            WeighbridgeOperator = parent.UserName;
+            ComputerName = parent.UserName;
+            Domain = parent.UserName;
             this.KeyPreview = true;
             RefreshQueue();
         }
@@ -188,6 +195,9 @@ namespace QWS_Local
                DialogResult dr = frmTIQRemove.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
+                    string Reason = frmTIQRemove.TIQRemoveReason;
+                    int myTIQID = CurrentTIQ().TIQID;
+                    TIQStatusAudit(myTIQID, "Z" , 0.00M, 0.00M, Reason);
                     CurrentTIQ().TIQOpen = false;
                     bsTIQ2.EndEdit();
                     taTIQ2.Update(dsTIQ2.TIQ);
@@ -660,10 +670,12 @@ namespace QWS_Local
                 cmd.CommandText = "TIQStatusAuditAdd";
                 cmd.Parameters.AddWithValue("@TIQID", TIQID);
                 cmd.Parameters.AddWithValue("@Status", Status);
-                cmd.Parameters.AddWithValue("@Operator", System.Environment.UserName);
+                cmd.Parameters.AddWithValue("@Operator", WeighbridgeOperator);
                 cmd.Parameters.AddWithValue("@GVM", GVM);
                 cmd.Parameters.AddWithValue("@Overweight", Overweight);
                 cmd.Parameters.AddWithValue("@Comments", Comment);
+                cmd.Parameters.AddWithValue("@Domain", Domain);
+                cmd.Parameters.AddWithValue("@Computer", ComputerName);
                 sqlConnection.Open();
                 cmd.ExecuteNonQuery();
                 sqlConnection.Close();

@@ -22,8 +22,15 @@ namespace QWS_Local
         private void btnRemove_Click(object sender, EventArgs e)
         {
             TIQRemoveReason = txtReason.Text;
-            this.DialogResult = DialogResult.OK;
-            this.Close();   
+            if (TIQRemoveReason.Length < 5 )
+            {
+                MessageBox.Show("Please enter the reason for removal.","Reason not supplied.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
     }
 }

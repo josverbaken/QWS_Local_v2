@@ -18,6 +18,19 @@ namespace QWS_Local
             get { return myUserName; }
         }
 
+        private string myDomainName;
+        public string DomainName
+        {
+            get { return myDomainName; }
+        }
+
+        private string myComputerName;
+        public string ComputerName
+        {
+            get { return myComputerName; }
+        }
+
+
         public QWS_MDIParent()
         {
             InitializeComponent();
@@ -37,9 +50,9 @@ namespace QWS_Local
             //    SiteLabel = "Stawell Quarry SiteID 02";
             //}
             //msg += SiteLabel;
-            //string DomainName = Environment.UserDomainName;
+            myDomainName = Environment.UserDomainName;
             //string Username = Environment.UserName;
-            //string MachineName = Environment.MachineName;
+            myComputerName = Environment.MachineName;
             //msg += " Username: " + DomainName + "\\" + Username;
             //msg += " Computer: " + MachineName;
             //this.Text = msg;

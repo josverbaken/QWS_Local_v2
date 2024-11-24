@@ -54,6 +54,7 @@
             // 
             // TIQRemove
             // 
+            this.AcceptButton = this.btnRemove;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 180);
@@ -61,6 +62,8 @@
             this.Controls.Add(this.txtReason);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TIQRemove";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "TIQRemove";
