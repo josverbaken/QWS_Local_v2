@@ -819,7 +819,11 @@ namespace QWS_Local
                         }
                         break;
                     case "K":
-                        MessageBox.Show("Please continue booking in process.","Parked Up.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult dr1 = MessageBox.Show("Please continue booking in process.","Parked Up.", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        if (dr1 == DialogResult.Yes)
+                        {
+                            ContinueInProgress();
+                        }
                         break;
                     case "P":
                         DialogResult dr = MessageBox.Show("Press Yes to continue booking in process.", "In Progress.", MessageBoxButtons.YesNo, MessageBoxIcon.Information);

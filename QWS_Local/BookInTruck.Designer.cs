@@ -91,7 +91,6 @@ namespace QWS_Local
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.bsTIQ = new System.Windows.Forms.BindingSource(this.components);
             this.taTIQ = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -448,7 +447,7 @@ namespace QWS_Local
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(304, 30);
+            this.label1.Location = new System.Drawing.Point(51, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 17);
             this.label1.TabIndex = 62;
@@ -458,7 +457,7 @@ namespace QWS_Local
             // 
             this.btnHold.BackColor = System.Drawing.SystemColors.Control;
             this.btnHold.Enabled = false;
-            this.btnHold.Location = new System.Drawing.Point(272, 103);
+            this.btnHold.Location = new System.Drawing.Point(18, 103);
             this.btnHold.Name = "btnHold";
             this.btnHold.Size = new System.Drawing.Size(121, 38);
             this.btnHold.TabIndex = 61;
@@ -480,7 +479,7 @@ namespace QWS_Local
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(41, 30);
+            this.label2.Location = new System.Drawing.Point(294, 30);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 17);
             this.label2.TabIndex = 59;
@@ -500,7 +499,7 @@ namespace QWS_Local
             // btnDelivery
             // 
             this.btnDelivery.Enabled = false;
-            this.btnDelivery.Location = new System.Drawing.Point(15, 104);
+            this.btnDelivery.Location = new System.Drawing.Point(272, 104);
             this.btnDelivery.Name = "btnDelivery";
             this.btnDelivery.Size = new System.Drawing.Size(121, 38);
             this.btnDelivery.TabIndex = 57;
@@ -512,7 +511,7 @@ namespace QWS_Local
             // 
             this.btnRetare.BackColor = System.Drawing.SystemColors.Control;
             this.btnRetare.Enabled = false;
-            this.btnRetare.Location = new System.Drawing.Point(272, 60);
+            this.btnRetare.Location = new System.Drawing.Point(18, 59);
             this.btnRetare.Name = "btnRetare";
             this.btnRetare.Size = new System.Drawing.Size(121, 38);
             this.btnRetare.TabIndex = 56;
@@ -534,7 +533,7 @@ namespace QWS_Local
             // btnExBin
             // 
             this.btnExBin.Enabled = false;
-            this.btnExBin.Location = new System.Drawing.Point(15, 60);
+            this.btnExBin.Location = new System.Drawing.Point(272, 60);
             this.btnExBin.Name = "btnExBin";
             this.btnExBin.Size = new System.Drawing.Size(121, 38);
             this.btnExBin.TabIndex = 54;
@@ -653,19 +652,11 @@ namespace QWS_Local
             // 
             this.taTIQ.ClearBeforeFill = true;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(456, 406);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 82;
-            // 
             // BookInTruck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 658);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.txtTruckConfig);
             this.Controls.Add(this.groupBox3);
@@ -764,6 +755,5 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn nHVLDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn VehicleType;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

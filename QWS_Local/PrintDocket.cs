@@ -23,18 +23,6 @@ namespace QWS_Local
             //this.reportViewer1.RefreshReport();
         }
 
-        private void GetDocketList()
-        {
-            try
-            {
-                this.docketListTableAdapter.Fill(this.dsQWS.DocketList);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "GetDocketList Error!");
-            }
-        }
-
         private void btnGetDocketList_Click(object sender, EventArgs e)
         {
             GetDocketListDTP(dtpDocketList.Value);
@@ -44,18 +32,14 @@ namespace QWS_Local
             try
             {
                 dsQWS.DocketList.Clear();
-                int iRows = this.docketListTableAdapter.FillBy(this.dsQWS.DocketList,DocDate);
-                iRows += 2;
+                int iRows = this.taDocketList.FillBy(this.dsQWS.DocketList,DocDate);
+                textBox2.Text = iRows.ToString();
+                dgvDocketList.ClearSelection();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "GetDocketListDTP Error!");
             }
-        }
-
-        private void btnRefreshDockets_Click(object sender, EventArgs e)
-        {
-            GetDocketList();
         }
 
         private void btnGetDocket_Click(object sender, EventArgs e)
@@ -67,7 +51,9 @@ namespace QWS_Local
         {
             try
             {
-                taDeliveryDocketRpt.Fill(dsDocketReport.DeliveryDocketRpt, DocNum);
+                dsDocketReport.Clear();
+                int iRows = taDeliveryDocketRpt.Fill(dsDocketReport.DeliveryDocketRpt, DocNum);
+                textBox1.Text = iRows.ToString();
                 reportViewer1.RefreshReport();
             }
             catch (Exception ex)
@@ -83,20 +69,34 @@ namespace QWS_Local
 
         private void PrintPreview()
         {
-            int myDocNum = 5500109;
-            myDocNum = CurrentDocketList().DocNum;
-            GetDeliveryDocket(myDocNum);
-            txtDocketNo.Text =  myDocNum.ToString();
-            tabControl1.SelectedTab = tpDocket;
+            int myDocNum;
+            if (bsDocketList.Count > 0)
+            {
+                myDocNum = CurrentDocketList().DocNum;
+                GetDeliveryDocket(myDocNum);
+                txtDocketNo.Text = myDocNum.ToString();
+                tabControl1.SelectedTab = tpDocket;
+            }
+            else
+            {
+                MessageBox.Show("No dockets found!\r\nPlease try a different date.");
+            }
         }
 
         private dsQWSViews.DocketListRow CurrentDocketList()
         {
             try
             {
-                DataRow myDR = ((DataRowView)bsDocketList.Current).Row;
-                dsQWSViews.DocketListRow docketListRow = (dsQWSViews.DocketListRow)myDR;
-                return docketListRow;
+                if (bsDocketList != null)
+                {
+                    DataRow myDR = ((DataRowView)bsDocketList.Current).Row;
+                    dsQWSViews.DocketListRow docketListRow = (dsQWSViews.DocketListRow)myDR;
+                    return docketListRow;
+                }
+                else
+                {
+                    return null;
+                }
             }
             catch (Exception ex)
             {

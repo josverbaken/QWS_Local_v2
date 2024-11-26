@@ -25,9 +25,23 @@ namespace QWS_Local
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            myUserName = txtFirstName.Text + "." + txtLastName.Text;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            bool ValidUsername = true;
+            if (txtFirstName.TextLength == 0)
+            {
+                ValidUsername = false;
+                MessageBox.Show("Please enter first name.");
+            }
+            if (txtLastName.TextLength == 0)
+            {
+                ValidUsername = false;
+                MessageBox.Show("Please enter last name.");
+            }
+            if (ValidUsername == true)
+            {
+                myUserName = txtFirstName.Text + "." + txtLastName.Text;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
     }
 }
