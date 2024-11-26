@@ -479,8 +479,8 @@
     <EmbeddedResource Include="DeliveryOrders.resx">
       <DependentUpon>DeliveryOrders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DocketHeader.rdlc" />
     <EmbeddedResource Include="DocketLines.rdlc" />
+    <EmbeddedResource Include="DocketMaster.rdlc" />
     <EmbeddedResource Include="FeeCodeSearch.resx">
       <DependentUpon>FeeCodeSearch.cs</DependentUpon>
     </EmbeddedResource>

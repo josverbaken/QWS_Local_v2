@@ -53,8 +53,9 @@ namespace QWS_Local
             {
                 dsDocketReport.Clear();
                 //int iRows = taDeliveryDocketRpt.Fill(dsDocketReport.DeliveryDocketRpt, DocNum);
-                int iRows = deliveryDocketLinesTableAdapter.Fill(this.dsDocketReport.DeliveryDocketLines,DocNum);
-                textBox1.Text = iRows.ToString();
+                int iRowLines = deliveryDocketLinesTableAdapter.Fill(this.dsDocketReport.DeliveryDocketLines,DocNum);
+                int iRows = taDeliveryDocket.Fill(dsDocketReport.DeliveryDocket, DocNum);
+                textBox1.Text = iRows.ToString() + " " + iRowLines.ToString();
                 reportViewer1.RefreshReport();
             }
             catch (Exception ex)
