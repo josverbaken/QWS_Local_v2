@@ -48,9 +48,8 @@ namespace QWS_Local
             System.Windows.Forms.Label materialLabel;
             System.Windows.Forms.Label schemeCodeLabel;
             System.Windows.Forms.Label label1;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.button5 = new System.Windows.Forms.Button();
             this.btnTINRemove = new System.Windows.Forms.Button();
             this.btnWeigh = new System.Windows.Forms.Button();
             this.btnAddTIQ = new System.Windows.Forms.Button();
@@ -317,7 +316,6 @@ namespace QWS_Local
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
             this.splitContainer2.Panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.splitContainer2.Panel1.Controls.Add(this.button5);
             this.splitContainer2.Panel1.Controls.Add(this.btnTINRemove);
             this.splitContainer2.Panel1.Controls.Add(this.btnWeigh);
             this.splitContainer2.Panel1.Controls.Add(this.btnAddTIQ);
@@ -333,31 +331,17 @@ namespace QWS_Local
             this.splitContainer2.SplitterDistance = 305;
             this.splitContainer2.TabIndex = 0;
             // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(1047, 225);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(112, 49);
-            this.button5.TabIndex = 54;
-            this.button5.Text = "Clear";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // btnTINRemove
             // 
             this.btnTINRemove.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnTINRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTINRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTINRemove.Location = new System.Drawing.Point(876, 225);
+            this.btnTINRemove.Location = new System.Drawing.Point(1081, 225);
             this.btnTINRemove.Margin = new System.Windows.Forms.Padding(4);
             this.btnTINRemove.Name = "btnTINRemove";
-            this.btnTINRemove.Size = new System.Drawing.Size(137, 49);
+            this.btnTINRemove.Size = new System.Drawing.Size(250, 49);
             this.btnTINRemove.TabIndex = 63;
-            this.btnTINRemove.Text = "Remove";
+            this.btnTINRemove.Text = "Remove (F12)";
             this.btnTINRemove.UseVisualStyleBackColor = false;
             this.btnTINRemove.Click += new System.EventHandler(this.btnTINRemove_Click);
             // 
@@ -366,10 +350,10 @@ namespace QWS_Local
             this.btnWeigh.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnWeigh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWeigh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWeigh.Location = new System.Drawing.Point(444, 225);
+            this.btnWeigh.Location = new System.Drawing.Point(814, 225);
             this.btnWeigh.Margin = new System.Windows.Forms.Padding(4);
             this.btnWeigh.Name = "btnWeigh";
-            this.btnWeigh.Size = new System.Drawing.Size(186, 49);
+            this.btnWeigh.Size = new System.Drawing.Size(250, 49);
             this.btnWeigh.TabIndex = 62;
             this.btnWeigh.Text = "Weigh (F9)";
             this.btnWeigh.UseVisualStyleBackColor = false;
@@ -383,9 +367,9 @@ namespace QWS_Local
             this.btnAddTIQ.Location = new System.Drawing.Point(13, 225);
             this.btnAddTIQ.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddTIQ.Name = "btnAddTIQ";
-            this.btnAddTIQ.Size = new System.Drawing.Size(397, 49);
+            this.btnAddTIQ.Size = new System.Drawing.Size(250, 49);
             this.btnAddTIQ.TabIndex = 50;
-            this.btnAddTIQ.Text = "Add / Book In New Truck (F2)";
+            this.btnAddTIQ.Text = "Book In (F2)";
             this.btnAddTIQ.UseVisualStyleBackColor = false;
             this.btnAddTIQ.Click += new System.EventHandler(this.btnAddTIQ_Click);
             // 
@@ -394,12 +378,12 @@ namespace QWS_Local
             this.btnTINReleaseHold.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnTINReleaseHold.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTINReleaseHold.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTINReleaseHold.Location = new System.Drawing.Point(664, 225);
+            this.btnTINReleaseHold.Location = new System.Drawing.Point(280, 225);
             this.btnTINReleaseHold.Margin = new System.Windows.Forms.Padding(4);
             this.btnTINReleaseHold.Name = "btnTINReleaseHold";
-            this.btnTINReleaseHold.Size = new System.Drawing.Size(178, 49);
+            this.btnTINReleaseHold.Size = new System.Drawing.Size(250, 49);
             this.btnTINReleaseHold.TabIndex = 60;
-            this.btnTINReleaseHold.Text = "Update";
+            this.btnTINReleaseHold.Text = "Update (F4)";
             this.btnTINReleaseHold.UseVisualStyleBackColor = false;
             this.btnTINReleaseHold.Click += new System.EventHandler(this.btnTINReleaseHold_Click);
             // 
@@ -427,12 +411,12 @@ namespace QWS_Local
             this.btnTINRefresh.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnTINRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTINRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTINRefresh.Location = new System.Drawing.Point(1193, 225);
+            this.btnTINRefresh.Location = new System.Drawing.Point(547, 225);
             this.btnTINRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnTINRefresh.Name = "btnTINRefresh";
-            this.btnTINRefresh.Size = new System.Drawing.Size(114, 49);
+            this.btnTINRefresh.Size = new System.Drawing.Size(250, 49);
             this.btnTINRefresh.TabIndex = 54;
-            this.btnTINRefresh.Text = "Refresh";
+            this.btnTINRefresh.Text = "Refresh (F5)";
             this.btnTINRefresh.UseVisualStyleBackColor = false;
             this.btnTINRefresh.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -496,9 +480,9 @@ namespace QWS_Local
             // releaseDTTMDataGridViewTextBoxColumn
             // 
             this.releaseDTTMDataGridViewTextBoxColumn.DataPropertyName = "ReleaseDTTM";
-            dataGridViewCellStyle1.Format = "HH:mm";
-            dataGridViewCellStyle1.NullValue = null;
-            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Format = "HH:mm";
+            dataGridViewCellStyle4.NullValue = null;
+            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.releaseDTTMDataGridViewTextBoxColumn.HeaderText = "Time";
             this.releaseDTTMDataGridViewTextBoxColumn.Name = "releaseDTTMDataGridViewTextBoxColumn";
             this.releaseDTTMDataGridViewTextBoxColumn.ReadOnly = true;
@@ -963,7 +947,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnAddTIQ;
         private System.Windows.Forms.Button btnTINRefresh;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpList;
         private System.Windows.Forms.TabPage tpDetails;

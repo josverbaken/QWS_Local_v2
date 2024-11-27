@@ -157,11 +157,6 @@ namespace QWS_Local
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            ClearTIQ();
-        }
-
         private dsTIQ2.TIQRow CurrentTIQ()
         {
             if ( bsTIQ2.Count > 0)
@@ -184,7 +179,6 @@ namespace QWS_Local
         private void btnTINRemove_Click(object sender, EventArgs e)
         {
             TINRemove();
-            RefreshQueue();
         }
 
         private void TINRemove()
@@ -207,7 +201,11 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message);
             }
-}
+            finally
+            {
+                RefreshQueue();
+            }
+        }
 
         private void bsTIQ2_CurrentChanged(object sender, EventArgs e)
         {
@@ -792,6 +790,11 @@ namespace QWS_Local
 
         private void btnTINReleaseHold_Click(object sender, EventArgs e)
         {
+            ButtonUpdate();
+        }
+
+        private void ButtonUpdate()
+        {
             try
             {
                 bool blSave = false;
@@ -800,7 +803,7 @@ namespace QWS_Local
                 {
                     case "U":
                         //MessageBox.Show("Contact customer to confirm okay to pick up.", "Confirm non-preferred customer."); 
-                        if (CheckConfirmCustomer() ==  true)
+                        if (CheckConfirmCustomer() == true)
                         {
                             blSave = true;
                             CurrentTIQ().QueueStatus = "Q";
@@ -811,7 +814,7 @@ namespace QWS_Local
                         CurrentTIQ().QueueStatus = "H";
                         break;
                     case "H":
-                        DialogResult drHold = MessageBox.Show("Has Queue KPI been met?","Queue KPI Hold", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult drHold = MessageBox.Show("Has Queue KPI been met?", "Queue KPI Hold", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (drHold == DialogResult.Yes)
                         {
                             blSave = true;
@@ -819,7 +822,7 @@ namespace QWS_Local
                         }
                         break;
                     case "K":
-                        DialogResult dr1 = MessageBox.Show("Please continue booking in process.","Parked Up.", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        DialogResult dr1 = MessageBox.Show("Please continue booking in process.", "Parked Up.", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                         if (dr1 == DialogResult.Yes)
                         {
                             ContinueInProgress();
@@ -835,12 +838,12 @@ namespace QWS_Local
                     default:
                         break;
                 }
-            if (blSave == true)
-            {
-                bsTIQ2.EndEdit();
-                taTIQ2.Update(dsTIQ2.TIQ);
-                RefreshQueue();
-            }
+                if (blSave == true)
+                {
+                    bsTIQ2.EndEdit();
+                    taTIQ2.Update(dsTIQ2.TIQ);
+                    RefreshQueue();
+                }
             }
             catch (Exception ex)
             {
@@ -870,12 +873,21 @@ namespace QWS_Local
         private void TrucksInQuarry_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
-            {
+            {     
+                case Keys.F2:
+                    BookInTruck();
+                    break;
+                case Keys.F4:
+                    ButtonUpdate();
+                    break;
+                case Keys.F5:
+                    RefreshQueue();
+                    break;
                 case Keys.F9:
                     GoToWeighTruck();
                     break;
-                case Keys.F2:
-                    BookInTruck();
+                case Keys.F12:
+                    TINRemove();
                     break;
             }
         }
