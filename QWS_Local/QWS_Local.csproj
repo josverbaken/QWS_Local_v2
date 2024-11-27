@@ -481,6 +481,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DocketLines.rdlc" />
     <EmbeddedResource Include="DocketMaster.rdlc" />
+    <EmbeddedResource Include="Dummy.rdlc" />
     <EmbeddedResource Include="FeeCodeSearch.resx">
       <DependentUpon>FeeCodeSearch.cs</DependentUpon>
     </EmbeddedResource>

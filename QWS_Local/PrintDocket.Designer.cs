@@ -30,9 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.DeliveryDocketLinesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bsDeliveryDocket = new System.Windows.Forms.BindingSource(this.components);
             this.dsDocketReport = new QWS_Local.dsDocketReport();
+            this.DeliveryDocketLinesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bsDeliveryDocketRpt = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
@@ -69,14 +71,15 @@
             this.tableAdapterManager = new QWS_Local.dsQWSViewsTableAdapters.TableAdapterManager();
             this.bsDocketReport = new System.Windows.Forms.BindingSource(this.components);
             this.taDeliveryDocketRpt = new QWS_Local.dsDocketReportTableAdapters.DeliveryDocketRptTableAdapter();
-            this.bsDeliveryDocket = new System.Windows.Forms.BindingSource(this.components);
             this.taDeliveryDocket = new QWS_Local.dsDocketReportTableAdapters.DeliveryDocketTableAdapter();
             this.DeliveryDocketRptBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.deliveryDocketLinesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.deliveryDocketLinesTableAdapter = new QWS_Local.dsDocketReportTableAdapters.DeliveryDocketLinesTableAdapter();
             this.DeliveryDocketBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.DeliveryDocketLinesBindingSource)).BeginInit();
+            this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDeliveryDocket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDocketReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DeliveryDocketLinesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDeliveryDocketRpt)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
@@ -93,21 +96,25 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsDocketReport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsDeliveryDocket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DeliveryDocketRptBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryDocketLinesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DeliveryDocketBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // DeliveryDocketLinesBindingSource
+            // bsDeliveryDocket
             // 
-            this.DeliveryDocketLinesBindingSource.DataMember = "DeliveryDocketLines";
-            this.DeliveryDocketLinesBindingSource.DataSource = this.dsDocketReport;
+            this.bsDeliveryDocket.DataMember = "DeliveryDocket";
+            this.bsDeliveryDocket.DataSource = this.dsDocketReport;
             // 
             // dsDocketReport
             // 
             this.dsDocketReport.DataSetName = "dsDocketReport";
             this.dsDocketReport.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // DeliveryDocketLinesBindingSource
+            // 
+            this.DeliveryDocketLinesBindingSource.DataMember = "DeliveryDocketLines";
+            this.DeliveryDocketLinesBindingSource.DataSource = this.dsDocketReport;
             // 
             // bsDeliveryDocketRpt
             // 
@@ -361,6 +368,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.reportViewer2);
             this.splitContainer1.Panel2.Controls.Add(this.reportViewer1);
             this.splitContainer1.Size = new System.Drawing.Size(1184, 584);
             this.splitContainer1.SplitterDistance = 280;
@@ -405,15 +413,15 @@
             // 
             // reportViewer1
             // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "dsDocketMaster";
-            reportDataSource1.Value = this.bsDeliveryDocket;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Left;
+            reportDataSource2.Name = "dsDocketMaster";
+            reportDataSource2.Value = this.bsDeliveryDocket;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "QWS_Local.DocketMaster.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(898, 584);
+            this.reportViewer1.Size = new System.Drawing.Size(426, 584);
             this.reportViewer1.TabIndex = 1;
             // 
             // taDocketList
@@ -434,11 +442,6 @@
             // taDeliveryDocketRpt
             // 
             this.taDeliveryDocketRpt.ClearBeforeFill = true;
-            // 
-            // bsDeliveryDocket
-            // 
-            this.bsDeliveryDocket.DataMember = "DeliveryDocket";
-            this.bsDeliveryDocket.DataSource = this.dsDocketReport;
             // 
             // taDeliveryDocket
             // 
@@ -463,6 +466,19 @@
             this.DeliveryDocketBindingSource.DataMember = "DeliveryDocket";
             this.DeliveryDocketBindingSource.DataSource = this.dsDocketReport;
             // 
+            // reportViewer2
+            // 
+            this.reportViewer2.Dock = System.Windows.Forms.DockStyle.Right;
+            reportDataSource1.Name = "dsDocketLines";
+            reportDataSource1.Value = this.DeliveryDocketLinesBindingSource;
+            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer2.LocalReport.ReportEmbeddedResource = "QWS_Local.DocketLines.rdlc";
+            this.reportViewer2.Location = new System.Drawing.Point(502, 0);
+            this.reportViewer2.Name = "reportViewer2";
+            this.reportViewer2.ServerReport.BearerToken = null;
+            this.reportViewer2.Size = new System.Drawing.Size(396, 584);
+            this.reportViewer2.TabIndex = 2;
+            // 
             // PrintDocket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -474,8 +490,9 @@
             this.Name = "PrintDocket";
             this.Text = "Print Docket";
             this.Load += new System.EventHandler(this.PrintDocket_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DeliveryDocketLinesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDeliveryDocket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDocketReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DeliveryDocketLinesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsDeliveryDocketRpt)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpList.ResumeLayout(false);
@@ -494,7 +511,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bsDocketReport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsDeliveryDocket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DeliveryDocketRptBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryDocketLinesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DeliveryDocketBindingSource)).EndInit();
@@ -548,5 +564,6 @@
         private System.Windows.Forms.BindingSource deliveryDocketLinesBindingSource1;
         private dsDocketReportTableAdapters.DeliveryDocketLinesTableAdapter deliveryDocketLinesTableAdapter;
         private System.Windows.Forms.BindingSource DeliveryDocketBindingSource;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer2;
     }
 }

@@ -236,5 +236,13 @@ namespace QWS_Local
             frmSMS.WindowState = FormWindowState.Maximized;
             frmSMS.Show();
         }
+
+        private void emailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SMSGlobal frmSMS = new SMSGlobal();
+            frmSMS.MdiParent = this;
+            frmSMS.WindowState = FormWindowState.Maximized;
+            frmSMS.Show();
+        }
     }
 }
