@@ -58,6 +58,7 @@ namespace QWS_Local
             //this.Text = msg;
             GetUsername();
             this.Size = new Size(1400, 800);
+            this.KeyPreview = true;
             TrucksInQuarry frmTIQ = new TrucksInQuarry();
             frmTIQ.MdiParent = this;            
             frmTIQ.Show();
@@ -130,6 +131,11 @@ namespace QWS_Local
   
 
         private void printDocketToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PrintDocket();
+        }
+
+        private void PrintDocket()
         {
             PrintDocket frmPrintDocket = new PrintDocket();
             frmPrintDocket.MdiParent = this;
@@ -243,6 +249,16 @@ namespace QWS_Local
             frmSMS.MdiParent = this;
             frmSMS.WindowState = FormWindowState.Maximized;
             frmSMS.Show();
+        }
+
+        private void QWS_MDIParent_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.F8:
+                    PrintDocket();
+                    break;
+            }
         }
     }
 }

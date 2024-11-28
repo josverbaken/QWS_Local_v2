@@ -24,11 +24,7 @@ namespace QWS_Local {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class dsDocketReport : global::System.Data.DataSet {
         
-        private DeliveryDocketRptDataTable tableDeliveryDocketRpt;
-        
         private DeliveryDocketDataTable tableDeliveryDocket;
-        
-        private DeliveryDocketLinesDataTable tableDeliveryDocketLines;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -58,14 +54,8 @@ namespace QWS_Local {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["DeliveryDocketRpt"] != null)) {
-                    base.Tables.Add(new DeliveryDocketRptDataTable(ds.Tables["DeliveryDocketRpt"]));
-                }
                 if ((ds.Tables["DeliveryDocket"] != null)) {
                     base.Tables.Add(new DeliveryDocketDataTable(ds.Tables["DeliveryDocket"]));
-                }
-                if ((ds.Tables["DeliveryDocketLines"] != null)) {
-                    base.Tables.Add(new DeliveryDocketLinesDataTable(ds.Tables["DeliveryDocketLines"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -89,29 +79,9 @@ namespace QWS_Local {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public DeliveryDocketRptDataTable DeliveryDocketRpt {
-            get {
-                return this.tableDeliveryDocketRpt;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public DeliveryDocketDataTable DeliveryDocket {
             get {
                 return this.tableDeliveryDocket;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public DeliveryDocketLinesDataTable DeliveryDocketLines {
-            get {
-                return this.tableDeliveryDocketLines;
             }
         }
         
@@ -182,14 +152,8 @@ namespace QWS_Local {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["DeliveryDocketRpt"] != null)) {
-                    base.Tables.Add(new DeliveryDocketRptDataTable(ds.Tables["DeliveryDocketRpt"]));
-                }
                 if ((ds.Tables["DeliveryDocket"] != null)) {
                     base.Tables.Add(new DeliveryDocketDataTable(ds.Tables["DeliveryDocket"]));
-                }
-                if ((ds.Tables["DeliveryDocketLines"] != null)) {
-                    base.Tables.Add(new DeliveryDocketLinesDataTable(ds.Tables["DeliveryDocketLines"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -224,22 +188,10 @@ namespace QWS_Local {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableDeliveryDocketRpt = ((DeliveryDocketRptDataTable)(base.Tables["DeliveryDocketRpt"]));
-            if ((initTable == true)) {
-                if ((this.tableDeliveryDocketRpt != null)) {
-                    this.tableDeliveryDocketRpt.InitVars();
-                }
-            }
             this.tableDeliveryDocket = ((DeliveryDocketDataTable)(base.Tables["DeliveryDocket"]));
             if ((initTable == true)) {
                 if ((this.tableDeliveryDocket != null)) {
                     this.tableDeliveryDocket.InitVars();
-                }
-            }
-            this.tableDeliveryDocketLines = ((DeliveryDocketLinesDataTable)(base.Tables["DeliveryDocketLines"]));
-            if ((initTable == true)) {
-                if ((this.tableDeliveryDocketLines != null)) {
-                    this.tableDeliveryDocketLines.InitVars();
                 }
             }
         }
@@ -252,29 +204,13 @@ namespace QWS_Local {
             this.Namespace = "http://tempuri.org/dsDocketReport.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableDeliveryDocketRpt = new DeliveryDocketRptDataTable();
-            base.Tables.Add(this.tableDeliveryDocketRpt);
             this.tableDeliveryDocket = new DeliveryDocketDataTable();
             base.Tables.Add(this.tableDeliveryDocket);
-            this.tableDeliveryDocketLines = new DeliveryDocketLinesDataTable();
-            base.Tables.Add(this.tableDeliveryDocketLines);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeDeliveryDocketRpt() {
-            return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeDeliveryDocket() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeDeliveryDocketLines() {
             return false;
         }
         
@@ -334,381 +270,7 @@ namespace QWS_Local {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void DeliveryDocketRptRowChangeEventHandler(object sender, DeliveryDocketRptRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void DeliveryDocketRowChangeEventHandler(object sender, DeliveryDocketRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void DeliveryDocketLinesRowChangeEventHandler(object sender, DeliveryDocketLinesRowChangeEvent e);
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class DeliveryDocketRptDataTable : global::System.Data.TypedTableBase<DeliveryDocketRptRow> {
-            
-            private global::System.Data.DataColumn columnDocNum;
-            
-            private global::System.Data.DataColumn columnDocDate;
-            
-            private global::System.Data.DataColumn columnDocTime;
-            
-            private global::System.Data.DataColumn columnTurnaround;
-            
-            private global::System.Data.DataColumn columnCardCode;
-            
-            private global::System.Data.DataColumn columnCardName;
-            
-            private global::System.Data.DataColumn columnAccountType;
-            
-            private global::System.Data.DataColumn columnPurchaseOrder;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DeliveryDocketRptDataTable() {
-                this.TableName = "DeliveryDocketRpt";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal DeliveryDocketRptDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected DeliveryDocketRptDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn DocNumColumn {
-                get {
-                    return this.columnDocNum;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn DocDateColumn {
-                get {
-                    return this.columnDocDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn DocTimeColumn {
-                get {
-                    return this.columnDocTime;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TurnaroundColumn {
-                get {
-                    return this.columnTurnaround;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn CardCodeColumn {
-                get {
-                    return this.columnCardCode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn CardNameColumn {
-                get {
-                    return this.columnCardName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn AccountTypeColumn {
-                get {
-                    return this.columnAccountType;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PurchaseOrderColumn {
-                get {
-                    return this.columnPurchaseOrder;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DeliveryDocketRptRow this[int index] {
-                get {
-                    return ((DeliveryDocketRptRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DeliveryDocketRptRowChangeEventHandler DeliveryDocketRptRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DeliveryDocketRptRowChangeEventHandler DeliveryDocketRptRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DeliveryDocketRptRowChangeEventHandler DeliveryDocketRptRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DeliveryDocketRptRowChangeEventHandler DeliveryDocketRptRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddDeliveryDocketRptRow(DeliveryDocketRptRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DeliveryDocketRptRow AddDeliveryDocketRptRow(int DocNum, string DocDate, System.DateTime DocTime, decimal Turnaround, string CardCode, string CardName, string AccountType, string PurchaseOrder) {
-                DeliveryDocketRptRow rowDeliveryDocketRptRow = ((DeliveryDocketRptRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        DocNum,
-                        DocDate,
-                        DocTime,
-                        Turnaround,
-                        CardCode,
-                        CardName,
-                        AccountType,
-                        PurchaseOrder};
-                rowDeliveryDocketRptRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowDeliveryDocketRptRow);
-                return rowDeliveryDocketRptRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DeliveryDocketRptRow FindByDocNum(int DocNum) {
-                return ((DeliveryDocketRptRow)(this.Rows.Find(new object[] {
-                            DocNum})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                DeliveryDocketRptDataTable cln = ((DeliveryDocketRptDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new DeliveryDocketRptDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal void InitVars() {
-                this.columnDocNum = base.Columns["DocNum"];
-                this.columnDocDate = base.Columns["DocDate"];
-                this.columnDocTime = base.Columns["DocTime"];
-                this.columnTurnaround = base.Columns["Turnaround"];
-                this.columnCardCode = base.Columns["CardCode"];
-                this.columnCardName = base.Columns["CardName"];
-                this.columnAccountType = base.Columns["AccountType"];
-                this.columnPurchaseOrder = base.Columns["PurchaseOrder"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitClass() {
-                this.columnDocNum = new global::System.Data.DataColumn("DocNum", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDocNum);
-                this.columnDocDate = new global::System.Data.DataColumn("DocDate", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDocDate);
-                this.columnDocTime = new global::System.Data.DataColumn("DocTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDocTime);
-                this.columnTurnaround = new global::System.Data.DataColumn("Turnaround", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTurnaround);
-                this.columnCardCode = new global::System.Data.DataColumn("CardCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCardCode);
-                this.columnCardName = new global::System.Data.DataColumn("CardName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCardName);
-                this.columnAccountType = new global::System.Data.DataColumn("AccountType", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAccountType);
-                this.columnPurchaseOrder = new global::System.Data.DataColumn("PurchaseOrder", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPurchaseOrder);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnDocNum}, true));
-                this.columnDocNum.AllowDBNull = false;
-                this.columnDocNum.Unique = true;
-                this.columnDocDate.ReadOnly = true;
-                this.columnDocDate.MaxLength = 20;
-                this.columnDocTime.AllowDBNull = false;
-                this.columnTurnaround.ReadOnly = true;
-                this.columnCardCode.AllowDBNull = false;
-                this.columnCardCode.MaxLength = 15;
-                this.columnCardName.AllowDBNull = false;
-                this.columnCardName.MaxLength = 100;
-                this.columnAccountType.ReadOnly = true;
-                this.columnAccountType.MaxLength = 2;
-                this.columnPurchaseOrder.AllowDBNull = false;
-                this.columnPurchaseOrder.MaxLength = 50;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DeliveryDocketRptRow NewDeliveryDocketRptRow() {
-                return ((DeliveryDocketRptRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new DeliveryDocketRptRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(DeliveryDocketRptRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.DeliveryDocketRptRowChanged != null)) {
-                    this.DeliveryDocketRptRowChanged(this, new DeliveryDocketRptRowChangeEvent(((DeliveryDocketRptRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.DeliveryDocketRptRowChanging != null)) {
-                    this.DeliveryDocketRptRowChanging(this, new DeliveryDocketRptRowChangeEvent(((DeliveryDocketRptRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.DeliveryDocketRptRowDeleted != null)) {
-                    this.DeliveryDocketRptRowDeleted(this, new DeliveryDocketRptRowChangeEvent(((DeliveryDocketRptRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.DeliveryDocketRptRowDeleting != null)) {
-                    this.DeliveryDocketRptRowDeleting(this, new DeliveryDocketRptRowChangeEvent(((DeliveryDocketRptRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveDeliveryDocketRptRow(DeliveryDocketRptRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dsDocketReport ds = new dsDocketReport();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "DeliveryDocketRptDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -761,8 +323,6 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnTonnes;
             
-            private global::System.Data.DataColumn columnShipDate;
-            
             private global::System.Data.DataColumn columnLoadsToday;
             
             private global::System.Data.DataColumn columnTonnesToday;
@@ -773,9 +333,19 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnTruckDriver;
             
-            private global::System.Data.DataColumn columnCODAmount;
+            private global::System.Data.DataColumn columnInstructions;
             
-            private global::System.Data.DataColumn columnNotices;
+            private global::System.Data.DataColumn columnMaterialCode;
+            
+            private global::System.Data.DataColumn columnMaterial;
+            
+            private global::System.Data.DataColumn columnCartageCode;
+            
+            private global::System.Data.DataColumn columnCartage;
+            
+            private global::System.Data.DataColumn columnSurchargeCode;
+            
+            private global::System.Data.DataColumn columnSurcharge;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -988,14 +558,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ShipDateColumn {
-                get {
-                    return this.columnShipDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn LoadsTodayColumn {
                 get {
                     return this.columnLoadsToday;
@@ -1036,17 +598,57 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn CODAmountColumn {
+            public global::System.Data.DataColumn InstructionsColumn {
                 get {
-                    return this.columnCODAmount;
+                    return this.columnInstructions;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NoticesColumn {
+            public global::System.Data.DataColumn MaterialCodeColumn {
                 get {
-                    return this.columnNotices;
+                    return this.columnMaterialCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn MaterialColumn {
+                get {
+                    return this.columnMaterial;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CartageCodeColumn {
+                get {
+                    return this.columnCartageCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CartageColumn {
+                get {
+                    return this.columnCartage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SurchargeCodeColumn {
+                get {
+                    return this.columnSurchargeCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SurchargeColumn {
+                get {
+                    return this.columnSurcharge;
                 }
             }
             
@@ -1110,14 +712,18 @@ namespace QWS_Local {
                         string TruckRego, 
                         int JobNo, 
                         decimal Tonnes, 
-                        System.DateTime ShipDate, 
                         int LoadsToday, 
                         int TonnesToday, 
                         string TruckConfig, 
                         string Salesman, 
                         string TruckDriver, 
-                        decimal CODAmount, 
-                        string Notices) {
+                        string Instructions, 
+                        string MaterialCode, 
+                        string Material, 
+                        string CartageCode, 
+                        string Cartage, 
+                        string SurchargeCode, 
+                        string Surcharge) {
                 DeliveryDocketRow rowDeliveryDocketRow = ((DeliveryDocketRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DocNum,
@@ -1142,14 +748,18 @@ namespace QWS_Local {
                         TruckRego,
                         JobNo,
                         Tonnes,
-                        ShipDate,
                         LoadsToday,
                         TonnesToday,
                         TruckConfig,
                         Salesman,
                         TruckDriver,
-                        CODAmount,
-                        Notices};
+                        Instructions,
+                        MaterialCode,
+                        Material,
+                        CartageCode,
+                        Cartage,
+                        SurchargeCode,
+                        Surcharge};
                 rowDeliveryDocketRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDeliveryDocketRow);
                 return rowDeliveryDocketRow;
@@ -1201,14 +811,18 @@ namespace QWS_Local {
                 this.columnTruckRego = base.Columns["TruckRego"];
                 this.columnJobNo = base.Columns["JobNo"];
                 this.columnTonnes = base.Columns["Tonnes"];
-                this.columnShipDate = base.Columns["ShipDate"];
                 this.columnLoadsToday = base.Columns["LoadsToday"];
                 this.columnTonnesToday = base.Columns["TonnesToday"];
                 this.columnTruckConfig = base.Columns["TruckConfig"];
                 this.columnSalesman = base.Columns["Salesman"];
                 this.columnTruckDriver = base.Columns["TruckDriver"];
-                this.columnCODAmount = base.Columns["CODAmount"];
-                this.columnNotices = base.Columns["Notices"];
+                this.columnInstructions = base.Columns["Instructions"];
+                this.columnMaterialCode = base.Columns["MaterialCode"];
+                this.columnMaterial = base.Columns["Material"];
+                this.columnCartageCode = base.Columns["CartageCode"];
+                this.columnCartage = base.Columns["Cartage"];
+                this.columnSurchargeCode = base.Columns["SurchargeCode"];
+                this.columnSurcharge = base.Columns["Surcharge"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1258,8 +872,6 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnJobNo);
                 this.columnTonnes = new global::System.Data.DataColumn("Tonnes", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTonnes);
-                this.columnShipDate = new global::System.Data.DataColumn("ShipDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnShipDate);
                 this.columnLoadsToday = new global::System.Data.DataColumn("LoadsToday", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLoadsToday);
                 this.columnTonnesToday = new global::System.Data.DataColumn("TonnesToday", typeof(int), null, global::System.Data.MappingType.Element);
@@ -1270,10 +882,20 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnSalesman);
                 this.columnTruckDriver = new global::System.Data.DataColumn("TruckDriver", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTruckDriver);
-                this.columnCODAmount = new global::System.Data.DataColumn("CODAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCODAmount);
-                this.columnNotices = new global::System.Data.DataColumn("Notices", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNotices);
+                this.columnInstructions = new global::System.Data.DataColumn("Instructions", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInstructions);
+                this.columnMaterialCode = new global::System.Data.DataColumn("MaterialCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaterialCode);
+                this.columnMaterial = new global::System.Data.DataColumn("Material", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaterial);
+                this.columnCartageCode = new global::System.Data.DataColumn("CartageCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCartageCode);
+                this.columnCartage = new global::System.Data.DataColumn("Cartage", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCartage);
+                this.columnSurchargeCode = new global::System.Data.DataColumn("SurchargeCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSurchargeCode);
+                this.columnSurcharge = new global::System.Data.DataColumn("Surcharge", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSurcharge);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnDocNum}, true));
                 this.columnDocNum.AllowDBNull = false;
@@ -1311,7 +933,6 @@ namespace QWS_Local {
                 this.columnTruckRego.MaxLength = 50;
                 this.columnJobNo.ReadOnly = true;
                 this.columnTonnes.ReadOnly = true;
-                this.columnShipDate.AllowDBNull = false;
                 this.columnLoadsToday.ReadOnly = true;
                 this.columnTonnesToday.ReadOnly = true;
                 this.columnTruckConfig.AllowDBNull = false;
@@ -1320,9 +941,20 @@ namespace QWS_Local {
                 this.columnSalesman.MaxLength = 155;
                 this.columnTruckDriver.AllowDBNull = false;
                 this.columnTruckDriver.MaxLength = 50;
-                this.columnCODAmount.ReadOnly = true;
-                this.columnNotices.ReadOnly = true;
-                this.columnNotices.MaxLength = 1;
+                this.columnInstructions.ReadOnly = true;
+                this.columnInstructions.MaxLength = 1;
+                this.columnMaterialCode.AllowDBNull = false;
+                this.columnMaterialCode.MaxLength = 50;
+                this.columnMaterial.AllowDBNull = false;
+                this.columnMaterial.MaxLength = 50;
+                this.columnCartageCode.ReadOnly = true;
+                this.columnCartageCode.MaxLength = 50;
+                this.columnCartage.ReadOnly = true;
+                this.columnCartage.MaxLength = 50;
+                this.columnSurchargeCode.ReadOnly = true;
+                this.columnSurchargeCode.MaxLength = 50;
+                this.columnSurcharge.ReadOnly = true;
+                this.columnSurcharge.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1446,588 +1078,6 @@ namespace QWS_Local {
                 }
                 xs.Add(dsSchema);
                 return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class DeliveryDocketLinesDataTable : global::System.Data.TypedTableBase<DeliveryDocketLinesRow> {
-            
-            private global::System.Data.DataColumn columnDocNum;
-            
-            private global::System.Data.DataColumn columnDocketLine;
-            
-            private global::System.Data.DataColumn columnWarehouseCode;
-            
-            private global::System.Data.DataColumn columnBaseEntry;
-            
-            private global::System.Data.DataColumn columnItemCode;
-            
-            private global::System.Data.DataColumn columnItemDescription;
-            
-            private global::System.Data.DataColumn columnItemQA;
-            
-            private global::System.Data.DataColumn columnItmsGrpCod;
-            
-            private global::System.Data.DataColumn columnStockpileLot;
-            
-            private global::System.Data.DataColumn columnQuantity;
-            
-            private global::System.Data.DataColumn columnCreatedDTTM;
-            
-            private global::System.Data.DataColumn columnSWW;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DeliveryDocketLinesDataTable() {
-                this.TableName = "DeliveryDocketLines";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal DeliveryDocketLinesDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected DeliveryDocketLinesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn DocNumColumn {
-                get {
-                    return this.columnDocNum;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn DocketLineColumn {
-                get {
-                    return this.columnDocketLine;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn WarehouseCodeColumn {
-                get {
-                    return this.columnWarehouseCode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn BaseEntryColumn {
-                get {
-                    return this.columnBaseEntry;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ItemCodeColumn {
-                get {
-                    return this.columnItemCode;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ItemDescriptionColumn {
-                get {
-                    return this.columnItemDescription;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ItemQAColumn {
-                get {
-                    return this.columnItemQA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ItmsGrpCodColumn {
-                get {
-                    return this.columnItmsGrpCod;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn StockpileLotColumn {
-                get {
-                    return this.columnStockpileLot;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn QuantityColumn {
-                get {
-                    return this.columnQuantity;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn CreatedDTTMColumn {
-                get {
-                    return this.columnCreatedDTTM;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn SWWColumn {
-                get {
-                    return this.columnSWW;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DeliveryDocketLinesRow this[int index] {
-                get {
-                    return ((DeliveryDocketLinesRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DeliveryDocketLinesRowChangeEventHandler DeliveryDocketLinesRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DeliveryDocketLinesRowChangeEventHandler DeliveryDocketLinesRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DeliveryDocketLinesRowChangeEventHandler DeliveryDocketLinesRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DeliveryDocketLinesRowChangeEventHandler DeliveryDocketLinesRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddDeliveryDocketLinesRow(DeliveryDocketLinesRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DeliveryDocketLinesRow AddDeliveryDocketLinesRow(int DocNum, int DocketLine, string WarehouseCode, int BaseEntry, string ItemCode, string ItemDescription, bool ItemQA, int ItmsGrpCod, int StockpileLot, decimal Quantity, System.DateTime CreatedDTTM, string SWW) {
-                DeliveryDocketLinesRow rowDeliveryDocketLinesRow = ((DeliveryDocketLinesRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        DocNum,
-                        DocketLine,
-                        WarehouseCode,
-                        BaseEntry,
-                        ItemCode,
-                        ItemDescription,
-                        ItemQA,
-                        ItmsGrpCod,
-                        StockpileLot,
-                        Quantity,
-                        CreatedDTTM,
-                        SWW};
-                rowDeliveryDocketLinesRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowDeliveryDocketLinesRow);
-                return rowDeliveryDocketLinesRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DeliveryDocketLinesRow FindByDocNumDocketLine(int DocNum, int DocketLine) {
-                return ((DeliveryDocketLinesRow)(this.Rows.Find(new object[] {
-                            DocNum,
-                            DocketLine})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                DeliveryDocketLinesDataTable cln = ((DeliveryDocketLinesDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new DeliveryDocketLinesDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal void InitVars() {
-                this.columnDocNum = base.Columns["DocNum"];
-                this.columnDocketLine = base.Columns["DocketLine"];
-                this.columnWarehouseCode = base.Columns["WarehouseCode"];
-                this.columnBaseEntry = base.Columns["BaseEntry"];
-                this.columnItemCode = base.Columns["ItemCode"];
-                this.columnItemDescription = base.Columns["ItemDescription"];
-                this.columnItemQA = base.Columns["ItemQA"];
-                this.columnItmsGrpCod = base.Columns["ItmsGrpCod"];
-                this.columnStockpileLot = base.Columns["StockpileLot"];
-                this.columnQuantity = base.Columns["Quantity"];
-                this.columnCreatedDTTM = base.Columns["CreatedDTTM"];
-                this.columnSWW = base.Columns["SWW"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitClass() {
-                this.columnDocNum = new global::System.Data.DataColumn("DocNum", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDocNum);
-                this.columnDocketLine = new global::System.Data.DataColumn("DocketLine", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDocketLine);
-                this.columnWarehouseCode = new global::System.Data.DataColumn("WarehouseCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWarehouseCode);
-                this.columnBaseEntry = new global::System.Data.DataColumn("BaseEntry", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBaseEntry);
-                this.columnItemCode = new global::System.Data.DataColumn("ItemCode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnItemCode);
-                this.columnItemDescription = new global::System.Data.DataColumn("ItemDescription", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnItemDescription);
-                this.columnItemQA = new global::System.Data.DataColumn("ItemQA", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnItemQA);
-                this.columnItmsGrpCod = new global::System.Data.DataColumn("ItmsGrpCod", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnItmsGrpCod);
-                this.columnStockpileLot = new global::System.Data.DataColumn("StockpileLot", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStockpileLot);
-                this.columnQuantity = new global::System.Data.DataColumn("Quantity", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnQuantity);
-                this.columnCreatedDTTM = new global::System.Data.DataColumn("CreatedDTTM", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreatedDTTM);
-                this.columnSWW = new global::System.Data.DataColumn("SWW", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSWW);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnDocNum,
-                                this.columnDocketLine}, true));
-                this.columnDocNum.AllowDBNull = false;
-                this.columnDocketLine.AllowDBNull = false;
-                this.columnWarehouseCode.AllowDBNull = false;
-                this.columnWarehouseCode.MaxLength = 50;
-                this.columnBaseEntry.AllowDBNull = false;
-                this.columnItemCode.AllowDBNull = false;
-                this.columnItemCode.MaxLength = 50;
-                this.columnItemDescription.AllowDBNull = false;
-                this.columnItemDescription.MaxLength = 50;
-                this.columnItemQA.AllowDBNull = false;
-                this.columnItmsGrpCod.AllowDBNull = false;
-                this.columnStockpileLot.AllowDBNull = false;
-                this.columnQuantity.AllowDBNull = false;
-                this.columnCreatedDTTM.AllowDBNull = false;
-                this.columnSWW.ReadOnly = true;
-                this.columnSWW.MaxLength = 16;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DeliveryDocketLinesRow NewDeliveryDocketLinesRow() {
-                return ((DeliveryDocketLinesRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new DeliveryDocketLinesRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(DeliveryDocketLinesRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.DeliveryDocketLinesRowChanged != null)) {
-                    this.DeliveryDocketLinesRowChanged(this, new DeliveryDocketLinesRowChangeEvent(((DeliveryDocketLinesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.DeliveryDocketLinesRowChanging != null)) {
-                    this.DeliveryDocketLinesRowChanging(this, new DeliveryDocketLinesRowChangeEvent(((DeliveryDocketLinesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.DeliveryDocketLinesRowDeleted != null)) {
-                    this.DeliveryDocketLinesRowDeleted(this, new DeliveryDocketLinesRowChangeEvent(((DeliveryDocketLinesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.DeliveryDocketLinesRowDeleting != null)) {
-                    this.DeliveryDocketLinesRowDeleting(this, new DeliveryDocketLinesRowChangeEvent(((DeliveryDocketLinesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveDeliveryDocketLinesRow(DeliveryDocketLinesRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dsDocketReport ds = new dsDocketReport();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "DeliveryDocketLinesDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class DeliveryDocketRptRow : global::System.Data.DataRow {
-            
-            private DeliveryDocketRptDataTable tableDeliveryDocketRpt;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal DeliveryDocketRptRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableDeliveryDocketRpt = ((DeliveryDocketRptDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int DocNum {
-                get {
-                    return ((int)(this[this.tableDeliveryDocketRpt.DocNumColumn]));
-                }
-                set {
-                    this[this.tableDeliveryDocketRpt.DocNumColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string DocDate {
-                get {
-                    try {
-                        return ((string)(this[this.tableDeliveryDocketRpt.DocDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DocDate\' in table \'DeliveryDocketRpt\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDeliveryDocketRpt.DocDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime DocTime {
-                get {
-                    return ((global::System.DateTime)(this[this.tableDeliveryDocketRpt.DocTimeColumn]));
-                }
-                set {
-                    this[this.tableDeliveryDocketRpt.DocTimeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal Turnaround {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableDeliveryDocketRpt.TurnaroundColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Turnaround\' in table \'DeliveryDocketRpt\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDeliveryDocketRpt.TurnaroundColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string CardCode {
-                get {
-                    return ((string)(this[this.tableDeliveryDocketRpt.CardCodeColumn]));
-                }
-                set {
-                    this[this.tableDeliveryDocketRpt.CardCodeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string CardName {
-                get {
-                    return ((string)(this[this.tableDeliveryDocketRpt.CardNameColumn]));
-                }
-                set {
-                    this[this.tableDeliveryDocketRpt.CardNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string AccountType {
-                get {
-                    try {
-                        return ((string)(this[this.tableDeliveryDocketRpt.AccountTypeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AccountType\' in table \'DeliveryDocketRpt\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDeliveryDocketRpt.AccountTypeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string PurchaseOrder {
-                get {
-                    return ((string)(this[this.tableDeliveryDocketRpt.PurchaseOrderColumn]));
-                }
-                set {
-                    this[this.tableDeliveryDocketRpt.PurchaseOrderColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDocDateNull() {
-                return this.IsNull(this.tableDeliveryDocketRpt.DocDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDocDateNull() {
-                this[this.tableDeliveryDocketRpt.DocDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTurnaroundNull() {
-                return this.IsNull(this.tableDeliveryDocketRpt.TurnaroundColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTurnaroundNull() {
-                this[this.tableDeliveryDocketRpt.TurnaroundColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsAccountTypeNull() {
-                return this.IsNull(this.tableDeliveryDocketRpt.AccountTypeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetAccountTypeNull() {
-                this[this.tableDeliveryDocketRpt.AccountTypeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2354,17 +1404,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime ShipDate {
-                get {
-                    return ((global::System.DateTime)(this[this.tableDeliveryDocket.ShipDateColumn]));
-                }
-                set {
-                    this[this.tableDeliveryDocket.ShipDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int LoadsToday {
                 get {
                     try {
@@ -2430,33 +1469,103 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal CODAmount {
+            public string Instructions {
                 get {
                     try {
-                        return ((decimal)(this[this.tableDeliveryDocket.CODAmountColumn]));
+                        return ((string)(this[this.tableDeliveryDocket.InstructionsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CODAmount\' in table \'DeliveryDocket\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Instructions\' in table \'DeliveryDocket\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDeliveryDocket.CODAmountColumn] = value;
+                    this[this.tableDeliveryDocket.InstructionsColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Notices {
+            public string MaterialCode {
+                get {
+                    return ((string)(this[this.tableDeliveryDocket.MaterialCodeColumn]));
+                }
+                set {
+                    this[this.tableDeliveryDocket.MaterialCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Material {
+                get {
+                    return ((string)(this[this.tableDeliveryDocket.MaterialColumn]));
+                }
+                set {
+                    this[this.tableDeliveryDocket.MaterialColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string CartageCode {
                 get {
                     try {
-                        return ((string)(this[this.tableDeliveryDocket.NoticesColumn]));
+                        return ((string)(this[this.tableDeliveryDocket.CartageCodeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Notices\' in table \'DeliveryDocket\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CartageCode\' in table \'DeliveryDocket\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDeliveryDocket.NoticesColumn] = value;
+                    this[this.tableDeliveryDocket.CartageCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Cartage {
+                get {
+                    try {
+                        return ((string)(this[this.tableDeliveryDocket.CartageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cartage\' in table \'DeliveryDocket\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDeliveryDocket.CartageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string SurchargeCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableDeliveryDocket.SurchargeCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SurchargeCode\' in table \'DeliveryDocket\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDeliveryDocket.SurchargeCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Surcharge {
+                get {
+                    try {
+                        return ((string)(this[this.tableDeliveryDocket.SurchargeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Surcharge\' in table \'DeliveryDocket\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDeliveryDocket.SurchargeColumn] = value;
                 }
             }
             
@@ -2642,224 +1751,62 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCODAmountNull() {
-                return this.IsNull(this.tableDeliveryDocket.CODAmountColumn);
+            public bool IsInstructionsNull() {
+                return this.IsNull(this.tableDeliveryDocket.InstructionsColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCODAmountNull() {
-                this[this.tableDeliveryDocket.CODAmountColumn] = global::System.Convert.DBNull;
+            public void SetInstructionsNull() {
+                this[this.tableDeliveryDocket.InstructionsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNoticesNull() {
-                return this.IsNull(this.tableDeliveryDocket.NoticesColumn);
+            public bool IsCartageCodeNull() {
+                return this.IsNull(this.tableDeliveryDocket.CartageCodeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNoticesNull() {
-                this[this.tableDeliveryDocket.NoticesColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class DeliveryDocketLinesRow : global::System.Data.DataRow {
-            
-            private DeliveryDocketLinesDataTable tableDeliveryDocketLines;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal DeliveryDocketLinesRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableDeliveryDocketLines = ((DeliveryDocketLinesDataTable)(this.Table));
+            public void SetCartageCodeNull() {
+                this[this.tableDeliveryDocket.CartageCodeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int DocNum {
-                get {
-                    return ((int)(this[this.tableDeliveryDocketLines.DocNumColumn]));
-                }
-                set {
-                    this[this.tableDeliveryDocketLines.DocNumColumn] = value;
-                }
+            public bool IsCartageNull() {
+                return this.IsNull(this.tableDeliveryDocket.CartageColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int DocketLine {
-                get {
-                    return ((int)(this[this.tableDeliveryDocketLines.DocketLineColumn]));
-                }
-                set {
-                    this[this.tableDeliveryDocketLines.DocketLineColumn] = value;
-                }
+            public void SetCartageNull() {
+                this[this.tableDeliveryDocket.CartageColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string WarehouseCode {
-                get {
-                    return ((string)(this[this.tableDeliveryDocketLines.WarehouseCodeColumn]));
-                }
-                set {
-                    this[this.tableDeliveryDocketLines.WarehouseCodeColumn] = value;
-                }
+            public bool IsSurchargeCodeNull() {
+                return this.IsNull(this.tableDeliveryDocket.SurchargeCodeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int BaseEntry {
-                get {
-                    return ((int)(this[this.tableDeliveryDocketLines.BaseEntryColumn]));
-                }
-                set {
-                    this[this.tableDeliveryDocketLines.BaseEntryColumn] = value;
-                }
+            public void SetSurchargeCodeNull() {
+                this[this.tableDeliveryDocket.SurchargeCodeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string ItemCode {
-                get {
-                    return ((string)(this[this.tableDeliveryDocketLines.ItemCodeColumn]));
-                }
-                set {
-                    this[this.tableDeliveryDocketLines.ItemCodeColumn] = value;
-                }
+            public bool IsSurchargeNull() {
+                return this.IsNull(this.tableDeliveryDocket.SurchargeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string ItemDescription {
-                get {
-                    return ((string)(this[this.tableDeliveryDocketLines.ItemDescriptionColumn]));
-                }
-                set {
-                    this[this.tableDeliveryDocketLines.ItemDescriptionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool ItemQA {
-                get {
-                    return ((bool)(this[this.tableDeliveryDocketLines.ItemQAColumn]));
-                }
-                set {
-                    this[this.tableDeliveryDocketLines.ItemQAColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ItmsGrpCod {
-                get {
-                    return ((int)(this[this.tableDeliveryDocketLines.ItmsGrpCodColumn]));
-                }
-                set {
-                    this[this.tableDeliveryDocketLines.ItmsGrpCodColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int StockpileLot {
-                get {
-                    return ((int)(this[this.tableDeliveryDocketLines.StockpileLotColumn]));
-                }
-                set {
-                    this[this.tableDeliveryDocketLines.StockpileLotColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal Quantity {
-                get {
-                    return ((decimal)(this[this.tableDeliveryDocketLines.QuantityColumn]));
-                }
-                set {
-                    this[this.tableDeliveryDocketLines.QuantityColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime CreatedDTTM {
-                get {
-                    return ((global::System.DateTime)(this[this.tableDeliveryDocketLines.CreatedDTTMColumn]));
-                }
-                set {
-                    this[this.tableDeliveryDocketLines.CreatedDTTMColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string SWW {
-                get {
-                    try {
-                        return ((string)(this[this.tableDeliveryDocketLines.SWWColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SWW\' in table \'DeliveryDocketLines\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDeliveryDocketLines.SWWColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsSWWNull() {
-                return this.IsNull(this.tableDeliveryDocketLines.SWWColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetSWWNull() {
-                this[this.tableDeliveryDocketLines.SWWColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class DeliveryDocketRptRowChangeEvent : global::System.EventArgs {
-            
-            private DeliveryDocketRptRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DeliveryDocketRptRowChangeEvent(DeliveryDocketRptRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DeliveryDocketRptRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
+            public void SetSurchargeNull() {
+                this[this.tableDeliveryDocket.SurchargeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2896,232 +1843,10 @@ namespace QWS_Local {
                 }
             }
         }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class DeliveryDocketLinesRowChangeEvent : global::System.EventArgs {
-            
-            private DeliveryDocketLinesRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DeliveryDocketLinesRowChangeEvent(DeliveryDocketLinesRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DeliveryDocketLinesRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
     }
 }
 namespace QWS_Local.dsDocketReportTableAdapters {
     
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class DeliveryDocketRptTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public DeliveryDocketRptTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "DeliveryDocketRpt";
-            tableMapping.ColumnMappings.Add("DocNum", "DocNum");
-            tableMapping.ColumnMappings.Add("DocDate", "DocDate");
-            tableMapping.ColumnMappings.Add("DocTime", "DocTime");
-            tableMapping.ColumnMappings.Add("Turnaround", "Turnaround");
-            tableMapping.ColumnMappings.Add("CardCode", "CardCode");
-            tableMapping.ColumnMappings.Add("CardName", "CardName");
-            tableMapping.ColumnMappings.Add("AccountType", "AccountType");
-            tableMapping.ColumnMappings.Add("PurchaseOrder", "PurchaseOrder");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::QWS_Local.Properties.Settings.Default.cnQWSLocal;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.DeliveryDocketRpt";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DocNum", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsDocketReport.DeliveryDocketRptDataTable dataTable, global::System.Nullable<int> DocNum) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((DocNum.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(DocNum.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsDocketReport.DeliveryDocketRptDataTable GetData(global::System.Nullable<int> DocNum) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((DocNum.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(DocNum.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            dsDocketReport.DeliveryDocketRptDataTable dataTable = new dsDocketReport.DeliveryDocketRptDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
     
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
@@ -3266,14 +1991,18 @@ namespace QWS_Local.dsDocketReportTableAdapters {
             tableMapping.ColumnMappings.Add("TruckRego", "TruckRego");
             tableMapping.ColumnMappings.Add("JobNo", "JobNo");
             tableMapping.ColumnMappings.Add("Tonnes", "Tonnes");
-            tableMapping.ColumnMappings.Add("ShipDate", "ShipDate");
             tableMapping.ColumnMappings.Add("LoadsToday", "LoadsToday");
             tableMapping.ColumnMappings.Add("TonnesToday", "TonnesToday");
             tableMapping.ColumnMappings.Add("TruckConfig", "TruckConfig");
             tableMapping.ColumnMappings.Add("Salesman", "Salesman");
             tableMapping.ColumnMappings.Add("TruckDriver", "TruckDriver");
-            tableMapping.ColumnMappings.Add("CODAmount", "CODAmount");
-            tableMapping.ColumnMappings.Add("Notices", "Notices");
+            tableMapping.ColumnMappings.Add("Instructions", "Instructions");
+            tableMapping.ColumnMappings.Add("MaterialCode", "MaterialCode");
+            tableMapping.ColumnMappings.Add("Material", "Material");
+            tableMapping.ColumnMappings.Add("CartageCode", "CartageCode");
+            tableMapping.ColumnMappings.Add("Cartage", "Cartage");
+            tableMapping.ColumnMappings.Add("SurchargeCode", "SurchargeCode");
+            tableMapping.ColumnMappings.Add("Surcharge", "Surcharge");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -3328,198 +2057,6 @@ namespace QWS_Local.dsDocketReportTableAdapters {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             dsDocketReport.DeliveryDocketDataTable dataTable = new dsDocketReport.DeliveryDocketDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class DeliveryDocketLinesTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public DeliveryDocketLinesTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "DeliveryDocketLines";
-            tableMapping.ColumnMappings.Add("DocNum", "DocNum");
-            tableMapping.ColumnMappings.Add("DocketLine", "DocketLine");
-            tableMapping.ColumnMappings.Add("WarehouseCode", "WarehouseCode");
-            tableMapping.ColumnMappings.Add("BaseEntry", "BaseEntry");
-            tableMapping.ColumnMappings.Add("ItemCode", "ItemCode");
-            tableMapping.ColumnMappings.Add("ItemDescription", "ItemDescription");
-            tableMapping.ColumnMappings.Add("ItemQA", "ItemQA");
-            tableMapping.ColumnMappings.Add("ItmsGrpCod", "ItmsGrpCod");
-            tableMapping.ColumnMappings.Add("StockpileLot", "StockpileLot");
-            tableMapping.ColumnMappings.Add("Quantity", "Quantity");
-            tableMapping.ColumnMappings.Add("CreatedDTTM", "CreatedDTTM");
-            tableMapping.ColumnMappings.Add("SWW", "SWW");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::QWS_Local.Properties.Settings.Default.cnQWSLocal;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.DeliveryDocketLines";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DocNum", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsDocketReport.DeliveryDocketLinesDataTable dataTable, global::System.Nullable<int> DocNum) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((DocNum.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(DocNum.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsDocketReport.DeliveryDocketLinesDataTable GetData(global::System.Nullable<int> DocNum) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((DocNum.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(DocNum.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            dsDocketReport.DeliveryDocketLinesDataTable dataTable = new dsDocketReport.DeliveryDocketLinesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

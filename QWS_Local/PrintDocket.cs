@@ -19,11 +19,6 @@ namespace QWS_Local
 
         private void PrintDocket_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsDocketReport.DeliveryDocketLines' table. You can move, or remove it, as needed.
-            
-            //GetDocketList();
-            //this.reportViewer1.RefreshReport();
-            this.reportViewer2.RefreshReport();
         }
 
         private void btnGetDocketList_Click(object sender, EventArgs e)
@@ -55,16 +50,13 @@ namespace QWS_Local
             try
             {
                 dsDocketReport.Clear();
-                //int iRows = taDeliveryDocketRpt.Fill(dsDocketReport.DeliveryDocketRpt, DocNum);
-                int iRowLines = deliveryDocketLinesTableAdapter.Fill(this.dsDocketReport.DeliveryDocketLines,DocNum);
                 int iRows = taDeliveryDocket.Fill(dsDocketReport.DeliveryDocket, DocNum);
-                textBox1.Text = iRows.ToString() + " " + iRowLines.ToString();
+                textBox1.Text = iRows.ToString();
                 reportViewer1.RefreshReport();
-                reportViewer2.RefreshReport();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "GetDeliveryDocket ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 

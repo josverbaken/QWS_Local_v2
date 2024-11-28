@@ -36,6 +36,7 @@
             this.feeCodesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nHVRGVMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.operatorRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.emailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maintainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pBSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +54,6 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.tspUserName = new System.Windows.Forms.ToolStripTextBox();
-            this.emailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,7 +102,7 @@
             this.operatorRolesToolStripMenuItem,
             this.emailToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.adminToolStripMenuItem.Text = "Admin";
             // 
             // axleConfigurationToolStripMenuItem1
@@ -133,6 +133,13 @@
             this.operatorRolesToolStripMenuItem.Text = "Operator Roles";
             this.operatorRolesToolStripMenuItem.Click += new System.EventHandler(this.operatorRolesToolStripMenuItem_Click);
             // 
+            // emailToolStripMenuItem
+            // 
+            this.emailToolStripMenuItem.Name = "emailToolStripMenuItem";
+            this.emailToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.emailToolStripMenuItem.Text = "Email";
+            this.emailToolStripMenuItem.Click += new System.EventHandler(this.emailToolStripMenuItem_Click);
+            // 
             // maintainToolStripMenuItem
             // 
             this.maintainToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -140,7 +147,7 @@
             this.pBSToolStripMenuItem,
             this.trucktrailerConfigToolStripMenuItem});
             this.maintainToolStripMenuItem.Name = "maintainToolStripMenuItem";
-            this.maintainToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.maintainToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.maintainToolStripMenuItem.Text = "Maintain";
             // 
             // vehiclesToolStripMenuItem
@@ -169,13 +176,13 @@
             this.qualityToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lotNumbersToolStripMenuItem});
             this.qualityToolStripMenuItem.Name = "qualityToolStripMenuItem";
-            this.qualityToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.qualityToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.qualityToolStripMenuItem.Text = "Quality";
             // 
             // lotNumbersToolStripMenuItem
             // 
             this.lotNumbersToolStripMenuItem.Name = "lotNumbersToolStripMenuItem";
-            this.lotNumbersToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.lotNumbersToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
             this.lotNumbersToolStripMenuItem.Text = "Lot Numbers";
             this.lotNumbersToolStripMenuItem.Click += new System.EventHandler(this.lotNumbersToolStripMenuItem_Click);
             // 
@@ -185,7 +192,7 @@
             this.deliveryOrdersToolStripMenuItem1,
             this.itemsToolStripMenuItem});
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.salesToolStripMenuItem.Text = "Sales";
             // 
             // deliveryOrdersToolStripMenuItem1
@@ -205,8 +212,8 @@
             // printDocketToolStripMenuItem
             // 
             this.printDocketToolStripMenuItem.Name = "printDocketToolStripMenuItem";
-            this.printDocketToolStripMenuItem.Size = new System.Drawing.Size(102, 27);
-            this.printDocketToolStripMenuItem.Text = "Print Docket";
+            this.printDocketToolStripMenuItem.Size = new System.Drawing.Size(131, 27);
+            this.printDocketToolStripMenuItem.Text = "Print Docket (F8)";
             this.printDocketToolStripMenuItem.Click += new System.EventHandler(this.printDocketToolStripMenuItem_Click);
             // 
             // windowsToolStripMenuItem
@@ -260,13 +267,6 @@
             this.tspUserName.Name = "tspUserName";
             this.tspUserName.Size = new System.Drawing.Size(100, 27);
             // 
-            // emailToolStripMenuItem
-            // 
-            this.emailToolStripMenuItem.Name = "emailToolStripMenuItem";
-            this.emailToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
-            this.emailToolStripMenuItem.Text = "Email";
-            this.emailToolStripMenuItem.Click += new System.EventHandler(this.emailToolStripMenuItem_Click);
-            // 
             // QWS_MDIParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -280,6 +280,7 @@
             this.Name = "QWS_MDIParent";
             this.Text = "Quarry Weighbridge System (QWS)";
             this.Load += new System.EventHandler(this.QWS_MDIParent_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.QWS_MDIParent_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
