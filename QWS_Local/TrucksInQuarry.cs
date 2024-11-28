@@ -525,10 +525,23 @@ namespace QWS_Local
                     taWBDockets.Update(dsTIQ2.WBDockets);
                     int myOrderBaseEntry = 0;
                     myOrderBaseEntry = GetOrderDocEntry(myTIQRow.SAPOrder);
-                    DocketLineAdd(myTIQRow.Material, myTIQRow.MaterialDesc, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myTIQRow.Material), "Items", mySPLotNo, myOrderBaseEntry);
-                    if (myTIQRow.CartageCode.Length > 0)
+                    if (myOrderBaseEntry > 0)
                     {
-                        DocketLineAdd(myTIQRow.CartageCode, "cartage desc", false,GetItmsGrpCod(myTIQRow.CartageCode), "Freight", 0, myOrderBaseEntry);
+                        // Loop through order lines
+                        // below is temporary
+                        DocketLineAdd(myTIQRow.Material, myTIQRow.MaterialDesc, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myTIQRow.Material), "Items", mySPLotNo, myOrderBaseEntry);
+                        int iRows = taQuarryOrderLines.FillByDocEntry(dsBookIn.QuarryOrderLines, myOrderBaseEntry);
+                        // declare OrderLine and move through dataset
+                        // check SWW to toggle b/n Material and Cartage
+                        for (int i = 0;i < iRows;i++) // Order LineNum is also zero based
+                        {
+                            MessageBox.Show(i.ToString());
+                        }
+                    }
+                    else
+                    {
+                        // ExBin No Order
+                        DocketLineAdd(myTIQRow.Material, myTIQRow.MaterialDesc, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myTIQRow.Material), "Items", mySPLotNo, myOrderBaseEntry);
                     }
                     taWBDocketLines.Update(dsTIQ2.WBDocketLines);
                     RemoveFromTIQ(myTIQID, "Docket posted successfully.");
@@ -908,5 +921,6 @@ namespace QWS_Local
             await Task.Delay(DelaySeconds);
             ClearTIQ();
         }
+
     }
 }
