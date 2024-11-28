@@ -2474,6 +2474,8 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnCreatedDTTM;
             
+            private global::System.Data.DataColumn columnSWW;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public WBDocketLinesDataTable() {
@@ -2597,6 +2599,14 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SWWColumn {
+                get {
+                    return this.columnSWW;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2632,7 +2642,7 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public WBDocketLinesRow AddWBDocketLinesRow(WBDocketsRow parentWBDocketsRowByFK_WBDocketLines_WBDockets, int DocketLine, string WarehouseCode, int BaseEntry, string ItemCode, string ItemDescription, bool ItemQA, int ItmsGrpCod, int StockpileLot, decimal Quantity, System.DateTime CreatedDTTM) {
+            public WBDocketLinesRow AddWBDocketLinesRow(WBDocketsRow parentWBDocketsRowByFK_WBDocketLines_WBDockets, int DocketLine, string WarehouseCode, int BaseEntry, string ItemCode, string ItemDescription, bool ItemQA, int ItmsGrpCod, int StockpileLot, decimal Quantity, System.DateTime CreatedDTTM, string SWW) {
                 WBDocketLinesRow rowWBDocketLinesRow = ((WBDocketLinesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2645,7 +2655,8 @@ namespace QWS_Local {
                         ItmsGrpCod,
                         StockpileLot,
                         Quantity,
-                        CreatedDTTM};
+                        CreatedDTTM,
+                        SWW};
                 if ((parentWBDocketsRowByFK_WBDocketLines_WBDockets != null)) {
                     columnValuesArray[0] = parentWBDocketsRowByFK_WBDocketLines_WBDockets[0];
                 }
@@ -2690,6 +2701,7 @@ namespace QWS_Local {
                 this.columnStockpileLot = base.Columns["StockpileLot"];
                 this.columnQuantity = base.Columns["Quantity"];
                 this.columnCreatedDTTM = base.Columns["CreatedDTTM"];
+                this.columnSWW = base.Columns["SWW"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2717,6 +2729,8 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnQuantity);
                 this.columnCreatedDTTM = new global::System.Data.DataColumn("CreatedDTTM", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCreatedDTTM);
+                this.columnSWW = new global::System.Data.DataColumn("SWW", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSWW);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnDocNum,
                                 this.columnDocketLine}, true));
@@ -2734,6 +2748,8 @@ namespace QWS_Local {
                 this.columnStockpileLot.AllowDBNull = false;
                 this.columnQuantity.AllowDBNull = false;
                 this.columnCreatedDTTM.AllowDBNull = false;
+                this.columnSWW.AllowDBNull = false;
+                this.columnSWW.MaxLength = 15;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6514,6 +6530,17 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string SWW {
+                get {
+                    return ((string)(this[this.tableWBDocketLines.SWWColumn]));
+                }
+                set {
+                    this[this.tableWBDocketLines.SWWColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public WBDocketsRow WBDocketsRow {
                 get {
                     return ((WBDocketsRow)(this.GetParentRow(this.Table.ParentRelations["FK_WBDocketLines_WBDockets"])));
@@ -10027,10 +10054,11 @@ SELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, CntCode, ContactName,
             tableMapping.ColumnMappings.Add("StockpileLot", "StockpileLot");
             tableMapping.ColumnMappings.Add("Quantity", "Quantity");
             tableMapping.ColumnMappings.Add("CreatedDTTM", "CreatedDTTM");
+            tableMapping.ColumnMappings.Add("SWW", "SWW");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [wbdocketlines] WHERE (([DocNum] = @Original_DocNum) AND ([DocketLine] = @Original_DocketLine) AND ([WarehouseCode] = @Original_WarehouseCode) AND ([BaseEntry] = @Original_BaseEntry) AND ([ItemCode] = @Original_ItemCode) AND ([ItemDescription] = @Original_ItemDescription) AND ([ItemQA] = @Original_ItemQA) AND ([ItmsGrpCod] = @Original_ItmsGrpCod) AND ([StockpileLot] = @Original_StockpileLot) AND ([Quantity] = @Original_Quantity) AND ([CreatedDTTM] = @Original_CreatedDTTM))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [wbdocketlines] WHERE (([DocNum] = @Original_DocNum) AND ([DocketLine] = @Original_DocketLine) AND ([WarehouseCode] = @Original_WarehouseCode) AND ([BaseEntry] = @Original_BaseEntry) AND ([ItemCode] = @Original_ItemCode) AND ([ItemDescription] = @Original_ItemDescription) AND ([ItemQA] = @Original_ItemQA) AND ([ItmsGrpCod] = @Original_ItmsGrpCod) AND ([SWW] = @Original_SWW) AND ([StockpileLot] = @Original_StockpileLot) AND ([Quantity] = @Original_Quantity) AND ([CreatedDTTM] = @Original_CreatedDTTM))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DocNum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DocNum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DocketLine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DocketLine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -10040,13 +10068,14 @@ SELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, CntCode, ContactName,
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItemDescription", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItemQA", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemQA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItmsGrpCod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItmsGrpCod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SWW", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SWW", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StockpileLot", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StockpileLot", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Quantity", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Quantity", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreatedDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreatedDTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [wbdocketlines] ([DocNum], [DocketLine], [WarehouseCode], [BaseEntry], [ItemCode], [ItemDescription], [ItemQA], [ItmsGrpCod], [StockpileLot], [Quantity], [CreatedDTTM]) VALUES (@DocNum, @DocketLine, @WarehouseCode, @BaseEntry, @ItemCode, @ItemDescription, @ItemQA, @ItmsGrpCod, @StockpileLot, @Quantity, @CreatedDTTM);
-SELECT DocNum, DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, ItemQA, ItmsGrpCod, StockpileLot, Quantity, CreatedDTTM FROM WBDocketLines AS t0 WHERE (DocNum = @DocNum) AND (DocketLine = @DocketLine)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [wbdocketlines] ([DocNum], [DocketLine], [WarehouseCode], [BaseEntry], [ItemCode], [ItemDescription], [ItemQA], [ItmsGrpCod], [SWW], [StockpileLot], [Quantity], [CreatedDTTM]) VALUES (@DocNum, @DocketLine, @WarehouseCode, @BaseEntry, @ItemCode, @ItemDescription, @ItemQA, @ItmsGrpCod, @SWW, @StockpileLot, @Quantity, @CreatedDTTM);
+SELECT DocNum, DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, ItemQA, ItmsGrpCod, SWW, StockpileLot, Quantity, CreatedDTTM FROM WBDocketLines AS t0 WHERE (DocNum = @DocNum) AND (DocketLine = @DocketLine)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DocNum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DocNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DocketLine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DocketLine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -10056,13 +10085,14 @@ SELECT DocNum, DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, 
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemDescription", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemQA", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemQA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItmsGrpCod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItmsGrpCod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SWW", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SWW", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StockpileLot", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StockpileLot", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantity", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreatedDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreatedDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [wbdocketlines] SET [DocNum] = @DocNum, [DocketLine] = @DocketLine, [WarehouseCode] = @WarehouseCode, [BaseEntry] = @BaseEntry, [ItemCode] = @ItemCode, [ItemDescription] = @ItemDescription, [ItemQA] = @ItemQA, [ItmsGrpCod] = @ItmsGrpCod, [StockpileLot] = @StockpileLot, [Quantity] = @Quantity, [CreatedDTTM] = @CreatedDTTM WHERE (([DocNum] = @Original_DocNum) AND ([DocketLine] = @Original_DocketLine) AND ([WarehouseCode] = @Original_WarehouseCode) AND ([BaseEntry] = @Original_BaseEntry) AND ([ItemCode] = @Original_ItemCode) AND ([ItemDescription] = @Original_ItemDescription) AND ([ItemQA] = @Original_ItemQA) AND ([ItmsGrpCod] = @Original_ItmsGrpCod) AND ([StockpileLot] = @Original_StockpileLot) AND ([Quantity] = @Original_Quantity) AND ([CreatedDTTM] = @Original_CreatedDTTM));
-SELECT DocNum, DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, ItemQA, ItmsGrpCod, StockpileLot, Quantity, CreatedDTTM FROM WBDocketLines AS t0 WHERE (DocNum = @DocNum) AND (DocketLine = @DocketLine)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [wbdocketlines] SET [DocNum] = @DocNum, [DocketLine] = @DocketLine, [WarehouseCode] = @WarehouseCode, [BaseEntry] = @BaseEntry, [ItemCode] = @ItemCode, [ItemDescription] = @ItemDescription, [ItemQA] = @ItemQA, [ItmsGrpCod] = @ItmsGrpCod, [SWW] = @SWW, [StockpileLot] = @StockpileLot, [Quantity] = @Quantity, [CreatedDTTM] = @CreatedDTTM WHERE (([DocNum] = @Original_DocNum) AND ([DocketLine] = @Original_DocketLine) AND ([WarehouseCode] = @Original_WarehouseCode) AND ([BaseEntry] = @Original_BaseEntry) AND ([ItemCode] = @Original_ItemCode) AND ([ItemDescription] = @Original_ItemDescription) AND ([ItemQA] = @Original_ItemQA) AND ([ItmsGrpCod] = @Original_ItmsGrpCod) AND ([SWW] = @Original_SWW) AND ([StockpileLot] = @Original_StockpileLot) AND ([Quantity] = @Original_Quantity) AND ([CreatedDTTM] = @Original_CreatedDTTM));
+SELECT DocNum, DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, ItemQA, ItmsGrpCod, SWW, StockpileLot, Quantity, CreatedDTTM FROM WBDocketLines AS t0 WHERE (DocNum = @DocNum) AND (DocketLine = @DocketLine)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DocNum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DocNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DocketLine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DocketLine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -10072,6 +10102,7 @@ SELECT DocNum, DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemDescription", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemQA", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemQA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItmsGrpCod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItmsGrpCod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SWW", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SWW", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StockpileLot", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StockpileLot", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantity", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreatedDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreatedDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -10083,6 +10114,7 @@ SELECT DocNum, DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItemDescription", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItemQA", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemQA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItmsGrpCod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItmsGrpCod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SWW", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SWW", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StockpileLot", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StockpileLot", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Quantity", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Quantity", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreatedDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreatedDTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -10162,7 +10194,7 @@ SELECT DocNum, DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_DocNum, int Original_DocketLine, string Original_WarehouseCode, int Original_BaseEntry, string Original_ItemCode, string Original_ItemDescription, bool Original_ItemQA, int Original_ItmsGrpCod, int Original_StockpileLot, decimal Original_Quantity, System.DateTime Original_CreatedDTTM) {
+        public virtual int Delete(int Original_DocNum, int Original_DocketLine, string Original_WarehouseCode, int Original_BaseEntry, string Original_ItemCode, string Original_ItemDescription, bool Original_ItemQA, int Original_ItmsGrpCod, string Original_SWW, int Original_StockpileLot, decimal Original_Quantity, System.DateTime Original_CreatedDTTM) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_DocNum));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_DocketLine));
             if ((Original_WarehouseCode == null)) {
@@ -10186,9 +10218,15 @@ SELECT DocNum, DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, 
             }
             this.Adapter.DeleteCommand.Parameters[6].Value = ((bool)(Original_ItemQA));
             this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_ItmsGrpCod));
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_StockpileLot));
-            this.Adapter.DeleteCommand.Parameters[9].Value = ((decimal)(Original_Quantity));
-            this.Adapter.DeleteCommand.Parameters[10].Value = ((System.DateTime)(Original_CreatedDTTM));
+            if ((Original_SWW == null)) {
+                throw new global::System.ArgumentNullException("Original_SWW");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_SWW));
+            }
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_StockpileLot));
+            this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_Quantity));
+            this.Adapter.DeleteCommand.Parameters[11].Value = ((System.DateTime)(Original_CreatedDTTM));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10209,7 +10247,7 @@ SELECT DocNum, DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int DocNum, int DocketLine, string WarehouseCode, int BaseEntry, string ItemCode, string ItemDescription, bool ItemQA, int ItmsGrpCod, int StockpileLot, decimal Quantity, System.DateTime CreatedDTTM) {
+        public virtual int Insert(int DocNum, int DocketLine, string WarehouseCode, int BaseEntry, string ItemCode, string ItemDescription, bool ItemQA, int ItmsGrpCod, string SWW, int StockpileLot, decimal Quantity, System.DateTime CreatedDTTM) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(DocNum));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(DocketLine));
             if ((WarehouseCode == null)) {
@@ -10233,9 +10271,15 @@ SELECT DocNum, DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, 
             }
             this.Adapter.InsertCommand.Parameters[6].Value = ((bool)(ItemQA));
             this.Adapter.InsertCommand.Parameters[7].Value = ((int)(ItmsGrpCod));
-            this.Adapter.InsertCommand.Parameters[8].Value = ((int)(StockpileLot));
-            this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(Quantity));
-            this.Adapter.InsertCommand.Parameters[10].Value = ((System.DateTime)(CreatedDTTM));
+            if ((SWW == null)) {
+                throw new global::System.ArgumentNullException("SWW");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(SWW));
+            }
+            this.Adapter.InsertCommand.Parameters[9].Value = ((int)(StockpileLot));
+            this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(Quantity));
+            this.Adapter.InsertCommand.Parameters[11].Value = ((System.DateTime)(CreatedDTTM));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10265,6 +10309,7 @@ SELECT DocNum, DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, 
                     string ItemDescription, 
                     bool ItemQA, 
                     int ItmsGrpCod, 
+                    string SWW, 
                     int StockpileLot, 
                     decimal Quantity, 
                     System.DateTime CreatedDTTM, 
@@ -10276,6 +10321,7 @@ SELECT DocNum, DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, 
                     string Original_ItemDescription, 
                     bool Original_ItemQA, 
                     int Original_ItmsGrpCod, 
+                    string Original_SWW, 
                     int Original_StockpileLot, 
                     decimal Original_Quantity, 
                     System.DateTime Original_CreatedDTTM) {
@@ -10302,35 +10348,47 @@ SELECT DocNum, DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, 
             }
             this.Adapter.UpdateCommand.Parameters[6].Value = ((bool)(ItemQA));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(ItmsGrpCod));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(StockpileLot));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(Quantity));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(CreatedDTTM));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_DocNum));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_DocketLine));
+            if ((SWW == null)) {
+                throw new global::System.ArgumentNullException("SWW");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(SWW));
+            }
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(StockpileLot));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Quantity));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(CreatedDTTM));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_DocNum));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_DocketLine));
             if ((Original_WarehouseCode == null)) {
                 throw new global::System.ArgumentNullException("Original_WarehouseCode");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_WarehouseCode));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_WarehouseCode));
             }
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_BaseEntry));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_BaseEntry));
             if ((Original_ItemCode == null)) {
                 throw new global::System.ArgumentNullException("Original_ItemCode");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_ItemCode));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_ItemCode));
             }
             if ((Original_ItemDescription == null)) {
                 throw new global::System.ArgumentNullException("Original_ItemDescription");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_ItemDescription));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_ItemDescription));
             }
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((bool)(Original_ItemQA));
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_ItmsGrpCod));
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_StockpileLot));
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(Original_Quantity));
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((System.DateTime)(Original_CreatedDTTM));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((bool)(Original_ItemQA));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_ItmsGrpCod));
+            if ((Original_SWW == null)) {
+                throw new global::System.ArgumentNullException("Original_SWW");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_SWW));
+            }
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_StockpileLot));
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((decimal)(Original_Quantity));
+            this.Adapter.UpdateCommand.Parameters[23].Value = ((System.DateTime)(Original_CreatedDTTM));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10358,6 +10416,7 @@ SELECT DocNum, DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, 
                     string ItemDescription, 
                     bool ItemQA, 
                     int ItmsGrpCod, 
+                    string SWW, 
                     int StockpileLot, 
                     decimal Quantity, 
                     System.DateTime CreatedDTTM, 
@@ -10369,10 +10428,11 @@ SELECT DocNum, DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, 
                     string Original_ItemDescription, 
                     bool Original_ItemQA, 
                     int Original_ItmsGrpCod, 
+                    string Original_SWW, 
                     int Original_StockpileLot, 
                     decimal Original_Quantity, 
                     System.DateTime Original_CreatedDTTM) {
-            return this.Update(Original_DocNum, Original_DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, ItemQA, ItmsGrpCod, StockpileLot, Quantity, CreatedDTTM, Original_DocNum, Original_DocketLine, Original_WarehouseCode, Original_BaseEntry, Original_ItemCode, Original_ItemDescription, Original_ItemQA, Original_ItmsGrpCod, Original_StockpileLot, Original_Quantity, Original_CreatedDTTM);
+            return this.Update(Original_DocNum, Original_DocketLine, WarehouseCode, BaseEntry, ItemCode, ItemDescription, ItemQA, ItmsGrpCod, SWW, StockpileLot, Quantity, CreatedDTTM, Original_DocNum, Original_DocketLine, Original_WarehouseCode, Original_BaseEntry, Original_ItemCode, Original_ItemDescription, Original_ItemQA, Original_ItmsGrpCod, Original_SWW, Original_StockpileLot, Original_Quantity, Original_CreatedDTTM);
         }
     }
     

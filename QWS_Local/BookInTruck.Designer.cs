@@ -611,7 +611,6 @@ namespace QWS_Local
             this.btnNext.TabIndex = 75;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Visible = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // bsPrefCustomers2

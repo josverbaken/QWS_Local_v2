@@ -514,7 +514,8 @@ namespace QWS_Local
         {
             // create new WBDockets row using NewDocket, then add lines
             // lock TIQ row and get DocNum
-            int myTIQID = CurrentTIQ().TIQID;
+            dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+            int myTIQID = myTIQRow.TIQID;
             if (LockTIQ(myTIQID))
             {
                 int myDocNum = GetDocNum();
@@ -523,11 +524,11 @@ namespace QWS_Local
                     NewDocket(myDocNum);
                     taWBDockets.Update(dsTIQ2.WBDockets);
                     int myOrderBaseEntry = 0;
-                    myOrderBaseEntry = GetOrderDocEntry(CurrentTIQ().SAPOrder);
-                    DocketLineAdd(CurrentTIQ().Material, CurrentTIQ().MaterialDesc, GetItemQA(CurrentTIQ().Material), GetItmsGrpCod(CurrentTIQ().Material), mySPLotNo, myOrderBaseEntry);
-                    if (CurrentTIQ().CartageCode.Length > 0)
+                    myOrderBaseEntry = GetOrderDocEntry(myTIQRow.SAPOrder);
+                    DocketLineAdd(myTIQRow.Material, myTIQRow.MaterialDesc, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myTIQRow.Material), "Items", mySPLotNo, myOrderBaseEntry);
+                    if (myTIQRow.CartageCode.Length > 0)
                     {
-                        DocketLineAdd(CurrentTIQ().CartageCode, "cartage desc", true,132, 0, myOrderBaseEntry);
+                        DocketLineAdd(myTIQRow.CartageCode, "cartage desc", false,GetItmsGrpCod(myTIQRow.CartageCode), "Freight", 0, myOrderBaseEntry);
                     }
                     taWBDocketLines.Update(dsTIQ2.WBDocketLines);
                     RemoveFromTIQ(myTIQID, "Docket posted successfully.");
@@ -733,7 +734,7 @@ namespace QWS_Local
             bsWBDockets.EndEdit();
         }
 
-        private void DocketLineAdd(string ItemCode, string ItemDescription, bool ItemQA, int ItmsGrpCod, int SPLot, int BaseEntry)
+        private void DocketLineAdd(string ItemCode, string ItemDescription, bool ItemQA, int ItmsGrpCod, string SWW, int SPLot, int BaseEntry)
         {
             try
             {
@@ -753,6 +754,7 @@ namespace QWS_Local
                 linesRow.ItemDescription = ItemDescription;
                 linesRow.ItemQA = ItemQA;
                 linesRow.ItmsGrpCod = ItmsGrpCod;
+                linesRow.SWW = SWW;
                 linesRow.StockpileLot = SPLot;
                 linesRow.Quantity = CurrentTIQ().Nett;
                 linesRow.CreatedDTTM = DateTime.Now;

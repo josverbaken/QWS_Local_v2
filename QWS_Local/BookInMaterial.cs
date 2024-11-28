@@ -372,14 +372,19 @@ namespace QWS_Local
             try
             {
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
-                myTIQRow.SAPOrder = CurrentQuarryOrder().DocNum;
-                myTIQRow.CustomerCode = CurrentQuarryOrder().CardCode;
-                myTIQRow.Customer = CurrentQuarryOrder().Customer;
-                myTIQRow.CustON = CurrentQuarryOrder().PurchaseOrder;
-                myTIQRow.Material = CurrentQuarryOrder().MaterialCode;
-                myTIQRow.MaterialDesc = CurrentQuarryOrder().Material;
-                myTIQRow.DeliveryAddress = CurrentQuarryOrder().DeliveryAddress;
-                //myTIQRow.CartageCode = CurrentQuarryOrder().CartageCode;  // ex bin so no cartage
+                dsBookIn.QuarryOrdersRow myOrderRow = CurrentQuarryOrder();
+                myTIQRow.SAPOrder = myOrderRow.DocNum;
+                myTIQRow.CustomerCode = myOrderRow.CardCode;
+                myTIQRow.Customer = myOrderRow.Customer;
+                myTIQRow.CustON = myOrderRow.PurchaseOrder;
+                myTIQRow.Material = myOrderRow.MaterialCode;
+                myTIQRow.MaterialDesc = myOrderRow.Material;
+                myTIQRow.DeliveryAddress = myOrderRow.DeliveryAddress;
+                if (myOrderRow.CartageCode.Length > 0 )
+                {
+                    myTIQRow.CartageCode = myOrderRow.CartageCode; 
+                    //myTIQRow.cart // TODO decide whether to add Cartage or simplify TIQ as order table is local??
+                }
                 bsTIQ2.EndEdit();
                 tabControl2.SelectedTab = tpTruckconfig;
             }
@@ -412,9 +417,10 @@ namespace QWS_Local
         {
             if (bsQuarryOrders.Count > 0)
             {
-                txtQuantity.Text = CurrentQuarryOrder().Quantity.ToString("#.00");
-                txtSupplied.Text = CurrentQuarryOrder().Supplied.ToString("#.00");
-                txtOpenQty.Text = CurrentQuarryOrder().OpenQty.ToString("#.00");
+                dsBookIn.QuarryOrdersRow myOrderRow = CurrentQuarryOrder();
+                txtQuantity.Text = myOrderRow.Quantity.ToString("#.00");
+                txtSupplied.Text = myOrderRow.Supplied.ToString("#.00");
+                txtOpenQty.Text = myOrderRow.OpenQty.ToString("#.00");
             }
         }
 
