@@ -1306,9 +1306,9 @@ namespace QWS_Local
             // tpTruckconfig
             // 
             this.tpTruckconfig.Controls.Add(this.splitContainer4);
-            this.tpTruckconfig.Location = new System.Drawing.Point(4, 22);
+            this.tpTruckconfig.Location = new System.Drawing.Point(4, 25);
             this.tpTruckconfig.Name = "tpTruckconfig";
-            this.tpTruckconfig.Size = new System.Drawing.Size(1419, 296);
+            this.tpTruckconfig.Size = new System.Drawing.Size(1419, 293);
             this.tpTruckconfig.TabIndex = 2;
             this.tpTruckconfig.Text = "Truck config";
             this.tpTruckconfig.UseVisualStyleBackColor = true;
@@ -1326,7 +1326,7 @@ namespace QWS_Local
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.btnSetTruckConfig);
-            this.splitContainer4.Size = new System.Drawing.Size(1419, 296);
+            this.splitContainer4.Size = new System.Drawing.Size(1419, 293);
             this.splitContainer4.SplitterDistance = 985;
             this.splitContainer4.TabIndex = 103;
             // 
@@ -1338,7 +1338,7 @@ namespace QWS_Local
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(985, 296);
+            this.tabControl1.Size = new System.Drawing.Size(985, 293);
             this.tabControl1.TabIndex = 70;
             // 
             // tpList
@@ -1347,7 +1347,7 @@ namespace QWS_Local
             this.tpList.Location = new System.Drawing.Point(4, 25);
             this.tpList.Name = "tpList";
             this.tpList.Padding = new System.Windows.Forms.Padding(3);
-            this.tpList.Size = new System.Drawing.Size(977, 267);
+            this.tpList.Size = new System.Drawing.Size(977, 264);
             this.tpList.TabIndex = 0;
             this.tpList.Text = "List";
             this.tpList.UseVisualStyleBackColor = true;
@@ -1369,7 +1369,7 @@ namespace QWS_Local
             this.dgvTruckConfig.Location = new System.Drawing.Point(3, 3);
             this.dgvTruckConfig.Name = "dgvTruckConfig";
             this.dgvTruckConfig.ReadOnly = true;
-            this.dgvTruckConfig.Size = new System.Drawing.Size(971, 261);
+            this.dgvTruckConfig.Size = new System.Drawing.Size(971, 258);
             this.dgvTruckConfig.TabIndex = 69;
             // 
             // roadAccessDataGridViewTextBoxColumn

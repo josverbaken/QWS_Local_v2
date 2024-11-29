@@ -52,6 +52,7 @@
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.taSPLotNo = new QWS_Local.dsTIQ2TableAdapters.SPLotNoAssignTableAdapter();
+            this.btnCancel = new System.Windows.Forms.Button();
             grossLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             nettLabel = new System.Windows.Forms.Label();
@@ -248,10 +249,10 @@
             this.btnOkay.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnOkay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOkay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOkay.Location = new System.Drawing.Point(13, 537);
+            this.btnOkay.Location = new System.Drawing.Point(289, 537);
             this.btnOkay.Margin = new System.Windows.Forms.Padding(4);
             this.btnOkay.Name = "btnOkay";
-            this.btnOkay.Size = new System.Drawing.Size(517, 49);
+            this.btnOkay.Size = new System.Drawing.Size(241, 49);
             this.btnOkay.TabIndex = 63;
             this.btnOkay.Text = "OK";
             this.btnOkay.UseVisualStyleBackColor = false;
@@ -276,12 +277,26 @@
             // 
             this.taSPLotNo.ClearBeforeFill = true;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(12, 537);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(241, 49);
+            this.btnCancel.TabIndex = 64;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click_1);
+            // 
             // PostDocket
             // 
-            this.AcceptButton = this.btnOkay;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(550, 613);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOkay);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -328,5 +343,6 @@
         private System.Windows.Forms.TextBox txtInfo;
         private System.Windows.Forms.BindingSource bsSPLotNo;
         private dsTIQ2TableAdapters.SPLotNoAssignTableAdapter taSPLotNo;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

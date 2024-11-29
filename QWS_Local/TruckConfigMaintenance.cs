@@ -271,7 +271,8 @@ namespace QWS_Local
                     case 1:
                         foreach (dsTruckConfig.ConfiguredTrucksRow myConfigTruck in dsTruckConfig.ConfiguredTrucks)
                         {
-                            if (myConfigTruck.RegoTk == Rego && myVehicle.AxleConfiguration.Contains("R") == true)
+                            // ensure comparison config is for vehicles = 1
+                            if (myConfigTruck.RegoTk == Rego && myConfigTruck.Vehicles == 1 && myVehicle.AxleConfiguration.Contains("R") == true)
                             {
                                 Okay2Continue = false;
                                 MessageBox.Show("Already configured! \r\nCannot continue.", "Duplicate Check", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

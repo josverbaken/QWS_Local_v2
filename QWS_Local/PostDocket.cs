@@ -47,10 +47,7 @@ namespace QWS_Local
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            PostDocketCancel();
-        }
+    
 
         private void PostDocketCancel()
         {
@@ -123,6 +120,11 @@ namespace QWS_Local
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnCancel_Click_1(object sender, EventArgs e)
+        {
+            PostDocketCancel();
         }
     }
 }
