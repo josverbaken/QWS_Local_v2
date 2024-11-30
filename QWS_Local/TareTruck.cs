@@ -128,5 +128,11 @@ namespace QWS_Local
                 MessageBox.Show(ex.Message, "RemoveFromTIQ - ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
     }
 }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Interop;
 using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Abstractions;
 
@@ -191,7 +192,7 @@ namespace QWS_Local
                 {
                     string Reason = frmTIQRemove.TIQRemoveReason;
                     int myTIQID = CurrentTIQ().TIQID;
-                    TIQStatusAudit(myTIQID, "Z" , 0.00M, 0.00M, Reason);
+                    TIQStatusAudit(myTIQID, "Z" ,1, 0.00M, Reason); // TODO get WBID
                     CurrentTIQ().TIQOpen = false;
                     bsTIQ2.EndEdit();
                     taTIQ2.Update(dsTIQ2.TIQ);
@@ -280,6 +281,7 @@ namespace QWS_Local
                         }
                         if (dr == DialogResult.OK)
                         {
+                            TIQStatusAudit(myTIQRow.TIQID, "T", 1, frmWeighTruck.Weight, "Capture tare"); // TODO get WBID
                             string myRego = myTIQRow.Rego;
                             int myTruckConfigID = myTIQRow.TruckConfigID;
                             int myDriverID = myTIQRow.DriverID;
@@ -301,8 +303,8 @@ namespace QWS_Local
                                 }
                             }
                             RetareTruck(myTareTk, myTare);
-                            RefreshQueue();
                             GoBack2BookIn(myRego, myTruckConfigID, myDriverID, myParentTIQID, myTIQRow.TruckConfig, "Retare.");
+                            RefreshQueue();
                         }
                         else
                         {
@@ -315,6 +317,7 @@ namespace QWS_Local
                         myWeight = frmWeighTruck.Weight;
                         if (dr == DialogResult.OK)
                         {
+                            TIQStatusAudit(myTIQRow.TIQID, "I", 1, myWeight, "Capture gross of imported load"); // TODO get WBID
                             if (myWeight > myTIQRow.GCM)
                             {
                                 ImportedOverload frmImportedOverload = new ImportedOverload(myTIQRow.DriverID, myTIQRow.Driver, myWeight, myTIQRow  .GCM);
@@ -368,6 +371,7 @@ namespace QWS_Local
                             myTIQRow.QueueStatus = "E";
                             bsTIQ2.EndEdit();
                             taTIQ2.Update(dsTIQ2.TIQ);
+                            TIQStatusAudit(myTIQRow.TIQID, "G", 1, myWeight, "Capture tare of imported load"); // TODO get WBID
 
                             if (ConfirmPostDocket())
                             {
@@ -407,10 +411,11 @@ namespace QWS_Local
                                 decimal Overweight = myWeight - myGVM;
                                 string msg = "Truck overloaded by : " + Overweight.ToString() + "t";
                                 MessageBox.Show(msg,"Overweight",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-                                TIQStatusAudit(myTIQRow.TIQID, "O",myGVM,Overweight,msg);
+                                TIQStatusAudit(myTIQRow.TIQID, "O", 1, myWeight,msg); // TODO get WBID
                             }
                             else
                             {
+                                TIQStatusAudit(myTIQRow.TIQID, "Q", 1, myWeight, "weight logged"); // TODO get WBID
                                 decimal myQty = myWeight - myTIQRow.Tare;
                                 myTIQRow.Gross = myWeight;
                                 myTIQRow.Nett = myQty;
@@ -453,6 +458,7 @@ namespace QWS_Local
                         myWeight = frmWeighTruck.Weight;
                         if (dr == DialogResult.OK)
                         {
+                            TIQStatusAudit(myTIQRow.TIQID, "X", 1, myWeight, "temp tare captured"); // TODO get WBID
                             string myRego = myTIQRow.Rego;
                             int myTruckConfigID = myTIQRow.TruckConfigID;
                             int myDriverID = myTIQRow.DriverID;
@@ -671,7 +677,7 @@ namespace QWS_Local
             }
         }
 
-        private void TIQStatusAudit(int TIQID, string Status, decimal GVM, decimal Overweight, string Comment)
+        private void TIQStatusAudit(int TIQID, string Status, int WBID, decimal WBReading, string Comment)
         {
             try
             {
@@ -681,13 +687,14 @@ namespace QWS_Local
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "TIQStatusAuditAdd";
                 cmd.Parameters.AddWithValue("@TIQID", TIQID);
+                cmd.Parameters.AddWithValue("@SiteID", 7); // TODO
                 cmd.Parameters.AddWithValue("@Status", Status);
-                cmd.Parameters.AddWithValue("@Operator", WeighbridgeOperator);
-                cmd.Parameters.AddWithValue("@GVM", GVM);
-                cmd.Parameters.AddWithValue("@Overweight", Overweight);
-                cmd.Parameters.AddWithValue("@Comments", Comment);
-                cmd.Parameters.AddWithValue("@Domain", Domain);
                 cmd.Parameters.AddWithValue("@Computer", ComputerName);
+                cmd.Parameters.AddWithValue("@Domain", Domain);
+                cmd.Parameters.AddWithValue("@Operator", WeighbridgeOperator);
+                cmd.Parameters.AddWithValue("@WBID", WBID);
+                cmd.Parameters.AddWithValue("@WBReading", WBReading);
+                cmd.Parameters.AddWithValue("@Comments", Comment);
                 sqlConnection.Open();
                 cmd.ExecuteNonQuery();
                 sqlConnection.Close();

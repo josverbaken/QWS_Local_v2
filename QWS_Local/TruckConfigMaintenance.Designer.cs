@@ -1178,7 +1178,6 @@
             this.MinimizeBox = false;
             this.Name = "TruckConfigMaintenance";
             this.Text = "Truck and Trailer Configuration Maintenance";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TruckConfigMaintenance_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TruckConfigMaintenance_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
