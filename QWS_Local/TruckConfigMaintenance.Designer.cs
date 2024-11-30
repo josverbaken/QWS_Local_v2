@@ -79,6 +79,7 @@
             this.feeCodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsConfiguredTrucks = new System.Windows.Forms.BindingSource(this.components);
             this.tpDetails = new System.Windows.Forms.TabPage();
+            this.truckConfigIDTextBox = new System.Windows.Forms.TextBox();
             this.feeConditionsTextBox = new System.Windows.Forms.TextBox();
             this.massAccreditationLabelTextBox = new System.Windows.Forms.TextBox();
             this.maxAxlesTextBox = new System.Windows.Forms.TextBox();
@@ -132,7 +133,6 @@
             this.bsVehicle2 = new System.Windows.Forms.BindingSource(this.components);
             this.taVehicle2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleTableAdapter();
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
-            this.truckConfigIDTextBox = new System.Windows.Forms.TextBox();
             vehicleTypeLabel = new System.Windows.Forms.Label();
             axlesLabel = new System.Windows.Forms.Label();
             axleGroupsLabel = new System.Windows.Forms.Label();
@@ -438,6 +438,15 @@
             tareDTLabel.TabIndex = 36;
             tareDTLabel.Text = "Tare DT:";
             // 
+            // truckConfigIDLabel
+            // 
+            truckConfigIDLabel.AutoSize = true;
+            truckConfigIDLabel.Location = new System.Drawing.Point(719, 207);
+            truckConfigIDLabel.Name = "truckConfigIDLabel";
+            truckConfigIDLabel.Size = new System.Drawing.Size(115, 18);
+            truckConfigIDLabel.TabIndex = 26;
+            truckConfigIDLabel.Text = "Truck Config ID:";
+            // 
             // txtRego
             // 
             this.txtRego.Location = new System.Drawing.Point(48, 30);
@@ -643,13 +652,21 @@
             this.tpDetails.Controls.Add(this.feeCodeTextBox);
             this.tpDetails.Controls.Add(this.truckOwnerTextBox);
             this.tpDetails.Controls.Add(this.regoTkTextBox);
-            this.tpDetails.Location = new System.Drawing.Point(4, 27);
+            this.tpDetails.Location = new System.Drawing.Point(4, 22);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(978, 253);
+            this.tpDetails.Size = new System.Drawing.Size(978, 258);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
+            // 
+            // truckConfigIDTextBox
+            // 
+            this.truckConfigIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "TruckConfigID", true));
+            this.truckConfigIDTextBox.Location = new System.Drawing.Point(840, 204);
+            this.truckConfigIDTextBox.Name = "truckConfigIDTextBox";
+            this.truckConfigIDTextBox.Size = new System.Drawing.Size(100, 24);
+            this.truckConfigIDTextBox.TabIndex = 27;
             // 
             // feeConditionsTextBox
             // 
@@ -818,7 +835,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(100, 33);
             this.btnClose.TabIndex = 9;
-            this.btnClose.Text = "Close";
+            this.btnClose.Text = "&Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -1149,34 +1166,19 @@
             this.tableAdapterManager2.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager2.VehicleTableAdapter = this.taVehicle2;
             // 
-            // truckConfigIDLabel
-            // 
-            truckConfigIDLabel.AutoSize = true;
-            truckConfigIDLabel.Location = new System.Drawing.Point(719, 207);
-            truckConfigIDLabel.Name = "truckConfigIDLabel";
-            truckConfigIDLabel.Size = new System.Drawing.Size(115, 18);
-            truckConfigIDLabel.TabIndex = 26;
-            truckConfigIDLabel.Text = "Truck Config ID:";
-            // 
-            // truckConfigIDTextBox
-            // 
-            this.truckConfigIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "TruckConfigID", true));
-            this.truckConfigIDTextBox.Location = new System.Drawing.Point(840, 204);
-            this.truckConfigIDTextBox.Name = "truckConfigIDTextBox";
-            this.truckConfigIDTextBox.Size = new System.Drawing.Size(100, 24);
-            this.truckConfigIDTextBox.TabIndex = 27;
-            // 
             // TruckConfigMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 623);
-            this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TruckConfigMaintenance";
             this.Text = "Truck and Trailer Configuration Maintenance";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TruckConfigMaintenance_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TruckConfigMaintenance_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

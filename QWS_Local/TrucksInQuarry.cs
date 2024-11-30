@@ -898,6 +898,9 @@ namespace QWS_Local
                 case Keys.F5:
                     RefreshQueue();
                     break;
+                case Keys.F8:
+                    PrintDocket();
+                    break;
                 case Keys.F9:
                     GoToWeighTruck();
                     break;
@@ -922,5 +925,15 @@ namespace QWS_Local
             ClearTIQ();
         }
 
+        private void btnPrintDocket_Click(object sender, EventArgs e)
+        {
+            PrintDocket();
+        }
+
+        private void PrintDocket()
+        {
+            var parent = this.MdiParent as QWS_MDIParent;
+            parent.PrintDocket();
+        }
     }
 }

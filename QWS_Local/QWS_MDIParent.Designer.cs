@@ -212,8 +212,8 @@
             // printDocketToolStripMenuItem
             // 
             this.printDocketToolStripMenuItem.Name = "printDocketToolStripMenuItem";
-            this.printDocketToolStripMenuItem.Size = new System.Drawing.Size(131, 27);
-            this.printDocketToolStripMenuItem.Text = "Print Docket (F8)";
+            this.printDocketToolStripMenuItem.Size = new System.Drawing.Size(102, 27);
+            this.printDocketToolStripMenuItem.Text = "Print Docket";
             this.printDocketToolStripMenuItem.Click += new System.EventHandler(this.printDocketToolStripMenuItem_Click);
             // 
             // windowsToolStripMenuItem
@@ -227,7 +227,7 @@
             // closeAllToolStripMenuItem
             // 
             this.closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
-            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.closeAllToolStripMenuItem.Text = "Close All";
             this.closeAllToolStripMenuItem.Click += new System.EventHandler(this.closeAllToolStripMenuItem_Click);
             // 

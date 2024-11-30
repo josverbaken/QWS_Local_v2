@@ -112,6 +112,7 @@ namespace QWS_Local
             this.bsQuarryOrderLines = new System.Windows.Forms.BindingSource(this.components);
             this.taQuarryOrderLines = new QWS_Local.dsBookInTableAdapters.QuarryOrderLinesTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsBookInTableAdapters.TableAdapterManager();
+            this.btnPrintDocket = new System.Windows.Forms.Button();
             entryDTTMLabel = new System.Windows.Forms.Label();
             sAPOrderLabel = new System.Windows.Forms.Label();
             roadAccessLabel = new System.Windows.Forms.Label();
@@ -322,6 +323,7 @@ namespace QWS_Local
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
             this.splitContainer2.Panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.splitContainer2.Panel1.Controls.Add(this.btnPrintDocket);
             this.splitContainer2.Panel1.Controls.Add(this.btnTINRemove);
             this.splitContainer2.Panel1.Controls.Add(this.btnWeigh);
             this.splitContainer2.Panel1.Controls.Add(this.btnAddTIQ);
@@ -342,10 +344,10 @@ namespace QWS_Local
             this.btnTINRemove.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnTINRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTINRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTINRemove.Location = new System.Drawing.Point(1081, 225);
+            this.btnTINRemove.Location = new System.Drawing.Point(1123, 225);
             this.btnTINRemove.Margin = new System.Windows.Forms.Padding(4);
             this.btnTINRemove.Name = "btnTINRemove";
-            this.btnTINRemove.Size = new System.Drawing.Size(250, 49);
+            this.btnTINRemove.Size = new System.Drawing.Size(210, 49);
             this.btnTINRemove.TabIndex = 63;
             this.btnTINRemove.Text = "Remove (F12)";
             this.btnTINRemove.UseVisualStyleBackColor = false;
@@ -356,10 +358,10 @@ namespace QWS_Local
             this.btnWeigh.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnWeigh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWeigh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWeigh.Location = new System.Drawing.Point(814, 225);
+            this.btnWeigh.Location = new System.Drawing.Point(901, 225);
             this.btnWeigh.Margin = new System.Windows.Forms.Padding(4);
             this.btnWeigh.Name = "btnWeigh";
-            this.btnWeigh.Size = new System.Drawing.Size(250, 49);
+            this.btnWeigh.Size = new System.Drawing.Size(210, 49);
             this.btnWeigh.TabIndex = 62;
             this.btnWeigh.Text = "Weigh (F9)";
             this.btnWeigh.UseVisualStyleBackColor = false;
@@ -373,7 +375,7 @@ namespace QWS_Local
             this.btnAddTIQ.Location = new System.Drawing.Point(13, 225);
             this.btnAddTIQ.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddTIQ.Name = "btnAddTIQ";
-            this.btnAddTIQ.Size = new System.Drawing.Size(250, 49);
+            this.btnAddTIQ.Size = new System.Drawing.Size(210, 49);
             this.btnAddTIQ.TabIndex = 50;
             this.btnAddTIQ.Text = "Book In (F2)";
             this.btnAddTIQ.UseVisualStyleBackColor = false;
@@ -384,10 +386,10 @@ namespace QWS_Local
             this.btnTINReleaseHold.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnTINReleaseHold.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTINReleaseHold.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTINReleaseHold.Location = new System.Drawing.Point(280, 225);
+            this.btnTINReleaseHold.Location = new System.Drawing.Point(235, 225);
             this.btnTINReleaseHold.Margin = new System.Windows.Forms.Padding(4);
             this.btnTINReleaseHold.Name = "btnTINReleaseHold";
-            this.btnTINReleaseHold.Size = new System.Drawing.Size(250, 49);
+            this.btnTINReleaseHold.Size = new System.Drawing.Size(210, 49);
             this.btnTINReleaseHold.TabIndex = 60;
             this.btnTINReleaseHold.Text = "Update (F4)";
             this.btnTINReleaseHold.UseVisualStyleBackColor = false;
@@ -417,10 +419,10 @@ namespace QWS_Local
             this.btnTINRefresh.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnTINRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTINRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTINRefresh.Location = new System.Drawing.Point(547, 225);
+            this.btnTINRefresh.Location = new System.Drawing.Point(457, 225);
             this.btnTINRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnTINRefresh.Name = "btnTINRefresh";
-            this.btnTINRefresh.Size = new System.Drawing.Size(250, 49);
+            this.btnTINRefresh.Size = new System.Drawing.Size(210, 49);
             this.btnTINRefresh.TabIndex = 54;
             this.btnTINRefresh.Text = "Refresh (F5)";
             this.btnTINRefresh.UseVisualStyleBackColor = false;
@@ -933,6 +935,20 @@ namespace QWS_Local
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsBookInTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // btnPrintDocket
+            // 
+            this.btnPrintDocket.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnPrintDocket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintDocket.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintDocket.Location = new System.Drawing.Point(679, 225);
+            this.btnPrintDocket.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrintDocket.Name = "btnPrintDocket";
+            this.btnPrintDocket.Size = new System.Drawing.Size(210, 49);
+            this.btnPrintDocket.TabIndex = 64;
+            this.btnPrintDocket.Text = "Print Docket (F8)";
+            this.btnPrintDocket.UseVisualStyleBackColor = false;
+            this.btnPrintDocket.Click += new System.EventHandler(this.btnPrintDocket_Click);
+            // 
             // TrucksInQuarry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1034,5 +1050,6 @@ namespace QWS_Local
         private System.Windows.Forms.BindingSource bsQuarryOrderLines;
         private dsBookInTableAdapters.QuarryOrderLinesTableAdapter taQuarryOrderLines;
         private dsBookInTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.Button btnPrintDocket;
     }
 }

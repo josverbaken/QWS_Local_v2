@@ -135,7 +135,7 @@ namespace QWS_Local
             PrintDocket();
         }
 
-        private void PrintDocket()
+        public void PrintDocket()
         {
             PrintDocket frmPrintDocket = new PrintDocket();
             frmPrintDocket.MdiParent = this;
