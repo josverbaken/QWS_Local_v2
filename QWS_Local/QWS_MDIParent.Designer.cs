@@ -54,6 +54,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.tspUserName = new System.Windows.Forms.ToolStripTextBox();
+            this.pBSV1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,9 +101,10 @@
             this.feeCodesToolStripMenuItem,
             this.nHVRGVMToolStripMenuItem,
             this.operatorRolesToolStripMenuItem,
-            this.emailToolStripMenuItem});
+            this.emailToolStripMenuItem,
+            this.pBSV1ToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.adminToolStripMenuItem.Text = "Admin";
             // 
             // axleConfigurationToolStripMenuItem1
@@ -147,7 +149,7 @@
             this.pBSToolStripMenuItem,
             this.trucktrailerConfigToolStripMenuItem});
             this.maintainToolStripMenuItem.Name = "maintainToolStripMenuItem";
-            this.maintainToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.maintainToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.maintainToolStripMenuItem.Text = "Maintain";
             // 
             // vehiclesToolStripMenuItem
@@ -176,7 +178,7 @@
             this.qualityToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lotNumbersToolStripMenuItem});
             this.qualityToolStripMenuItem.Name = "qualityToolStripMenuItem";
-            this.qualityToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.qualityToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.qualityToolStripMenuItem.Text = "Quality";
             // 
             // lotNumbersToolStripMenuItem
@@ -192,7 +194,7 @@
             this.deliveryOrdersToolStripMenuItem1,
             this.itemsToolStripMenuItem});
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.salesToolStripMenuItem.Text = "Sales";
             // 
             // deliveryOrdersToolStripMenuItem1
@@ -227,7 +229,7 @@
             // closeAllToolStripMenuItem
             // 
             this.closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
-            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.closeAllToolStripMenuItem.Text = "Close All";
             this.closeAllToolStripMenuItem.Click += new System.EventHandler(this.closeAllToolStripMenuItem_Click);
             // 
@@ -266,6 +268,13 @@
             this.tspUserName.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.tspUserName.Name = "tspUserName";
             this.tspUserName.Size = new System.Drawing.Size(100, 27);
+            // 
+            // pBSV1ToolStripMenuItem
+            // 
+            this.pBSV1ToolStripMenuItem.Name = "pBSV1ToolStripMenuItem";
+            this.pBSV1ToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.pBSV1ToolStripMenuItem.Text = "PBS v1";
+            this.pBSV1ToolStripMenuItem.Click += new System.EventHandler(this.pBSV1ToolStripMenuItem_Click);
             // 
             // QWS_MDIParent
             // 
@@ -316,5 +325,6 @@
         private System.Windows.Forms.ToolStripTextBox tspUserName;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripMenuItem emailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pBSV1ToolStripMenuItem;
     }
 }

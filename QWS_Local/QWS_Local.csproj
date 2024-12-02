@@ -356,6 +356,12 @@
     <Compile Include="PBSMaintenance.Designer.cs">
       <DependentUpon>PBSMaintenance.cs</DependentUpon>
     </Compile>
+    <Compile Include="PBSManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PBSManagement.Designer.cs">
+      <DependentUpon>PBSManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="PostDocket.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -506,6 +512,9 @@
     <EmbeddedResource Include="OperatorRolesDetailed.rdlc" />
     <EmbeddedResource Include="PBSMaintenance.resx">
       <DependentUpon>PBSMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PBSManagement.resx">
+      <DependentUpon>PBSManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PostDocket.resx">
       <DependentUpon>PostDocket.cs</DependentUpon>

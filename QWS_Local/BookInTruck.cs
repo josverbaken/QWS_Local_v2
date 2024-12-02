@@ -43,7 +43,9 @@ namespace QWS_Local
             TK,
             TT,
             TKs,
+            TKx,
             TRs,
+            TRx,
             ST,
             BD,
             BDa,
@@ -539,7 +541,21 @@ namespace QWS_Local
         {
             if (SetExBinCustomer() == true)
             {
-                BookInMaterial(myTIQType);
+                // TODO check if split load
+                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+                if (myTIQRow.TruckConfig == "TT")
+                {
+                    gbSplitLoad.Enabled = true;
+                    //rbTnT.Checked = true;
+                    // TODO update myTIQRow.TruckConfig
+                }
+                else
+                {
+                    gbSplitLoad.Enabled = false;
+                    BookInMaterial(myTIQType);
+                }
+
+                //BookInMaterial(myTIQType);
             }
         }
 
@@ -559,6 +575,7 @@ namespace QWS_Local
 
         private void btnDelivery_Click(object sender, EventArgs e)
         {
+            // TODO check if split load
             BookInMaterial(TIQType.Delivery);
         }
 
@@ -752,15 +769,11 @@ namespace QWS_Local
                 FindTruckConfig(txtTruckRego.Text, false);
             }
         }
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            ProceedAfterRegoSelection("");
-        }
-
+    
         private void ProceedAfterRegoSelection(string myVehicleType)
         {
             //check rego and axle conditions
+            // TODO check that TRs is passed for split load
             if (TIQID == 0)
             {
                 if (myVehicleType.Length == 0)
@@ -784,30 +797,39 @@ namespace QWS_Local
         {
             if (DGVLoaded == true && bsTIQ.Count == 0) // TIQ created on initialise when called with trailer config and parent tiq
             {
-                dsTruckConfig.ConfiguredTrucksRow myTruck = CurrentConfigTruck();
-                switch (myTruck.VehicleType)
-                {
-                    case "TT":                       
-                        //DialogResult drTT = MessageBox.Show("Do you want to process as split load?","2 Compartments", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-                        //if (drTT == DialogResult.Yes)
-                        //{
-                            SplitLoadType frmSplitLoad = new SplitLoadType(myTruck.AxleConfiguration);
-                            DialogResult drSplit = frmSplitLoad.ShowDialog();
-                            if (drSplit == DialogResult.OK)
-                            {
-                                ProceedAfterRegoSelection(frmSplitLoad.strSplitLoadType);
-                            }
-                        //}
-                        break;
-                    case "BD":
-                        // check if split load
-                        break;
-
-                    default:
                         ProceedAfterRegoSelection("");
-                          break;
-                }
-                
+            }
+        }
+
+        private void rbTnT_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbTnT.Checked == true)
+            {
+                BookInMaterial(TIQType.ExBin); // TODO toggle b/n ExBin and Delivery
+            }
+        }
+
+        private void rbSplitLoad_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbSplitLoad.Checked == true)
+            {
+
+            }
+        }
+
+        private void rbTruckOnly_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbTruckOnly.Checked == true)
+            {
+
+            }
+        }
+
+        private void rbTrailerOnly_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbTrailerOnly.Checked == true)
+            {
+
             }
         }
     }

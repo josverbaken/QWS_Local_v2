@@ -166,11 +166,10 @@ namespace QWS_Local
 
         private void pBSToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PBSMaintenance frmPBSMaintenance = new PBSMaintenance();
-            frmPBSMaintenance.MdiParent = this;
-            frmPBSMaintenance.WindowState = FormWindowState.Maximized;
-            frmPBSMaintenance.Show();
-
+            PBSManagement frmPBSManagement = new PBSManagement();
+            frmPBSManagement.MdiParent = this;
+            frmPBSManagement.WindowState = FormWindowState.Maximized;
+            frmPBSManagement.Show();            
         }
 
         private void vehiclesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -259,6 +258,15 @@ namespace QWS_Local
                     PrintDocket();
                     break;
             }
+        }
+
+        private void pBSV1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PBSMaintenance frmPBSMaintenance = new PBSMaintenance();
+            frmPBSMaintenance.MdiParent = this;
+            frmPBSMaintenance.WindowState = FormWindowState.Maximized;
+            frmPBSMaintenance.Show();
+
         }
     }
 }

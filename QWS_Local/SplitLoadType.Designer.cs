@@ -33,11 +33,13 @@
             this.rbSplitLoad = new System.Windows.Forms.RadioButton();
             this.rbTnT = new System.Windows.Forms.RadioButton();
             this.btnSelect = new System.Windows.Forms.Button();
+            this.rbTruckOnly = new System.Windows.Forms.RadioButton();
             this.gbSplitLoadType.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbSplitLoadType
             // 
+            this.gbSplitLoadType.Controls.Add(this.rbTruckOnly);
             this.gbSplitLoadType.Controls.Add(this.rbTrailerOnly);
             this.gbSplitLoadType.Controls.Add(this.rbSplitLoad);
             this.gbSplitLoadType.Controls.Add(this.rbTnT);
@@ -45,7 +47,7 @@
             this.gbSplitLoadType.Margin = new System.Windows.Forms.Padding(4);
             this.gbSplitLoadType.Name = "gbSplitLoadType";
             this.gbSplitLoadType.Padding = new System.Windows.Forms.Padding(4);
-            this.gbSplitLoadType.Size = new System.Drawing.Size(221, 183);
+            this.gbSplitLoadType.Size = new System.Drawing.Size(221, 221);
             this.gbSplitLoadType.TabIndex = 81;
             this.gbSplitLoadType.TabStop = false;
             this.gbSplitLoadType.Text = "Load Type";
@@ -53,7 +55,7 @@
             // rbTrailerOnly
             // 
             this.rbTrailerOnly.AutoSize = true;
-            this.rbTrailerOnly.Location = new System.Drawing.Point(36, 135);
+            this.rbTrailerOnly.Location = new System.Drawing.Point(36, 172);
             this.rbTrailerOnly.Margin = new System.Windows.Forms.Padding(4);
             this.rbTrailerOnly.Name = "rbTrailerOnly";
             this.rbTrailerOnly.Size = new System.Drawing.Size(101, 22);
@@ -65,7 +67,7 @@
             // rbSplitLoad
             // 
             this.rbSplitLoad.AutoSize = true;
-            this.rbSplitLoad.Location = new System.Drawing.Point(36, 92);
+            this.rbSplitLoad.Location = new System.Drawing.Point(36, 88);
             this.rbSplitLoad.Margin = new System.Windows.Forms.Padding(4);
             this.rbSplitLoad.Name = "rbSplitLoad";
             this.rbSplitLoad.Size = new System.Drawing.Size(91, 22);
@@ -90,7 +92,7 @@
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(13, 213);
+            this.btnSelect.Location = new System.Drawing.Point(13, 251);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(221, 39);
             this.btnSelect.TabIndex = 82;
@@ -98,12 +100,24 @@
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
+            // rbTruckOnly
+            // 
+            this.rbTruckOnly.AutoSize = true;
+            this.rbTruckOnly.Location = new System.Drawing.Point(36, 130);
+            this.rbTruckOnly.Margin = new System.Windows.Forms.Padding(4);
+            this.rbTruckOnly.Name = "rbTruckOnly";
+            this.rbTruckOnly.Size = new System.Drawing.Size(98, 22);
+            this.rbTruckOnly.TabIndex = 3;
+            this.rbTruckOnly.Text = "Truck Only";
+            this.rbTruckOnly.UseVisualStyleBackColor = true;
+            this.rbTruckOnly.CheckedChanged += new System.EventHandler(this.rbTruckOnly_CheckedChanged);
+            // 
             // SplitLoadType
             // 
             this.AcceptButton = this.btnSelect;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(254, 278);
+            this.ClientSize = new System.Drawing.Size(254, 310);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.gbSplitLoadType);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -126,5 +140,6 @@
         private System.Windows.Forms.RadioButton rbSplitLoad;
         private System.Windows.Forms.RadioButton rbTnT;
         private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.RadioButton rbTruckOnly;
     }
 }

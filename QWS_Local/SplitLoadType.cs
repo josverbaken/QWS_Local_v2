@@ -30,7 +30,9 @@ namespace QWS_Local
             TK,
             TT,
             TKs,
+            TKx,
             TRs,
+            TRx,
             ST,
             BD,
             BDa,
@@ -85,7 +87,7 @@ namespace QWS_Local
             {
                 if (AxleConfig.IndexOf("R") > 0)
                 {
-                    formLoadType = LoadType.TRs;
+                    formLoadType = LoadType.TRx;
                 }
                 else
                 {
@@ -104,6 +106,21 @@ namespace QWS_Local
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void rbTruckOnly_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbTruckOnly.Checked == true)
+            {
+                if (AxleConfig.IndexOf("R") > 0)
+                {
+                    formLoadType = LoadType.TKx;
+                }
+                else
+                {
+                    formLoadType = LoadType.BDa;
+                }
+            }
         }
     }
 }
