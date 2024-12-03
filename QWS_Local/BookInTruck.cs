@@ -537,29 +537,24 @@ namespace QWS_Local
         private void btnExBin_Click(object sender, EventArgs e)
         {
             BookInTIQType = TIQType.ExBin;
-            GoToBookInMaterial();
+            if (SetExBinCustomer() == true)
+            {
+                GoToBookInMaterial();
+            }
         }
 
         private void GoToBookInMaterial()
         {
-            if (SetExBinCustomer() == true)
-            {
-                // TODO check if split load
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 if (myTIQRow.TruckConfig == "TT")
                 {
                     gbSplitLoad.Enabled = true;
-                    //rbTnT.Checked = true;
-                    // TODO update myTIQRow.TruckConfig
                 }
                 else
                 {
                     gbSplitLoad.Enabled = false;
                     BookInMaterial();
                 }
-
-                //BookInMaterial(myTIQType);
-            }
         }
 
         private void BookInMaterial()
@@ -578,9 +573,8 @@ namespace QWS_Local
 
         private void btnDelivery_Click(object sender, EventArgs e)
         {
-            // TODO check if split load
-            BookInTIQType = TIQType.Delivery;    
-            BookInMaterial();
+            BookInTIQType = TIQType.Delivery;
+            GoToBookInMaterial();
         }
 
         private void btnRetare_Click(object sender, EventArgs e)
@@ -805,6 +799,7 @@ namespace QWS_Local
             if (rbSplitLoad.Checked == true)
             {
                 // TODO set TIQ.TruckConfig to TKs if first load
+                btnContinue.Enabled = true;
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 myTIQRow.TruckConfig = "TKs";
                 bsTIQ.EndEdit();
@@ -816,6 +811,7 @@ namespace QWS_Local
             if (rbTruckOnly.Checked == true)
             {
                 // TODO set TIQ.TruckConfig to TKx if first load
+                btnContinue.Enabled = true;
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 myTIQRow.TruckConfig = "TKx";
                 bsTIQ.EndEdit();
@@ -827,6 +823,7 @@ namespace QWS_Local
             if (rbTrailerOnly.Checked == true)
             {
                 // TODO set TIQ.TruckConfig to TRx if first load
+                btnContinue.Enabled = true;
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 myTIQRow.TruckConfig = "TRx";
                 bsTIQ.EndEdit();
@@ -836,7 +833,6 @@ namespace QWS_Local
         private void btnContinue_Click(object sender, EventArgs e)
         {
             BookInMaterial();
-
         }
     }
 }
