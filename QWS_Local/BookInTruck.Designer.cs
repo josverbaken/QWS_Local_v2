@@ -92,6 +92,7 @@ namespace QWS_Local
             this.rbTruckOnly = new System.Windows.Forms.RadioButton();
             this.rbSplitLoad = new System.Windows.Forms.RadioButton();
             this.rbTnT = new System.Windows.Forms.RadioButton();
+            this.btnContinue = new System.Windows.Forms.Button();
             cardCodeLabel = new System.Windows.Forms.Label();
             truckOwnerLabel = new System.Windows.Forms.Label();
             cardStatusLabel = new System.Windows.Forms.Label();
@@ -612,6 +613,7 @@ namespace QWS_Local
             // 
             // gbSplitLoad
             // 
+            this.gbSplitLoad.Controls.Add(this.btnContinue);
             this.gbSplitLoad.Controls.Add(this.rbTrailerOnly);
             this.gbSplitLoad.Controls.Add(this.rbTruckOnly);
             this.gbSplitLoad.Controls.Add(this.rbSplitLoad);
@@ -627,7 +629,7 @@ namespace QWS_Local
             // rbTrailerOnly
             // 
             this.rbTrailerOnly.AutoSize = true;
-            this.rbTrailerOnly.Location = new System.Drawing.Point(32, 144);
+            this.rbTrailerOnly.Location = new System.Drawing.Point(32, 123);
             this.rbTrailerOnly.Name = "rbTrailerOnly";
             this.rbTrailerOnly.Size = new System.Drawing.Size(100, 21);
             this.rbTrailerOnly.TabIndex = 3;
@@ -639,7 +641,7 @@ namespace QWS_Local
             // rbTruckOnly
             // 
             this.rbTruckOnly.AutoSize = true;
-            this.rbTruckOnly.Location = new System.Drawing.Point(32, 106);
+            this.rbTruckOnly.Location = new System.Drawing.Point(32, 92);
             this.rbTruckOnly.Name = "rbTruckOnly";
             this.rbTruckOnly.Size = new System.Drawing.Size(95, 21);
             this.rbTruckOnly.TabIndex = 2;
@@ -651,7 +653,7 @@ namespace QWS_Local
             // rbSplitLoad
             // 
             this.rbSplitLoad.AutoSize = true;
-            this.rbSplitLoad.Location = new System.Drawing.Point(32, 68);
+            this.rbSplitLoad.Location = new System.Drawing.Point(32, 61);
             this.rbSplitLoad.Name = "rbSplitLoad";
             this.rbSplitLoad.Size = new System.Drawing.Size(89, 21);
             this.rbSplitLoad.TabIndex = 1;
@@ -671,6 +673,17 @@ namespace QWS_Local
             this.rbTnT.Text = "Truck and Trailer";
             this.rbTnT.UseVisualStyleBackColor = true;
             this.rbTnT.CheckedChanged += new System.EventHandler(this.rbTnT_CheckedChanged);
+            // 
+            // btnContinue
+            // 
+            this.btnContinue.Enabled = false;
+            this.btnContinue.Location = new System.Drawing.Point(32, 154);
+            this.btnContinue.Name = "btnContinue";
+            this.btnContinue.Size = new System.Drawing.Size(110, 38);
+            this.btnContinue.TabIndex = 63;
+            this.btnContinue.Text = "Continue";
+            this.btnContinue.UseVisualStyleBackColor = true;
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
             // 
             // BookInTruck
             // 
@@ -781,5 +794,6 @@ namespace QWS_Local
         private System.Windows.Forms.RadioButton rbTruckOnly;
         private System.Windows.Forms.RadioButton rbSplitLoad;
         private System.Windows.Forms.RadioButton rbTnT;
+        private System.Windows.Forms.Button btnContinue;
     }
 }

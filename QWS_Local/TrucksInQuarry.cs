@@ -37,8 +37,8 @@ namespace QWS_Local
             iRows += 1;
             var parent = this.MdiParent as QWS_MDIParent;
             WeighbridgeOperator = parent.UserName;
-            ComputerName = parent.UserName;
-            Domain = parent.UserName;
+            ComputerName = parent.ComputerName;
+            Domain = parent.DomainName;
             this.KeyPreview = true;
             RefreshQueue();
         }

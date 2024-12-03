@@ -55,6 +55,8 @@ namespace QWS_Local
             ADb
         }
 
+        private TIQType BookInTIQType;
+
         public BookInTruck()
         {
             InitializeComponent();
@@ -534,10 +536,11 @@ namespace QWS_Local
 
         private void btnExBin_Click(object sender, EventArgs e)
         {
-            GoToBookInMaterial(TIQType.ExBin);
+            BookInTIQType = TIQType.ExBin;
+            GoToBookInMaterial();
         }
 
-        private void GoToBookInMaterial(TIQType myTIQType)
+        private void GoToBookInMaterial()
         {
             if (SetExBinCustomer() == true)
             {
@@ -552,20 +555,20 @@ namespace QWS_Local
                 else
                 {
                     gbSplitLoad.Enabled = false;
-                    BookInMaterial(myTIQType);
+                    BookInMaterial();
                 }
 
                 //BookInMaterial(myTIQType);
             }
         }
 
-        private void BookInMaterial(TIQType myTIQType)
+        private void BookInMaterial()
         {
             if (TIQID > 0)
             {
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
-                UpdateTIQ(myTIQType, myTIQRow.TruckConfig);
-                BookInMaterial frmExBin = new BookInMaterial(TIQID, myTIQType.ToString(), CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, IsPrefCust, CurrentTruckDriver());
+                UpdateTIQ(BookInTIQType, myTIQRow.TruckConfig);
+                BookInMaterial frmExBin = new BookInMaterial(TIQID, BookInTIQType.ToString(), CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, IsPrefCust, CurrentTruckDriver());
                 TIQID = 0;
                 frmExBin.MdiParent = this.MdiParent;
                 frmExBin.Show();
@@ -576,7 +579,8 @@ namespace QWS_Local
         private void btnDelivery_Click(object sender, EventArgs e)
         {
             // TODO check if split load
-            BookInMaterial(TIQType.Delivery);
+            BookInTIQType = TIQType.Delivery;    
+            BookInMaterial();
         }
 
         private void btnRetare_Click(object sender, EventArgs e)
@@ -734,7 +738,8 @@ namespace QWS_Local
 }
     private void btnImported_Click(object sender, EventArgs e)
         {
-            GoToBookInMaterial(TIQType.Imported);
+            BookInTIQType = TIQType.Imported;
+            GoToBookInMaterial();
         }
     
         private void btnHold_Click(object sender, EventArgs e)
@@ -770,50 +775,39 @@ namespace QWS_Local
             }
         }
     
-        private void ProceedAfterRegoSelection(string myVehicleType)
+        private void ProceedAfterRegoSelection()
         {
-            //check rego and axle conditions
-            // TODO check that TRs is passed for split load
-            if (TIQID == 0)
-            {
-                if (myVehicleType.Length == 0)
-                {
-                    TIQID = NewTIQ(TIQType.EnterRego, 0, CurrentConfigTruck().VehicleType);
-                }
-                else
-                {
-                    TIQID = NewTIQ(TIQType.EnterRego, 0, myVehicleType);
-                }
-            }
+            TIQID = NewTIQ(TIQType.EnterRego, 0, CurrentConfigTruck().VehicleType);
             CheckConfigOK2Proceed();
         }
 
         private void btnImportedPickUp_Click(object sender, EventArgs e)
         {
-            GoToBookInMaterial(TIQType.ImportedPickUp);
+            BookInTIQType = TIQType.ImportedPickUp;
+            GoToBookInMaterial();
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             if (DGVLoaded == true && bsTIQ.Count == 0) // TIQ created on initialise when called with trailer config and parent tiq
             {
-                        ProceedAfterRegoSelection("");
+                        ProceedAfterRegoSelection();
             }
         }
 
         private void rbTnT_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbTnT.Checked == true)
-            {
-                BookInMaterial(TIQType.ExBin); // TODO toggle b/n ExBin and Delivery
-            }
+            btnContinue.Enabled = true;
         }
 
         private void rbSplitLoad_CheckedChanged(object sender, EventArgs e)
         {
             if (rbSplitLoad.Checked == true)
             {
-
+                // TODO set TIQ.TruckConfig to TKs if first load
+                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+                myTIQRow.TruckConfig = "TKs";
+                bsTIQ.EndEdit();
             }
         }
 
@@ -821,7 +815,10 @@ namespace QWS_Local
         {
             if (rbTruckOnly.Checked == true)
             {
-
+                // TODO set TIQ.TruckConfig to TKx if first load
+                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+                myTIQRow.TruckConfig = "TKx";
+                bsTIQ.EndEdit();
             }
         }
 
@@ -829,8 +826,17 @@ namespace QWS_Local
         {
             if (rbTrailerOnly.Checked == true)
             {
-
+                // TODO set TIQ.TruckConfig to TRx if first load
+                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+                myTIQRow.TruckConfig = "TRx";
+                bsTIQ.EndEdit();
             }
+        }
+
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
+            BookInMaterial();
+
         }
     }
 }
