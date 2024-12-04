@@ -49,5 +49,11 @@ namespace QWS_Local
             int myPBSID = Convert.ToInt32(textBox2.Text);
             taPBSConfig.FillByPBSID(dsPBS.PBS_Config, myPBSID);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int myPBSConfigID = Convert.ToInt32(textBox1.Text);
+            taPBSConfigScheme.FillBy(dsPBS.PBS_ConfigScheme,myPBSConfigID);
+        }
     }
 }

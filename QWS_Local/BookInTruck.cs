@@ -735,7 +735,10 @@ namespace QWS_Local
     private void btnImported_Click(object sender, EventArgs e)
         {
             BookInTIQType = TIQType.Imported;
-            GoToBookInMaterial();
+            if (SetExBinCustomer() == true)
+            {
+                GoToBookInMaterial();
+            }
         }
     
         private void btnHold_Click(object sender, EventArgs e)
@@ -780,7 +783,10 @@ namespace QWS_Local
         private void btnImportedPickUp_Click(object sender, EventArgs e)
         {
             BookInTIQType = TIQType.ImportedPickUp;
-            GoToBookInMaterial();
+            if (SetExBinCustomer() == true)
+            {
+                GoToBookInMaterial();
+            }
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)

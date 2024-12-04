@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:PBS" ZOrder="5" X="351" Y="70" Height="210" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:PBS_Config" ZOrder="4" X="70" Y="70" Height="191" Width="251" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
-    <Shape ID="DesignTable:PBS_ConfigScheme" ZOrder="3" X="351" Y="331" Height="248" Width="256" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="197" />
+    <Shape ID="DesignTable:PBS_ConfigScheme" ZOrder="3" X="351" Y="331" Height="267" Width="262" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="197" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:FK_PBS_Config_PBS" ZOrder="2" LineWidth="11">
