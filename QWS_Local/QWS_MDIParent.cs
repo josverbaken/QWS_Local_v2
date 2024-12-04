@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -51,12 +52,9 @@ namespace QWS_Local
             //}
             //msg += SiteLabel;
             myDomainName = Environment.UserDomainName;
-            //string Username = Environment.UserName;
+            string ComputerUsername = Environment.UserName;
             myComputerName = Environment.MachineName;
-            //msg += " Username: " + DomainName + "\\" + Username;
-            //msg += " Computer: " + MachineName;
-            //this.Text = msg;
-            GetUsername();
+            GetUsername(ComputerUsername);
             this.Size = new Size(1400, 800);
             this.KeyPreview = true;
             TrucksInQuarry frmTIQ = new TrucksInQuarry();
@@ -64,16 +62,40 @@ namespace QWS_Local
             frmTIQ.Show();
         }
 
-        private void GetUsername()
+        private void GetUsername(string ComputerUsername)
         {
-            GenericLogin frmGenericLogin = new GenericLogin();
-            DialogResult dr = frmGenericLogin.ShowDialog();
-            if (dr == DialogResult.OK)
+            try
             {
-                string myLogin = frmGenericLogin.UserName;
-                //MessageBox.Show(myLogin);
-                myUserName = myLogin;
-                tspUserName.Text = myLogin;
+                // check if ComputerUsername is in Operator table
+                // TODO check permissions and roles
+                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select count(*) from Operator where FirstName + '.' + LastName like '" + ComputerUsername +"'";
+                cmd.Connection.Open();
+                int iCount = (int)Convert.ToInt64(cmd.ExecuteScalar());
+                cmd.Connection.Close();
+                if (iCount > 0)
+                {
+                    myUserName = ComputerUsername;
+                }
+                else
+                {
+                    GenericLogin frmGenericLogin = new GenericLogin();
+                    DialogResult dr = frmGenericLogin.ShowDialog();
+                    if (dr == DialogResult.OK)
+                    {
+                        string myLogin = frmGenericLogin.UserName;
+                        myUserName = myLogin;
+                    }
+                }
+                tspUserName.Text = myUserName;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "GetUserName Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
