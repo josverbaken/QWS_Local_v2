@@ -518,7 +518,7 @@ namespace QWS_Local
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 myTIQRow.AllocateDTTM = DateTime.Now;
                 myTIQRow.CartageCode = "";
-                switch (FormTIQType) // TODO review logic/flow
+                switch (FormTIQType) // test ExBin or Delivery for Truck or Trailer Only Load
                 {
                     case TIQType.ExBin:
                         if (IsPrefCust == true)
@@ -532,21 +532,12 @@ namespace QWS_Local
                                         myTIQRow.QueueStatus = "S";
                                     }
                                     break;
-                                default:
-                                    myTIQRow.QueueStatus = "Q";
-                                    break;
                             }
                         }
                         else
                         {
                             myTIQRow.QueueStatus = "U";
                         }
-                        break;
-                    case TIQType.Imported:
-                        myTIQRow.QueueStatus = "I";
-                        break;
-                    case TIQType.ImportedPickUp:
-                        myTIQRow.QueueStatus = "I";
                         break;
                     case TIQType.Delivery:
                         switch (myTIQRow.TruckConfig)
@@ -562,16 +553,13 @@ namespace QWS_Local
                                 myTIQRow.QueueStatus = "Q";
                                 break;
                         }
-                        break;
-                    default:
-                        myTIQRow.QueueStatus = "Q";
-                        break;
+                        break;      
                 }
                 bsTIQ2.EndEdit();
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 if (iRow == 1) // TODO test if split load
                 {
-                    if (myTIQRow.TruckConfig == "TKs")
+                    if (myTIQRow.TruckConfig == "TKs" && myTIQRow.QueueStatus != "X") // X = truck only
                     {
                         GoBack2BookIn(myTIQRow.Rego, myTIQRow.TruckConfigID, myTIQRow.DriverID, myTIQRow.TIQID, "TRs");
                     }

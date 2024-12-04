@@ -60,12 +60,14 @@ namespace QWS_Local
         public BookInTruck()
         {
             InitializeComponent();
+            CallingMessage = "";
         }
 
         // Resume in progress TIQ
         public BookInTruck(int myTIQID, string Rego, int TruckConfigID, int myDriverID, bool Resume)
         {
             InitializeComponent();
+            CallingMessage = "";
             txtTruckRego.Text = Rego;
             TIQID = myTIQID; //Do first before calling FindTruckConfig
             TIQGet(myTIQID);
@@ -813,7 +815,8 @@ namespace QWS_Local
                 // TODO set TIQ.TruckConfig to TKx if first load
                 btnContinue.Enabled = true;
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
-                myTIQRow.TruckConfig = "TKx";
+                myTIQRow.TruckConfig = "TKs";
+                myTIQRow.QueueStatus = "X";
                 bsTIQ.EndEdit();
             }
         }
@@ -825,7 +828,8 @@ namespace QWS_Local
                 // TODO set TIQ.TruckConfig to TRx if first load
                 btnContinue.Enabled = true;
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
-                myTIQRow.TruckConfig = "TRx";
+                myTIQRow.TruckConfig = "TRs";
+                myTIQRow.QueueStatus = "X";
                 bsTIQ.EndEdit();
             }
         }
