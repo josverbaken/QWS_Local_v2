@@ -55,5 +55,34 @@ namespace QWS_Local
             int myPBSConfigID = Convert.ToInt32(textBox1.Text);
             taPBSConfigScheme.FillBy(dsPBS.PBS_ConfigScheme,myPBSConfigID);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dsPBS.Clear();
+                int myPBSVA = Convert.ToInt32(textBox3.Text);
+                taPBS.FillByVA(dsPBS.PBS, myPBSVA);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnFindOwner_Click(object sender, EventArgs e)
+        {
+            GetOwner();
+        }
+
+        private void GetOwner()
+        {
+            BusinessSearch frmBusinessSearch = new BusinessSearch(txtOwner.Text);
+            DialogResult dr = frmBusinessSearch.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                MessageBox.Show(frmBusinessSearch.BusinessName);
+            }
+        }
     }
 }

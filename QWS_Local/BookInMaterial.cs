@@ -252,7 +252,6 @@ namespace QWS_Local
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "CalcPayload ERROR");
-                throw;
             }
         }
 
@@ -507,10 +506,10 @@ namespace QWS_Local
 
         private void btnBookIn_Click(object sender, EventArgs e)
         {
-            AddExBin2TIQ();
+            AddMaterial2TIQ();
         }
 
-        private void AddExBin2TIQ()
+        private void AddMaterial2TIQ()
         {
             try
             {
@@ -544,17 +543,20 @@ namespace QWS_Local
                         {
                             case "TRs":
                             case "BDb":
-                                if(myTIQRow.QueueStatus.Equals("X") == false)
+                                if (myTIQRow.QueueStatus.Equals("X") == false)
                                 {
                                     myTIQRow.QueueStatus = "S";
                                 }
                                 break;
-                            default:
-                                myTIQRow.QueueStatus = "Q";
-                                break;
                         }
-                        break;      
+                        break;
                 }
+
+                if (myTIQRow.QueueStatus == "P")
+                {
+                    myTIQRow.QueueStatus = "Q";
+                }
+                                       
                 bsTIQ2.EndEdit();
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 if (iRow == 1) // TODO test if split load
