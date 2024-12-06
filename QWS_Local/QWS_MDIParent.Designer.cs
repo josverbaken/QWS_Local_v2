@@ -37,6 +37,7 @@
             this.nHVRGVMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.operatorRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.emailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pBSV1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maintainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pBSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +55,6 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.tspUserName = new System.Windows.Forms.ToolStripTextBox();
-            this.pBSV1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,7 +72,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MdiWindowListItem = this.windowsToolStripMenuItem;
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1200, 31);
+            this.menuStrip1.Size = new System.Drawing.Size(1884, 31);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -104,7 +104,7 @@
             this.emailToolStripMenuItem,
             this.pBSV1ToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.adminToolStripMenuItem.Text = "Admin";
             // 
             // axleConfigurationToolStripMenuItem1
@@ -142,6 +142,13 @@
             this.emailToolStripMenuItem.Text = "Email";
             this.emailToolStripMenuItem.Click += new System.EventHandler(this.emailToolStripMenuItem_Click);
             // 
+            // pBSV1ToolStripMenuItem
+            // 
+            this.pBSV1ToolStripMenuItem.Name = "pBSV1ToolStripMenuItem";
+            this.pBSV1ToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.pBSV1ToolStripMenuItem.Text = "PBS v1";
+            this.pBSV1ToolStripMenuItem.Click += new System.EventHandler(this.pBSV1ToolStripMenuItem_Click);
+            // 
             // maintainToolStripMenuItem
             // 
             this.maintainToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -149,7 +156,7 @@
             this.pBSToolStripMenuItem,
             this.trucktrailerConfigToolStripMenuItem});
             this.maintainToolStripMenuItem.Name = "maintainToolStripMenuItem";
-            this.maintainToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.maintainToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.maintainToolStripMenuItem.Text = "Maintain";
             // 
             // vehiclesToolStripMenuItem
@@ -178,7 +185,7 @@
             this.qualityToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lotNumbersToolStripMenuItem});
             this.qualityToolStripMenuItem.Name = "qualityToolStripMenuItem";
-            this.qualityToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.qualityToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.qualityToolStripMenuItem.Text = "Quality";
             // 
             // lotNumbersToolStripMenuItem
@@ -194,7 +201,7 @@
             this.deliveryOrdersToolStripMenuItem1,
             this.itemsToolStripMenuItem});
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.salesToolStripMenuItem.Text = "Sales";
             // 
             // deliveryOrdersToolStripMenuItem1
@@ -269,18 +276,11 @@
             this.tspUserName.Name = "tspUserName";
             this.tspUserName.Size = new System.Drawing.Size(100, 27);
             // 
-            // pBSV1ToolStripMenuItem
-            // 
-            this.pBSV1ToolStripMenuItem.Name = "pBSV1ToolStripMenuItem";
-            this.pBSV1ToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
-            this.pBSV1ToolStripMenuItem.Text = "PBS v1";
-            this.pBSV1ToolStripMenuItem.Click += new System.EventHandler(this.pBSV1ToolStripMenuItem_Click);
-            // 
             // QWS_MDIParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 623);
+            this.ClientSize = new System.Drawing.Size(1884, 661);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IsMdiContainer = true;

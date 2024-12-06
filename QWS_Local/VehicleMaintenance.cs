@@ -661,16 +661,6 @@ namespace QWS_Local
             tabControl1.SelectedTab = tpPrefCust;
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectedTab = tabPage1;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectedTab = tabPage1;
-        }
-
         private void btnSaveMassMgmtAccred_Click(object sender, EventArgs e)
         {
             IdentificationSave();
@@ -679,6 +669,33 @@ namespace QWS_Local
         private void btnRefreshPBS_Click(object sender, EventArgs e)
         {
             GetPBSApprovals(CurrentVehicle().Rego);
+        }
+
+        private void btnDeleteVehicle_Click(object sender, EventArgs e)
+        {
+            DeleteVehicle();
+        }
+
+        private void DeleteVehicle()
+        {
+            try
+            {
+                DialogResult dr = MessageBox.Show("Are you sure you want to delete this vehicle and associated configurations?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    if (dsQWSLocal2024.Vehicle.Count == 1)
+                    {
+                        dsQWSLocal2024.VehicleRow myVehicleRow = dsQWSLocal2024.Vehicle[0];
+                        myVehicleRow.Delete();
+                        bsVehicle.EndEdit();
+                        taVehicle.Update(dsQWSLocal2024.Vehicle);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

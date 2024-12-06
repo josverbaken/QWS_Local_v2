@@ -50,6 +50,7 @@ namespace QWS_Local
             System.Windows.Forms.Label label1;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.btnPrintDocket = new System.Windows.Forms.Button();
             this.btnTINRemove = new System.Windows.Forms.Button();
             this.btnWeigh = new System.Windows.Forms.Button();
             this.btnAddTIQ = new System.Windows.Forms.Button();
@@ -112,7 +113,6 @@ namespace QWS_Local
             this.bsQuarryOrderLines = new System.Windows.Forms.BindingSource(this.components);
             this.taQuarryOrderLines = new QWS_Local.dsBookInTableAdapters.QuarryOrderLinesTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsBookInTableAdapters.TableAdapterManager();
-            this.btnPrintDocket = new System.Windows.Forms.Button();
             entryDTTMLabel = new System.Windows.Forms.Label();
             sAPOrderLabel = new System.Windows.Forms.Label();
             roadAccessLabel = new System.Windows.Forms.Label();
@@ -335,9 +335,23 @@ namespace QWS_Local
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer2.Size = new System.Drawing.Size(1364, 721);
-            this.splitContainer2.SplitterDistance = 305;
+            this.splitContainer2.Size = new System.Drawing.Size(1364, 661);
+            this.splitContainer2.SplitterDistance = 279;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // btnPrintDocket
+            // 
+            this.btnPrintDocket.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnPrintDocket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintDocket.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintDocket.Location = new System.Drawing.Point(679, 225);
+            this.btnPrintDocket.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrintDocket.Name = "btnPrintDocket";
+            this.btnPrintDocket.Size = new System.Drawing.Size(210, 49);
+            this.btnPrintDocket.TabIndex = 64;
+            this.btnPrintDocket.Text = "Print Docket (F8)";
+            this.btnPrintDocket.UseVisualStyleBackColor = false;
+            this.btnPrintDocket.Click += new System.EventHandler(this.btnPrintDocket_Click);
             // 
             // btnTINRemove
             // 
@@ -437,7 +451,7 @@ namespace QWS_Local
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1364, 412);
+            this.tabControl1.Size = new System.Drawing.Size(1364, 378);
             this.tabControl1.TabIndex = 1;
             // 
             // tpList
@@ -446,7 +460,7 @@ namespace QWS_Local
             this.tpList.Location = new System.Drawing.Point(4, 29);
             this.tpList.Name = "tpList";
             this.tpList.Padding = new System.Windows.Forms.Padding(3);
-            this.tpList.Size = new System.Drawing.Size(1356, 379);
+            this.tpList.Size = new System.Drawing.Size(1356, 345);
             this.tpList.TabIndex = 0;
             this.tpList.Text = "List";
             this.tpList.UseVisualStyleBackColor = true;
@@ -473,7 +487,7 @@ namespace QWS_Local
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1350, 373);
+            this.dataGridView1.Size = new System.Drawing.Size(1350, 339);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -935,25 +949,11 @@ namespace QWS_Local
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsBookInTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // btnPrintDocket
-            // 
-            this.btnPrintDocket.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnPrintDocket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintDocket.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintDocket.Location = new System.Drawing.Point(679, 225);
-            this.btnPrintDocket.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPrintDocket.Name = "btnPrintDocket";
-            this.btnPrintDocket.Size = new System.Drawing.Size(210, 49);
-            this.btnPrintDocket.TabIndex = 64;
-            this.btnPrintDocket.Text = "Print Docket (F8)";
-            this.btnPrintDocket.UseVisualStyleBackColor = false;
-            this.btnPrintDocket.Click += new System.EventHandler(this.btnPrintDocket_Click);
-            // 
             // TrucksInQuarry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1364, 721);
+            this.ClientSize = new System.Drawing.Size(1364, 661);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
