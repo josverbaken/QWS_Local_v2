@@ -287,6 +287,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QWS_MDIParent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quarry Weighbridge System (QWS)";
             this.Load += new System.EventHandler(this.QWS_MDIParent_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.QWS_MDIParent_KeyDown);

@@ -28,6 +28,7 @@ namespace QWS_Local
                 txtJurisdiction.Text = Properties.Settings.Default.defaultJurisdiction;
                 //tabControl1.TabPages.Remove(tpPrefCust);
                 this.KeyPreview = true; // enable Function keys
+                //txtRegoExpiryDT.Text.
             }
             catch (Exception ex)
             {
@@ -44,9 +45,18 @@ namespace QWS_Local
         {
             try
             {
-                this.Validate();
-                this.bsVehicle.EndEdit();
-                this.taVehicle.Update(dsQWSLocal2024.Vehicle);
+                if (txtSAPCode.TextLength == 0)
+                {
+                    MessageBox.Show("Please select an owner.", "VehicleSave Error.",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtOwner.SelectAll();
+                    txtOwner.Focus();
+                }
+                else
+                {
+                    this.Validate();
+                    this.bsVehicle.EndEdit();
+                    this.taVehicle.Update(dsQWSLocal2024.Vehicle);
+                }
             }
             catch (Exception ex)
             {
@@ -88,10 +98,11 @@ namespace QWS_Local
                     switch (iRows)
                     {
                         case 0: DialogResult dr = MessageBox.Show("No Vehicles Found! Do you wish to add this Rego?","Add New Vehicle", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                            dsQWSLocal2024.Clear();
                             if (dr == DialogResult.Yes)
                             {
                                 AddVehicleRequest(strSearch);                        
-                                txtVIN.Focus();
+                                txtOwner.Focus();
                             }
                                 break;
                         case 1:
@@ -190,12 +201,12 @@ namespace QWS_Local
         private void CheckExpiryDT()
         {
             if (CurrentVehicle().RegistrationExpiryDT < DateTime.Now)
-            {
-                txtRegoExpiryDT.BackColor = Color.Salmon;
+            {               
+               lblExpiryDT.BackColor = Color.Salmon;
             }
             else
             {
-                txtRegoExpiryDT.BackColor = SystemColors.Window;
+                lblExpiryDT.BackColor = SystemColors.Window;
             }
         }
 
@@ -248,7 +259,7 @@ namespace QWS_Local
                     CurrentVehicle().CardCode = businessSearch.SAPCode;
                     CurrentVehicle().Owner = businessSearch.BusinessName;
                     bsVehicle.EndEdit();
-                    txtVehicleMake.Focus();
+                    txtVIN.Focus();
                 }
                 else if (dr == DialogResult.Abort )
                 {
@@ -320,21 +331,6 @@ namespace QWS_Local
             txtRegoSelectAll();
         }
 
-        private void txtRegoExpiryDT_Click(object sender, EventArgs e)
-        {
-            txtRegoExpiryDTSelectAll();
-        }
-
-        private void txtRegoExpiryDT_Enter(object sender, EventArgs e)
-        {
-            txtRegoExpiryDTSelectAll();
-        }
-
-        private void txtRegoExpiryDTSelectAll()
-        {
-            this.txtRegoExpiryDT.SelectAll();
-        }
-
         private void btnSetFeeCodeMain_Click(object sender, EventArgs e)
         {
             SetFeeCode();
@@ -352,7 +348,7 @@ namespace QWS_Local
             {
                 CurrentVehicle().FeeCodeID = CurrentFeeCode().FeeCodeID;
 
-                txtRegoExpiryDT.Focus();
+                dtpExpiryDT.Focus();
             }
         }
 
@@ -371,7 +367,7 @@ namespace QWS_Local
 
                 this.taFeeCodes.FillByBoth(this.dsQWSLocal2024.VehicleRegFeeCodes, feeCodeSearch._FeeCodeRow.FeeCode, feeCodeSearch._FeeCodeRow.Jurisdiction);
 
-                txtRegoExpiryDT.Focus();
+                dtpExpiryDT.Focus();
             }
             else
             {
@@ -390,7 +386,7 @@ namespace QWS_Local
                 int iCount = this.taVehicle.FillBy(dsQWSLocal2024.Vehicle, newRego);
                 if (iCount == 0)
                 {
-                    AddVehicle(newRego);
+                    AddVehicle(newRego.ToUpper());
                 }
                 else
                 {
@@ -560,10 +556,17 @@ namespace QWS_Local
             }
         }
 
-        private void btnSavePrefCustomers_Click(object sender, EventArgs e)
+        private void SavePrefCustomers()
         {
-            bsPrefCustomers.EndEdit();
-            taPrefCustomers.Update(dsQWSLocal2024.VehiclePrefCustomers);
+            try
+            {
+                bsPrefCustomers.EndEdit();
+                taPrefCustomers.Update(dsQWSLocal2024.VehiclePrefCustomers);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnLoadPrefCustomers_Click(object sender, EventArgs e)
@@ -607,21 +610,22 @@ namespace QWS_Local
         {
             try
             {
-                DialogResult dr = MessageBox.Show("Are you sure you want to delete this vehicle and associated configurations?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dr == DialogResult.Yes)
+                if (dsQWSLocal2024.Vehicle.Count == 1)
                 {
-                    if (dsQWSLocal2024.Vehicle.Count == 1)
-                    {
-                        dsQWSLocal2024.VehicleRow myVehicleRow = dsQWSLocal2024.Vehicle[0];
+                    dsQWSLocal2024.VehicleRow myVehicleRow = dsQWSLocal2024.Vehicle[0];
+                    DialogResult dr = MessageBox.Show("Are you sure you want to delete this vehicle and associated configurations?", "Confirm Delete " + myVehicleRow.Rego, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr == DialogResult.Yes)
+                    {                  
                         myVehicleRow.Delete();
                         bsVehicle.EndEdit();
                         taVehicle.Update(dsQWSLocal2024.Vehicle);
+                        dsQWSLocal2024.Clear();
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "DeleteVehicle Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
@@ -633,8 +637,19 @@ namespace QWS_Local
         private void btnVehicleSave_Click(object sender, EventArgs e)
         {
             VehicleSave();
+            SavePrefCustomers();
             UpdateVehiclePBS();
             CheckExpiryDT();
+        }
+
+        private void txtOwner_Enter(object sender, EventArgs e)
+        {
+            txtOwner.SelectAll();
+        }
+
+        private void txtOwner_Click(object sender, EventArgs e)
+        {
+            txtOwner.SelectAll();
         }
     }
 }
