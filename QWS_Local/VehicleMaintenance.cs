@@ -9,12 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static QWS_Local.dsQWSLocal2024;
 
 namespace QWS_Local
 {
     public partial class VehicleMaintenance : Form
     {
-        private bool UseCurrentOwner = false;
+
         public VehicleMaintenance()
         {
             InitializeComponent();
@@ -22,13 +23,10 @@ namespace QWS_Local
 
         private void Vehicle_Maintenance_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsQWSLocal2024.VehicleRegFeeCodes' table. You can move, or remove it, as needed.
-            this.taFeeCodes.Fill(this.dsQWSLocal2024.VehicleRegFeeCodes);
-            // TODO: This line of code loads data into the 'dsQWSLocal2024.VehiclePBS' table. You can move, or remove it, as needed.
-            this.taVehiclePBS2.Fill(this.dsQWSLocal2024.VehiclePBS);
             try
             {
                 txtJurisdiction.Text = Properties.Settings.Default.defaultJurisdiction;
+                //tabControl1.TabPages.Remove(tpPrefCust);
                 this.KeyPreview = true; // enable Function keys
             }
             catch (Exception ex)
@@ -42,11 +40,10 @@ namespace QWS_Local
             txtRego.Text = Rego;
         }
 
-        private void IdentificationSave()
+        private void VehicleSave()
         {
             try
             {
-                CurrentVehicle().Rego = CurrentVehicle().Rego.ToUpper();
                 this.Validate();
                 this.bsVehicle.EndEdit();
                 this.taVehicle.Update(dsQWSLocal2024.Vehicle);
@@ -93,22 +90,12 @@ namespace QWS_Local
                         case 0: DialogResult dr = MessageBox.Show("No Vehicles Found! Do you wish to add this Rego?","Add New Vehicle", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                             if (dr == DialogResult.Yes)
                             {
-                                AddVehicleRequest(strSearch);
-                                if (UseCurrentOwner == true)
-                                {
-                                    CurrentVehicle().CardCode = _SAPCode;
-                                    CurrentVehicle().Owner = _Owner;
-                                    bsVehicle.EndEdit();
-                                }
+                                AddVehicleRequest(strSearch);                        
                                 txtVIN.Focus();
                             }
                                 break;
                         case 1:
-                            SynchAxleConfig(CurrentVehicle().AxleConfiguration);
-                            SynchFeeCode(CurrentVehicle().FeeCodeID);
-                            CheckExpiryDT();
-                            GetPBSApprovals(CurrentVehicle().Rego);
-                            LoadPrefCustomers();
+                            VehicleFound();
                             break;
                         case int n when(n > 1):
                             VehicleSearch vehicleSearch = new VehicleSearch(strSearch, false);
@@ -118,10 +105,7 @@ namespace QWS_Local
                             {
                                 iRows = this.taVehicle.FillBy(dsQWSLocal2024.Vehicle, vehicleSearch.Rego);
                                 iRows += 2;
-                                SynchAxleConfig(CurrentVehicle().AxleConfiguration);
-                                SynchFeeCode(CurrentVehicle().FeeCodeID);
-                                GetPBSApprovals(CurrentVehicle().Rego);
-                                LoadPrefCustomers();
+                                VehicleFound();
                             }
                             else
                             {
@@ -140,6 +124,16 @@ namespace QWS_Local
                 txtRego.Focus();
             }
 
+        }
+
+        private void VehicleFound()
+        {
+            dsQWSLocal2024.VehicleRow myVehicle = CurrentVehicle();
+            SynchAxleConfig(myVehicle.AxleConfiguration);
+            SynchFeeCode(myVehicle.FeeCodeID);
+            CheckExpiryDT();
+            GetPBSApprovals(myVehicle.Rego);
+            LoadPrefCustomers();
         }
 
         private void SynchFeeCode(int FeeCodeID)
@@ -176,20 +170,6 @@ namespace QWS_Local
             }
         }
 
-        private void btnIdentificationSave_Click(object sender, EventArgs e)
-        {
-            IdentificationSave();
-            CheckExpiryDT();
-        }
-
-        private void vINTextBox_Enter(object sender, EventArgs e)
-        {
-            int iCount = this.txtVIN.Text.Length;
-            if (iCount == 0)
-            this.txtVIN.Text.Trim();
-            this.txtVIN.SelectAll();
-        }
-
         private void btnSetAxleConfig_Click(object sender, EventArgs e) => AxleConfiguration();
 
         private dsQWSLocal2024.VehicleRegFeeCodesRow CurrentFeeCode()
@@ -215,7 +195,7 @@ namespace QWS_Local
             }
             else
             {
-                txtRegoExpiryDT.BackColor = SystemColors.Control;
+                txtRegoExpiryDT.BackColor = SystemColors.Window;
             }
         }
 
@@ -399,11 +379,6 @@ namespace QWS_Local
             }   
         }
 
-        private void bthAddVehicle_Click(object sender, EventArgs e)
-        {
-            AddVehicleRequest(txtRego.Text);
-        }
-
         private void AddVehicleRequest(string newRego)
         {
             if ( newRego.Length > 6)
@@ -429,39 +404,37 @@ namespace QWS_Local
 
         private void AddVehicle(string newRego)
         {
-            dsQWSLocal2024.Vehicle.Clear();
-            DataRow dr = dsQWSLocal2024.Vehicle.NewRow();
-            dsQWSLocal2024.VehicleRow vehicleRow = (dsQWSLocal2024.VehicleRow)dr;
-            vehicleRow.Rego = newRego; //don't overwrite user input
-            vehicleRow.VIN = "";
-            vehicleRow.CardCode = "";
-            vehicleRow.Owner = "Name or Code";
-            vehicleRow.Make = "";
-            vehicleRow.Model = "";
-            vehicleRow.CreateDTTM = DateTime.Now;
-            vehicleRow.RegistrationExpiryDT = DateTime.Now;
-            dsQWSLocal2024.Vehicle.AddVehicleRow(vehicleRow);
-            SynchAxleConfig("tba");
-            SynchFeeCode(0); // 0 = unspecified, see database
-            txtRego.Focus();
-        }
-
-        private void AddTruck(string SAPCode, string Owner)
-        {
-            dsQWSLocal2024.Vehicle.Clear();
-            DataRow dr = dsQWSLocal2024.Vehicle.NewRow();
-            dsQWSLocal2024.VehicleRow vehicleRow = (dsQWSLocal2024.VehicleRow)dr;
-            vehicleRow.Rego = "NewReg";
-            vehicleRow.VIN = "";
-            vehicleRow.CardCode = SAPCode;
-            vehicleRow.Owner = Owner;
-            vehicleRow.Make = "";
-            vehicleRow.Model = "";
-            vehicleRow.RegistrationExpiryDT = DateTime.Now;
-            dsQWSLocal2024.Vehicle.AddVehicleRow(vehicleRow);
-            SynchAxleConfig("tba");
-            SynchFeeCode(0);
-            txtRego.Focus();
+            try
+            {
+                dsQWSLocal2024.Vehicle.Clear();
+                DataRow dr = dsQWSLocal2024.Vehicle.NewRow();
+                dsQWSLocal2024.VehicleRow vehicleRow = (dsQWSLocal2024.VehicleRow)dr;
+                vehicleRow.Rego = newRego; //don't overwrite user input
+                vehicleRow.VIN = "";
+                vehicleRow.CardCode = "";
+                vehicleRow.Owner = "Name or Code";
+                vehicleRow.Make = "";
+                vehicleRow.Model = "";
+                vehicleRow.AxleConfiguration = "tba";
+                vehicleRow.MassAccreditationLabel = "";
+                vehicleRow.RegisteredTare = 0.0M;
+                vehicleRow.FeeCodeID = 0;
+                vehicleRow.RegistrationExpiryDT = DateTime.Now;
+                vehicleRow.IsLeadVehicle = false;
+                vehicleRow.Active = true;
+                vehicleRow.CreateDTTM = DateTime.Now;
+                dsQWSLocal2024.Vehicle.AddVehicleRow(vehicleRow);
+                SynchAxleConfig("tba");
+                SynchFeeCode(0); // 0 = unspecified, see database
+                // actually save to database
+                bsVehicle.EndEdit();
+                taVehicle.Update(dsQWSLocal2024.Vehicle);
+                txtRego.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"AddVehicle Error.",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
  
         private void btnGo2Config_Click(object sender, EventArgs e)
@@ -483,23 +456,7 @@ namespace QWS_Local
                 MessageBox.Show("Please choose truck/prime mover first.","Not lead vehicle!",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
         }
-
-        private void btnNewVehicleCurrentOwner_Click(object sender, EventArgs e)
-        {
-            UseCurrentOwner = true;
-            txtRego.Text = "NewReg";
-            // TODO clear out fields
-            txtRego.Focus();
-        }
-
-        private void btnNewVehicle_Click(object sender, EventArgs e)
-        {
-            txtOwner.Text = "";
-            txtRego.Text = "NewReg";
-            // TODO clear out fields
-            txtRego.Focus();
-        }
-
+  
         private void btnSetPrefCustomer_Click(object sender, EventArgs e)
         {
             PrefCustomerSearch();
@@ -519,19 +476,13 @@ namespace QWS_Local
                 dsQWSLocal2024.Clear();
                 int iRows = this.taVehicle.FillBy(dsQWSLocal2024.Vehicle, vehicleSearch.Rego);
                 iRows += 2;
-                SynchAxleConfig(CurrentVehicle().AxleConfiguration);
-                SynchFeeCode(CurrentVehicle().FeeCodeID);
+                VehicleFound();
             }
             else
             {
                 txtRego.Focus();
             }
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            UpdateVehiclePBS();
         }
 
         private void UpdateVehiclePBS()
@@ -588,28 +539,6 @@ namespace QWS_Local
             }
         }
 
-        private void btnAddPBS_Click(object sender, EventArgs e)
-        {
-            AddVehiclePBS();
-        }
-
-        private void AddVehiclePBS()
-        {
-            try
-            {
-                DataRow dr = dsQWSLocal2024.VehiclePBS.NewRow();
-                dsQWSLocal2024.VehiclePBSRow vehiclePBSRow = (dsQWSLocal2024.VehiclePBSRow)dr;
-                vehiclePBSRow.Rego = CurrentVehicle().Rego;
-                vehiclePBSRow.VehicleApproval = 0; // System.Convert.ToInt32(txtPBS_VA.Text);
-                dsQWSLocal2024.VehiclePBS.AddVehiclePBSRow(vehiclePBSRow);
-                //txtPBS_VA.Text = "";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private void AddVehiclePreCustomer(string CardCode, string CardName)
         {
             try
@@ -644,8 +573,21 @@ namespace QWS_Local
 
         private void LoadPrefCustomers()
         {
-            taPrefCustomers.FillBy(dsQWSLocal2024.VehiclePrefCustomers, CurrentVehicle().Rego);
-            bsPrefCustomers.Sort = "IsDefault DESC, PrefCustomer ASC";
+            dsQWSLocal2024.VehicleRow myVehicle = CurrentVehicle();
+            if (myVehicle.IsLeadVehicle == true)
+            {
+                taPrefCustomers.FillBy(dsQWSLocal2024.VehiclePrefCustomers, CurrentVehicle().Rego);
+                bsPrefCustomers.Sort = "IsDefault DESC, PrefCustomer ASC";
+                //tabControl1.TabPages.Add(tpPrefCust);
+                tpPrefCust.Text = "Preferred Customers";
+                gbPrefCustomers.Visible = true;
+            }
+            else
+            {
+                //tabControl1.TabPages.Remove(tpPrefCust);
+                tpPrefCust.Text = " . . . . . ";
+                gbPrefCustomers.Visible = false;
+            }
         }
 
         private void VehicleMaintenance_KeyDown(object sender, KeyEventArgs e)
@@ -654,21 +596,6 @@ namespace QWS_Local
             {
                 FindByOwnerOrRego();
             }
-        }
-
-        private void btnGo2PrefCust_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectedTab = tpPrefCust;
-        }
-
-        private void btnSaveMassMgmtAccred_Click(object sender, EventArgs e)
-        {
-            IdentificationSave();
-        }
-
-        private void btnRefreshPBS_Click(object sender, EventArgs e)
-        {
-            GetPBSApprovals(CurrentVehicle().Rego);
         }
 
         private void btnDeleteVehicle_Click(object sender, EventArgs e)
@@ -696,6 +623,18 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void dataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        {
+            e.Row.Cells["Rego"].Value = CurrentVehicle().Rego;
+        }
+
+        private void btnVehicleSave_Click(object sender, EventArgs e)
+        {
+            VehicleSave();
+            UpdateVehiclePBS();
+            CheckExpiryDT();
         }
     }
 }
