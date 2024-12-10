@@ -39,8 +39,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PBSManagement));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnFindOwner = new System.Windows.Forms.Button();
+            this.txtOwner = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.txtVehicleApproval = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPBS_ConfigID = new System.Windows.Forms.TextBox();
             this.bsPBSConfig = new System.Windows.Forms.BindingSource(this.components);
             this.dsPBS = new QWS_Local.dsPBS();
             this.txtOperator = new System.Windows.Forms.TextBox();
@@ -51,19 +56,19 @@
             this.approvalDTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.button2 = new System.Windows.Forms.Button();
-            this.btnGetPBS = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.txtCardCode = new System.Windows.Forms.TextBox();
+            this.txtPBS_ID = new System.Windows.Forms.TextBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvPBSConfig = new System.Windows.Forms.DataGridView();
             this.tableNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PBS_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bridgeAssessmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.axleConfigurationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvPBSConfigScheme = new System.Windows.Forms.DataGridView();
             this.pBSLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PBS_ConfigID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gCMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gVMTruckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,10 +100,6 @@
             this.taPBSConfig = new QWS_Local.dsPBSTableAdapters.PBS_ConfigTableAdapter();
             this.taPBSConfigScheme = new QWS_Local.dsPBSTableAdapters.PBS_ConfigSchemeTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsPBSTableAdapters.TableAdapterManager();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.txtOwner = new System.Windows.Forms.TextBox();
-            this.btnFindOwner = new System.Windows.Forms.Button();
             pBS_LevelLabel = new System.Windows.Forms.Label();
             schemeCodeLabel = new System.Windows.Forms.Label();
             gCMLabel = new System.Windows.Forms.Label();
@@ -120,8 +121,8 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPBSConfig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPBSConfigScheme)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPBSConfigScheme)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
@@ -199,19 +200,18 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.btnFindOwner);
             this.splitContainer1.Panel1.Controls.Add(this.txtOwner);
             this.splitContainer1.Panel1.Controls.Add(this.button3);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox3);
+            this.splitContainer1.Panel1.Controls.Add(this.txtVehicleApproval);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.txtPBS_ConfigID);
             this.splitContainer1.Panel1.Controls.Add(this.txtOperator);
             this.splitContainer1.Panel1.Controls.Add(this.dgvPBS);
             this.splitContainer1.Panel1.Controls.Add(this.splitter2);
             this.splitContainer1.Panel1.Controls.Add(this.button2);
-            this.splitContainer1.Panel1.Controls.Add(this.btnGetPBS);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox2);
-            this.splitContainer1.Panel1.Controls.Add(this.txtCardCode);
+            this.splitContainer1.Panel1.Controls.Add(this.txtPBS_ID);
             this.splitContainer1.Panel1.Controls.Add(this.splitter1);
             // 
             // splitContainer1.Panel2
@@ -220,6 +220,49 @@
             this.splitContainer1.Size = new System.Drawing.Size(1111, 623);
             this.splitContainer1.SplitterDistance = 366;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(31, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 18);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "VA";
+            // 
+            // btnFindOwner
+            // 
+            this.btnFindOwner.Location = new System.Drawing.Point(250, 104);
+            this.btnFindOwner.Name = "btnFindOwner";
+            this.btnFindOwner.Size = new System.Drawing.Size(100, 30);
+            this.btnFindOwner.TabIndex = 14;
+            this.btnFindOwner.Text = "Find";
+            this.btnFindOwner.UseVisualStyleBackColor = true;
+            this.btnFindOwner.Click += new System.EventHandler(this.btnFindOwner_Click);
+            // 
+            // txtOwner
+            // 
+            this.txtOwner.Location = new System.Drawing.Point(34, 107);
+            this.txtOwner.Name = "txtOwner";
+            this.txtOwner.Size = new System.Drawing.Size(206, 24);
+            this.txtOwner.TabIndex = 13;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(250, 68);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(100, 30);
+            this.button3.TabIndex = 12;
+            this.button3.Text = "Find";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // txtVehicleApproval
+            // 
+            this.txtVehicleApproval.Location = new System.Drawing.Point(140, 71);
+            this.txtVehicleApproval.Name = "txtVehicleApproval";
+            this.txtVehicleApproval.Size = new System.Drawing.Size(100, 24);
+            this.txtVehicleApproval.TabIndex = 11;
             // 
             // button1
             // 
@@ -231,13 +274,13 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // txtPBS_ConfigID
             // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBSConfig, "PBS_ConfigID", true));
-            this.textBox1.Location = new System.Drawing.Point(159, 252);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 24);
-            this.textBox1.TabIndex = 9;
+            this.txtPBS_ConfigID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBSConfig, "PBS_ConfigID", true));
+            this.txtPBS_ConfigID.Location = new System.Drawing.Point(159, 252);
+            this.txtPBS_ConfigID.Name = "txtPBS_ConfigID";
+            this.txtPBS_ConfigID.Size = new System.Drawing.Size(81, 24);
+            this.txtPBS_ConfigID.TabIndex = 9;
             // 
             // bsPBSConfig
             // 
@@ -326,30 +369,13 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // btnGetPBS
+            // txtPBS_ID
             // 
-            this.btnGetPBS.Location = new System.Drawing.Point(140, 24);
-            this.btnGetPBS.Name = "btnGetPBS";
-            this.btnGetPBS.Size = new System.Drawing.Size(100, 30);
-            this.btnGetPBS.TabIndex = 3;
-            this.btnGetPBS.Text = "Find";
-            this.btnGetPBS.UseVisualStyleBackColor = true;
-            this.btnGetPBS.Click += new System.EventHandler(this.btnGetPBS_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS, "PBS_ID", true));
-            this.textBox2.Location = new System.Drawing.Point(159, 209);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 24);
-            this.textBox2.TabIndex = 2;
-            // 
-            // txtCardCode
-            // 
-            this.txtCardCode.Location = new System.Drawing.Point(34, 27);
-            this.txtCardCode.Name = "txtCardCode";
-            this.txtCardCode.Size = new System.Drawing.Size(100, 24);
-            this.txtCardCode.TabIndex = 1;
+            this.txtPBS_ID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS, "PBS_ID", true));
+            this.txtPBS_ID.Location = new System.Drawing.Point(159, 209);
+            this.txtPBS_ID.Name = "txtPBS_ID";
+            this.txtPBS_ID.Size = new System.Drawing.Size(81, 24);
+            this.txtPBS_ID.TabIndex = 2;
             // 
             // splitter1
             // 
@@ -391,35 +417,44 @@
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.dataGridView1);
+            this.splitContainer2.Panel1.Controls.Add(this.dgvPBSConfig);
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.dataGridView2);
+            this.splitContainer2.Panel2.Controls.Add(this.dgvPBSConfigScheme);
             this.splitContainer2.Size = new System.Drawing.Size(727, 586);
             this.splitContainer2.SplitterDistance = 218;
             this.splitContainer2.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgvPBSConfig
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvPBSConfig.AutoGenerateColumns = false;
+            this.dgvPBSConfig.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPBSConfig.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tableNoDataGridViewTextBoxColumn,
+            this.PBS_ID,
             this.bridgeAssessmentDataGridViewTextBoxColumn,
             this.axleConfigurationDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.bsPBSConfig;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(727, 218);
-            this.dataGridView1.TabIndex = 2;
+            this.dgvPBSConfig.DataSource = this.bsPBSConfig;
+            this.dgvPBSConfig.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPBSConfig.Location = new System.Drawing.Point(0, 0);
+            this.dgvPBSConfig.Name = "dgvPBSConfig";
+            this.dgvPBSConfig.Size = new System.Drawing.Size(727, 218);
+            this.dgvPBSConfig.TabIndex = 2;
+            this.dgvPBSConfig.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvPBSConfig_DefaultValuesNeeded);
             // 
             // tableNoDataGridViewTextBoxColumn
             // 
             this.tableNoDataGridViewTextBoxColumn.DataPropertyName = "TableNo";
             this.tableNoDataGridViewTextBoxColumn.HeaderText = "TableNo";
             this.tableNoDataGridViewTextBoxColumn.Name = "tableNoDataGridViewTextBoxColumn";
+            // 
+            // PBS_ID
+            // 
+            this.PBS_ID.DataPropertyName = "PBS_ID";
+            this.PBS_ID.HeaderText = "PBS_ID";
+            this.PBS_ID.Name = "PBS_ID";
+            this.PBS_ID.Visible = false;
             // 
             // bridgeAssessmentDataGridViewTextBoxColumn
             // 
@@ -435,30 +470,39 @@
             this.axleConfigurationDataGridViewTextBoxColumn.Name = "axleConfigurationDataGridViewTextBoxColumn";
             this.axleConfigurationDataGridViewTextBoxColumn.Width = 150;
             // 
-            // dataGridView2
+            // dgvPBSConfigScheme
             // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvPBSConfigScheme.AutoGenerateColumns = false;
+            this.dgvPBSConfigScheme.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPBSConfigScheme.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pBSLevelDataGridViewTextBoxColumn,
+            this.PBS_ConfigID,
             this.schemeCodeDataGridViewTextBoxColumn,
             this.gCMDataGridViewTextBoxColumn,
             this.gVMTruckDataGridViewTextBoxColumn,
             this.driveAxleLoadDataGridViewTextBoxColumn,
             this.driveAxleLoadUOMDataGridViewTextBoxColumn,
             this.massMgmtRqdDataGridViewCheckBoxColumn});
-            this.dataGridView2.DataSource = this.bsPBSConfigScheme;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(727, 364);
-            this.dataGridView2.TabIndex = 3;
+            this.dgvPBSConfigScheme.DataSource = this.bsPBSConfigScheme;
+            this.dgvPBSConfigScheme.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPBSConfigScheme.Location = new System.Drawing.Point(0, 0);
+            this.dgvPBSConfigScheme.Name = "dgvPBSConfigScheme";
+            this.dgvPBSConfigScheme.Size = new System.Drawing.Size(727, 364);
+            this.dgvPBSConfigScheme.TabIndex = 3;
+            this.dgvPBSConfigScheme.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvPBSConfigScheme_DefaultValuesNeeded);
             // 
             // pBSLevelDataGridViewTextBoxColumn
             // 
             this.pBSLevelDataGridViewTextBoxColumn.DataPropertyName = "PBS_Level";
             this.pBSLevelDataGridViewTextBoxColumn.HeaderText = "PBS_Level";
             this.pBSLevelDataGridViewTextBoxColumn.Name = "pBSLevelDataGridViewTextBoxColumn";
+            // 
+            // PBS_ConfigID
+            // 
+            this.PBS_ConfigID.DataPropertyName = "PBS_ConfigID";
+            this.PBS_ConfigID.HeaderText = "PBS_ConfigID";
+            this.PBS_ConfigID.Name = "PBS_ConfigID";
+            this.PBS_ConfigID.Visible = false;
             // 
             // schemeCodeDataGridViewTextBoxColumn
             // 
@@ -719,40 +763,6 @@
             this.tableAdapterManager.PBSTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsPBSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(140, 60);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 30);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Find";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(34, 63);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 24);
-            this.textBox3.TabIndex = 11;
-            // 
-            // txtOwner
-            // 
-            this.txtOwner.Location = new System.Drawing.Point(34, 107);
-            this.txtOwner.Name = "txtOwner";
-            this.txtOwner.Size = new System.Drawing.Size(206, 24);
-            this.txtOwner.TabIndex = 13;
-            // 
-            // btnFindOwner
-            // 
-            this.btnFindOwner.Location = new System.Drawing.Point(250, 104);
-            this.btnFindOwner.Name = "btnFindOwner";
-            this.btnFindOwner.Size = new System.Drawing.Size(100, 30);
-            this.btnFindOwner.TabIndex = 14;
-            this.btnFindOwner.Text = "Find";
-            this.btnFindOwner.UseVisualStyleBackColor = true;
-            this.btnFindOwner.Click += new System.EventHandler(this.btnFindOwner_Click);
-            // 
             // PBSManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -779,8 +789,8 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPBSConfig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPBSConfigScheme)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPBSConfigScheme)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
@@ -796,9 +806,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnGetPBS;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox txtCardCode;
+        private System.Windows.Forms.TextBox txtPBS_ID;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -811,25 +819,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vehicleApprovalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn versionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn approvalDTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvPBSConfig;
         private System.Windows.Forms.BindingSource bsPBSConfig;
         private dsPBSTableAdapters.PBS_ConfigTableAdapter taPBSConfig;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvPBSConfigScheme;
         private System.Windows.Forms.BindingSource bsPBSConfigScheme;
         private dsPBSTableAdapters.PBS_ConfigSchemeTableAdapter taPBSConfigScheme;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPBS_ConfigID;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tableNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bridgeAssessmentDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn axleConfigurationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pBSLevelDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn schemeCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gCMDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gVMTruckDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn driveAxleLoadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn driveAxleLoadUOMDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn massMgmtRqdDataGridViewCheckBoxColumn;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -851,8 +849,21 @@
         private System.Windows.Forms.TextBox pBS_LevelTextBox;
         private dsPBSTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtVehicleApproval;
         private System.Windows.Forms.Button btnFindOwner;
         private System.Windows.Forms.TextBox txtOwner;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tableNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PBS_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bridgeAssessmentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn axleConfigurationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pBSLevelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PBS_ConfigID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn schemeCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gCMDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gVMTruckDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn driveAxleLoadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn driveAxleLoadUOMDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn massMgmtRqdDataGridViewCheckBoxColumn;
     }
 }

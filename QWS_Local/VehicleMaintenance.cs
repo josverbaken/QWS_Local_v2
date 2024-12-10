@@ -240,12 +240,8 @@ namespace QWS_Local
                 CurrentVehicle().AxleConfiguration = myAxleConfig;
                 CurrentVehicle().IsLeadVehicle = true; //TODO change to dsQWSLocal2024 axleConfigurationSearch._AxleConfigurationRow.IsLeadVehicle; // set/sync
                 this.taAxleConfig.FillByAxleConfig(dsQWSLocal2024.AxleConfiguration, myAxleConfig); // WHY - for the picture!
+                VehicleSaveBlock();
             }
-        }
-
-        private void btnSetTruckOwner_Click(object sender, EventArgs e)
-        {
-            BusinessSearch();
         }
 
         private void BusinessSearch()
@@ -260,15 +256,10 @@ namespace QWS_Local
                     CurrentVehicle().Owner = businessSearch.BusinessName;
                     bsVehicle.EndEdit();
                     txtVIN.Focus();
-                }
-                else if (dr == DialogResult.Abort )
-                {
-                    MessageBox.Show("Truck owner NOT found, please check with Accounts Manager.","BP not on file!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtOwner.Focus();
-                }
+                }          
                 else
                 {
-                    txtOwner.Focus();
+                    txtVIN.Focus();
                 }
             }
             catch (Exception ex)
@@ -348,7 +339,7 @@ namespace QWS_Local
             {
                 CurrentVehicle().FeeCodeID = CurrentFeeCode().FeeCodeID;
 
-                dtpExpiryDT.Focus();
+                txtAxleConfig.Focus();
             }
         }
 
@@ -435,6 +426,7 @@ namespace QWS_Local
  
         private void btnGo2Config_Click(object sender, EventArgs e)
         {
+            VehicleSaveBlock(); // just to be sure
             Go2GVMConfiguration();
         }
 
@@ -456,29 +448,6 @@ namespace QWS_Local
         private void btnSetPrefCustomer_Click(object sender, EventArgs e)
         {
             PrefCustomerSearch();
-        }
-
-        private void btnVehiclesByCardCode_Click(object sender, EventArgs e)
-        {
-            ListVehicles4CardCode(CurrentVehicle().CardCode);
-        }
-
-        private void ListVehicles4CardCode(string CardCode)
-        {
-            VehicleSearch vehicleSearch = new VehicleSearch(CardCode, true);
-            DialogResult dr1 = vehicleSearch.ShowDialog();
-            if (dr1 == DialogResult.OK)
-            {
-                dsQWSLocal2024.Clear();
-                int iRows = this.taVehicle.FillBy(dsQWSLocal2024.Vehicle, vehicleSearch.Rego);
-                iRows += 2;
-                VehicleFound();
-            }
-            else
-            {
-                txtRego.Focus();
-            }
-
         }
 
         private void UpdateVehiclePBS()
@@ -636,6 +605,11 @@ namespace QWS_Local
 
         private void btnVehicleSave_Click(object sender, EventArgs e)
         {
+            VehicleSaveBlock();
+        }
+
+        private void VehicleSaveBlock()
+        {
             VehicleSave();
             SavePrefCustomers();
             UpdateVehiclePBS();
@@ -650,6 +624,44 @@ namespace QWS_Local
         private void txtOwner_Click(object sender, EventArgs e)
         {
             txtOwner.SelectAll();
+        }
+
+        private void txtOwner_Leave(object sender, EventArgs e)
+        {
+            BusinessSearch();
+        }
+
+        private void txtFeeCode_Leave(object sender, EventArgs e)
+        {
+            SetFeeCode();
+        }
+
+        private void txtAxleConfig_Leave(object sender, EventArgs e)
+        {
+            AxleConfiguration();
+        }
+
+        private void groupBox2_Leave(object sender, EventArgs e)
+        {
+            //MessageBox.Show("Left groupbox2");
+            VehicleSave();
+        }
+
+        private void groupBox3_Leave(object sender, EventArgs e)
+        {
+            //MessageBox.Show("Left groupbox3");
+            VehicleSaveBlock();
+        }
+
+        private void groupBox1_Leave(object sender, EventArgs e)
+        {
+            MessageBox.Show("Left groupbox1");
+            VehicleSaveBlock();
+        }
+
+        private void btnSetOwner_Click(object sender, EventArgs e)
+        {
+            BusinessSearch();
         }
     }
 }
