@@ -48,15 +48,7 @@ namespace QWS_Local
             {
                 // show active items only = default
                 this.bsItem.Filter = "Active like 'Y'";
-            }
-            else if (radioButton3.Checked == true)
-            {
-                this.bsItem.Filter = "Active like 'Y' and ItmsGrpCod = 138";
-            }
-            else
-            {
-                this.bsItem.Filter = "";
-            }
+            }          
             if (blExBinNoOrder)
             {
                 this.bsItem.Filter += " and ExBinNoOrder = 'Y'";
@@ -89,6 +81,22 @@ namespace QWS_Local
             {
                 e.Handled = true;
                 AcceptSelect();
+            }
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton3.Checked == true)
+            {
+                this.bsItem.Filter = "Active like 'Y' and ItmsGrpCod = 138";
+            }
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked == true)
+            {
+                this.bsItem.Filter = "";
             }
         }
     }

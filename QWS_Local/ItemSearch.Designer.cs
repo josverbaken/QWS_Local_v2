@@ -31,13 +31,6 @@ namespace QWS_Local
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.itemCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Active = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.exBinNoOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sellItemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prchseItemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsItem = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSViews = new QWS_Local.dsQWSViews();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -46,6 +39,11 @@ namespace QWS_Local
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.taItem = new QWS_Local.dsQWSViewsTableAdapters.ItemTableAdapter();
+            this.itemCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exBinNoOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSViews)).BeginInit();
@@ -66,9 +64,7 @@ namespace QWS_Local
             this.itemNameDataGridViewTextBoxColumn,
             this.Active,
             this.exBinNoOrderDataGridViewTextBoxColumn,
-            this.qADataGridViewTextBoxColumn,
-            this.sellItemDataGridViewTextBoxColumn,
-            this.prchseItemDataGridViewTextBoxColumn});
+            this.qADataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.bsItem;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -78,56 +74,6 @@ namespace QWS_Local
             this.dataGridView1.Size = new System.Drawing.Size(993, 623);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
-            // 
-            // itemCodeDataGridViewTextBoxColumn
-            // 
-            this.itemCodeDataGridViewTextBoxColumn.DataPropertyName = "ItemCode";
-            this.itemCodeDataGridViewTextBoxColumn.HeaderText = "ItemCode";
-            this.itemCodeDataGridViewTextBoxColumn.Name = "itemCodeDataGridViewTextBoxColumn";
-            this.itemCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // itemNameDataGridViewTextBoxColumn
-            // 
-            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn.HeaderText = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
-            this.itemNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.itemNameDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // Active
-            // 
-            this.Active.DataPropertyName = "Active";
-            this.Active.HeaderText = "Active";
-            this.Active.Name = "Active";
-            this.Active.ReadOnly = true;
-            // 
-            // exBinNoOrderDataGridViewTextBoxColumn
-            // 
-            this.exBinNoOrderDataGridViewTextBoxColumn.DataPropertyName = "ExBinNoOrder";
-            this.exBinNoOrderDataGridViewTextBoxColumn.HeaderText = "ExBinNoOrder";
-            this.exBinNoOrderDataGridViewTextBoxColumn.Name = "exBinNoOrderDataGridViewTextBoxColumn";
-            this.exBinNoOrderDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // qADataGridViewTextBoxColumn
-            // 
-            this.qADataGridViewTextBoxColumn.DataPropertyName = "QA";
-            this.qADataGridViewTextBoxColumn.HeaderText = "QA";
-            this.qADataGridViewTextBoxColumn.Name = "qADataGridViewTextBoxColumn";
-            this.qADataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sellItemDataGridViewTextBoxColumn
-            // 
-            this.sellItemDataGridViewTextBoxColumn.DataPropertyName = "SellItem";
-            this.sellItemDataGridViewTextBoxColumn.HeaderText = "SellItem";
-            this.sellItemDataGridViewTextBoxColumn.Name = "sellItemDataGridViewTextBoxColumn";
-            this.sellItemDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // prchseItemDataGridViewTextBoxColumn
-            // 
-            this.prchseItemDataGridViewTextBoxColumn.DataPropertyName = "PrchseItem";
-            this.prchseItemDataGridViewTextBoxColumn.HeaderText = "PrchseItem";
-            this.prchseItemDataGridViewTextBoxColumn.Name = "prchseItemDataGridViewTextBoxColumn";
-            this.prchseItemDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // bsItem
             // 
@@ -183,6 +129,7 @@ namespace QWS_Local
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Incoming";
             this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // radioButton2
             // 
@@ -195,6 +142,7 @@ namespace QWS_Local
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "All Items";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // radioButton1
             // 
@@ -212,6 +160,43 @@ namespace QWS_Local
             // taItem
             // 
             this.taItem.ClearBeforeFill = true;
+            // 
+            // itemCodeDataGridViewTextBoxColumn
+            // 
+            this.itemCodeDataGridViewTextBoxColumn.DataPropertyName = "ItemCode";
+            this.itemCodeDataGridViewTextBoxColumn.HeaderText = "Code";
+            this.itemCodeDataGridViewTextBoxColumn.Name = "itemCodeDataGridViewTextBoxColumn";
+            this.itemCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // itemNameDataGridViewTextBoxColumn
+            // 
+            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.HeaderText = "Item";
+            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
+            this.itemNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemNameDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "Active";
+            this.Active.HeaderText = "Active";
+            this.Active.Name = "Active";
+            this.Active.ReadOnly = true;
+            // 
+            // exBinNoOrderDataGridViewTextBoxColumn
+            // 
+            this.exBinNoOrderDataGridViewTextBoxColumn.DataPropertyName = "ExBinNoOrder";
+            this.exBinNoOrderDataGridViewTextBoxColumn.HeaderText = "ExBin No Order";
+            this.exBinNoOrderDataGridViewTextBoxColumn.Name = "exBinNoOrderDataGridViewTextBoxColumn";
+            this.exBinNoOrderDataGridViewTextBoxColumn.ReadOnly = true;
+            this.exBinNoOrderDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // qADataGridViewTextBoxColumn
+            // 
+            this.qADataGridViewTextBoxColumn.DataPropertyName = "QA";
+            this.qADataGridViewTextBoxColumn.HeaderText = "QA";
+            this.qADataGridViewTextBoxColumn.Name = "qADataGridViewTextBoxColumn";
+            this.qADataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ItemSearch
             // 
@@ -247,16 +232,14 @@ namespace QWS_Local
         private System.Windows.Forms.BindingSource bsItem;
         private dsQWSViewsTableAdapters.ItemTableAdapter taItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Active;
         private System.Windows.Forms.DataGridViewTextBoxColumn exBinNoOrderDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn qADataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sellItemDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prchseItemDataGridViewTextBoxColumn;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.Button btnSelect;
     }
 }

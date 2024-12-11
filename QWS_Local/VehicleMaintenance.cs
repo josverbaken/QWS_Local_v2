@@ -143,7 +143,14 @@ namespace QWS_Local
             if (CheckACC(myVehicle.Rego) == true)
             {
                 chkACC.Checked = true;
-                gbACC.Enabled = true;
+                if (myVehicle.IsLeadVehicle == true)
+                {
+                    gbACC.Enabled = true;
+                }
+                else
+                    { 
+                        gbACC.Enabled = false; 
+                }
             }
             else
             {
@@ -601,14 +608,9 @@ namespace QWS_Local
             }
         }
 
-        private void dataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        private void dgvPBS_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
             e.Row.Cells["Rego"].Value = CurrentVehicle().Rego;
-        }
-
-        private void btnVehicleSave_Click(object sender, EventArgs e)
-        {
-            VehicleSaveBlock();
         }
 
         private void VehicleSaveBlock()

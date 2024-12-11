@@ -29,15 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label pBS_LevelLabel;
-            System.Windows.Forms.Label schemeCodeLabel;
-            System.Windows.Forms.Label gCMLabel;
-            System.Windows.Forms.Label gVMTruckLabel;
-            System.Windows.Forms.Label driveAxleLoadLabel;
-            System.Windows.Forms.Label driveAxleLoadUOMLabel;
-            System.Windows.Forms.Label massMgmtRqdLabel;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PBSManagement));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label2 = new System.Windows.Forms.Label();
             this.btnFindOwner = new System.Windows.Forms.Button();
@@ -58,8 +50,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.txtPBS_ID = new System.Windows.Forms.TextBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dgvPBSConfig = new System.Windows.Forms.DataGridView();
             this.tableNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,37 +66,10 @@
             this.driveAxleLoadUOMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.massMgmtRqdDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bsPBSConfigScheme = new System.Windows.Forms.BindingSource(this.components);
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.massMgmtRqdCheckBox = new System.Windows.Forms.CheckBox();
-            this.driveAxleLoadUOMTextBox = new System.Windows.Forms.TextBox();
-            this.driveAxleLoadTextBox = new System.Windows.Forms.TextBox();
-            this.gVMTruckTextBox = new System.Windows.Forms.TextBox();
-            this.gCMTextBox = new System.Windows.Forms.TextBox();
-            this.schemeCodeTextBox = new System.Windows.Forms.TextBox();
-            this.pBS_LevelTextBox = new System.Windows.Forms.TextBox();
             this.taPBS = new QWS_Local.dsPBSTableAdapters.PBSTableAdapter();
             this.taPBSConfig = new QWS_Local.dsPBSTableAdapters.PBS_ConfigTableAdapter();
             this.taPBSConfigScheme = new QWS_Local.dsPBSTableAdapters.PBS_ConfigSchemeTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsPBSTableAdapters.TableAdapterManager();
-            pBS_LevelLabel = new System.Windows.Forms.Label();
-            schemeCodeLabel = new System.Windows.Forms.Label();
-            gCMLabel = new System.Windows.Forms.Label();
-            gVMTruckLabel = new System.Windows.Forms.Label();
-            driveAxleLoadLabel = new System.Windows.Forms.Label();
-            driveAxleLoadUOMLabel = new System.Windows.Forms.Label();
-            massMgmtRqdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -115,8 +78,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dsPBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPBS)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -124,73 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPBSConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPBSConfigScheme)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPBSConfigScheme)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-            this.bindingNavigator1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pBS_LevelLabel
-            // 
-            pBS_LevelLabel.AutoSize = true;
-            pBS_LevelLabel.Location = new System.Drawing.Point(199, 92);
-            pBS_LevelLabel.Name = "pBS_LevelLabel";
-            pBS_LevelLabel.Size = new System.Drawing.Size(80, 18);
-            pBS_LevelLabel.TabIndex = 0;
-            pBS_LevelLabel.Text = "PBS Level:";
-            // 
-            // schemeCodeLabel
-            // 
-            schemeCodeLabel.AutoSize = true;
-            schemeCodeLabel.Location = new System.Drawing.Point(172, 122);
-            schemeCodeLabel.Name = "schemeCodeLabel";
-            schemeCodeLabel.Size = new System.Drawing.Size(107, 18);
-            schemeCodeLabel.TabIndex = 2;
-            schemeCodeLabel.Text = "Scheme Code:";
-            // 
-            // gCMLabel
-            // 
-            gCMLabel.AutoSize = true;
-            gCMLabel.Location = new System.Drawing.Point(231, 152);
-            gCMLabel.Name = "gCMLabel";
-            gCMLabel.Size = new System.Drawing.Size(48, 18);
-            gCMLabel.TabIndex = 4;
-            gCMLabel.Text = "GCM:";
-            // 
-            // gVMTruckLabel
-            // 
-            gVMTruckLabel.AutoSize = true;
-            gVMTruckLabel.Location = new System.Drawing.Point(195, 182);
-            gVMTruckLabel.Name = "gVMTruckLabel";
-            gVMTruckLabel.Size = new System.Drawing.Size(84, 18);
-            gVMTruckLabel.TabIndex = 6;
-            gVMTruckLabel.Text = "GVMTruck:";
-            // 
-            // driveAxleLoadLabel
-            // 
-            driveAxleLoadLabel.AutoSize = true;
-            driveAxleLoadLabel.Location = new System.Drawing.Point(165, 212);
-            driveAxleLoadLabel.Name = "driveAxleLoadLabel";
-            driveAxleLoadLabel.Size = new System.Drawing.Size(114, 18);
-            driveAxleLoadLabel.TabIndex = 8;
-            driveAxleLoadLabel.Text = "Drive Axle Load:";
-            // 
-            // driveAxleLoadUOMLabel
-            // 
-            driveAxleLoadUOMLabel.AutoSize = true;
-            driveAxleLoadUOMLabel.Location = new System.Drawing.Point(125, 242);
-            driveAxleLoadUOMLabel.Name = "driveAxleLoadUOMLabel";
-            driveAxleLoadUOMLabel.Size = new System.Drawing.Size(154, 18);
-            driveAxleLoadUOMLabel.TabIndex = 10;
-            driveAxleLoadUOMLabel.Text = "Drive Axle Load UOM:";
-            // 
-            // massMgmtRqdLabel
-            // 
-            massMgmtRqdLabel.AutoSize = true;
-            massMgmtRqdLabel.Location = new System.Drawing.Point(157, 274);
-            massMgmtRqdLabel.Name = "massMgmtRqdLabel";
-            massMgmtRqdLabel.Size = new System.Drawing.Size(122, 18);
-            massMgmtRqdLabel.TabIndex = 12;
-            massMgmtRqdLabel.Text = "Mass Mgmt Rqd:";
             // 
             // splitContainer1
             // 
@@ -216,7 +111,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
+            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(1111, 623);
             this.splitContainer1.SplitterDistance = 366;
             this.splitContainer1.TabIndex = 0;
@@ -386,32 +281,10 @@
             this.splitter1.TabIndex = 0;
             this.splitter1.TabStop = false;
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(741, 623);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.splitContainer2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 27);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(733, 592);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -422,8 +295,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.dgvPBSConfigScheme);
-            this.splitContainer2.Size = new System.Drawing.Size(727, 586);
-            this.splitContainer2.SplitterDistance = 218;
+            this.splitContainer2.Size = new System.Drawing.Size(741, 623);
+            this.splitContainer2.SplitterDistance = 243;
             this.splitContainer2.TabIndex = 0;
             // 
             // dgvPBSConfig
@@ -439,7 +312,7 @@
             this.dgvPBSConfig.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPBSConfig.Location = new System.Drawing.Point(0, 0);
             this.dgvPBSConfig.Name = "dgvPBSConfig";
-            this.dgvPBSConfig.Size = new System.Drawing.Size(727, 218);
+            this.dgvPBSConfig.Size = new System.Drawing.Size(741, 243);
             this.dgvPBSConfig.TabIndex = 2;
             this.dgvPBSConfig.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvPBSConfig_DefaultValuesNeeded);
             // 
@@ -487,7 +360,7 @@
             this.dgvPBSConfigScheme.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPBSConfigScheme.Location = new System.Drawing.Point(0, 0);
             this.dgvPBSConfigScheme.Name = "dgvPBSConfigScheme";
-            this.dgvPBSConfigScheme.Size = new System.Drawing.Size(727, 364);
+            this.dgvPBSConfigScheme.Size = new System.Drawing.Size(741, 376);
             this.dgvPBSConfigScheme.TabIndex = 3;
             this.dgvPBSConfigScheme.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvPBSConfigScheme_DefaultValuesNeeded);
             // 
@@ -545,203 +418,6 @@
             this.bsPBSConfigScheme.DataMember = "PBS_ConfigScheme";
             this.bsPBSConfigScheme.DataSource = this.dsPBS;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.bindingNavigator1);
-            this.tabPage2.Controls.Add(massMgmtRqdLabel);
-            this.tabPage2.Controls.Add(this.massMgmtRqdCheckBox);
-            this.tabPage2.Controls.Add(driveAxleLoadUOMLabel);
-            this.tabPage2.Controls.Add(this.driveAxleLoadUOMTextBox);
-            this.tabPage2.Controls.Add(driveAxleLoadLabel);
-            this.tabPage2.Controls.Add(this.driveAxleLoadTextBox);
-            this.tabPage2.Controls.Add(gVMTruckLabel);
-            this.tabPage2.Controls.Add(this.gVMTruckTextBox);
-            this.tabPage2.Controls.Add(gCMLabel);
-            this.tabPage2.Controls.Add(this.gCMTextBox);
-            this.tabPage2.Controls.Add(schemeCodeLabel);
-            this.tabPage2.Controls.Add(this.schemeCodeTextBox);
-            this.tabPage2.Controls.Add(pBS_LevelLabel);
-            this.tabPage2.Controls.Add(this.pBS_LevelTextBox);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(733, 597);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // bindingNavigator1
-            // 
-            this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.bindingNavigator1.BindingSource = this.bsPBSConfigScheme;
-            this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
-            this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(3, 3);
-            this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.bindingNavigator1.Name = "bindingNavigator1";
-            this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(727, 25);
-            this.bindingNavigator1.TabIndex = 14;
-            this.bindingNavigator1.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // massMgmtRqdCheckBox
-            // 
-            this.massMgmtRqdCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bsPBSConfigScheme, "MassMgmtRqd", true));
-            this.massMgmtRqdCheckBox.Location = new System.Drawing.Point(285, 269);
-            this.massMgmtRqdCheckBox.Name = "massMgmtRqdCheckBox";
-            this.massMgmtRqdCheckBox.Size = new System.Drawing.Size(104, 24);
-            this.massMgmtRqdCheckBox.TabIndex = 13;
-            this.massMgmtRqdCheckBox.Text = " ";
-            this.massMgmtRqdCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // driveAxleLoadUOMTextBox
-            // 
-            this.driveAxleLoadUOMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBSConfigScheme, "DriveAxleLoadUOM", true));
-            this.driveAxleLoadUOMTextBox.Location = new System.Drawing.Point(285, 239);
-            this.driveAxleLoadUOMTextBox.Name = "driveAxleLoadUOMTextBox";
-            this.driveAxleLoadUOMTextBox.Size = new System.Drawing.Size(100, 24);
-            this.driveAxleLoadUOMTextBox.TabIndex = 11;
-            // 
-            // driveAxleLoadTextBox
-            // 
-            this.driveAxleLoadTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBSConfigScheme, "DriveAxleLoad", true));
-            this.driveAxleLoadTextBox.Location = new System.Drawing.Point(285, 209);
-            this.driveAxleLoadTextBox.Name = "driveAxleLoadTextBox";
-            this.driveAxleLoadTextBox.Size = new System.Drawing.Size(100, 24);
-            this.driveAxleLoadTextBox.TabIndex = 9;
-            // 
-            // gVMTruckTextBox
-            // 
-            this.gVMTruckTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBSConfigScheme, "GVMTruck", true));
-            this.gVMTruckTextBox.Location = new System.Drawing.Point(285, 179);
-            this.gVMTruckTextBox.Name = "gVMTruckTextBox";
-            this.gVMTruckTextBox.Size = new System.Drawing.Size(100, 24);
-            this.gVMTruckTextBox.TabIndex = 7;
-            // 
-            // gCMTextBox
-            // 
-            this.gCMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBSConfigScheme, "GCM", true));
-            this.gCMTextBox.Location = new System.Drawing.Point(285, 149);
-            this.gCMTextBox.Name = "gCMTextBox";
-            this.gCMTextBox.Size = new System.Drawing.Size(100, 24);
-            this.gCMTextBox.TabIndex = 5;
-            // 
-            // schemeCodeTextBox
-            // 
-            this.schemeCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBSConfigScheme, "SchemeCode", true));
-            this.schemeCodeTextBox.Location = new System.Drawing.Point(285, 119);
-            this.schemeCodeTextBox.Name = "schemeCodeTextBox";
-            this.schemeCodeTextBox.Size = new System.Drawing.Size(100, 24);
-            this.schemeCodeTextBox.TabIndex = 3;
-            // 
-            // pBS_LevelTextBox
-            // 
-            this.pBS_LevelTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBSConfigScheme, "PBS_Level", true));
-            this.pBS_LevelTextBox.Location = new System.Drawing.Point(285, 89);
-            this.pBS_LevelTextBox.Name = "pBS_LevelTextBox";
-            this.pBS_LevelTextBox.Size = new System.Drawing.Size(100, 24);
-            this.pBS_LevelTextBox.TabIndex = 1;
-            // 
             // taPBS
             // 
             this.taPBS.ClearBeforeFill = true;
@@ -783,8 +459,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dsPBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPBS)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -792,11 +466,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPBSConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPBSConfigScheme)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPBSConfigScheme)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
-            this.bindingNavigator1.ResumeLayout(false);
-            this.bindingNavigator1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -807,9 +476,6 @@
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtPBS_ID;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dgvPBS;
         private System.Windows.Forms.Splitter splitter2;
         private dsPBS dsPBS;
@@ -828,25 +494,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtPBS_ConfigID;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.BindingNavigator bindingNavigator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.CheckBox massMgmtRqdCheckBox;
-        private System.Windows.Forms.TextBox driveAxleLoadUOMTextBox;
-        private System.Windows.Forms.TextBox driveAxleLoadTextBox;
-        private System.Windows.Forms.TextBox gVMTruckTextBox;
-        private System.Windows.Forms.TextBox gCMTextBox;
-        private System.Windows.Forms.TextBox schemeCodeTextBox;
-        private System.Windows.Forms.TextBox pBS_LevelTextBox;
         private dsPBSTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox txtVehicleApproval;
