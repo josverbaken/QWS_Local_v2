@@ -375,7 +375,7 @@ namespace QWS_Local
                     btnImported.Enabled = false;
                     btnImportedPickUp.Enabled = false;
                 }
-                if (myTruckDriverRow.Position == "Authorised Cartage Contractor")
+                if (myTruckDriverRow.Position == "Authorised Cartage Contractor"|| myTruckDriverRow.Position.Contains("ACC") == true)
                 {
                     if (chkACC.Checked == true && blInduction == true)
                     {
@@ -725,13 +725,13 @@ namespace QWS_Local
                     return true;
                 }
                 return false;
-        }
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "IsBookedIn", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-}
+        }
     private void btnImported_Click(object sender, EventArgs e)
         {
             BookInTIQType = TIQType.Imported;

@@ -30,8 +30,6 @@ namespace QWS_Local
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label cardCodeLabel;
-            System.Windows.Forms.Label truckOwnerLabel;
             System.Windows.Forms.Label cardStatusLabel;
             System.Windows.Forms.Label inductionExpLabel;
             System.Windows.Forms.Label licenseExpLabel;
@@ -88,13 +86,12 @@ namespace QWS_Local
             this.bsTIQ = new System.Windows.Forms.BindingSource(this.components);
             this.taTIQ = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.gbSplitLoad = new System.Windows.Forms.GroupBox();
+            this.btnContinue = new System.Windows.Forms.Button();
             this.rbTrailerOnly = new System.Windows.Forms.RadioButton();
             this.rbTruckOnly = new System.Windows.Forms.RadioButton();
             this.rbSplitLoad = new System.Windows.Forms.RadioButton();
             this.rbTnT = new System.Windows.Forms.RadioButton();
-            this.btnContinue = new System.Windows.Forms.Button();
-            cardCodeLabel = new System.Windows.Forms.Label();
-            truckOwnerLabel = new System.Windows.Forms.Label();
+            this.gbTruckOwner = new System.Windows.Forms.GroupBox();
             cardStatusLabel = new System.Windows.Forms.Label();
             inductionExpLabel = new System.Windows.Forms.Label();
             licenseExpLabel = new System.Windows.Forms.Label();
@@ -111,30 +108,13 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).BeginInit();
             this.gbSplitLoad.SuspendLayout();
+            this.gbTruckOwner.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // cardCodeLabel
-            // 
-            cardCodeLabel.AutoSize = true;
-            cardCodeLabel.Location = new System.Drawing.Point(541, 59);
-            cardCodeLabel.Name = "cardCodeLabel";
-            cardCodeLabel.Size = new System.Drawing.Size(79, 17);
-            cardCodeLabel.TabIndex = 9;
-            cardCodeLabel.Text = "Card Code:";
-            // 
-            // truckOwnerLabel
-            // 
-            truckOwnerLabel.AutoSize = true;
-            truckOwnerLabel.Location = new System.Drawing.Point(527, 88);
-            truckOwnerLabel.Name = "truckOwnerLabel";
-            truckOwnerLabel.Size = new System.Drawing.Size(93, 17);
-            truckOwnerLabel.TabIndex = 11;
-            truckOwnerLabel.Text = "Truck Owner:";
             // 
             // cardStatusLabel
             // 
             cardStatusLabel.AutoSize = true;
-            cardStatusLabel.Location = new System.Drawing.Point(534, 117);
+            cardStatusLabel.Location = new System.Drawing.Point(16, 83);
             cardStatusLabel.Name = "cardStatusLabel";
             cardStatusLabel.Size = new System.Drawing.Size(86, 17);
             cardStatusLabel.TabIndex = 17;
@@ -282,7 +262,7 @@ namespace QWS_Local
             // cardCodeTextBox
             // 
             this.cardCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "CardCode", true));
-            this.cardCodeTextBox.Location = new System.Drawing.Point(626, 56);
+            this.cardCodeTextBox.Location = new System.Drawing.Point(108, 51);
             this.cardCodeTextBox.Name = "cardCodeTextBox";
             this.cardCodeTextBox.Size = new System.Drawing.Size(100, 23);
             this.cardCodeTextBox.TabIndex = 10;
@@ -290,15 +270,15 @@ namespace QWS_Local
             // truckOwnerTextBox
             // 
             this.truckOwnerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "TruckOwner", true));
-            this.truckOwnerTextBox.Location = new System.Drawing.Point(626, 85);
+            this.truckOwnerTextBox.Location = new System.Drawing.Point(6, 22);
             this.truckOwnerTextBox.Name = "truckOwnerTextBox";
-            this.truckOwnerTextBox.Size = new System.Drawing.Size(374, 23);
+            this.truckOwnerTextBox.Size = new System.Drawing.Size(430, 23);
             this.truckOwnerTextBox.TabIndex = 12;
             // 
             // txtCardStatus
             // 
             this.txtCardStatus.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "CardStatus", true));
-            this.txtCardStatus.Location = new System.Drawing.Point(626, 114);
+            this.txtCardStatus.Location = new System.Drawing.Point(108, 80);
             this.txtCardStatus.Name = "txtCardStatus";
             this.txtCardStatus.Size = new System.Drawing.Size(45, 23);
             this.txtCardStatus.TabIndex = 18;
@@ -306,7 +286,7 @@ namespace QWS_Local
             // chkACC
             // 
             this.chkACC.AutoSize = true;
-            this.chkACC.Location = new System.Drawing.Point(626, 144);
+            this.chkACC.Location = new System.Drawing.Point(368, 82);
             this.chkACC.Name = "chkACC";
             this.chkACC.Size = new System.Drawing.Size(54, 21);
             this.chkACC.TabIndex = 19;
@@ -626,6 +606,17 @@ namespace QWS_Local
             this.gbSplitLoad.TabStop = false;
             this.gbSplitLoad.Text = "Truck Config";
             // 
+            // btnContinue
+            // 
+            this.btnContinue.Enabled = false;
+            this.btnContinue.Location = new System.Drawing.Point(32, 154);
+            this.btnContinue.Name = "btnContinue";
+            this.btnContinue.Size = new System.Drawing.Size(110, 38);
+            this.btnContinue.TabIndex = 63;
+            this.btnContinue.Text = "Continue";
+            this.btnContinue.UseVisualStyleBackColor = true;
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
+            // 
             // rbTrailerOnly
             // 
             this.rbTrailerOnly.AutoSize = true;
@@ -674,35 +665,32 @@ namespace QWS_Local
             this.rbTnT.UseVisualStyleBackColor = true;
             this.rbTnT.CheckedChanged += new System.EventHandler(this.rbTnT_CheckedChanged);
             // 
-            // btnContinue
+            // gbTruckOwner
             // 
-            this.btnContinue.Enabled = false;
-            this.btnContinue.Location = new System.Drawing.Point(32, 154);
-            this.btnContinue.Name = "btnContinue";
-            this.btnContinue.Size = new System.Drawing.Size(110, 38);
-            this.btnContinue.TabIndex = 63;
-            this.btnContinue.Text = "Continue";
-            this.btnContinue.UseVisualStyleBackColor = true;
-            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
+            this.gbTruckOwner.Controls.Add(this.cardCodeTextBox);
+            this.gbTruckOwner.Controls.Add(this.truckOwnerTextBox);
+            this.gbTruckOwner.Controls.Add(this.chkACC);
+            this.gbTruckOwner.Controls.Add(this.txtCardStatus);
+            this.gbTruckOwner.Controls.Add(cardStatusLabel);
+            this.gbTruckOwner.Location = new System.Drawing.Point(544, 56);
+            this.gbTruckOwner.Name = "gbTruckOwner";
+            this.gbTruckOwner.Size = new System.Drawing.Size(455, 119);
+            this.gbTruckOwner.TabIndex = 83;
+            this.gbTruckOwner.TabStop = false;
+            this.gbTruckOwner.Text = "Truck Owner";
             // 
             // BookInTruck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 658);
+            this.Controls.Add(this.gbTruckOwner);
             this.Controls.Add(this.gbSplitLoad);
             this.Controls.Add(this.txtTruckConfig);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtFeeCodeConditions);
             this.Controls.Add(this.txtFeeCode);
-            this.Controls.Add(this.chkACC);
-            this.Controls.Add(cardStatusLabel);
-            this.Controls.Add(this.txtCardStatus);
-            this.Controls.Add(truckOwnerLabel);
-            this.Controls.Add(this.truckOwnerTextBox);
-            this.Controls.Add(cardCodeLabel);
-            this.Controls.Add(this.cardCodeTextBox);
             this.Controls.Add(this.txtVehicleDescription);
             this.Controls.Add(this.txtAxleConfig);
             this.Controls.Add(this.dataGridView1);
@@ -731,6 +719,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).EndInit();
             this.gbSplitLoad.ResumeLayout(false);
             this.gbSplitLoad.PerformLayout();
+            this.gbTruckOwner.ResumeLayout(false);
+            this.gbTruckOwner.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -795,5 +785,6 @@ namespace QWS_Local
         private System.Windows.Forms.RadioButton rbSplitLoad;
         private System.Windows.Forms.RadioButton rbTnT;
         private System.Windows.Forms.Button btnContinue;
+        private System.Windows.Forms.GroupBox gbTruckOwner;
     }
 }

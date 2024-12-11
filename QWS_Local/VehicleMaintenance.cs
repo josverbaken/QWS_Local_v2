@@ -140,6 +140,16 @@ namespace QWS_Local
         private void VehicleFound()
         {
             dsQWSLocal2024.VehicleRow myVehicle = CurrentVehicle();
+            if (CheckACC(myVehicle.Rego) == true)
+            {
+                chkACC.Checked = true;
+                gbACC.Enabled = true;
+            }
+            else
+            {
+                chkACC.Checked = false;
+                gbACC.Enabled = false;
+            }
             SynchAxleConfig(myVehicle.AxleConfiguration);
             SynchFeeCode(myVehicle.FeeCodeID);
             CheckExpiryDT();
@@ -180,8 +190,6 @@ namespace QWS_Local
                 bsAxleConfig.Position = bsAxleConfig.Find("AxleConfiguration", Properties.Settings.Default.defaultAxleConfig);
             }
         }
-
-        private void btnSetAxleConfig_Click(object sender, EventArgs e) => AxleConfiguration();
 
         private dsQWSLocal2024.VehicleRegFeeCodesRow CurrentFeeCode()
         {
@@ -321,12 +329,7 @@ namespace QWS_Local
         {
             txtRegoSelectAll();
         }
-
-        private void btnSetFeeCodeMain_Click(object sender, EventArgs e)
-        {
-            SetFeeCode();
-        }
-
+    
         private void SetFeeCode()
         { 
             int iCount = -1;
@@ -636,11 +639,6 @@ namespace QWS_Local
             SetFeeCode();
         }
 
-        private void txtAxleConfig_Leave(object sender, EventArgs e)
-        {
-            AxleConfiguration();
-        }
-
         private void groupBox2_Leave(object sender, EventArgs e)
         {
             //MessageBox.Show("Left groupbox2");
@@ -662,6 +660,37 @@ namespace QWS_Local
         private void btnSetOwner_Click(object sender, EventArgs e)
         {
             BusinessSearch();
+        }
+
+        private void btnSetAxleConfig_Click(object sender, EventArgs e)
+        {
+            AxleConfiguration();
+        }
+
+        private bool CheckACC(string Rego)
+        {
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "IsACC";
+                cmd.Parameters.AddWithValue("@Rego", Rego);
+                sqlConnection.Open();
+                int iGroupCode = System.Convert.ToInt32(cmd.ExecuteScalar());
+                sqlConnection.Close();
+                if (iGroupCode == 117)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "IsACC Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
     }
 }
