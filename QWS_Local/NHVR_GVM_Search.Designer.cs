@@ -53,12 +53,6 @@ namespace QWS_Local
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.axleConfigurationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GCM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MassMgmtRqd = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.SteerAxleAllowance = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.RoadAccess = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsNHVR = new System.Windows.Forms.BindingSource(this.components);
             this.tpDetails = new System.Windows.Forms.TabPage();
             this.couplingTextBox = new System.Windows.Forms.TextBox();
@@ -78,6 +72,13 @@ namespace QWS_Local
             this.taNHVR = new QWS_Local.dsQWSLocal2024TableAdapters.NHVRTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
             this.taAxleConfiguration = new QWS_Local.dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
+            this.axleConfigurationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GCM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MassMgmtRqd = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.SteerAxleAllowance = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.RoadAccess = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReferenceDocument = new System.Windows.Forms.DataGridViewTextBoxColumn();
             axlesLabel = new System.Windows.Forms.Label();
             couplingLabel = new System.Windows.Forms.Label();
             maxLengthLabel = new System.Windows.Forms.Label();
@@ -354,7 +355,8 @@ namespace QWS_Local
             this.GCM,
             this.MassMgmtRqd,
             this.SteerAxleAllowance,
-            this.RoadAccess});
+            this.RoadAccess,
+            this.ReferenceDocument});
             this.dataGridView1.DataSource = this.bsNHVR;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
@@ -363,50 +365,6 @@ namespace QWS_Local
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(993, 225);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // axleConfigurationDataGridViewTextBoxColumn
-            // 
-            this.axleConfigurationDataGridViewTextBoxColumn.DataPropertyName = "AxleConfiguration";
-            this.axleConfigurationDataGridViewTextBoxColumn.HeaderText = "Axle Config";
-            this.axleConfigurationDataGridViewTextBoxColumn.Name = "axleConfigurationDataGridViewTextBoxColumn";
-            this.axleConfigurationDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // schemeCodeDataGridViewTextBoxColumn
-            // 
-            this.schemeCodeDataGridViewTextBoxColumn.DataPropertyName = "SchemeCode";
-            this.schemeCodeDataGridViewTextBoxColumn.HeaderText = "Scheme";
-            this.schemeCodeDataGridViewTextBoxColumn.Name = "schemeCodeDataGridViewTextBoxColumn";
-            this.schemeCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.schemeCodeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // GCM
-            // 
-            this.GCM.DataPropertyName = "GCM";
-            this.GCM.HeaderText = "GCM";
-            this.GCM.Name = "GCM";
-            this.GCM.ReadOnly = true;
-            // 
-            // MassMgmtRqd
-            // 
-            this.MassMgmtRqd.DataPropertyName = "MassMgmtRqd";
-            this.MassMgmtRqd.HeaderText = "Mass Mgmt";
-            this.MassMgmtRqd.Name = "MassMgmtRqd";
-            this.MassMgmtRqd.ReadOnly = true;
-            // 
-            // SteerAxleAllowance
-            // 
-            this.SteerAxleAllowance.DataPropertyName = "SteerAxleAllowance";
-            this.SteerAxleAllowance.HeaderText = "Steer";
-            this.SteerAxleAllowance.Name = "SteerAxleAllowance";
-            this.SteerAxleAllowance.ReadOnly = true;
-            // 
-            // RoadAccess
-            // 
-            this.RoadAccess.DataPropertyName = "RoadAccess";
-            this.RoadAccess.HeaderText = "RoadAccess";
-            this.RoadAccess.Name = "RoadAccess";
-            this.RoadAccess.ReadOnly = true;
-            this.RoadAccess.Width = 250;
             // 
             // bsNHVR
             // 
@@ -586,10 +544,66 @@ namespace QWS_Local
             this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager1.NHVRTableAdapter = this.taNHVR;
             this.tableAdapterManager1.UpdateOrder = QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager1.VehiclePBSTableAdapter = null;
+            this.tableAdapterManager1.VehiclePrefCustomersTableAdapter = null;
+            this.tableAdapterManager1.VehicleRegFeeCodesTableAdapter = null;
+            this.tableAdapterManager1.VehicleTableAdapter = null;
             // 
             // taAxleConfiguration
             // 
             this.taAxleConfiguration.ClearBeforeFill = true;
+            // 
+            // axleConfigurationDataGridViewTextBoxColumn
+            // 
+            this.axleConfigurationDataGridViewTextBoxColumn.DataPropertyName = "AxleConfiguration";
+            this.axleConfigurationDataGridViewTextBoxColumn.HeaderText = "Axle Config";
+            this.axleConfigurationDataGridViewTextBoxColumn.Name = "axleConfigurationDataGridViewTextBoxColumn";
+            this.axleConfigurationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // schemeCodeDataGridViewTextBoxColumn
+            // 
+            this.schemeCodeDataGridViewTextBoxColumn.DataPropertyName = "SchemeCode";
+            this.schemeCodeDataGridViewTextBoxColumn.HeaderText = "Scheme";
+            this.schemeCodeDataGridViewTextBoxColumn.Name = "schemeCodeDataGridViewTextBoxColumn";
+            this.schemeCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.schemeCodeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // GCM
+            // 
+            this.GCM.DataPropertyName = "GCM";
+            this.GCM.HeaderText = "GCM";
+            this.GCM.Name = "GCM";
+            this.GCM.ReadOnly = true;
+            // 
+            // MassMgmtRqd
+            // 
+            this.MassMgmtRqd.DataPropertyName = "MassMgmtRqd";
+            this.MassMgmtRqd.HeaderText = "Mass Mgmt";
+            this.MassMgmtRqd.Name = "MassMgmtRqd";
+            this.MassMgmtRqd.ReadOnly = true;
+            // 
+            // SteerAxleAllowance
+            // 
+            this.SteerAxleAllowance.DataPropertyName = "SteerAxleAllowance";
+            this.SteerAxleAllowance.HeaderText = "Steer";
+            this.SteerAxleAllowance.Name = "SteerAxleAllowance";
+            this.SteerAxleAllowance.ReadOnly = true;
+            // 
+            // RoadAccess
+            // 
+            this.RoadAccess.DataPropertyName = "RoadAccess";
+            this.RoadAccess.HeaderText = "RoadAccess";
+            this.RoadAccess.Name = "RoadAccess";
+            this.RoadAccess.ReadOnly = true;
+            this.RoadAccess.Width = 250;
+            // 
+            // ReferenceDocument
+            // 
+            this.ReferenceDocument.DataPropertyName = "ReferenceDocument";
+            this.ReferenceDocument.HeaderText = "ReferenceDocument";
+            this.ReferenceDocument.Name = "ReferenceDocument";
+            this.ReferenceDocument.ReadOnly = true;
+            this.ReferenceDocument.Width = 200;
             // 
             // NHVR_GVM_Search
             // 
@@ -647,12 +661,6 @@ namespace QWS_Local
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpList;
         private System.Windows.Forms.TabPage tpDetails;
-        private System.Windows.Forms.DataGridViewTextBoxColumn axleConfigurationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn schemeCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GCM;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn MassMgmtRqd;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn SteerAxleAllowance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoadAccess;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtMassMgmtAccred;
         private dsQWSLocal2024 dsQWSLocal2024;
@@ -661,5 +669,12 @@ namespace QWS_Local
         private dsQWSLocal2024TableAdapters.TableAdapterManager tableAdapterManager1;
         private dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter taAxleConfiguration;
         private System.Windows.Forms.BindingSource bsAxleConfiguration;
+        private System.Windows.Forms.DataGridViewTextBoxColumn axleConfigurationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn schemeCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GCM;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn MassMgmtRqd;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn SteerAxleAllowance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoadAccess;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReferenceDocument;
     }
 }

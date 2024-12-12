@@ -57,19 +57,20 @@
             this.bridgeAssessmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.axleConfigurationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPBSConfigScheme = new System.Windows.Forms.DataGridView();
-            this.pBSLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PBS_ConfigID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gCMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gVMTruckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.driveAxleLoadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.driveAxleLoadUOMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.massMgmtRqdDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bsPBSConfigScheme = new System.Windows.Forms.BindingSource(this.components);
             this.taPBS = new QWS_Local.dsPBSTableAdapters.PBSTableAdapter();
             this.taPBSConfig = new QWS_Local.dsPBSTableAdapters.PBS_ConfigTableAdapter();
             this.taPBSConfigScheme = new QWS_Local.dsPBSTableAdapters.PBS_ConfigSchemeTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsPBSTableAdapters.TableAdapterManager();
+            this.pBSLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PBS_ConfigID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gCMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SchemeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gVMTruckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.driveAxleLoadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DriveAxleLoadUOM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.massMgmtRqdDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.txtCardCode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -95,6 +96,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.txtCardCode);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.btnFindOwner);
             this.splitContainer1.Panel1.Controls.Add(this.txtOwner);
@@ -119,7 +121,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 74);
+            this.label2.Location = new System.Drawing.Point(31, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(26, 18);
             this.label2.TabIndex = 16;
@@ -144,7 +146,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(250, 68);
+            this.button3.Location = new System.Drawing.Point(250, 32);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 30);
             this.button3.TabIndex = 12;
@@ -154,7 +156,7 @@
             // 
             // txtVehicleApproval
             // 
-            this.txtVehicleApproval.Location = new System.Drawing.Point(140, 71);
+            this.txtVehicleApproval.Location = new System.Drawing.Point(140, 35);
             this.txtVehicleApproval.Name = "txtVehicleApproval";
             this.txtVehicleApproval.Size = new System.Drawing.Size(100, 24);
             this.txtVehicleApproval.TabIndex = 11;
@@ -350,11 +352,11 @@
             this.dgvPBSConfigScheme.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pBSLevelDataGridViewTextBoxColumn,
             this.PBS_ConfigID,
-            this.schemeCodeDataGridViewTextBoxColumn,
             this.gCMDataGridViewTextBoxColumn,
+            this.SchemeCode,
             this.gVMTruckDataGridViewTextBoxColumn,
             this.driveAxleLoadDataGridViewTextBoxColumn,
-            this.driveAxleLoadUOMDataGridViewTextBoxColumn,
+            this.DriveAxleLoadUOM,
             this.massMgmtRqdDataGridViewCheckBoxColumn});
             this.dgvPBSConfigScheme.DataSource = this.bsPBSConfigScheme;
             this.dgvPBSConfigScheme.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -363,55 +365,6 @@
             this.dgvPBSConfigScheme.Size = new System.Drawing.Size(741, 376);
             this.dgvPBSConfigScheme.TabIndex = 3;
             this.dgvPBSConfigScheme.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvPBSConfigScheme_DefaultValuesNeeded);
-            // 
-            // pBSLevelDataGridViewTextBoxColumn
-            // 
-            this.pBSLevelDataGridViewTextBoxColumn.DataPropertyName = "PBS_Level";
-            this.pBSLevelDataGridViewTextBoxColumn.HeaderText = "PBS_Level";
-            this.pBSLevelDataGridViewTextBoxColumn.Name = "pBSLevelDataGridViewTextBoxColumn";
-            // 
-            // PBS_ConfigID
-            // 
-            this.PBS_ConfigID.DataPropertyName = "PBS_ConfigID";
-            this.PBS_ConfigID.HeaderText = "PBS_ConfigID";
-            this.PBS_ConfigID.Name = "PBS_ConfigID";
-            this.PBS_ConfigID.Visible = false;
-            // 
-            // schemeCodeDataGridViewTextBoxColumn
-            // 
-            this.schemeCodeDataGridViewTextBoxColumn.DataPropertyName = "SchemeCode";
-            this.schemeCodeDataGridViewTextBoxColumn.HeaderText = "Scheme";
-            this.schemeCodeDataGridViewTextBoxColumn.Name = "schemeCodeDataGridViewTextBoxColumn";
-            // 
-            // gCMDataGridViewTextBoxColumn
-            // 
-            this.gCMDataGridViewTextBoxColumn.DataPropertyName = "GCM";
-            this.gCMDataGridViewTextBoxColumn.HeaderText = "GCM";
-            this.gCMDataGridViewTextBoxColumn.Name = "gCMDataGridViewTextBoxColumn";
-            // 
-            // gVMTruckDataGridViewTextBoxColumn
-            // 
-            this.gVMTruckDataGridViewTextBoxColumn.DataPropertyName = "GVMTruck";
-            this.gVMTruckDataGridViewTextBoxColumn.HeaderText = "GVMTruck";
-            this.gVMTruckDataGridViewTextBoxColumn.Name = "gVMTruckDataGridViewTextBoxColumn";
-            // 
-            // driveAxleLoadDataGridViewTextBoxColumn
-            // 
-            this.driveAxleLoadDataGridViewTextBoxColumn.DataPropertyName = "DriveAxleLoad";
-            this.driveAxleLoadDataGridViewTextBoxColumn.HeaderText = "DriveAxleLoad";
-            this.driveAxleLoadDataGridViewTextBoxColumn.Name = "driveAxleLoadDataGridViewTextBoxColumn";
-            // 
-            // driveAxleLoadUOMDataGridViewTextBoxColumn
-            // 
-            this.driveAxleLoadUOMDataGridViewTextBoxColumn.DataPropertyName = "DriveAxleLoadUOM";
-            this.driveAxleLoadUOMDataGridViewTextBoxColumn.HeaderText = "UOM";
-            this.driveAxleLoadUOMDataGridViewTextBoxColumn.Name = "driveAxleLoadUOMDataGridViewTextBoxColumn";
-            // 
-            // massMgmtRqdDataGridViewCheckBoxColumn
-            // 
-            this.massMgmtRqdDataGridViewCheckBoxColumn.DataPropertyName = "MassMgmtRqd";
-            this.massMgmtRqdDataGridViewCheckBoxColumn.HeaderText = "MassMgmtRqd";
-            this.massMgmtRqdDataGridViewCheckBoxColumn.Name = "massMgmtRqdDataGridViewCheckBoxColumn";
             // 
             // bsPBSConfigScheme
             // 
@@ -438,6 +391,64 @@
             this.tableAdapterManager.PBS_ConfigTableAdapter = null;
             this.tableAdapterManager.PBSTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsPBSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // pBSLevelDataGridViewTextBoxColumn
+            // 
+            this.pBSLevelDataGridViewTextBoxColumn.DataPropertyName = "PBS_Level";
+            this.pBSLevelDataGridViewTextBoxColumn.HeaderText = "PBS_Level";
+            this.pBSLevelDataGridViewTextBoxColumn.Name = "pBSLevelDataGridViewTextBoxColumn";
+            // 
+            // PBS_ConfigID
+            // 
+            this.PBS_ConfigID.DataPropertyName = "PBS_ConfigID";
+            this.PBS_ConfigID.HeaderText = "PBS_ConfigID";
+            this.PBS_ConfigID.Name = "PBS_ConfigID";
+            this.PBS_ConfigID.Visible = false;
+            // 
+            // gCMDataGridViewTextBoxColumn
+            // 
+            this.gCMDataGridViewTextBoxColumn.DataPropertyName = "GCM";
+            this.gCMDataGridViewTextBoxColumn.HeaderText = "GCM";
+            this.gCMDataGridViewTextBoxColumn.Name = "gCMDataGridViewTextBoxColumn";
+            // 
+            // SchemeCode
+            // 
+            this.SchemeCode.DataPropertyName = "SchemeCode";
+            this.SchemeCode.HeaderText = "Scheme";
+            this.SchemeCode.Name = "SchemeCode";
+            // 
+            // gVMTruckDataGridViewTextBoxColumn
+            // 
+            this.gVMTruckDataGridViewTextBoxColumn.DataPropertyName = "GVMTruck";
+            this.gVMTruckDataGridViewTextBoxColumn.HeaderText = "GVMTruck";
+            this.gVMTruckDataGridViewTextBoxColumn.Name = "gVMTruckDataGridViewTextBoxColumn";
+            // 
+            // driveAxleLoadDataGridViewTextBoxColumn
+            // 
+            this.driveAxleLoadDataGridViewTextBoxColumn.DataPropertyName = "DriveAxleLoad";
+            this.driveAxleLoadDataGridViewTextBoxColumn.HeaderText = "DriveAxleLoad";
+            this.driveAxleLoadDataGridViewTextBoxColumn.Name = "driveAxleLoadDataGridViewTextBoxColumn";
+            // 
+            // DriveAxleLoadUOM
+            // 
+            this.DriveAxleLoadUOM.DataPropertyName = "DriveAxleLoadUOM";
+            this.DriveAxleLoadUOM.HeaderText = "UOM";
+            this.DriveAxleLoadUOM.Name = "DriveAxleLoadUOM";
+            // 
+            // massMgmtRqdDataGridViewCheckBoxColumn
+            // 
+            this.massMgmtRqdDataGridViewCheckBoxColumn.DataPropertyName = "MassMgmtRqd";
+            this.massMgmtRqdDataGridViewCheckBoxColumn.HeaderText = "MassMgmtRqd";
+            this.massMgmtRqdDataGridViewCheckBoxColumn.Name = "massMgmtRqdDataGridViewCheckBoxColumn";
+            // 
+            // txtCardCode
+            // 
+            this.txtCardCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS, "CardCode", true));
+            this.txtCardCode.Location = new System.Drawing.Point(140, 77);
+            this.txtCardCode.Name = "txtCardCode";
+            this.txtCardCode.ReadOnly = true;
+            this.txtCardCode.Size = new System.Drawing.Size(100, 24);
+            this.txtCardCode.TabIndex = 17;
             // 
             // PBSManagement
             // 
@@ -506,11 +517,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn axleConfigurationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pBSLevelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PBS_ConfigID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn schemeCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gCMDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SchemeCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn gVMTruckDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn driveAxleLoadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn driveAxleLoadUOMDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DriveAxleLoadUOM;
         private System.Windows.Forms.DataGridViewCheckBoxColumn massMgmtRqdDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.TextBox txtCardCode;
     }
 }

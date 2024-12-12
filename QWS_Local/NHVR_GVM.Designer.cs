@@ -52,7 +52,11 @@ namespace QWS_Local
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bsNHVR2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
+            this.taNHVR2 = new QWS_Local.dsQWSLocal2024TableAdapters.NHVRTableAdapter();
             this.truckTypeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReferenceDocument = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.axleConfigurationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.truckTypeDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.axlesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,9 +69,6 @@ namespace QWS_Local
             this.gCMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gVMTruckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.massMgmtRqdDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
-            this.bsNHVR2 = new System.Windows.Forms.BindingSource(this.components);
-            this.taNHVR2 = new QWS_Local.dsQWSLocal2024TableAdapters.NHVRTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -75,8 +76,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsNHVR2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -304,6 +305,7 @@ namespace QWS_Local
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.truckTypeIDDataGridViewTextBoxColumn,
+            this.ReferenceDocument,
             this.axleConfigurationDataGridViewTextBoxColumn,
             this.truckTypeDescriptionDataGridViewTextBoxColumn,
             this.axlesDataGridViewTextBoxColumn,
@@ -323,12 +325,32 @@ namespace QWS_Local
             this.dataGridView1.Size = new System.Drawing.Size(1200, 558);
             this.dataGridView1.TabIndex = 0;
             // 
+            // bsNHVR2
+            // 
+            this.bsNHVR2.DataMember = "NHVR";
+            this.bsNHVR2.DataSource = this.dsQWSLocal2024;
+            // 
+            // dsQWSLocal2024
+            // 
+            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
+            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // taNHVR2
+            // 
+            this.taNHVR2.ClearBeforeFill = true;
+            // 
             // truckTypeIDDataGridViewTextBoxColumn
             // 
             this.truckTypeIDDataGridViewTextBoxColumn.DataPropertyName = "TruckTypeID";
             this.truckTypeIDDataGridViewTextBoxColumn.HeaderText = "TruckTypeID";
             this.truckTypeIDDataGridViewTextBoxColumn.Name = "truckTypeIDDataGridViewTextBoxColumn";
             this.truckTypeIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ReferenceDocument
+            // 
+            this.ReferenceDocument.DataPropertyName = "ReferenceDocument";
+            this.ReferenceDocument.HeaderText = "ReferenceDocument";
+            this.ReferenceDocument.Name = "ReferenceDocument";
             // 
             // axleConfigurationDataGridViewTextBoxColumn
             // 
@@ -402,20 +424,6 @@ namespace QWS_Local
             this.massMgmtRqdDataGridViewCheckBoxColumn.HeaderText = "MassMgmtRqd";
             this.massMgmtRqdDataGridViewCheckBoxColumn.Name = "massMgmtRqdDataGridViewCheckBoxColumn";
             // 
-            // dsQWSLocal2024
-            // 
-            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
-            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bsNHVR2
-            // 
-            this.bsNHVR2.DataMember = "NHVR";
-            this.bsNHVR2.DataSource = this.dsQWSLocal2024;
-            // 
-            // taNHVR2
-            // 
-            this.taNHVR2.ClearBeforeFill = true;
-            // 
             // NHVR_GVM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -436,8 +444,8 @@ namespace QWS_Local
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsNHVR2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -458,7 +466,18 @@ namespace QWS_Local
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.RadioButton rbClear;
+        private System.Windows.Forms.RadioButton rbGML;
+        private System.Windows.Forms.RadioButton rbMassMgmt;
+        private System.Windows.Forms.RadioButton rbRFS;
+        private System.Windows.Forms.RadioButton rbSteer;
+        private System.Windows.Forms.TextBox txtAxleConfig;
+        private System.Windows.Forms.Button btnApply;
+        private dsQWSLocal2024 dsQWSLocal2024;
+        private System.Windows.Forms.BindingSource bsNHVR2;
+        private dsQWSLocal2024TableAdapters.NHVRTableAdapter taNHVR2;
         private System.Windows.Forms.DataGridViewTextBoxColumn truckTypeIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReferenceDocument;
         private System.Windows.Forms.DataGridViewTextBoxColumn axleConfigurationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn truckTypeDescriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn axlesDataGridViewTextBoxColumn;
@@ -471,15 +490,5 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn gCMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gVMTruckDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn massMgmtRqdDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.RadioButton rbClear;
-        private System.Windows.Forms.RadioButton rbGML;
-        private System.Windows.Forms.RadioButton rbMassMgmt;
-        private System.Windows.Forms.RadioButton rbRFS;
-        private System.Windows.Forms.RadioButton rbSteer;
-        private System.Windows.Forms.TextBox txtAxleConfig;
-        private System.Windows.Forms.Button btnApply;
-        private dsQWSLocal2024 dsQWSLocal2024;
-        private System.Windows.Forms.BindingSource bsNHVR2;
-        private dsQWSLocal2024TableAdapters.NHVRTableAdapter taNHVR2;
     }
 }
