@@ -19,7 +19,9 @@ namespace QWS_Local
 
         private void PBSManagement_Load(object sender, EventArgs e)
         {
-            // nothing at present
+            string strInstruction = "Scheme either:\r\n\t* GML\r\n\t* HML";
+            strInstruction += "\r\nUOM either:\r\n\t* Ratio\r\n\t* Tonnes";
+            txtInstruction1.Text = strInstruction;
         }
    
         private void button2_Click(object sender, EventArgs e)
@@ -45,7 +47,21 @@ namespace QWS_Local
             {
                 dsPBS.Clear();
                 int myPBSVA = Convert.ToInt32(txtVehicleApproval.Text);
-                taPBS.FillByVA(dsPBS.PBS, myPBSVA);
+                int iRows = taPBS.FillByVA(dsPBS.PBS, myPBSVA);
+                if (iRows == 0)
+                {
+                    string strMsg = "VA";
+                    strMsg += txtVehicleApproval.Text + " not found.\r\nDo you want to add a new record?";
+                    DialogResult dr = MessageBox.Show(strMsg,"VA not found",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                    if (dr == DialogResult.Yes)
+                    {
+                        NewVA(myPBSVA);
+                    }
+                    else
+                    {
+                        label1.Text = "***";
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -60,7 +76,7 @@ namespace QWS_Local
 
         private void GetOwner()
         {
-            BusinessSearch frmBusinessSearch = new BusinessSearch(txtOwner.Text);
+            BusinessSearch frmBusinessSearch = new BusinessSearch(txtOperator.Text);
             DialogResult dr = frmBusinessSearch.ShowDialog();
             if (dr == DialogResult.OK)
             {
@@ -82,6 +98,27 @@ namespace QWS_Local
                 e.Row.Cells["PBS_ID"].Value = myPBSID;
                 e.Row.Cells["MassMgmtRqd1"].Value = "true"; // TODO does not work nor error!@#
                 // TODO maybe do at Dataset or BindingSource level instead. Howto access new record?
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void NewVA(int PBSVA)
+        {
+            // TODO
+            label1.Text = "TODO add VA";
+        }
+
+        private void dgvPBS_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        {
+            try
+            { 
+            int myPBSVA = Convert.ToInt32(txtVehicleApproval.Text);
+                //e.Row.Cells["Vehicle Approval"].Value = myPBSVA;
+                //e.Row.Cells["Version"].Value = "new";
+                // TODO investigate why not recognising column names?
             }
             catch (Exception ex)
             {
