@@ -151,7 +151,8 @@ namespace QWS_Local
 
         private void UpdateOwnerGUI()
         {
-            if (CurrentConfigTruck().CardStatus != "A")
+            dsTruckConfig.ConfiguredTrucksRow myConfigTruckRow = CurrentConfigTruck();
+            if (myConfigTruckRow.CardStatus != "A")
             {
                 txtCardStatus.BackColor = Color.Salmon;
             }
@@ -160,14 +161,25 @@ namespace QWS_Local
                 txtCardStatus.BackColor = Color.PaleGreen;
             }
 
-            if (CurrentConfigTruck().GroupCode == 117)
+            switch (myConfigTruckRow.GroupCode)
             {
-                chkACC.Checked = true;
-            }
-            else
-            {
-                chkACC.Checked = false;
-            }
+                case 117:
+                    chkACCDelivery.Checked = true;
+                    chkACCPickUp.Checked = false;
+                    break;
+                case 118:
+                    chkACCDelivery.Checked=false;
+                    chkACCPickUp.Checked = true;
+                    break;
+                case 119:
+                    chkACCDelivery.Checked = true;
+                    chkACCPickUp.Checked=true;
+                    break;
+                default:
+                    chkACCDelivery.Checked=false;
+                    chkACCPickUp .Checked = false;
+                    break;
+            }       
             btnHold.Enabled = true;
         }
 
@@ -377,7 +389,7 @@ namespace QWS_Local
                 }
                 if (myTruckDriverRow.Position == "Authorised Cartage Contractor"|| myTruckDriverRow.Position.Contains("ACC") == true)
                 {
-                    if (chkACC.Checked == true && blInduction == true)
+                    if (chkACCDelivery.Checked == true && blInduction == true)
                     {
                         btnDelivery.Enabled = true;
                     }

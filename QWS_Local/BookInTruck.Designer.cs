@@ -50,7 +50,7 @@ namespace QWS_Local
             this.cardCodeTextBox = new System.Windows.Forms.TextBox();
             this.truckOwnerTextBox = new System.Windows.Forms.TextBox();
             this.txtCardStatus = new System.Windows.Forms.TextBox();
-            this.chkACC = new System.Windows.Forms.CheckBox();
+            this.chkACCDelivery = new System.Windows.Forms.CheckBox();
             this.txtFeeCode = new System.Windows.Forms.TextBox();
             this.txtFeeCodeConditions = new System.Windows.Forms.TextBox();
             this.txtLicenseExp = new System.Windows.Forms.TextBox();
@@ -92,6 +92,7 @@ namespace QWS_Local
             this.rbSplitLoad = new System.Windows.Forms.RadioButton();
             this.rbTnT = new System.Windows.Forms.RadioButton();
             this.gbTruckOwner = new System.Windows.Forms.GroupBox();
+            this.chkACCPickUp = new System.Windows.Forms.CheckBox();
             cardStatusLabel = new System.Windows.Forms.Label();
             inductionExpLabel = new System.Windows.Forms.Label();
             licenseExpLabel = new System.Windows.Forms.Label();
@@ -114,7 +115,7 @@ namespace QWS_Local
             // cardStatusLabel
             // 
             cardStatusLabel.AutoSize = true;
-            cardStatusLabel.Location = new System.Drawing.Point(16, 83);
+            cardStatusLabel.Location = new System.Drawing.Point(11, 93);
             cardStatusLabel.Name = "cardStatusLabel";
             cardStatusLabel.Size = new System.Drawing.Size(86, 17);
             cardStatusLabel.TabIndex = 17;
@@ -262,8 +263,9 @@ namespace QWS_Local
             // cardCodeTextBox
             // 
             this.cardCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "CardCode", true));
-            this.cardCodeTextBox.Location = new System.Drawing.Point(108, 51);
+            this.cardCodeTextBox.Location = new System.Drawing.Point(6, 51);
             this.cardCodeTextBox.Name = "cardCodeTextBox";
+            this.cardCodeTextBox.ReadOnly = true;
             this.cardCodeTextBox.Size = new System.Drawing.Size(100, 23);
             this.cardCodeTextBox.TabIndex = 10;
             // 
@@ -272,26 +274,28 @@ namespace QWS_Local
             this.truckOwnerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "TruckOwner", true));
             this.truckOwnerTextBox.Location = new System.Drawing.Point(6, 22);
             this.truckOwnerTextBox.Name = "truckOwnerTextBox";
+            this.truckOwnerTextBox.ReadOnly = true;
             this.truckOwnerTextBox.Size = new System.Drawing.Size(430, 23);
             this.truckOwnerTextBox.TabIndex = 12;
             // 
             // txtCardStatus
             // 
             this.txtCardStatus.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "CardStatus", true));
-            this.txtCardStatus.Location = new System.Drawing.Point(108, 80);
+            this.txtCardStatus.Location = new System.Drawing.Point(103, 90);
             this.txtCardStatus.Name = "txtCardStatus";
+            this.txtCardStatus.ReadOnly = true;
             this.txtCardStatus.Size = new System.Drawing.Size(45, 23);
             this.txtCardStatus.TabIndex = 18;
             // 
-            // chkACC
+            // chkACCDelivery
             // 
-            this.chkACC.AutoSize = true;
-            this.chkACC.Location = new System.Drawing.Point(368, 82);
-            this.chkACC.Name = "chkACC";
-            this.chkACC.Size = new System.Drawing.Size(54, 21);
-            this.chkACC.TabIndex = 19;
-            this.chkACC.Text = "ACC";
-            this.chkACC.UseVisualStyleBackColor = true;
+            this.chkACCDelivery.AutoSize = true;
+            this.chkACCDelivery.Location = new System.Drawing.Point(326, 53);
+            this.chkACCDelivery.Name = "chkACCDelivery";
+            this.chkACCDelivery.Size = new System.Drawing.Size(110, 21);
+            this.chkACCDelivery.TabIndex = 19;
+            this.chkACCDelivery.Text = "ACC-Delivery";
+            this.chkACCDelivery.UseVisualStyleBackColor = true;
             // 
             // txtFeeCode
             // 
@@ -667,9 +671,10 @@ namespace QWS_Local
             // 
             // gbTruckOwner
             // 
+            this.gbTruckOwner.Controls.Add(this.chkACCPickUp);
             this.gbTruckOwner.Controls.Add(this.cardCodeTextBox);
             this.gbTruckOwner.Controls.Add(this.truckOwnerTextBox);
-            this.gbTruckOwner.Controls.Add(this.chkACC);
+            this.gbTruckOwner.Controls.Add(this.chkACCDelivery);
             this.gbTruckOwner.Controls.Add(this.txtCardStatus);
             this.gbTruckOwner.Controls.Add(cardStatusLabel);
             this.gbTruckOwner.Location = new System.Drawing.Point(544, 56);
@@ -678,6 +683,16 @@ namespace QWS_Local
             this.gbTruckOwner.TabIndex = 83;
             this.gbTruckOwner.TabStop = false;
             this.gbTruckOwner.Text = "Truck Owner";
+            // 
+            // chkACCPickUp
+            // 
+            this.chkACCPickUp.AutoSize = true;
+            this.chkACCPickUp.Location = new System.Drawing.Point(326, 92);
+            this.chkACCPickUp.Name = "chkACCPickUp";
+            this.chkACCPickUp.Size = new System.Drawing.Size(103, 21);
+            this.chkACCPickUp.TabIndex = 20;
+            this.chkACCPickUp.Text = "ACC-PickUp";
+            this.chkACCPickUp.UseVisualStyleBackColor = true;
             // 
             // BookInTruck
             // 
@@ -741,7 +756,7 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox cardCodeTextBox;
         private System.Windows.Forms.TextBox truckOwnerTextBox;
         private System.Windows.Forms.TextBox txtCardStatus;
-        private System.Windows.Forms.CheckBox chkACC;
+        private System.Windows.Forms.CheckBox chkACCDelivery;
         private System.Windows.Forms.TextBox txtFeeCode;
         private System.Windows.Forms.TextBox txtFeeCodeConditions;
         private System.Windows.Forms.TextBox txtLicenseExp;
@@ -786,5 +801,6 @@ namespace QWS_Local
         private System.Windows.Forms.RadioButton rbTnT;
         private System.Windows.Forms.Button btnContinue;
         private System.Windows.Forms.GroupBox gbTruckOwner;
+        private System.Windows.Forms.CheckBox chkACCPickUp;
     }
 }
