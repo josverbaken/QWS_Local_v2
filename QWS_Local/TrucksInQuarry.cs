@@ -555,6 +555,10 @@ namespace QWS_Local
                         // ExBin No Order
                         DocketLineAdd(myTIQRow.Material, myTIQRow.MaterialDesc, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myTIQRow.Material), "Items", mySPLotNo, myOrderBaseEntry);
                     }
+                    if (myTIQRow.Nett < 11.0M) // TODO is this same as short load fee??
+                    {
+                        DocketLineAdd("070-200-1", "NQ Short Load Fee", GetItemQA("070-200-1"), GetItmsGrpCod("070-200-1"), "Items", 0, 0);
+                    }
                     taWBDocketLines.Update(dsTIQ2.WBDocketLines);
                     RemoveFromTIQ(myTIQID, "Docket posted successfully.");
                     RefreshQueue();

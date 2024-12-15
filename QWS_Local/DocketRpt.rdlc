@@ -69,7 +69,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>DocNum</rd:DefaultName>
-                          <Left>0cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
                           <Style>
@@ -100,7 +99,6 @@
                           </Paragraphs>
                           <rd:DefaultName>DocDate</rd:DefaultName>
                           <Top>0.77639cm</Top>
-                          <Left>0cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
                           <ZIndex>1</ZIndex>
@@ -164,7 +162,6 @@
                           </Paragraphs>
                           <rd:DefaultName>CardName</rd:DefaultName>
                           <Top>2.32917cm</Top>
-                          <Left>0cm</Left>
                           <Height>0.6cm</Height>
                           <Width>6.15125cm</Width>
                           <ZIndex>3</ZIndex>
@@ -258,7 +255,6 @@
                           </Paragraphs>
                           <rd:DefaultName>Mobile</rd:DefaultName>
                           <Top>4.58778cm</Top>
-                          <Left>0cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
                           <ZIndex>6</ZIndex>
@@ -386,7 +382,6 @@
                           </Paragraphs>
                           <rd:DefaultName>TruckRego</rd:DefaultName>
                           <Top>9.77139cm</Top>
-                          <Left>0cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
                           <ZIndex>10</ZIndex>
@@ -418,7 +413,6 @@
                           </Paragraphs>
                           <rd:DefaultName>TruckDriver</rd:DefaultName>
                           <Top>10.48577cm</Top>
-                          <Left>0cm</Left>
                           <Height>0.6cm</Height>
                           <Width>6.15125cm</Width>
                           <ZIndex>11</ZIndex>
@@ -447,7 +441,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>MaterialCode</rd:DefaultName>
-                          <Top>6.14056cm</Top>
+                          <Top>5.39944cm</Top>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
                           <ZIndex>12</ZIndex>
@@ -476,8 +470,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Material</rd:DefaultName>
-                          <Top>6.91694cm</Top>
-                          <Left>0cm</Left>
+                          <Top>6.17582cm</Top>
                           <Height>0.6cm</Height>
                           <Width>6.15125cm</Width>
                           <ZIndex>13</ZIndex>
@@ -506,7 +499,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>CartageCode</rd:DefaultName>
-                          <Top>7.65806cm</Top>
+                          <Top>6.91694cm</Top>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
                           <ZIndex>14</ZIndex>
@@ -535,11 +528,70 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Cartage</rd:DefaultName>
-                          <Top>8.43444cm</Top>
-                          <Left>0cm</Left>
+                          <Top>7.69332cm</Top>
                           <Height>0.6cm</Height>
                           <Width>6.15125cm</Width>
                           <ZIndex>15</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="SurchargeCode">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!SurchargeCode.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>SurchargeCode</rd:DefaultName>
+                          <Top>8.46971cm</Top>
+                          <Left>0cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>2.5cm</Width>
+                          <ZIndex>16</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Surcharge">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Surcharge.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Surcharge</rd:DefaultName>
+                          <Top>9.14026cm</Top>
+                          <Left>0cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>6.15125cm</Width>
+                          <ZIndex>17</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -558,6 +610,7 @@
                         </Border>
                       </Style>
                     </Rectangle>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
