@@ -538,9 +538,16 @@ namespace QWS_Local
                         // check SWW to toggle b/n Material and Cartage
                         for (int i = 0;i < iRows;i++) // Order LineNum is also zero based
                         {
+                            int SPLotNo = 0;                            
                             dsBookIn.QuarryOrderLinesRow myOrderLine = (dsBookIn.QuarryOrderLinesRow)dsBookIn.QuarryOrderLines.Rows[i];
+                            if (myOrderLine.SWW == "Items")
+                            {
+                                SPLotNo = mySPLotNo;
+                            }
                             string msg = "Line " + i.ToString() + "Itemcode " + myOrderLine.ItemCode;
                             MessageBox.Show(msg);
+                            DocketLineAdd(myOrderLine.ItemCode,myOrderLine.Dscription, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myOrderLine.ItemCode), myOrderLine.SWW, SPLotNo, myOrderLine.DocEntry);
+                            // TODO for delivery TK check if minimum cart applies
                         }
                     }
                     else
@@ -612,16 +619,16 @@ namespace QWS_Local
         {
             try
             {
-                int DocNumNext = 0;
+                int ItmsGrpCod;
                 SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "select ItmsGrpCod from SAP_OITM where ItemCode like '" + ItemCode + "'";
                 sqlConnection.Open();
-                DocNumNext = System.Convert.ToInt32(cmd.ExecuteScalar());
+                ItmsGrpCod = System.Convert.ToInt32(cmd.ExecuteScalar());
                 sqlConnection.Close();
-                return DocNumNext;
+                return ItmsGrpCod;
             }
             catch (Exception ex)
             {
@@ -760,7 +767,7 @@ namespace QWS_Local
                 DataRow myDR = ((DataRowView)bsWBDockets.Current).Row;
                 dsTIQ2.WBDocketsRow docketsRow = (dsTIQ2.WBDocketsRow)myDR;
 
-                int iLines = bsWBDocketLines.Count; //TODO maybe inherit from order?
+                int iLines = bsWBDocketLines.Count; // TODO maybe inherit from order?
 
                 DataRow dr = dsTIQ2.WBDocketLines.NewRow();
                 dsTIQ2.WBDocketLinesRow linesRow = (dsTIQ2.WBDocketLinesRow)dr;
@@ -775,7 +782,15 @@ namespace QWS_Local
                 linesRow.ItmsGrpCod = ItmsGrpCod;
                 linesRow.SWW = SWW;
                 linesRow.StockpileLot = SPLot;
-                linesRow.Quantity = CurrentTIQ().Nett;
+                string UOM = ItemCode.Substring(ItemCode.Length - 1, 1);
+                if (UOM=="1")
+                {
+                    linesRow.Quantity = 1.0M;
+                }
+                else
+                {
+                    linesRow.Quantity = CurrentTIQ().Nett;
+                }
                 linesRow.CreatedDTTM = DateTime.Now;
                 dsTIQ2.WBDocketLines.AddWBDocketLinesRow(linesRow);
                 bsWBDocketLines.EndEdit();  
