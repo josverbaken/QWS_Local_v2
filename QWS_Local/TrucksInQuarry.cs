@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Windows.Interop;
 using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Abstractions;
+using static QWS_Local.dsTIQ2;
 
 namespace QWS_Local
 {
@@ -534,20 +535,23 @@ namespace QWS_Local
                     if (myOrderBaseEntry > 0) // i.e. SAP Order
                     {
                         int iRows = taQuarryOrderLines.FillByDocEntry(dsBookIn.QuarryOrderLines, myOrderBaseEntry);
-                        // declare OrderLine and move through dataset
-                        // check SWW to toggle b/n Material and Cartage
                         for (int i = 0;i < iRows;i++) // Order LineNum is also zero based
                         {
-                            int SPLotNo = 0;                            
                             dsBookIn.QuarryOrderLinesRow myOrderLine = (dsBookIn.QuarryOrderLinesRow)dsBookIn.QuarryOrderLines.Rows[i];
-                            if (myOrderLine.SWW == "Items")
+                            switch (myOrderLine.SWW)
                             {
-                                SPLotNo = mySPLotNo;
+                                case "Items":
+                                    DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myOrderLine.ItemCode), myOrderLine.SWW, mySPLotNo, myOrderLine.DocEntry);
+                                    break;
+                                case "Freight":                                 
+                                    DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, false, 99, myOrderLine.SWW, 0, myOrderLine.DocEntry);
+                                    break;
+                                case "Other":
+                                    // surcharge maybe
+                                    break;
+                                default:
+                                    break;
                             }
-                            string msg = "Line " + i.ToString() + "Itemcode " + myOrderLine.ItemCode;
-                            MessageBox.Show(msg);
-                            DocketLineAdd(myOrderLine.ItemCode,myOrderLine.Dscription, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myOrderLine.ItemCode), myOrderLine.SWW, SPLotNo, myOrderLine.DocEntry);
-                            // TODO for delivery TK check if minimum cart applies
                         }
                     }
                     else
@@ -555,9 +559,10 @@ namespace QWS_Local
                         // ExBin No Order
                         DocketLineAdd(myTIQRow.Material, myTIQRow.MaterialDesc, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myTIQRow.Material), "Items", mySPLotNo, myOrderBaseEntry);
                     }
-                    if (myTIQRow.Nett < 11.0M) // TODO is this same as short load fee??
+                    if (myTIQRow.Nett < Properties.Settings.Default.MinimumMaterial) 
                     {
-                        DocketLineAdd("070-200-1", "NQ Short Load Fee", GetItemQA("070-200-1"), GetItmsGrpCod("070-200-1"), "Items", 0, 0);
+                        DocketLineAdd("070-200-1", "NQ Short Load Fee", GetItemQA("070-200-1"), GetItmsGrpCod("070-200-1"), "Other", 0, 0);
+                        // TODO get short load fee for quarry when QWSConfig is implemented
                     }
                     taWBDocketLines.Update(dsTIQ2.WBDocketLines);
                     RemoveFromTIQ(myTIQID, "Docket posted successfully.");
@@ -793,7 +798,14 @@ namespace QWS_Local
                 }
                 else
                 {
-                    linesRow.Quantity = CurrentTIQ().Nett;
+                    if (SWW == "Freight" && CurrentTIQ().Nett < Properties.Settings.Default.MinimumCart)
+                    {
+                        linesRow.Quantity = Properties.Settings.Default.MinimumCart;
+                    }
+                    else
+                    {
+                        linesRow.Quantity = CurrentTIQ().Nett;
+                    }
                 }
                 linesRow.CreatedDTTM = DateTime.Now;
                 dsTIQ2.WBDocketLines.AddWBDocketLinesRow(linesRow);

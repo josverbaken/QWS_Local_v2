@@ -177,5 +177,23 @@ namespace QWS_Local.Properties {
                 return ((int)(this["ClearTIQDelay"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8.0")]
+        public decimal MinimumMaterial {
+            get {
+                return ((decimal)(this["MinimumMaterial"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("11.0")]
+        public decimal MinimumCart {
+            get {
+                return ((decimal)(this["MinimumCart"]));
+            }
+        }
     }
 }
