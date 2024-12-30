@@ -19,8 +19,8 @@ namespace QWS_Local
 
         private void SPLotMaintenance_Load(object sender, EventArgs e)
         {
-            this.taSPLotItemsMap.Fill(this.dsTIQ2.SPLotItemsMap);
-            this.taStockpileLotAllocation.Fill(this.dsTIQ2.StockpileLotAllocation);
+            //this.taSPLotItemsMap.Fill(this.dsTIQ2.SPLotItemsMap);
+            //this.taStockpileLotAllocation.Fill(this.dsTIQ2.StockpileLotAllocation);
         }
 
         private void FindLotsByItemCode()
@@ -150,15 +150,61 @@ namespace QWS_Local
                 this.taStockpileManualAllocation.Fill(this.dsTIQ2.StockpileManualAllocation);
             }
         }
-
-        private void bsSPLotItemsMap_CurrentChanged(object sender, EventArgs e)
-        {
-            FindLotsByItemCode();
-        }
-
+  
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnFindBaseItemCode_Click(object sender, EventArgs e)
+        {
+            FindBaseItemCode();
+        }
+
+        private void FindBaseItemCode()
+        {
+            try
+            {
+                taStockpileBOM.FillByItemCode(dsTIQ2.StockpileBOM, txtItemCode.Text);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void rbOpen_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbOpen.Checked == true)
+            {
+                bsStockpileLotAllocation.Filter = "LotStatus like 'O'";
+            }
+        }
+
+        private void rbAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbAll.Checked == true)
+            {
+                bsStockpileLotAllocation.Filter = "";
+            }
+        }
+
+        private void btnAddAllocation_Click(object sender, EventArgs e)
+        {
+            GetStockpileLotAllocations(txtBaseItemCode.Text);
+        }
+
+        private void GetStockpileLotAllocations(string BaseItemCode)
+        {
+            try
+            {
+                taStockpileLotAllocation.FillByItemCode(dsTIQ2.StockpileLotAllocation, BaseItemCode);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
