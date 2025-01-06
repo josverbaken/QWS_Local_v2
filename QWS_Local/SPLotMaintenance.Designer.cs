@@ -30,11 +30,30 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.bsSPLotNoAudit = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpSPLots = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnAddAllocation = new System.Windows.Forms.Button();
+            this.btnFindBaseItemCode = new System.Windows.Forms.Button();
+            this.txtBaseItemCode = new System.Windows.Forms.TextBox();
+            this.bsStockpileBOM = new System.Windows.Forms.BindingSource(this.components);
+            this.txtItemCode = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.allocationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mCODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BaseItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lotNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lotStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allocationDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsStockpileLotAllocation = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbAll = new System.Windows.Forms.RadioButton();
+            this.rbOpen = new System.Windows.Forms.RadioButton();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.tpDockets = new System.Windows.Forms.TabPage();
@@ -49,33 +68,10 @@
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.btnRefreshManualAllocation = new System.Windows.Forms.Button();
             this.btnSaveManualAllocation = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtLotNo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtManualItemCode = new System.Windows.Forms.TextBox();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.tpBaseItem = new System.Windows.Forms.TabPage();
-            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.txtItemCode = new System.Windows.Forms.TextBox();
-            this.txtBaseItemCode = new System.Windows.Forms.TextBox();
-            this.btnFindBaseItemCode = new System.Windows.Forms.Button();
-            this.btnAddAllocation = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.BaseItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbOpen = new System.Windows.Forms.RadioButton();
-            this.rbAll = new System.Windows.Forms.RadioButton();
-            this.bsStockpileBOM = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTIQ2 = new QWS_Local.dsTIQ2();
-            this.allocationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mCODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lotNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lotStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allocationDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsStockpileLotAllocation = new System.Windows.Forms.BindingSource(this.components);
-            this.bsSPLotNoAudit = new System.Windows.Forms.BindingSource(this.components);
             this.allocationIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sPLotNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,6 +80,9 @@
             this.reversalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsStockpileManualAllocation = new System.Windows.Forms.BindingSource(this.components);
+            this.tpBaseItem = new System.Windows.Forms.TabPage();
+            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.baseItemCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,17 +94,26 @@
             this.SPLotNoAuditBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.taStockpileManualAllocation = new QWS_Local.dsTIQ2TableAdapters.StockpileManualAllocationTableAdapter();
             this.taSPLotItemsMap = new QWS_Local.dsTIQ2TableAdapters.SPLotItemsMapTableAdapter();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rbLotNoFilter = new System.Windows.Forms.RadioButton();
+            this.rbClearFilter = new System.Windows.Forms.RadioButton();
+            ((System.ComponentModel.ISupportInitialize)(this.bsSPLotNoAudit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpSPLots.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileBOM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileLotAllocation)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.tpDockets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -117,20 +125,27 @@
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileManualAllocation)).BeginInit();
             this.tpBaseItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
             this.splitContainer5.Panel2.SuspendLayout();
             this.splitContainer5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileBOM)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileLotAllocation)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsSPLotNoAudit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileManualAllocation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotItemsMap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SPLotNoAuditBindingSource)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // bsSPLotNoAudit
+            // 
+            this.bsSPLotNoAudit.DataMember = "SPLotNoAudit";
+            this.bsSPLotNoAudit.DataSource = this.dsTIQ2;
+            // 
+            // dsTIQ2
+            // 
+            this.dsTIQ2.DataSetName = "dsTIQ2";
+            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabControl1
             // 
@@ -182,6 +197,65 @@
             this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 0;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(26, 70);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(114, 18);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Base Item Code";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 18);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Item Code";
+            // 
+            // btnAddAllocation
+            // 
+            this.btnAddAllocation.Location = new System.Drawing.Point(159, 195);
+            this.btnAddAllocation.Name = "btnAddAllocation";
+            this.btnAddAllocation.Size = new System.Drawing.Size(100, 33);
+            this.btnAddAllocation.TabIndex = 3;
+            this.btnAddAllocation.Text = "Add";
+            this.btnAddAllocation.UseVisualStyleBackColor = true;
+            this.btnAddAllocation.Click += new System.EventHandler(this.btnAddAllocation_Click);
+            // 
+            // btnFindBaseItemCode
+            // 
+            this.btnFindBaseItemCode.Location = new System.Drawing.Point(159, 134);
+            this.btnFindBaseItemCode.Name = "btnFindBaseItemCode";
+            this.btnFindBaseItemCode.Size = new System.Drawing.Size(100, 33);
+            this.btnFindBaseItemCode.TabIndex = 2;
+            this.btnFindBaseItemCode.Text = "Find";
+            this.btnFindBaseItemCode.UseVisualStyleBackColor = true;
+            this.btnFindBaseItemCode.Click += new System.EventHandler(this.btnFindBaseItemCode_Click);
+            // 
+            // txtBaseItemCode
+            // 
+            this.txtBaseItemCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsStockpileBOM, "BaseItemCode", true));
+            this.txtBaseItemCode.Location = new System.Drawing.Point(159, 67);
+            this.txtBaseItemCode.Name = "txtBaseItemCode";
+            this.txtBaseItemCode.ReadOnly = true;
+            this.txtBaseItemCode.Size = new System.Drawing.Size(100, 24);
+            this.txtBaseItemCode.TabIndex = 1;
+            // 
+            // bsStockpileBOM
+            // 
+            this.bsStockpileBOM.DataMember = "StockpileBOM";
+            this.bsStockpileBOM.DataSource = this.dsTIQ2;
+            // 
+            // txtItemCode
+            // 
+            this.txtItemCode.Location = new System.Drawing.Point(159, 24);
+            this.txtItemCode.Name = "txtItemCode";
+            this.txtItemCode.Size = new System.Drawing.Size(100, 24);
+            this.txtItemCode.TabIndex = 0;
+            // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -222,6 +296,89 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(834, 383);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // allocationIDDataGridViewTextBoxColumn
+            // 
+            this.allocationIDDataGridViewTextBoxColumn.DataPropertyName = "AllocationID";
+            this.allocationIDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.allocationIDDataGridViewTextBoxColumn.Name = "allocationIDDataGridViewTextBoxColumn";
+            this.allocationIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.allocationIDDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // mCODataGridViewTextBoxColumn
+            // 
+            this.mCODataGridViewTextBoxColumn.DataPropertyName = "MCO";
+            this.mCODataGridViewTextBoxColumn.HeaderText = "MCO";
+            this.mCODataGridViewTextBoxColumn.Name = "mCODataGridViewTextBoxColumn";
+            this.mCODataGridViewTextBoxColumn.Width = 150;
+            // 
+            // BaseItemCode
+            // 
+            this.BaseItemCode.DataPropertyName = "BaseItemCode";
+            this.BaseItemCode.HeaderText = "Base Item";
+            this.BaseItemCode.Name = "BaseItemCode";
+            this.BaseItemCode.Width = 150;
+            // 
+            // lotNoDataGridViewTextBoxColumn
+            // 
+            this.lotNoDataGridViewTextBoxColumn.DataPropertyName = "LotNo";
+            this.lotNoDataGridViewTextBoxColumn.HeaderText = "Lot No";
+            this.lotNoDataGridViewTextBoxColumn.Name = "lotNoDataGridViewTextBoxColumn";
+            this.lotNoDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // lotStatusDataGridViewTextBoxColumn
+            // 
+            this.lotStatusDataGridViewTextBoxColumn.DataPropertyName = "LotStatus";
+            this.lotStatusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.lotStatusDataGridViewTextBoxColumn.Name = "lotStatusDataGridViewTextBoxColumn";
+            this.lotStatusDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // allocationDTTMDataGridViewTextBoxColumn
+            // 
+            this.allocationDTTMDataGridViewTextBoxColumn.DataPropertyName = "AllocationDTTM";
+            this.allocationDTTMDataGridViewTextBoxColumn.HeaderText = "Allocation DTTM";
+            this.allocationDTTMDataGridViewTextBoxColumn.Name = "allocationDTTMDataGridViewTextBoxColumn";
+            this.allocationDTTMDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // bsStockpileLotAllocation
+            // 
+            this.bsStockpileLotAllocation.DataMember = "StockpileLotAllocation";
+            this.bsStockpileLotAllocation.DataSource = this.dsTIQ2;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbAll);
+            this.groupBox1.Controls.Add(this.rbOpen);
+            this.groupBox1.Location = new System.Drawing.Point(34, 25);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 84);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Status Filter";
+            // 
+            // rbAll
+            // 
+            this.rbAll.AutoSize = true;
+            this.rbAll.Location = new System.Drawing.Point(116, 52);
+            this.rbAll.Name = "rbAll";
+            this.rbAll.Size = new System.Drawing.Size(41, 22);
+            this.rbAll.TabIndex = 1;
+            this.rbAll.TabStop = true;
+            this.rbAll.Text = "All";
+            this.rbAll.UseVisualStyleBackColor = true;
+            this.rbAll.CheckedChanged += new System.EventHandler(this.rbAll_CheckedChanged);
+            // 
+            // rbOpen
+            // 
+            this.rbOpen.AutoSize = true;
+            this.rbOpen.Location = new System.Drawing.Point(116, 23);
+            this.rbOpen.Name = "rbOpen";
+            this.rbOpen.Size = new System.Drawing.Size(62, 22);
+            this.rbOpen.TabIndex = 0;
+            this.rbOpen.TabStop = true;
+            this.rbOpen.Text = "Open";
+            this.rbOpen.UseVisualStyleBackColor = true;
+            this.rbOpen.CheckedChanged += new System.EventHandler(this.rbOpen_CheckedChanged);
             // 
             // btnClose
             // 
@@ -276,7 +433,7 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.reportViewer1);
-            this.splitContainer3.Size = new System.Drawing.Size(1124, 772);
+            this.splitContainer3.Size = new System.Drawing.Size(1124, 767);
             this.splitContainer3.SplitterDistance = 194;
             this.splitContainer3.SplitterWidth = 6;
             this.splitContainer3.TabIndex = 0;
@@ -339,7 +496,7 @@
             this.reportViewer1.Margin = new System.Windows.Forms.Padding(4);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(924, 772);
+            this.reportViewer1.Size = new System.Drawing.Size(924, 767);
             this.reportViewer1.TabIndex = 0;
             // 
             // tpManual
@@ -363,27 +520,23 @@
             // splitContainer4.Panel1
             // 
             this.splitContainer4.Panel1.AutoScroll = true;
-            this.splitContainer4.Panel1.Controls.Add(this.btnRefreshManualAllocation);
-            this.splitContainer4.Panel1.Controls.Add(this.btnSaveManualAllocation);
-            this.splitContainer4.Panel1.Controls.Add(this.label4);
-            this.splitContainer4.Panel1.Controls.Add(this.textBox1);
-            this.splitContainer4.Panel1.Controls.Add(this.label5);
-            this.splitContainer4.Panel1.Controls.Add(this.txtManualItemCode);
+            this.splitContainer4.Panel1.Controls.Add(this.groupBox3);
+            this.splitContainer4.Panel1.Controls.Add(this.groupBox2);
             // 
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.dataGridView3);
-            this.splitContainer4.Size = new System.Drawing.Size(1132, 780);
+            this.splitContainer4.Size = new System.Drawing.Size(1132, 775);
             this.splitContainer4.SplitterDistance = 186;
             this.splitContainer4.SplitterWidth = 6;
             this.splitContainer4.TabIndex = 0;
             // 
             // btnRefreshManualAllocation
             // 
-            this.btnRefreshManualAllocation.Location = new System.Drawing.Point(20, 197);
+            this.btnRefreshManualAllocation.Location = new System.Drawing.Point(7, 89);
             this.btnRefreshManualAllocation.Margin = new System.Windows.Forms.Padding(4);
             this.btnRefreshManualAllocation.Name = "btnRefreshManualAllocation";
-            this.btnRefreshManualAllocation.Size = new System.Drawing.Size(150, 40);
+            this.btnRefreshManualAllocation.Size = new System.Drawing.Size(118, 56);
             this.btnRefreshManualAllocation.TabIndex = 15;
             this.btnRefreshManualAllocation.Text = "Find";
             this.btnRefreshManualAllocation.UseVisualStyleBackColor = true;
@@ -391,37 +544,27 @@
             // 
             // btnSaveManualAllocation
             // 
-            this.btnSaveManualAllocation.Location = new System.Drawing.Point(20, 256);
+            this.btnSaveManualAllocation.Location = new System.Drawing.Point(7, 153);
             this.btnSaveManualAllocation.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveManualAllocation.Name = "btnSaveManualAllocation";
-            this.btnSaveManualAllocation.Size = new System.Drawing.Size(150, 40);
+            this.btnSaveManualAllocation.Size = new System.Drawing.Size(118, 58);
             this.btnSaveManualAllocation.TabIndex = 14;
             this.btnSaveManualAllocation.Text = "Save";
             this.btnSaveManualAllocation.UseVisualStyleBackColor = true;
             this.btnSaveManualAllocation.Click += new System.EventHandler(this.btnSaveManualAllocation_Click);
             // 
-            // label4
+            // txtLotNo
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 108);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 18);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Lot No";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(20, 142);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(148, 24);
-            this.textBox1.TabIndex = 12;
+            this.txtLotNo.Location = new System.Drawing.Point(10, 45);
+            this.txtLotNo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtLotNo.Name = "txtLotNo";
+            this.txtLotNo.Size = new System.Drawing.Size(115, 24);
+            this.txtLotNo.TabIndex = 12;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 24);
+            this.label5.Location = new System.Drawing.Point(26, 35);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 18);
@@ -430,10 +573,10 @@
             // 
             // txtManualItemCode
             // 
-            this.txtManualItemCode.Location = new System.Drawing.Point(20, 59);
+            this.txtManualItemCode.Location = new System.Drawing.Point(7, 57);
             this.txtManualItemCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtManualItemCode.Name = "txtManualItemCode";
-            this.txtManualItemCode.Size = new System.Drawing.Size(148, 24);
+            this.txtManualItemCode.Size = new System.Drawing.Size(118, 24);
             this.txtManualItemCode.TabIndex = 10;
             // 
             // dataGridView3
@@ -453,8 +596,58 @@
             this.dataGridView3.Location = new System.Drawing.Point(0, 0);
             this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(940, 780);
+            this.dataGridView3.Size = new System.Drawing.Size(940, 775);
             this.dataGridView3.TabIndex = 0;
+            // 
+            // allocationIDDataGridViewTextBoxColumn1
+            // 
+            this.allocationIDDataGridViewTextBoxColumn1.DataPropertyName = "AllocationID";
+            this.allocationIDDataGridViewTextBoxColumn1.HeaderText = "AllocationID";
+            this.allocationIDDataGridViewTextBoxColumn1.Name = "allocationIDDataGridViewTextBoxColumn1";
+            this.allocationIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.allocationIDDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ItemCode";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Item Code";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // sPLotNoDataGridViewTextBoxColumn
+            // 
+            this.sPLotNoDataGridViewTextBoxColumn.DataPropertyName = "SPLotNo";
+            this.sPLotNoDataGridViewTextBoxColumn.HeaderText = "SP Lot No";
+            this.sPLotNoDataGridViewTextBoxColumn.Name = "sPLotNoDataGridViewTextBoxColumn";
+            // 
+            // docketNumDataGridViewTextBoxColumn
+            // 
+            this.docketNumDataGridViewTextBoxColumn.DataPropertyName = "DocketNum";
+            this.docketNumDataGridViewTextBoxColumn.HeaderText = "Docket";
+            this.docketNumDataGridViewTextBoxColumn.Name = "docketNumDataGridViewTextBoxColumn";
+            // 
+            // tonnesDataGridViewTextBoxColumn
+            // 
+            this.tonnesDataGridViewTextBoxColumn.DataPropertyName = "Tonnes";
+            this.tonnesDataGridViewTextBoxColumn.HeaderText = "Tonnes";
+            this.tonnesDataGridViewTextBoxColumn.Name = "tonnesDataGridViewTextBoxColumn";
+            // 
+            // reversalDataGridViewCheckBoxColumn
+            // 
+            this.reversalDataGridViewCheckBoxColumn.DataPropertyName = "Reversal";
+            this.reversalDataGridViewCheckBoxColumn.HeaderText = "Reversal";
+            this.reversalDataGridViewCheckBoxColumn.Name = "reversalDataGridViewCheckBoxColumn";
+            // 
+            // commentDataGridViewTextBoxColumn
+            // 
+            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
+            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
+            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
+            this.commentDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // bsStockpileManualAllocation
+            // 
+            this.bsStockpileManualAllocation.DataMember = "StockpileManualAllocation";
+            this.bsStockpileManualAllocation.DataSource = this.dsTIQ2;
             // 
             // tpBaseItem
             // 
@@ -497,206 +690,6 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(751, 775);
             this.dataGridView2.TabIndex = 1;
-            // 
-            // txtItemCode
-            // 
-            this.txtItemCode.Location = new System.Drawing.Point(159, 24);
-            this.txtItemCode.Name = "txtItemCode";
-            this.txtItemCode.Size = new System.Drawing.Size(100, 24);
-            this.txtItemCode.TabIndex = 0;
-            // 
-            // txtBaseItemCode
-            // 
-            this.txtBaseItemCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsStockpileBOM, "BaseItemCode", true));
-            this.txtBaseItemCode.Location = new System.Drawing.Point(159, 67);
-            this.txtBaseItemCode.Name = "txtBaseItemCode";
-            this.txtBaseItemCode.ReadOnly = true;
-            this.txtBaseItemCode.Size = new System.Drawing.Size(100, 24);
-            this.txtBaseItemCode.TabIndex = 1;
-            // 
-            // btnFindBaseItemCode
-            // 
-            this.btnFindBaseItemCode.Location = new System.Drawing.Point(159, 134);
-            this.btnFindBaseItemCode.Name = "btnFindBaseItemCode";
-            this.btnFindBaseItemCode.Size = new System.Drawing.Size(100, 33);
-            this.btnFindBaseItemCode.TabIndex = 2;
-            this.btnFindBaseItemCode.Text = "Find";
-            this.btnFindBaseItemCode.UseVisualStyleBackColor = true;
-            this.btnFindBaseItemCode.Click += new System.EventHandler(this.btnFindBaseItemCode_Click);
-            // 
-            // btnAddAllocation
-            // 
-            this.btnAddAllocation.Location = new System.Drawing.Point(159, 195);
-            this.btnAddAllocation.Name = "btnAddAllocation";
-            this.btnAddAllocation.Size = new System.Drawing.Size(100, 33);
-            this.btnAddAllocation.TabIndex = 3;
-            this.btnAddAllocation.Text = "Add";
-            this.btnAddAllocation.UseVisualStyleBackColor = true;
-            this.btnAddAllocation.Click += new System.EventHandler(this.btnAddAllocation_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 18);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Item Code";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 70);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(114, 18);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Base Item Code";
-            // 
-            // BaseItemCode
-            // 
-            this.BaseItemCode.DataPropertyName = "BaseItemCode";
-            this.BaseItemCode.HeaderText = "Base Item";
-            this.BaseItemCode.Name = "BaseItemCode";
-            this.BaseItemCode.Width = 150;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.rbAll);
-            this.groupBox1.Controls.Add(this.rbOpen);
-            this.groupBox1.Location = new System.Drawing.Point(34, 25);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 84);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Status Filter";
-            // 
-            // rbOpen
-            // 
-            this.rbOpen.AutoSize = true;
-            this.rbOpen.Location = new System.Drawing.Point(116, 23);
-            this.rbOpen.Name = "rbOpen";
-            this.rbOpen.Size = new System.Drawing.Size(62, 22);
-            this.rbOpen.TabIndex = 0;
-            this.rbOpen.TabStop = true;
-            this.rbOpen.Text = "Open";
-            this.rbOpen.UseVisualStyleBackColor = true;
-            this.rbOpen.CheckedChanged += new System.EventHandler(this.rbOpen_CheckedChanged);
-            // 
-            // rbAll
-            // 
-            this.rbAll.AutoSize = true;
-            this.rbAll.Location = new System.Drawing.Point(116, 52);
-            this.rbAll.Name = "rbAll";
-            this.rbAll.Size = new System.Drawing.Size(41, 22);
-            this.rbAll.TabIndex = 1;
-            this.rbAll.TabStop = true;
-            this.rbAll.Text = "All";
-            this.rbAll.UseVisualStyleBackColor = true;
-            this.rbAll.CheckedChanged += new System.EventHandler(this.rbAll_CheckedChanged);
-            // 
-            // bsStockpileBOM
-            // 
-            this.bsStockpileBOM.DataMember = "StockpileBOM";
-            this.bsStockpileBOM.DataSource = this.dsTIQ2;
-            // 
-            // dsTIQ2
-            // 
-            this.dsTIQ2.DataSetName = "dsTIQ2";
-            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // allocationIDDataGridViewTextBoxColumn
-            // 
-            this.allocationIDDataGridViewTextBoxColumn.DataPropertyName = "AllocationID";
-            this.allocationIDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.allocationIDDataGridViewTextBoxColumn.Name = "allocationIDDataGridViewTextBoxColumn";
-            this.allocationIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.allocationIDDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // mCODataGridViewTextBoxColumn
-            // 
-            this.mCODataGridViewTextBoxColumn.DataPropertyName = "MCO";
-            this.mCODataGridViewTextBoxColumn.HeaderText = "MCO";
-            this.mCODataGridViewTextBoxColumn.Name = "mCODataGridViewTextBoxColumn";
-            this.mCODataGridViewTextBoxColumn.Width = 150;
-            // 
-            // lotNoDataGridViewTextBoxColumn
-            // 
-            this.lotNoDataGridViewTextBoxColumn.DataPropertyName = "LotNo";
-            this.lotNoDataGridViewTextBoxColumn.HeaderText = "Lot No";
-            this.lotNoDataGridViewTextBoxColumn.Name = "lotNoDataGridViewTextBoxColumn";
-            this.lotNoDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // lotStatusDataGridViewTextBoxColumn
-            // 
-            this.lotStatusDataGridViewTextBoxColumn.DataPropertyName = "LotStatus";
-            this.lotStatusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.lotStatusDataGridViewTextBoxColumn.Name = "lotStatusDataGridViewTextBoxColumn";
-            this.lotStatusDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // allocationDTTMDataGridViewTextBoxColumn
-            // 
-            this.allocationDTTMDataGridViewTextBoxColumn.DataPropertyName = "AllocationDTTM";
-            this.allocationDTTMDataGridViewTextBoxColumn.HeaderText = "Allocation DTTM";
-            this.allocationDTTMDataGridViewTextBoxColumn.Name = "allocationDTTMDataGridViewTextBoxColumn";
-            this.allocationDTTMDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // bsStockpileLotAllocation
-            // 
-            this.bsStockpileLotAllocation.DataMember = "StockpileLotAllocation";
-            this.bsStockpileLotAllocation.DataSource = this.dsTIQ2;
-            // 
-            // bsSPLotNoAudit
-            // 
-            this.bsSPLotNoAudit.DataMember = "SPLotNoAudit";
-            this.bsSPLotNoAudit.DataSource = this.dsTIQ2;
-            // 
-            // allocationIDDataGridViewTextBoxColumn1
-            // 
-            this.allocationIDDataGridViewTextBoxColumn1.DataPropertyName = "AllocationID";
-            this.allocationIDDataGridViewTextBoxColumn1.HeaderText = "AllocationID";
-            this.allocationIDDataGridViewTextBoxColumn1.Name = "allocationIDDataGridViewTextBoxColumn1";
-            this.allocationIDDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "ItemCode";
-            this.dataGridViewTextBoxColumn2.HeaderText = "ItemCode";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // sPLotNoDataGridViewTextBoxColumn
-            // 
-            this.sPLotNoDataGridViewTextBoxColumn.DataPropertyName = "SPLotNo";
-            this.sPLotNoDataGridViewTextBoxColumn.HeaderText = "SPLotNo";
-            this.sPLotNoDataGridViewTextBoxColumn.Name = "sPLotNoDataGridViewTextBoxColumn";
-            // 
-            // docketNumDataGridViewTextBoxColumn
-            // 
-            this.docketNumDataGridViewTextBoxColumn.DataPropertyName = "DocketNum";
-            this.docketNumDataGridViewTextBoxColumn.HeaderText = "DocketNum";
-            this.docketNumDataGridViewTextBoxColumn.Name = "docketNumDataGridViewTextBoxColumn";
-            // 
-            // tonnesDataGridViewTextBoxColumn
-            // 
-            this.tonnesDataGridViewTextBoxColumn.DataPropertyName = "Tonnes";
-            this.tonnesDataGridViewTextBoxColumn.HeaderText = "Tonnes";
-            this.tonnesDataGridViewTextBoxColumn.Name = "tonnesDataGridViewTextBoxColumn";
-            // 
-            // reversalDataGridViewCheckBoxColumn
-            // 
-            this.reversalDataGridViewCheckBoxColumn.DataPropertyName = "Reversal";
-            this.reversalDataGridViewCheckBoxColumn.HeaderText = "Reversal";
-            this.reversalDataGridViewCheckBoxColumn.Name = "reversalDataGridViewCheckBoxColumn";
-            // 
-            // commentDataGridViewTextBoxColumn
-            // 
-            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
-            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
-            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
-            // 
-            // bsStockpileManualAllocation
-            // 
-            this.bsStockpileManualAllocation.DataMember = "StockpileManualAllocation";
-            this.bsStockpileManualAllocation.DataSource = this.dsTIQ2;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -763,6 +756,55 @@
             // 
             this.taSPLotItemsMap.ClearBeforeFill = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rbClearFilter);
+            this.groupBox2.Controls.Add(this.rbLotNoFilter);
+            this.groupBox2.Controls.Add(this.txtLotNo);
+            this.groupBox2.Location = new System.Drawing.Point(22, 269);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(133, 142);
+            this.groupBox2.TabIndex = 16;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Lot No Filter";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.txtManualItemCode);
+            this.groupBox3.Controls.Add(this.btnSaveManualAllocation);
+            this.groupBox3.Controls.Add(this.btnRefreshManualAllocation);
+            this.groupBox3.Location = new System.Drawing.Point(22, 18);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(133, 232);
+            this.groupBox3.TabIndex = 17;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Item Allocation";
+            // 
+            // rbLotNoFilter
+            // 
+            this.rbLotNoFilter.AutoSize = true;
+            this.rbLotNoFilter.Location = new System.Drawing.Point(64, 76);
+            this.rbLotNoFilter.Name = "rbLotNoFilter";
+            this.rbLotNoFilter.Size = new System.Drawing.Size(61, 22);
+            this.rbLotNoFilter.TabIndex = 13;
+            this.rbLotNoFilter.TabStop = true;
+            this.rbLotNoFilter.Text = "Apply";
+            this.rbLotNoFilter.UseVisualStyleBackColor = true;
+            this.rbLotNoFilter.CheckedChanged += new System.EventHandler(this.rbLotNoFilter_CheckedChanged);
+            // 
+            // rbClearFilter
+            // 
+            this.rbClearFilter.AutoSize = true;
+            this.rbClearFilter.Location = new System.Drawing.Point(64, 105);
+            this.rbClearFilter.Name = "rbClearFilter";
+            this.rbClearFilter.Size = new System.Drawing.Size(61, 22);
+            this.rbClearFilter.TabIndex = 14;
+            this.rbClearFilter.TabStop = true;
+            this.rbClearFilter.Text = "Clear";
+            this.rbClearFilter.UseVisualStyleBackColor = true;
+            this.rbClearFilter.CheckedChanged += new System.EventHandler(this.rbClearFilter_CheckedChanged);
+            // 
             // SPLotMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -774,6 +816,8 @@
             this.Name = "SPLotMaintenance";
             this.Text = "SPLotMaintenance";
             this.Load += new System.EventHandler(this.SPLotMaintenance_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bsSPLotNoAudit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpSPLots.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -781,11 +825,15 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileBOM)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileLotAllocation)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.tpDockets.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel1.PerformLayout();
@@ -794,25 +842,22 @@
             this.splitContainer3.ResumeLayout(false);
             this.tpManual.ResumeLayout(false);
             this.splitContainer4.Panel1.ResumeLayout(false);
-            this.splitContainer4.Panel1.PerformLayout();
             this.splitContainer4.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileManualAllocation)).EndInit();
             this.tpBaseItem.ResumeLayout(false);
             this.splitContainer5.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
             this.splitContainer5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileBOM)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileLotAllocation)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsSPLotNoAudit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileManualAllocation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotItemsMap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SPLotNoAuditBindingSource)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -848,17 +893,9 @@
         private System.Windows.Forms.BindingSource bsStockpileManualAllocation;
         private dsTIQ2TableAdapters.StockpileManualAllocationTableAdapter taStockpileManualAllocation;
         private System.Windows.Forms.Button btnSaveManualAllocation;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtLotNo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtManualItemCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn allocationIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sPLotNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn docketNumDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tonnesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn reversalDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnRefreshManualAllocation;
         private System.Windows.Forms.BindingSource bsSPLotItemsMap;
         private dsTIQ2TableAdapters.SPLotItemsMapTableAdapter taSPLotItemsMap;
@@ -884,5 +921,16 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rbAll;
         private System.Windows.Forms.RadioButton rbOpen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allocationIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sPLotNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn docketNumDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tonnesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn reversalDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RadioButton rbClearFilter;
+        private System.Windows.Forms.RadioButton rbLotNoFilter;
     }
 }

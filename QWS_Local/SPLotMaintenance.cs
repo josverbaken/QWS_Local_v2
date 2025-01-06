@@ -21,6 +21,7 @@ namespace QWS_Local
         {
             //this.taSPLotItemsMap.Fill(this.dsTIQ2.SPLotItemsMap);
             //this.taStockpileLotAllocation.Fill(this.dsTIQ2.StockpileLotAllocation);
+            tabControl1.TabPages.Remove(tpBaseItem);
         }
 
         private void FindLotsByItemCode()
@@ -204,6 +205,29 @@ namespace QWS_Local
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void rbLotNoFilter_CheckedChanged(object sender, EventArgs e)
+        {
+            if ( rbLotNoFilter.Checked == true)
+            {
+                if (Int32.TryParse(txtLotNo.Text,out Int32 numValue))
+                {
+                    bsStockpileManualAllocation.Filter = "SPLotNo = '" + txtLotNo.Text + "'";
+                }
+                else
+                {
+                    MessageBox.Show("Cannot convert " + txtLotNo.Text + " to an integer!");
+                }                
+            }
+        }
+
+        private void rbClearFilter_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbClearFilter.Checked == true)
+            {
+                bsStockpileManualAllocation.Filter = "";
             }
         }
     }

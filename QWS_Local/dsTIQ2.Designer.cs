@@ -4261,6 +4261,10 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnBaseItemCode;
             
+            private global::System.Data.DataColumn columnSWW;
+            
+            private global::System.Data.DataColumn columnAllocationStatus;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public SPLotNoAuditDataTable() {
@@ -4392,6 +4396,22 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SWWColumn {
+                get {
+                    return this.columnSWW;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AllocationStatusColumn {
+                get {
+                    return this.columnAllocationStatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4427,7 +4447,7 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SPLotNoAuditRow AddSPLotNoAuditRow(int DocNum, int DocketLine, string WarehouseCode, int BaseEntry, string ItemCode, string ItemDescription, bool ItemQA, int ItmsGrpCod, int StockpileLot, decimal Quantity, System.DateTime CreatedDTTM, string BaseItemCode) {
+            public SPLotNoAuditRow AddSPLotNoAuditRow(int DocNum, int DocketLine, string WarehouseCode, int BaseEntry, string ItemCode, string ItemDescription, bool ItemQA, int ItmsGrpCod, int StockpileLot, decimal Quantity, System.DateTime CreatedDTTM, string BaseItemCode, string SWW, string AllocationStatus) {
                 SPLotNoAuditRow rowSPLotNoAuditRow = ((SPLotNoAuditRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DocNum,
@@ -4441,7 +4461,9 @@ namespace QWS_Local {
                         StockpileLot,
                         Quantity,
                         CreatedDTTM,
-                        BaseItemCode};
+                        BaseItemCode,
+                        SWW,
+                        AllocationStatus};
                 rowSPLotNoAuditRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSPLotNoAuditRow);
                 return rowSPLotNoAuditRow;
@@ -4484,6 +4506,8 @@ namespace QWS_Local {
                 this.columnQuantity = base.Columns["Quantity"];
                 this.columnCreatedDTTM = base.Columns["CreatedDTTM"];
                 this.columnBaseItemCode = base.Columns["BaseItemCode"];
+                this.columnSWW = base.Columns["SWW"];
+                this.columnAllocationStatus = base.Columns["AllocationStatus"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4513,6 +4537,10 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnCreatedDTTM);
                 this.columnBaseItemCode = new global::System.Data.DataColumn("BaseItemCode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBaseItemCode);
+                this.columnSWW = new global::System.Data.DataColumn("SWW", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSWW);
+                this.columnAllocationStatus = new global::System.Data.DataColumn("AllocationStatus", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAllocationStatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnDocNum,
                                 this.columnDocketLine}, true));
@@ -4532,6 +4560,10 @@ namespace QWS_Local {
                 this.columnCreatedDTTM.AllowDBNull = false;
                 this.columnBaseItemCode.AllowDBNull = false;
                 this.columnBaseItemCode.MaxLength = 15;
+                this.columnSWW.AllowDBNull = false;
+                this.columnSWW.MaxLength = 15;
+                this.columnAllocationStatus.ReadOnly = true;
+                this.columnAllocationStatus.MaxLength = 1;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7201,6 +7233,45 @@ namespace QWS_Local {
                 set {
                     this[this.tableSPLotNoAudit.BaseItemCodeColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string SWW {
+                get {
+                    return ((string)(this[this.tableSPLotNoAudit.SWWColumn]));
+                }
+                set {
+                    this[this.tableSPLotNoAudit.SWWColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string AllocationStatus {
+                get {
+                    try {
+                        return ((string)(this[this.tableSPLotNoAudit.AllocationStatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AllocationStatus\' in table \'SPLotNoAudit\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit.AllocationStatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsAllocationStatusNull() {
+                return this.IsNull(this.tableSPLotNoAudit.AllocationStatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetAllocationStatusNull() {
+                this[this.tableSPLotNoAudit.AllocationStatusColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -11779,6 +11850,8 @@ SELECT AllocationID, BaseItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM St
             tableMapping.ColumnMappings.Add("Quantity", "Quantity");
             tableMapping.ColumnMappings.Add("CreatedDTTM", "CreatedDTTM");
             tableMapping.ColumnMappings.Add("BaseItemCode", "BaseItemCode");
+            tableMapping.ColumnMappings.Add("SWW", "SWW");
+            tableMapping.ColumnMappings.Add("AllocationStatus", "AllocationStatus");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -12041,10 +12114,11 @@ SELECT AllocationID, ItemCode, SPLotNo, DocketNum, Tonnes, Reversal, Comment FRO
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        AllocationID, ItemCode, SPLotNo, DocketNum, Tonnes, Reversal, Comme" +
-                "nt\r\nFROM            StockpileManualAllocation \r\nwhere ItemCode like @ItemCode";
+            this._commandCollection[1].CommandText = @"SELECT        AllocationID, ItemCode, SPLotNo, DocketNum, Tonnes, Reversal, Comment
+FROM            StockpileManualAllocation
+where ItemCode in (select ItemCode from StockpileBOM where BaseItemCode in (select distinct BaseItemCode from StockpileBOM where ItemCode like @ItemCode))";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemCode", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ItemCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemCode", global::System.Data.SqlDbType.VarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, "ItemCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
