@@ -151,15 +151,11 @@ namespace QWS_Local
                 this.taStockpileManualAllocation.Fill(this.dsTIQ2.StockpileManualAllocation);
             }
         }
-  
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+      
         private void btnFindBaseItemCode_Click(object sender, EventArgs e)
         {
-            FindBaseItemCode();
+            FindBaseItemCode(); // to display for MCO
+            GetStockpileLotAllocations(txtBaseItemCode.Text); // to get existing allocations
         }
 
         private void FindBaseItemCode()

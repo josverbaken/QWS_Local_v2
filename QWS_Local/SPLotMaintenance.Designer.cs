@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.bsSPLotNoAudit = new System.Windows.Forms.BindingSource(this.components);
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -37,7 +37,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAddAllocation = new System.Windows.Forms.Button();
             this.btnFindBaseItemCode = new System.Windows.Forms.Button();
             this.txtBaseItemCode = new System.Windows.Forms.TextBox();
             this.bsStockpileBOM = new System.Windows.Forms.BindingSource(this.components);
@@ -54,7 +53,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbAll = new System.Windows.Forms.RadioButton();
             this.rbOpen = new System.Windows.Forms.RadioButton();
-            this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.tpDockets = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
@@ -66,11 +64,15 @@
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tpManual = new System.Windows.Forms.TabPage();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.btnRefreshManualAllocation = new System.Windows.Forms.Button();
-            this.btnSaveManualAllocation = new System.Windows.Forms.Button();
-            this.txtLotNo = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtManualItemCode = new System.Windows.Forms.TextBox();
+            this.btnSaveManualAllocation = new System.Windows.Forms.Button();
+            this.btnRefreshManualAllocation = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbClearFilter = new System.Windows.Forms.RadioButton();
+            this.rbLotNoFilter = new System.Windows.Forms.RadioButton();
+            this.txtLotNo = new System.Windows.Forms.TextBox();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.allocationIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,10 +96,6 @@
             this.SPLotNoAuditBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.taStockpileManualAllocation = new QWS_Local.dsTIQ2TableAdapters.StockpileManualAllocationTableAdapter();
             this.taSPLotItemsMap = new QWS_Local.dsTIQ2TableAdapters.SPLotItemsMapTableAdapter();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.rbLotNoFilter = new System.Windows.Forms.RadioButton();
-            this.rbClearFilter = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotNoAudit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -124,6 +122,8 @@
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsStockpileManualAllocation)).BeginInit();
             this.tpBaseItem.SuspendLayout();
@@ -133,8 +133,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotItemsMap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SPLotNoAuditBindingSource)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // bsSPLotNoAudit
@@ -184,7 +182,6 @@
             // 
             this.splitContainer1.Panel1.Controls.Add(this.label6);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1.Controls.Add(this.btnAddAllocation);
             this.splitContainer1.Panel1.Controls.Add(this.btnFindBaseItemCode);
             this.splitContainer1.Panel1.Controls.Add(this.txtBaseItemCode);
             this.splitContainer1.Panel1.Controls.Add(this.txtItemCode);
@@ -214,16 +211,6 @@
             this.label1.Size = new System.Drawing.Size(76, 18);
             this.label1.TabIndex = 4;
             this.label1.Text = "Item Code";
-            // 
-            // btnAddAllocation
-            // 
-            this.btnAddAllocation.Location = new System.Drawing.Point(159, 195);
-            this.btnAddAllocation.Name = "btnAddAllocation";
-            this.btnAddAllocation.Size = new System.Drawing.Size(100, 33);
-            this.btnAddAllocation.TabIndex = 3;
-            this.btnAddAllocation.Text = "Add";
-            this.btnAddAllocation.UseVisualStyleBackColor = true;
-            this.btnAddAllocation.Click += new System.EventHandler(this.btnAddAllocation_Click);
             // 
             // btnFindBaseItemCode
             // 
@@ -271,7 +258,6 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer2.Panel2.Controls.Add(this.btnClose);
             this.splitContainer2.Panel2.Controls.Add(this.btnSave);
             this.splitContainer2.Size = new System.Drawing.Size(834, 767);
             this.splitContainer2.SplitterDistance = 383;
@@ -380,17 +366,6 @@
             this.rbOpen.UseVisualStyleBackColor = true;
             this.rbOpen.CheckedChanged += new System.EventHandler(this.rbOpen_CheckedChanged);
             // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(485, 25);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(150, 40);
-            this.btnClose.TabIndex = 6;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(313, 25);
@@ -488,9 +463,9 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource3.Name = "DataSet1";
-            reportDataSource3.Value = this.bsSPLotNoAudit;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
+            reportDataSource2.Name = "DataSet1";
+            reportDataSource2.Value = this.bsSPLotNoAudit;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "QWS_Local.SPLotNoAudit.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Margin = new System.Windows.Forms.Padding(4);
@@ -531,35 +506,18 @@
             this.splitContainer4.SplitterWidth = 6;
             this.splitContainer4.TabIndex = 0;
             // 
-            // btnRefreshManualAllocation
+            // groupBox3
             // 
-            this.btnRefreshManualAllocation.Location = new System.Drawing.Point(7, 89);
-            this.btnRefreshManualAllocation.Margin = new System.Windows.Forms.Padding(4);
-            this.btnRefreshManualAllocation.Name = "btnRefreshManualAllocation";
-            this.btnRefreshManualAllocation.Size = new System.Drawing.Size(118, 56);
-            this.btnRefreshManualAllocation.TabIndex = 15;
-            this.btnRefreshManualAllocation.Text = "Find";
-            this.btnRefreshManualAllocation.UseVisualStyleBackColor = true;
-            this.btnRefreshManualAllocation.Click += new System.EventHandler(this.btnRefreshManualAllocation_Click);
-            // 
-            // btnSaveManualAllocation
-            // 
-            this.btnSaveManualAllocation.Location = new System.Drawing.Point(7, 153);
-            this.btnSaveManualAllocation.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSaveManualAllocation.Name = "btnSaveManualAllocation";
-            this.btnSaveManualAllocation.Size = new System.Drawing.Size(118, 58);
-            this.btnSaveManualAllocation.TabIndex = 14;
-            this.btnSaveManualAllocation.Text = "Save";
-            this.btnSaveManualAllocation.UseVisualStyleBackColor = true;
-            this.btnSaveManualAllocation.Click += new System.EventHandler(this.btnSaveManualAllocation_Click);
-            // 
-            // txtLotNo
-            // 
-            this.txtLotNo.Location = new System.Drawing.Point(10, 45);
-            this.txtLotNo.Margin = new System.Windows.Forms.Padding(4);
-            this.txtLotNo.Name = "txtLotNo";
-            this.txtLotNo.Size = new System.Drawing.Size(115, 24);
-            this.txtLotNo.TabIndex = 12;
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.txtManualItemCode);
+            this.groupBox3.Controls.Add(this.btnSaveManualAllocation);
+            this.groupBox3.Controls.Add(this.btnRefreshManualAllocation);
+            this.groupBox3.Location = new System.Drawing.Point(22, 18);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(133, 232);
+            this.groupBox3.TabIndex = 17;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Item Allocation";
             // 
             // label5
             // 
@@ -578,6 +536,72 @@
             this.txtManualItemCode.Name = "txtManualItemCode";
             this.txtManualItemCode.Size = new System.Drawing.Size(118, 24);
             this.txtManualItemCode.TabIndex = 10;
+            // 
+            // btnSaveManualAllocation
+            // 
+            this.btnSaveManualAllocation.Location = new System.Drawing.Point(7, 153);
+            this.btnSaveManualAllocation.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSaveManualAllocation.Name = "btnSaveManualAllocation";
+            this.btnSaveManualAllocation.Size = new System.Drawing.Size(118, 58);
+            this.btnSaveManualAllocation.TabIndex = 14;
+            this.btnSaveManualAllocation.Text = "Save";
+            this.btnSaveManualAllocation.UseVisualStyleBackColor = true;
+            this.btnSaveManualAllocation.Click += new System.EventHandler(this.btnSaveManualAllocation_Click);
+            // 
+            // btnRefreshManualAllocation
+            // 
+            this.btnRefreshManualAllocation.Location = new System.Drawing.Point(7, 89);
+            this.btnRefreshManualAllocation.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRefreshManualAllocation.Name = "btnRefreshManualAllocation";
+            this.btnRefreshManualAllocation.Size = new System.Drawing.Size(118, 56);
+            this.btnRefreshManualAllocation.TabIndex = 15;
+            this.btnRefreshManualAllocation.Text = "Find";
+            this.btnRefreshManualAllocation.UseVisualStyleBackColor = true;
+            this.btnRefreshManualAllocation.Click += new System.EventHandler(this.btnRefreshManualAllocation_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rbClearFilter);
+            this.groupBox2.Controls.Add(this.rbLotNoFilter);
+            this.groupBox2.Controls.Add(this.txtLotNo);
+            this.groupBox2.Location = new System.Drawing.Point(22, 269);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(133, 142);
+            this.groupBox2.TabIndex = 16;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Lot No Filter";
+            // 
+            // rbClearFilter
+            // 
+            this.rbClearFilter.AutoSize = true;
+            this.rbClearFilter.Location = new System.Drawing.Point(64, 105);
+            this.rbClearFilter.Name = "rbClearFilter";
+            this.rbClearFilter.Size = new System.Drawing.Size(61, 22);
+            this.rbClearFilter.TabIndex = 14;
+            this.rbClearFilter.TabStop = true;
+            this.rbClearFilter.Text = "Clear";
+            this.rbClearFilter.UseVisualStyleBackColor = true;
+            this.rbClearFilter.CheckedChanged += new System.EventHandler(this.rbClearFilter_CheckedChanged);
+            // 
+            // rbLotNoFilter
+            // 
+            this.rbLotNoFilter.AutoSize = true;
+            this.rbLotNoFilter.Location = new System.Drawing.Point(64, 76);
+            this.rbLotNoFilter.Name = "rbLotNoFilter";
+            this.rbLotNoFilter.Size = new System.Drawing.Size(61, 22);
+            this.rbLotNoFilter.TabIndex = 13;
+            this.rbLotNoFilter.TabStop = true;
+            this.rbLotNoFilter.Text = "Apply";
+            this.rbLotNoFilter.UseVisualStyleBackColor = true;
+            this.rbLotNoFilter.CheckedChanged += new System.EventHandler(this.rbLotNoFilter_CheckedChanged);
+            // 
+            // txtLotNo
+            // 
+            this.txtLotNo.Location = new System.Drawing.Point(10, 45);
+            this.txtLotNo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtLotNo.Name = "txtLotNo";
+            this.txtLotNo.Size = new System.Drawing.Size(115, 24);
+            this.txtLotNo.TabIndex = 12;
             // 
             // dataGridView3
             // 
@@ -756,55 +780,6 @@
             // 
             this.taSPLotItemsMap.ClearBeforeFill = true;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.rbClearFilter);
-            this.groupBox2.Controls.Add(this.rbLotNoFilter);
-            this.groupBox2.Controls.Add(this.txtLotNo);
-            this.groupBox2.Location = new System.Drawing.Point(22, 269);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(133, 142);
-            this.groupBox2.TabIndex = 16;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Lot No Filter";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.txtManualItemCode);
-            this.groupBox3.Controls.Add(this.btnSaveManualAllocation);
-            this.groupBox3.Controls.Add(this.btnRefreshManualAllocation);
-            this.groupBox3.Location = new System.Drawing.Point(22, 18);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(133, 232);
-            this.groupBox3.TabIndex = 17;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Item Allocation";
-            // 
-            // rbLotNoFilter
-            // 
-            this.rbLotNoFilter.AutoSize = true;
-            this.rbLotNoFilter.Location = new System.Drawing.Point(64, 76);
-            this.rbLotNoFilter.Name = "rbLotNoFilter";
-            this.rbLotNoFilter.Size = new System.Drawing.Size(61, 22);
-            this.rbLotNoFilter.TabIndex = 13;
-            this.rbLotNoFilter.TabStop = true;
-            this.rbLotNoFilter.Text = "Apply";
-            this.rbLotNoFilter.UseVisualStyleBackColor = true;
-            this.rbLotNoFilter.CheckedChanged += new System.EventHandler(this.rbLotNoFilter_CheckedChanged);
-            // 
-            // rbClearFilter
-            // 
-            this.rbClearFilter.AutoSize = true;
-            this.rbClearFilter.Location = new System.Drawing.Point(64, 105);
-            this.rbClearFilter.Name = "rbClearFilter";
-            this.rbClearFilter.Size = new System.Drawing.Size(61, 22);
-            this.rbClearFilter.TabIndex = 14;
-            this.rbClearFilter.TabStop = true;
-            this.rbClearFilter.Text = "Clear";
-            this.rbClearFilter.UseVisualStyleBackColor = true;
-            this.rbClearFilter.CheckedChanged += new System.EventHandler(this.rbClearFilter_CheckedChanged);
-            // 
             // SPLotMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -845,6 +820,10 @@
             this.splitContainer4.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsStockpileManualAllocation)).EndInit();
             this.tpBaseItem.ResumeLayout(false);
@@ -854,10 +833,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotItemsMap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SPLotNoAuditBindingSource)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -899,10 +874,8 @@
         private System.Windows.Forms.Button btnRefreshManualAllocation;
         private System.Windows.Forms.BindingSource bsSPLotItemsMap;
         private dsTIQ2TableAdapters.SPLotItemsMapTableAdapter taSPLotItemsMap;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnAddAllocation;
         private System.Windows.Forms.Button btnFindBaseItemCode;
         private System.Windows.Forms.TextBox txtBaseItemCode;
         private System.Windows.Forms.TextBox txtItemCode;
