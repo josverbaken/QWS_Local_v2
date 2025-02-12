@@ -4265,6 +4265,14 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnAllocationStatus;
             
+            private global::System.Data.DataColumn columnWarehouseCode1;
+            
+            private global::System.Data.DataColumn columnItemQA1;
+            
+            private global::System.Data.DataColumn columnCardCode;
+            
+            private global::System.Data.DataColumn columnCardName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public SPLotNoAuditDataTable() {
@@ -4412,6 +4420,38 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn WarehouseCode1Column {
+                get {
+                    return this.columnWarehouseCode1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ItemQA1Column {
+                get {
+                    return this.columnItemQA1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CardCodeColumn {
+                get {
+                    return this.columnCardCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CardNameColumn {
+                get {
+                    return this.columnCardName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4447,7 +4487,25 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SPLotNoAuditRow AddSPLotNoAuditRow(int DocNum, int DocketLine, string WarehouseCode, int BaseEntry, string ItemCode, string ItemDescription, bool ItemQA, int ItmsGrpCod, int StockpileLot, decimal Quantity, System.DateTime CreatedDTTM, string BaseItemCode, string SWW, string AllocationStatus) {
+            public SPLotNoAuditRow AddSPLotNoAuditRow(
+                        int DocNum, 
+                        int DocketLine, 
+                        string WarehouseCode, 
+                        int BaseEntry, 
+                        string ItemCode, 
+                        string ItemDescription, 
+                        bool ItemQA, 
+                        int ItmsGrpCod, 
+                        int StockpileLot, 
+                        decimal Quantity, 
+                        System.DateTime CreatedDTTM, 
+                        string BaseItemCode, 
+                        string SWW, 
+                        string AllocationStatus, 
+                        int WarehouseCode1, 
+                        int ItemQA1, 
+                        string CardCode, 
+                        string CardName) {
                 SPLotNoAuditRow rowSPLotNoAuditRow = ((SPLotNoAuditRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DocNum,
@@ -4463,7 +4521,11 @@ namespace QWS_Local {
                         CreatedDTTM,
                         BaseItemCode,
                         SWW,
-                        AllocationStatus};
+                        AllocationStatus,
+                        WarehouseCode1,
+                        ItemQA1,
+                        CardCode,
+                        CardName};
                 rowSPLotNoAuditRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSPLotNoAuditRow);
                 return rowSPLotNoAuditRow;
@@ -4508,6 +4570,10 @@ namespace QWS_Local {
                 this.columnBaseItemCode = base.Columns["BaseItemCode"];
                 this.columnSWW = base.Columns["SWW"];
                 this.columnAllocationStatus = base.Columns["AllocationStatus"];
+                this.columnWarehouseCode1 = base.Columns["WarehouseCode1"];
+                this.columnItemQA1 = base.Columns["ItemQA1"];
+                this.columnCardCode = base.Columns["CardCode"];
+                this.columnCardName = base.Columns["CardName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4541,6 +4607,14 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnSWW);
                 this.columnAllocationStatus = new global::System.Data.DataColumn("AllocationStatus", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAllocationStatus);
+                this.columnWarehouseCode1 = new global::System.Data.DataColumn("WarehouseCode1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWarehouseCode1);
+                this.columnItemQA1 = new global::System.Data.DataColumn("ItemQA1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItemQA1);
+                this.columnCardCode = new global::System.Data.DataColumn("CardCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCardCode);
+                this.columnCardName = new global::System.Data.DataColumn("CardName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCardName);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnDocNum,
                                 this.columnDocketLine}, true));
@@ -4548,22 +4622,21 @@ namespace QWS_Local {
                 this.columnDocketLine.AllowDBNull = false;
                 this.columnWarehouseCode.AllowDBNull = false;
                 this.columnWarehouseCode.MaxLength = 50;
-                this.columnBaseEntry.AllowDBNull = false;
-                this.columnItemCode.AllowDBNull = false;
                 this.columnItemCode.MaxLength = 50;
-                this.columnItemDescription.AllowDBNull = false;
                 this.columnItemDescription.MaxLength = 50;
                 this.columnItemQA.AllowDBNull = false;
-                this.columnItmsGrpCod.AllowDBNull = false;
-                this.columnStockpileLot.AllowDBNull = false;
-                this.columnQuantity.AllowDBNull = false;
-                this.columnCreatedDTTM.AllowDBNull = false;
-                this.columnBaseItemCode.AllowDBNull = false;
                 this.columnBaseItemCode.MaxLength = 15;
-                this.columnSWW.AllowDBNull = false;
                 this.columnSWW.MaxLength = 15;
                 this.columnAllocationStatus.ReadOnly = true;
                 this.columnAllocationStatus.MaxLength = 1;
+                this.columnWarehouseCode1.ReadOnly = true;
+                this.columnWarehouseCode1.Caption = "WarehouseCode";
+                this.columnItemQA1.ReadOnly = true;
+                this.columnItemQA1.Caption = "ItemQA";
+                this.columnCardCode.ReadOnly = true;
+                this.columnCardCode.MaxLength = 15;
+                this.columnCardName.ReadOnly = true;
+                this.columnCardName.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7140,7 +7213,12 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int BaseEntry {
                 get {
-                    return ((int)(this[this.tableSPLotNoAudit.BaseEntryColumn]));
+                    try {
+                        return ((int)(this[this.tableSPLotNoAudit.BaseEntryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BaseEntry\' in table \'SPLotNoAudit\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableSPLotNoAudit.BaseEntryColumn] = value;
@@ -7151,7 +7229,12 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string ItemCode {
                 get {
-                    return ((string)(this[this.tableSPLotNoAudit.ItemCodeColumn]));
+                    try {
+                        return ((string)(this[this.tableSPLotNoAudit.ItemCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemCode\' in table \'SPLotNoAudit\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableSPLotNoAudit.ItemCodeColumn] = value;
@@ -7162,7 +7245,12 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string ItemDescription {
                 get {
-                    return ((string)(this[this.tableSPLotNoAudit.ItemDescriptionColumn]));
+                    try {
+                        return ((string)(this[this.tableSPLotNoAudit.ItemDescriptionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemDescription\' in table \'SPLotNoAudit\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableSPLotNoAudit.ItemDescriptionColumn] = value;
@@ -7184,7 +7272,12 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int ItmsGrpCod {
                 get {
-                    return ((int)(this[this.tableSPLotNoAudit.ItmsGrpCodColumn]));
+                    try {
+                        return ((int)(this[this.tableSPLotNoAudit.ItmsGrpCodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItmsGrpCod\' in table \'SPLotNoAudit\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableSPLotNoAudit.ItmsGrpCodColumn] = value;
@@ -7195,7 +7288,12 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int StockpileLot {
                 get {
-                    return ((int)(this[this.tableSPLotNoAudit.StockpileLotColumn]));
+                    try {
+                        return ((int)(this[this.tableSPLotNoAudit.StockpileLotColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'StockpileLot\' in table \'SPLotNoAudit\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableSPLotNoAudit.StockpileLotColumn] = value;
@@ -7206,7 +7304,12 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal Quantity {
                 get {
-                    return ((decimal)(this[this.tableSPLotNoAudit.QuantityColumn]));
+                    try {
+                        return ((decimal)(this[this.tableSPLotNoAudit.QuantityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Quantity\' in table \'SPLotNoAudit\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableSPLotNoAudit.QuantityColumn] = value;
@@ -7217,7 +7320,12 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime CreatedDTTM {
                 get {
-                    return ((global::System.DateTime)(this[this.tableSPLotNoAudit.CreatedDTTMColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tableSPLotNoAudit.CreatedDTTMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedDTTM\' in table \'SPLotNoAudit\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableSPLotNoAudit.CreatedDTTMColumn] = value;
@@ -7228,7 +7336,12 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string BaseItemCode {
                 get {
-                    return ((string)(this[this.tableSPLotNoAudit.BaseItemCodeColumn]));
+                    try {
+                        return ((string)(this[this.tableSPLotNoAudit.BaseItemCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BaseItemCode\' in table \'SPLotNoAudit\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableSPLotNoAudit.BaseItemCodeColumn] = value;
@@ -7239,7 +7352,12 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string SWW {
                 get {
-                    return ((string)(this[this.tableSPLotNoAudit.SWWColumn]));
+                    try {
+                        return ((string)(this[this.tableSPLotNoAudit.SWWColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SWW\' in table \'SPLotNoAudit\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableSPLotNoAudit.SWWColumn] = value;
@@ -7264,6 +7382,178 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int WarehouseCode1 {
+                get {
+                    try {
+                        return ((int)(this[this.tableSPLotNoAudit.WarehouseCode1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WarehouseCode1\' in table \'SPLotNoAudit\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit.WarehouseCode1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ItemQA1 {
+                get {
+                    try {
+                        return ((int)(this[this.tableSPLotNoAudit.ItemQA1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemQA1\' in table \'SPLotNoAudit\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit.ItemQA1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string CardCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableSPLotNoAudit.CardCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CardCode\' in table \'SPLotNoAudit\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit.CardCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string CardName {
+                get {
+                    try {
+                        return ((string)(this[this.tableSPLotNoAudit.CardNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CardName\' in table \'SPLotNoAudit\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit.CardNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBaseEntryNull() {
+                return this.IsNull(this.tableSPLotNoAudit.BaseEntryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBaseEntryNull() {
+                this[this.tableSPLotNoAudit.BaseEntryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsItemCodeNull() {
+                return this.IsNull(this.tableSPLotNoAudit.ItemCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetItemCodeNull() {
+                this[this.tableSPLotNoAudit.ItemCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsItemDescriptionNull() {
+                return this.IsNull(this.tableSPLotNoAudit.ItemDescriptionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetItemDescriptionNull() {
+                this[this.tableSPLotNoAudit.ItemDescriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsItmsGrpCodNull() {
+                return this.IsNull(this.tableSPLotNoAudit.ItmsGrpCodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetItmsGrpCodNull() {
+                this[this.tableSPLotNoAudit.ItmsGrpCodColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsStockpileLotNull() {
+                return this.IsNull(this.tableSPLotNoAudit.StockpileLotColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetStockpileLotNull() {
+                this[this.tableSPLotNoAudit.StockpileLotColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsQuantityNull() {
+                return this.IsNull(this.tableSPLotNoAudit.QuantityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetQuantityNull() {
+                this[this.tableSPLotNoAudit.QuantityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCreatedDTTMNull() {
+                return this.IsNull(this.tableSPLotNoAudit.CreatedDTTMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCreatedDTTMNull() {
+                this[this.tableSPLotNoAudit.CreatedDTTMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBaseItemCodeNull() {
+                return this.IsNull(this.tableSPLotNoAudit.BaseItemCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBaseItemCodeNull() {
+                this[this.tableSPLotNoAudit.BaseItemCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsSWWNull() {
+                return this.IsNull(this.tableSPLotNoAudit.SWWColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetSWWNull() {
+                this[this.tableSPLotNoAudit.SWWColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsAllocationStatusNull() {
                 return this.IsNull(this.tableSPLotNoAudit.AllocationStatusColumn);
             }
@@ -7272,6 +7562,54 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetAllocationStatusNull() {
                 this[this.tableSPLotNoAudit.AllocationStatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsWarehouseCode1Null() {
+                return this.IsNull(this.tableSPLotNoAudit.WarehouseCode1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetWarehouseCode1Null() {
+                this[this.tableSPLotNoAudit.WarehouseCode1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsItemQA1Null() {
+                return this.IsNull(this.tableSPLotNoAudit.ItemQA1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetItemQA1Null() {
+                this[this.tableSPLotNoAudit.ItemQA1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCardCodeNull() {
+                return this.IsNull(this.tableSPLotNoAudit.CardCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCardCodeNull() {
+                this[this.tableSPLotNoAudit.CardCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCardNameNull() {
+                return this.IsNull(this.tableSPLotNoAudit.CardNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCardNameNull() {
+                this[this.tableSPLotNoAudit.CardNameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -11840,11 +12178,9 @@ SELECT AllocationID, BaseItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM St
             tableMapping.DataSetTable = "SPLotNoAudit";
             tableMapping.ColumnMappings.Add("DocNum", "DocNum");
             tableMapping.ColumnMappings.Add("DocketLine", "DocketLine");
-            tableMapping.ColumnMappings.Add("WarehouseCode", "WarehouseCode");
             tableMapping.ColumnMappings.Add("BaseEntry", "BaseEntry");
             tableMapping.ColumnMappings.Add("ItemCode", "ItemCode");
             tableMapping.ColumnMappings.Add("ItemDescription", "ItemDescription");
-            tableMapping.ColumnMappings.Add("ItemQA", "ItemQA");
             tableMapping.ColumnMappings.Add("ItmsGrpCod", "ItmsGrpCod");
             tableMapping.ColumnMappings.Add("StockpileLot", "StockpileLot");
             tableMapping.ColumnMappings.Add("Quantity", "Quantity");
@@ -11852,6 +12188,10 @@ SELECT AllocationID, BaseItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM St
             tableMapping.ColumnMappings.Add("BaseItemCode", "BaseItemCode");
             tableMapping.ColumnMappings.Add("SWW", "SWW");
             tableMapping.ColumnMappings.Add("AllocationStatus", "AllocationStatus");
+            tableMapping.ColumnMappings.Add("WarehouseCode", "WarehouseCode1");
+            tableMapping.ColumnMappings.Add("ItemQA", "ItemQA1");
+            tableMapping.ColumnMappings.Add("CardCode", "CardCode");
+            tableMapping.ColumnMappings.Add("CardName", "CardName");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

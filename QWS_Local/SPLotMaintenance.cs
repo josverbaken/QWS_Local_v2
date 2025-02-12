@@ -19,9 +19,7 @@ namespace QWS_Local
 
         private void SPLotMaintenance_Load(object sender, EventArgs e)
         {
-            //this.taSPLotItemsMap.Fill(this.dsTIQ2.SPLotItemsMap);
-            //this.taStockpileLotAllocation.Fill(this.dsTIQ2.StockpileLotAllocation);
-            tabControl1.TabPages.Remove(tpBaseItem);
+            //tabControl1.TabPages.Remove(tpBaseItem);
         }
 
         private void FindLotsByItemCode()
@@ -224,6 +222,23 @@ namespace QWS_Local
             if (rbClearFilter.Checked == true)
             {
                 bsStockpileManualAllocation.Filter = "";
+            }
+        }
+
+        private void btnFindAll_Click(object sender, EventArgs e)
+        {
+            GetAllStockpileLotAllocations();
+        }
+
+        private void GetAllStockpileLotAllocations()
+        {
+            try
+            {
+                taStockpileLotAllocation.Fill(dsTIQ2.StockpileLotAllocation);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

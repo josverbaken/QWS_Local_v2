@@ -709,11 +709,9 @@ where BaseItemCode like (select BaseItemCode from StockpileBOM where ItemCode li
             <Mappings>
               <Mapping SourceColumn="DocNum" DataSetColumn="DocNum" />
               <Mapping SourceColumn="DocketLine" DataSetColumn="DocketLine" />
-              <Mapping SourceColumn="WarehouseCode" DataSetColumn="WarehouseCode" />
               <Mapping SourceColumn="BaseEntry" DataSetColumn="BaseEntry" />
               <Mapping SourceColumn="ItemCode" DataSetColumn="ItemCode" />
               <Mapping SourceColumn="ItemDescription" DataSetColumn="ItemDescription" />
-              <Mapping SourceColumn="ItemQA" DataSetColumn="ItemQA" />
               <Mapping SourceColumn="ItmsGrpCod" DataSetColumn="ItmsGrpCod" />
               <Mapping SourceColumn="StockpileLot" DataSetColumn="StockpileLot" />
               <Mapping SourceColumn="Quantity" DataSetColumn="Quantity" />
@@ -721,6 +719,10 @@ where BaseItemCode like (select BaseItemCode from StockpileBOM where ItemCode li
               <Mapping SourceColumn="BaseItemCode" DataSetColumn="BaseItemCode" />
               <Mapping SourceColumn="SWW" DataSetColumn="SWW" />
               <Mapping SourceColumn="AllocationStatus" DataSetColumn="AllocationStatus" />
+              <Mapping SourceColumn="WarehouseCode" DataSetColumn="WarehouseCode1" />
+              <Mapping SourceColumn="ItemQA" DataSetColumn="ItemQA1" />
+              <Mapping SourceColumn="CardCode" DataSetColumn="CardCode" />
+              <Mapping SourceColumn="CardName" DataSetColumn="CardName" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -1350,8 +1352,8 @@ FROM            SPLotItemsMap</CommandText>
         <xs:element name="SPLotNoAudit" msprop:Generator_RowEvHandlerName="SPLotNoAuditRowChangeEventHandler" msprop:Generator_RowDeletedName="SPLotNoAuditRowDeleted" msprop:Generator_RowDeletingName="SPLotNoAuditRowDeleting" msprop:Generator_RowEvArgName="SPLotNoAuditRowChangeEvent" msprop:Generator_TablePropName="SPLotNoAudit" msprop:Generator_RowChangedName="SPLotNoAuditRowChanged" msprop:Generator_UserTableName="SPLotNoAudit" msprop:Generator_RowChangingName="SPLotNoAuditRowChanging" msprop:Generator_RowClassName="SPLotNoAuditRow" msprop:Generator_TableClassName="SPLotNoAuditDataTable" msprop:Generator_TableVarName="tableSPLotNoAudit">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="DocNum" msprop:Generator_ColumnPropNameInTable="DocNumColumn" msprop:Generator_ColumnPropNameInRow="DocNum" msprop:Generator_UserColumnName="DocNum" msprop:Generator_ColumnVarNameInTable="columnDocNum" type="xs:int" />
-              <xs:element name="DocketLine" msprop:Generator_ColumnPropNameInTable="DocketLineColumn" msprop:Generator_ColumnPropNameInRow="DocketLine" msprop:Generator_UserColumnName="DocketLine" msprop:Generator_ColumnVarNameInTable="columnDocketLine" type="xs:int" />
+              <xs:element name="DocNum" msprop:Generator_ColumnPropNameInTable="DocNumColumn" msprop:Generator_ColumnPropNameInRow="DocNum" msprop:Generator_UserColumnName="DocNum" msprop:Generator_ColumnVarNameInTable="columnDocNum" type="xs:int" minOccurs="0" />
+              <xs:element name="DocketLine" msprop:Generator_ColumnPropNameInTable="DocketLineColumn" msprop:Generator_ColumnPropNameInRow="DocketLine" msprop:Generator_UserColumnName="DocketLine" msprop:Generator_ColumnVarNameInTable="columnDocketLine" type="xs:int" minOccurs="0" />
               <xs:element name="WarehouseCode" msprop:Generator_ColumnPropNameInTable="WarehouseCodeColumn" msprop:Generator_ColumnPropNameInRow="WarehouseCode" msprop:Generator_UserColumnName="WarehouseCode" msprop:Generator_ColumnVarNameInTable="columnWarehouseCode">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -1359,15 +1361,15 @@ FROM            SPLotItemsMap</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="BaseEntry" msprop:Generator_ColumnPropNameInTable="BaseEntryColumn" msprop:Generator_ColumnPropNameInRow="BaseEntry" msprop:Generator_UserColumnName="BaseEntry" msprop:Generator_ColumnVarNameInTable="columnBaseEntry" type="xs:int" />
-              <xs:element name="ItemCode" msprop:Generator_ColumnPropNameInTable="ItemCodeColumn" msprop:Generator_ColumnPropNameInRow="ItemCode" msprop:Generator_UserColumnName="ItemCode" msprop:Generator_ColumnVarNameInTable="columnItemCode">
+              <xs:element name="BaseEntry" msprop:Generator_ColumnPropNameInTable="BaseEntryColumn" msprop:Generator_ColumnPropNameInRow="BaseEntry" msprop:Generator_UserColumnName="BaseEntry" msprop:Generator_ColumnVarNameInTable="columnBaseEntry" type="xs:int" minOccurs="0" />
+              <xs:element name="ItemCode" msprop:Generator_ColumnPropNameInTable="ItemCodeColumn" msprop:Generator_ColumnPropNameInRow="ItemCode" msprop:Generator_UserColumnName="ItemCode" msprop:Generator_ColumnVarNameInTable="columnItemCode" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ItemDescription" msprop:Generator_ColumnPropNameInTable="ItemDescriptionColumn" msprop:Generator_ColumnPropNameInRow="ItemDescription" msprop:Generator_UserColumnName="ItemDescription" msprop:Generator_ColumnVarNameInTable="columnItemDescription">
+              <xs:element name="ItemDescription" msprop:Generator_ColumnPropNameInTable="ItemDescriptionColumn" msprop:Generator_ColumnPropNameInRow="ItemDescription" msprop:Generator_UserColumnName="ItemDescription" msprop:Generator_ColumnVarNameInTable="columnItemDescription" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -1375,28 +1377,44 @@ FROM            SPLotItemsMap</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="ItemQA" msprop:Generator_ColumnPropNameInTable="ItemQAColumn" msprop:Generator_ColumnPropNameInRow="ItemQA" msprop:Generator_UserColumnName="ItemQA" msprop:Generator_ColumnVarNameInTable="columnItemQA" type="xs:boolean" />
-              <xs:element name="ItmsGrpCod" msprop:Generator_ColumnPropNameInTable="ItmsGrpCodColumn" msprop:Generator_ColumnPropNameInRow="ItmsGrpCod" msprop:Generator_UserColumnName="ItmsGrpCod" msprop:Generator_ColumnVarNameInTable="columnItmsGrpCod" type="xs:int" />
-              <xs:element name="StockpileLot" msprop:Generator_ColumnPropNameInTable="StockpileLotColumn" msprop:Generator_ColumnPropNameInRow="StockpileLot" msprop:Generator_UserColumnName="StockpileLot" msprop:Generator_ColumnVarNameInTable="columnStockpileLot" type="xs:int" />
-              <xs:element name="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_UserColumnName="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" type="xs:decimal" />
-              <xs:element name="CreatedDTTM" msprop:Generator_ColumnPropNameInTable="CreatedDTTMColumn" msprop:Generator_ColumnPropNameInRow="CreatedDTTM" msprop:Generator_UserColumnName="CreatedDTTM" msprop:Generator_ColumnVarNameInTable="columnCreatedDTTM" type="xs:dateTime" />
-              <xs:element name="BaseItemCode" msprop:Generator_ColumnPropNameInTable="BaseItemCodeColumn" msprop:Generator_ColumnPropNameInRow="BaseItemCode" msprop:Generator_UserColumnName="BaseItemCode" msprop:Generator_ColumnVarNameInTable="columnBaseItemCode">
+              <xs:element name="ItmsGrpCod" msprop:Generator_ColumnPropNameInTable="ItmsGrpCodColumn" msprop:Generator_ColumnPropNameInRow="ItmsGrpCod" msprop:Generator_UserColumnName="ItmsGrpCod" msprop:Generator_ColumnVarNameInTable="columnItmsGrpCod" type="xs:int" minOccurs="0" />
+              <xs:element name="StockpileLot" msprop:Generator_ColumnPropNameInTable="StockpileLotColumn" msprop:Generator_ColumnPropNameInRow="StockpileLot" msprop:Generator_UserColumnName="StockpileLot" msprop:Generator_ColumnVarNameInTable="columnStockpileLot" type="xs:int" minOccurs="0" />
+              <xs:element name="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_UserColumnName="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CreatedDTTM" msprop:Generator_ColumnPropNameInTable="CreatedDTTMColumn" msprop:Generator_ColumnPropNameInRow="CreatedDTTM" msprop:Generator_UserColumnName="CreatedDTTM" msprop:Generator_ColumnVarNameInTable="columnCreatedDTTM" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="BaseItemCode" msprop:Generator_ColumnPropNameInTable="BaseItemCodeColumn" msprop:Generator_ColumnPropNameInRow="BaseItemCode" msprop:Generator_UserColumnName="BaseItemCode" msprop:Generator_ColumnVarNameInTable="columnBaseItemCode" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="15" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SWW" msprop:Generator_UserColumnName="SWW" msprop:Generator_ColumnPropNameInTable="SWWColumn" msprop:Generator_ColumnPropNameInRow="SWW" msprop:Generator_ColumnVarNameInTable="columnSWW">
+              <xs:element name="SWW" msprop:Generator_ColumnPropNameInTable="SWWColumn" msprop:Generator_ColumnPropNameInRow="SWW" msprop:Generator_UserColumnName="SWW" msprop:Generator_ColumnVarNameInTable="columnSWW" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="15" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="AllocationStatus" msdata:ReadOnly="true" msprop:Generator_UserColumnName="AllocationStatus" msprop:Generator_ColumnPropNameInTable="AllocationStatusColumn" msprop:Generator_ColumnPropNameInRow="AllocationStatus" msprop:Generator_ColumnVarNameInTable="columnAllocationStatus" minOccurs="0">
+              <xs:element name="AllocationStatus" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="AllocationStatusColumn" msprop:Generator_ColumnPropNameInRow="AllocationStatus" msprop:Generator_UserColumnName="AllocationStatus" msprop:Generator_ColumnVarNameInTable="columnAllocationStatus" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WarehouseCode1" msdata:ReadOnly="true" msdata:Caption="WarehouseCode" msprop:Generator_ColumnPropNameInRow="WarehouseCode1" msprop:Generator_ColumnPropNameInTable="WarehouseCode1Column" msprop:Generator_ColumnVarNameInTable="columnWarehouseCode1" msprop:Generator_UserColumnName="WarehouseCode1" type="xs:int" minOccurs="0" />
+              <xs:element name="ItemQA1" msdata:ReadOnly="true" msdata:Caption="ItemQA" msprop:Generator_ColumnPropNameInRow="ItemQA1" msprop:Generator_ColumnPropNameInTable="ItemQA1Column" msprop:Generator_ColumnVarNameInTable="columnItemQA1" msprop:Generator_UserColumnName="ItemQA1" type="xs:int" minOccurs="0" />
+              <xs:element name="CardCode" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="CardCode" msprop:Generator_ColumnPropNameInTable="CardCodeColumn" msprop:Generator_ColumnVarNameInTable="columnCardCode" msprop:Generator_UserColumnName="CardCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CardName" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="CardName" msprop:Generator_ColumnPropNameInTable="CardNameColumn" msprop:Generator_ColumnVarNameInTable="columnCardName" msprop:Generator_UserColumnName="CardName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1498,7 +1516,7 @@ FROM            SPLotItemsMap</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_WBDocketLines_WBDockets" msdata:parent="WBDockets" msdata:child="WBDocketLines" msdata:parentkey="DocNum" msdata:childkey="DocNum" msprop:Generator_UserParentTable="WBDockets" msprop:Generator_UserChildTable="WBDocketLines" msprop:Generator_RelationVarName="relationFK_WBDocketLines_WBDockets" msprop:Generator_ChildPropName="GetWBDocketLinesRows" msprop:Generator_ParentPropName="WBDocketsRow" msprop:Generator_UserRelationName="FK_WBDocketLines_WBDockets" />
+      <msdata:Relationship name="FK_WBDocketLines_WBDockets" msdata:parent="WBDockets" msdata:child="WBDocketLines" msdata:parentkey="DocNum" msdata:childkey="DocNum" msprop:Generator_UserParentTable="WBDockets" msprop:Generator_UserChildTable="WBDocketLines" msprop:Generator_RelationVarName="relationFK_WBDocketLines_WBDockets" msprop:Generator_ChildPropName="GetWBDocketLinesRows" msprop:Generator_UserRelationName="FK_WBDocketLines_WBDockets" msprop:Generator_ParentPropName="WBDocketsRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
