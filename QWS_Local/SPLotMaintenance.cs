@@ -48,16 +48,23 @@ namespace QWS_Local
 
         private void btnGetReportData_Click(object sender, EventArgs e)
         {
-            GetReportData();
+            GetReportData(true);
         }
 
-        private void GetReportData()
+        private void GetReportData(bool ByLotNo)
         {
             try
             {
-                int SPLotNo;
-                SPLotNo = System.Convert.ToInt32(txtSPLotNo.Text);
-                this.taSPLotNoAudit.Fill(this.dsTIQ2.SPLotNoAudit, txtItem2Report.Text, SPLotNo);
+                if (ByLotNo == true)
+                {
+                    int SPLotNo;
+                    SPLotNo = System.Convert.ToInt32(txtSPLotNo.Text);
+                    this.taSPLotNoAudit.Fill(this.dsTIQ2.SPLotNoAudit, txtItem2Report.Text, SPLotNo);
+                }
+                else
+                {
+                    this.taSPLotNoAudit.FillByItemCode(this.dsTIQ2.SPLotNoAudit, txtItem2Report.Text);
+                }
                 reportViewer1.RefreshReport();
             }
             catch (Exception ex)
@@ -240,6 +247,59 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnBaseItemMapping_Click(object sender, EventArgs e)
+        {
+            taSPLotItemsMap.Fill(dsTIQ2.SPLotItemsMap);
+        }
+
+        private void btnSaveBaseItemMapping_Click(object sender, EventArgs e)
+        {
+            //taSPLotItemsMap
+            // TODO add update method to data adaptor
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            dsTIQ2.SPLotItemsMap.Clear();
+        }
+
+        private void btnFindAllDockets_Click(object sender, EventArgs e)
+        {
+            GetReportData(false);
+        }
+
+        private void btnAddAllocation_Click_1(object sender, EventArgs e)
+        {            
+            AddAllocation();
+        }
+
+        private void AddAllocation()
+        {
+            MessageBox.Show("Add new record.");
+            // check docket number exists and not allocated already
+            // get ItemCode from Docket
+            // create new record
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int DocNum2Check = -99;
+            DocNum2Check = System.Convert.ToInt32(txtDocNum2Check.Text);
+            CheckDocNumAllocation(DocNum2Check);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void CheckDocNumAllocation(int DocNum)
+        {
+            MessageBox.Show("Checking docket");
         }
     }
 }
