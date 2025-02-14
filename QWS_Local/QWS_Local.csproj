@@ -332,6 +332,7 @@
     <Compile Include="ItemSearch.Designer.cs">
       <DependentUpon>ItemSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="WeighbridgeRead.cs" />
     <Compile Include="NHVR_GVM.cs">
       <SubType>Form</SubType>
     </Compile>

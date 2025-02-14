@@ -107,9 +107,15 @@ namespace QWS_Local
 
         private void WBn_CheckChanged(object sender, EventArgs e)
         {
+            decimal myWeight = 99.99M;
                 if (rbWB1.Checked == true)
                 {
                     txtWBInfo.Text = "Getting weight from WB1";
+                WeighbridgeRead weighbridgeRead = new WeighbridgeRead();
+                weighbridgeRead.ReadWeighbridge("NQWB1");
+                myWeight = weighbridgeRead.getCurrentWeight();
+                weighbridgeRead.StopMonitoring();
+                mtxtWeight.Text = myWeight.ToString();
                 }
                 else if (rbWB2.Checked == true)
                 {
