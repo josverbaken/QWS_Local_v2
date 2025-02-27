@@ -44,6 +44,8 @@ namespace QWS_Local {
         
         private SPLotItemsMapDataTable tableSPLotItemsMap;
         
+        private SPLotNoAudit1DataTable tableSPLotNoAudit1;
+        
         private global::System.Data.DataRelation relationFK_WBDocketLines_WBDockets;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
@@ -103,6 +105,9 @@ namespace QWS_Local {
                 }
                 if ((ds.Tables["SPLotItemsMap"] != null)) {
                     base.Tables.Add(new SPLotItemsMapDataTable(ds.Tables["SPLotItemsMap"]));
+                }
+                if ((ds.Tables["SPLotNoAudit1"] != null)) {
+                    base.Tables.Add(new SPLotNoAudit1DataTable(ds.Tables["SPLotNoAudit1"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -224,6 +229,16 @@ namespace QWS_Local {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public SPLotNoAudit1DataTable SPLotNoAudit1 {
+            get {
+                return this.tableSPLotNoAudit1;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -319,6 +334,9 @@ namespace QWS_Local {
                 if ((ds.Tables["SPLotItemsMap"] != null)) {
                     base.Tables.Add(new SPLotItemsMapDataTable(ds.Tables["SPLotItemsMap"]));
                 }
+                if ((ds.Tables["SPLotNoAudit1"] != null)) {
+                    base.Tables.Add(new SPLotNoAudit1DataTable(ds.Tables["SPLotNoAudit1"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -412,6 +430,12 @@ namespace QWS_Local {
                     this.tableSPLotItemsMap.InitVars();
                 }
             }
+            this.tableSPLotNoAudit1 = ((SPLotNoAudit1DataTable)(base.Tables["SPLotNoAudit1"]));
+            if ((initTable == true)) {
+                if ((this.tableSPLotNoAudit1 != null)) {
+                    this.tableSPLotNoAudit1.InitVars();
+                }
+            }
             this.relationFK_WBDocketLines_WBDockets = this.Relations["FK_WBDocketLines_WBDockets"];
         }
         
@@ -443,6 +467,8 @@ namespace QWS_Local {
             base.Tables.Add(this.tableStockpileManualAllocation);
             this.tableSPLotItemsMap = new SPLotItemsMapDataTable();
             base.Tables.Add(this.tableSPLotItemsMap);
+            this.tableSPLotNoAudit1 = new SPLotNoAudit1DataTable();
+            base.Tables.Add(this.tableSPLotNoAudit1);
             this.relationFK_WBDocketLines_WBDockets = new global::System.Data.DataRelation("FK_WBDocketLines_WBDockets", new global::System.Data.DataColumn[] {
                         this.tableWBDockets.DocNumColumn}, new global::System.Data.DataColumn[] {
                         this.tableWBDocketLines.DocNumColumn}, false);
@@ -506,6 +532,12 @@ namespace QWS_Local {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeSPLotItemsMap() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeSPLotNoAudit1() {
             return false;
         }
         
@@ -593,6 +625,9 @@ namespace QWS_Local {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void SPLotItemsMapRowChangeEventHandler(object sender, SPLotItemsMapRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void SPLotNoAudit1RowChangeEventHandler(object sender, SPLotNoAudit1RowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -4265,13 +4300,13 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnAllocationStatus;
             
-            private global::System.Data.DataColumn columnWarehouseCode1;
-            
-            private global::System.Data.DataColumn columnItemQA1;
-            
             private global::System.Data.DataColumn columnCardCode;
             
             private global::System.Data.DataColumn columnCardName;
+            
+            private global::System.Data.DataColumn columnComment;
+            
+            private global::System.Data.DataColumn columnReversal;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -4420,22 +4455,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn WarehouseCode1Column {
-                get {
-                    return this.columnWarehouseCode1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ItemQA1Column {
-                get {
-                    return this.columnItemQA1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn CardCodeColumn {
                 get {
                     return this.columnCardCode;
@@ -4447,6 +4466,22 @@ namespace QWS_Local {
             public global::System.Data.DataColumn CardNameColumn {
                 get {
                     return this.columnCardName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CommentColumn {
+                get {
+                    return this.columnComment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ReversalColumn {
+                get {
+                    return this.columnReversal;
                 }
             }
             
@@ -4502,10 +4537,10 @@ namespace QWS_Local {
                         string BaseItemCode, 
                         string SWW, 
                         string AllocationStatus, 
-                        int WarehouseCode1, 
-                        int ItemQA1, 
                         string CardCode, 
-                        string CardName) {
+                        string CardName, 
+                        string Comment, 
+                        bool Reversal) {
                 SPLotNoAuditRow rowSPLotNoAuditRow = ((SPLotNoAuditRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DocNum,
@@ -4522,10 +4557,10 @@ namespace QWS_Local {
                         BaseItemCode,
                         SWW,
                         AllocationStatus,
-                        WarehouseCode1,
-                        ItemQA1,
                         CardCode,
-                        CardName};
+                        CardName,
+                        Comment,
+                        Reversal};
                 rowSPLotNoAuditRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSPLotNoAuditRow);
                 return rowSPLotNoAuditRow;
@@ -4570,10 +4605,10 @@ namespace QWS_Local {
                 this.columnBaseItemCode = base.Columns["BaseItemCode"];
                 this.columnSWW = base.Columns["SWW"];
                 this.columnAllocationStatus = base.Columns["AllocationStatus"];
-                this.columnWarehouseCode1 = base.Columns["WarehouseCode1"];
-                this.columnItemQA1 = base.Columns["ItemQA1"];
                 this.columnCardCode = base.Columns["CardCode"];
                 this.columnCardName = base.Columns["CardName"];
+                this.columnComment = base.Columns["Comment"];
+                this.columnReversal = base.Columns["Reversal"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4607,14 +4642,14 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnSWW);
                 this.columnAllocationStatus = new global::System.Data.DataColumn("AllocationStatus", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAllocationStatus);
-                this.columnWarehouseCode1 = new global::System.Data.DataColumn("WarehouseCode1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWarehouseCode1);
-                this.columnItemQA1 = new global::System.Data.DataColumn("ItemQA1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnItemQA1);
                 this.columnCardCode = new global::System.Data.DataColumn("CardCode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCardCode);
                 this.columnCardName = new global::System.Data.DataColumn("CardName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCardName);
+                this.columnComment = new global::System.Data.DataColumn("Comment", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnComment);
+                this.columnReversal = new global::System.Data.DataColumn("Reversal", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReversal);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnDocNum,
                                 this.columnDocketLine}, true));
@@ -4629,10 +4664,6 @@ namespace QWS_Local {
                 this.columnSWW.MaxLength = 15;
                 this.columnAllocationStatus.ReadOnly = true;
                 this.columnAllocationStatus.MaxLength = 1;
-                this.columnWarehouseCode1.ReadOnly = true;
-                this.columnWarehouseCode1.Caption = "WarehouseCode";
-                this.columnItemQA1.ReadOnly = true;
-                this.columnItemQA1.Caption = "ItemQA";
                 this.columnCardCode.ReadOnly = true;
                 this.columnCardCode.MaxLength = 15;
                 this.columnCardName.ReadOnly = true;
@@ -5368,6 +5399,535 @@ namespace QWS_Local {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "SPLotItemsMapDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class SPLotNoAudit1DataTable : global::System.Data.TypedTableBase<SPLotNoAudit1Row> {
+            
+            private global::System.Data.DataColumn columnDocNum;
+            
+            private global::System.Data.DataColumn columnDocketLine;
+            
+            private global::System.Data.DataColumn columnWarehouseCode;
+            
+            private global::System.Data.DataColumn columnBaseEntry;
+            
+            private global::System.Data.DataColumn columnItemCode;
+            
+            private global::System.Data.DataColumn columnItemDescription;
+            
+            private global::System.Data.DataColumn columnItemQA;
+            
+            private global::System.Data.DataColumn columnItmsGrpCod;
+            
+            private global::System.Data.DataColumn columnSWW;
+            
+            private global::System.Data.DataColumn columnStockpileLot;
+            
+            private global::System.Data.DataColumn columnQuantity;
+            
+            private global::System.Data.DataColumn columnCreatedDTTM;
+            
+            private global::System.Data.DataColumn columnCardCode;
+            
+            private global::System.Data.DataColumn columnCardName;
+            
+            private global::System.Data.DataColumn columnBaseItemCode;
+            
+            private global::System.Data.DataColumn columnAllocationStatus;
+            
+            private global::System.Data.DataColumn columnComment;
+            
+            private global::System.Data.DataColumn columnReversal;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SPLotNoAudit1DataTable() {
+                this.TableName = "SPLotNoAudit1";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal SPLotNoAudit1DataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected SPLotNoAudit1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DocNumColumn {
+                get {
+                    return this.columnDocNum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DocketLineColumn {
+                get {
+                    return this.columnDocketLine;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn WarehouseCodeColumn {
+                get {
+                    return this.columnWarehouseCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BaseEntryColumn {
+                get {
+                    return this.columnBaseEntry;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ItemCodeColumn {
+                get {
+                    return this.columnItemCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ItemDescriptionColumn {
+                get {
+                    return this.columnItemDescription;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ItemQAColumn {
+                get {
+                    return this.columnItemQA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ItmsGrpCodColumn {
+                get {
+                    return this.columnItmsGrpCod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SWWColumn {
+                get {
+                    return this.columnSWW;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn StockpileLotColumn {
+                get {
+                    return this.columnStockpileLot;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn QuantityColumn {
+                get {
+                    return this.columnQuantity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CreatedDTTMColumn {
+                get {
+                    return this.columnCreatedDTTM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CardCodeColumn {
+                get {
+                    return this.columnCardCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CardNameColumn {
+                get {
+                    return this.columnCardName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BaseItemCodeColumn {
+                get {
+                    return this.columnBaseItemCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AllocationStatusColumn {
+                get {
+                    return this.columnAllocationStatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CommentColumn {
+                get {
+                    return this.columnComment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ReversalColumn {
+                get {
+                    return this.columnReversal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SPLotNoAudit1Row this[int index] {
+                get {
+                    return ((SPLotNoAudit1Row)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event SPLotNoAudit1RowChangeEventHandler SPLotNoAudit1RowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event SPLotNoAudit1RowChangeEventHandler SPLotNoAudit1RowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event SPLotNoAudit1RowChangeEventHandler SPLotNoAudit1RowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event SPLotNoAudit1RowChangeEventHandler SPLotNoAudit1RowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddSPLotNoAudit1Row(SPLotNoAudit1Row row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SPLotNoAudit1Row AddSPLotNoAudit1Row(
+                        int DocNum, 
+                        int DocketLine, 
+                        int WarehouseCode, 
+                        int BaseEntry, 
+                        string ItemCode, 
+                        string ItemDescription, 
+                        bool ItemQA, 
+                        int ItmsGrpCod, 
+                        string SWW, 
+                        int StockpileLot, 
+                        decimal Quantity, 
+                        System.DateTime CreatedDTTM, 
+                        string CardCode, 
+                        string CardName, 
+                        string BaseItemCode, 
+                        string AllocationStatus, 
+                        string Comment, 
+                        bool Reversal) {
+                SPLotNoAudit1Row rowSPLotNoAudit1Row = ((SPLotNoAudit1Row)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        DocNum,
+                        DocketLine,
+                        WarehouseCode,
+                        BaseEntry,
+                        ItemCode,
+                        ItemDescription,
+                        ItemQA,
+                        ItmsGrpCod,
+                        SWW,
+                        StockpileLot,
+                        Quantity,
+                        CreatedDTTM,
+                        CardCode,
+                        CardName,
+                        BaseItemCode,
+                        AllocationStatus,
+                        Comment,
+                        Reversal};
+                rowSPLotNoAudit1Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSPLotNoAudit1Row);
+                return rowSPLotNoAudit1Row;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                SPLotNoAudit1DataTable cln = ((SPLotNoAudit1DataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new SPLotNoAudit1DataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnDocNum = base.Columns["DocNum"];
+                this.columnDocketLine = base.Columns["DocketLine"];
+                this.columnWarehouseCode = base.Columns["WarehouseCode"];
+                this.columnBaseEntry = base.Columns["BaseEntry"];
+                this.columnItemCode = base.Columns["ItemCode"];
+                this.columnItemDescription = base.Columns["ItemDescription"];
+                this.columnItemQA = base.Columns["ItemQA"];
+                this.columnItmsGrpCod = base.Columns["ItmsGrpCod"];
+                this.columnSWW = base.Columns["SWW"];
+                this.columnStockpileLot = base.Columns["StockpileLot"];
+                this.columnQuantity = base.Columns["Quantity"];
+                this.columnCreatedDTTM = base.Columns["CreatedDTTM"];
+                this.columnCardCode = base.Columns["CardCode"];
+                this.columnCardName = base.Columns["CardName"];
+                this.columnBaseItemCode = base.Columns["BaseItemCode"];
+                this.columnAllocationStatus = base.Columns["AllocationStatus"];
+                this.columnComment = base.Columns["Comment"];
+                this.columnReversal = base.Columns["Reversal"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnDocNum = new global::System.Data.DataColumn("DocNum", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDocNum);
+                this.columnDocketLine = new global::System.Data.DataColumn("DocketLine", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDocketLine);
+                this.columnWarehouseCode = new global::System.Data.DataColumn("WarehouseCode", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWarehouseCode);
+                this.columnBaseEntry = new global::System.Data.DataColumn("BaseEntry", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBaseEntry);
+                this.columnItemCode = new global::System.Data.DataColumn("ItemCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItemCode);
+                this.columnItemDescription = new global::System.Data.DataColumn("ItemDescription", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItemDescription);
+                this.columnItemQA = new global::System.Data.DataColumn("ItemQA", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItemQA);
+                this.columnItmsGrpCod = new global::System.Data.DataColumn("ItmsGrpCod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItmsGrpCod);
+                this.columnSWW = new global::System.Data.DataColumn("SWW", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSWW);
+                this.columnStockpileLot = new global::System.Data.DataColumn("StockpileLot", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStockpileLot);
+                this.columnQuantity = new global::System.Data.DataColumn("Quantity", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQuantity);
+                this.columnCreatedDTTM = new global::System.Data.DataColumn("CreatedDTTM", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCreatedDTTM);
+                this.columnCardCode = new global::System.Data.DataColumn("CardCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCardCode);
+                this.columnCardName = new global::System.Data.DataColumn("CardName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCardName);
+                this.columnBaseItemCode = new global::System.Data.DataColumn("BaseItemCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBaseItemCode);
+                this.columnAllocationStatus = new global::System.Data.DataColumn("AllocationStatus", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAllocationStatus);
+                this.columnComment = new global::System.Data.DataColumn("Comment", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnComment);
+                this.columnReversal = new global::System.Data.DataColumn("Reversal", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReversal);
+                this.columnDocNum.ReadOnly = true;
+                this.columnDocketLine.ReadOnly = true;
+                this.columnWarehouseCode.ReadOnly = true;
+                this.columnBaseEntry.ReadOnly = true;
+                this.columnItemCode.ReadOnly = true;
+                this.columnItemCode.MaxLength = 50;
+                this.columnItemDescription.ReadOnly = true;
+                this.columnItemDescription.MaxLength = 100;
+                this.columnItemQA.ReadOnly = true;
+                this.columnItmsGrpCod.ReadOnly = true;
+                this.columnSWW.ReadOnly = true;
+                this.columnSWW.MaxLength = 16;
+                this.columnStockpileLot.ReadOnly = true;
+                this.columnQuantity.ReadOnly = true;
+                this.columnCreatedDTTM.ReadOnly = true;
+                this.columnCardCode.ReadOnly = true;
+                this.columnCardCode.MaxLength = 15;
+                this.columnCardName.ReadOnly = true;
+                this.columnCardName.MaxLength = 100;
+                this.columnBaseItemCode.ReadOnly = true;
+                this.columnBaseItemCode.MaxLength = 15;
+                this.columnAllocationStatus.ReadOnly = true;
+                this.columnAllocationStatus.MaxLength = 1;
+                this.columnComment.ReadOnly = true;
+                this.columnComment.MaxLength = 500;
+                this.columnReversal.ReadOnly = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SPLotNoAudit1Row NewSPLotNoAudit1Row() {
+                return ((SPLotNoAudit1Row)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new SPLotNoAudit1Row(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(SPLotNoAudit1Row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.SPLotNoAudit1RowChanged != null)) {
+                    this.SPLotNoAudit1RowChanged(this, new SPLotNoAudit1RowChangeEvent(((SPLotNoAudit1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.SPLotNoAudit1RowChanging != null)) {
+                    this.SPLotNoAudit1RowChanging(this, new SPLotNoAudit1RowChangeEvent(((SPLotNoAudit1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.SPLotNoAudit1RowDeleted != null)) {
+                    this.SPLotNoAudit1RowDeleted(this, new SPLotNoAudit1RowChangeEvent(((SPLotNoAudit1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.SPLotNoAudit1RowDeleting != null)) {
+                    this.SPLotNoAudit1RowDeleting(this, new SPLotNoAudit1RowChangeEvent(((SPLotNoAudit1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveSPLotNoAudit1Row(SPLotNoAudit1Row row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsTIQ2 ds = new dsTIQ2();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "SPLotNoAudit1DataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -7382,38 +7942,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int WarehouseCode1 {
-                get {
-                    try {
-                        return ((int)(this[this.tableSPLotNoAudit.WarehouseCode1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WarehouseCode1\' in table \'SPLotNoAudit\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSPLotNoAudit.WarehouseCode1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ItemQA1 {
-                get {
-                    try {
-                        return ((int)(this[this.tableSPLotNoAudit.ItemQA1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ItemQA1\' in table \'SPLotNoAudit\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSPLotNoAudit.ItemQA1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string CardCode {
                 get {
                     try {
@@ -7441,6 +7969,38 @@ namespace QWS_Local {
                 }
                 set {
                     this[this.tableSPLotNoAudit.CardNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Comment {
+                get {
+                    try {
+                        return ((string)(this[this.tableSPLotNoAudit.CommentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Comment\' in table \'SPLotNoAudit\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit.CommentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Reversal {
+                get {
+                    try {
+                        return ((bool)(this[this.tableSPLotNoAudit.ReversalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Reversal\' in table \'SPLotNoAudit\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit.ReversalColumn] = value;
                 }
             }
             
@@ -7566,30 +8126,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsWarehouseCode1Null() {
-                return this.IsNull(this.tableSPLotNoAudit.WarehouseCode1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetWarehouseCode1Null() {
-                this[this.tableSPLotNoAudit.WarehouseCode1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsItemQA1Null() {
-                return this.IsNull(this.tableSPLotNoAudit.ItemQA1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetItemQA1Null() {
-                this[this.tableSPLotNoAudit.ItemQA1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsCardCodeNull() {
                 return this.IsNull(this.tableSPLotNoAudit.CardCodeColumn);
             }
@@ -7610,6 +8146,30 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetCardNameNull() {
                 this[this.tableSPLotNoAudit.CardNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCommentNull() {
+                return this.IsNull(this.tableSPLotNoAudit.CommentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCommentNull() {
+                this[this.tableSPLotNoAudit.CommentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsReversalNull() {
+                return this.IsNull(this.tableSPLotNoAudit.ReversalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetReversalNull() {
+                this[this.tableSPLotNoAudit.ReversalColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7750,6 +8310,525 @@ namespace QWS_Local {
                 set {
                     this[this.tableSPLotItemsMap.BaseItemCodeColumn] = value;
                 }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class SPLotNoAudit1Row : global::System.Data.DataRow {
+            
+            private SPLotNoAudit1DataTable tableSPLotNoAudit1;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal SPLotNoAudit1Row(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableSPLotNoAudit1 = ((SPLotNoAudit1DataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int DocNum {
+                get {
+                    try {
+                        return ((int)(this[this.tableSPLotNoAudit1.DocNumColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DocNum\' in table \'SPLotNoAudit1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit1.DocNumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int DocketLine {
+                get {
+                    try {
+                        return ((int)(this[this.tableSPLotNoAudit1.DocketLineColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DocketLine\' in table \'SPLotNoAudit1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit1.DocketLineColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int WarehouseCode {
+                get {
+                    try {
+                        return ((int)(this[this.tableSPLotNoAudit1.WarehouseCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WarehouseCode\' in table \'SPLotNoAudit1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit1.WarehouseCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int BaseEntry {
+                get {
+                    try {
+                        return ((int)(this[this.tableSPLotNoAudit1.BaseEntryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BaseEntry\' in table \'SPLotNoAudit1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit1.BaseEntryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ItemCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableSPLotNoAudit1.ItemCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemCode\' in table \'SPLotNoAudit1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit1.ItemCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ItemDescription {
+                get {
+                    try {
+                        return ((string)(this[this.tableSPLotNoAudit1.ItemDescriptionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemDescription\' in table \'SPLotNoAudit1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit1.ItemDescriptionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool ItemQA {
+                get {
+                    try {
+                        return ((bool)(this[this.tableSPLotNoAudit1.ItemQAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemQA\' in table \'SPLotNoAudit1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit1.ItemQAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ItmsGrpCod {
+                get {
+                    try {
+                        return ((int)(this[this.tableSPLotNoAudit1.ItmsGrpCodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItmsGrpCod\' in table \'SPLotNoAudit1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit1.ItmsGrpCodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string SWW {
+                get {
+                    try {
+                        return ((string)(this[this.tableSPLotNoAudit1.SWWColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SWW\' in table \'SPLotNoAudit1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit1.SWWColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int StockpileLot {
+                get {
+                    try {
+                        return ((int)(this[this.tableSPLotNoAudit1.StockpileLotColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'StockpileLot\' in table \'SPLotNoAudit1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit1.StockpileLotColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Quantity {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableSPLotNoAudit1.QuantityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Quantity\' in table \'SPLotNoAudit1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit1.QuantityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime CreatedDTTM {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableSPLotNoAudit1.CreatedDTTMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedDTTM\' in table \'SPLotNoAudit1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit1.CreatedDTTMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string CardCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableSPLotNoAudit1.CardCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CardCode\' in table \'SPLotNoAudit1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit1.CardCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string CardName {
+                get {
+                    try {
+                        return ((string)(this[this.tableSPLotNoAudit1.CardNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CardName\' in table \'SPLotNoAudit1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit1.CardNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string BaseItemCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableSPLotNoAudit1.BaseItemCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BaseItemCode\' in table \'SPLotNoAudit1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit1.BaseItemCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string AllocationStatus {
+                get {
+                    try {
+                        return ((string)(this[this.tableSPLotNoAudit1.AllocationStatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AllocationStatus\' in table \'SPLotNoAudit1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit1.AllocationStatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Comment {
+                get {
+                    try {
+                        return ((string)(this[this.tableSPLotNoAudit1.CommentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Comment\' in table \'SPLotNoAudit1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit1.CommentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Reversal {
+                get {
+                    try {
+                        return ((bool)(this[this.tableSPLotNoAudit1.ReversalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Reversal\' in table \'SPLotNoAudit1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit1.ReversalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDocNumNull() {
+                return this.IsNull(this.tableSPLotNoAudit1.DocNumColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDocNumNull() {
+                this[this.tableSPLotNoAudit1.DocNumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDocketLineNull() {
+                return this.IsNull(this.tableSPLotNoAudit1.DocketLineColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDocketLineNull() {
+                this[this.tableSPLotNoAudit1.DocketLineColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsWarehouseCodeNull() {
+                return this.IsNull(this.tableSPLotNoAudit1.WarehouseCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetWarehouseCodeNull() {
+                this[this.tableSPLotNoAudit1.WarehouseCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBaseEntryNull() {
+                return this.IsNull(this.tableSPLotNoAudit1.BaseEntryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBaseEntryNull() {
+                this[this.tableSPLotNoAudit1.BaseEntryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsItemCodeNull() {
+                return this.IsNull(this.tableSPLotNoAudit1.ItemCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetItemCodeNull() {
+                this[this.tableSPLotNoAudit1.ItemCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsItemDescriptionNull() {
+                return this.IsNull(this.tableSPLotNoAudit1.ItemDescriptionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetItemDescriptionNull() {
+                this[this.tableSPLotNoAudit1.ItemDescriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsItemQANull() {
+                return this.IsNull(this.tableSPLotNoAudit1.ItemQAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetItemQANull() {
+                this[this.tableSPLotNoAudit1.ItemQAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsItmsGrpCodNull() {
+                return this.IsNull(this.tableSPLotNoAudit1.ItmsGrpCodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetItmsGrpCodNull() {
+                this[this.tableSPLotNoAudit1.ItmsGrpCodColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsSWWNull() {
+                return this.IsNull(this.tableSPLotNoAudit1.SWWColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetSWWNull() {
+                this[this.tableSPLotNoAudit1.SWWColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsStockpileLotNull() {
+                return this.IsNull(this.tableSPLotNoAudit1.StockpileLotColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetStockpileLotNull() {
+                this[this.tableSPLotNoAudit1.StockpileLotColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsQuantityNull() {
+                return this.IsNull(this.tableSPLotNoAudit1.QuantityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetQuantityNull() {
+                this[this.tableSPLotNoAudit1.QuantityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCreatedDTTMNull() {
+                return this.IsNull(this.tableSPLotNoAudit1.CreatedDTTMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCreatedDTTMNull() {
+                this[this.tableSPLotNoAudit1.CreatedDTTMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCardCodeNull() {
+                return this.IsNull(this.tableSPLotNoAudit1.CardCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCardCodeNull() {
+                this[this.tableSPLotNoAudit1.CardCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCardNameNull() {
+                return this.IsNull(this.tableSPLotNoAudit1.CardNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCardNameNull() {
+                this[this.tableSPLotNoAudit1.CardNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBaseItemCodeNull() {
+                return this.IsNull(this.tableSPLotNoAudit1.BaseItemCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBaseItemCodeNull() {
+                this[this.tableSPLotNoAudit1.BaseItemCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsAllocationStatusNull() {
+                return this.IsNull(this.tableSPLotNoAudit1.AllocationStatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetAllocationStatusNull() {
+                this[this.tableSPLotNoAudit1.AllocationStatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCommentNull() {
+                return this.IsNull(this.tableSPLotNoAudit1.CommentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCommentNull() {
+                this[this.tableSPLotNoAudit1.CommentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsReversalNull() {
+                return this.IsNull(this.tableSPLotNoAudit1.ReversalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetReversalNull() {
+                this[this.tableSPLotNoAudit1.ReversalColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8079,6 +9158,40 @@ namespace QWS_Local {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public SPLotItemsMapRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class SPLotNoAudit1RowChangeEvent : global::System.EventArgs {
+            
+            private SPLotNoAudit1Row eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SPLotNoAudit1RowChangeEvent(SPLotNoAudit1Row row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SPLotNoAudit1Row Row {
                 get {
                     return this.eventRow;
                 }
@@ -12188,10 +13301,12 @@ SELECT AllocationID, BaseItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM St
             tableMapping.ColumnMappings.Add("BaseItemCode", "BaseItemCode");
             tableMapping.ColumnMappings.Add("SWW", "SWW");
             tableMapping.ColumnMappings.Add("AllocationStatus", "AllocationStatus");
-            tableMapping.ColumnMappings.Add("WarehouseCode", "WarehouseCode1");
-            tableMapping.ColumnMappings.Add("ItemQA", "ItemQA1");
             tableMapping.ColumnMappings.Add("CardCode", "CardCode");
             tableMapping.ColumnMappings.Add("CardName", "CardName");
+            tableMapping.ColumnMappings.Add("ItemQA", "ItemQA");
+            tableMapping.ColumnMappings.Add("WarehouseCode", "WarehouseCode");
+            tableMapping.ColumnMappings.Add("Comment", "Comment");
+            tableMapping.ColumnMappings.Add("Reversal", "Reversal");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -12895,6 +14010,259 @@ where ItemCode in (select ItemCode from StockpileBOM where BaseItemCode in (sele
         public virtual dsTIQ2.SPLotItemsMapDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             dsTIQ2.SPLotItemsMapDataTable dataTable = new dsTIQ2.SPLotItemsMapDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class SPLotNoAudit1TableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public SPLotNoAudit1TableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "SPLotNoAudit1";
+            tableMapping.ColumnMappings.Add("DocNum", "DocNum");
+            tableMapping.ColumnMappings.Add("DocketLine", "DocketLine");
+            tableMapping.ColumnMappings.Add("WarehouseCode", "WarehouseCode");
+            tableMapping.ColumnMappings.Add("BaseEntry", "BaseEntry");
+            tableMapping.ColumnMappings.Add("ItemCode", "ItemCode");
+            tableMapping.ColumnMappings.Add("ItemDescription", "ItemDescription");
+            tableMapping.ColumnMappings.Add("ItemQA", "ItemQA");
+            tableMapping.ColumnMappings.Add("ItmsGrpCod", "ItmsGrpCod");
+            tableMapping.ColumnMappings.Add("SWW", "SWW");
+            tableMapping.ColumnMappings.Add("StockpileLot", "StockpileLot");
+            tableMapping.ColumnMappings.Add("Quantity", "Quantity");
+            tableMapping.ColumnMappings.Add("CreatedDTTM", "CreatedDTTM");
+            tableMapping.ColumnMappings.Add("CardCode", "CardCode");
+            tableMapping.ColumnMappings.Add("CardName", "CardName");
+            tableMapping.ColumnMappings.Add("BaseItemCode", "BaseItemCode");
+            tableMapping.ColumnMappings.Add("AllocationStatus", "AllocationStatus");
+            tableMapping.ColumnMappings.Add("Comment", "Comment");
+            tableMapping.ColumnMappings.Add("Reversal", "Reversal");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::QWS_Local.Properties.Settings.Default.cnQWSLocal;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.SPLotNoAudit";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemCode", global::System.Data.SqlDbType.VarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SPLotNo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "dbo.SPLotNoAuditItemCode";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemCode", global::System.Data.SqlDbType.VarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(dsTIQ2.SPLotNoAudit1DataTable dataTable, string ItemCode, global::System.Nullable<int> SPLotNo) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((ItemCode == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(ItemCode));
+            }
+            if ((SPLotNo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(SPLotNo.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual dsTIQ2.SPLotNoAudit1DataTable GetData(string ItemCode, global::System.Nullable<int> SPLotNo) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((ItemCode == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(ItemCode));
+            }
+            if ((SPLotNo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(SPLotNo.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            dsTIQ2.SPLotNoAudit1DataTable dataTable = new dsTIQ2.SPLotNoAudit1DataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByItemCode(dsTIQ2.SPLotNoAudit1DataTable dataTable, string ItemCode) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((ItemCode == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(ItemCode));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dsTIQ2.SPLotNoAudit1DataTable GetDataByItemCode(string ItemCode) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((ItemCode == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(ItemCode));
+            }
+            dsTIQ2.SPLotNoAudit1DataTable dataTable = new dsTIQ2.SPLotNoAudit1DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

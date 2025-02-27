@@ -113,6 +113,7 @@ namespace QWS_Local
                     txtWBInfo.Text = "Getting weight from WB1";
                 WeighbridgeRead weighbridgeRead = new WeighbridgeRead();
                 weighbridgeRead.ReadWeighbridge("NQWB1");
+                MessageBox.Show("Fudge a pause to get weight");
                 myWeight = weighbridgeRead.getCurrentWeight();
                 weighbridgeRead.StopMonitoring();
                 mtxtWeight.Text = myWeight.ToString();

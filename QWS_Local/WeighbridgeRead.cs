@@ -28,11 +28,12 @@ namespace QWS_Local
         public async  void ReadWeighbridge(string WB)
         {
             blContinue = true;
+            CurrentWeight = 42.50M;
             while (blContinue)
             {
                 await ReadOnce( iLoopDelay, WB);
             }
-            //CurrentWeight = System.Convert.ToDecimal( 22.15);
+            //CurrentWeight = System.Convert.ToDecimal( 15.15);
         }
 
 
