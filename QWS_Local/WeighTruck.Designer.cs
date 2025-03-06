@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbAuto = new System.Windows.Forms.RadioButton();
             this.rbManual = new System.Windows.Forms.RadioButton();
@@ -37,19 +38,28 @@
             this.mtxtWeight = new System.Windows.Forms.MaskedTextBox();
             this.btnAccept = new System.Windows.Forms.Button();
             this.txtInstruction = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.txtWBInfo = new System.Windows.Forms.TextBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnMonitor = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dsTIQ2 = new QWS_Local.dsTIQ2();
+            this.bsWBConfig4Site = new System.Windows.Forms.BindingSource(this.components);
+            this.taWBConfig4Site = new QWS_Local.dsTIQ2TableAdapters.WBConfig4SiteTableAdapter();
             this.groupBox1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsWBConfig4Site)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rbAuto);
             this.groupBox1.Controls.Add(this.rbManual);
-            this.groupBox1.Location = new System.Drawing.Point(43, 119);
+            this.groupBox1.Location = new System.Drawing.Point(21, 99);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(346, 71);
+            this.groupBox1.Size = new System.Drawing.Size(346, 59);
             this.groupBox1.TabIndex = 59;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Weighing Mode";
@@ -57,7 +67,7 @@
             // rbAuto
             // 
             this.rbAuto.AutoSize = true;
-            this.rbAuto.Location = new System.Drawing.Point(128, 34);
+            this.rbAuto.Location = new System.Drawing.Point(128, 27);
             this.rbAuto.Name = "rbAuto";
             this.rbAuto.Size = new System.Drawing.Size(56, 22);
             this.rbAuto.TabIndex = 0;
@@ -68,7 +78,7 @@
             // rbManual
             // 
             this.rbManual.AutoSize = true;
-            this.rbManual.Location = new System.Drawing.Point(248, 34);
+            this.rbManual.Location = new System.Drawing.Point(248, 27);
             this.rbManual.Name = "rbManual";
             this.rbManual.Size = new System.Drawing.Size(74, 22);
             this.rbManual.TabIndex = 1;
@@ -80,7 +90,7 @@
             this.rbWB3.Appearance = System.Windows.Forms.Appearance.Button;
             this.rbWB3.AutoSize = true;
             this.rbWB3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbWB3.Location = new System.Drawing.Point(248, 3);
+            this.rbWB3.Location = new System.Drawing.Point(247, 31);
             this.rbWB3.Name = "rbWB3";
             this.rbWB3.Size = new System.Drawing.Size(60, 34);
             this.rbWB3.TabIndex = 68;
@@ -93,7 +103,7 @@
             this.rbWB2.Appearance = System.Windows.Forms.Appearance.Button;
             this.rbWB2.AutoSize = true;
             this.rbWB2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbWB2.Location = new System.Drawing.Point(143, 3);
+            this.rbWB2.Location = new System.Drawing.Point(141, 31);
             this.rbWB2.Name = "rbWB2";
             this.rbWB2.Size = new System.Drawing.Size(60, 34);
             this.rbWB2.TabIndex = 67;
@@ -106,7 +116,7 @@
             this.rbWB1.Appearance = System.Windows.Forms.Appearance.Button;
             this.rbWB1.AutoSize = true;
             this.rbWB1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbWB1.Location = new System.Drawing.Point(30, 3);
+            this.rbWB1.Location = new System.Drawing.Point(35, 31);
             this.rbWB1.Name = "rbWB1";
             this.rbWB1.Size = new System.Drawing.Size(60, 34);
             this.rbWB1.TabIndex = 66;
@@ -116,11 +126,12 @@
             // 
             // mtxtWeight
             // 
-            this.mtxtWeight.Location = new System.Drawing.Point(292, 220);
+            this.mtxtWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtxtWeight.Location = new System.Drawing.Point(266, 33);
             this.mtxtWeight.Mask = "00.00";
             this.mtxtWeight.Name = "mtxtWeight";
             this.mtxtWeight.ReadOnly = true;
-            this.mtxtWeight.Size = new System.Drawing.Size(59, 24);
+            this.mtxtWeight.Size = new System.Drawing.Size(73, 29);
             this.mtxtWeight.TabIndex = 2;
             this.mtxtWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -129,10 +140,10 @@
             this.btnAccept.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccept.Location = new System.Drawing.Point(43, 264);
+            this.btnAccept.Location = new System.Drawing.Point(7, 71);
             this.btnAccept.Margin = new System.Windows.Forms.Padding(4);
             this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(346, 49);
+            this.btnAccept.Size = new System.Drawing.Size(332, 44);
             this.btnAccept.TabIndex = 61;
             this.btnAccept.Text = "Accept";
             this.btnAccept.UseVisualStyleBackColor = false;
@@ -140,43 +151,100 @@
             // 
             // txtInstruction
             // 
-            this.txtInstruction.Location = new System.Drawing.Point(43, 13);
+            this.txtInstruction.Location = new System.Drawing.Point(21, 349);
             this.txtInstruction.Multiline = true;
             this.txtInstruction.Name = "txtInstruction";
             this.txtInstruction.ReadOnly = true;
             this.txtInstruction.Size = new System.Drawing.Size(346, 55);
             this.txtInstruction.TabIndex = 62;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.rbWB1);
-            this.panel1.Controls.Add(this.rbWB2);
-            this.panel1.Controls.Add(this.rbWB3);
-            this.panel1.Location = new System.Drawing.Point(43, 74);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(346, 39);
-            this.panel1.TabIndex = 69;
-            // 
             // txtWBInfo
             // 
             this.txtWBInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtWBInfo.Location = new System.Drawing.Point(43, 220);
+            this.txtWBInfo.Location = new System.Drawing.Point(21, 312);
             this.txtWBInfo.Name = "txtWBInfo";
             this.txtWBInfo.ReadOnly = true;
-            this.txtWBInfo.Size = new System.Drawing.Size(233, 17);
+            this.txtWBInfo.Size = new System.Drawing.Size(346, 17);
             this.txtWBInfo.TabIndex = 70;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.Location = new System.Drawing.Point(7, 34);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(88, 29);
+            this.btnRefresh.TabIndex = 71;
+            this.btnRefresh.Text = "Capture";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnMonitor
+            // 
+            this.btnMonitor.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnMonitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMonitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMonitor.Location = new System.Drawing.Point(128, 33);
+            this.btnMonitor.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMonitor.Name = "btnMonitor";
+            this.btnMonitor.Size = new System.Drawing.Size(105, 29);
+            this.btnMonitor.TabIndex = 72;
+            this.btnMonitor.Text = "Monitor";
+            this.btnMonitor.UseVisualStyleBackColor = false;
+            this.btnMonitor.Visible = false;
+            this.btnMonitor.Click += new System.EventHandler(this.btnMonitor_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnRefresh);
+            this.groupBox2.Controls.Add(this.mtxtWeight);
+            this.groupBox2.Controls.Add(this.btnMonitor);
+            this.groupBox2.Controls.Add(this.btnAccept);
+            this.groupBox2.Location = new System.Drawing.Point(21, 164);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(346, 134);
+            this.groupBox2.TabIndex = 73;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Capture Weight";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.rbWB3);
+            this.groupBox3.Controls.Add(this.rbWB2);
+            this.groupBox3.Controls.Add(this.rbWB1);
+            this.groupBox3.Location = new System.Drawing.Point(21, 12);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(346, 81);
+            this.groupBox3.TabIndex = 74;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Weighbridge Selection";
+            // 
+            // dsTIQ2
+            // 
+            this.dsTIQ2.DataSetName = "dsTIQ2";
+            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bsWBConfig4Site
+            // 
+            this.bsWBConfig4Site.DataMember = "WBConfig4Site";
+            this.bsWBConfig4Site.DataSource = this.dsTIQ2;
+            // 
+            // taWBConfig4Site
+            // 
+            this.taWBConfig4Site.ClearBeforeFill = true;
             // 
             // WeighTruck
             // 
             this.AcceptButton = this.btnAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(436, 356);
-            this.Controls.Add(this.txtWBInfo);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(390, 423);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.txtInstruction);
-            this.Controls.Add(this.mtxtWeight);
-            this.Controls.Add(this.btnAccept);
+            this.Controls.Add(this.txtWBInfo);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -188,8 +256,12 @@
             this.Load += new System.EventHandler(this.WeighTruck_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsWBConfig4Site)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,7 +278,13 @@
         private System.Windows.Forms.RadioButton rbWB3;
         private System.Windows.Forms.RadioButton rbWB2;
         private System.Windows.Forms.RadioButton rbWB1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtWBInfo;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnMonitor;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private dsTIQ2 dsTIQ2;
+        private System.Windows.Forms.BindingSource bsWBConfig4Site;
+        private dsTIQ2TableAdapters.WBConfig4SiteTableAdapter taWBConfig4Site;
     }
 }

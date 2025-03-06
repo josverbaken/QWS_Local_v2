@@ -13,7 +13,7 @@ namespace QWS_Local
         private  int iLoopDelay = 200;
         private  decimal decWeight = System.Convert.ToDecimal(0.00);
         private  Boolean blContinue = true;
-        private  decimal CurrentWeight = 23.40M;
+        private  decimal CurrentWeight = 22.22M;
 
         public decimal getCurrentWeight()
         {
@@ -28,7 +28,7 @@ namespace QWS_Local
         public async  void ReadWeighbridge(string WB)
         {
             blContinue = true;
-            CurrentWeight = 42.50M;
+            CurrentWeight = 11.11M;
             while (blContinue)
             {
                 await ReadOnce( iLoopDelay, WB);
