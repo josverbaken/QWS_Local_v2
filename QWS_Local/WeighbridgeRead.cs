@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.Threading;
 using System.Windows.Forms;
+using System.Runtime.CompilerServices;
 
 
 namespace QWS_Local
@@ -36,8 +37,12 @@ namespace QWS_Local
             //CurrentWeight = System.Convert.ToDecimal( 15.15);
         }
 
-
-        private  async Task ReadOnce(int myDelay, string WB)
+        public async Task<decimal> GetSingleWeight(string WB)
+        {
+            await ReadOnce(10, WB);
+            return CurrentWeight;
+        }
+        private async Task ReadOnce(int myDelay, string WB)
         {
             string strDecode = "";
             string strStatus = "x";

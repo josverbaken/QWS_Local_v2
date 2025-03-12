@@ -135,7 +135,7 @@ namespace QWS_Local
             }
         }
 
-        private void CaptureSingleWeight()
+        private async Task CaptureSingleWeight()
         {
             decimal myWeight = 99.99M;
             // revise when to set buttons
@@ -146,23 +146,24 @@ namespace QWS_Local
                 rbWB1.Checked = true;
             }
             if (rbWB1.Checked == true && rbAuto.Checked == true)
-            //Properties.Settings.Default.AutoWeigh == true) // use button rather than [properties
             {
                 txtWBInfo.Text = "Getting weight from WB1";
                 WeighbridgeRead weighbridgeRead = new WeighbridgeRead();
-                weighbridgeRead.ReadWeighbridge("NQWB1");
-                MessageBox.Show("Fudge a pause to get weight");
-                myWeight = weighbridgeRead.getCurrentWeight();
-                weighbridgeRead.StopMonitoring();
+                myWeight = await weighbridgeRead.GetSingleWeight("NQWB1");
                 mtxtWeight.Text = myWeight.ToString();
             }
             else if (rbWB2.Checked == true && rbAuto.Checked == true)
-            //Properties.Settings.Default.AutoWeigh == true)
             {
+                WeighbridgeRead weighbridgeRead = new WeighbridgeRead();
+                myWeight = await weighbridgeRead.GetSingleWeight("NQWB2");
+                mtxtWeight.Text = myWeight.ToString();
                 txtWBInfo.Text = "Getting weight from WB2";
             }
             else if (rbWB3.Checked == true && rbAuto.Checked == true)
             {
+                WeighbridgeRead weighbridgeRead = new WeighbridgeRead();
+                myWeight = await weighbridgeRead.GetSingleWeight("NQWB3");
+                mtxtWeight.Text = myWeight.ToString();
                 txtWBInfo.Text = "Getting weight from WB3";
             }
         }
