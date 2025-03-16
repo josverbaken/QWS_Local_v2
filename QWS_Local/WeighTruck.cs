@@ -14,6 +14,7 @@ namespace QWS_Local
     {
         private decimal myWeight;
         private string Instruction;
+        private string SelectedWB;
 
         public decimal Weight
         {
@@ -96,8 +97,6 @@ namespace QWS_Local
                     break;
             }
             txtInstruction.Text = Instruction;
-            mtxtWeight.ReadOnly = true;
-            // TODO check if WBConfig is Auto or Manual after WBn selected
         }
 
          private void rbAuto_CheckedChanged(object sender, EventArgs e)
@@ -110,11 +109,14 @@ namespace QWS_Local
             if (rbAuto.Checked)
             {
                 mtxtWeight.ReadOnly = true;
-                btnAccept.Focus();
+                btnCapture.Visible = true;
+                btnCapture.Focus();
+                //btnAccept.Focus();
             }
             else
             {
                 mtxtWeight.ReadOnly = false;
+                btnCapture.Visible = false;
                 mtxtWeight.Focus();
             }
         }
@@ -123,23 +125,64 @@ namespace QWS_Local
         {
             if (rbWB1.Checked == true)
             {
-                // TODO read WBConfig to see if WB is connected, toggle Auto/Manual accordingly
+                foreach (dsTIQ2.WBConfig4SiteRow configRow in dsTIQ2.WBConfig4Site)
+                {
+                    if (configRow.WeighbridgeID == 1)
+                    {
+                        if(configRow.Connected == true)
+                        {
+                            rbAuto.Checked = true;
+                        }
+                        else
+                        {
+                            rbManual.Checked = true;
+                        }
+                    }
+               
+                }
             }
             else if (rbWB2.Checked == true)
             {
-
+                foreach (dsTIQ2.WBConfig4SiteRow configRow in dsTIQ2.WBConfig4Site)
+                {
+                    if (configRow.WeighbridgeID == 2)
+                    {
+                        if (configRow.Connected == true)
+                        {
+                            rbAuto.Checked = true;
+                        }
+                        else
+                        {
+                            rbManual.Checked = true;
+                        }
+                    }
+                }
             }
             else if (rbWB3.Checked == true)
             {
-
+                foreach (dsTIQ2.WBConfig4SiteRow configRow in dsTIQ2.WBConfig4Site)
+                {
+                    if (configRow.WeighbridgeID == 3 )
+                    {
+                        if (configRow.Connected == true)
+                        {
+                            rbAuto.Checked = true;
+                        }
+                        else
+                        {
+                            rbManual.Checked = true;
+                        }
+                    }
+                }
             }
         }
 
         private async Task CaptureSingleWeight()
         {
+            // TODO get weight from appropriate site and weighbridge id
+            // and change how to call GetSingleWeight, might need to add ScaleFactor to Properties
+            // also check what other differences in process logic
             decimal myWeight = 99.99M;
-            // revise when to set buttons
-            SetWeighButtons();
             int iWBCount = dsTIQ2.WBConfig4Site.Count();
             if (iWBCount == 1)
             {
@@ -149,7 +192,14 @@ namespace QWS_Local
             {
                 txtWBInfo.Text = "Getting weight from WB1";
                 WeighbridgeRead weighbridgeRead = new WeighbridgeRead();
-                myWeight = await weighbridgeRead.GetSingleWeight("NQWB1");
+                if (Properties.Settings.Default.SiteID == 7)
+                {
+                    myWeight = await weighbridgeRead.GetSingleWeight("NQWB1");
+                }
+                else if (Properties.Settings.Default.SiteID == 2)
+                {
+                    myWeight = await weighbridgeRead.GetSingleWeight("SQWB1");
+                }
                 mtxtWeight.Text = myWeight.ToString();
             }
             else if (rbWB2.Checked == true && rbAuto.Checked == true)

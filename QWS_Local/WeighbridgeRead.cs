@@ -34,7 +34,6 @@ namespace QWS_Local
             {
                 await ReadOnce( iLoopDelay, WB);
             }
-            //CurrentWeight = System.Convert.ToDecimal( 15.15);
         }
 
         public async Task<decimal> GetSingleWeight(string WB)

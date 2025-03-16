@@ -39,7 +39,7 @@
             this.btnAccept = new System.Windows.Forms.Button();
             this.txtInstruction = new System.Windows.Forms.TextBox();
             this.txtWBInfo = new System.Windows.Forms.TextBox();
-            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnCapture = new System.Windows.Forms.Button();
             this.btnMonitor = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -167,19 +167,19 @@
             this.txtWBInfo.Size = new System.Drawing.Size(346, 17);
             this.txtWBInfo.TabIndex = 70;
             // 
-            // btnRefresh
+            // btnCapture
             // 
-            this.btnRefresh.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(7, 34);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(88, 29);
-            this.btnRefresh.TabIndex = 71;
-            this.btnRefresh.Text = "Capture";
-            this.btnRefresh.UseVisualStyleBackColor = false;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.btnCapture.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCapture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCapture.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapture.Location = new System.Drawing.Point(7, 34);
+            this.btnCapture.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCapture.Name = "btnCapture";
+            this.btnCapture.Size = new System.Drawing.Size(88, 29);
+            this.btnCapture.TabIndex = 71;
+            this.btnCapture.Text = "Capture";
+            this.btnCapture.UseVisualStyleBackColor = false;
+            this.btnCapture.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnMonitor
             // 
@@ -198,7 +198,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnRefresh);
+            this.groupBox2.Controls.Add(this.btnCapture);
             this.groupBox2.Controls.Add(this.mtxtWeight);
             this.groupBox2.Controls.Add(this.btnMonitor);
             this.groupBox2.Controls.Add(this.btnAccept);
@@ -279,7 +279,7 @@
         private System.Windows.Forms.RadioButton rbWB2;
         private System.Windows.Forms.RadioButton rbWB1;
         private System.Windows.Forms.TextBox txtWBInfo;
-        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnCapture;
         private System.Windows.Forms.Button btnMonitor;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
