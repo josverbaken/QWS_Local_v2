@@ -301,5 +301,14 @@ namespace QWS_Local
         {
             MessageBox.Show("Checking docket");
         }
+
+        private void dataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        {
+            //e.Row.Cells["MCO"].Value = "Fred.flintstone";
+            var parent = this.MdiParent as QWS_MDIParent;
+            string myUserName = parent.UserName;
+            e.Row.Cells[1].Value = myUserName;
+            e.Row.Cells[2].Value = txtBaseItemCode.Text;
+        }
     }
 }
