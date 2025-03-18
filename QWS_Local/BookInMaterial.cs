@@ -114,7 +114,8 @@ namespace QWS_Local
 
         private void LoadTIQ()
         {
-            int SiteID = Properties.Settings.Default.SiteID;
+            var parent = this.MdiParent as QWS_MDIParent;
+            int SiteID = parent.SiteID;
             dsTIQ2.Clear();
             int iRow = taTIQ2.FillBy(dsTIQ2.TIQ, SiteID, TIQID);
             if (iRow != 1)

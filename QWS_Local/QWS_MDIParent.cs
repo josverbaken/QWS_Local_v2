@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,12 @@ namespace QWS_Local
     public partial class QWS_MDIParent : Form
     {
         private string myUserName;
+        private int mySiteID;
+
+        public int SiteID
+        {
+            get { return mySiteID; }
+        }
         public string UserName
         {
             get { return myUserName; }
@@ -39,30 +46,53 @@ namespace QWS_Local
 
         private void QWS_MDIParent_Load(object sender, EventArgs e)
         {
+            bool OK2Continue = true;
+            mySiteID = SelectSiteID();
+
             string msg = ""; // "QWS Local - ";
             string SiteLabel = string.Empty;
-            // TODO refactor to cater for more than 2 sites
-            if (Properties.Settings.Default.SiteID == 7)
+            
+            if (mySiteID == 7)
             {
                 SiteLabel = "Northern Quarries"; // SiteID 07";
                 tspSite.BackColor = Color.LightSkyBlue;
             }
-            else if (Properties.Settings.Default.SiteID == 2)
+            else if (mySiteID == 2)
             {
                 SiteLabel = "Stawell Quarry"; // SiteID 02";
                 tspSite.BackColor = Color.LightGreen;
             }
-            msg += SiteLabel;
-            tspSite.Text = msg;
-            myDomainName = Environment.UserDomainName;
-            string ComputerUsername = Environment.UserName;
-            myComputerName = Environment.MachineName;
-            GetUsername(ComputerUsername);
-            this.Size = new Size(1400, 800);
-            this.KeyPreview = true;
-            TrucksInQuarry frmTIQ = new TrucksInQuarry();
-            frmTIQ.MdiParent = this;            
-            frmTIQ.Show();
+            else
+            {
+                OK2Continue = false;
+            }
+            if (OK2Continue == true)
+            {
+                msg += SiteLabel;
+                tspSite.Text = msg;
+                myDomainName = Environment.UserDomainName;
+                string ComputerUsername = Environment.UserName;
+                myComputerName = Environment.MachineName;
+                GetUsername(ComputerUsername);
+                this.Size = new Size(1400, 800);
+                this.KeyPreview = true;
+                TrucksInQuarry frmTIQ = new TrucksInQuarry();
+                frmTIQ.MdiParent = this;
+                frmTIQ.Show();
+            }
+        }
+
+        private int SelectSiteID()
+        {
+            SelectSite frmSelectSite = new SelectSite();
+            DialogResult dr = frmSelectSite.ShowDialog();
+            if (dr == DialogResult.OK) {
+                return frmSelectSite.SiteID;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
         private void GetUsername(string ComputerUsername)

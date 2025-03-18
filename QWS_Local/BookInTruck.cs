@@ -607,6 +607,8 @@ namespace QWS_Local
         {
             try
             {
+                var parent = this.MdiParent as QWS_MDIParent;
+                int SiteID = parent.SiteID;
                 int iTIQID = 0;
                 bool Okay2Proceed = true;
                 dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
@@ -637,7 +639,7 @@ namespace QWS_Local
                 cmd.CommandText = "TIQAdd";
                 cmd.Parameters.AddWithValue("@ParentTIQID", myParentTIQID);
                 cmd.Parameters.AddWithValue("@TIQOpen", true);
-                cmd.Parameters.AddWithValue("@SiteID", Properties.Settings.Default.SiteID);
+                cmd.Parameters.AddWithValue("@SiteID", SiteID);
                 cmd.Parameters.AddWithValue("@Operator", WBO); //myUsername);
                 cmd.Parameters.AddWithValue("@Rego", myConfigTruck.RegoTk);
                 cmd.Parameters.AddWithValue("@RegoTr1", myConfigTruck.RegoTr1);
@@ -722,13 +724,14 @@ namespace QWS_Local
         {
             try
             {
+                var parent = this.MdiParent as QWS_MDIParent;
                 SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "IsInQueue";
                 cmd.Parameters.AddWithValue("@Rego", Rego);
-                cmd.Parameters.AddWithValue("@SiteID", Properties.Settings.Default.SiteID);
+                cmd.Parameters.AddWithValue("@SiteID", parent.SiteID);
                 sqlConnection.Open();
                 int iTrucks = System.Convert.ToInt32(cmd.ExecuteScalar());
                 sqlConnection.Close();

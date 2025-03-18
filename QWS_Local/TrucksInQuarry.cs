@@ -46,8 +46,9 @@ namespace QWS_Local
 
         private void FormText4Site()
         {
+            var parent = this.MdiParent as QWS_MDIParent;
             string FormText = "Trucks In Quarry - ";
-            string SiteCode = "0" + Properties.Settings.Default.SiteID.ToString();
+            string SiteCode = "0" + parent.SiteID.ToString();
             if (SiteCode == "07")
             {
                 FormText += "07 Northern Quarries";
@@ -77,8 +78,9 @@ namespace QWS_Local
         public void RefreshQueue()
         {
             try
-            {         
-                int SiteID = Properties.Settings.Default.SiteID;
+            {
+                var parent = this.MdiParent as QWS_MDIParent;
+                int SiteID = parent.SiteID;
                 this.taTIQ2.Fill(dsTIQ2.TIQ, SiteID);
                 ClearTIQ();
             }

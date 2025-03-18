@@ -59,7 +59,8 @@ namespace QWS_Local
 
         private void WeighTruck_Load(object sender, EventArgs e)
         {
-            int mySiteID = Properties.Settings.Default.SiteID;
+            var parent = this.MdiParent as QWS_MDIParent;
+            int mySiteID = parent.SiteID;
             int iWBCount = taWBConfig4Site.Fill(dsTIQ2.WBConfig4Site, mySiteID);
 
             switch (iWBCount)
@@ -189,13 +190,14 @@ namespace QWS_Local
             }
             if (rbWB1.Checked == true && rbAuto.Checked == true)
             {
+                var parent = this.MdiParent as QWS_MDIParent;
                 txtWBInfo.Text = "Getting weight from WB1";
                 WeighbridgeRead weighbridgeRead = new WeighbridgeRead();
-                if (Properties.Settings.Default.SiteID == 7)
+                if (parent.SiteID == 7)
                 {
                     myWeight = await weighbridgeRead.GetSingleWeight("NQWB1");
                 }
-                else if (Properties.Settings.Default.SiteID == 2)
+                else if (parent.SiteID == 2)
                 {
                     myWeight = await weighbridgeRead.GetSingleWeight("SQWB1");
                 }
