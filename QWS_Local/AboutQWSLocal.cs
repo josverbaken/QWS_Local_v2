@@ -126,11 +126,11 @@ namespace QWS_Local
                 string msg = "\r\n\r\nSite : ";
                 string SiteLabel = string.Empty;
                 // TODO refactor to cater for more than 2 sites
-                if (Properties.Settings.Default.SiteCode == "07")
+                if (Properties.Settings.Default.SiteID == 7)
                 {
                     SiteLabel = "07 Northern Quarries";
                 }
-                else if (Properties.Settings.Default.SiteCode == "02")
+                else if (Properties.Settings.Default.SiteID == 2)
                 {
                     SiteLabel = "02 Stawell Quarry";
                 }

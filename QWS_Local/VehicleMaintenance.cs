@@ -25,7 +25,7 @@ namespace QWS_Local
         {
             try
             {
-                txtJurisdiction.Text = Properties.Settings.Default.defaultJurisdiction;
+                //txtJurisdiction.Text = Properties.Settings.Default.defaultJurisdiction;
                 //tabControl1.TabPages.Remove(tpPrefCust);
                 this.KeyPreview = true; // enable Function keys
                 //txtRegoExpiryDT.Text.

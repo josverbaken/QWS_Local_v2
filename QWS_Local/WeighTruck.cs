@@ -14,7 +14,6 @@ namespace QWS_Local
     {
         private decimal myWeight;
         private string Instruction;
-        private string SelectedWB;
 
         public decimal Weight
         {

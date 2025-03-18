@@ -47,11 +47,12 @@ namespace QWS_Local
         private void FormText4Site()
         {
             string FormText = "Trucks In Quarry - ";
-            if (Properties.Settings.Default.SiteCode == "07")
+            string SiteCode = "0" + Properties.Settings.Default.SiteID.ToString();
+            if (SiteCode == "07")
             {
                 FormText += "07 Northern Quarries";
             }
-            else if (Properties.Settings.Default.SiteCode == "02")
+            else if (SiteCode == "02")
             {
                 FormText += "02 Stawell Quarry";
             }
