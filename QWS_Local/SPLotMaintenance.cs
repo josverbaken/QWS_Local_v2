@@ -277,7 +277,19 @@ namespace QWS_Local
 
         private void AddAllocation()
         {
-            MessageBox.Show("Add new record.");
+            dsTIQ2.SPLotCheckDocketRow docketRow =(dsTIQ2.SPLotCheckDocketRow)dsTIQ2.SPLotCheckDocket.Rows[0];
+            if (docketRow.ItemQA == false)
+            {
+                MessageBox.Show("Item not QA!");
+            }
+            else if (docketRow.StockpileLot > 0)
+            {
+                MessageBox.Show("Already allocated!");
+            }
+            else
+            {
+                MessageBox.Show("Add new record.");
+            }
             // check docket number exists and not allocated already
             // get ItemCode from Docket
             // create new record
@@ -299,16 +311,28 @@ namespace QWS_Local
 
         private void CheckDocNumAllocation(int DocNum)
         {
-            MessageBox.Show("Checking docket");
+            //MessageBox.Show("Checking docket");
+            int iRows = taSPLotCheckDocket.Fill(dsTIQ2.SPLotCheckDocket, DocNum);
+            if(iRows ==1)
+                    {
+
+            }
+            else
+            {
+                MessageBox.Show("Invalid rows!");
+            }
         }
 
         private void dataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
-            //e.Row.Cells["MCO"].Value = "Fred.flintstone";
+            //e.Row.Cells["MCO"].Value = "Fred.flintstone"; // TODO why does name NOT work?
             var parent = this.MdiParent as QWS_MDIParent;
             string myUserName = parent.UserName;
             e.Row.Cells[1].Value = myUserName;
             e.Row.Cells[2].Value = txtBaseItemCode.Text;
+            e.Row.Cells[4].Value = "O";
+            e.Row.Cells[5].Value = DateTime.Now;
         }
+ 
     }
 }

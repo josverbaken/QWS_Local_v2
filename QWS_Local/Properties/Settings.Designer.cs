@@ -43,7 +43,7 @@ namespace QWS_Local.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("07")]
+        [global::System.Configuration.DefaultSettingValueAttribute("02")]
         public string SiteCode {
             get {
                 return ((string)(this["SiteCode"]));
@@ -61,7 +61,7 @@ namespace QWS_Local.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("7")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
         public int SiteID {
             get {
                 return ((int)(this["SiteID"]));

@@ -29,7 +29,7 @@ namespace QWS_Local
 
         private void TrucksInQuarry_Load(object sender, EventArgs e)
         {
-            FormText4Site();
+            //FormText4Site(); // show site on MDI Parent
             int iRows =  this.taAxleConfiguration.Fill(this.dsQWSLocal2024.AxleConfiguration);
             // set up and down arrows
             //button3.Text = ""+ (char)24;

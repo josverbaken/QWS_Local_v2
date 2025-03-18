@@ -39,18 +39,22 @@ namespace QWS_Local
 
         private void QWS_MDIParent_Load(object sender, EventArgs e)
         {
-            //string msg = "QWS Local - ";
-            //string SiteLabel = string.Empty;
-            //// TODO refactor to cater for more than 2 sites
-            //if (Properties.Settings.Default.SiteCode == "07")
-            //{
-            //    SiteLabel = "Northern Quarries SiteID 07";
-            //}
-            //else if (Properties.Settings.Default.SiteCode == "02")
-            //{
-            //    SiteLabel = "Stawell Quarry SiteID 02";
-            //}
-            //msg += SiteLabel;
+            string msg = ""; // "QWS Local - ";
+            string SiteLabel = string.Empty;
+            // TODO refactor to cater for more than 2 sites
+            // TODO why SiteID and SiteCode TOO easy to mismatch!@#
+            if (Properties.Settings.Default.SiteCode == "07")
+            {
+                SiteLabel = "Northern Quarries"; // SiteID 07";
+                tspSite.BackColor = Color.LightSkyBlue;
+            }
+            else if (Properties.Settings.Default.SiteCode == "02")
+            {
+                SiteLabel = "Stawell Quarry"; // SiteID 02";
+                tspSite.BackColor = Color.LightGreen;
+            }
+            msg += SiteLabel;
+            tspSite.Text = msg;
             myDomainName = Environment.UserDomainName;
             string ComputerUsername = Environment.UserName;
             myComputerName = Environment.MachineName;
@@ -91,7 +95,7 @@ namespace QWS_Local
                         myUserName = myLogin;
                     }
                 }
-                tspUserName.Text = myUserName;
+                tspUserName.Text = "WBO = " + myUserName;
             }
             catch (Exception ex)
             {

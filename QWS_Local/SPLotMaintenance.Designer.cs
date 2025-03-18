@@ -36,7 +36,10 @@
             System.Windows.Forms.Label tonnesLabel;
             System.Windows.Forms.Label reversalLabel;
             System.Windows.Forms.Label commentLabel;
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.Windows.Forms.Label itemCodeLabel1;
+            System.Windows.Forms.Label stockpileLotLabel;
+            System.Windows.Forms.Label quantityLabel;
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.bsSPLotNoAudit = new System.Windows.Forms.BindingSource(this.components);
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -51,6 +54,12 @@
             this.txtItemCode = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.allocationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mCODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BaseItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lotNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lotStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allocationDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsStockpileLotAllocation = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbAll = new System.Windows.Forms.RadioButton();
@@ -87,6 +96,10 @@
             this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsStockpileManualAllocation = new System.Windows.Forms.BindingSource(this.components);
             this.tpDataEntry = new System.Windows.Forms.TabPage();
+            this.quantityTextBox = new System.Windows.Forms.TextBox();
+            this.bsSPLotCheckDocket = new System.Windows.Forms.BindingSource(this.components);
+            this.stockpileLotTextBox = new System.Windows.Forms.TextBox();
+            this.itemCodeTextBox1 = new System.Windows.Forms.TextBox();
             this.txtDocNum2Check = new System.Windows.Forms.TextBox();
             this.btnAddAllocation = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -115,12 +128,8 @@
             this.SPLotNoAuditBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.taStockpileManualAllocation = new QWS_Local.dsTIQ2TableAdapters.StockpileManualAllocationTableAdapter();
             this.taSPLotItemsMap = new QWS_Local.dsTIQ2TableAdapters.SPLotItemsMapTableAdapter();
-            this.allocationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mCODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BaseItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lotNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lotStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allocationDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taSPLotCheckDocket = new QWS_Local.dsTIQ2TableAdapters.SPLotCheckDocketTableAdapter();
+            this.itemQACheckBox = new System.Windows.Forms.CheckBox();
             allocationIDLabel = new System.Windows.Forms.Label();
             itemCodeLabel = new System.Windows.Forms.Label();
             sPLotNoLabel = new System.Windows.Forms.Label();
@@ -128,6 +137,9 @@
             tonnesLabel = new System.Windows.Forms.Label();
             reversalLabel = new System.Windows.Forms.Label();
             commentLabel = new System.Windows.Forms.Label();
+            itemCodeLabel1 = new System.Windows.Forms.Label();
+            stockpileLotLabel = new System.Windows.Forms.Label();
+            quantityLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotNoAudit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -161,6 +173,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsStockpileManualAllocation)).BeginInit();
             this.tpDataEntry.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsSPLotCheckDocket)).BeginInit();
             this.tpBaseItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
             this.splitContainer5.Panel1.SuspendLayout();
@@ -170,6 +183,69 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotItemsMap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SPLotNoAuditBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // allocationIDLabel
+            // 
+            allocationIDLabel.AutoSize = true;
+            allocationIDLabel.Location = new System.Drawing.Point(538, 197);
+            allocationIDLabel.Name = "allocationIDLabel";
+            allocationIDLabel.Size = new System.Drawing.Size(94, 18);
+            allocationIDLabel.TabIndex = 0;
+            allocationIDLabel.Text = "Allocation ID:";
+            // 
+            // itemCodeLabel
+            // 
+            itemCodeLabel.AutoSize = true;
+            itemCodeLabel.Location = new System.Drawing.Point(538, 227);
+            itemCodeLabel.Name = "itemCodeLabel";
+            itemCodeLabel.Size = new System.Drawing.Size(80, 18);
+            itemCodeLabel.TabIndex = 2;
+            itemCodeLabel.Text = "Item Code:";
+            // 
+            // sPLotNoLabel
+            // 
+            sPLotNoLabel.AutoSize = true;
+            sPLotNoLabel.Location = new System.Drawing.Point(538, 257);
+            sPLotNoLabel.Name = "sPLotNoLabel";
+            sPLotNoLabel.Size = new System.Drawing.Size(77, 18);
+            sPLotNoLabel.TabIndex = 4;
+            sPLotNoLabel.Text = "SPLot No:";
+            // 
+            // docketNumLabel
+            // 
+            docketNumLabel.AutoSize = true;
+            docketNumLabel.Location = new System.Drawing.Point(538, 287);
+            docketNumLabel.Name = "docketNumLabel";
+            docketNumLabel.Size = new System.Drawing.Size(96, 18);
+            docketNumLabel.TabIndex = 6;
+            docketNumLabel.Text = "Docket Num:";
+            // 
+            // tonnesLabel
+            // 
+            tonnesLabel.AutoSize = true;
+            tonnesLabel.Location = new System.Drawing.Point(538, 317);
+            tonnesLabel.Name = "tonnesLabel";
+            tonnesLabel.Size = new System.Drawing.Size(62, 18);
+            tonnesLabel.TabIndex = 8;
+            tonnesLabel.Text = "Tonnes:";
+            // 
+            // reversalLabel
+            // 
+            reversalLabel.AutoSize = true;
+            reversalLabel.Location = new System.Drawing.Point(538, 349);
+            reversalLabel.Name = "reversalLabel";
+            reversalLabel.Size = new System.Drawing.Size(70, 18);
+            reversalLabel.TabIndex = 10;
+            reversalLabel.Text = "Reversal:";
+            // 
+            // commentLabel
+            // 
+            commentLabel.AutoSize = true;
+            commentLabel.Location = new System.Drawing.Point(538, 377);
+            commentLabel.Name = "commentLabel";
+            commentLabel.Size = new System.Drawing.Size(78, 18);
+            commentLabel.TabIndex = 12;
+            commentLabel.Text = "Comment:";
             // 
             // bsSPLotNoAudit
             // 
@@ -181,68 +257,32 @@
             this.dsTIQ2.DataSetName = "dsTIQ2";
             this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // allocationIDLabel
+            // itemCodeLabel1
             // 
-            allocationIDLabel.AutoSize = true;
-            allocationIDLabel.Location = new System.Drawing.Point(208, 197);
-            allocationIDLabel.Name = "allocationIDLabel";
-            allocationIDLabel.Size = new System.Drawing.Size(94, 18);
-            allocationIDLabel.TabIndex = 0;
-            allocationIDLabel.Text = "Allocation ID:";
+            itemCodeLabel1.AutoSize = true;
+            itemCodeLabel1.Location = new System.Drawing.Point(75, 89);
+            itemCodeLabel1.Name = "itemCodeLabel1";
+            itemCodeLabel1.Size = new System.Drawing.Size(80, 18);
+            itemCodeLabel1.TabIndex = 18;
+            itemCodeLabel1.Text = "Item Code:";
             // 
-            // itemCodeLabel
+            // stockpileLotLabel
             // 
-            itemCodeLabel.AutoSize = true;
-            itemCodeLabel.Location = new System.Drawing.Point(208, 227);
-            itemCodeLabel.Name = "itemCodeLabel";
-            itemCodeLabel.Size = new System.Drawing.Size(80, 18);
-            itemCodeLabel.TabIndex = 2;
-            itemCodeLabel.Text = "Item Code:";
+            stockpileLotLabel.AutoSize = true;
+            stockpileLotLabel.Location = new System.Drawing.Point(57, 149);
+            stockpileLotLabel.Name = "stockpileLotLabel";
+            stockpileLotLabel.Size = new System.Drawing.Size(98, 18);
+            stockpileLotLabel.TabIndex = 20;
+            stockpileLotLabel.Text = "Stockpile Lot:";
             // 
-            // sPLotNoLabel
+            // quantityLabel
             // 
-            sPLotNoLabel.AutoSize = true;
-            sPLotNoLabel.Location = new System.Drawing.Point(208, 257);
-            sPLotNoLabel.Name = "sPLotNoLabel";
-            sPLotNoLabel.Size = new System.Drawing.Size(77, 18);
-            sPLotNoLabel.TabIndex = 4;
-            sPLotNoLabel.Text = "SPLot No:";
-            // 
-            // docketNumLabel
-            // 
-            docketNumLabel.AutoSize = true;
-            docketNumLabel.Location = new System.Drawing.Point(208, 287);
-            docketNumLabel.Name = "docketNumLabel";
-            docketNumLabel.Size = new System.Drawing.Size(96, 18);
-            docketNumLabel.TabIndex = 6;
-            docketNumLabel.Text = "Docket Num:";
-            // 
-            // tonnesLabel
-            // 
-            tonnesLabel.AutoSize = true;
-            tonnesLabel.Location = new System.Drawing.Point(208, 317);
-            tonnesLabel.Name = "tonnesLabel";
-            tonnesLabel.Size = new System.Drawing.Size(62, 18);
-            tonnesLabel.TabIndex = 8;
-            tonnesLabel.Text = "Tonnes:";
-            // 
-            // reversalLabel
-            // 
-            reversalLabel.AutoSize = true;
-            reversalLabel.Location = new System.Drawing.Point(208, 349);
-            reversalLabel.Name = "reversalLabel";
-            reversalLabel.Size = new System.Drawing.Size(70, 18);
-            reversalLabel.TabIndex = 10;
-            reversalLabel.Text = "Reversal:";
-            // 
-            // commentLabel
-            // 
-            commentLabel.AutoSize = true;
-            commentLabel.Location = new System.Drawing.Point(208, 377);
-            commentLabel.Name = "commentLabel";
-            commentLabel.Size = new System.Drawing.Size(78, 18);
-            commentLabel.TabIndex = 12;
-            commentLabel.Text = "Comment:";
+            quantityLabel.AutoSize = true;
+            quantityLabel.Location = new System.Drawing.Point(89, 179);
+            quantityLabel.Name = "quantityLabel";
+            quantityLabel.Size = new System.Drawing.Size(66, 18);
+            quantityLabel.TabIndex = 22;
+            quantityLabel.Text = "Quantity:";
             // 
             // tabControl1
             // 
@@ -394,6 +434,52 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_DefaultValuesNeeded);
             // 
+            // allocationIDDataGridViewTextBoxColumn
+            // 
+            this.allocationIDDataGridViewTextBoxColumn.DataPropertyName = "AllocationID";
+            this.allocationIDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.allocationIDDataGridViewTextBoxColumn.Name = "allocationIDDataGridViewTextBoxColumn";
+            this.allocationIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.allocationIDDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // mCODataGridViewTextBoxColumn
+            // 
+            this.mCODataGridViewTextBoxColumn.DataPropertyName = "MCO";
+            this.mCODataGridViewTextBoxColumn.HeaderText = "MCO";
+            this.mCODataGridViewTextBoxColumn.Name = "mCODataGridViewTextBoxColumn";
+            this.mCODataGridViewTextBoxColumn.ReadOnly = true;
+            this.mCODataGridViewTextBoxColumn.Width = 150;
+            // 
+            // BaseItemCode
+            // 
+            this.BaseItemCode.DataPropertyName = "BaseItemCode";
+            this.BaseItemCode.HeaderText = "Base Item";
+            this.BaseItemCode.Name = "BaseItemCode";
+            this.BaseItemCode.ReadOnly = true;
+            this.BaseItemCode.Width = 150;
+            // 
+            // lotNoDataGridViewTextBoxColumn
+            // 
+            this.lotNoDataGridViewTextBoxColumn.DataPropertyName = "LotNo";
+            this.lotNoDataGridViewTextBoxColumn.HeaderText = "Lot No";
+            this.lotNoDataGridViewTextBoxColumn.Name = "lotNoDataGridViewTextBoxColumn";
+            this.lotNoDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // lotStatusDataGridViewTextBoxColumn
+            // 
+            this.lotStatusDataGridViewTextBoxColumn.DataPropertyName = "LotStatus";
+            this.lotStatusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.lotStatusDataGridViewTextBoxColumn.Name = "lotStatusDataGridViewTextBoxColumn";
+            this.lotStatusDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // allocationDTTMDataGridViewTextBoxColumn
+            // 
+            this.allocationDTTMDataGridViewTextBoxColumn.DataPropertyName = "AllocationDTTM";
+            this.allocationDTTMDataGridViewTextBoxColumn.HeaderText = "Allocation DTTM";
+            this.allocationDTTMDataGridViewTextBoxColumn.Name = "allocationDTTMDataGridViewTextBoxColumn";
+            this.allocationDTTMDataGridViewTextBoxColumn.ReadOnly = true;
+            this.allocationDTTMDataGridViewTextBoxColumn.Width = 150;
+            // 
             // bsStockpileLotAllocation
             // 
             this.bsStockpileLotAllocation.DataMember = "StockpileLotAllocation";
@@ -543,9 +629,9 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource2.Name = "DataSet1";
-            reportDataSource2.Value = this.bsSPLotNoAudit;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource3.Name = "DataSet1";
+            reportDataSource3.Value = this.bsSPLotNoAudit;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "QWS_Local.SPLotNoAudit.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Margin = new System.Windows.Forms.Padding(4);
@@ -774,6 +860,13 @@
             // 
             // tpDataEntry
             // 
+            this.tpDataEntry.Controls.Add(this.itemQACheckBox);
+            this.tpDataEntry.Controls.Add(quantityLabel);
+            this.tpDataEntry.Controls.Add(this.quantityTextBox);
+            this.tpDataEntry.Controls.Add(stockpileLotLabel);
+            this.tpDataEntry.Controls.Add(this.stockpileLotTextBox);
+            this.tpDataEntry.Controls.Add(itemCodeLabel1);
+            this.tpDataEntry.Controls.Add(this.itemCodeTextBox1);
             this.tpDataEntry.Controls.Add(this.txtDocNum2Check);
             this.tpDataEntry.Controls.Add(this.btnAddAllocation);
             this.tpDataEntry.Controls.Add(this.button1);
@@ -792,17 +885,46 @@
             this.tpDataEntry.Controls.Add(this.reversalCheckBox);
             this.tpDataEntry.Controls.Add(commentLabel);
             this.tpDataEntry.Controls.Add(this.commentTextBox);
-            this.tpDataEntry.Location = new System.Drawing.Point(4, 22);
+            this.tpDataEntry.Location = new System.Drawing.Point(4, 27);
             this.tpDataEntry.Name = "tpDataEntry";
             this.tpDataEntry.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDataEntry.Size = new System.Drawing.Size(932, 749);
+            this.tpDataEntry.Size = new System.Drawing.Size(932, 744);
             this.tpDataEntry.TabIndex = 1;
             this.tpDataEntry.Text = "Data Entry";
             this.tpDataEntry.UseVisualStyleBackColor = true;
             // 
+            // quantityTextBox
+            // 
+            this.quantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsSPLotCheckDocket, "Quantity", true));
+            this.quantityTextBox.Location = new System.Drawing.Point(161, 176);
+            this.quantityTextBox.Name = "quantityTextBox";
+            this.quantityTextBox.Size = new System.Drawing.Size(100, 24);
+            this.quantityTextBox.TabIndex = 23;
+            // 
+            // bsSPLotCheckDocket
+            // 
+            this.bsSPLotCheckDocket.DataMember = "SPLotCheckDocket";
+            this.bsSPLotCheckDocket.DataSource = this.dsTIQ2;
+            // 
+            // stockpileLotTextBox
+            // 
+            this.stockpileLotTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsSPLotCheckDocket, "StockpileLot", true));
+            this.stockpileLotTextBox.Location = new System.Drawing.Point(161, 146);
+            this.stockpileLotTextBox.Name = "stockpileLotTextBox";
+            this.stockpileLotTextBox.Size = new System.Drawing.Size(100, 24);
+            this.stockpileLotTextBox.TabIndex = 21;
+            // 
+            // itemCodeTextBox1
+            // 
+            this.itemCodeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsSPLotCheckDocket, "ItemCode", true));
+            this.itemCodeTextBox1.Location = new System.Drawing.Point(161, 86);
+            this.itemCodeTextBox1.Name = "itemCodeTextBox1";
+            this.itemCodeTextBox1.Size = new System.Drawing.Size(100, 24);
+            this.itemCodeTextBox1.TabIndex = 19;
+            // 
             // txtDocNum2Check
             // 
-            this.txtDocNum2Check.Location = new System.Drawing.Point(310, 129);
+            this.txtDocNum2Check.Location = new System.Drawing.Point(161, 56);
             this.txtDocNum2Check.Name = "txtDocNum2Check";
             this.txtDocNum2Check.Size = new System.Drawing.Size(100, 24);
             this.txtDocNum2Check.TabIndex = 17;
@@ -814,16 +936,16 @@
             this.btnAddAllocation.Name = "btnAddAllocation";
             this.btnAddAllocation.Size = new System.Drawing.Size(118, 58);
             this.btnAddAllocation.TabIndex = 16;
-            this.btnAddAllocation.Text = "New";
+            this.btnAddAllocation.Text = "Allocate";
             this.btnAddAllocation.UseVisualStyleBackColor = true;
             this.btnAddAllocation.Click += new System.EventHandler(this.btnAddAllocation_Click_1);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(417, 95);
+            this.button1.Location = new System.Drawing.Point(296, 41);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(257, 58);
+            this.button1.Size = new System.Drawing.Size(197, 39);
             this.button1.TabIndex = 15;
             this.button1.Text = "Check Docket Number";
             this.button1.UseVisualStyleBackColor = true;
@@ -832,7 +954,7 @@
             // allocationIDTextBox
             // 
             this.allocationIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsStockpileManualAllocation, "AllocationID", true));
-            this.allocationIDTextBox.Location = new System.Drawing.Point(310, 194);
+            this.allocationIDTextBox.Location = new System.Drawing.Point(640, 194);
             this.allocationIDTextBox.Name = "allocationIDTextBox";
             this.allocationIDTextBox.Size = new System.Drawing.Size(104, 24);
             this.allocationIDTextBox.TabIndex = 1;
@@ -851,7 +973,7 @@
             // itemCodeTextBox
             // 
             this.itemCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsStockpileManualAllocation, "ItemCode", true));
-            this.itemCodeTextBox.Location = new System.Drawing.Point(310, 224);
+            this.itemCodeTextBox.Location = new System.Drawing.Point(640, 224);
             this.itemCodeTextBox.Name = "itemCodeTextBox";
             this.itemCodeTextBox.Size = new System.Drawing.Size(104, 24);
             this.itemCodeTextBox.TabIndex = 3;
@@ -859,7 +981,7 @@
             // sPLotNoTextBox
             // 
             this.sPLotNoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsStockpileManualAllocation, "SPLotNo", true));
-            this.sPLotNoTextBox.Location = new System.Drawing.Point(310, 254);
+            this.sPLotNoTextBox.Location = new System.Drawing.Point(640, 254);
             this.sPLotNoTextBox.Name = "sPLotNoTextBox";
             this.sPLotNoTextBox.Size = new System.Drawing.Size(104, 24);
             this.sPLotNoTextBox.TabIndex = 5;
@@ -867,7 +989,7 @@
             // docketNumTextBox
             // 
             this.docketNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsStockpileManualAllocation, "DocketNum", true));
-            this.docketNumTextBox.Location = new System.Drawing.Point(310, 284);
+            this.docketNumTextBox.Location = new System.Drawing.Point(640, 284);
             this.docketNumTextBox.Name = "docketNumTextBox";
             this.docketNumTextBox.Size = new System.Drawing.Size(104, 24);
             this.docketNumTextBox.TabIndex = 7;
@@ -875,7 +997,7 @@
             // tonnesTextBox
             // 
             this.tonnesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsStockpileManualAllocation, "Tonnes", true));
-            this.tonnesTextBox.Location = new System.Drawing.Point(310, 314);
+            this.tonnesTextBox.Location = new System.Drawing.Point(640, 314);
             this.tonnesTextBox.Name = "tonnesTextBox";
             this.tonnesTextBox.Size = new System.Drawing.Size(104, 24);
             this.tonnesTextBox.TabIndex = 9;
@@ -883,7 +1005,7 @@
             // reversalCheckBox
             // 
             this.reversalCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bsStockpileManualAllocation, "Reversal", true));
-            this.reversalCheckBox.Location = new System.Drawing.Point(310, 344);
+            this.reversalCheckBox.Location = new System.Drawing.Point(640, 344);
             this.reversalCheckBox.Name = "reversalCheckBox";
             this.reversalCheckBox.Size = new System.Drawing.Size(104, 24);
             this.reversalCheckBox.TabIndex = 11;
@@ -893,7 +1015,7 @@
             // commentTextBox
             // 
             this.commentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsStockpileManualAllocation, "Comment", true));
-            this.commentTextBox.Location = new System.Drawing.Point(310, 374);
+            this.commentTextBox.Location = new System.Drawing.Point(640, 374);
             this.commentTextBox.Name = "commentTextBox";
             this.commentTextBox.Size = new System.Drawing.Size(104, 24);
             this.commentTextBox.TabIndex = 13;
@@ -1042,50 +1164,19 @@
             // 
             this.taSPLotItemsMap.ClearBeforeFill = true;
             // 
-            // allocationIDDataGridViewTextBoxColumn
+            // taSPLotCheckDocket
             // 
-            this.allocationIDDataGridViewTextBoxColumn.DataPropertyName = "AllocationID";
-            this.allocationIDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.allocationIDDataGridViewTextBoxColumn.Name = "allocationIDDataGridViewTextBoxColumn";
-            this.allocationIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.allocationIDDataGridViewTextBoxColumn.Width = 70;
+            this.taSPLotCheckDocket.ClearBeforeFill = true;
             // 
-            // mCODataGridViewTextBoxColumn
+            // itemQACheckBox
             // 
-            this.mCODataGridViewTextBoxColumn.DataPropertyName = "MCO";
-            this.mCODataGridViewTextBoxColumn.HeaderText = "MCO";
-            this.mCODataGridViewTextBoxColumn.Name = "mCODataGridViewTextBoxColumn";
-            this.mCODataGridViewTextBoxColumn.ReadOnly = true;
-            this.mCODataGridViewTextBoxColumn.Width = 150;
-            // 
-            // BaseItemCode
-            // 
-            this.BaseItemCode.DataPropertyName = "BaseItemCode";
-            this.BaseItemCode.HeaderText = "Base Item";
-            this.BaseItemCode.Name = "BaseItemCode";
-            this.BaseItemCode.ReadOnly = true;
-            this.BaseItemCode.Width = 150;
-            // 
-            // lotNoDataGridViewTextBoxColumn
-            // 
-            this.lotNoDataGridViewTextBoxColumn.DataPropertyName = "LotNo";
-            this.lotNoDataGridViewTextBoxColumn.HeaderText = "Lot No";
-            this.lotNoDataGridViewTextBoxColumn.Name = "lotNoDataGridViewTextBoxColumn";
-            this.lotNoDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // lotStatusDataGridViewTextBoxColumn
-            // 
-            this.lotStatusDataGridViewTextBoxColumn.DataPropertyName = "LotStatus";
-            this.lotStatusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.lotStatusDataGridViewTextBoxColumn.Name = "lotStatusDataGridViewTextBoxColumn";
-            this.lotStatusDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // allocationDTTMDataGridViewTextBoxColumn
-            // 
-            this.allocationDTTMDataGridViewTextBoxColumn.DataPropertyName = "AllocationDTTM";
-            this.allocationDTTMDataGridViewTextBoxColumn.HeaderText = "Allocation DTTM";
-            this.allocationDTTMDataGridViewTextBoxColumn.Name = "allocationDTTMDataGridViewTextBoxColumn";
-            this.allocationDTTMDataGridViewTextBoxColumn.Width = 150;
+            this.itemQACheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bsSPLotCheckDocket, "ItemQA", true));
+            this.itemQACheckBox.Location = new System.Drawing.Point(161, 116);
+            this.itemQACheckBox.Name = "itemQACheckBox";
+            this.itemQACheckBox.Size = new System.Drawing.Size(104, 24);
+            this.itemQACheckBox.TabIndex = 25;
+            this.itemQACheckBox.Text = "Item QA";
+            this.itemQACheckBox.UseVisualStyleBackColor = true;
             // 
             // SPLotMaintenance
             // 
@@ -1137,6 +1228,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsStockpileManualAllocation)).EndInit();
             this.tpDataEntry.ResumeLayout(false);
             this.tpDataEntry.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsSPLotCheckDocket)).EndInit();
             this.tpBaseItem.ResumeLayout(false);
             this.splitContainer5.Panel1.ResumeLayout(false);
             this.splitContainer5.Panel2.ResumeLayout(false);
@@ -1235,5 +1327,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lotNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lotStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn allocationDTTMDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource bsSPLotCheckDocket;
+        private dsTIQ2TableAdapters.SPLotCheckDocketTableAdapter taSPLotCheckDocket;
+        private System.Windows.Forms.TextBox itemCodeTextBox1;
+        private System.Windows.Forms.TextBox quantityTextBox;
+        private System.Windows.Forms.TextBox stockpileLotTextBox;
+        private System.Windows.Forms.CheckBox itemQACheckBox;
     }
 }

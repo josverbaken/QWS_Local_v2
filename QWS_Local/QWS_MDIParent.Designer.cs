@@ -54,6 +54,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.tspUserName = new System.Windows.Forms.ToolStripTextBox();
+            this.tspSite = new System.Windows.Forms.ToolStripTextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +68,7 @@
             this.windowsToolStripMenuItem,
             this.helloToolStripMenuItem,
             this.toolStripTextBox1,
+            this.tspSite,
             this.tspUserName});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MdiWindowListItem = this.windowsToolStripMenuItem;
@@ -205,7 +207,7 @@
             // deliveryOrdersToolStripMenuItem1
             // 
             this.deliveryOrdersToolStripMenuItem1.Name = "deliveryOrdersToolStripMenuItem1";
-            this.deliveryOrdersToolStripMenuItem1.Size = new System.Drawing.Size(180, 24);
+            this.deliveryOrdersToolStripMenuItem1.Size = new System.Drawing.Size(122, 24);
             this.deliveryOrdersToolStripMenuItem1.Text = "Orders";
             this.deliveryOrdersToolStripMenuItem1.Click += new System.EventHandler(this.deliveryOrdersToolStripMenuItem1_Click);
             // 
@@ -227,7 +229,7 @@
             // closeAllToolStripMenuItem
             // 
             this.closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
-            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.closeAllToolStripMenuItem.Text = "Close All";
             this.closeAllToolStripMenuItem.Click += new System.EventHandler(this.closeAllToolStripMenuItem_Click);
             // 
@@ -243,14 +245,14 @@
             // onlineHelpToolStripMenuItem
             // 
             this.onlineHelpToolStripMenuItem.Name = "onlineHelpToolStripMenuItem";
-            this.onlineHelpToolStripMenuItem.Size = new System.Drawing.Size(157, 24);
+            this.onlineHelpToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.onlineHelpToolStripMenuItem.Text = "Online Help";
             this.onlineHelpToolStripMenuItem.Click += new System.EventHandler(this.onlineHelpToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(157, 24);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -265,7 +267,15 @@
             this.tspUserName.BackColor = System.Drawing.SystemColors.Control;
             this.tspUserName.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.tspUserName.Name = "tspUserName";
-            this.tspUserName.Size = new System.Drawing.Size(100, 27);
+            this.tspUserName.Size = new System.Drawing.Size(250, 27);
+            // 
+            // tspSite
+            // 
+            this.tspSite.BackColor = System.Drawing.SystemColors.Control;
+            this.tspSite.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.tspSite.Name = "tspSite";
+            this.tspSite.Size = new System.Drawing.Size(250, 27);
+            this.tspSite.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // QWS_MDIParent
             // 
@@ -317,5 +327,6 @@
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripMenuItem emailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pBSV1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox tspSite;
     }
 }
