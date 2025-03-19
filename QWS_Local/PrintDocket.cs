@@ -12,9 +12,17 @@ namespace QWS_Local
 {
     public partial class PrintDocket : Form
     {
+        private int mySiteID;
+
         public PrintDocket()
         {
             InitializeComponent();
+        }
+
+        public PrintDocket(int SiteID)
+        {
+            InitializeComponent();
+            this.mySiteID = SiteID;
         }
 
         private void PrintDocket_Load(object sender, EventArgs e)
@@ -30,7 +38,7 @@ namespace QWS_Local
             try
             {
                 dsQWS.DocketList.Clear();
-                int iRows = this.taDocketList.FillBy(this.dsQWS.DocketList,DocDate);
+                int iRows = this.taDocketList.FillBy(this.dsQWS.DocketList,DocDate,mySiteID);
                 textBox2.Text = iRows.ToString();
                 dgvDocketList.ClearSelection();
             }

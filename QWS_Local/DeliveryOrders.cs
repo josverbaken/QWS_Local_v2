@@ -14,6 +14,7 @@ namespace QWS_Local
     {
         private static string DeliveryModeFilter = "";
         private static string DeliveryDateFilter = "";
+        private int mySiteID;
 
         public DeliveryOrders()
         {
@@ -23,6 +24,8 @@ namespace QWS_Local
         private void DeliveryOrders_Load(object sender, EventArgs e)
         {
             GetQuarryOrders();
+            var parent = this.MdiParent as QWS_MDIParent;
+            mySiteID = parent.SiteID;
         }
 
         private void rbTruck_CheckedChanged(object sender, EventArgs e)
@@ -125,7 +128,7 @@ namespace QWS_Local
         {
             try
             {
-                taQuarryOrders.Fill(dsBookIn.QuarryOrders, "Delivery", "xxx", 0);
+                taQuarryOrders.Fill(dsBookIn.QuarryOrders, "Delivery", "xxx", 0, mySiteID);
             }
             catch (Exception ex)
             {

@@ -14,6 +14,7 @@ namespace QWS_Local
     {
         private decimal myWeight;
         private string Instruction;
+        private int mySiteID;
 
         public decimal Weight
         {
@@ -25,10 +26,11 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public WeighTruck(string myInstruction)
+        public WeighTruck(string myInstruction, int mySiteID)
         {
             InitializeComponent();
             Instruction = myInstruction;
+            this.mySiteID = mySiteID;
         }
         private void btnAccept_Click(object sender, EventArgs e)
         {
@@ -59,8 +61,6 @@ namespace QWS_Local
 
         private void WeighTruck_Load(object sender, EventArgs e)
         {
-            var parent = this.MdiParent as QWS_MDIParent;
-            int mySiteID = parent.SiteID;
             int iWBCount = taWBConfig4Site.Fill(dsTIQ2.WBConfig4Site, mySiteID);
 
             switch (iWBCount)
@@ -177,7 +177,11 @@ namespace QWS_Local
             }
         }
 
-        private async Task CaptureSingleWeight()
+        private void CaptureSingleWeight()
+        {
+            CaptureSingleWeightAsync();
+        }
+        private async Task CaptureSingleWeightAsync()
         {
             // TODO get weight from appropriate site and weighbridge id
             // and change how to call GetSingleWeight, might need to add ScaleFactor to Properties
@@ -190,14 +194,13 @@ namespace QWS_Local
             }
             if (rbWB1.Checked == true && rbAuto.Checked == true)
             {
-                var parent = this.MdiParent as QWS_MDIParent;
                 txtWBInfo.Text = "Getting weight from WB1";
                 WeighbridgeRead weighbridgeRead = new WeighbridgeRead();
-                if (parent.SiteID == 7)
+                if (mySiteID == 7)
                 {
                     myWeight = await weighbridgeRead.GetSingleWeight("NQWB1");
                 }
-                else if (parent.SiteID == 2)
+                else if (mySiteID == 2)
                 {
                     myWeight = await weighbridgeRead.GetSingleWeight("SQWB1");
                 }

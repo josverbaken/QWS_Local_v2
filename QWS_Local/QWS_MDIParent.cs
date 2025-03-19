@@ -192,7 +192,7 @@ namespace QWS_Local
 
         public void PrintDocket()
         {
-            PrintDocket frmPrintDocket = new PrintDocket();
+            PrintDocket frmPrintDocket = new PrintDocket(mySiteID);
             frmPrintDocket.MdiParent = this;
             frmPrintDocket.WindowState = FormWindowState.Maximized;
             frmPrintDocket.Show();

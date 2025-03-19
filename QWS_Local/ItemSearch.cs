@@ -17,13 +17,16 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public ItemSearch(bool ExBinNoOrder)
+        public ItemSearch(bool ExBinNoOrder, int SiteID)
         {
             InitializeComponent();
             blExBinNoOrder = ExBinNoOrder;
+            mySiteID = SiteID;
         }
 
         private bool blExBinNoOrder = false;
+
+        private int mySiteID;
 
         private dsQWSViews.ItemRow ItemRow;
 
@@ -34,8 +37,7 @@ namespace QWS_Local
 
         private void ItemSearch_Load(object sender, EventArgs e)
         {
-            var parent = this.MdiParent as QWS_MDIParent;
-            string SiteCode = "0" + parent.SiteID.ToString();
+            string SiteCode = "0" + mySiteID.ToString();
             this.taItem.ExBinnoOrder(this.dsQWSViews.Item,SiteCode);
             this.bsItem.Filter = "Active like 'Y'";
             if (blExBinNoOrder)

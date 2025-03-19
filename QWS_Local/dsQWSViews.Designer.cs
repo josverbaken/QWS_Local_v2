@@ -2118,6 +2118,7 @@ namespace QWS_Local.dsQWSViewsTableAdapters {
             this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DocDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SiteID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2148,13 +2149,19 @@ namespace QWS_Local.dsQWSViewsTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(dsQWSViews.DocketListDataTable dataTable, global::System.Nullable<global::System.DateTime> DocDate) {
+        public virtual int FillBy(dsQWSViews.DocketListDataTable dataTable, global::System.Nullable<global::System.DateTime> DocDate, global::System.Nullable<int> SiteID) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((DocDate.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(DocDate.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((SiteID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(SiteID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2167,13 +2174,19 @@ namespace QWS_Local.dsQWSViewsTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual dsQWSViews.DocketListDataTable GetDataBy(global::System.Nullable<global::System.DateTime> DocDate) {
+        public virtual dsQWSViews.DocketListDataTable GetDataBy(global::System.Nullable<global::System.DateTime> DocDate, global::System.Nullable<int> SiteID) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((DocDate.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(DocDate.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((SiteID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(SiteID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             dsQWSViews.DocketListDataTable dataTable = new dsQWSViews.DocketListDataTable();
             this.Adapter.Fill(dataTable);

@@ -17,6 +17,7 @@ namespace QWS_Local
 {
     public partial class TrucksInQuarry : Form
     {
+        private int mySiteID;
         private int mySPLotNo;
         private string WeighbridgeOperator;
         private string ComputerName;
@@ -37,6 +38,7 @@ namespace QWS_Local
             // TODO: find a nicer solution, probably images/icons
             iRows += 1;
             var parent = this.MdiParent as QWS_MDIParent;
+            mySiteID = parent.SiteID;
             WeighbridgeOperator = parent.UserName;
             ComputerName = parent.ComputerName;
             Domain = parent.DomainName;
@@ -275,12 +277,12 @@ namespace QWS_Local
                     case "T":
                         if (myTIQRow.QueueStatus == "T" && myTIQRow.TruckConfig == "TT")
                         {
-                            frmWeighTruck = new WeighTruck("Collect Tare of truck as split weight");
+                            frmWeighTruck = new WeighTruck("Collect Tare of truck as split weight",mySiteID);
                             dr = frmWeighTruck.ShowDialog();
                         }
                         else
                         {
-                            frmWeighTruck = new WeighTruck("Collect Tare with whole truck on weighbridge.");
+                            frmWeighTruck = new WeighTruck("Collect Tare with whole truck on weighbridge.",mySiteID);
                             dr = frmWeighTruck.ShowDialog();
                         }
                         if (dr == DialogResult.OK)
@@ -299,7 +301,7 @@ namespace QWS_Local
                             else
                             {
                                 myTareTk = frmWeighTruck.Weight;
-                                WeighTruck frmTare = new WeighTruck("Collect Tare of T&T as a total weight");
+                                WeighTruck frmTare = new WeighTruck("Collect Tare of T&T as a total weight",mySiteID);
                                 DialogResult dr1 = frmTare.ShowDialog();
                                 if (dr1 == DialogResult.OK)
                                 {
@@ -316,7 +318,7 @@ namespace QWS_Local
                         }
                         break;
                     case "I":
-                        frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.");
+                        frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.", mySiteID);
                         dr = frmWeighTruck.ShowDialog();
                         myWeight = frmWeighTruck.Weight;
                         if (dr == DialogResult.OK)
@@ -354,7 +356,7 @@ namespace QWS_Local
                         }
                         break;
                     case "G":
-                        frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.");
+                        frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.", mySiteID );
                         dr = frmWeighTruck.ShowDialog();
                         myWeight = frmWeighTruck.Weight;
                         if (dr == DialogResult.OK)
@@ -394,7 +396,7 @@ namespace QWS_Local
 
                         break;
                     case "Q":
-                        frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.");
+                        frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.", mySiteID);
                         dr = frmWeighTruck.ShowDialog();                        
                         if (dr == DialogResult.OK)
                         {
@@ -457,7 +459,7 @@ namespace QWS_Local
                         break;
 
                     case "X": // Trailer Only Split Load
-                        frmWeighTruck = new WeighTruck("Collect weight with both truck and trailer on weighbridge.");
+                        frmWeighTruck = new WeighTruck("Collect weight with both truck and trailer on weighbridge.", mySiteID);
                         dr = frmWeighTruck.ShowDialog();
                         myWeight = frmWeighTruck.Weight;
                         if (dr == DialogResult.OK)

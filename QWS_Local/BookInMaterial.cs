@@ -20,6 +20,7 @@ namespace QWS_Local
         private string CardCode;
         private string CustomerName;
         private dsQWSLocal2024.TruckDriverRow DriverRow;
+        private int mySiteID;
 
         private enum TIQType // N.B. these match variables in SQL usp QuarryOrders
         {
@@ -36,8 +37,9 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public BookInMaterial(int myTIQID,string myTIQType,int myTruckConfigID, string myCardCode, string myCustomerName, bool myIsPrefCust , dsQWSLocal2024.TruckDriverRow driverRow)
+        public BookInMaterial(int myTIQID,int SiteID, string myTIQType,int myTruckConfigID, string myCardCode, string myCustomerName, bool myIsPrefCust , dsQWSLocal2024.TruckDriverRow driverRow)
         {
+            mySiteID = SiteID;
             InitializeComponent();
             TIQID = myTIQID;
             TruckConfigID = myTruckConfigID;
@@ -114,16 +116,21 @@ namespace QWS_Local
 
         private void LoadTIQ()
         {
-            var parent = this.MdiParent as QWS_MDIParent;
-            int SiteID = parent.SiteID;
-            dsTIQ2.Clear();
-            int iRow = taTIQ2.FillBy(dsTIQ2.TIQ, SiteID, TIQID);
+            try
+            {
+                dsTIQ2.Clear();
+            int iRow = taTIQ2.FillBy(dsTIQ2.TIQ, mySiteID, TIQID);
             if (iRow != 1)
             {
                 MessageBox.Show("Error loading TIQ row!","Form BookInExBin LoadTIQ",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
             string myDriver = myTIQRow.Driver;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "LoadTIQ Error!");
+            }
         }
 
         private void SetExBinNoOrderCustomer()
@@ -349,7 +356,7 @@ namespace QWS_Local
 
         private void btnExBinItems_Click(object sender, EventArgs e)
         {
-            ItemSearch frmItemSearch = new ItemSearch(true);
+            ItemSearch frmItemSearch = new ItemSearch(true, mySiteID);
             DialogResult dr = frmItemSearch.ShowDialog();
             if (dr == DialogResult.OK)
             {//get details
@@ -706,7 +713,7 @@ namespace QWS_Local
         {
             try
             {
-                this.taQuarryOrders.Fill(this.dsBookIn.QuarryOrders, OrderType,CardCode, CartageInt);
+                this.taQuarryOrders.Fill(this.dsBookIn.QuarryOrders, OrderType,CardCode, CartageInt,mySiteID);
             }
             catch (System.Exception ex)
             {

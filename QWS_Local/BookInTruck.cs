@@ -24,6 +24,7 @@ namespace QWS_Local
         private static int TIQID = 0;
         private string myUserName;
         private static string WBO = "Barney.Rubble";
+        private static int mySiteID;
 
 
         private enum TIQType
@@ -248,6 +249,7 @@ namespace QWS_Local
 
             var parent = this.MdiParent as QWS_MDIParent;
             myUserName = parent.UserName;
+            mySiteID = parent.SiteID;
             WBO = myUserName;
             if (CallingMessage.Length > 0)
             {
@@ -577,7 +579,7 @@ namespace QWS_Local
             {
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 UpdateTIQ(BookInTIQType, myTIQRow.TruckConfig);
-                BookInMaterial frmExBin = new BookInMaterial(TIQID, BookInTIQType.ToString(), CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, IsPrefCust, CurrentTruckDriver());
+                BookInMaterial frmExBin = new BookInMaterial(TIQID,mySiteID, BookInTIQType.ToString(), CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, IsPrefCust, CurrentTruckDriver());
                 TIQID = 0;
                 frmExBin.MdiParent = this.MdiParent;
                 frmExBin.Show();
@@ -711,8 +713,8 @@ namespace QWS_Local
             try
             {
                 dsTIQ2.Clear();
-                //int iRow = taTIQ.Fill(dsTIQ2.TIQ, 7);
-                int iRow = taTIQ.FillBy(dsTIQ2.TIQ, 7, iTIQID); // 1 row only!
+                // TODO get SiteID
+                int iRow = taTIQ.FillBy(dsTIQ2.TIQ, mySiteID, iTIQID); // 1 row only!
             }
             catch (Exception ex)
             {
@@ -724,14 +726,14 @@ namespace QWS_Local
         {
             try
             {
-                var parent = this.MdiParent as QWS_MDIParent;
+                //var parent = this.MdiParent as QWS_MDIParent;
                 SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "IsInQueue";
                 cmd.Parameters.AddWithValue("@Rego", Rego);
-                cmd.Parameters.AddWithValue("@SiteID", parent.SiteID);
+                cmd.Parameters.AddWithValue("@SiteID", mySiteID);
                 sqlConnection.Open();
                 int iTrucks = System.Convert.ToInt32(cmd.ExecuteScalar());
                 sqlConnection.Close();

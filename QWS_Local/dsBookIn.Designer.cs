@@ -6299,13 +6299,14 @@ FROM            ExBinOrders AS t0";
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrderType", global::System.Data.SqlDbType.VarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CardCode", global::System.Data.SqlDbType.VarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CartageInt", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SiteID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsBookIn.QuarryOrdersDataTable dataTable, string OrderType, string CardCode, global::System.Nullable<int> CartageInt) {
+        public virtual int Fill(dsBookIn.QuarryOrdersDataTable dataTable, string OrderType, string CardCode, global::System.Nullable<int> CartageInt, global::System.Nullable<int> SiteID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((OrderType == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -6324,6 +6325,12 @@ FROM            ExBinOrders AS t0";
             }
             else {
                 this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((SiteID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((int)(SiteID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -6336,7 +6343,7 @@ FROM            ExBinOrders AS t0";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsBookIn.QuarryOrdersDataTable GetData(string OrderType, string CardCode, global::System.Nullable<int> CartageInt) {
+        public virtual dsBookIn.QuarryOrdersDataTable GetData(string OrderType, string CardCode, global::System.Nullable<int> CartageInt, global::System.Nullable<int> SiteID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((OrderType == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -6355,6 +6362,12 @@ FROM            ExBinOrders AS t0";
             }
             else {
                 this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((SiteID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((int)(SiteID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             dsBookIn.QuarryOrdersDataTable dataTable = new dsBookIn.QuarryOrdersDataTable();
             this.Adapter.Fill(dataTable);
