@@ -45,6 +45,7 @@
             this.rbNQ.TabIndex = 0;
             this.rbNQ.TabStop = true;
             this.rbNQ.Text = "Northern Quarries";
+            this.rbNQ.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rbNQ.UseVisualStyleBackColor = false;
             // 
             // rbSQ
@@ -57,11 +58,12 @@
             this.rbSQ.Size = new System.Drawing.Size(150, 40);
             this.rbSQ.TabIndex = 1;
             this.rbSQ.Text = "Stawell Quarry";
+            this.rbSQ.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rbSQ.UseVisualStyleBackColor = false;
             // 
             // btnSetSite
             // 
-            this.btnSetSite.Location = new System.Drawing.Point(82, 154);
+            this.btnSetSite.Location = new System.Drawing.Point(82, 104);
             this.btnSetSite.Name = "btnSetSite";
             this.btnSetSite.Size = new System.Drawing.Size(150, 40);
             this.btnSetSite.TabIndex = 2;
@@ -73,7 +75,7 @@
             // 
             this.rbDummy.AutoSize = true;
             this.rbDummy.BackColor = System.Drawing.SystemColors.Control;
-            this.rbDummy.Location = new System.Drawing.Point(82, 108);
+            this.rbDummy.Location = new System.Drawing.Point(22, 104);
             this.rbDummy.MinimumSize = new System.Drawing.Size(150, 40);
             this.rbDummy.Name = "rbDummy";
             this.rbDummy.Size = new System.Drawing.Size(150, 40);
@@ -86,9 +88,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 257);
-            this.Controls.Add(this.rbDummy);
+            this.ClientSize = new System.Drawing.Size(299, 165);
             this.Controls.Add(this.btnSetSite);
+            this.Controls.Add(this.rbDummy);
             this.Controls.Add(this.rbSQ);
             this.Controls.Add(this.rbNQ);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

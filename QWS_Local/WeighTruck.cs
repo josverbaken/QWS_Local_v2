@@ -194,7 +194,6 @@ namespace QWS_Local
             }
             if (rbWB1.Checked == true && rbAuto.Checked == true)
             {
-                txtWBInfo.Text = "Getting weight from WB1";
                 WeighbridgeRead weighbridgeRead = new WeighbridgeRead();
                 if (mySiteID == 7)
                 {
@@ -211,14 +210,12 @@ namespace QWS_Local
                 WeighbridgeRead weighbridgeRead = new WeighbridgeRead();
                 myWeight = await weighbridgeRead.GetSingleWeight("NQWB2");
                 mtxtWeight.Text = myWeight.ToString();
-                txtWBInfo.Text = "Getting weight from WB2";
             }
             else if (rbWB3.Checked == true && rbAuto.Checked == true)
             {
                 WeighbridgeRead weighbridgeRead = new WeighbridgeRead();
                 myWeight = await weighbridgeRead.GetSingleWeight("NQWB3");
                 mtxtWeight.Text = myWeight.ToString();
-                txtWBInfo.Text = "Getting weight from WB3";
             }
         }
 

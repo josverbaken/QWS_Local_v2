@@ -23,7 +23,7 @@ namespace QWS_Local
         private static string CallingMessage = "";
         private static int TIQID = 0;
         private string myUserName;
-        private static string WBO = "Barney.Rubble";
+        private static string myWBO = "Barney.Rubble";
         private static int mySiteID;
 
 
@@ -250,7 +250,7 @@ namespace QWS_Local
             var parent = this.MdiParent as QWS_MDIParent;
             myUserName = parent.UserName;
             mySiteID = parent.SiteID;
-            WBO = myUserName;
+            myWBO = myUserName;
             if (CallingMessage.Length > 0)
             {
                 MessageBox.Show(CallingMessage, "Follow on book in.", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -420,7 +420,7 @@ namespace QWS_Local
             dsTIQ2.TIQRow myTIQ = CurrentTIQ();
             dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
             dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
-            myTIQ.Operator = WBO;//myUsername;
+            myTIQ.Operator = myWBO;//myUsername;
             myTIQ.DriverID = myTruckDriver.CntctCode;
             myTIQ.Driver = myTruckDriver.Person;
             myTIQ.AllocateDTTM = DateTime.Now;
@@ -609,8 +609,6 @@ namespace QWS_Local
         {
             try
             {
-                var parent = this.MdiParent as QWS_MDIParent;
-                int SiteID = parent.SiteID;
                 int iTIQID = 0;
                 bool Okay2Proceed = true;
                 dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
@@ -641,8 +639,8 @@ namespace QWS_Local
                 cmd.CommandText = "TIQAdd";
                 cmd.Parameters.AddWithValue("@ParentTIQID", myParentTIQID);
                 cmd.Parameters.AddWithValue("@TIQOpen", true);
-                cmd.Parameters.AddWithValue("@SiteID", SiteID);
-                cmd.Parameters.AddWithValue("@Operator", WBO); //myUsername);
+                cmd.Parameters.AddWithValue("@SiteID", mySiteID);
+                cmd.Parameters.AddWithValue("@Operator", myWBO);
                 cmd.Parameters.AddWithValue("@Rego", myConfigTruck.RegoTk);
                 cmd.Parameters.AddWithValue("@RegoTr1", myConfigTruck.RegoTr1);
                 cmd.Parameters.AddWithValue("@RegoTr2", myConfigTruck.RegoTr2);

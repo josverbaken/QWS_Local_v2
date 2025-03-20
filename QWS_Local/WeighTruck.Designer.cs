@@ -38,7 +38,6 @@
             this.mtxtWeight = new System.Windows.Forms.MaskedTextBox();
             this.btnAccept = new System.Windows.Forms.Button();
             this.txtInstruction = new System.Windows.Forms.TextBox();
-            this.txtWBInfo = new System.Windows.Forms.TextBox();
             this.btnCapture = new System.Windows.Forms.Button();
             this.btnMonitor = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -87,12 +86,11 @@
             // 
             // rbWB3
             // 
-            this.rbWB3.Appearance = System.Windows.Forms.Appearance.Button;
             this.rbWB3.AutoSize = true;
             this.rbWB3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbWB3.Location = new System.Drawing.Point(247, 31);
             this.rbWB3.Name = "rbWB3";
-            this.rbWB3.Size = new System.Drawing.Size(60, 34);
+            this.rbWB3.Size = new System.Drawing.Size(68, 28);
             this.rbWB3.TabIndex = 68;
             this.rbWB3.Text = "WB3";
             this.rbWB3.UseVisualStyleBackColor = true;
@@ -100,12 +98,11 @@
             // 
             // rbWB2
             // 
-            this.rbWB2.Appearance = System.Windows.Forms.Appearance.Button;
             this.rbWB2.AutoSize = true;
             this.rbWB2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbWB2.Location = new System.Drawing.Point(141, 31);
             this.rbWB2.Name = "rbWB2";
-            this.rbWB2.Size = new System.Drawing.Size(60, 34);
+            this.rbWB2.Size = new System.Drawing.Size(68, 28);
             this.rbWB2.TabIndex = 67;
             this.rbWB2.Text = "WB2";
             this.rbWB2.UseVisualStyleBackColor = true;
@@ -113,12 +110,11 @@
             // 
             // rbWB1
             // 
-            this.rbWB1.Appearance = System.Windows.Forms.Appearance.Button;
             this.rbWB1.AutoSize = true;
             this.rbWB1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbWB1.Location = new System.Drawing.Point(35, 31);
             this.rbWB1.Name = "rbWB1";
-            this.rbWB1.Size = new System.Drawing.Size(60, 34);
+            this.rbWB1.Size = new System.Drawing.Size(68, 28);
             this.rbWB1.TabIndex = 66;
             this.rbWB1.Text = "WB1";
             this.rbWB1.UseVisualStyleBackColor = true;
@@ -127,7 +123,7 @@
             // mtxtWeight
             // 
             this.mtxtWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtxtWeight.Location = new System.Drawing.Point(266, 33);
+            this.mtxtWeight.Location = new System.Drawing.Point(267, 89);
             this.mtxtWeight.Mask = "00.00";
             this.mtxtWeight.Name = "mtxtWeight";
             this.mtxtWeight.ReadOnly = true;
@@ -140,7 +136,7 @@
             this.btnAccept.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccept.Location = new System.Drawing.Point(7, 71);
+            this.btnAccept.Location = new System.Drawing.Point(7, 132);
             this.btnAccept.Margin = new System.Windows.Forms.Padding(4);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(332, 44);
@@ -151,31 +147,22 @@
             // 
             // txtInstruction
             // 
-            this.txtInstruction.Location = new System.Drawing.Point(21, 349);
+            this.txtInstruction.Location = new System.Drawing.Point(6, 23);
             this.txtInstruction.Multiline = true;
             this.txtInstruction.Name = "txtInstruction";
             this.txtInstruction.ReadOnly = true;
-            this.txtInstruction.Size = new System.Drawing.Size(346, 55);
+            this.txtInstruction.Size = new System.Drawing.Size(333, 55);
             this.txtInstruction.TabIndex = 62;
-            // 
-            // txtWBInfo
-            // 
-            this.txtWBInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtWBInfo.Location = new System.Drawing.Point(21, 312);
-            this.txtWBInfo.Name = "txtWBInfo";
-            this.txtWBInfo.ReadOnly = true;
-            this.txtWBInfo.Size = new System.Drawing.Size(346, 17);
-            this.txtWBInfo.TabIndex = 70;
             // 
             // btnCapture
             // 
             this.btnCapture.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCapture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCapture.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCapture.Location = new System.Drawing.Point(7, 34);
+            this.btnCapture.Location = new System.Drawing.Point(7, 85);
             this.btnCapture.Margin = new System.Windows.Forms.Padding(4);
             this.btnCapture.Name = "btnCapture";
-            this.btnCapture.Size = new System.Drawing.Size(88, 29);
+            this.btnCapture.Size = new System.Drawing.Size(101, 39);
             this.btnCapture.TabIndex = 71;
             this.btnCapture.Text = "Capture";
             this.btnCapture.UseVisualStyleBackColor = false;
@@ -186,10 +173,10 @@
             this.btnMonitor.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnMonitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMonitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMonitor.Location = new System.Drawing.Point(128, 33);
+            this.btnMonitor.Location = new System.Drawing.Point(128, 85);
             this.btnMonitor.Margin = new System.Windows.Forms.Padding(4);
             this.btnMonitor.Name = "btnMonitor";
-            this.btnMonitor.Size = new System.Drawing.Size(105, 29);
+            this.btnMonitor.Size = new System.Drawing.Size(105, 38);
             this.btnMonitor.TabIndex = 72;
             this.btnMonitor.Text = "Monitor";
             this.btnMonitor.UseVisualStyleBackColor = false;
@@ -200,11 +187,12 @@
             // 
             this.groupBox2.Controls.Add(this.btnCapture);
             this.groupBox2.Controls.Add(this.mtxtWeight);
+            this.groupBox2.Controls.Add(this.txtInstruction);
             this.groupBox2.Controls.Add(this.btnMonitor);
             this.groupBox2.Controls.Add(this.btnAccept);
             this.groupBox2.Location = new System.Drawing.Point(21, 164);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(346, 134);
+            this.groupBox2.Size = new System.Drawing.Size(346, 194);
             this.groupBox2.TabIndex = 73;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Capture Weight";
@@ -240,11 +228,9 @@
             this.AcceptButton = this.btnAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(390, 423);
+            this.ClientSize = new System.Drawing.Size(390, 386);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.txtInstruction);
-            this.Controls.Add(this.txtWBInfo);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -263,7 +249,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsWBConfig4Site)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -278,7 +263,6 @@
         private System.Windows.Forms.RadioButton rbWB3;
         private System.Windows.Forms.RadioButton rbWB2;
         private System.Windows.Forms.RadioButton rbWB1;
-        private System.Windows.Forms.TextBox txtWBInfo;
         private System.Windows.Forms.Button btnCapture;
         private System.Windows.Forms.Button btnMonitor;
         private System.Windows.Forms.GroupBox groupBox2;
