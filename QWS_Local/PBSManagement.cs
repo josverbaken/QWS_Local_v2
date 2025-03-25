@@ -107,8 +107,8 @@ namespace QWS_Local
 
         private void NewVA(int PBSVA)
         {
-            // TODO
-            label1.Text = "TODO add VA";
+            // create new record using built in functionality of DataGridView and set default value for VA.
+            label1.Text = "Click new row in grid below and add Version and Approval Date before saving.";
         }
 
         private void dgvPBS_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
@@ -117,13 +117,29 @@ namespace QWS_Local
             { 
             int myPBSVA = Convert.ToInt32(txtVehicleApproval.Text);
                 //e.Row.Cells["Vehicle Approval"].Value = myPBSVA;
-                //e.Row.Cells["Version"].Value = "new";
                 // TODO investigate why not recognising column names?
+                // 20250325 handled elsewhere by using index of column
+                e.Row.Cells[0].Value = myPBSVA;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnSaveVA_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSaveConfig_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

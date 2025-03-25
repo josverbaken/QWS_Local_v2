@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtCardCode = new System.Windows.Forms.TextBox();
             this.bsPBS = new System.Windows.Forms.BindingSource(this.components);
             this.dsPBS = new QWS_Local.dsPBS();
             this.label2 = new System.Windows.Forms.Label();
             this.btnFindOwner = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnSaveTable = new System.Windows.Forms.Button();
             this.txtVehicleApproval = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.txtPBS_ConfigID = new System.Windows.Forms.TextBox();
@@ -71,7 +72,9 @@
             this.taPBSConfig = new QWS_Local.dsPBSTableAdapters.PBS_ConfigTableAdapter();
             this.taPBSConfigScheme = new QWS_Local.dsPBSTableAdapters.PBS_ConfigSchemeTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsPBSTableAdapters.TableAdapterManager();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnSaveVA = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.btnSaveConfig = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -101,23 +104,35 @@
             this.splitContainer1.Panel1.Controls.Add(this.txtCardCode);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.btnFindOwner);
-            this.splitContainer1.Panel1.Controls.Add(this.button3);
+            this.splitContainer1.Panel1.Controls.Add(this.btnSaveTable);
             this.splitContainer1.Panel1.Controls.Add(this.txtVehicleApproval);
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
-            this.splitContainer1.Panel1.Controls.Add(this.txtPBS_ConfigID);
             this.splitContainer1.Panel1.Controls.Add(this.txtOperator);
-            this.splitContainer1.Panel1.Controls.Add(this.button2);
-            this.splitContainer1.Panel1.Controls.Add(this.txtPBS_ID);
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.btnSaveConfig);
+            this.splitContainer1.Panel2.Controls.Add(this.button4);
+            this.splitContainer1.Panel2.Controls.Add(this.btnSaveVA);
             this.splitContainer1.Panel2.Controls.Add(this.txtInstruction1);
             this.splitContainer1.Panel2.Controls.Add(this.gbPBSGVMConfig);
             this.splitContainer1.Panel2.Controls.Add(this.gbPBSVA);
             this.splitContainer1.Panel2.Controls.Add(this.gbPBSTables);
-            this.splitContainer1.Size = new System.Drawing.Size(1111, 623);
-            this.splitContainer1.SplitterDistance = 156;
+            this.splitContainer1.Panel2.Controls.Add(this.button2);
+            this.splitContainer1.Panel2.Controls.Add(this.button1);
+            this.splitContainer1.Panel2.Controls.Add(this.txtPBS_ConfigID);
+            this.splitContainer1.Panel2.Controls.Add(this.txtPBS_ID);
+            this.splitContainer1.Size = new System.Drawing.Size(1111, 712);
+            this.splitContainer1.SplitterDistance = 178;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(508, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(20, 18);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "...";
             // 
             // txtCardCode
             // 
@@ -157,15 +172,15 @@
             this.btnFindOwner.UseVisualStyleBackColor = true;
             this.btnFindOwner.Click += new System.EventHandler(this.btnFindOwner_Click);
             // 
-            // button3
+            // btnSaveTable
             // 
-            this.button3.Location = new System.Drawing.Point(393, 29);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 30);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Find";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnSaveTable.Location = new System.Drawing.Point(393, 29);
+            this.btnSaveTable.Name = "btnSaveTable";
+            this.btnSaveTable.Size = new System.Drawing.Size(100, 30);
+            this.btnSaveTable.TabIndex = 12;
+            this.btnSaveTable.Text = "Find";
+            this.btnSaveTable.UseVisualStyleBackColor = true;
+            this.btnSaveTable.Click += new System.EventHandler(this.button3_Click);
             // 
             // txtVehicleApproval
             // 
@@ -176,18 +191,18 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(862, 78);
+            this.button1.Location = new System.Drawing.Point(285, 284);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 29);
             this.button1.TabIndex = 10;
-            this.button1.Text = "button1";
+            this.button1.Text = "Load Config";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtPBS_ConfigID
             // 
             this.txtPBS_ConfigID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBSConfig, "PBS_ConfigID", true));
-            this.txtPBS_ConfigID.Location = new System.Drawing.Point(987, 80);
+            this.txtPBS_ConfigID.Location = new System.Drawing.Point(410, 286);
             this.txtPBS_ConfigID.Name = "txtPBS_ConfigID";
             this.txtPBS_ConfigID.Size = new System.Drawing.Size(81, 24);
             this.txtPBS_ConfigID.TabIndex = 9;
@@ -207,18 +222,18 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(862, 35);
+            this.button2.Location = new System.Drawing.Point(636, 37);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 29);
+            this.button2.Size = new System.Drawing.Size(140, 29);
             this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
+            this.button2.Text = "Load Table/s";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txtPBS_ID
             // 
             this.txtPBS_ID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS, "PBS_ID", true));
-            this.txtPBS_ID.Location = new System.Drawing.Point(987, 37);
+            this.txtPBS_ID.Location = new System.Drawing.Point(791, 39);
             this.txtPBS_ID.Name = "txtPBS_ID";
             this.txtPBS_ID.Size = new System.Drawing.Size(81, 24);
             this.txtPBS_ID.TabIndex = 2;
@@ -226,7 +241,7 @@
             // txtInstruction1
             // 
             this.txtInstruction1.BackColor = System.Drawing.SystemColors.Control;
-            this.txtInstruction1.Location = new System.Drawing.Point(903, 253);
+            this.txtInstruction1.Location = new System.Drawing.Point(902, 319);
             this.txtInstruction1.Multiline = true;
             this.txtInstruction1.Name = "txtInstruction1";
             this.txtInstruction1.Size = new System.Drawing.Size(165, 172);
@@ -236,7 +251,7 @@
             // gbPBSGVMConfig
             // 
             this.gbPBSGVMConfig.Controls.Add(this.dgvPBSConfigScheme);
-            this.gbPBSGVMConfig.Location = new System.Drawing.Point(15, 253);
+            this.gbPBSGVMConfig.Location = new System.Drawing.Point(15, 319);
             this.gbPBSGVMConfig.Name = "gbPBSGVMConfig";
             this.gbPBSGVMConfig.Size = new System.Drawing.Size(858, 175);
             this.gbPBSGVMConfig.TabIndex = 4;
@@ -364,9 +379,9 @@
             // approvalDTDataGridViewTextBoxColumn
             // 
             this.approvalDTDataGridViewTextBoxColumn.DataPropertyName = "ApprovalDT";
-            dataGridViewCellStyle4.Format = "d";
-            dataGridViewCellStyle4.NullValue = null;
-            this.approvalDTDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = null;
+            this.approvalDTDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.approvalDTDataGridViewTextBoxColumn.HeaderText = "ApprovalDT";
             this.approvalDTDataGridViewTextBoxColumn.Name = "approvalDTDataGridViewTextBoxColumn";
             // 
@@ -445,20 +460,41 @@
             this.tableAdapterManager.PBSTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsPBSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // label1
+            // btnSaveVA
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(508, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 18);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "label1";
+            this.btnSaveVA.Location = new System.Drawing.Point(421, 37);
+            this.btnSaveVA.Name = "btnSaveVA";
+            this.btnSaveVA.Size = new System.Drawing.Size(193, 29);
+            this.btnSaveVA.TabIndex = 20;
+            this.btnSaveVA.Text = "Save Vehicle Approval";
+            this.btnSaveVA.UseVisualStyleBackColor = true;
+            this.btnSaveVA.Click += new System.EventHandler(this.btnSaveVA_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(34, 281);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(193, 29);
+            this.button4.TabIndex = 21;
+            this.button4.Text = "Save Table";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // btnSaveConfig
+            // 
+            this.btnSaveConfig.Location = new System.Drawing.Point(567, 281);
+            this.btnSaveConfig.Name = "btnSaveConfig";
+            this.btnSaveConfig.Size = new System.Drawing.Size(193, 29);
+            this.btnSaveConfig.TabIndex = 22;
+            this.btnSaveConfig.Text = "Save Config";
+            this.btnSaveConfig.UseVisualStyleBackColor = true;
+            this.btnSaveConfig.Click += new System.EventHandler(this.btnSaveConfig_Click);
             // 
             // PBSManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1111, 623);
+            this.ClientSize = new System.Drawing.Size(1111, 712);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -507,7 +543,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtPBS_ConfigID;
         private dsPBSTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnSaveTable;
         private System.Windows.Forms.TextBox txtVehicleApproval;
         private System.Windows.Forms.Button btnFindOwner;
         private System.Windows.Forms.Label label2;
@@ -529,5 +565,8 @@
         private System.Windows.Forms.GroupBox gbPBSVA;
         private System.Windows.Forms.TextBox txtInstruction1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSaveConfig;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnSaveVA;
     }
 }
