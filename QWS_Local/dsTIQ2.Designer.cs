@@ -4850,6 +4850,8 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnComment;
             
+            private global::System.Data.DataColumn columnAllocationDTTM;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public StockpileManualAllocationDataTable() {
@@ -4941,6 +4943,14 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AllocationDTTMColumn {
+                get {
+                    return this.columnAllocationDTTM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4976,7 +4986,7 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public StockpileManualAllocationRow AddStockpileManualAllocationRow(string ItemCode, int SPLotNo, int DocketNum, decimal Tonnes, bool Reversal, string Comment) {
+            public StockpileManualAllocationRow AddStockpileManualAllocationRow(string ItemCode, int SPLotNo, int DocketNum, decimal Tonnes, bool Reversal, string Comment, System.DateTime AllocationDTTM) {
                 StockpileManualAllocationRow rowStockpileManualAllocationRow = ((StockpileManualAllocationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4985,7 +4995,8 @@ namespace QWS_Local {
                         DocketNum,
                         Tonnes,
                         Reversal,
-                        Comment};
+                        Comment,
+                        AllocationDTTM};
                 rowStockpileManualAllocationRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStockpileManualAllocationRow);
                 return rowStockpileManualAllocationRow;
@@ -5022,6 +5033,7 @@ namespace QWS_Local {
                 this.columnTonnes = base.Columns["Tonnes"];
                 this.columnReversal = base.Columns["Reversal"];
                 this.columnComment = base.Columns["Comment"];
+                this.columnAllocationDTTM = base.Columns["AllocationDTTM"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5041,6 +5053,8 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnReversal);
                 this.columnComment = new global::System.Data.DataColumn("Comment", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnComment);
+                this.columnAllocationDTTM = new global::System.Data.DataColumn("AllocationDTTM", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAllocationDTTM);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnAllocationID}, true));
                 this.columnAllocationID.AutoIncrement = true;
@@ -5057,6 +5071,7 @@ namespace QWS_Local {
                 this.columnReversal.AllowDBNull = false;
                 this.columnComment.AllowDBNull = false;
                 this.columnComment.MaxLength = 500;
+                this.columnAllocationDTTM.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8564,6 +8579,17 @@ namespace QWS_Local {
                 }
                 set {
                     this[this.tableStockpileManualAllocation.CommentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime AllocationDTTM {
+                get {
+                    return ((global::System.DateTime)(this[this.tableStockpileManualAllocation.AllocationDTTMColumn]));
+                }
+                set {
+                    this[this.tableStockpileManualAllocation.AllocationDTTMColumn] = value;
                 }
             }
         }
@@ -13617,10 +13643,11 @@ SELECT AllocationID, BaseItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM St
             tableMapping.ColumnMappings.Add("Tonnes", "Tonnes");
             tableMapping.ColumnMappings.Add("Reversal", "Reversal");
             tableMapping.ColumnMappings.Add("Comment", "Comment");
+            tableMapping.ColumnMappings.Add("AllocationDTTM", "AllocationDTTM");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [StockpileManualAllocation] WHERE (([AllocationID] = @Original_AllocationID) AND ([ItemCode] = @Original_ItemCode) AND ([SPLotNo] = @Original_SPLotNo) AND ([DocketNum] = @Original_DocketNum) AND ([Tonnes] = @Original_Tonnes) AND ([Reversal] = @Original_Reversal) AND ([Comment] = @Original_Comment))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [StockpileManualAllocation] WHERE (([AllocationID] = @Original_AllocationID) AND ([ItemCode] = @Original_ItemCode) AND ([SPLotNo] = @Original_SPLotNo) AND ([DocketNum] = @Original_DocketNum) AND ([Tonnes] = @Original_Tonnes) AND ([Reversal] = @Original_Reversal) AND ([Comment] = @Original_Comment) AND ([AllocationDTTM] = @Original_AllocationDTTM))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AllocationID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllocationID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItemCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -13629,10 +13656,11 @@ SELECT AllocationID, BaseItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM St
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tonnes", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Tonnes", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Reversal", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reversal", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Comment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AllocationDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllocationDTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [StockpileManualAllocation] ([ItemCode], [SPLotNo], [DocketNum], [Tonnes], [Reversal], [Comment]) VALUES (@ItemCode, @SPLotNo, @DocketNum, @Tonnes, @Reversal, @Comment);
-SELECT AllocationID, ItemCode, SPLotNo, DocketNum, Tonnes, Reversal, Comment FROM StockpileManualAllocation AS t0 WHERE (AllocationID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [StockpileManualAllocation] ([ItemCode], [SPLotNo], [DocketNum], [Tonnes], [Reversal], [Comment], [AllocationDTTM]) VALUES (@ItemCode, @SPLotNo, @DocketNum, @Tonnes, @Reversal, @Comment, @AllocationDTTM);
+SELECT AllocationID, ItemCode, SPLotNo, DocketNum, Tonnes, Reversal, Comment, AllocationDTTM FROM StockpileManualAllocation AS t0 WHERE (AllocationID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SPLotNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SPLotNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -13640,10 +13668,11 @@ SELECT AllocationID, ItemCode, SPLotNo, DocketNum, Tonnes, Reversal, Comment FRO
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tonnes", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Tonnes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Reversal", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reversal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Comment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AllocationDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllocationDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [StockpileManualAllocation] SET [ItemCode] = @ItemCode, [SPLotNo] = @SPLotNo, [DocketNum] = @DocketNum, [Tonnes] = @Tonnes, [Reversal] = @Reversal, [Comment] = @Comment WHERE (([AllocationID] = @Original_AllocationID) AND ([ItemCode] = @Original_ItemCode) AND ([SPLotNo] = @Original_SPLotNo) AND ([DocketNum] = @Original_DocketNum) AND ([Tonnes] = @Original_Tonnes) AND ([Reversal] = @Original_Reversal) AND ([Comment] = @Original_Comment));
-SELECT AllocationID, ItemCode, SPLotNo, DocketNum, Tonnes, Reversal, Comment FROM StockpileManualAllocation AS t0 WHERE (AllocationID = @AllocationID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [StockpileManualAllocation] SET [ItemCode] = @ItemCode, [SPLotNo] = @SPLotNo, [DocketNum] = @DocketNum, [Tonnes] = @Tonnes, [Reversal] = @Reversal, [Comment] = @Comment, [AllocationDTTM] = @AllocationDTTM WHERE (([AllocationID] = @Original_AllocationID) AND ([ItemCode] = @Original_ItemCode) AND ([SPLotNo] = @Original_SPLotNo) AND ([DocketNum] = @Original_DocketNum) AND ([Tonnes] = @Original_Tonnes) AND ([Reversal] = @Original_Reversal) AND ([Comment] = @Original_Comment) AND ([AllocationDTTM] = @Original_AllocationDTTM));
+SELECT AllocationID, ItemCode, SPLotNo, DocketNum, Tonnes, Reversal, Comment, AllocationDTTM FROM StockpileManualAllocation AS t0 WHERE (AllocationID = @AllocationID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SPLotNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SPLotNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -13651,6 +13680,7 @@ SELECT AllocationID, ItemCode, SPLotNo, DocketNum, Tonnes, Reversal, Comment FRO
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tonnes", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Tonnes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Reversal", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reversal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Comment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AllocationDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllocationDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AllocationID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllocationID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItemCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SPLotNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SPLotNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -13658,6 +13688,7 @@ SELECT AllocationID, ItemCode, SPLotNo, DocketNum, Tonnes, Reversal, Comment FRO
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tonnes", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Tonnes", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Reversal", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reversal", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Comment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AllocationDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllocationDTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AllocationID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "AllocationID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -13671,19 +13702,31 @@ SELECT AllocationID, ItemCode, SPLotNo, DocketNum, Tonnes, Reversal, Comment FRO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        AllocationID, ItemCode, SPLotNo, DocketNum, Tonnes, Reversal, Comme" +
-                "nt\r\nFROM            StockpileManualAllocation AS t0";
+                "nt, AllocationDTTM\r\nFROM            StockpileManualAllocation AS t0";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        AllocationID, ItemCode, SPLotNo, DocketNum, Tonnes, Reversal, Comment
+            this._commandCollection[1].CommandText = @"SELECT        AllocationDTTM, AllocationID, Comment, DocketNum, ItemCode, Reversal, SPLotNo, Tonnes
 FROM            StockpileManualAllocation
-where ItemCode in (select ItemCode from StockpileBOM where BaseItemCode in (select distinct BaseItemCode from StockpileBOM where ItemCode like @ItemCode))";
+WHERE        (ItemCode IN
+                             (SELECT        ItemCode
+                               FROM            StockpileBOM
+                               WHERE        (BaseItemCode IN
+                                                             (SELECT DISTINCT BaseItemCode
+                                                               FROM            StockpileBOM AS StockpileBOM_1
+                                                               WHERE        (ItemCode LIKE @ItemCode)))))";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemCode", global::System.Data.SqlDbType.VarChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, "ItemCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "dbo.SPLotManualItemCodeDocNum";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DocNum", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13749,6 +13792,42 @@ where ItemCode in (select ItemCode from StockpileBOM where BaseItemCode in (sele
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByItemDocNum(dsTIQ2.StockpileManualAllocationDataTable dataTable, global::System.Nullable<int> DocNum) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((DocNum.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(DocNum.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dsTIQ2.StockpileManualAllocationDataTable GetDataByItemDocNum(global::System.Nullable<int> DocNum) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((DocNum.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(DocNum.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            dsTIQ2.StockpileManualAllocationDataTable dataTable = new dsTIQ2.StockpileManualAllocationDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(dsTIQ2.StockpileManualAllocationDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
@@ -13779,7 +13858,7 @@ where ItemCode in (select ItemCode from StockpileBOM where BaseItemCode in (sele
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_AllocationID, string Original_ItemCode, int Original_SPLotNo, int Original_DocketNum, decimal Original_Tonnes, bool Original_Reversal, string Original_Comment) {
+        public virtual int Delete(int Original_AllocationID, string Original_ItemCode, int Original_SPLotNo, int Original_DocketNum, decimal Original_Tonnes, bool Original_Reversal, string Original_Comment, System.DateTime Original_AllocationDTTM) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_AllocationID));
             if ((Original_ItemCode == null)) {
                 throw new global::System.ArgumentNullException("Original_ItemCode");
@@ -13797,6 +13876,7 @@ where ItemCode in (select ItemCode from StockpileBOM where BaseItemCode in (sele
             else {
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Comment));
             }
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((System.DateTime)(Original_AllocationDTTM));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13817,7 +13897,7 @@ where ItemCode in (select ItemCode from StockpileBOM where BaseItemCode in (sele
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string ItemCode, int SPLotNo, int DocketNum, decimal Tonnes, bool Reversal, string Comment) {
+        public virtual int Insert(string ItemCode, int SPLotNo, int DocketNum, decimal Tonnes, bool Reversal, string Comment, System.DateTime AllocationDTTM) {
             if ((ItemCode == null)) {
                 throw new global::System.ArgumentNullException("ItemCode");
             }
@@ -13834,6 +13914,7 @@ where ItemCode in (select ItemCode from StockpileBOM where BaseItemCode in (sele
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Comment));
             }
+            this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(AllocationDTTM));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13854,7 +13935,23 @@ where ItemCode in (select ItemCode from StockpileBOM where BaseItemCode in (sele
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string ItemCode, int SPLotNo, int DocketNum, decimal Tonnes, bool Reversal, string Comment, int Original_AllocationID, string Original_ItemCode, int Original_SPLotNo, int Original_DocketNum, decimal Original_Tonnes, bool Original_Reversal, string Original_Comment, int AllocationID) {
+        public virtual int Update(
+                    string ItemCode, 
+                    int SPLotNo, 
+                    int DocketNum, 
+                    decimal Tonnes, 
+                    bool Reversal, 
+                    string Comment, 
+                    System.DateTime AllocationDTTM, 
+                    int Original_AllocationID, 
+                    string Original_ItemCode, 
+                    int Original_SPLotNo, 
+                    int Original_DocketNum, 
+                    decimal Original_Tonnes, 
+                    bool Original_Reversal, 
+                    string Original_Comment, 
+                    System.DateTime Original_AllocationDTTM, 
+                    int AllocationID) {
             if ((ItemCode == null)) {
                 throw new global::System.ArgumentNullException("ItemCode");
             }
@@ -13871,24 +13968,26 @@ where ItemCode in (select ItemCode from StockpileBOM where BaseItemCode in (sele
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Comment));
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_AllocationID));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(AllocationDTTM));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_AllocationID));
             if ((Original_ItemCode == null)) {
                 throw new global::System.ArgumentNullException("Original_ItemCode");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_ItemCode));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_ItemCode));
             }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_SPLotNo));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_DocketNum));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Original_Tonnes));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((bool)(Original_Reversal));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_SPLotNo));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_DocketNum));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((decimal)(Original_Tonnes));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((bool)(Original_Reversal));
             if ((Original_Comment == null)) {
                 throw new global::System.ArgumentNullException("Original_Comment");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Comment));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Comment));
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(AllocationID));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_AllocationDTTM));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(AllocationID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13909,8 +14008,8 @@ where ItemCode in (select ItemCode from StockpileBOM where BaseItemCode in (sele
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string ItemCode, int SPLotNo, int DocketNum, decimal Tonnes, bool Reversal, string Comment, int Original_AllocationID, string Original_ItemCode, int Original_SPLotNo, int Original_DocketNum, decimal Original_Tonnes, bool Original_Reversal, string Original_Comment) {
-            return this.Update(ItemCode, SPLotNo, DocketNum, Tonnes, Reversal, Comment, Original_AllocationID, Original_ItemCode, Original_SPLotNo, Original_DocketNum, Original_Tonnes, Original_Reversal, Original_Comment, Original_AllocationID);
+        public virtual int Update(string ItemCode, int SPLotNo, int DocketNum, decimal Tonnes, bool Reversal, string Comment, System.DateTime AllocationDTTM, int Original_AllocationID, string Original_ItemCode, int Original_SPLotNo, int Original_DocketNum, decimal Original_Tonnes, bool Original_Reversal, string Original_Comment, System.DateTime Original_AllocationDTTM) {
+            return this.Update(ItemCode, SPLotNo, DocketNum, Tonnes, Reversal, Comment, AllocationDTTM, Original_AllocationID, Original_ItemCode, Original_SPLotNo, Original_DocketNum, Original_Tonnes, Original_Reversal, Original_Comment, Original_AllocationDTTM, Original_AllocationID);
         }
     }
     

@@ -19,7 +19,7 @@ namespace QWS_Local
 
         private void SPLotMaintenance_Load(object sender, EventArgs e)
         {
-            //tabControl1.TabPages.Remove(tpBaseItem);
+            //tabControl1.TabPages.Remove(tpBaseItem);            
         }
 
         private void FindLotsByItemCode()
@@ -83,7 +83,8 @@ namespace QWS_Local
             try
             {
                 bsStockpileLotAllocation.EndEdit();
-                taStockpileLotAllocation.Update(dsTIQ2.StockpileLotAllocation);
+                int iCount = taStockpileLotAllocation.Update(dsTIQ2.StockpileLotAllocation);
+                iCount += 1;
             }
             catch (Exception ex)
             {
@@ -132,7 +133,8 @@ namespace QWS_Local
             try
             {
                 bsStockpileManualAllocation.EndEdit();
-                taStockpileManualAllocation.Update(dsTIQ2.StockpileManualAllocation);
+                int iCount = taStockpileManualAllocation.Update(dsTIQ2.StockpileManualAllocation);
+                iCount += 1;
             }
             catch (Exception ex)
             {
@@ -288,11 +290,34 @@ namespace QWS_Local
             }
             else
             {
-                MessageBox.Show("Add new record.");
+                // create new record
+                dsTIQ2.SPLotCheckDocketRow checkDocketRow = dsTIQ2.SPLotCheckDocket[0];
+                AddManualAllocation(checkDocketRow);
             }
-            // check docket number exists and not allocated already
-            // get ItemCode from Docket
-            // create new record
+        }
+
+        private void AddManualAllocation(dsTIQ2.SPLotCheckDocketRow checkDocketRow)
+        {
+            try
+            {
+                dsTIQ2.StockpileManualAllocation.Clear();
+                DataRow dr = dsTIQ2.StockpileManualAllocation.NewRow();
+                dsTIQ2.StockpileManualAllocationRow allocationRow = (dsTIQ2.StockpileManualAllocationRow)dr;
+                allocationRow.AllocationDTTM = DateTime.Now;
+                allocationRow.DocketNum = checkDocketRow.DocNum;
+                allocationRow.Tonnes = checkDocketRow.Quantity;
+                allocationRow.ItemCode = checkDocketRow.ItemCode;
+                allocationRow.Reversal = false;
+                allocationRow.SPLotNo = 0;
+                allocationRow.Comment = "tba";
+                dsTIQ2.StockpileManualAllocation.AddStockpileManualAllocationRow(allocationRow);
+                bsStockpileManualAllocation.EndEdit();
+                btnManualAllocationSave.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -311,11 +336,19 @@ namespace QWS_Local
 
         private void CheckDocNumAllocation(int DocNum)
         {
-            //MessageBox.Show("Checking docket");
             int iRows = taSPLotCheckDocket.Fill(dsTIQ2.SPLotCheckDocket, DocNum);
             if(iRows ==1)
                     {
-
+                int jRows = taStockpileManualAllocation.FillByItemDocNum(dsTIQ2.StockpileManualAllocation,DocNum);
+                if (jRows == 0)
+                {
+                    // not yet allocated
+                    btnAddAllocation.Enabled = true;
+                }
+                else
+                {
+                    btnAddAllocation.Enabled = false;
+                }
             }
             else
             {
@@ -333,6 +366,35 @@ namespace QWS_Local
             e.Row.Cells[4].Value = "O";
             e.Row.Cells[5].Value = DateTime.Now;
         }
- 
+
+        private void tabManualDocktAllocation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(tabManualDocktAllocation.SelectedTab == tpDataEntry)
+            {
+                dsTIQ2.StockpileManualAllocation.Clear();
+            }
+        }
+
+        private void btnManualAllocationSave_Click(object sender, EventArgs e)
+        {
+            bsStockpileManualAllocation.EndEdit();
+            if (bsStockpileManualAllocation.Count == 1)
+            {
+                dsTIQ2.StockpileManualAllocationRow allocationRow = dsTIQ2.StockpileManualAllocation[0];
+                if (allocationRow.Comment =="tba")
+                {
+                    MessageBox.Show("Please enter reason for manual allocation.");
+                }
+                else if (allocationRow.SPLotNo == 0)
+                {
+                    MessageBox.Show("Pleae enter Stockpile Lot Number!");
+                }
+                else
+                {
+                    SaveManualAllocation();
+                }
+            }
+
+        }
     }
 }
