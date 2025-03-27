@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCardCode = new System.Windows.Forms.TextBox();
@@ -39,12 +39,10 @@
             this.btnFindOwner = new System.Windows.Forms.Button();
             this.btnSaveTable = new System.Windows.Forms.Button();
             this.txtVehicleApproval = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtPBS_ConfigID = new System.Windows.Forms.TextBox();
-            this.bsPBSConfig = new System.Windows.Forms.BindingSource(this.components);
             this.txtOperator = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.txtPBS_ID = new System.Windows.Forms.TextBox();
+            this.btnSaveConfig = new System.Windows.Forms.Button();
+            this.btnSavePBSTables = new System.Windows.Forms.Button();
+            this.btnSaveVA = new System.Windows.Forms.Button();
             this.txtInstruction1 = new System.Windows.Forms.TextBox();
             this.gbPBSGVMConfig = new System.Windows.Forms.GroupBox();
             this.dgvPBSConfigScheme = new System.Windows.Forms.DataGridView();
@@ -68,20 +66,18 @@
             this.PBS_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bridgeAssessmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.axleConfigurationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsPBSConfig = new System.Windows.Forms.BindingSource(this.components);
+            this.pBS_ConfigBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.taPBS = new QWS_Local.dsPBSTableAdapters.PBSTableAdapter();
             this.taPBSConfig = new QWS_Local.dsPBSTableAdapters.PBS_ConfigTableAdapter();
             this.taPBSConfigScheme = new QWS_Local.dsPBSTableAdapters.PBS_ConfigSchemeTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsPBSTableAdapters.TableAdapterManager();
-            this.btnSaveVA = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.btnSaveConfig = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsPBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsPBSConfig)).BeginInit();
             this.gbPBSGVMConfig.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPBSConfigScheme)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPBSConfigScheme)).BeginInit();
@@ -89,6 +85,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPBS)).BeginInit();
             this.gbPBSTables.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPBSConfig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPBSConfig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBS_ConfigBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -111,18 +109,14 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.btnSaveConfig);
-            this.splitContainer1.Panel2.Controls.Add(this.button4);
+            this.splitContainer1.Panel2.Controls.Add(this.btnSavePBSTables);
             this.splitContainer1.Panel2.Controls.Add(this.btnSaveVA);
             this.splitContainer1.Panel2.Controls.Add(this.txtInstruction1);
             this.splitContainer1.Panel2.Controls.Add(this.gbPBSGVMConfig);
             this.splitContainer1.Panel2.Controls.Add(this.gbPBSVA);
             this.splitContainer1.Panel2.Controls.Add(this.gbPBSTables);
-            this.splitContainer1.Panel2.Controls.Add(this.button2);
-            this.splitContainer1.Panel2.Controls.Add(this.button1);
-            this.splitContainer1.Panel2.Controls.Add(this.txtPBS_ConfigID);
-            this.splitContainer1.Panel2.Controls.Add(this.txtPBS_ID);
-            this.splitContainer1.Size = new System.Drawing.Size(1111, 712);
-            this.splitContainer1.SplitterDistance = 178;
+            this.splitContainer1.Size = new System.Drawing.Size(1111, 783);
+            this.splitContainer1.SplitterDistance = 195;
             this.splitContainer1.TabIndex = 0;
             // 
             // label1
@@ -147,6 +141,7 @@
             // 
             this.bsPBS.DataMember = "PBS";
             this.bsPBS.DataSource = this.dsPBS;
+            this.bsPBS.CurrentChanged += new System.EventHandler(this.bsPBS_CurrentChanged);
             // 
             // dsPBS
             // 
@@ -189,29 +184,6 @@
             this.txtVehicleApproval.Size = new System.Drawing.Size(100, 24);
             this.txtVehicleApproval.TabIndex = 11;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(285, 284);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 29);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Load Config";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // txtPBS_ConfigID
-            // 
-            this.txtPBS_ConfigID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBSConfig, "PBS_ConfigID", true));
-            this.txtPBS_ConfigID.Location = new System.Drawing.Point(410, 286);
-            this.txtPBS_ConfigID.Name = "txtPBS_ConfigID";
-            this.txtPBS_ConfigID.Size = new System.Drawing.Size(81, 24);
-            this.txtPBS_ConfigID.TabIndex = 9;
-            // 
-            // bsPBSConfig
-            // 
-            this.bsPBSConfig.DataMember = "PBS_Config";
-            this.bsPBSConfig.DataSource = this.dsPBS;
-            // 
             // txtOperator
             // 
             this.txtOperator.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS, "Operator", true));
@@ -220,23 +192,35 @@
             this.txtOperator.Size = new System.Drawing.Size(459, 24);
             this.txtOperator.TabIndex = 8;
             // 
-            // button2
+            // btnSaveConfig
             // 
-            this.button2.Location = new System.Drawing.Point(636, 37);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(140, 29);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Load Table/s";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnSaveConfig.Location = new System.Drawing.Point(677, 500);
+            this.btnSaveConfig.Name = "btnSaveConfig";
+            this.btnSaveConfig.Size = new System.Drawing.Size(193, 29);
+            this.btnSaveConfig.TabIndex = 22;
+            this.btnSaveConfig.Text = "Save Config";
+            this.btnSaveConfig.UseVisualStyleBackColor = true;
+            this.btnSaveConfig.Click += new System.EventHandler(this.btnSaveConfig_Click);
             // 
-            // txtPBS_ID
+            // btnSavePBSTables
             // 
-            this.txtPBS_ID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBS, "PBS_ID", true));
-            this.txtPBS_ID.Location = new System.Drawing.Point(791, 39);
-            this.txtPBS_ID.Name = "txtPBS_ID";
-            this.txtPBS_ID.Size = new System.Drawing.Size(81, 24);
-            this.txtPBS_ID.TabIndex = 2;
+            this.btnSavePBSTables.Location = new System.Drawing.Point(677, 238);
+            this.btnSavePBSTables.Name = "btnSavePBSTables";
+            this.btnSavePBSTables.Size = new System.Drawing.Size(193, 29);
+            this.btnSavePBSTables.TabIndex = 21;
+            this.btnSavePBSTables.Text = "Save Table";
+            this.btnSavePBSTables.UseVisualStyleBackColor = true;
+            this.btnSavePBSTables.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // btnSaveVA
+            // 
+            this.btnSaveVA.Location = new System.Drawing.Point(192, 238);
+            this.btnSaveVA.Name = "btnSaveVA";
+            this.btnSaveVA.Size = new System.Drawing.Size(193, 29);
+            this.btnSaveVA.TabIndex = 20;
+            this.btnSaveVA.Text = "Save Vehicle Approval";
+            this.btnSaveVA.UseVisualStyleBackColor = true;
+            this.btnSaveVA.Click += new System.EventHandler(this.btnSaveVA_Click);
             // 
             // txtInstruction1
             // 
@@ -379,9 +363,9 @@
             // approvalDTDataGridViewTextBoxColumn
             // 
             this.approvalDTDataGridViewTextBoxColumn.DataPropertyName = "ApprovalDT";
-            dataGridViewCellStyle5.Format = "d";
-            dataGridViewCellStyle5.NullValue = null;
-            this.approvalDTDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.approvalDTDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.approvalDTDataGridViewTextBoxColumn.HeaderText = "ApprovalDT";
             this.approvalDTDataGridViewTextBoxColumn.Name = "approvalDTDataGridViewTextBoxColumn";
             // 
@@ -439,6 +423,17 @@
             this.axleConfigurationDataGridViewTextBoxColumn.Name = "axleConfigurationDataGridViewTextBoxColumn";
             this.axleConfigurationDataGridViewTextBoxColumn.Width = 150;
             // 
+            // bsPBSConfig
+            // 
+            this.bsPBSConfig.DataMember = "PBS_Config";
+            this.bsPBSConfig.DataSource = this.dsPBS;
+            this.bsPBSConfig.CurrentChanged += new System.EventHandler(this.bsPBSConfig_CurrentChanged);
+            // 
+            // pBS_ConfigBindingSource
+            // 
+            this.pBS_ConfigBindingSource.DataMember = "FK_PBS_Config_PBS";
+            this.pBS_ConfigBindingSource.DataSource = this.bsPBS;
+            // 
             // taPBS
             // 
             this.taPBS.ClearBeforeFill = true;
@@ -460,41 +455,11 @@
             this.tableAdapterManager.PBSTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsPBSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // btnSaveVA
-            // 
-            this.btnSaveVA.Location = new System.Drawing.Point(421, 37);
-            this.btnSaveVA.Name = "btnSaveVA";
-            this.btnSaveVA.Size = new System.Drawing.Size(193, 29);
-            this.btnSaveVA.TabIndex = 20;
-            this.btnSaveVA.Text = "Save Vehicle Approval";
-            this.btnSaveVA.UseVisualStyleBackColor = true;
-            this.btnSaveVA.Click += new System.EventHandler(this.btnSaveVA_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(34, 281);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(193, 29);
-            this.button4.TabIndex = 21;
-            this.button4.Text = "Save Table";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // btnSaveConfig
-            // 
-            this.btnSaveConfig.Location = new System.Drawing.Point(567, 281);
-            this.btnSaveConfig.Name = "btnSaveConfig";
-            this.btnSaveConfig.Size = new System.Drawing.Size(193, 29);
-            this.btnSaveConfig.TabIndex = 22;
-            this.btnSaveConfig.Text = "Save Config";
-            this.btnSaveConfig.UseVisualStyleBackColor = true;
-            this.btnSaveConfig.Click += new System.EventHandler(this.btnSaveConfig_Click);
-            // 
             // PBSManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1111, 712);
+            this.ClientSize = new System.Drawing.Size(1111, 783);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -509,7 +474,6 @@
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bsPBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsPBSConfig)).EndInit();
             this.gbPBSGVMConfig.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPBSConfigScheme)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPBSConfigScheme)).EndInit();
@@ -517,6 +481,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPBS)).EndInit();
             this.gbPBSTables.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPBSConfig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPBSConfig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBS_ConfigBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -524,8 +490,6 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox txtPBS_ID;
         private System.Windows.Forms.DataGridView dgvPBS;
         private dsPBS dsPBS;
         private System.Windows.Forms.BindingSource bsPBS;
@@ -540,8 +504,6 @@
         private System.Windows.Forms.DataGridView dgvPBSConfigScheme;
         private System.Windows.Forms.BindingSource bsPBSConfigScheme;
         private dsPBSTableAdapters.PBS_ConfigSchemeTableAdapter taPBSConfigScheme;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txtPBS_ConfigID;
         private dsPBSTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.Button btnSaveTable;
         private System.Windows.Forms.TextBox txtVehicleApproval;
@@ -566,7 +528,8 @@
         private System.Windows.Forms.TextBox txtInstruction1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSaveConfig;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnSavePBSTables;
         private System.Windows.Forms.Button btnSaveVA;
+        private System.Windows.Forms.BindingSource pBS_ConfigBindingSource;
     }
 }
