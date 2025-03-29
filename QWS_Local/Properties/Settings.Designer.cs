@@ -150,5 +150,49 @@ namespace QWS_Local.Properties {
                 return ((decimal)(this["MinimumCart"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ch-nq-dc02;Initial Catalog=QWSLocal;Integrated Security=True;TrustSer" +
+            "verCertificate=True")]
+        public string cnNQProd {
+            get {
+                return ((string)(this["cnNQProd"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ch-sql02;Initial Catalog=QWSLocal;Integrated Security=True;TrustServe" +
+            "rCertificate=True")]
+        public string cnNQTest {
+            get {
+                return ((string)(this["cnNQTest"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ch-sq-dc02;Initial Catalog=QWSLocal;Integrated Security=True;TrustSer" +
+            "verCertificate=True")]
+        public string cnSQProd {
+            get {
+                return ((string)(this["cnSQProd"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ch-sql02;Initial Catalog=QWSLocal;Integrated Security=True;TrustServe" +
+            "rCertificate=True")]
+        public string cnSQTest {
+            get {
+                return ((string)(this["cnSQTest"]));
+            }
+        }
     }
 }

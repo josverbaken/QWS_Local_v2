@@ -16,6 +16,7 @@ namespace QWS_Local
     {
         private string myUserName;
         private int mySiteID;
+        private bool myTestMode;
 
         public int SiteID
         {
@@ -47,19 +48,30 @@ namespace QWS_Local
         private void QWS_MDIParent_Load(object sender, EventArgs e)
         {
             bool OK2Continue = true;
-            mySiteID = SelectSiteID();
 
             string msg = ""; // "QWS Local - ";
             string SiteLabel = string.Empty;
+            // show form Select Site and set SiteID and testMode
+            SelectSiteID();
             
-            if (mySiteID == 7)
+            if (mySiteID == 7 && myTestMode == false)
             {
                 SiteLabel = "Northern Quarries"; // SiteID 07";
                 tspSite.BackColor = Color.LightSkyBlue;
             }
-            else if (mySiteID == 2)
+            else if (mySiteID == 7 && myTestMode == true)
+            {
+                SiteLabel = "NQ TEST"; // SiteID 07";
+                tspSite.BackColor = Color.LightSkyBlue;
+            }
+            else if (mySiteID == 2 && myTestMode == false)
             {
                 SiteLabel = "Stawell Quarry"; // SiteID 02";
+                tspSite.BackColor = Color.LightGreen;
+            }
+            else if (mySiteID == 2 && myTestMode == true)
+            {
+                SiteLabel = "SQ TEST"; // SiteID 02";
                 tspSite.BackColor = Color.LightGreen;
             }
             else
@@ -82,16 +94,13 @@ namespace QWS_Local
             }
         }
 
-        private int SelectSiteID()
+        private void SelectSiteID()
         {
             SelectSite frmSelectSite = new SelectSite();
             DialogResult dr = frmSelectSite.ShowDialog();
             if (dr == DialogResult.OK) {
-                return frmSelectSite.SiteID;
-            }
-            else
-            {
-                return 0;
+                mySiteID = frmSelectSite.SiteID;
+                myTestMode = frmSelectSite.TestMode;
             }
         }
 

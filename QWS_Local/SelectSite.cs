@@ -13,10 +13,16 @@ namespace QWS_Local
     public partial class SelectSite: Form
     {
         private int mySiteID;
+        private bool myTestMode;
         public int SiteID
         {
             get { return mySiteID; }
         }
+        public bool TestMode
+        {
+            get { return myTestMode; } 
+        }
+
 
         public SelectSite()
         {
@@ -28,12 +34,29 @@ namespace QWS_Local
             if (rbNQ.Checked)
             {
                 mySiteID = 7;
+                myTestMode = false;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
+            else if (rbNQtest.Checked)
+            {
+                mySiteID = 7;
+                myTestMode = true;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+
             else if (rbSQ.Checked)
             {
                 mySiteID = 2;
+                myTestMode = false;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else if (rbSQtest.Checked)
+            {
+                mySiteID = 2;
+                myTestMode = true;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

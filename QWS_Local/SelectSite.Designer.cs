@@ -32,13 +32,16 @@
             this.rbSQ = new System.Windows.Forms.RadioButton();
             this.btnSetSite = new System.Windows.Forms.Button();
             this.rbDummy = new System.Windows.Forms.RadioButton();
+            this.rbNQtest = new System.Windows.Forms.RadioButton();
+            this.rbSQtest = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // rbNQ
             // 
             this.rbNQ.AutoSize = true;
             this.rbNQ.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.rbNQ.Location = new System.Drawing.Point(82, 12);
+            this.rbNQ.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbNQ.Location = new System.Drawing.Point(30, 30);
             this.rbNQ.MinimumSize = new System.Drawing.Size(150, 40);
             this.rbNQ.Name = "rbNQ";
             this.rbNQ.Size = new System.Drawing.Size(150, 40);
@@ -52,7 +55,8 @@
             // 
             this.rbSQ.AutoSize = true;
             this.rbSQ.BackColor = System.Drawing.Color.LightGreen;
-            this.rbSQ.Location = new System.Drawing.Point(82, 58);
+            this.rbSQ.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbSQ.Location = new System.Drawing.Point(30, 115);
             this.rbSQ.MinimumSize = new System.Drawing.Size(150, 40);
             this.rbSQ.Name = "rbSQ";
             this.rbSQ.Size = new System.Drawing.Size(150, 40);
@@ -63,9 +67,9 @@
             // 
             // btnSetSite
             // 
-            this.btnSetSite.Location = new System.Drawing.Point(82, 104);
+            this.btnSetSite.Location = new System.Drawing.Point(30, 228);
             this.btnSetSite.Name = "btnSetSite";
-            this.btnSetSite.Size = new System.Drawing.Size(150, 40);
+            this.btnSetSite.Size = new System.Drawing.Size(336, 40);
             this.btnSetSite.TabIndex = 2;
             this.btnSetSite.Text = "Set";
             this.btnSetSite.UseVisualStyleBackColor = true;
@@ -75,7 +79,7 @@
             // 
             this.rbDummy.AutoSize = true;
             this.rbDummy.BackColor = System.Drawing.SystemColors.Control;
-            this.rbDummy.Location = new System.Drawing.Point(22, 104);
+            this.rbDummy.Location = new System.Drawing.Point(168, 182);
             this.rbDummy.MinimumSize = new System.Drawing.Size(150, 40);
             this.rbDummy.Name = "rbDummy";
             this.rbDummy.Size = new System.Drawing.Size(150, 40);
@@ -84,11 +88,42 @@
             this.rbDummy.UseVisualStyleBackColor = false;
             this.rbDummy.Visible = false;
             // 
+            // rbNQtest
+            // 
+            this.rbNQtest.AutoSize = true;
+            this.rbNQtest.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.rbNQtest.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbNQtest.Location = new System.Drawing.Point(216, 30);
+            this.rbNQtest.MinimumSize = new System.Drawing.Size(150, 40);
+            this.rbNQtest.Name = "rbNQtest";
+            this.rbNQtest.Size = new System.Drawing.Size(150, 40);
+            this.rbNQtest.TabIndex = 4;
+            this.rbNQtest.TabStop = true;
+            this.rbNQtest.Text = "NQ TEST";
+            this.rbNQtest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rbNQtest.UseVisualStyleBackColor = false;
+            // 
+            // rbSQtest
+            // 
+            this.rbSQtest.AutoSize = true;
+            this.rbSQtest.BackColor = System.Drawing.Color.LightGreen;
+            this.rbSQtest.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbSQtest.Location = new System.Drawing.Point(216, 115);
+            this.rbSQtest.MinimumSize = new System.Drawing.Size(150, 40);
+            this.rbSQtest.Name = "rbSQtest";
+            this.rbSQtest.Size = new System.Drawing.Size(150, 40);
+            this.rbSQtest.TabIndex = 5;
+            this.rbSQtest.Text = "SQ TEST";
+            this.rbSQtest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rbSQtest.UseVisualStyleBackColor = false;
+            // 
             // SelectSite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 165);
+            this.ClientSize = new System.Drawing.Size(410, 310);
+            this.Controls.Add(this.rbSQtest);
+            this.Controls.Add(this.rbNQtest);
             this.Controls.Add(this.btnSetSite);
             this.Controls.Add(this.rbDummy);
             this.Controls.Add(this.rbSQ);
@@ -110,5 +145,7 @@
         private System.Windows.Forms.RadioButton rbSQ;
         private System.Windows.Forms.Button btnSetSite;
         private System.Windows.Forms.RadioButton rbDummy;
+        private System.Windows.Forms.RadioButton rbNQtest;
+        private System.Windows.Forms.RadioButton rbSQtest;
     }
 }
