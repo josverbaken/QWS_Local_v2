@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Windows.Interop;
 using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Abstractions;
+using QWS_Local.dsQWSLocal2024TableAdapters;
 using static QWS_Local.dsTIQ2;
 
 namespace QWS_Local
@@ -22,6 +23,7 @@ namespace QWS_Local
         private string WeighbridgeOperator;
         private string ComputerName;
         private string Domain;
+        private string myConnectionString;
 
         public TrucksInQuarry()
         {
@@ -30,38 +32,20 @@ namespace QWS_Local
 
         private void TrucksInQuarry_Load(object sender, EventArgs e)
         {
-            //FormText4Site(); // show site on MDI Parent
-            int iRows =  this.taAxleConfiguration.Fill(this.dsQWSLocal2024.AxleConfiguration);
-            // set up and down arrows
-            //button3.Text = ""+ (char)24;
-            //button2.Text = ""+ (char)25;
-            // TODO: find a nicer solution, probably images/icons
-            iRows += 1;
             var parent = this.MdiParent as QWS_MDIParent;
             mySiteID = parent.SiteID;
             WeighbridgeOperator = parent.UserName;
             ComputerName = parent.ComputerName;
             Domain = parent.DomainName;
             this.KeyPreview = true;
+            myConnectionString = Properties.Settings.Default.cnQWSLocal;
+            int iRows = this.taAxleConfiguration.Fill(this.dsQWSLocal2024.AxleConfiguration);
+            iRows += 1;
+
             RefreshQueue();
         }
 
-        private void FormText4Site()
-        {
-            var parent = this.MdiParent as QWS_MDIParent;
-            string FormText = "Trucks In Quarry - ";
-            string SiteCode = "0" + parent.SiteID.ToString();
-            if (SiteCode == "07")
-            {
-                FormText += "07 Northern Quarries";
-            }
-            else if (SiteCode == "02")
-            {
-                FormText += "02 Stawell Quarry";
-            }
-            this.Text = FormText;
-        }
-
+  
         public void ClearTIQ()
         {
             dataGridView1.ClearSelection();
@@ -103,67 +87,7 @@ namespace QWS_Local
             frmBookIn.MdiParent = this.MdiParent;
             frmBookIn.Show();
         }
-     
-        private void ShowTIQDetail()
-        {
-            tabControl1.SelectedTab = tpDetails;
-        }
-
-        private void TIQRowDown()
-        {
-            int iCount = dataGridView1.Rows.Count;
-            if (iCount == 1)
-            {
-                dataGridView1.CurrentRow.Selected = true;
-            }
-            else if (iCount > 1)
-            {
-                int iRow;
-                int iSelectedRow = -1;
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    iRow = dataGridView1.CurrentCell.RowIndex; // zero based
-                    if(row.Selected == true)
-                    {
-                        iSelectedRow = iRow;
-                    }
-                }
-                if (iSelectedRow + 1 < iCount)
-                {
-                    dataGridView1.CurrentCell = dataGridView1.Rows[iSelectedRow + 1].Cells[0];
-                    dataGridView1.Rows[iSelectedRow + 1].Selected = true;
-                }
-            }
-        }
-
-        private void TIQRowUp()
-        {
-            int iCount = dataGridView1.Rows.Count;
-            if (iCount == 1)
-            {
-                dataGridView1.CurrentRow.Selected = true;
-            }
-            else if (iCount > 1)
-            {
-                int iRow;
-                int iSelectedRow = 0;
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    iRow = dataGridView1.CurrentCell.RowIndex; // zero based
-                    if (row.Selected == true)
-                    {
-                        iSelectedRow = iRow;
-                    }
-                }
-                if (iSelectedRow <= 1)
-                {
-                    iSelectedRow = 1;
-                }
-                    dataGridView1.CurrentCell = dataGridView1.Rows[iSelectedRow - 1].Cells[0];
-                    dataGridView1.Rows[iSelectedRow - 1].Selected = true;                
-            }
-        }
-
+             
         private dsTIQ2.TIQRow CurrentTIQ()
         {
             if ( bsTIQ2.Count > 0)
@@ -589,7 +513,7 @@ namespace QWS_Local
             try
             {
                 int DocNumNext = 0;
-                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlConnection sqlConnection = new SqlConnection(myConnectionString);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -611,7 +535,7 @@ namespace QWS_Local
             try
             {
                 int DocEntry = 0;
-                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlConnection sqlConnection = new SqlConnection(myConnectionString);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -634,7 +558,7 @@ namespace QWS_Local
             try
             {
                 int ItmsGrpCod;
-                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlConnection sqlConnection = new SqlConnection(myConnectionString);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.Text;
@@ -656,7 +580,7 @@ namespace QWS_Local
             try
             {
                 bool ItemQA = false;
-                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlConnection sqlConnection = new SqlConnection(myConnectionString);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.Text;
@@ -681,7 +605,7 @@ namespace QWS_Local
         {
             try
             {
-                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlConnection sqlConnection = new SqlConnection(myConnectionString);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -701,7 +625,7 @@ namespace QWS_Local
         {
             try
             {
-                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlConnection sqlConnection = new SqlConnection(myConnectionString);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -827,7 +751,19 @@ namespace QWS_Local
             try
             {
                 int iStatus = 0;
-                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+
+                var builder = new SqlConnectionStringBuilder
+                {
+                    DataSource = "MACHINE - VOIV7EH\\SQLEXPRESS",
+                    InitialCatalog = "Optisoft",
+                    PersistSecurityInfo = false,
+                    IntegratedSecurity = true,
+                    TrustServerCertificate=true
+                };
+
+
+                SqlConnection sqlConnection = new SqlConnection(myConnectionString);
+                //sqlConnection.ConnectionString.
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;

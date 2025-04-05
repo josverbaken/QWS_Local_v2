@@ -17,11 +17,18 @@ namespace QWS_Local
         private string myUserName;
         private int mySiteID;
         private bool myTestMode;
+        private string myConnectionString = "";
+
+        public string ConnectionString
+        {
+            get { return myConnectionString; }
+        }
 
         public int SiteID
         {
             get { return mySiteID; }
         }
+
         public string UserName
         {
             get { return myUserName; }
@@ -51,8 +58,9 @@ namespace QWS_Local
 
             string msg = ""; // "QWS Local - ";
             string SiteLabel = string.Empty;
-            // show form Select Site and set SiteID and testMode
-            SelectSiteID();
+            // TODO work out how to set SiteID and testMode
+            mySiteID = 7;
+            myTestMode = true;  
             
             if (mySiteID == 7 && myTestMode == false)
             {
@@ -94,23 +102,18 @@ namespace QWS_Local
             }
         }
 
-        private void SelectSiteID()
-        {
-            SelectSite frmSelectSite = new SelectSite();
-            DialogResult dr = frmSelectSite.ShowDialog();
-            if (dr == DialogResult.OK) {
-                mySiteID = frmSelectSite.SiteID;
-                myTestMode = frmSelectSite.TestMode;
-            }
-        }
-
         private void GetUsername(string ComputerUsername)
         {
             try
             {
                 // check if ComputerUsername is in Operator table
                 // TODO check permissions and roles
-                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlConnection sqlConnection = new SqlConnection();
+
+                myConnectionString = Properties.Settings.Default.cnQWSLocal;
+               
+
+                sqlConnection = new SqlConnection(myConnectionString);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
 
