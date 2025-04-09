@@ -16,7 +16,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\CH-DC-FS01\QWS_Software\SQ_Test\</PublishUrl>
+    <PublishUrl>\\CH-DC-FS01\QWS_Software\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -26,11 +26,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ProductName>QWS_SQTest</ProductName>
+    <ProductName>QWS_NQ_Dev</ProductName>
     <PublisherName>Jos Verbaken</PublisherName>
     <SuiteName>Quarry Weighbridge System</SuiteName>
     <WebPage>QWSLocal</WebPage>
-    <ApplicationRevision>30</ApplicationRevision>
+    <ApplicationRevision>32</ApplicationRevision>
     <ApplicationVersion>0.5.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

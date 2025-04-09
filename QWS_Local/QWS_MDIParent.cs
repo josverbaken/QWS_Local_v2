@@ -15,14 +15,14 @@ namespace QWS_Local
     public partial class QWS_MDIParent : Form
     {
         private string myUserName;
-        private int mySiteID;
-        private bool myTestMode;
+        private int mySiteID = 99;
+        private bool myTestMode = false;
         private string myConnectionString = "";
 
-        public string ConnectionString
-        {
-            get { return myConnectionString; }
-        }
+        //public string ConnectionString
+        //{
+        //    get { return myConnectionString; }
+        //}
 
         public int SiteID
         {
@@ -59,8 +59,20 @@ namespace QWS_Local
             string msg = ""; // "QWS Local - ";
             string SiteLabel = string.Empty;
             // TODO work out how to set SiteID and testMode
-            mySiteID = 7;
-            myTestMode = true;  
+            // 20250409 interim solution. Is TestMode relevant??
+            myConnectionString = Properties.Settings.Default.cnQWSLocal;
+            if (myConnectionString.Contains("QWS_NQ") == true)
+            {
+                mySiteID = 7;
+            }
+            if (myConnectionString.Contains("QWS_SQ") == true)
+            {
+                mySiteID = 2;
+            }
+            if (myConnectionString.Contains("_Dev") == true)
+            {
+                myTestMode = true;
+            }
             
             if (mySiteID == 7 && myTestMode == false)
             {
