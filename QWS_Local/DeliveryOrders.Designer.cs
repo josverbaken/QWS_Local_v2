@@ -41,6 +41,10 @@ namespace QWS_Local
             System.Windows.Forms.Label customerLabel;
             System.Windows.Forms.Label contactNameLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.gbOderDate = new System.Windows.Forms.GroupBox();
+            this.rbClearDate = new System.Windows.Forms.RadioButton();
+            this.rbFuture = new System.Windows.Forms.RadioButton();
+            this.rbToday = new System.Windows.Forms.RadioButton();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.gbDeliveryMode = new System.Windows.Forms.GroupBox();
             this.rbClear = new System.Windows.Forms.RadioButton();
@@ -57,6 +61,7 @@ namespace QWS_Local
             this.materialCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cartageCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsQuarryOrders = new System.Windows.Forms.BindingSource(this.components);
             this.dsBookIn = new QWS_Local.dsBookIn();
             this.tpDetails = new System.Windows.Forms.TabPage();
             this.contactMobileTextBox = new System.Windows.Forms.TextBox();
@@ -75,11 +80,6 @@ namespace QWS_Local
             this.docNumTextBox = new System.Windows.Forms.TextBox();
             this.deliveryOrdersAllTableAdapter1 = new QWS_Local.dsBookInTableAdapters.DeliveryOrdersAllTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsBookInTableAdapters.TableAdapterManager();
-            this.gbOderDate = new System.Windows.Forms.GroupBox();
-            this.rbClearDate = new System.Windows.Forms.RadioButton();
-            this.rbFuture = new System.Windows.Forms.RadioButton();
-            this.rbToday = new System.Windows.Forms.RadioButton();
-            this.bsQuarryOrders = new System.Windows.Forms.BindingSource(this.components);
             this.taQuarryOrders = new QWS_Local.dsBookInTableAdapters.QuarryOrdersTableAdapter();
             docNumLabel = new System.Windows.Forms.Label();
             materialLabel = new System.Windows.Forms.Label();
@@ -95,14 +95,14 @@ namespace QWS_Local
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.gbOderDate.SuspendLayout();
             this.gbDeliveryMode.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsQuarryOrders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsBookIn)).BeginInit();
             this.tpDetails.SuspendLayout();
-            this.gbOderDate.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsQuarryOrders)).BeginInit();
             this.SuspendLayout();
             // 
             // docNumLabel
@@ -213,6 +213,53 @@ namespace QWS_Local
             this.splitContainer1.Size = new System.Drawing.Size(1067, 554);
             this.splitContainer1.SplitterDistance = 200;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // gbOderDate
+            // 
+            this.gbOderDate.Controls.Add(this.rbClearDate);
+            this.gbOderDate.Controls.Add(this.rbFuture);
+            this.gbOderDate.Controls.Add(this.rbToday);
+            this.gbOderDate.Location = new System.Drawing.Point(3, 60);
+            this.gbOderDate.Name = "gbOderDate";
+            this.gbOderDate.Size = new System.Drawing.Size(194, 144);
+            this.gbOderDate.TabIndex = 3;
+            this.gbOderDate.TabStop = false;
+            this.gbOderDate.Text = "Delivery Due";
+            // 
+            // rbClearDate
+            // 
+            this.rbClearDate.AutoSize = true;
+            this.rbClearDate.Checked = true;
+            this.rbClearDate.Location = new System.Drawing.Point(22, 106);
+            this.rbClearDate.Name = "rbClearDate";
+            this.rbClearDate.Size = new System.Drawing.Size(59, 21);
+            this.rbClearDate.TabIndex = 2;
+            this.rbClearDate.TabStop = true;
+            this.rbClearDate.Text = "Clear";
+            this.rbClearDate.UseVisualStyleBackColor = true;
+            this.rbClearDate.CheckedChanged += new System.EventHandler(this.rbClearDate_CheckedChanged);
+            // 
+            // rbFuture
+            // 
+            this.rbFuture.AutoSize = true;
+            this.rbFuture.Location = new System.Drawing.Point(22, 68);
+            this.rbFuture.Name = "rbFuture";
+            this.rbFuture.Size = new System.Drawing.Size(67, 21);
+            this.rbFuture.TabIndex = 1;
+            this.rbFuture.Text = "Future";
+            this.rbFuture.UseVisualStyleBackColor = true;
+            this.rbFuture.CheckedChanged += new System.EventHandler(this.rbFuture_CheckedChanged);
+            // 
+            // rbToday
+            // 
+            this.rbToday.AutoSize = true;
+            this.rbToday.Location = new System.Drawing.Point(22, 32);
+            this.rbToday.Name = "rbToday";
+            this.rbToday.Size = new System.Drawing.Size(66, 21);
+            this.rbToday.TabIndex = 0;
+            this.rbToday.Text = "Today";
+            this.rbToday.UseVisualStyleBackColor = true;
+            this.rbToday.CheckedChanged += new System.EventHandler(this.rbToday_CheckedChanged);
             // 
             // btnRefresh
             // 
@@ -372,6 +419,11 @@ namespace QWS_Local
             this.cartageCodeDataGridViewTextBoxColumn.Name = "cartageCodeDataGridViewTextBoxColumn";
             this.cartageCodeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // bsQuarryOrders
+            // 
+            this.bsQuarryOrders.DataMember = "QuarryOrders";
+            this.bsQuarryOrders.DataSource = this.dsBookIn;
+            // 
             // dsBookIn
             // 
             this.dsBookIn.DataSetName = "dsBookIn";
@@ -403,10 +455,10 @@ namespace QWS_Local
             this.tpDetails.Controls.Add(this.materialCodeTextBox);
             this.tpDetails.Controls.Add(docNumLabel);
             this.tpDetails.Controls.Add(this.docNumTextBox);
-            this.tpDetails.Location = new System.Drawing.Point(4, 25);
+            this.tpDetails.Location = new System.Drawing.Point(4, 22);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(855, 525);
+            this.tpDetails.Size = new System.Drawing.Size(855, 528);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -533,58 +585,6 @@ namespace QWS_Local
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsBookInTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // gbOderDate
-            // 
-            this.gbOderDate.Controls.Add(this.rbClearDate);
-            this.gbOderDate.Controls.Add(this.rbFuture);
-            this.gbOderDate.Controls.Add(this.rbToday);
-            this.gbOderDate.Location = new System.Drawing.Point(3, 60);
-            this.gbOderDate.Name = "gbOderDate";
-            this.gbOderDate.Size = new System.Drawing.Size(194, 144);
-            this.gbOderDate.TabIndex = 3;
-            this.gbOderDate.TabStop = false;
-            this.gbOderDate.Text = "Delivery Due";
-            // 
-            // rbClearDate
-            // 
-            this.rbClearDate.AutoSize = true;
-            this.rbClearDate.Checked = true;
-            this.rbClearDate.Location = new System.Drawing.Point(22, 106);
-            this.rbClearDate.Name = "rbClearDate";
-            this.rbClearDate.Size = new System.Drawing.Size(59, 21);
-            this.rbClearDate.TabIndex = 2;
-            this.rbClearDate.TabStop = true;
-            this.rbClearDate.Text = "Clear";
-            this.rbClearDate.UseVisualStyleBackColor = true;
-            this.rbClearDate.CheckedChanged += new System.EventHandler(this.rbClearDate_CheckedChanged);
-            // 
-            // rbFuture
-            // 
-            this.rbFuture.AutoSize = true;
-            this.rbFuture.Location = new System.Drawing.Point(22, 68);
-            this.rbFuture.Name = "rbFuture";
-            this.rbFuture.Size = new System.Drawing.Size(67, 21);
-            this.rbFuture.TabIndex = 1;
-            this.rbFuture.Text = "Future";
-            this.rbFuture.UseVisualStyleBackColor = true;
-            this.rbFuture.CheckedChanged += new System.EventHandler(this.rbFuture_CheckedChanged);
-            // 
-            // rbToday
-            // 
-            this.rbToday.AutoSize = true;
-            this.rbToday.Location = new System.Drawing.Point(22, 32);
-            this.rbToday.Name = "rbToday";
-            this.rbToday.Size = new System.Drawing.Size(66, 21);
-            this.rbToday.TabIndex = 0;
-            this.rbToday.Text = "Today";
-            this.rbToday.UseVisualStyleBackColor = true;
-            this.rbToday.CheckedChanged += new System.EventHandler(this.rbToday_CheckedChanged);
-            // 
-            // bsQuarryOrders
-            // 
-            this.bsQuarryOrders.DataMember = "QuarryOrders";
-            this.bsQuarryOrders.DataSource = this.dsBookIn;
-            // 
             // taQuarryOrders
             // 
             this.taQuarryOrders.ClearBeforeFill = true;
@@ -604,17 +604,17 @@ namespace QWS_Local
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.gbOderDate.ResumeLayout(false);
+            this.gbOderDate.PerformLayout();
             this.gbDeliveryMode.ResumeLayout(false);
             this.gbDeliveryMode.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tpList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsQuarryOrders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsBookIn)).EndInit();
             this.tpDetails.ResumeLayout(false);
             this.tpDetails.PerformLayout();
-            this.gbOderDate.ResumeLayout(false);
-            this.gbOderDate.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsQuarryOrders)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -28,30 +28,21 @@ namespace QWS_Local
             mySiteID = parent.SiteID;
         }
 
-        private void rbTruck_CheckedChanged(object sender, EventArgs e)
+        private void SetDeliveryModeFilter()
         {
+            string myFilter = "";
+            string mySitePrefix = "";
+            if (mySiteID ==2)
+            {
+                mySitePrefix = "02";
+            }
+            else if (mySiteID ==7)
+            {
+                mySitePrefix = "07";
+            }
             if (rbTruck.Checked)
             {
-                string myFilter = "";
-                DeliveryModeFilter = "CartageCode like '%6-%'";
-                if (DeliveryDateFilter.Length > 0)
-                { 
-                    myFilter = DeliveryModeFilter + " and " + DeliveryDateFilter; 
-                }
-                else
-                {
-                    myFilter = DeliveryModeFilter;
-                }
-                bsQuarryOrders.Filter = myFilter;
-            }
-        }
-
-        private void rbTnT_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbTnT.Checked)
-            {
-                string myFilter = "";
-                DeliveryModeFilter = "CartageCode like '%7-%'";
+                DeliveryModeFilter = "CartageCode like '" + mySitePrefix + "6%'";
                 if (DeliveryDateFilter.Length > 0)
                 {
                     myFilter = DeliveryModeFilter + " and " + DeliveryDateFilter;
@@ -60,28 +51,33 @@ namespace QWS_Local
                 {
                     myFilter = DeliveryModeFilter;
                 }
-                bsQuarryOrders.Filter = myFilter;
             }
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            GetQuarryOrders();
-        }
-
-
-        private void rbClear_CheckedChanged(object sender, EventArgs e)
-        {
+            if (rbTnT.Checked)
+            {
+                DeliveryModeFilter = "CartageCode like '" + mySitePrefix + "7%'";
+                if (DeliveryDateFilter.Length > 0)
+                {
+                    myFilter = DeliveryModeFilter + " and " + DeliveryDateFilter;
+                }
+                else
+                {
+                    myFilter = DeliveryModeFilter;
+                }
+            }
             if (rbClear.Checked)
             {
-                string myFilter = "";
                 DeliveryModeFilter = "";
                 if (DeliveryDateFilter.Length > 0)
                 {
                     myFilter = DeliveryDateFilter;
                 }
-                bsQuarryOrders.Filter = myFilter;
             }
+                bsQuarryOrders.Filter =myFilter;
+            }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            GetQuarryOrders();
         }
 
         private void rbToday_CheckedChanged(object sender, EventArgs e)
@@ -134,6 +130,21 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void rbTruck_CheckedChanged(object sender, EventArgs e)
+        {
+            SetDeliveryModeFilter();
+        }
+
+        private void rbTnT_CheckedChanged(object sender, EventArgs e)
+        {
+            SetDeliveryModeFilter();
+        }
+
+        private void rbClear_CheckedChanged(object sender, EventArgs e)
+        {
+            SetDeliveryModeFilter();
         }
     }
 }
