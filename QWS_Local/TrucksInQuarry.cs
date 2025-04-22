@@ -753,18 +753,7 @@ namespace QWS_Local
         {
             try
             {
-                int iStatus = 0;
-                // TODO don't think this is required any more 20250422
-                var builder = new SqlConnectionStringBuilder
-                {
-                    DataSource = "MACHINE - VOIV7EH\\SQLEXPRESS",
-                    InitialCatalog = "Optisoft",
-                    PersistSecurityInfo = false,
-                    IntegratedSecurity = true,
-                    TrustServerCertificate=true
-                };
-
-
+                int iStatus = 0;               
                 SqlConnection sqlConnection = new SqlConnection(myConnectionString);
                 //sqlConnection.ConnectionString.
                 SqlCommand cmd = new SqlCommand();

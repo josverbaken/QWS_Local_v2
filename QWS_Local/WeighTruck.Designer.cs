@@ -83,6 +83,7 @@
             this.rbManual.TabIndex = 1;
             this.rbManual.Text = "Manual";
             this.rbManual.UseVisualStyleBackColor = true;
+            this.rbManual.CheckedChanged += new System.EventHandler(this.rbAuto_CheckedChanged);
             // 
             // rbWB3
             // 

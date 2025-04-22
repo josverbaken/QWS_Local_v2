@@ -132,7 +132,10 @@ namespace QWS_Local
         {
             try
             {
-                taPBSConfig.FillByPBSID(dsPBS.PBS_Config, CurrentPBS().PBS_ID);
+                if (CurrentPBS()  != null)
+                {
+                    taPBSConfig.FillByPBSID(dsPBS.PBS_Config, CurrentPBS().PBS_ID);
+                }
             }
             catch (Exception ex)
             {
