@@ -720,6 +720,9 @@ namespace QWS_Local
                 linesRow.ItmsGrpCod = ItmsGrpCod;
                 linesRow.SWW = SWW;
                 linesRow.StockpileLot = SPLot;
+                // TODO add agreement and line numbers
+                linesRow.AgrNo = CurrentTIQ().AgrNo;
+                linesRow.AgrLine = CurrentTIQ().AgrLine;
                 string UOM = ItemCode.Substring(ItemCode.Length - 1, 1);
                 if (UOM=="1")
                 {
@@ -751,7 +754,7 @@ namespace QWS_Local
             try
             {
                 int iStatus = 0;
-
+                // TODO don't think this is required any more 20250422
                 var builder = new SqlConnectionStringBuilder
                 {
                     DataSource = "MACHINE - VOIV7EH\\SQLEXPRESS",

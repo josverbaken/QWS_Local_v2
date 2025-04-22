@@ -628,39 +628,46 @@ namespace QWS_Local
         private void SetExBinNoOrderItem()
         {
             try
-            { 
+            {
+                bool ItemOK = true;
             if (bsItem.Count > 0)
             {
-                // Check blanket agreement
+                    // Check blanket agreement
+                    int myAgrNo = 0;
+                    int myAgrLine = 0;
                 dsBookIn.BlanketAgreementCheckRow myBlanketRow = (dsBookIn.BlanketAgreementCheckRow)CheckBlanketAgreement(txtCardCode.Text, txtExBinItem.Text);
                 if (myBlanketRow != null) 
                     {
-if (myBlanketRow.AgrStatus == "D")
+                        if (myBlanketRow.AgrStatus == "D")
                         {
                             MessageBox.Show("Unable to continue! Please resolve Agreement no " + myBlanketRow.AgrNo.ToString());
+                            ItemOK = false;
                         }
                         if (myBlanketRow.AgrStatus == "A")
                         {
                             MessageBox.Show("Blanket Agreement is approved!");
-                            // TODO record agreement and line numbers
+                            myAgrNo = myBlanketRow.AgrNo;
+                            myAgrLine = myBlanketRow.AgrLineNum;
                         }
                     }
-                    DataRow myRow = ((DataRowView)bsItem.Current).Row;
-                if (myRow != null)
-                {
-                    dsBookIn.ItemRow itemRow = (dsBookIn.ItemRow)myRow;
-                    dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
-                    myTIQRow.SAPOrder = 0;
-                    myTIQRow.CustomerCode = txtCardCode.Text;
-                    myTIQRow.Customer = txtCustomer.Text;
-                    myTIQRow.CustON = txtCustON.Text;
-                    myTIQRow.Material = itemRow.ItemCode;
-                    myTIQRow.MaterialDesc = itemRow.ItemName;
-                        // TODO update TIQ AgrNo, AgrLine
-                    bsTIQ2.EndEdit();
-                    tabControl2.SelectedTab = tpTruckconfig;
+                DataRow myRow = ((DataRowView)bsItem.Current).Row;
+                if (myRow != null && ItemOK == true)
+                    {
+                        dsBookIn.ItemRow itemRow = (dsBookIn.ItemRow)myRow;
+                        dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+                        myTIQRow.SAPOrder = 0;
+                        myTIQRow.CustomerCode = txtCardCode.Text;
+                        myTIQRow.Customer = txtCustomer.Text;
+                        myTIQRow.CustON = txtCustON.Text;
+                        myTIQRow.Material = itemRow.ItemCode;
+                        myTIQRow.MaterialDesc = itemRow.ItemName;
+                        myTIQRow.AgrNo = myAgrNo;
+                        myTIQRow.AgrLine = myAgrLine;   
+                        bsTIQ2.EndEdit();
+                        tabControl2.SelectedTab = tpTruckconfig;
                     }
             }
+            // TODO how to nicely terminate book in process??
             }
             catch (Exception ex)
             {

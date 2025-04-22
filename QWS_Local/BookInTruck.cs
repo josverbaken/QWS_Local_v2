@@ -435,6 +435,8 @@ namespace QWS_Local
             myTIQ.FeeCode = myConfigTruck.FeeCode;
             myTIQ.TruckOwnerCode = myConfigTruck.CardCode;
             myTIQ.TruckOwner = myConfigTruck.TruckOwner;
+            myTIQ.AgrNo = 0;
+            myTIQ.AgrLine = 0;
             switch (myTIQType)
             {
                 case TIQType.Retare:
@@ -686,6 +688,8 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("OverloadPoints", 0);
                 cmd.Parameters.AddWithValue("OverloadDesc", "");
                 cmd.Parameters.AddWithValue("Comment", "");
+                cmd.Parameters.AddWithValue("AgrNo", 0);
+                cmd.Parameters.AddWithValue("AgrLine", 0);
                 if (Okay2Proceed == true)
                 {
                     sqlConnection.Open();
