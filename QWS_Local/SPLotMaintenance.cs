@@ -358,7 +358,7 @@ namespace QWS_Local
 
         private void dataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
-            //e.Row.Cells["MCO"].Value = "Fred.flintstone"; // TODO why does name NOT work?
+            //e.Row.Cells["MCO"].Value = "Fred.flintstone"; //  name does NOT work, so use index
             var parent = this.MdiParent as QWS_MDIParent;
             string myUserName = parent.UserName;
             e.Row.Cells[1].Value = myUserName;

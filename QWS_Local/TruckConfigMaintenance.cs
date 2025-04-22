@@ -250,7 +250,7 @@ namespace QWS_Local
 
         private void TruckConfigAddTruck(string AxleConfig, string Rego, int Vehicles)
         {
-            // TODO check if already exists
+            // check if already exists
             // 1 - truck only if axle config contains R
             // 2 - T&T or semi-trailer
             // 3 - B-double

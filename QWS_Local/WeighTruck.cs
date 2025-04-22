@@ -83,7 +83,8 @@ namespace QWS_Local
                     }
                         break;
                 case 2:
-                    // TODO
+                    // handle when site requires it
+                    // currently NQ x3 WB and SQ x1 WB
                     break;
                 case 3:
                     rbWB1.Visible = true;
@@ -183,7 +184,7 @@ namespace QWS_Local
         }
         private async Task CaptureSingleWeightAsync()
         {
-            // TODO get weight from appropriate site and weighbridge id
+            // get weight from appropriate site and weighbridge id
             // and change how to call GetSingleWeight, might need to add ScaleFactor to Properties
             // also check what other differences in process logic
             decimal myWeight = 99.99M;

@@ -296,7 +296,6 @@ namespace QWS_Local
         private void button3_Click(object sender, EventArgs e)
         {
             AddExBinOrder2TIQ();
-            // TODO add order details to TIQ, data source depends on if from Order
         }
 
         private void AddExBinOrder2TIQ()
@@ -392,7 +391,6 @@ namespace QWS_Local
                 if (myOrderRow.CartageCode.Length > 0 )
                 {
                     myTIQRow.CartageCode = myOrderRow.CartageCode; 
-                    //myTIQRow.cart // TODO decide whether to add Cartage or simplify TIQ as order table is local??
                 }
                 bsTIQ2.EndEdit();
                 tabControl2.SelectedTab = tpTruckconfig;
@@ -569,7 +567,7 @@ namespace QWS_Local
                                        
                 bsTIQ2.EndEdit();
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
-                if (iRow == 1) // TODO test if split load
+                if (iRow == 1) // test if split load
                 {
                     if (myTIQRow.TruckConfig == "TKs" && myTIQRow.QueueStatus != "X") // X = truck only
                     {
@@ -667,7 +665,6 @@ namespace QWS_Local
                         tabControl2.SelectedTab = tpTruckconfig;
                     }
             }
-            // TODO how to nicely terminate book in process??
             }
             catch (Exception ex)
             {

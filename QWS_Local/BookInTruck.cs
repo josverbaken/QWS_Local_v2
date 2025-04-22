@@ -256,17 +256,7 @@ namespace QWS_Local
                 MessageBox.Show(CallingMessage, "Follow on book in.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        private bool CheckFeeCode() // TODO check why unused!
-        {
-            int myAxles = CurrentConfigTruck().Axles;
-            int myMaxAxles = CurrentConfigTruck().MaxAxles;
-            if (myMaxAxles > 0 && myAxles > myMaxAxles)
-            {
-                return false;
-            }
-            return true;
-        }
-
+   
         private void btnGetDriver_Click(object sender, EventArgs e)
         {
             GetTruckDriver(0);
@@ -715,7 +705,6 @@ namespace QWS_Local
             try
             {
                 dsTIQ2.Clear();
-                // TODO get SiteID
                 int iRow = taTIQ.FillBy(dsTIQ2.TIQ, mySiteID, iTIQID); // 1 row only!
             }
             catch (Exception ex)

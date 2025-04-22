@@ -49,12 +49,11 @@ namespace QWS_Local
             get { return formLoadType.ToString(); }
         }
 
-        // TODO check if B-Double
+        // check if B-Double
         private void rbTnT_CheckedChanged(object sender, EventArgs e)
         {
             if(rbTnT.Checked)
             {
-                //if (AxleConfig.IndexOf("R") > 0)
                 if (AxleConfig.Contains("R") == true)
                 {
                     formLoadType = LoadType.TT; 

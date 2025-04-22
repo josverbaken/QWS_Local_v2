@@ -126,7 +126,6 @@ namespace QWS_Local
                 }
                 string msg = "\r\n\r\nSite : ";
                 string SiteLabel = string.Empty;
-                // TODO refactor to cater for more than 2 sites
                 var parent = this.MdiParent as QWS_MDIParent;
                 int SiteID = parent.SiteID;
                 if (SiteID == 7)
@@ -136,6 +135,10 @@ namespace QWS_Local
                 else if (SiteID == 2)
                 {
                     SiteLabel = "02 Stawell Quarry";
+                }
+                else
+                {
+                    SiteLabel = "Site Unknown!";
                 }
                 msg += SiteLabel;
                 string DomainName = Environment.UserDomainName;

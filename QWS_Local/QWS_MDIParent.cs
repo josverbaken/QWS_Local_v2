@@ -58,8 +58,6 @@ namespace QWS_Local
 
             string msg = ""; // "QWS Local - ";
             string SiteLabel = string.Empty;
-            // TODO work out how to set SiteID and testMode
-            // 20250409 interim solution. Is TestMode relevant??
             myConnectionString = Properties.Settings.Default.cnQWSLocal;
             if (myConnectionString.Contains("QWS_NQ") == true)
             {

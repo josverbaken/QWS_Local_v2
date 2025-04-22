@@ -253,7 +253,7 @@ namespace QWS_Local
                 string myAxleConfig = axleConfigurationSearch._AxleConfigurationRow.AxleConfiguration;
                 txtAxleConfig.Text = myAxleConfig;
                 CurrentVehicle().AxleConfiguration = myAxleConfig;
-                CurrentVehicle().IsLeadVehicle = true; //TODO change to dsQWSLocal2024 axleConfigurationSearch._AxleConfigurationRow.IsLeadVehicle; // set/sync
+                CurrentVehicle().IsLeadVehicle = true; 
                 this.taAxleConfig.FillByAxleConfig(dsQWSLocal2024.AxleConfiguration, myAxleConfig); // WHY - for the picture!
                 VehicleSaveBlock();
             }
@@ -285,7 +285,7 @@ namespace QWS_Local
 
         private void PrefCustomerSearch()
         {
-            // /*TODO*/ refactor PrefCustomerSearch to just return found BP
+            // TODO refactor PrefCustomerSearch to just return found BP
             try
             {
                 BusinessSearch frmBusinessSearch = new BusinessSearch(""); // txtPrefCustName.Text);

@@ -631,7 +631,7 @@ namespace QWS_Local
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "TIQStatusAuditAdd";
                 cmd.Parameters.AddWithValue("@TIQID", TIQID);
-                cmd.Parameters.AddWithValue("@SiteID", 7); // TODO
+                cmd.Parameters.AddWithValue("@SiteID", mySiteID);
                 cmd.Parameters.AddWithValue("@Status", Status);
                 cmd.Parameters.AddWithValue("@Computer", ComputerName);
                 cmd.Parameters.AddWithValue("@Domain", Domain);
@@ -720,7 +720,6 @@ namespace QWS_Local
                 linesRow.ItmsGrpCod = ItmsGrpCod;
                 linesRow.SWW = SWW;
                 linesRow.StockpileLot = SPLot;
-                // TODO add agreement and line numbers
                 linesRow.AgrNo = CurrentTIQ().AgrNo;
                 linesRow.AgrLine = CurrentTIQ().AgrLine;
                 string UOM = ItemCode.Substring(ItemCode.Length - 1, 1);
