@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static QWS_Local.dsBookIn;
 
 namespace QWS_Local
 {
@@ -360,6 +361,7 @@ namespace QWS_Local
             DialogResult dr = frmItemSearch.ShowDialog();
             if (dr == DialogResult.OK)
             {//get details
+                dsBookIn.Item.Clear(); // to allow multiple look ups
                 dsBookIn.Item.ImportRow(frmItemSearch.myItem);
             }
         }
@@ -629,7 +631,21 @@ namespace QWS_Local
             { 
             if (bsItem.Count > 0)
             {
-                DataRow myRow = ((DataRowView)bsItem.Current).Row;
+                // Check blanket agreement
+                dsBookIn.BlanketAgreementCheckRow myBlanketRow = (dsBookIn.BlanketAgreementCheckRow)CheckBlanketAgreement(txtCardCode.Text, txtExBinItem.Text);
+                if (myBlanketRow != null) 
+                    {
+if (myBlanketRow.AgrStatus == "D")
+                        {
+                            MessageBox.Show("Unable to continue! Please resolve Agreement no " + myBlanketRow.AgrNo.ToString());
+                        }
+                        if (myBlanketRow.AgrStatus == "A")
+                        {
+                            MessageBox.Show("Blanket Agreement is approved!");
+                            // TODO record agreement and line numbers
+                        }
+                    }
+                    DataRow myRow = ((DataRowView)bsItem.Current).Row;
                 if (myRow != null)
                 {
                     dsBookIn.ItemRow itemRow = (dsBookIn.ItemRow)myRow;
@@ -640,6 +656,7 @@ namespace QWS_Local
                     myTIQRow.CustON = txtCustON.Text;
                     myTIQRow.Material = itemRow.ItemCode;
                     myTIQRow.MaterialDesc = itemRow.ItemName;
+                        // TODO update TIQ AgrNo, AgrLine
                     bsTIQ2.EndEdit();
                     tabControl2.SelectedTab = tpTruckconfig;
                     }
@@ -772,5 +789,31 @@ namespace QWS_Local
                     break;
             }
         }
+
+        private void btnCheckBlanket_Click(object sender, EventArgs e)
+        {
+            CheckBlanketAgreement(txtCardCode.Text, txtExBinItem.Text);
+        }
+
+        private BlanketAgreementCheckRow CheckBlanketAgreement(string CardCode, string ItemCode)
+        {
+            try
+            {
+               int iCount = this.taBlanketAgreement.Fill(this.dsBookIn.BlanketAgreementCheck,CardCode, ItemCode);
+                if (iCount == 1)
+                {
+                    BlanketAgreementCheckRow myRow = (BlanketAgreementCheckRow) dsBookIn.BlanketAgreementCheck.Rows[0];
+                    return myRow;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
+
     }
 }
