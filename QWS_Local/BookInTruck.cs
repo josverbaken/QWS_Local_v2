@@ -399,6 +399,46 @@ namespace QWS_Local
                     btnImportedPickUp.Enabled = false;
                 }
                 btnRetare.Enabled = true;
+                // UpdateTIQ 20250418
+                UpdateTIQDriver();
+            }
+        }
+
+        private void UpdateTIQDriver()
+        {
+            try
+            {
+                bsTIQ.EndEdit();
+                bsTruckDriver.EndEdit();
+            
+                dsTIQ2.TIQRow myTIQ = CurrentTIQ();
+                dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
+                dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
+                myTIQ.Operator = myWBO;//myUsername;
+                myTIQ.DriverID = myTruckDriver.CntctCode;
+                myTIQ.Driver = myTruckDriver.Person;
+                myTIQ.AllocateDTTM = DateTime.Now;
+                myTIQ.Rego = myConfigTruck.RegoTk;
+                myTIQ.RegoTr1 = myConfigTruck.RegoTr1;
+                myTIQ.RegoTr2 = myConfigTruck.RegoTr2;
+                myTIQ.RegoTr3 = myConfigTruck.RegoTr3;
+                myTIQ.RegoTrailers = myConfigTruck.RegoTrailer;
+                //myTIQ.TruckConfig = TruckTrailerConfig; //myConfigTruck.VehicleType;
+                myTIQ.TruckConfigID = myConfigTruck.TruckConfigID;
+                myTIQ.AxleConfiguration = myConfigTruck.AxleConfiguration;
+                myTIQ.FeeCode = myConfigTruck.FeeCode;
+                myTIQ.TruckOwnerCode = myConfigTruck.CardCode;
+                myTIQ.TruckOwner = myConfigTruck.TruckOwner;
+                myTIQ.AgrNo = 0;
+                myTIQ.AgrLine = 0;
+
+                bsTIQ.EndEdit();
+                taTIQ.Update(dsTIQ2.TIQ);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "UpdateTIQDriver Error");
+                throw;
             }
         }
 
@@ -406,7 +446,7 @@ namespace QWS_Local
         {
             bsTIQ.EndEdit();
             bsTruckDriver.EndEdit();
-            
+
             dsTIQ2.TIQRow myTIQ = CurrentTIQ();
             dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
             dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
