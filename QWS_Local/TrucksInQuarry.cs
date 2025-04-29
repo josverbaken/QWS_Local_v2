@@ -472,6 +472,9 @@ namespace QWS_Local
                                 case "Items":
                                     DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myOrderLine.ItemCode), myOrderLine.SWW, mySPLotNo, myOrderLine.DocEntry);
                                     break;
+                                case "Imported":
+                                    DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myOrderLine.ItemCode), myOrderLine.SWW, mySPLotNo, myOrderLine.DocEntry);
+                                    break;
                                 case "Freight":                                 
                                     DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, false, 99, myOrderLine.SWW, 0, myOrderLine.DocEntry);
                                     break;
