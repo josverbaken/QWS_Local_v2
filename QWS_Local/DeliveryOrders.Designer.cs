@@ -81,6 +81,7 @@ namespace QWS_Local
             this.deliveryOrdersAllTableAdapter1 = new QWS_Local.dsBookInTableAdapters.DeliveryOrdersAllTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsBookInTableAdapters.TableAdapterManager();
             this.taQuarryOrders = new QWS_Local.dsBookInTableAdapters.QuarryOrdersTableAdapter();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             docNumLabel = new System.Windows.Forms.Label();
             materialLabel = new System.Windows.Forms.Label();
             quantityLabel = new System.Windows.Forms.Label();
@@ -431,6 +432,7 @@ namespace QWS_Local
             // 
             // tpDetails
             // 
+            this.tpDetails.Controls.Add(this.textBox1);
             this.tpDetails.Controls.Add(this.contactMobileTextBox);
             this.tpDetails.Controls.Add(contactNameLabel);
             this.tpDetails.Controls.Add(this.contactNameTextBox);
@@ -455,10 +457,10 @@ namespace QWS_Local
             this.tpDetails.Controls.Add(this.materialCodeTextBox);
             this.tpDetails.Controls.Add(docNumLabel);
             this.tpDetails.Controls.Add(this.docNumTextBox);
-            this.tpDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpDetails.Location = new System.Drawing.Point(4, 25);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(855, 528);
+            this.tpDetails.Size = new System.Drawing.Size(855, 525);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -589,6 +591,15 @@ namespace QWS_Local
             // 
             this.taQuarryOrders.ClearBeforeFill = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "DeliveryAddress", true));
+            this.textBox1.Location = new System.Drawing.Point(362, 176);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(265, 84);
+            this.textBox1.TabIndex = 25;
+            // 
             // DeliveryOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -662,5 +673,6 @@ namespace QWS_Local
         private System.Windows.Forms.RadioButton rbToday;
         private System.Windows.Forms.BindingSource bsQuarryOrders;
         private dsBookInTableAdapters.QuarryOrdersTableAdapter taQuarryOrders;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

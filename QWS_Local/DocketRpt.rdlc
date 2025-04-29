@@ -193,7 +193,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>TruckRego</rd:DefaultName>
@@ -826,7 +828,7 @@
                           <Top>4.87cm</Top>
                           <Left>0.3175cm</Left>
                           <Height>0.6cm</Height>
-                          <Width>2.5cm</Width>
+                          <Width>4.48438cm</Width>
                           <ZIndex>24</ZIndex>
                           <Style>
                             <Border>

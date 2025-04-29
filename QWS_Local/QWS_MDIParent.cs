@@ -214,10 +214,23 @@ namespace QWS_Local
 
         public void PrintDocket()
         {
-            PrintDocket frmPrintDocket = new PrintDocket(mySiteID);
-            frmPrintDocket.MdiParent = this;
-            frmPrintDocket.WindowState = FormWindowState.Maximized;
-            frmPrintDocket.Show();
+            bool formFound = false;
+            foreach (var item in this.MdiChildren)
+            {
+                if (item.Name == "PrintDocket")
+                {
+                    formFound = true;
+                    item.BringToFront();
+                    break;
+                }
+            }
+            if (formFound == false)
+            {
+                PrintDocket frmPrintDocket = new PrintDocket(mySiteID);
+                frmPrintDocket.MdiParent = this;
+                frmPrintDocket.WindowState = FormWindowState.Maximized;
+                frmPrintDocket.Show();
+            }
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
