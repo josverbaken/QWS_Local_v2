@@ -78,6 +78,11 @@ namespace QWS_Local
             {
                 GetTruckDriver(myDriverID);
             }
+            // TODO find why it is disabled
+            if (btnGetDriver.Enabled ==  false)
+            {
+                btnGetDriver.Enabled = true;
+            }
         }
 
         // Book in after updating Tare or Split-load
@@ -408,32 +413,39 @@ namespace QWS_Local
         {
             try
             {
-                bsTIQ.EndEdit();
-                bsTruckDriver.EndEdit();
-            
-                dsTIQ2.TIQRow myTIQ = CurrentTIQ();
-                dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
-                dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
-                myTIQ.Operator = myWBO;//myUsername;
-                myTIQ.DriverID = myTruckDriver.CntctCode;
-                myTIQ.Driver = myTruckDriver.Person;
-                myTIQ.AllocateDTTM = DateTime.Now;
-                myTIQ.Rego = myConfigTruck.RegoTk;
-                myTIQ.RegoTr1 = myConfigTruck.RegoTr1;
-                myTIQ.RegoTr2 = myConfigTruck.RegoTr2;
-                myTIQ.RegoTr3 = myConfigTruck.RegoTr3;
-                myTIQ.RegoTrailers = myConfigTruck.RegoTrailer;
-                //myTIQ.TruckConfig = TruckTrailerConfig; //myConfigTruck.VehicleType;
-                myTIQ.TruckConfigID = myConfigTruck.TruckConfigID;
-                myTIQ.AxleConfiguration = myConfigTruck.AxleConfiguration;
-                myTIQ.FeeCode = myConfigTruck.FeeCode;
-                myTIQ.TruckOwnerCode = myConfigTruck.CardCode;
-                myTIQ.TruckOwner = myConfigTruck.TruckOwner;
-                myTIQ.AgrNo = 0;
-                myTIQ.AgrLine = 0;
+                if (CurrentTIQ() != null)
+                {
+                    bsTIQ.EndEdit();
+                    bsTruckDriver.EndEdit();
 
-                bsTIQ.EndEdit();
-                taTIQ.Update(dsTIQ2.TIQ);
+                    dsTIQ2.TIQRow myTIQ = CurrentTIQ();
+                    dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
+                    dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
+                    myTIQ.Operator = myWBO;//myUsername;
+                    myTIQ.DriverID = myTruckDriver.CntctCode;
+                    myTIQ.Driver = myTruckDriver.Person;
+                    myTIQ.AllocateDTTM = DateTime.Now;
+                    myTIQ.Rego = myConfigTruck.RegoTk;
+                    myTIQ.RegoTr1 = myConfigTruck.RegoTr1;
+                    myTIQ.RegoTr2 = myConfigTruck.RegoTr2;
+                    myTIQ.RegoTr3 = myConfigTruck.RegoTr3;
+                    myTIQ.RegoTrailers = myConfigTruck.RegoTrailer;
+                    //myTIQ.TruckConfig = TruckTrailerConfig; //myConfigTruck.VehicleType;
+                    myTIQ.TruckConfigID = myConfigTruck.TruckConfigID;
+                    myTIQ.AxleConfiguration = myConfigTruck.AxleConfiguration;
+                    myTIQ.FeeCode = myConfigTruck.FeeCode;
+                    myTIQ.TruckOwnerCode = myConfigTruck.CardCode;
+                    myTIQ.TruckOwner = myConfigTruck.TruckOwner;
+                    myTIQ.AgrNo = 0;
+                    myTIQ.AgrLine = 0;
+
+                    bsTIQ.EndEdit();
+                    taTIQ.Update(dsTIQ2.TIQ);
+                }
+                else
+                {
+                    MessageBox.Show("CurrentTIQ is NULL!");
+                }
             }
             catch (Exception ex)
             {

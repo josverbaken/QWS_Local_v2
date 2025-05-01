@@ -382,7 +382,7 @@ namespace QWS_Local
                         MessageBox.Show("Please process truck first!", "Split Load", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         break;
 
-                    case "X": // Trailer Only Split Load
+                    case "X": // Truck or Trailer Only Split Load
                         frmWeighTruck = new WeighTruck("Collect weight with both truck and trailer on weighbridge.", mySiteID);
                         dr = frmWeighTruck.ShowDialog();
                         myWeight = frmWeighTruck.Weight;
