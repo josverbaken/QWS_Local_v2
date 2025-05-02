@@ -25,6 +25,9 @@ namespace QWS_Local
         private string Domain;
         private string myConnectionString;
 
+        private int myWBID;
+        private bool myWBConnected;
+
         public TrucksInQuarry()
         {
             InitializeComponent();
@@ -220,6 +223,11 @@ namespace QWS_Local
                             decimal myTareTk = 0.0M;
                             if (myTIQRow.TruckConfig != "TT")
                             {
+                                myWBID = frmWeighTruck.WBID; // TODO see where this gets written to TIQ and replicate for other weight collections
+                                myWBConnected = frmWeighTruck.WBConnected;
+                                // UpdateTIQ to record WBID and Connected
+                                bsTIQ2.EndEdit();
+                                taTIQ2.Update(dsTIQ2.TIQ);
                                 myTare = frmWeighTruck.Weight;
                             }
                             else
@@ -229,6 +237,11 @@ namespace QWS_Local
                                 DialogResult dr1 = frmTare.ShowDialog();
                                 if (dr1 == DialogResult.OK)
                                 {
+                                    myWBID = frmTare.WBID; // TODO see where this gets written to TIQ and replicate for other weight collections
+                                    myWBConnected = frmTare.WBConnected;
+                                    // UpdateTIQ to record WBID and Connected
+                                    bsTIQ2.EndEdit();
+                                    taTIQ2.Update(dsTIQ2.TIQ);
                                     myTare = frmTare.Weight;
                                 }
                             }
@@ -271,6 +284,9 @@ namespace QWS_Local
                                 myTIQRow.QueueStatus = "G";
                                 bsTIQ2.EndEdit();
                             }
+                            bsTIQ2.EndEdit();
+                            myTIQRow.WeighbridgeID = frmWeighTruck.WBID;
+                            // TODO WB Connected
                             taTIQ2.Update(dsTIQ2.TIQ);
                             //RefreshQueue();
                         }
@@ -298,6 +314,8 @@ namespace QWS_Local
                             }
                             myTIQRow.Tare = myWeight;
                             myTIQRow.Nett = myTIQRow.Gross - myWeight;//TODO ensure > 0 and challenge if less than MinMaterial ~ 8.0t
+                            myTIQRow.WeighbridgeID = frmWeighTruck.WBID;
+                            // TODO add WB Connected
                             myTIQRow.QueueStatus = "E";
                             bsTIQ2.EndEdit();
                             taTIQ2.Update(dsTIQ2.TIQ);
@@ -350,6 +368,8 @@ namespace QWS_Local
                                 myTIQRow.Gross = myWeight;
                                 myTIQRow.Nett = myQty;
                                 string myTruckRego = myTIQRow.Rego;
+                                myTIQRow.WeighbridgeID = frmWeighTruck.WBID;
+                                // TODO add WBConnected to database table
                                 bsTIQ2.EndEdit();
                                 taTIQ2.Update(dsTIQ2.TIQ);
 
@@ -395,6 +415,8 @@ namespace QWS_Local
                             int myParentTIQID = myTIQRow.TIQID;
                             string myTruckConfig = myTIQRow.TruckConfig;
                             myTIQRow.Tare = myWeight;
+                            myTIQRow.WeighbridgeID = frmWeighTruck.WBID;
+                            bool wbconnected = frmWeighTruck.WBConnected; // TODO write once database table definition updated
                             myTIQRow.QueueStatus = "Q";
                             bsTIQ2.EndEdit();
                             taTIQ2.Update(dsTIQ2.TIQ);
@@ -442,7 +464,7 @@ namespace QWS_Local
             DialogResult dr = frmTareTruck.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                MessageBox.Show("Retare form OK");
+                //MessageBox.Show("Retare form OK");
             }
         }
 

@@ -15,6 +15,18 @@ namespace QWS_Local
         private decimal myWeight;
         private string Instruction;
         private int mySiteID;
+        private int myWBID;
+        private bool myWBConnected;
+
+        public bool WBConnected
+        {
+            get { return myWBConnected; }
+        }
+
+        public int WBID
+        {
+            get { return myWBID; }
+        }
 
         public decimal Weight
         {
@@ -36,7 +48,27 @@ namespace QWS_Local
         {
              if (ParseWeight() == true && myWeight > 0.0M)
             {
-                this.DialogResult = DialogResult.OK;
+                if (rbManual.Checked)
+                {
+                    myWBConnected = false;
+                }
+                else
+                {
+                    myWBConnected = true;
+                }
+                if (rbWB1.Checked)
+                {
+                    myWBID = 1;
+                }
+                else if (rbWB2.Checked)
+                {
+                    myWBID = 2;
+                }
+                else if (rbWB3.Checked)
+                {
+                    myWBID = 3;
+                }
+                    this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
