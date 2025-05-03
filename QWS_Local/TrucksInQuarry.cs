@@ -25,9 +25,6 @@ namespace QWS_Local
         private string Domain;
         private string myConnectionString;
 
-        private int myWBID;
-        private bool myWBConnected;
-
         public TrucksInQuarry()
         {
             InitializeComponent();
@@ -125,7 +122,7 @@ namespace QWS_Local
                 {
                     string Reason = frmTIQRemove.TIQRemoveReason;
                     int myTIQID = CurrentTIQ().TIQID;
-                    TIQStatusAudit(myTIQID, "Z" ,1, 0.00M, Reason); // TODO get WBID
+                    TIQStatusAudit(myTIQID, "Z" ,9,false, 0.00M, Reason);
                     CurrentTIQ().TIQOpen = false;
                     bsTIQ2.EndEdit();
                     taTIQ2.Update(dsTIQ2.TIQ);
@@ -214,7 +211,7 @@ namespace QWS_Local
                         }
                         if (dr == DialogResult.OK)
                         {
-                            TIQStatusAudit(myTIQRow.TIQID, "T", 1, frmWeighTruck.Weight, "Capture tare"); // TODO get WBID
+                            TIQStatusAudit(myTIQRow.TIQID, "T", frmWeighTruck.WBID, frmWeighTruck.WBConnected, frmWeighTruck.Weight, "Capture tare");
                             string myRego = myTIQRow.Rego;
                             int myTruckConfigID = myTIQRow.TruckConfigID;
                             int myDriverID = myTIQRow.DriverID;
@@ -223,9 +220,8 @@ namespace QWS_Local
                             decimal myTareTk = 0.0M;
                             if (myTIQRow.TruckConfig != "TT")
                             {
-                                myWBID = frmWeighTruck.WBID; // TODO see where this gets written to TIQ and replicate for other weight collections
-                                myWBConnected = frmWeighTruck.WBConnected;
-                                // UpdateTIQ to record WBID and Connected
+                                myTIQRow.WeighbridgeID = frmWeighTruck.WBID; // TODO see where this gets written to TIQ and replicate for other weight collections
+                                myTIQRow.WBConnected = frmWeighTruck.WBConnected;
                                 bsTIQ2.EndEdit();
                                 taTIQ2.Update(dsTIQ2.TIQ);
                                 myTare = frmWeighTruck.Weight;
@@ -237,9 +233,8 @@ namespace QWS_Local
                                 DialogResult dr1 = frmTare.ShowDialog();
                                 if (dr1 == DialogResult.OK)
                                 {
-                                    myWBID = frmTare.WBID; // TODO see where this gets written to TIQ and replicate for other weight collections
-                                    myWBConnected = frmTare.WBConnected;
-                                    // UpdateTIQ to record WBID and Connected
+                                    myTIQRow.WeighbridgeID = frmTare.WBID; // TODO see where this gets written to TIQ and replicate for other weight collections
+                                    myTIQRow.WBConnected = frmTare.WBConnected;
                                     bsTIQ2.EndEdit();
                                     taTIQ2.Update(dsTIQ2.TIQ);
                                     myTare = frmTare.Weight;
@@ -260,7 +255,7 @@ namespace QWS_Local
                         myWeight = frmWeighTruck.Weight;
                         if (dr == DialogResult.OK)
                         {
-                            TIQStatusAudit(myTIQRow.TIQID, "I", 1, myWeight, "Capture gross of imported load"); // TODO get WBID
+                            TIQStatusAudit(myTIQRow.TIQID, "I", frmWeighTruck.WBID, frmWeighTruck.WBConnected, myWeight, "Capture gross of imported load"); // TODO get WBID
                             if (myWeight > myTIQRow.GCM)
                             {
                                 ImportedOverload frmImportedOverload = new ImportedOverload(myTIQRow.DriverID, myTIQRow.Driver, myWeight, myTIQRow  .GCM);
@@ -319,7 +314,7 @@ namespace QWS_Local
                             myTIQRow.QueueStatus = "E";
                             bsTIQ2.EndEdit();
                             taTIQ2.Update(dsTIQ2.TIQ);
-                            TIQStatusAudit(myTIQRow.TIQID, "G", 1, myWeight, "Capture tare of imported load"); // TODO get WBID
+                            TIQStatusAudit(myTIQRow.TIQID, "G", frmWeighTruck.WBID, frmWeighTruck.WBConnected, myWeight, "Capture tare of imported load"); // TODO get WBID
 
                             if (ConfirmPostDocket())
                             {
@@ -359,17 +354,17 @@ namespace QWS_Local
                                 decimal Overweight = myWeight - myGVM;
                                 string msg = "Truck overloaded by : " + Overweight.ToString() + "t";
                                 MessageBox.Show(msg,"Overweight",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-                                TIQStatusAudit(myTIQRow.TIQID, "O", 1, myWeight,msg); // TODO get WBID
+                                TIQStatusAudit(myTIQRow.TIQID, "O", frmWeighTruck.WBID, frmWeighTruck.WBConnected, myWeight,msg);
                             }
                             else
                             {
-                                TIQStatusAudit(myTIQRow.TIQID, "Q", 1, myWeight, "weight logged"); // TODO get WBID
+                                TIQStatusAudit(myTIQRow.TIQID, "Q", frmWeighTruck.WBID,frmWeighTruck.WBConnected, myWeight, "weight logged");
                                 decimal myQty = myWeight - myTIQRow.Tare;
                                 myTIQRow.Gross = myWeight;
                                 myTIQRow.Nett = myQty;
                                 string myTruckRego = myTIQRow.Rego;
                                 myTIQRow.WeighbridgeID = frmWeighTruck.WBID;
-                                // TODO add WBConnected to database table
+                                myTIQRow.WBConnected = frmWeighTruck.WBConnected;
                                 bsTIQ2.EndEdit();
                                 taTIQ2.Update(dsTIQ2.TIQ);
 
@@ -408,15 +403,20 @@ namespace QWS_Local
                         myWeight = frmWeighTruck.Weight;
                         if (dr == DialogResult.OK)
                         {
-                            TIQStatusAudit(myTIQRow.TIQID, "X", 1, myWeight, "temp tare captured"); // TODO get WBID
-                            string myRego = myTIQRow.Rego;
-                            int myTruckConfigID = myTIQRow.TruckConfigID;
-                            int myDriverID = myTIQRow.DriverID;
-                            int myParentTIQID = myTIQRow.TIQID;
-                            string myTruckConfig = myTIQRow.TruckConfig;
+                            //string myRego = myTIQRow.Rego;
+                            //int myTruckConfigID = myTIQRow.TruckConfigID;
+                            //int myDriverID = myTIQRow.DriverID;
+                            //int myParentTIQID = myTIQRow.TIQID;
+                            //string myTruckConfig = myTIQRow.TruckConfig;
+
+                            int myWBID = frmWeighTruck.WBID;
+                            bool myWBConnected = frmWeighTruck.WBConnected;
+
+                            TIQStatusAudit(myTIQRow.TIQID, "X", myWBID, myWBConnected, myWeight, "temp tare captured");
+
                             myTIQRow.Tare = myWeight;
-                            myTIQRow.WeighbridgeID = frmWeighTruck.WBID;
-                            bool wbconnected = frmWeighTruck.WBConnected; // TODO write once database table definition updated
+                            myTIQRow.WeighbridgeID = myWBID;
+                            myTIQRow.WBConnected = myWBConnected;
                             myTIQRow.QueueStatus = "Q";
                             bsTIQ2.EndEdit();
                             taTIQ2.Update(dsTIQ2.TIQ);
@@ -646,7 +646,7 @@ namespace QWS_Local
             }
         }
 
-        private void TIQStatusAudit(int TIQID, string Status, int WBID, decimal WBReading, string Comment)
+        private void TIQStatusAudit(int TIQID, string Status, int WBID, bool WBConnected, decimal WBReading, string Comment)
         {
             try
             {
@@ -662,6 +662,7 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@Domain", Domain);
                 cmd.Parameters.AddWithValue("@Operator", WeighbridgeOperator);
                 cmd.Parameters.AddWithValue("@WBID", WBID);
+                cmd.Parameters.AddWithValue("@WBConnected", WBConnected);
                 cmd.Parameters.AddWithValue("@WBReading", WBReading);
                 cmd.Parameters.AddWithValue("@Comments", Comment);
                 sqlConnection.Open();
@@ -670,7 +671,7 @@ namespace QWS_Local
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "ReleaseSplit Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "TIQStatusAudit Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
