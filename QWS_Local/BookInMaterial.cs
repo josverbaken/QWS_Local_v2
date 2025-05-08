@@ -393,6 +393,7 @@ namespace QWS_Local
                     myTIQRow.CartageCode = myOrderRow.CartageCode; 
                 }
                 bsTIQ2.EndEdit();
+                //int iRow = taTIQ2.Update(dsTIQ2.TIQ); // NOT required if user steps through tabs in correct order
                 tabControl2.SelectedTab = tpTruckconfig;
             }
             catch (Exception ex)

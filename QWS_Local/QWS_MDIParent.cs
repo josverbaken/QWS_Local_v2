@@ -116,8 +116,6 @@ namespace QWS_Local
         {
             try
             {
-                // check if ComputerUsername is in Operator table
-                // TODO check permissions and roles
                 SqlConnection sqlConnection = new SqlConnection();
 
                 myConnectionString = Properties.Settings.Default.cnQWSLocal;
@@ -128,13 +126,15 @@ namespace QWS_Local
                 cmd.Connection = sqlConnection;
 
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select count(*) from Operator where FirstName + '.' + LastName like '" + ComputerUsername +"'";
+                cmd.CommandText = "select isnull(OperatorID,0) from Operator where FirstName + '.' + LastName like '" + ComputerUsername +"'";
                 cmd.Connection.Open();
-                int iCount = (int)Convert.ToInt64(cmd.ExecuteScalar());
+                int iOperator = (int)Convert.ToInt64(cmd.ExecuteScalar());
                 cmd.Connection.Close();
-                if (iCount > 0)
+                if (iOperator > 0)
                 {
                     myUserName = ComputerUsername;
+                    // TODO check permissions and roles
+                    CheckIfAdmin(iOperator);
                 }
                 else
                 {
@@ -151,6 +151,29 @@ namespace QWS_Local
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "GetUserName Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CheckIfAdmin(int myOperatorID)
+        {
+            SqlConnection sqlConnection = new SqlConnection();
+
+            myConnectionString = Properties.Settings.Default.cnQWSLocal;
+
+
+            sqlConnection = new SqlConnection(myConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = sqlConnection;
+
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select count(*) from OperatorRoles where OperatorID = " + myOperatorID + " and RoleID = 6";
+            cmd.Connection.Open();
+            int iCount = (int)Convert.ToInt64(cmd.ExecuteScalar());
+            cmd.Connection.Close();
+            if (iCount == 0)
+            {
+                //hide Admin menu
+                adminToolStripMenuItem.Enabled = false;
             }
         }
 

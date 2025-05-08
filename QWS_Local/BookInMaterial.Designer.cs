@@ -1217,10 +1217,10 @@ namespace QWS_Local
             this.tpExBinNoOrder.Controls.Add(this.btnSetItem);
             this.tpExBinNoOrder.Controls.Add(this.btnExBinItems);
             this.tpExBinNoOrder.Controls.Add(this.button1);
-            this.tpExBinNoOrder.Location = new System.Drawing.Point(4, 25);
+            this.tpExBinNoOrder.Location = new System.Drawing.Point(4, 22);
             this.tpExBinNoOrder.Name = "tpExBinNoOrder";
             this.tpExBinNoOrder.Padding = new System.Windows.Forms.Padding(3);
-            this.tpExBinNoOrder.Size = new System.Drawing.Size(1419, 293);
+            this.tpExBinNoOrder.Size = new System.Drawing.Size(1419, 296);
             this.tpExBinNoOrder.TabIndex = 1;
             this.tpExBinNoOrder.Text = "Ex-Bin No Order";
             this.tpExBinNoOrder.UseVisualStyleBackColor = true;
@@ -1623,6 +1623,7 @@ namespace QWS_Local
             // 
             // textBox10
             // 
+            this.textBox10.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "SAPOrder", true));
             this.textBox10.Location = new System.Drawing.Point(439, 60);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
@@ -1631,6 +1632,7 @@ namespace QWS_Local
             // 
             // textBox1
             // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "ContactMobile", true));
             this.textBox1.Location = new System.Drawing.Point(439, 89);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
@@ -1639,6 +1641,7 @@ namespace QWS_Local
             // 
             // textBox3
             // 
+            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "ContactName", true));
             this.textBox3.Location = new System.Drawing.Point(143, 89);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;

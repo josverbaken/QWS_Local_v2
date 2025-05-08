@@ -657,7 +657,7 @@ namespace QWS_Local
                 bool Okay2Proceed = true;
                 dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
                 string myQStatus = "P";
-                if (TruckOrTrailerConfig == "TRs") // TODO differentiate b/n split and trailer only
+                if (TruckOrTrailerConfig == "TRs")
                 {
                     if (IsBookedIn(CurrentConfigTruck().RegoTk) == true)
                     {
