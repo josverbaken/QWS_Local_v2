@@ -404,7 +404,7 @@ namespace QWS_Local
                     btnImportedPickUp.Enabled = false;
                 }
                 btnRetare.Enabled = true;
-                // UpdateTIQ 20250418
+                // UpdateTIQ 20250418, is done in UpdateTIQDriver
                 UpdateTIQDriver();
             }
         }
@@ -657,6 +657,10 @@ namespace QWS_Local
                 bool Okay2Proceed = true;
                 dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
                 string myQStatus = "P";
+                if (myTIQType == TIQType.ParkUp)
+                {
+                    myQStatus = "K";
+                }
                 if (TruckOrTrailerConfig == "TRs")
                 {
                     if (IsBookedIn(CurrentConfigTruck().RegoTk) == true)
@@ -812,7 +816,15 @@ namespace QWS_Local
             try
             {
                 string msg = "Put on hold, direct to park in holding bay and proceed to office to resolve driver issue.";
-                UpdateTIQ(TIQType.ParkUp, CurrentConfigTruck().VehicleType);
+                if (CurrentTIQ() == null)
+                {
+                    // create record with just rego to capture entry time for KPI
+                    NewTIQ(TIQType.ParkUp, 0, "tba");
+                }
+                else
+                {
+                    UpdateTIQ(TIQType.ParkUp, CurrentConfigTruck().VehicleType);
+                }
                 MessageBox.Show(msg,"Put on hold.",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 this.Close();
             }

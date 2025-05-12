@@ -1209,7 +1209,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!PurchaseOrder.Value</Value>
+                                  <Value>="PO : " + Fields!PurchaseOrder.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -1218,9 +1218,9 @@
                           </Paragraphs>
                           <rd:DefaultName>PurchaseOrder</rd:DefaultName>
                           <Top>2.52542cm</Top>
-                          <Left>1.51849cm</Left>
+                          <Left>0.38806cm</Left>
                           <Height>0.6cm</Height>
-                          <Width>4.95026cm</Width>
+                          <Width>6.08069cm</Width>
                           <ZIndex>37</ZIndex>
                           <Style>
                             <Border>
@@ -1264,38 +1264,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <Textbox Name="Textbox25">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value EvaluationMode="Constant">PO :</Value>
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox18</rd:DefaultName>
-                          <Top>2.52542cm</Top>
-                          <Left>0.3175cm</Left>
-                          <Height>0.6cm</Height>
-                          <Width>1.0246cm</Width>
-                          <ZIndex>39</ZIndex>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
                         <Textbox Name="Textbox26">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -1317,7 +1285,7 @@
                           <Left>0.3175cm</Left>
                           <Height>0.6cm</Height>
                           <Width>3.3599cm</Width>
-                          <ZIndex>40</ZIndex>
+                          <ZIndex>39</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>

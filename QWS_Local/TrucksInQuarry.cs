@@ -875,9 +875,12 @@ namespace QWS_Local
 
         private void ContinueInProgress()
         {
-            BookInTruck frmBookIn = new BookInTruck(CurrentTIQ().TIQID, CurrentTIQ().Rego, CurrentTIQ().TruckConfigID, CurrentTIQ().DriverID, true);
-            frmBookIn.MdiParent = this.MdiParent;
-            frmBookIn.Show();
+            if (CurrentTIQ() != null)
+            {
+                    BookInTruck frmBookIn = new BookInTruck(CurrentTIQ().TIQID, CurrentTIQ().Rego, CurrentTIQ().TruckConfigID, CurrentTIQ().DriverID, true);
+                    frmBookIn.MdiParent = this.MdiParent;
+                    frmBookIn.Show();
+            }
         }
 
         private void TrucksInQuarry_KeyDown(object sender, KeyEventArgs e)
