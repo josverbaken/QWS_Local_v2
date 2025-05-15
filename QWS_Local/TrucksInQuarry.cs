@@ -220,7 +220,7 @@ namespace QWS_Local
                             decimal myTareTk = 0.0M;
                             if (myTIQRow.TruckConfig != "TT")
                             {
-                                myTIQRow.WeighbridgeID = frmWeighTruck.WBID; // TODO see where this gets written to TIQ and replicate for other weight collections
+                                myTIQRow.WeighbridgeID = frmWeighTruck.WBID; 
                                 myTIQRow.WBConnected = frmWeighTruck.WBConnected;
                                 bsTIQ2.EndEdit();
                                 taTIQ2.Update(dsTIQ2.TIQ);
@@ -233,7 +233,7 @@ namespace QWS_Local
                                 DialogResult dr1 = frmTare.ShowDialog();
                                 if (dr1 == DialogResult.OK)
                                 {
-                                    myTIQRow.WeighbridgeID = frmTare.WBID; // TODO see where this gets written to TIQ and replicate for other weight collections
+                                    myTIQRow.WeighbridgeID = frmTare.WBID; 
                                     myTIQRow.WBConnected = frmTare.WBConnected;
                                     bsTIQ2.EndEdit();
                                     taTIQ2.Update(dsTIQ2.TIQ);
@@ -255,7 +255,7 @@ namespace QWS_Local
                         myWeight = frmWeighTruck.Weight;
                         if (dr == DialogResult.OK)
                         {
-                            TIQStatusAudit(myTIQRow.TIQID, "I", frmWeighTruck.WBID, frmWeighTruck.WBConnected, myWeight, "Capture gross of imported load"); // TODO get WBID
+                            TIQStatusAudit(myTIQRow.TIQID, "I", frmWeighTruck.WBID, frmWeighTruck.WBConnected, myWeight, "Capture gross of imported load"); 
                             if (myWeight > myTIQRow.GCM)
                             {
                                 ImportedOverload frmImportedOverload = new ImportedOverload(myTIQRow.DriverID, myTIQRow.Driver, myWeight, myTIQRow  .GCM);
@@ -281,7 +281,7 @@ namespace QWS_Local
                             }
                             bsTIQ2.EndEdit();
                             myTIQRow.WeighbridgeID = frmWeighTruck.WBID;
-                            // TODO WB Connected
+                            myTIQRow.WBConnected = frmWeighTruck.WBConnected;
                             taTIQ2.Update(dsTIQ2.TIQ);
                             //RefreshQueue();
                         }
@@ -302,32 +302,33 @@ namespace QWS_Local
                             int myDriverID = myTIQRow.DriverID;
                             int myParentTIQID = myTIQRow.TIQID;
                             string myTruckConfig = myTIQRow.TruckConfig;
+                            //TODO ensure > 0 and challenge if less than MinMaterial ~ 8.0t
+                            decimal myNett = myTIQRow.Gross - myWeight;
+                            if (myNett < Properties.Settings.Default.MinimumMaterial)
+                            {
+                                MessageBox.Show("Under loaded!");
+                            }
 
                             if (myTIQRow.Tare == 0.00M)
                             {
                                 RetareDue = true;
                             }
                             myTIQRow.Tare = myWeight;
-                            myTIQRow.Nett = myTIQRow.Gross - myWeight;//TODO ensure > 0 and challenge if less than MinMaterial ~ 8.0t
+                            myTIQRow.Nett = myNett;
                             myTIQRow.WeighbridgeID = frmWeighTruck.WBID;
-                            // TODO add WB Connected
+                            myTIQRow.WBConnected = frmWeighTruck.WBConnected;
                             myTIQRow.QueueStatus = "E";
                             bsTIQ2.EndEdit();
                             taTIQ2.Update(dsTIQ2.TIQ);
-                            TIQStatusAudit(myTIQRow.TIQID, "G", frmWeighTruck.WBID, frmWeighTruck.WBConnected, myWeight, "Capture tare of imported load"); // TODO get WBID
+                            TIQStatusAudit(myTIQRow.TIQID, "G", frmWeighTruck.WBID, frmWeighTruck.WBConnected, myWeight, "Capture tare of imported load");
 
                             if (ConfirmPostDocket())
                             {
                                 PostDocket();
-                                // GoBack2BookIn - might need a different signature for Re-Tare
                                 if (RetareDue == true)
                                 {
                                     GoBack2BookIn(myRego, myTruckConfigID, myDriverID, myParentTIQID, myTruckConfig,"Imported load.");
                                 }
-                            }
-                            else
-                            {
-                                //MessageBox.Show("Post docket - cancelled!");
                             }
                         }
 
@@ -367,24 +368,17 @@ namespace QWS_Local
                                 myTIQRow.WBConnected = frmWeighTruck.WBConnected;
                                 bsTIQ2.EndEdit();
                                 taTIQ2.Update(dsTIQ2.TIQ);
-
                                 if (ConfirmPostDocket())
                                 {
                                     if (myTruckConfig == "TKs" || myTruckConfig == "BDa") 
                                     {
-                                        // confirm Trailer row exists
                                         int myPosition = bsTIQ2.Find("ParentTIQID", myTIQID);
                                         if (myPosition >= 0)
                                         {
-                                            // change status of TRs from S to Q
-                                            ReleaseSplit(myTruckRego, myWeight); // TODO error because row has been removed!
+                                            ReleaseSplit(myTruckRego, myWeight);
                                         }
                                     }
                                     PostDocket();
-                                }
-                                else
-                                {
-                                    //MessageBox.Show("Post docket - cancelled!");
                                 }
                             }
                         }
@@ -731,7 +725,7 @@ namespace QWS_Local
                 DataRow myDR = ((DataRowView)bsWBDockets.Current).Row;
                 dsTIQ2.WBDocketsRow docketsRow = (dsTIQ2.WBDocketsRow)myDR;
 
-                int iLines = bsWBDocketLines.Count; // TODO maybe inherit from order?
+                int iLines = bsWBDocketLines.Count; // is zero based, will increment as lines added
 
                 DataRow dr = dsTIQ2.WBDocketLines.NewRow();
                 dsTIQ2.WBDocketLinesRow linesRow = (dsTIQ2.WBDocketLinesRow)dr;

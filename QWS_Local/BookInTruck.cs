@@ -917,5 +917,11 @@ namespace QWS_Local
         {
             BookInMaterial();
         }
+
+        private void btnSessionID_Click(object sender, EventArgs e)
+        {
+            int ProcessID = System.Diagnostics.Process.GetCurrentProcess().Id;
+            MessageBox.Show("Process ID = " + ProcessID.ToString());
+        }
     }
 }

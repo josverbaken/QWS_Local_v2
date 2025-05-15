@@ -93,6 +93,7 @@ namespace QWS_Local
             this.rbTnT = new System.Windows.Forms.RadioButton();
             this.gbTruckOwner = new System.Windows.Forms.GroupBox();
             this.chkACCPickUp = new System.Windows.Forms.CheckBox();
+            this.btnSessionID = new System.Windows.Forms.Button();
             cardStatusLabel = new System.Windows.Forms.Label();
             inductionExpLabel = new System.Windows.Forms.Label();
             licenseExpLabel = new System.Windows.Forms.Label();
@@ -694,11 +695,23 @@ namespace QWS_Local
             this.chkACCPickUp.Text = "ACC-PickUp";
             this.chkACCPickUp.UseVisualStyleBackColor = true;
             // 
+            // btnSessionID
+            // 
+            this.btnSessionID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSessionID.Location = new System.Drawing.Point(325, 22);
+            this.btnSessionID.Name = "btnSessionID";
+            this.btnSessionID.Size = new System.Drawing.Size(101, 27);
+            this.btnSessionID.TabIndex = 84;
+            this.btnSessionID.Text = "Session ID";
+            this.btnSessionID.UseVisualStyleBackColor = true;
+            this.btnSessionID.Click += new System.EventHandler(this.btnSessionID_Click);
+            // 
             // BookInTruck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 658);
+            this.Controls.Add(this.btnSessionID);
             this.Controls.Add(this.gbTruckOwner);
             this.Controls.Add(this.gbSplitLoad);
             this.Controls.Add(this.txtTruckConfig);
@@ -802,5 +815,6 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnContinue;
         private System.Windows.Forms.GroupBox gbTruckOwner;
         private System.Windows.Forms.CheckBox chkACCPickUp;
+        private System.Windows.Forms.Button btnSessionID;
     }
 }
