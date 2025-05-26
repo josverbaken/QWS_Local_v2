@@ -144,7 +144,7 @@ WHERE        (1 = 1) AND (ItemCode LIKE @Prefix + '%') AND (ExBinNoOrder LIKE 'Y
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="QuarryOrdersTableAdapter" GeneratorDataComponentClassName="QuarryOrdersTableAdapter" Name="QuarryOrders" UserDataComponentName="QuarryOrdersTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.QuarryOrders" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWS_NQ_Dev.dbo.QuarryOrders" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.QuarryOrders</CommandText>
@@ -171,7 +171,6 @@ WHERE        (1 = 1) AND (ItemCode LIKE @Prefix + '%') AND (ExBinNoOrder LIKE 'Y
               <Mapping SourceColumn="ContactMobile" DataSetColumn="ContactMobile" />
               <Mapping SourceColumn="DeliveryDate" DataSetColumn="DeliveryDate" />
               <Mapping SourceColumn="DeliveryAddress" DataSetColumn="DeliveryAddress" />
-              <Mapping SourceColumn="Distance" DataSetColumn="Distance" />
               <Mapping SourceColumn="EstTripTime" DataSetColumn="EstTripTime" />
               <Mapping SourceColumn="NHVR_RouteID" DataSetColumn="NHVR_RouteID" />
               <Mapping SourceColumn="NHVR_Network" DataSetColumn="NHVR_Network" />
@@ -189,6 +188,9 @@ WHERE        (1 = 1) AND (ItemCode LIKE @Prefix + '%') AND (ExBinNoOrder LIKE 'Y
               <Mapping SourceColumn="CartageCode" DataSetColumn="CartageCode" />
               <Mapping SourceColumn="Cartage" DataSetColumn="Cartage" />
               <Mapping SourceColumn="SAPUpdateDTTM" DataSetColumn="SAPUpdateDTTM" />
+              <Mapping SourceColumn="Comment" DataSetColumn="Comment" />
+              <Mapping SourceColumn="Project" DataSetColumn="Project" />
+              <Mapping SourceColumn="Distance" DataSetColumn="Distance1" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -612,7 +614,7 @@ WHERE        (1 = 1) AND (ItemCode LIKE @Prefix + '%') AND (ExBinNoOrder LIKE 'Y
               </xs:element>
               <xs:element name="Distance" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="DistanceColumn" msprop:Generator_ColumnPropNameInRow="Distance" msprop:Generator_UserColumnName="Distance" msprop:Generator_ColumnVarNameInTable="columnDistance" type="xs:int" minOccurs="0" />
               <xs:element name="EstTripTime" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="EstTripTimeColumn" msprop:Generator_ColumnPropNameInRow="EstTripTime" msprop:Generator_UserColumnName="EstTripTime" msprop:Generator_ColumnVarNameInTable="columnEstTripTime" type="xs:int" minOccurs="0" />
-              <xs:element name="NHVR_RouteID" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="NHVR_RouteIDColumn" msprop:Generator_ColumnPropNameInRow="NHVR_RouteID" msprop:Generator_UserColumnName="NHVR_RouteID" msprop:Generator_ColumnVarNameInTable="columnNHVR_RouteID" type="xs:int" minOccurs="0" />
+              <xs:element name="NHVR_RouteID" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="NHVR_RouteIDColumn" msprop:Generator_ColumnPropNameInRow="NHVR_RouteID" msprop:Generator_UserColumnName="NHVR_RouteID" msprop:Generator_ColumnVarNameInTable="columnNHVR_RouteID" type="xs:string" minOccurs="0" />
               <xs:element name="NHVR_Network" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="NHVR_NetworkColumn" msprop:Generator_ColumnPropNameInRow="NHVR_Network" msprop:Generator_UserColumnName="NHVR_Network" msprop:Generator_ColumnVarNameInTable="columnNHVR_Network" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -682,6 +684,21 @@ WHERE        (1 = 1) AND (ItemCode LIKE @Prefix + '%') AND (ExBinNoOrder LIKE 'Y
                 </xs:simpleType>
               </xs:element>
               <xs:element name="SAPUpdateDTTM" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="SAPUpdateDTTMColumn" msprop:Generator_ColumnPropNameInRow="SAPUpdateDTTM" msprop:Generator_UserColumnName="SAPUpdateDTTM" msprop:Generator_ColumnVarNameInTable="columnSAPUpdateDTTM" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Comment" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Comment" msprop:Generator_ColumnPropNameInTable="CommentColumn" msprop:Generator_ColumnVarNameInTable="columnComment" msprop:Generator_UserColumnName="Comment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Project" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Project" msprop:Generator_ColumnPropNameInTable="ProjectColumn" msprop:Generator_ColumnVarNameInTable="columnProject" msprop:Generator_UserColumnName="Project" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Distance1" msdata:ReadOnly="true" msdata:Caption="Distance" msprop:Generator_ColumnPropNameInRow="Distance1" msprop:Generator_ColumnPropNameInTable="Distance1Column" msprop:Generator_ColumnVarNameInTable="columnDistance1" msprop:Generator_UserColumnName="Distance1" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -727,12 +744,12 @@ WHERE        (1 = 1) AND (ItemCode LIKE @Prefix + '%') AND (ExBinNoOrder LIKE 'Y
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="BlanketAgreementCheck" msprop:Generator_RowEvHandlerName="BlanketAgreementCheckRowChangeEventHandler" msprop:Generator_RowDeletedName="BlanketAgreementCheckRowDeleted" msprop:Generator_RowDeletingName="BlanketAgreementCheckRowDeleting" msprop:Generator_RowEvArgName="BlanketAgreementCheckRowChangeEvent" msprop:Generator_TablePropName="BlanketAgreementCheck" msprop:Generator_RowChangedName="BlanketAgreementCheckRowChanged" msprop:Generator_RowChangingName="BlanketAgreementCheckRowChanging" msprop:Generator_TableClassName="BlanketAgreementCheckDataTable" msprop:Generator_RowClassName="BlanketAgreementCheckRow" msprop:Generator_TableVarName="tableBlanketAgreementCheck" msprop:Generator_UserTableName="BlanketAgreementCheck">
+        <xs:element name="BlanketAgreementCheck" msprop:Generator_RowClassName="BlanketAgreementCheckRow" msprop:Generator_RowEvHandlerName="BlanketAgreementCheckRowChangeEventHandler" msprop:Generator_RowDeletedName="BlanketAgreementCheckRowDeleted" msprop:Generator_RowDeletingName="BlanketAgreementCheckRowDeleting" msprop:Generator_RowEvArgName="BlanketAgreementCheckRowChangeEvent" msprop:Generator_TablePropName="BlanketAgreementCheck" msprop:Generator_RowChangedName="BlanketAgreementCheckRowChanged" msprop:Generator_UserTableName="BlanketAgreementCheck" msprop:Generator_RowChangingName="BlanketAgreementCheckRowChanging" msprop:Generator_TableClassName="BlanketAgreementCheckDataTable" msprop:Generator_TableVarName="tableBlanketAgreementCheck">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="AgrNo" msprop:Generator_ColumnPropNameInRow="AgrNo" msprop:Generator_ColumnPropNameInTable="AgrNoColumn" msprop:Generator_ColumnVarNameInTable="columnAgrNo" msprop:Generator_UserColumnName="AgrNo" type="xs:int" />
-              <xs:element name="AgrLineNum" msprop:Generator_ColumnPropNameInRow="AgrLineNum" msprop:Generator_ColumnPropNameInTable="AgrLineNumColumn" msprop:Generator_ColumnVarNameInTable="columnAgrLineNum" msprop:Generator_UserColumnName="AgrLineNum" type="xs:int" />
-              <xs:element name="AgrStatus" msprop:Generator_ColumnPropNameInRow="AgrStatus" msprop:Generator_ColumnPropNameInTable="AgrStatusColumn" msprop:Generator_ColumnVarNameInTable="columnAgrStatus" msprop:Generator_UserColumnName="AgrStatus">
+              <xs:element name="AgrNo" msprop:Generator_UserColumnName="AgrNo" msprop:Generator_ColumnPropNameInTable="AgrNoColumn" msprop:Generator_ColumnPropNameInRow="AgrNo" msprop:Generator_ColumnVarNameInTable="columnAgrNo" type="xs:int" />
+              <xs:element name="AgrLineNum" msprop:Generator_UserColumnName="AgrLineNum" msprop:Generator_ColumnPropNameInTable="AgrLineNumColumn" msprop:Generator_ColumnPropNameInRow="AgrLineNum" msprop:Generator_ColumnVarNameInTable="columnAgrLineNum" type="xs:int" />
+              <xs:element name="AgrStatus" msprop:Generator_UserColumnName="AgrStatus" msprop:Generator_ColumnPropNameInTable="AgrStatusColumn" msprop:Generator_ColumnPropNameInRow="AgrStatus" msprop:Generator_ColumnVarNameInTable="columnAgrStatus">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1" />

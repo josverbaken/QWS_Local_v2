@@ -361,6 +361,8 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnTonnesToday1;
             
+            private global::System.Data.DataColumn columnNHVR_RouteID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DeliveryDocketDataTable() {
@@ -724,6 +726,14 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NHVR_RouteIDColumn {
+                get {
+                    return this.columnNHVR_RouteID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -800,7 +810,8 @@ namespace QWS_Local {
                         string State, 
                         string Postcode, 
                         decimal LoadsToday1, 
-                        decimal TonnesToday1) {
+                        decimal TonnesToday1, 
+                        string NHVR_RouteID) {
                 DeliveryDocketRow rowDeliveryDocketRow = ((DeliveryDocketRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DocNum,
@@ -843,7 +854,8 @@ namespace QWS_Local {
                         State,
                         Postcode,
                         LoadsToday1,
-                        TonnesToday1};
+                        TonnesToday1,
+                        NHVR_RouteID};
                 rowDeliveryDocketRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDeliveryDocketRow);
                 return rowDeliveryDocketRow;
@@ -914,6 +926,7 @@ namespace QWS_Local {
                 this.columnPostcode = base.Columns["Postcode"];
                 this.columnLoadsToday1 = base.Columns["LoadsToday1"];
                 this.columnTonnesToday1 = base.Columns["TonnesToday1"];
+                this.columnNHVR_RouteID = base.Columns["NHVR_RouteID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1001,6 +1014,8 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnLoadsToday1);
                 this.columnTonnesToday1 = new global::System.Data.DataColumn("TonnesToday1", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTonnesToday1);
+                this.columnNHVR_RouteID = new global::System.Data.DataColumn("NHVR_RouteID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNHVR_RouteID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnDocNum}, true));
                 this.columnDocNum.AllowDBNull = false;
@@ -1074,6 +1089,8 @@ namespace QWS_Local {
                 this.columnLoadsToday1.Caption = "LoadsToday";
                 this.columnTonnesToday1.ReadOnly = true;
                 this.columnTonnesToday1.Caption = "TonnesToday";
+                this.columnNHVR_RouteID.ReadOnly = true;
+                this.columnNHVR_RouteID.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1802,6 +1819,22 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string NHVR_RouteID {
+                get {
+                    try {
+                        return ((string)(this[this.tableDeliveryDocket.NHVR_RouteIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NHVR_RouteID\' in table \'DeliveryDocket\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDeliveryDocket.NHVR_RouteIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsDocDateNull() {
                 return this.IsNull(this.tableDeliveryDocket.DocDateColumn);
             }
@@ -2123,6 +2156,18 @@ namespace QWS_Local {
             public void SetTonnesToday1Null() {
                 this[this.tableDeliveryDocket.TonnesToday1Column] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNHVR_RouteIDNull() {
+                return this.IsNull(this.tableDeliveryDocket.NHVR_RouteIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNHVR_RouteIDNull() {
+                this[this.tableDeliveryDocket.NHVR_RouteIDColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -2323,6 +2368,7 @@ namespace QWS_Local.dsDocketReportTableAdapters {
             tableMapping.ColumnMappings.Add("Postcode", "Postcode");
             tableMapping.ColumnMappings.Add("LoadsToday", "LoadsToday1");
             tableMapping.ColumnMappings.Add("TonnesToday", "TonnesToday1");
+            tableMapping.ColumnMappings.Add("NHVR_RouteID", "NHVR_RouteID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

@@ -40,6 +40,10 @@ namespace QWS_Local
             System.Windows.Forms.Label deliveryDateLabel;
             System.Windows.Forms.Label customerLabel;
             System.Windows.Forms.Label contactNameLabel;
+            System.Windows.Forms.Label nHVR_RouteIDLabel;
+            System.Windows.Forms.Label nHVR_NetworkLabel;
+            System.Windows.Forms.Label projectLabel;
+            System.Windows.Forms.Label commentLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gbOderDate = new System.Windows.Forms.GroupBox();
             this.rbClearDate = new System.Windows.Forms.RadioButton();
@@ -64,6 +68,7 @@ namespace QWS_Local
             this.bsQuarryOrders = new System.Windows.Forms.BindingSource(this.components);
             this.dsBookIn = new QWS_Local.dsBookIn();
             this.tpDetails = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.contactMobileTextBox = new System.Windows.Forms.TextBox();
             this.contactNameTextBox = new System.Windows.Forms.TextBox();
             this.cardCodeTextBox = new System.Windows.Forms.TextBox();
@@ -81,7 +86,10 @@ namespace QWS_Local
             this.deliveryOrdersAllTableAdapter1 = new QWS_Local.dsBookInTableAdapters.DeliveryOrdersAllTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsBookInTableAdapters.TableAdapterManager();
             this.taQuarryOrders = new QWS_Local.dsBookInTableAdapters.QuarryOrdersTableAdapter();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nHVR_RouteIDTextBox = new System.Windows.Forms.TextBox();
+            this.nHVR_NetworkTextBox = new System.Windows.Forms.TextBox();
+            this.projectTextBox = new System.Windows.Forms.TextBox();
+            this.commentTextBox = new System.Windows.Forms.TextBox();
             docNumLabel = new System.Windows.Forms.Label();
             materialLabel = new System.Windows.Forms.Label();
             quantityLabel = new System.Windows.Forms.Label();
@@ -92,6 +100,10 @@ namespace QWS_Local
             deliveryDateLabel = new System.Windows.Forms.Label();
             customerLabel = new System.Windows.Forms.Label();
             contactNameLabel = new System.Windows.Forms.Label();
+            nHVR_RouteIDLabel = new System.Windows.Forms.Label();
+            nHVR_NetworkLabel = new System.Windows.Forms.Label();
+            projectLabel = new System.Windows.Forms.Label();
+            commentLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -432,6 +444,14 @@ namespace QWS_Local
             // 
             // tpDetails
             // 
+            this.tpDetails.Controls.Add(commentLabel);
+            this.tpDetails.Controls.Add(this.commentTextBox);
+            this.tpDetails.Controls.Add(projectLabel);
+            this.tpDetails.Controls.Add(this.projectTextBox);
+            this.tpDetails.Controls.Add(nHVR_NetworkLabel);
+            this.tpDetails.Controls.Add(this.nHVR_NetworkTextBox);
+            this.tpDetails.Controls.Add(nHVR_RouteIDLabel);
+            this.tpDetails.Controls.Add(this.nHVR_RouteIDTextBox);
             this.tpDetails.Controls.Add(this.textBox1);
             this.tpDetails.Controls.Add(this.contactMobileTextBox);
             this.tpDetails.Controls.Add(contactNameLabel);
@@ -464,6 +484,15 @@ namespace QWS_Local
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "DeliveryAddress", true));
+            this.textBox1.Location = new System.Drawing.Point(362, 316);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(265, 84);
+            this.textBox1.TabIndex = 25;
             // 
             // contactMobileTextBox
             // 
@@ -591,14 +620,74 @@ namespace QWS_Local
             // 
             this.taQuarryOrders.ClearBeforeFill = true;
             // 
-            // textBox1
+            // nHVR_RouteIDLabel
             // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "DeliveryAddress", true));
-            this.textBox1.Location = new System.Drawing.Point(362, 176);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(265, 84);
-            this.textBox1.TabIndex = 25;
+            nHVR_RouteIDLabel.AutoSize = true;
+            nHVR_RouteIDLabel.Location = new System.Drawing.Point(246, 208);
+            nHVR_RouteIDLabel.Name = "nHVR_RouteIDLabel";
+            nHVR_RouteIDLabel.Size = new System.Drawing.Size(110, 17);
+            nHVR_RouteIDLabel.TabIndex = 25;
+            nHVR_RouteIDLabel.Text = "NHVR Route ID:";
+            // 
+            // nHVR_RouteIDTextBox
+            // 
+            this.nHVR_RouteIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "NHVR_RouteID", true));
+            this.nHVR_RouteIDTextBox.Location = new System.Drawing.Point(362, 205);
+            this.nHVR_RouteIDTextBox.Name = "nHVR_RouteIDTextBox";
+            this.nHVR_RouteIDTextBox.Size = new System.Drawing.Size(100, 23);
+            this.nHVR_RouteIDTextBox.TabIndex = 26;
+            // 
+            // nHVR_NetworkLabel
+            // 
+            nHVR_NetworkLabel.AutoSize = true;
+            nHVR_NetworkLabel.Location = new System.Drawing.Point(250, 240);
+            nHVR_NetworkLabel.Name = "nHVR_NetworkLabel";
+            nHVR_NetworkLabel.Size = new System.Drawing.Size(106, 17);
+            nHVR_NetworkLabel.TabIndex = 27;
+            nHVR_NetworkLabel.Text = "NHVR Network:";
+            // 
+            // nHVR_NetworkTextBox
+            // 
+            this.nHVR_NetworkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "NHVR_Network", true));
+            this.nHVR_NetworkTextBox.Location = new System.Drawing.Point(362, 237);
+            this.nHVR_NetworkTextBox.Name = "nHVR_NetworkTextBox";
+            this.nHVR_NetworkTextBox.Size = new System.Drawing.Size(100, 23);
+            this.nHVR_NetworkTextBox.TabIndex = 28;
+            // 
+            // projectLabel
+            // 
+            projectLabel.AutoSize = true;
+            projectLabel.Location = new System.Drawing.Point(300, 269);
+            projectLabel.Name = "projectLabel";
+            projectLabel.Size = new System.Drawing.Size(56, 17);
+            projectLabel.TabIndex = 29;
+            projectLabel.Text = "Project:";
+            // 
+            // projectTextBox
+            // 
+            this.projectTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "Project", true));
+            this.projectTextBox.Location = new System.Drawing.Point(362, 266);
+            this.projectTextBox.Multiline = true;
+            this.projectTextBox.Name = "projectTextBox";
+            this.projectTextBox.Size = new System.Drawing.Size(265, 44);
+            this.projectTextBox.TabIndex = 30;
+            // 
+            // commentLabel
+            // 
+            commentLabel.AutoSize = true;
+            commentLabel.Location = new System.Drawing.Point(285, 409);
+            commentLabel.Name = "commentLabel";
+            commentLabel.Size = new System.Drawing.Size(71, 17);
+            commentLabel.TabIndex = 31;
+            commentLabel.Text = "Comment:";
+            // 
+            // commentTextBox
+            // 
+            this.commentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "Comment", true));
+            this.commentTextBox.Location = new System.Drawing.Point(362, 406);
+            this.commentTextBox.Name = "commentTextBox";
+            this.commentTextBox.Size = new System.Drawing.Size(265, 23);
+            this.commentTextBox.TabIndex = 32;
             // 
             // DeliveryOrders
             // 
@@ -674,5 +763,9 @@ namespace QWS_Local
         private System.Windows.Forms.BindingSource bsQuarryOrders;
         private dsBookInTableAdapters.QuarryOrdersTableAdapter taQuarryOrders;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nHVR_NetworkTextBox;
+        private System.Windows.Forms.TextBox nHVR_RouteIDTextBox;
+        private System.Windows.Forms.TextBox commentTextBox;
+        private System.Windows.Forms.TextBox projectTextBox;
     }
 }

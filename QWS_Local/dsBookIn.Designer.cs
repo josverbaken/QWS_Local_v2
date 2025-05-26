@@ -2256,6 +2256,12 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnSAPUpdateDTTM;
             
+            private global::System.Data.DataColumn columnComment;
+            
+            private global::System.Data.DataColumn columnProject;
+            
+            private global::System.Data.DataColumn columnDistance1;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public QuarryOrdersDataTable() {
@@ -2523,6 +2529,30 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CommentColumn {
+                get {
+                    return this.columnComment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ProjectColumn {
+                get {
+                    return this.columnProject;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Distance1Column {
+                get {
+                    return this.columnDistance1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2572,7 +2602,7 @@ namespace QWS_Local {
                         string DeliveryAddress, 
                         int Distance, 
                         int EstTripTime, 
-                        int NHVR_RouteID, 
+                        string NHVR_RouteID, 
                         string NHVR_Network, 
                         decimal NHVR_MassLimit, 
                         string NHVR_Condition, 
@@ -2587,7 +2617,10 @@ namespace QWS_Local {
                         decimal Supplied, 
                         string CartageCode, 
                         string Cartage, 
-                        System.DateTime SAPUpdateDTTM) {
+                        System.DateTime SAPUpdateDTTM, 
+                        string Comment, 
+                        string Project, 
+                        decimal Distance1) {
                 QuarryOrdersRow rowQuarryOrdersRow = ((QuarryOrdersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DocNum,
@@ -2618,7 +2651,10 @@ namespace QWS_Local {
                         Supplied,
                         CartageCode,
                         Cartage,
-                        SAPUpdateDTTM};
+                        SAPUpdateDTTM,
+                        Comment,
+                        Project,
+                        Distance1};
                 rowQuarryOrdersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowQuarryOrdersRow);
                 return rowQuarryOrdersRow;
@@ -2670,6 +2706,9 @@ namespace QWS_Local {
                 this.columnCartageCode = base.Columns["CartageCode"];
                 this.columnCartage = base.Columns["Cartage"];
                 this.columnSAPUpdateDTTM = base.Columns["SAPUpdateDTTM"];
+                this.columnComment = base.Columns["Comment"];
+                this.columnProject = base.Columns["Project"];
+                this.columnDistance1 = base.Columns["Distance1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2701,7 +2740,7 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnDistance);
                 this.columnEstTripTime = new global::System.Data.DataColumn("EstTripTime", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEstTripTime);
-                this.columnNHVR_RouteID = new global::System.Data.DataColumn("NHVR_RouteID", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnNHVR_RouteID = new global::System.Data.DataColumn("NHVR_RouteID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNHVR_RouteID);
                 this.columnNHVR_Network = new global::System.Data.DataColumn("NHVR_Network", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNHVR_Network);
@@ -2733,6 +2772,12 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnCartage);
                 this.columnSAPUpdateDTTM = new global::System.Data.DataColumn("SAPUpdateDTTM", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSAPUpdateDTTM);
+                this.columnComment = new global::System.Data.DataColumn("Comment", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnComment);
+                this.columnProject = new global::System.Data.DataColumn("Project", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProject);
+                this.columnDistance1 = new global::System.Data.DataColumn("Distance1", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDistance1);
                 this.columnDocNum.ReadOnly = true;
                 this.columnDocEntry.ReadOnly = true;
                 this.columnDocDate.ReadOnly = true;
@@ -2777,6 +2822,12 @@ namespace QWS_Local {
                 this.columnCartage.ReadOnly = true;
                 this.columnCartage.MaxLength = 200;
                 this.columnSAPUpdateDTTM.ReadOnly = true;
+                this.columnComment.ReadOnly = true;
+                this.columnComment.MaxLength = 100;
+                this.columnProject.ReadOnly = true;
+                this.columnProject.MaxLength = 100;
+                this.columnDistance1.ReadOnly = true;
+                this.columnDistance1.Caption = "Distance";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4812,10 +4863,10 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int NHVR_RouteID {
+            public string NHVR_RouteID {
                 get {
                     try {
-                        return ((int)(this[this.tableQuarryOrders.NHVR_RouteIDColumn]));
+                        return ((string)(this[this.tableQuarryOrders.NHVR_RouteIDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'NHVR_RouteID\' in table \'QuarryOrders\' is DBNull.", e);
@@ -5063,6 +5114,54 @@ namespace QWS_Local {
                 }
                 set {
                     this[this.tableQuarryOrders.SAPUpdateDTTMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Comment {
+                get {
+                    try {
+                        return ((string)(this[this.tableQuarryOrders.CommentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Comment\' in table \'QuarryOrders\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableQuarryOrders.CommentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Project {
+                get {
+                    try {
+                        return ((string)(this[this.tableQuarryOrders.ProjectColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Project\' in table \'QuarryOrders\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableQuarryOrders.ProjectColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Distance1 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableQuarryOrders.Distance1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Distance1\' in table \'QuarryOrders\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableQuarryOrders.Distance1Column] = value;
                 }
             }
             
@@ -5412,6 +5511,42 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetSAPUpdateDTTMNull() {
                 this[this.tableQuarryOrders.SAPUpdateDTTMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCommentNull() {
+                return this.IsNull(this.tableQuarryOrders.CommentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCommentNull() {
+                this[this.tableQuarryOrders.CommentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsProjectNull() {
+                return this.IsNull(this.tableQuarryOrders.ProjectColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetProjectNull() {
+                this[this.tableQuarryOrders.ProjectColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDistance1Null() {
+                return this.IsNull(this.tableQuarryOrders.Distance1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDistance1Null() {
+                this[this.tableQuarryOrders.Distance1Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -6666,7 +6801,6 @@ FROM            ExBinOrders AS t0";
             tableMapping.ColumnMappings.Add("ContactMobile", "ContactMobile");
             tableMapping.ColumnMappings.Add("DeliveryDate", "DeliveryDate");
             tableMapping.ColumnMappings.Add("DeliveryAddress", "DeliveryAddress");
-            tableMapping.ColumnMappings.Add("Distance", "Distance");
             tableMapping.ColumnMappings.Add("EstTripTime", "EstTripTime");
             tableMapping.ColumnMappings.Add("NHVR_RouteID", "NHVR_RouteID");
             tableMapping.ColumnMappings.Add("NHVR_Network", "NHVR_Network");
@@ -6684,6 +6818,9 @@ FROM            ExBinOrders AS t0";
             tableMapping.ColumnMappings.Add("CartageCode", "CartageCode");
             tableMapping.ColumnMappings.Add("Cartage", "Cartage");
             tableMapping.ColumnMappings.Add("SAPUpdateDTTM", "SAPUpdateDTTM");
+            tableMapping.ColumnMappings.Add("Comment", "Comment");
+            tableMapping.ColumnMappings.Add("Project", "Project");
+            tableMapping.ColumnMappings.Add("Distance", "Distance1");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

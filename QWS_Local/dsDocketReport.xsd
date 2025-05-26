@@ -61,6 +61,7 @@
               <Mapping SourceColumn="Postcode" DataSetColumn="Postcode" />
               <Mapping SourceColumn="LoadsToday" DataSetColumn="LoadsToday1" />
               <Mapping SourceColumn="TonnesToday" DataSetColumn="TonnesToday1" />
+              <Mapping SourceColumn="NHVR_RouteID" DataSetColumn="NHVR_RouteID" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -192,92 +193,99 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Instructions" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Instructions" msprop:Generator_ColumnPropNameInTable="InstructionsColumn" msprop:Generator_ColumnPropNameInRow="Instructions" msprop:Generator_ColumnVarNameInTable="columnInstructions" minOccurs="0">
+              <xs:element name="Instructions" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="InstructionsColumn" msprop:Generator_ColumnPropNameInRow="Instructions" msprop:Generator_UserColumnName="Instructions" msprop:Generator_ColumnVarNameInTable="columnInstructions" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MaterialCode" msprop:Generator_UserColumnName="MaterialCode" msprop:Generator_ColumnPropNameInTable="MaterialCodeColumn" msprop:Generator_ColumnPropNameInRow="MaterialCode" msprop:Generator_ColumnVarNameInTable="columnMaterialCode">
+              <xs:element name="MaterialCode" msprop:Generator_ColumnPropNameInTable="MaterialCodeColumn" msprop:Generator_ColumnPropNameInRow="MaterialCode" msprop:Generator_UserColumnName="MaterialCode" msprop:Generator_ColumnVarNameInTable="columnMaterialCode">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Material" msprop:Generator_UserColumnName="Material" msprop:Generator_ColumnPropNameInTable="MaterialColumn" msprop:Generator_ColumnPropNameInRow="Material" msprop:Generator_ColumnVarNameInTable="columnMaterial">
+              <xs:element name="Material" msprop:Generator_ColumnPropNameInTable="MaterialColumn" msprop:Generator_ColumnPropNameInRow="Material" msprop:Generator_UserColumnName="Material" msprop:Generator_ColumnVarNameInTable="columnMaterial">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CartageCode" msdata:ReadOnly="true" msprop:Generator_UserColumnName="CartageCode" msprop:Generator_ColumnPropNameInTable="CartageCodeColumn" msprop:Generator_ColumnPropNameInRow="CartageCode" msprop:Generator_ColumnVarNameInTable="columnCartageCode" minOccurs="0">
+              <xs:element name="CartageCode" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="CartageCodeColumn" msprop:Generator_ColumnPropNameInRow="CartageCode" msprop:Generator_UserColumnName="CartageCode" msprop:Generator_ColumnVarNameInTable="columnCartageCode" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Cartage" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Cartage" msprop:Generator_ColumnPropNameInTable="CartageColumn" msprop:Generator_ColumnPropNameInRow="Cartage" msprop:Generator_ColumnVarNameInTable="columnCartage" minOccurs="0">
+              <xs:element name="Cartage" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="CartageColumn" msprop:Generator_ColumnPropNameInRow="Cartage" msprop:Generator_UserColumnName="Cartage" msprop:Generator_ColumnVarNameInTable="columnCartage" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SurchargeCode" msdata:ReadOnly="true" msprop:Generator_UserColumnName="SurchargeCode" msprop:Generator_ColumnPropNameInTable="SurchargeCodeColumn" msprop:Generator_ColumnPropNameInRow="SurchargeCode" msprop:Generator_ColumnVarNameInTable="columnSurchargeCode" minOccurs="0">
+              <xs:element name="SurchargeCode" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="SurchargeCodeColumn" msprop:Generator_ColumnPropNameInRow="SurchargeCode" msprop:Generator_UserColumnName="SurchargeCode" msprop:Generator_ColumnVarNameInTable="columnSurchargeCode" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Surcharge" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Surcharge" msprop:Generator_ColumnPropNameInTable="SurchargeColumn" msprop:Generator_ColumnPropNameInRow="Surcharge" msprop:Generator_ColumnVarNameInTable="columnSurcharge" minOccurs="0">
+              <xs:element name="Surcharge" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="SurchargeColumn" msprop:Generator_ColumnPropNameInRow="Surcharge" msprop:Generator_UserColumnName="Surcharge" msprop:Generator_ColumnVarNameInTable="columnSurcharge" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Project" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Project" msprop:Generator_ColumnPropNameInTable="ProjectColumn" msprop:Generator_ColumnVarNameInTable="columnProject" msprop:Generator_UserColumnName="Project" minOccurs="0">
+              <xs:element name="Project" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Project" msprop:Generator_ColumnPropNameInTable="ProjectColumn" msprop:Generator_ColumnPropNameInRow="Project" msprop:Generator_ColumnVarNameInTable="columnProject" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1073741823" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Street" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Street" msprop:Generator_ColumnPropNameInTable="StreetColumn" msprop:Generator_ColumnVarNameInTable="columnStreet" msprop:Generator_UserColumnName="Street" minOccurs="0">
+              <xs:element name="Street" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Street" msprop:Generator_ColumnPropNameInTable="StreetColumn" msprop:Generator_ColumnPropNameInRow="Street" msprop:Generator_ColumnVarNameInTable="columnStreet" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="City" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="City" msprop:Generator_ColumnPropNameInTable="CityColumn" msprop:Generator_ColumnVarNameInTable="columnCity" msprop:Generator_UserColumnName="City" minOccurs="0">
+              <xs:element name="City" msdata:ReadOnly="true" msprop:Generator_UserColumnName="City" msprop:Generator_ColumnPropNameInTable="CityColumn" msprop:Generator_ColumnPropNameInRow="City" msprop:Generator_ColumnVarNameInTable="columnCity" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="State" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="State" msprop:Generator_ColumnPropNameInTable="StateColumn" msprop:Generator_ColumnVarNameInTable="columnState" msprop:Generator_UserColumnName="State" minOccurs="0">
+              <xs:element name="State" msdata:ReadOnly="true" msprop:Generator_UserColumnName="State" msprop:Generator_ColumnPropNameInTable="StateColumn" msprop:Generator_ColumnPropNameInRow="State" msprop:Generator_ColumnVarNameInTable="columnState" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="3" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Postcode" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Postcode" msprop:Generator_ColumnPropNameInTable="PostcodeColumn" msprop:Generator_ColumnVarNameInTable="columnPostcode" msprop:Generator_UserColumnName="Postcode" minOccurs="0">
+              <xs:element name="Postcode" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Postcode" msprop:Generator_ColumnPropNameInTable="PostcodeColumn" msprop:Generator_ColumnPropNameInRow="Postcode" msprop:Generator_ColumnVarNameInTable="columnPostcode" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="LoadsToday1" msdata:ReadOnly="true" msdata:Caption="LoadsToday" msprop:Generator_ColumnPropNameInRow="LoadsToday1" msprop:Generator_ColumnPropNameInTable="LoadsToday1Column" msprop:Generator_ColumnVarNameInTable="columnLoadsToday1" msprop:Generator_UserColumnName="LoadsToday1" type="xs:decimal" minOccurs="0" />
-              <xs:element name="TonnesToday1" msdata:ReadOnly="true" msdata:Caption="TonnesToday" msprop:Generator_ColumnPropNameInRow="TonnesToday1" msprop:Generator_ColumnPropNameInTable="TonnesToday1Column" msprop:Generator_ColumnVarNameInTable="columnTonnesToday1" msprop:Generator_UserColumnName="TonnesToday1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LoadsToday1" msdata:ReadOnly="true" msdata:Caption="LoadsToday" msprop:Generator_UserColumnName="LoadsToday1" msprop:Generator_ColumnPropNameInTable="LoadsToday1Column" msprop:Generator_ColumnPropNameInRow="LoadsToday1" msprop:Generator_ColumnVarNameInTable="columnLoadsToday1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TonnesToday1" msdata:ReadOnly="true" msdata:Caption="TonnesToday" msprop:Generator_UserColumnName="TonnesToday1" msprop:Generator_ColumnPropNameInTable="TonnesToday1Column" msprop:Generator_ColumnPropNameInRow="TonnesToday1" msprop:Generator_ColumnVarNameInTable="columnTonnesToday1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NHVR_RouteID" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="NHVR_RouteID" msprop:Generator_ColumnPropNameInTable="NHVR_RouteIDColumn" msprop:Generator_ColumnVarNameInTable="columnNHVR_RouteID" msprop:Generator_UserColumnName="NHVR_RouteID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
