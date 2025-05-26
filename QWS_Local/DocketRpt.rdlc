@@ -1144,7 +1144,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!ShipToAddress.Value</Value>
+                                  <Value>=Fields!Project.Value + Chr(13) + Chr(10) + Fields!Street.Value + Chr(13) + Chr(10) + Fields!City.Value + " " + Fields!State.Value + " " + Fields!Postcode.Value</Value>
                                   <Style>
                                     <FontFamily>Courier New</FontFamily>
                                   </Style>
@@ -1456,10 +1456,6 @@
           <DataField>Tonnes</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="ShipDate">
-          <DataField>ShipDate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
         <Field Name="LoadsToday">
           <DataField>LoadsToday</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -1507,6 +1503,34 @@
         <Field Name="Surcharge">
           <DataField>Surcharge</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Project">
+          <DataField>Project</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Street">
+          <DataField>Street</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="City">
+          <DataField>City</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="State">
+          <DataField>State</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Postcode">
+          <DataField>Postcode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LoadsToday1">
+          <DataField>LoadsToday</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TonnesToday1">
+          <DataField>TonnesToday</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

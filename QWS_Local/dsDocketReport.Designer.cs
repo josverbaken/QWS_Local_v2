@@ -347,6 +347,20 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnSurcharge;
             
+            private global::System.Data.DataColumn columnProject;
+            
+            private global::System.Data.DataColumn columnStreet;
+            
+            private global::System.Data.DataColumn columnCity;
+            
+            private global::System.Data.DataColumn columnState;
+            
+            private global::System.Data.DataColumn columnPostcode;
+            
+            private global::System.Data.DataColumn columnLoadsToday1;
+            
+            private global::System.Data.DataColumn columnTonnesToday1;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DeliveryDocketDataTable() {
@@ -654,6 +668,62 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ProjectColumn {
+                get {
+                    return this.columnProject;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn StreetColumn {
+                get {
+                    return this.columnStreet;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CityColumn {
+                get {
+                    return this.columnCity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn StateColumn {
+                get {
+                    return this.columnState;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PostcodeColumn {
+                get {
+                    return this.columnPostcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn LoadsToday1Column {
+                get {
+                    return this.columnLoadsToday1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TonnesToday1Column {
+                get {
+                    return this.columnTonnesToday1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -723,7 +793,14 @@ namespace QWS_Local {
                         string CartageCode, 
                         string Cartage, 
                         string SurchargeCode, 
-                        string Surcharge) {
+                        string Surcharge, 
+                        string Project, 
+                        string Street, 
+                        string City, 
+                        string State, 
+                        string Postcode, 
+                        decimal LoadsToday1, 
+                        decimal TonnesToday1) {
                 DeliveryDocketRow rowDeliveryDocketRow = ((DeliveryDocketRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DocNum,
@@ -759,7 +836,14 @@ namespace QWS_Local {
                         CartageCode,
                         Cartage,
                         SurchargeCode,
-                        Surcharge};
+                        Surcharge,
+                        Project,
+                        Street,
+                        City,
+                        State,
+                        Postcode,
+                        LoadsToday1,
+                        TonnesToday1};
                 rowDeliveryDocketRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDeliveryDocketRow);
                 return rowDeliveryDocketRow;
@@ -823,6 +907,13 @@ namespace QWS_Local {
                 this.columnCartage = base.Columns["Cartage"];
                 this.columnSurchargeCode = base.Columns["SurchargeCode"];
                 this.columnSurcharge = base.Columns["Surcharge"];
+                this.columnProject = base.Columns["Project"];
+                this.columnStreet = base.Columns["Street"];
+                this.columnCity = base.Columns["City"];
+                this.columnState = base.Columns["State"];
+                this.columnPostcode = base.Columns["Postcode"];
+                this.columnLoadsToday1 = base.Columns["LoadsToday1"];
+                this.columnTonnesToday1 = base.Columns["TonnesToday1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -896,6 +987,20 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnSurchargeCode);
                 this.columnSurcharge = new global::System.Data.DataColumn("Surcharge", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSurcharge);
+                this.columnProject = new global::System.Data.DataColumn("Project", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProject);
+                this.columnStreet = new global::System.Data.DataColumn("Street", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStreet);
+                this.columnCity = new global::System.Data.DataColumn("City", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCity);
+                this.columnState = new global::System.Data.DataColumn("State", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnState);
+                this.columnPostcode = new global::System.Data.DataColumn("Postcode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPostcode);
+                this.columnLoadsToday1 = new global::System.Data.DataColumn("LoadsToday1", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLoadsToday1);
+                this.columnTonnesToday1 = new global::System.Data.DataColumn("TonnesToday1", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTonnesToday1);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnDocNum}, true));
                 this.columnDocNum.AllowDBNull = false;
@@ -955,6 +1060,20 @@ namespace QWS_Local {
                 this.columnSurchargeCode.MaxLength = 50;
                 this.columnSurcharge.ReadOnly = true;
                 this.columnSurcharge.MaxLength = 50;
+                this.columnProject.ReadOnly = true;
+                this.columnProject.MaxLength = 1073741823;
+                this.columnStreet.ReadOnly = true;
+                this.columnStreet.MaxLength = 100;
+                this.columnCity.ReadOnly = true;
+                this.columnCity.MaxLength = 100;
+                this.columnState.ReadOnly = true;
+                this.columnState.MaxLength = 3;
+                this.columnPostcode.ReadOnly = true;
+                this.columnPostcode.MaxLength = 20;
+                this.columnLoadsToday1.ReadOnly = true;
+                this.columnLoadsToday1.Caption = "LoadsToday";
+                this.columnTonnesToday1.ReadOnly = true;
+                this.columnTonnesToday1.Caption = "TonnesToday";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1571,6 +1690,118 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Project {
+                get {
+                    try {
+                        return ((string)(this[this.tableDeliveryDocket.ProjectColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Project\' in table \'DeliveryDocket\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDeliveryDocket.ProjectColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Street {
+                get {
+                    try {
+                        return ((string)(this[this.tableDeliveryDocket.StreetColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Street\' in table \'DeliveryDocket\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDeliveryDocket.StreetColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string City {
+                get {
+                    try {
+                        return ((string)(this[this.tableDeliveryDocket.CityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'City\' in table \'DeliveryDocket\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDeliveryDocket.CityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string State {
+                get {
+                    try {
+                        return ((string)(this[this.tableDeliveryDocket.StateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'State\' in table \'DeliveryDocket\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDeliveryDocket.StateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Postcode {
+                get {
+                    try {
+                        return ((string)(this[this.tableDeliveryDocket.PostcodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Postcode\' in table \'DeliveryDocket\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDeliveryDocket.PostcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal LoadsToday1 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDeliveryDocket.LoadsToday1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LoadsToday1\' in table \'DeliveryDocket\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDeliveryDocket.LoadsToday1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal TonnesToday1 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDeliveryDocket.TonnesToday1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TonnesToday1\' in table \'DeliveryDocket\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDeliveryDocket.TonnesToday1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsDocDateNull() {
                 return this.IsNull(this.tableDeliveryDocket.DocDateColumn);
             }
@@ -1808,6 +2039,90 @@ namespace QWS_Local {
             public void SetSurchargeNull() {
                 this[this.tableDeliveryDocket.SurchargeColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsProjectNull() {
+                return this.IsNull(this.tableDeliveryDocket.ProjectColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetProjectNull() {
+                this[this.tableDeliveryDocket.ProjectColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsStreetNull() {
+                return this.IsNull(this.tableDeliveryDocket.StreetColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetStreetNull() {
+                this[this.tableDeliveryDocket.StreetColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCityNull() {
+                return this.IsNull(this.tableDeliveryDocket.CityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCityNull() {
+                this[this.tableDeliveryDocket.CityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsStateNull() {
+                return this.IsNull(this.tableDeliveryDocket.StateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetStateNull() {
+                this[this.tableDeliveryDocket.StateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPostcodeNull() {
+                return this.IsNull(this.tableDeliveryDocket.PostcodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPostcodeNull() {
+                this[this.tableDeliveryDocket.PostcodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsLoadsToday1Null() {
+                return this.IsNull(this.tableDeliveryDocket.LoadsToday1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetLoadsToday1Null() {
+                this[this.tableDeliveryDocket.LoadsToday1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTonnesToday1Null() {
+                return this.IsNull(this.tableDeliveryDocket.TonnesToday1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTonnesToday1Null() {
+                this[this.tableDeliveryDocket.TonnesToday1Column] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1991,8 +2306,6 @@ namespace QWS_Local.dsDocketReportTableAdapters {
             tableMapping.ColumnMappings.Add("TruckRego", "TruckRego");
             tableMapping.ColumnMappings.Add("JobNo", "JobNo");
             tableMapping.ColumnMappings.Add("Tonnes", "Tonnes");
-            tableMapping.ColumnMappings.Add("LoadsToday", "LoadsToday");
-            tableMapping.ColumnMappings.Add("TonnesToday", "TonnesToday");
             tableMapping.ColumnMappings.Add("TruckConfig", "TruckConfig");
             tableMapping.ColumnMappings.Add("Salesman", "Salesman");
             tableMapping.ColumnMappings.Add("TruckDriver", "TruckDriver");
@@ -2003,6 +2316,13 @@ namespace QWS_Local.dsDocketReportTableAdapters {
             tableMapping.ColumnMappings.Add("Cartage", "Cartage");
             tableMapping.ColumnMappings.Add("SurchargeCode", "SurchargeCode");
             tableMapping.ColumnMappings.Add("Surcharge", "Surcharge");
+            tableMapping.ColumnMappings.Add("Project", "Project");
+            tableMapping.ColumnMappings.Add("Street", "Street");
+            tableMapping.ColumnMappings.Add("City", "City");
+            tableMapping.ColumnMappings.Add("State", "State");
+            tableMapping.ColumnMappings.Add("Postcode", "Postcode");
+            tableMapping.ColumnMappings.Add("LoadsToday", "LoadsToday1");
+            tableMapping.ColumnMappings.Add("TonnesToday", "TonnesToday1");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
