@@ -774,7 +774,6 @@ namespace QWS_Local
             {
                 int iStatus = 0;               
                 SqlConnection sqlConnection = new SqlConnection(myConnectionString);
-                //sqlConnection.ConnectionString.
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -794,7 +793,7 @@ namespace QWS_Local
 
         private void btnTINReleaseHold_Click(object sender, EventArgs e)
         {
-            ButtonUpdate();
+            ButtonUpdate(); // button labelled Update (F4)
         }
 
         private void ButtonUpdate()
@@ -802,51 +801,53 @@ namespace QWS_Local
             try
             {
                 bool blSave = false;
+                if (bsTIQ2.Count > 0)
+                {
 
-                switch (CurrentTIQ().QueueStatus)
-                {
-                    case "U":
-                        //MessageBox.Show("Contact customer to confirm okay to pick up.", "Confirm non-preferred customer."); 
-                        if (CheckConfirmCustomer() == true)
-                        {
+                    switch (CurrentTIQ().QueueStatus)
+                    {
+                        case "U":
+                            if (CheckConfirmCustomer() == true)
+                            {
+                                blSave = true;
+                                CurrentTIQ().QueueStatus = "Q";
+                            }
+                            break;
+                        case "Q":
                             blSave = true;
-                            CurrentTIQ().QueueStatus = "Q";
-                        }
-                        break;
-                    case "Q":
-                        blSave = true;
-                        CurrentTIQ().QueueStatus = "H";
-                        break;
-                    case "H":
-                        DialogResult drHold = MessageBox.Show("Has Queue KPI been met?", "Queue KPI Hold", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (drHold == DialogResult.Yes)
-                        {
-                            blSave = true;
-                            CurrentTIQ().QueueStatus = "Q";
-                        }
-                        break;
-                    case "K":
-                        DialogResult dr1 = MessageBox.Show("Please continue booking in process.", "Parked Up.", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                        if (dr1 == DialogResult.Yes)
-                        {
-                            ContinueInProgress();
-                        }
-                        break;
-                    case "P":
-                        DialogResult dr = MessageBox.Show("Press Yes to continue booking in process.", "In Progress.", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                        if (dr == DialogResult.Yes)
-                        {
-                            ContinueInProgress();
-                        }
-                        break;
-                    default:
-                        break;
-                }
-                if (blSave == true)
-                {
-                    bsTIQ2.EndEdit();
-                    taTIQ2.Update(dsTIQ2.TIQ);
-                    RefreshQueue();
+                            CurrentTIQ().QueueStatus = "H";
+                            break;
+                        case "H":
+                            DialogResult drHold = MessageBox.Show("Has Queue KPI been met?", "Queue KPI Hold", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (drHold == DialogResult.Yes)
+                            {
+                                blSave = true;
+                                CurrentTIQ().QueueStatus = "Q";
+                            }
+                            break;
+                        case "K":
+                            DialogResult dr1 = MessageBox.Show("Please continue booking in process.", "Parked Up.", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                            if (dr1 == DialogResult.Yes)
+                            {
+                                ContinueInProgress();
+                            }
+                            break;
+                        case "P":
+                            DialogResult dr = MessageBox.Show("Press Yes to continue booking in process.", "In Progress.", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                            if (dr == DialogResult.Yes)
+                            {
+                                ContinueInProgress();
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    if (blSave == true)
+                    {
+                        bsTIQ2.EndEdit();
+                        taTIQ2.Update(dsTIQ2.TIQ);
+                        RefreshQueue();
+                    }
                 }
             }
             catch (Exception ex)
@@ -858,7 +859,6 @@ namespace QWS_Local
         private bool CheckConfirmCustomer()
         {
             ConfirmCustomer frmConfirmCustomer = new ConfirmCustomer(CurrentTIQ().Rego,CurrentTIQ().DriverID, CurrentTIQ().CustomerCode, CurrentTIQ().Customer);
-            //OOPs frmConfirmCustomer.MdiParent = this.MdiParent;
             DialogResult dr = frmConfirmCustomer.ShowDialog();
             if (dr == DialogResult.OK)
             {
@@ -869,11 +869,15 @@ namespace QWS_Local
 
         private void ContinueInProgress()
         {
-            if (CurrentTIQ() != null)
+            try
             {
-                    BookInTruck frmBookIn = new BookInTruck(CurrentTIQ().TIQID, CurrentTIQ().Rego, CurrentTIQ().TruckConfigID, CurrentTIQ().DriverID, true);
-                    frmBookIn.MdiParent = this.MdiParent;
-                    frmBookIn.Show();
+                BookInTruck frmBookIn = new BookInTruck(CurrentTIQ().TIQID, CurrentTIQ().Rego, CurrentTIQ().TruckConfigID, CurrentTIQ().DriverID, true);
+                frmBookIn.MdiParent = this.MdiParent;
+                frmBookIn.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
