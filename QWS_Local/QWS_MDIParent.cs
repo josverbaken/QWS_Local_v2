@@ -18,6 +18,7 @@ namespace QWS_Local
         private int mySiteID = 99;
         private bool myTestMode = false;
         private string myConnectionString = "";
+        private TrucksInQuarry frmTIQ;
 
         //public string ConnectionString
         //{
@@ -106,7 +107,7 @@ namespace QWS_Local
                 GetUsername(ComputerUsername);
                 this.Size = new Size(1400, 800);
                 this.KeyPreview = true;
-                TrucksInQuarry frmTIQ = new TrucksInQuarry();
+                frmTIQ = new TrucksInQuarry();
                 frmTIQ.MdiParent = this;
                 frmTIQ.Show();
             }
@@ -368,6 +369,9 @@ namespace QWS_Local
         {
             switch (e.KeyCode)
             {
+                case Keys.Home:
+                    frmTIQ.BringToFront();
+                    break;
                 case Keys.F8:
                     PrintDocket();
                     break;
