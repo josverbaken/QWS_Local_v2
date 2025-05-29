@@ -476,7 +476,10 @@ namespace QWS_Local
             // create new WBDockets row using NewDocket, then add lines
             // TODO ensure docket has not already been posted, in case second WBO tries to sneak in!@#
             dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
-            int myTIQID = myTIQRow.TIQID;
+            int DocketExists = CheckDocketExists(myTIQRow.TIQID);
+            if (DocketExists == 0)
+            {
+                int myTIQID = myTIQRow.TIQID;
                 int myDocNum = GetDocNum();
                 if (myDocNum > 0)
                 {
@@ -487,7 +490,7 @@ namespace QWS_Local
                     if (myOrderBaseEntry > 0) // i.e. SAP Order
                     {
                         int iRows = taQuarryOrderLines.FillByDocEntry(dsBookIn.QuarryOrderLines, myOrderBaseEntry);
-                        for (int i = 0;i < iRows;i++) // Order LineNum is also zero based
+                        for (int i = 0; i < iRows; i++) // Order LineNum is also zero based
                         {
                             dsBookIn.QuarryOrderLinesRow myOrderLine = (dsBookIn.QuarryOrderLinesRow)dsBookIn.QuarryOrderLines.Rows[i];
                             switch (myOrderLine.SWW)
@@ -498,7 +501,7 @@ namespace QWS_Local
                                 case "Imported":
                                     DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myOrderLine.ItemCode), myOrderLine.SWW, mySPLotNo, myOrderLine.DocEntry);
                                     break;
-                                case "Freight":                                 
+                                case "Freight":
                                     DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, false, 99, myOrderLine.SWW, 0, myOrderLine.DocEntry);
                                     break;
                                 case "Other":
@@ -514,7 +517,7 @@ namespace QWS_Local
                         // ExBin No Order
                         DocketLineAdd(myTIQRow.Material, myTIQRow.MaterialDesc, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myTIQRow.Material), "Items", mySPLotNo, myOrderBaseEntry);
                     }
-                    if (myTIQRow.Nett < Properties.Settings.Default.MinimumMaterial) 
+                    if (myTIQRow.Nett < Properties.Settings.Default.MinimumMaterial)
                     {
                         DocketLineAdd("070-200-1", "NQ Short Load Fee", GetItemQA("070-200-1"), GetItmsGrpCod("070-200-1"), "Other", 0, 0);
                         // TODO get short load fee for quarry when QWSConfig is implemented
@@ -527,6 +530,7 @@ namespace QWS_Local
                 {
                     MessageBox.Show("Unable to get docket number!");
                 }
+            }
         }
 
         private int GetDocNum()
@@ -571,6 +575,33 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message, "GetOrderDocEntry", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return -9;
+            }
+        }
+
+        private int CheckDocketExists(int TIQID)
+        {
+            try
+            {
+                int DocketExists;
+                SqlConnection sqlConnection = new SqlConnection(myConnectionString);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "DocketExists";
+                cmd.Parameters.AddWithValue("@TIQID", TIQID);
+                sqlConnection.Open();
+                DocketExists = System.Convert.ToInt32(cmd.ExecuteScalar());
+                sqlConnection.Close();
+                if (DocketExists > 0)
+                {
+                    MessageBox.Show("Cannot proceed as Docket already exists: " + DocketExists.ToString(),"CheckDocketExists",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                }
+                return DocketExists;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "CheckDocketExists", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -99;
             }
         }
 
