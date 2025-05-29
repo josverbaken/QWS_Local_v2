@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -249,6 +250,7 @@ namespace QWS_Local
                             }
                             else
                             {
+                                LockTIQUsp(myTIQRow.TIQID, "U");
                                 MessageBox.Show("Tare Weighing cancelled!");
                             }
                             break;
@@ -273,6 +275,7 @@ namespace QWS_Local
                                     }
                                     else
                                     {
+                                        LockTIQUsp(myTIQRow.TIQID, "U");
                                         MessageBox.Show("Imported Weighing Cancelled!");
                                     }
                                 }
@@ -290,6 +293,7 @@ namespace QWS_Local
                             }
                             else
                             {
+                                LockTIQUsp(myTIQRow.TIQID, "U");
                                 MessageBox.Show("Weighing cancelled!");
                             }
                             break;
@@ -387,6 +391,7 @@ namespace QWS_Local
                             }
                             else
                             {
+                                LockTIQUsp(myTIQRow.TIQID, "U");
                                 MessageBox.Show("Weighing cancelled!");
                             }
                             break;
@@ -469,6 +474,7 @@ namespace QWS_Local
         private void PostDocket()
         {
             // create new WBDockets row using NewDocket, then add lines
+            // TODO ensure docket has not already been posted, in case second WBO tries to sneak in!@#
             dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
             int myTIQID = myTIQRow.TIQID;
                 int myDocNum = GetDocNum();
@@ -672,6 +678,47 @@ namespace QWS_Local
             // If not locked then apply lock
             try
             {
+                string LockMsg = LockTIQUsp(TIQID, "L");
+                if (LockMsg == "Locked")
+                {
+                    return true;
+                }
+                else
+                {
+                    DialogResult dr1 = MessageBox.Show(LockMsg + "\r\nDo you want to takeover?", "TIQ Lock", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (dr1 == DialogResult.Yes)
+                    {
+                        LockMsg = LockTIQUsp(TIQID, "T");
+                        if (LockMsg == "Locked")
+                        {
+                            return true;
+                        }
+                        else if (LockMsg == "Too Soon")
+                        {
+                            // TODO update USP
+                            MessageBox.Show("Too soon");
+                            return false;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "LockTIQ ERROR!",MessageBoxButtons.OK);
+                return false;
+            }
+
+        }
+
+        private string LockTIQUsp(int TIQID, string LockAction)
+        {
+            try
+            {
                 int ProcessID = System.Diagnostics.Process.GetCurrentProcess().Id;
                 SqlConnection sqlConnection = new SqlConnection(myConnectionString);
                 SqlCommand cmd = new SqlCommand();
@@ -682,31 +729,17 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@ProcessID", ProcessID);
                 cmd.Parameters.AddWithValue("@Username", WeighbridgeOperator);
                 cmd.Parameters.AddWithValue("@Computer", ComputerName);
-                cmd.Parameters.AddWithValue("@LockAction", "L");
+                cmd.Parameters.AddWithValue("@LockAction", LockAction);
                 sqlConnection.Open();
                 string LockMsg = cmd.ExecuteScalar().ToString();
                 sqlConnection.Close();
-                if (LockMsg == "Locked")
-                {
-                    return true;
-                }
-                else
-                {
-                    DialogResult dr1 = MessageBox.Show(LockMsg + "\r\nDo you want to unlock?","TIQ Lock",MessageBoxButtons.YesNo,MessageBoxIcon.Exclamation);
-                    if (dr1 == DialogResult.Yes) 
-                    {
-                        // TODO unlock then lock but avoid LOOP
-                        return true; 
-                    }
-                    return false; 
-                }
+                return LockMsg;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "LockTIQ ERROR!",MessageBoxButtons.OK);
-                return false;
+                MessageBox.Show(ex.Message);
+                return "Error";
             }
-
         }
 
         private void NewDocket(int DocNum)
