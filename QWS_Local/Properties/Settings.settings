@@ -49,5 +49,8 @@
     <Setting Name="MinimumCart" Type="System.Decimal" Scope="Application">
       <Value Profile="(Default)">11.0</Value>
     </Setting>
+    <Setting Name="ShortLoadFee" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">070-200-1</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

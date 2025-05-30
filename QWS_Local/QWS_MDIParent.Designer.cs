@@ -53,6 +53,7 @@
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.tspSite = new System.Windows.Forms.ToolStripTextBox();
             this.tspUserName = new System.Windows.Forms.ToolStripTextBox();
+            this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +68,8 @@
             this.helloToolStripMenuItem,
             this.toolStripTextBox1,
             this.tspSite,
-            this.tspUserName});
+            this.tspUserName,
+            this.signOutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MdiWindowListItem = this.windowsToolStripMenuItem;
             this.menuStrip1.Name = "menuStrip1";
@@ -101,7 +103,7 @@
             this.nHVRGVMToolStripMenuItem,
             this.operatorRolesToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.adminToolStripMenuItem.Text = "Admin";
             // 
             // axleConfigurationToolStripMenuItem1
@@ -139,7 +141,7 @@
             this.pBSToolStripMenuItem,
             this.trucktrailerConfigToolStripMenuItem});
             this.maintainToolStripMenuItem.Name = "maintainToolStripMenuItem";
-            this.maintainToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.maintainToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.maintainToolStripMenuItem.Text = "Maintain";
             // 
             // vehiclesToolStripMenuItem
@@ -168,7 +170,7 @@
             this.qualityToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lotNumbersToolStripMenuItem});
             this.qualityToolStripMenuItem.Name = "qualityToolStripMenuItem";
-            this.qualityToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.qualityToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.qualityToolStripMenuItem.Text = "Quality";
             // 
             // lotNumbersToolStripMenuItem
@@ -183,7 +185,7 @@
             this.salesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deliveryOrdersToolStripMenuItem1});
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.salesToolStripMenuItem.Text = "Sales";
             // 
             // deliveryOrdersToolStripMenuItem1
@@ -259,6 +261,12 @@
             this.tspUserName.Name = "tspUserName";
             this.tspUserName.Size = new System.Drawing.Size(250, 27);
             // 
+            // signOutToolStripMenuItem
+            // 
+            this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(104, 27);
+            this.signOutToolStripMenuItem.Text = "Sign In / Out";
+            // 
             // QWS_MDIParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -308,5 +316,6 @@
         private System.Windows.Forms.ToolStripTextBox tspUserName;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripTextBox tspSite;
+        private System.Windows.Forms.ToolStripMenuItem signOutToolStripMenuItem;
     }
 }

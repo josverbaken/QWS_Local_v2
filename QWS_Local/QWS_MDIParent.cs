@@ -128,6 +128,7 @@ namespace QWS_Local
 
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "select isnull(OperatorID,0) from Operator where FirstName + '.' + LastName like '" + ComputerUsername +"' or FirstName like '" + ComputerUsername + "'";
+
                 cmd.Connection.Open();
                 int iOperator = (int)Convert.ToInt64(cmd.ExecuteScalar());
                 cmd.Connection.Close();

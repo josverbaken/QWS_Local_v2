@@ -150,5 +150,14 @@ namespace QWS_Local.Properties {
                 return ((decimal)(this["MinimumCart"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("070-200-1")]
+        public string ShortLoadFee {
+            get {
+                return ((string)(this["ShortLoadFee"]));
+            }
+        }
     }
 }

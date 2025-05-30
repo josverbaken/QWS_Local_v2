@@ -519,8 +519,8 @@ namespace QWS_Local
                     }
                     if (myTIQRow.Nett < Properties.Settings.Default.MinimumMaterial)
                     {
-                        DocketLineAdd("070-200-1", "NQ Short Load Fee", GetItemQA("070-200-1"), GetItmsGrpCod("070-200-1"), "Other", 0, 0);
-                        // TODO get short load fee for quarry when QWSConfig is implemented
+                        string ShortLoadFee = Properties.Settings.Default.ShortLoadFee;
+                        DocketLineAdd(ShortLoadFee, "Short Load Fee", GetItemQA(ShortLoadFee), GetItmsGrpCod(ShortLoadFee), "Other", 0, 0);
                     }
                     taWBDocketLines.Update(dsTIQ2.WBDocketLines);
                     RemoveFromTIQ(myTIQID, "Docket posted successfully.");
