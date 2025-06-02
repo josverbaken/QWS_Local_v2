@@ -53,7 +53,7 @@
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.tspSite = new System.Windows.Forms.ToolStripTextBox();
             this.tspUserName = new System.Windows.Forms.ToolStripTextBox();
-            this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tspSignInOut = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +69,7 @@
             this.toolStripTextBox1,
             this.tspSite,
             this.tspUserName,
-            this.signOutToolStripMenuItem});
+            this.tspSignInOut});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MdiWindowListItem = this.windowsToolStripMenuItem;
             this.menuStrip1.Name = "menuStrip1";
@@ -261,11 +261,12 @@
             this.tspUserName.Name = "tspUserName";
             this.tspUserName.Size = new System.Drawing.Size(250, 27);
             // 
-            // signOutToolStripMenuItem
+            // tspSignInOut
             // 
-            this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(104, 27);
-            this.signOutToolStripMenuItem.Text = "Sign In / Out";
+            this.tspSignInOut.Name = "tspSignInOut";
+            this.tspSignInOut.Size = new System.Drawing.Size(104, 27);
+            this.tspSignInOut.Text = "Sign In / Out";
+            this.tspSignInOut.Click += new System.EventHandler(this.tspSignInOut_Click);
             // 
             // QWS_MDIParent
             // 
@@ -316,6 +317,6 @@
         private System.Windows.Forms.ToolStripTextBox tspUserName;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripTextBox tspSite;
-        private System.Windows.Forms.ToolStripMenuItem signOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tspSignInOut;
     }
 }

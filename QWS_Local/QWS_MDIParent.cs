@@ -117,26 +117,13 @@ namespace QWS_Local
         {
             try
             {
-                SqlConnection sqlConnection = new SqlConnection();
-
-                myConnectionString = Properties.Settings.Default.cnQWSLocal;
-               
-
-                sqlConnection = new SqlConnection(myConnectionString);
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = sqlConnection;
-
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select isnull(OperatorID,0) from Operator where FirstName + '.' + LastName like '" + ComputerUsername +"' or FirstName like '" + ComputerUsername + "'";
-
-                cmd.Connection.Open();
-                int iOperator = (int)Convert.ToInt64(cmd.ExecuteScalar());
-                cmd.Connection.Close();
+                int iOperator = CheckUser(ComputerUsername, "Windows");
                 if (iOperator > 0)
                 {
                     myUserName = ComputerUsername;
-                    // TODO check permissions and roles
                     CheckIfAdmin(iOperator);
+                    tspUserName.Text = "WBO = " + myUserName;
+                    tspSignInOut.Visible = false;
                 }
                 else
                 {
@@ -146,9 +133,21 @@ namespace QWS_Local
                     {
                         string myLogin = frmGenericLogin.UserName;
                         myUserName = myLogin;
+                        int myOperatorID = CheckUser(myUserName, "Generic");
+                        if (myOperatorID > 0)
+                        {
+                            CheckIfAdmin(myOperatorID);
+                            tspUserName.Text = "WBO = " + myUserName;
+                            tspSignInOut.Visible = true;
+                        }
+
+                        else
+                        {
+                            CheckIfAdmin(0);
+                            tspUserName.Text = "WBO = " + myUserName + " unallocated!";
+                        }
                     }
                 }
-                tspUserName.Text = "WBO = " + myUserName;
             }
             catch (Exception ex)
             {
@@ -156,27 +155,52 @@ namespace QWS_Local
             }
         }
 
-        private void CheckIfAdmin(int myOperatorID)
+        private int CheckUser(string ComputerUsername, string UserType)
         {
             SqlConnection sqlConnection = new SqlConnection();
-
             myConnectionString = Properties.Settings.Default.cnQWSLocal;
-
-
             sqlConnection = new SqlConnection(myConnectionString);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = sqlConnection;
-
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select count(*) from OperatorRoles where OperatorID = " + myOperatorID + " and RoleID = 6";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "CheckUser";
+            cmd.Parameters.AddWithValue("@ComputerUsername", ComputerUsername);
+            cmd.Parameters.AddWithValue("UserType", UserType);
+            // TODO add Windows vs Generic
             cmd.Connection.Open();
-            int iCount = (int)Convert.ToInt64(cmd.ExecuteScalar());
+            int iOperator = (int)Convert.ToInt64(cmd.ExecuteScalar());
             cmd.Connection.Close();
-            if (iCount == 0)
+            return iOperator;
+        }
+
+        private void CheckIfAdmin(int myOperatorID)
+        {
+            if (myOperatorID == 0)
             {
-                //disable and hide Admin menu
-                adminToolStripMenuItem.Enabled = false;
                 adminToolStripMenuItem.Visible = false;
+            }
+            else
+            {
+                SqlConnection sqlConnection = new SqlConnection();
+
+                myConnectionString = Properties.Settings.Default.cnQWSLocal;
+
+
+                sqlConnection = new SqlConnection(myConnectionString);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select count(*) from OperatorRoles where OperatorID = " + myOperatorID + " and RoleID = 6";
+                cmd.Connection.Open();
+                int iCount = (int)Convert.ToInt64(cmd.ExecuteScalar());
+                cmd.Connection.Close();
+                if (iCount == 0)
+                {
+                    //disable and hide Admin menu
+                    adminToolStripMenuItem.Enabled = false;
+                    adminToolStripMenuItem.Visible = false;
+                }
             }
         }
 
@@ -386,6 +410,11 @@ namespace QWS_Local
             frmPBSMaintenance.WindowState = FormWindowState.Maximized;
             frmPBSMaintenance.Show();
 
+        }
+
+        private void tspSignInOut_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("TODO allow sign out if using generic Windows account.");
         }
     }
 }
