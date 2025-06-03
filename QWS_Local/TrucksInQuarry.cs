@@ -710,7 +710,7 @@ namespace QWS_Local
             try
             {
                 string LockMsg = LockTIQUsp(TIQID, "L");
-                if (LockMsg == "Locked")
+                if (LockMsg == "Locked" || LockMsg == "Yours")
                 {
                     return true;
                 }
@@ -726,7 +726,6 @@ namespace QWS_Local
                         }
                         else if (LockMsg == "Too Soon")
                         {
-                            // TODO update USP
                             MessageBox.Show("Too soon");
                             return false;
                         }
