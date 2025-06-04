@@ -68,6 +68,10 @@ namespace QWS_Local
             this.bsQuarryOrders = new System.Windows.Forms.BindingSource(this.components);
             this.dsBookIn = new QWS_Local.dsBookIn();
             this.tpDetails = new System.Windows.Forms.TabPage();
+            this.commentTextBox = new System.Windows.Forms.TextBox();
+            this.projectTextBox = new System.Windows.Forms.TextBox();
+            this.nHVR_NetworkTextBox = new System.Windows.Forms.TextBox();
+            this.nHVR_RouteIDTextBox = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.contactMobileTextBox = new System.Windows.Forms.TextBox();
             this.contactNameTextBox = new System.Windows.Forms.TextBox();
@@ -86,10 +90,8 @@ namespace QWS_Local
             this.deliveryOrdersAllTableAdapter1 = new QWS_Local.dsBookInTableAdapters.DeliveryOrdersAllTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsBookInTableAdapters.TableAdapterManager();
             this.taQuarryOrders = new QWS_Local.dsBookInTableAdapters.QuarryOrdersTableAdapter();
-            this.nHVR_RouteIDTextBox = new System.Windows.Forms.TextBox();
-            this.nHVR_NetworkTextBox = new System.Windows.Forms.TextBox();
-            this.projectTextBox = new System.Windows.Forms.TextBox();
-            this.commentTextBox = new System.Windows.Forms.TextBox();
+            this.btnGetExBinOrders = new System.Windows.Forms.Button();
+            this.btnImportedOrders = new System.Windows.Forms.Button();
             docNumLabel = new System.Windows.Forms.Label();
             materialLabel = new System.Windows.Forms.Label();
             quantityLabel = new System.Windows.Forms.Label();
@@ -208,6 +210,42 @@ namespace QWS_Local
             contactNameLabel.TabIndex = 22;
             contactNameLabel.Text = "Contact Name:";
             // 
+            // nHVR_RouteIDLabel
+            // 
+            nHVR_RouteIDLabel.AutoSize = true;
+            nHVR_RouteIDLabel.Location = new System.Drawing.Point(246, 208);
+            nHVR_RouteIDLabel.Name = "nHVR_RouteIDLabel";
+            nHVR_RouteIDLabel.Size = new System.Drawing.Size(110, 17);
+            nHVR_RouteIDLabel.TabIndex = 25;
+            nHVR_RouteIDLabel.Text = "NHVR Route ID:";
+            // 
+            // nHVR_NetworkLabel
+            // 
+            nHVR_NetworkLabel.AutoSize = true;
+            nHVR_NetworkLabel.Location = new System.Drawing.Point(250, 240);
+            nHVR_NetworkLabel.Name = "nHVR_NetworkLabel";
+            nHVR_NetworkLabel.Size = new System.Drawing.Size(106, 17);
+            nHVR_NetworkLabel.TabIndex = 27;
+            nHVR_NetworkLabel.Text = "NHVR Network:";
+            // 
+            // projectLabel
+            // 
+            projectLabel.AutoSize = true;
+            projectLabel.Location = new System.Drawing.Point(300, 269);
+            projectLabel.Name = "projectLabel";
+            projectLabel.Size = new System.Drawing.Size(56, 17);
+            projectLabel.TabIndex = 29;
+            projectLabel.Text = "Project:";
+            // 
+            // commentLabel
+            // 
+            commentLabel.AutoSize = true;
+            commentLabel.Location = new System.Drawing.Point(285, 409);
+            commentLabel.Name = "commentLabel";
+            commentLabel.Size = new System.Drawing.Size(71, 17);
+            commentLabel.TabIndex = 31;
+            commentLabel.Text = "Comment:";
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -216,6 +254,8 @@ namespace QWS_Local
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnImportedOrders);
+            this.splitContainer1.Panel1.Controls.Add(this.btnGetExBinOrders);
             this.splitContainer1.Panel1.Controls.Add(this.gbOderDate);
             this.splitContainer1.Panel1.Controls.Add(this.btnRefresh);
             this.splitContainer1.Panel1.Controls.Add(this.gbDeliveryMode);
@@ -276,11 +316,11 @@ namespace QWS_Local
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(25, 416);
+            this.btnRefresh.Location = new System.Drawing.Point(25, 360);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(136, 47);
             this.btnRefresh.TabIndex = 1;
-            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.Text = "Delivery";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -289,7 +329,7 @@ namespace QWS_Local
             this.gbDeliveryMode.Controls.Add(this.rbClear);
             this.gbDeliveryMode.Controls.Add(this.rbTnT);
             this.gbDeliveryMode.Controls.Add(this.rbTruck);
-            this.gbDeliveryMode.Location = new System.Drawing.Point(3, 246);
+            this.gbDeliveryMode.Location = new System.Drawing.Point(3, 210);
             this.gbDeliveryMode.Name = "gbDeliveryMode";
             this.gbDeliveryMode.Size = new System.Drawing.Size(194, 144);
             this.gbDeliveryMode.TabIndex = 0;
@@ -477,13 +517,46 @@ namespace QWS_Local
             this.tpDetails.Controls.Add(this.materialCodeTextBox);
             this.tpDetails.Controls.Add(docNumLabel);
             this.tpDetails.Controls.Add(this.docNumTextBox);
-            this.tpDetails.Location = new System.Drawing.Point(4, 25);
+            this.tpDetails.Location = new System.Drawing.Point(4, 22);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(855, 525);
+            this.tpDetails.Size = new System.Drawing.Size(855, 528);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
+            // 
+            // commentTextBox
+            // 
+            this.commentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "Comment", true));
+            this.commentTextBox.Location = new System.Drawing.Point(362, 406);
+            this.commentTextBox.Name = "commentTextBox";
+            this.commentTextBox.Size = new System.Drawing.Size(265, 23);
+            this.commentTextBox.TabIndex = 32;
+            // 
+            // projectTextBox
+            // 
+            this.projectTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "Project", true));
+            this.projectTextBox.Location = new System.Drawing.Point(362, 266);
+            this.projectTextBox.Multiline = true;
+            this.projectTextBox.Name = "projectTextBox";
+            this.projectTextBox.Size = new System.Drawing.Size(265, 44);
+            this.projectTextBox.TabIndex = 30;
+            // 
+            // nHVR_NetworkTextBox
+            // 
+            this.nHVR_NetworkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "NHVR_Network", true));
+            this.nHVR_NetworkTextBox.Location = new System.Drawing.Point(362, 237);
+            this.nHVR_NetworkTextBox.Name = "nHVR_NetworkTextBox";
+            this.nHVR_NetworkTextBox.Size = new System.Drawing.Size(100, 23);
+            this.nHVR_NetworkTextBox.TabIndex = 28;
+            // 
+            // nHVR_RouteIDTextBox
+            // 
+            this.nHVR_RouteIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "NHVR_RouteID", true));
+            this.nHVR_RouteIDTextBox.Location = new System.Drawing.Point(362, 205);
+            this.nHVR_RouteIDTextBox.Name = "nHVR_RouteIDTextBox";
+            this.nHVR_RouteIDTextBox.Size = new System.Drawing.Size(100, 23);
+            this.nHVR_RouteIDTextBox.TabIndex = 26;
             // 
             // textBox1
             // 
@@ -620,74 +693,25 @@ namespace QWS_Local
             // 
             this.taQuarryOrders.ClearBeforeFill = true;
             // 
-            // nHVR_RouteIDLabel
+            // btnGetExBinOrders
             // 
-            nHVR_RouteIDLabel.AutoSize = true;
-            nHVR_RouteIDLabel.Location = new System.Drawing.Point(246, 208);
-            nHVR_RouteIDLabel.Name = "nHVR_RouteIDLabel";
-            nHVR_RouteIDLabel.Size = new System.Drawing.Size(110, 17);
-            nHVR_RouteIDLabel.TabIndex = 25;
-            nHVR_RouteIDLabel.Text = "NHVR Route ID:";
+            this.btnGetExBinOrders.Location = new System.Drawing.Point(25, 413);
+            this.btnGetExBinOrders.Name = "btnGetExBinOrders";
+            this.btnGetExBinOrders.Size = new System.Drawing.Size(136, 47);
+            this.btnGetExBinOrders.TabIndex = 4;
+            this.btnGetExBinOrders.Text = "ExBin";
+            this.btnGetExBinOrders.UseVisualStyleBackColor = true;
+            this.btnGetExBinOrders.Click += new System.EventHandler(this.btnGetExBinOrders_Click);
             // 
-            // nHVR_RouteIDTextBox
+            // btnImportedOrders
             // 
-            this.nHVR_RouteIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "NHVR_RouteID", true));
-            this.nHVR_RouteIDTextBox.Location = new System.Drawing.Point(362, 205);
-            this.nHVR_RouteIDTextBox.Name = "nHVR_RouteIDTextBox";
-            this.nHVR_RouteIDTextBox.Size = new System.Drawing.Size(100, 23);
-            this.nHVR_RouteIDTextBox.TabIndex = 26;
-            // 
-            // nHVR_NetworkLabel
-            // 
-            nHVR_NetworkLabel.AutoSize = true;
-            nHVR_NetworkLabel.Location = new System.Drawing.Point(250, 240);
-            nHVR_NetworkLabel.Name = "nHVR_NetworkLabel";
-            nHVR_NetworkLabel.Size = new System.Drawing.Size(106, 17);
-            nHVR_NetworkLabel.TabIndex = 27;
-            nHVR_NetworkLabel.Text = "NHVR Network:";
-            // 
-            // nHVR_NetworkTextBox
-            // 
-            this.nHVR_NetworkTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "NHVR_Network", true));
-            this.nHVR_NetworkTextBox.Location = new System.Drawing.Point(362, 237);
-            this.nHVR_NetworkTextBox.Name = "nHVR_NetworkTextBox";
-            this.nHVR_NetworkTextBox.Size = new System.Drawing.Size(100, 23);
-            this.nHVR_NetworkTextBox.TabIndex = 28;
-            // 
-            // projectLabel
-            // 
-            projectLabel.AutoSize = true;
-            projectLabel.Location = new System.Drawing.Point(300, 269);
-            projectLabel.Name = "projectLabel";
-            projectLabel.Size = new System.Drawing.Size(56, 17);
-            projectLabel.TabIndex = 29;
-            projectLabel.Text = "Project:";
-            // 
-            // projectTextBox
-            // 
-            this.projectTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "Project", true));
-            this.projectTextBox.Location = new System.Drawing.Point(362, 266);
-            this.projectTextBox.Multiline = true;
-            this.projectTextBox.Name = "projectTextBox";
-            this.projectTextBox.Size = new System.Drawing.Size(265, 44);
-            this.projectTextBox.TabIndex = 30;
-            // 
-            // commentLabel
-            // 
-            commentLabel.AutoSize = true;
-            commentLabel.Location = new System.Drawing.Point(285, 409);
-            commentLabel.Name = "commentLabel";
-            commentLabel.Size = new System.Drawing.Size(71, 17);
-            commentLabel.TabIndex = 31;
-            commentLabel.Text = "Comment:";
-            // 
-            // commentTextBox
-            // 
-            this.commentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "Comment", true));
-            this.commentTextBox.Location = new System.Drawing.Point(362, 406);
-            this.commentTextBox.Name = "commentTextBox";
-            this.commentTextBox.Size = new System.Drawing.Size(265, 23);
-            this.commentTextBox.TabIndex = 32;
+            this.btnImportedOrders.Location = new System.Drawing.Point(25, 466);
+            this.btnImportedOrders.Name = "btnImportedOrders";
+            this.btnImportedOrders.Size = new System.Drawing.Size(136, 47);
+            this.btnImportedOrders.TabIndex = 5;
+            this.btnImportedOrders.Text = "Imported";
+            this.btnImportedOrders.UseVisualStyleBackColor = true;
+            this.btnImportedOrders.Click += new System.EventHandler(this.btnImportedOrders_Click);
             // 
             // DeliveryOrders
             // 
@@ -767,5 +791,7 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox nHVR_RouteIDTextBox;
         private System.Windows.Forms.TextBox commentTextBox;
         private System.Windows.Forms.TextBox projectTextBox;
+        private System.Windows.Forms.Button btnGetExBinOrders;
+        private System.Windows.Forms.Button btnImportedOrders;
     }
 }

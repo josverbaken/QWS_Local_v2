@@ -132,6 +132,31 @@ namespace QWS_Local
             }
         }
 
+        private void GetExBinOrders()
+        {
+            try
+            {             
+                taQuarryOrders.Fill(dsBookIn.QuarryOrders, "ExBin", "AnyCustomer", 0, mySiteID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        private void GetImportedOrders()
+        {
+            try
+            {
+                taQuarryOrders.Fill(dsBookIn.QuarryOrders, "Imported", "AnyCustomer", 0, mySiteID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void rbTruck_CheckedChanged(object sender, EventArgs e)
         {
             SetDeliveryModeFilter();
@@ -145,6 +170,16 @@ namespace QWS_Local
         private void rbClear_CheckedChanged(object sender, EventArgs e)
         {
             SetDeliveryModeFilter();
+        }
+
+        private void btnGetExBinOrders_Click(object sender, EventArgs e)
+        {
+            GetExBinOrders();
+        }
+
+        private void btnImportedOrders_Click(object sender, EventArgs e)
+        {
+            GetImportedOrders();
         }
     }
 }
