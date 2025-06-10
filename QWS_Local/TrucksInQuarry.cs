@@ -67,9 +67,16 @@ namespace QWS_Local
             try
             {
                 var parent = this.MdiParent as QWS_MDIParent;
-                int SiteID = parent.SiteID;
-                this.taTIQ2.Fill(dsTIQ2.TIQ, SiteID);
-                ClearTIQ();
+                if (parent.LoginStatus == "O")
+                {
+                    MessageBox.Show("Please login!");
+                }
+                else
+                {
+                    int SiteID = parent.SiteID;
+                    this.taTIQ2.Fill(dsTIQ2.TIQ, SiteID);
+                    ClearTIQ();
+                }
             }
             catch (Exception ex)
             {
@@ -78,15 +85,23 @@ namespace QWS_Local
         }
 
         private void btnAddTIQ_Click(object sender, EventArgs e)
-        {
-            BookInTruck();
+        {            
+                BookInTruck();            
         }
 
         private void BookInTruck()
         {
-            BookInTruck frmBookIn = new BookInTruck();
-            frmBookIn.MdiParent = this.MdiParent;
-            frmBookIn.Show();
+            var parent = this.MdiParent as QWS_MDIParent;
+            if (parent.LoginStatus == "O")
+            {
+                MessageBox.Show("Please login!");
+            }
+            else
+            {
+                BookInTruck frmBookIn = new BookInTruck();
+                frmBookIn.MdiParent = this.MdiParent;
+                frmBookIn.Show();
+            }
         }
              
         private dsTIQ2.TIQRow CurrentTIQ()
@@ -110,7 +125,15 @@ namespace QWS_Local
 
         private void btnTINRemove_Click(object sender, EventArgs e)
         {
-            TINRemove();
+            var parent = this.MdiParent as QWS_MDIParent;
+            if (parent.LoginStatus == "O")
+            {
+                MessageBox.Show("Please login!");
+            }
+            else
+            {
+                TINRemove();
+            }
         }
 
         private void TINRemove()
@@ -165,274 +188,282 @@ namespace QWS_Local
         }
 
         private void btnWeigh_Click(object sender, EventArgs e)
-        {
-                GoToWeighTruck();
+        {            
+            GoToWeighTruck();            
         }
 
         private void GoToWeighTruck()
         {
-            if (dataGridView1.SelectedRows.Count == 1)
+            var parent = this.MdiParent as QWS_MDIParent;
+            if (parent.LoginStatus == "O")
             {
-                // apply lock here 20250527
-                if (LockTIQ(CurrentTIQ().TIQID) == true)
-                {
-                    DialogResult dr;
-                    WeighTruck frmWeighTruck;
-                    decimal myWeight;
-                    dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
-                    switch (myTIQRow.QueueStatus)
-                    {
-                        case "U":
-                            dr = MessageBox.Show("Contact customer to confirm if OK to pick up.", "Queuestatus = U", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                            if (dr == DialogResult.OK)
-                            {
-                                if (CheckConfirmCustomer() == true)
-                                {
-                                    myTIQRow.QueueStatus = "Q";
-                                    bsTIQ2.EndEdit();
-                                    taTIQ2.Update(dsTIQ2.TIQ);
-                                    RefreshQueue();
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Customer NOT confirmed, so cannot proceed!", "Customer Unconfirmed!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
-                            break;
-                        case "H":
-                            MessageBox.Show("Truck is still on hold, cannot proceed!", "Queuestatus = H", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            break;
-                        case "T":
-                            if (myTIQRow.QueueStatus == "T" && myTIQRow.TruckConfig == "TT")
-                            {
-                                frmWeighTruck = new WeighTruck("Collect Tare of truck as split weight", mySiteID);
-                                dr = frmWeighTruck.ShowDialog();
-                            }
-                            else
-                            {
-                                frmWeighTruck = new WeighTruck("Collect Tare with whole truck on weighbridge.", mySiteID);
-                                dr = frmWeighTruck.ShowDialog();
-                            }
-                            if (dr == DialogResult.OK)
-                            {
-                                TIQStatusAudit(myTIQRow.TIQID, "T", frmWeighTruck.WBID, frmWeighTruck.WBConnected, frmWeighTruck.Weight, "Capture tare");
-                                string myRego = myTIQRow.Rego;
-                                int myTruckConfigID = myTIQRow.TruckConfigID;
-                                int myDriverID = myTIQRow.DriverID;
-                                int myParentTIQID = myTIQRow.TIQID;
-                                decimal myTare = 0.0M;
-                                decimal myTareTk = 0.0M;
-                                if (myTIQRow.TruckConfig != "TT")
-                                {
-                                    myTIQRow.WeighbridgeID = frmWeighTruck.WBID;
-                                    myTIQRow.WBConnected = frmWeighTruck.WBConnected;
-                                    bsTIQ2.EndEdit();
-                                    taTIQ2.Update(dsTIQ2.TIQ);
-                                    myTare = frmWeighTruck.Weight;
-                                }
-                                else
-                                {
-                                    myTareTk = frmWeighTruck.Weight;
-                                    WeighTruck frmTare = new WeighTruck("Collect Tare of T&T as a total weight", mySiteID);
-                                    DialogResult dr1 = frmTare.ShowDialog();
-                                    if (dr1 == DialogResult.OK)
-                                    {
-                                        myTIQRow.WeighbridgeID = frmTare.WBID;
-                                        myTIQRow.WBConnected = frmTare.WBConnected;
-                                        bsTIQ2.EndEdit();
-                                        taTIQ2.Update(dsTIQ2.TIQ);
-                                        myTare = frmTare.Weight;
-                                    }
-                                }
-                                RetareTruck(myTareTk, myTare);
-                                GoBack2BookIn(myRego, myTruckConfigID, myDriverID, myParentTIQID, myTIQRow.TruckConfig, "Retare.");
-                                RefreshQueue();
-                            }
-                            else
-                            {
-                                LockTIQUsp(myTIQRow.TIQID, "U");
-                                MessageBox.Show("Tare Weighing cancelled!");
-                            }
-                            break;
-                        case "I":
-                            frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.", mySiteID);
-                            dr = frmWeighTruck.ShowDialog();
-                            myWeight = frmWeighTruck.Weight;
-                            if (dr == DialogResult.OK)
-                            {
-                                TIQStatusAudit(myTIQRow.TIQID, "I", frmWeighTruck.WBID, frmWeighTruck.WBConnected, myWeight, "Capture gross of imported load");
-                                if (myWeight > myTIQRow.GCM)
-                                {
-                                    ImportedOverload frmImportedOverload = new ImportedOverload(myTIQRow.DriverID, myTIQRow.Driver, myWeight, myTIQRow.GCM);
-                                    DialogResult dr2 = frmImportedOverload.ShowDialog();
-                                    if (dr2 == DialogResult.OK)
-                                    {
-                                        myTIQRow.Gross = myWeight;
-                                        myTIQRow.QueueStatus = "G";
-                                        myTIQRow.OverloadPoints = frmImportedOverload.OverloadPoints;
-                                        myTIQRow.OverloadDesc = frmImportedOverload.OverloadDesc;
-                                        bsTIQ2.EndEdit();
-                                    }
-                                    else
-                                    {
-                                        LockTIQUsp(myTIQRow.TIQID, "U");
-                                        MessageBox.Show("Imported Weighing Cancelled!");
-                                    }
-                                }
-                                else
-                                {
-                                    myTIQRow.Gross = myWeight;
-                                    myTIQRow.QueueStatus = "G";
-                                    bsTIQ2.EndEdit();
-                                }
-                                bsTIQ2.EndEdit();
-                                myTIQRow.WeighbridgeID = frmWeighTruck.WBID;
-                                myTIQRow.WBConnected = frmWeighTruck.WBConnected;
-                                taTIQ2.Update(dsTIQ2.TIQ);
-                                //RefreshQueue();
-                            }
-                            else
-                            {
-                                LockTIQUsp(myTIQRow.TIQID, "U");
-                                MessageBox.Show("Weighing cancelled!");
-                            }
-                            break;
-                        case "G":
-                            frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.", mySiteID);
-                            dr = frmWeighTruck.ShowDialog();
-                            myWeight = frmWeighTruck.Weight;
-                            if (dr == DialogResult.OK)
-                            {
-                                bool RetareDue = false;
-                                string myRego = myTIQRow.Rego;
-                                int myTruckConfigID = myTIQRow.TruckConfigID;
-                                int myDriverID = myTIQRow.DriverID;
-                                int myParentTIQID = myTIQRow.TIQID;
-                                string myTruckConfig = myTIQRow.TruckConfig;
-                                //TODO ensure > 0 and challenge if less than MinMaterial ~ 8.0t
-                                decimal myNett = myTIQRow.Gross - myWeight;
-                                if (myNett < Properties.Settings.Default.MinimumMaterial)
-                                {
-                                    MessageBox.Show("Under loaded!");
-                                }
-
-                                if (myTIQRow.Tare == 0.00M)
-                                {
-                                    RetareDue = true;
-                                }
-                                myTIQRow.Tare = myWeight;
-                                myTIQRow.Nett = myNett;
-                                myTIQRow.WeighbridgeID = frmWeighTruck.WBID;
-                                myTIQRow.WBConnected = frmWeighTruck.WBConnected;
-                                myTIQRow.QueueStatus = "E";
-                                bsTIQ2.EndEdit();
-                                taTIQ2.Update(dsTIQ2.TIQ);
-                                TIQStatusAudit(myTIQRow.TIQID, "G", frmWeighTruck.WBID, frmWeighTruck.WBConnected, myWeight, "Capture tare of imported load");
-
-                                if (ConfirmPostDocket())
-                                {
-                                    PostDocket();
-                                    if (RetareDue == true)
-                                    {
-                                        GoBack2BookIn(myRego, myTruckConfigID, myDriverID, myParentTIQID, myTruckConfig, "Imported load.");
-                                    }
-                                }
-                            }
-
-                            break;
-                        case "Q":
-                            frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.", mySiteID);
-                            dr = frmWeighTruck.ShowDialog();
-                            if (dr == DialogResult.OK)
-                            {
-                                string myRego = myTIQRow.Rego;
-                                int myTIQID = myTIQRow.TIQID;
-                                int myTruckConfigID = myTIQRow.TruckConfigID;
-                                int myDriverID = myTIQRow.DriverID;
-                                string myTruckConfig = myTIQRow.TruckConfig;
-
-                                decimal myGVM = myTIQRow.GCM;
-                                if (myTruckConfig == "TKs")
-                                {
-                                    myGVM = myTIQRow.GVMTruck + myTIQRow.Tare - myTIQRow.TareTk;
-                                }
-                                myWeight = frmWeighTruck.Weight;
-                                if (myWeight > myGVM)
-                                {
-                                    decimal Overweight = myWeight - myGVM;
-                                    string msg = "Truck overloaded by : " + Overweight.ToString() + "t";
-                                    MessageBox.Show(msg, "Overweight", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                    TIQStatusAudit(myTIQRow.TIQID, "O", frmWeighTruck.WBID, frmWeighTruck.WBConnected, myWeight, msg);
-                                }
-                                else
-                                {
-                                    TIQStatusAudit(myTIQRow.TIQID, "Q", frmWeighTruck.WBID, frmWeighTruck.WBConnected, myWeight, "weight logged");
-                                    decimal myQty = myWeight - myTIQRow.Tare;
-                                    myTIQRow.Gross = myWeight;
-                                    myTIQRow.Nett = myQty;
-                                    string myTruckRego = myTIQRow.Rego;
-                                    myTIQRow.WeighbridgeID = frmWeighTruck.WBID;
-                                    myTIQRow.WBConnected = frmWeighTruck.WBConnected;
-                                    bsTIQ2.EndEdit();
-                                    taTIQ2.Update(dsTIQ2.TIQ);
-                                    if (ConfirmPostDocket())
-                                    {
-                                        if (myTruckConfig == "TKs" || myTruckConfig == "BDa")
-                                        {
-                                            int myPosition = bsTIQ2.Find("ParentTIQID", myTIQID);
-                                            if (myPosition >= 0)
-                                            {
-                                                ReleaseSplit(myTruckRego, myWeight);
-                                            }
-                                        }
-                                        PostDocket();
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                LockTIQUsp(myTIQRow.TIQID, "U");
-                                MessageBox.Show("Weighing cancelled!");
-                            }
-                            break;
-                        case "S":
-                            MessageBox.Show("Please process truck first!", "Split Load", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            break;
-
-                        case "X": // Truck or Trailer Only Split Load
-                            frmWeighTruck = new WeighTruck("Collect weight with both truck and trailer on weighbridge.", mySiteID);
-                            dr = frmWeighTruck.ShowDialog();
-                            myWeight = frmWeighTruck.Weight;
-                            if (dr == DialogResult.OK)
-                            {
-                                //string myRego = myTIQRow.Rego;
-                                //int myTruckConfigID = myTIQRow.TruckConfigID;
-                                //int myDriverID = myTIQRow.DriverID;
-                                //int myParentTIQID = myTIQRow.TIQID;
-                                //string myTruckConfig = myTIQRow.TruckConfig;
-
-                                int myWBID = frmWeighTruck.WBID;
-                                bool myWBConnected = frmWeighTruck.WBConnected;
-
-                                TIQStatusAudit(myTIQRow.TIQID, "X", myWBID, myWBConnected, myWeight, "temp tare captured");
-
-                                myTIQRow.Tare = myWeight;
-                                myTIQRow.WeighbridgeID = myWBID;
-                                myTIQRow.WBConnected = myWBConnected;
-                                myTIQRow.QueueStatus = "Q";
-                                bsTIQ2.EndEdit();
-                                taTIQ2.Update(dsTIQ2.TIQ);
-                            }
-                            break;
-
-                        default:
-                            break;
-                    }
-                }
+                MessageBox.Show("Please login!");
             }
             else
             {
-                MessageBox.Show("Please select a truck to weigh!", "No truck selected yet!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (dataGridView1.SelectedRows.Count == 1)
+                {
+                    // apply lock here 20250527
+                    if (LockTIQ(CurrentTIQ().TIQID) == true)
+                    {
+                        DialogResult dr;
+                        WeighTruck frmWeighTruck;
+                        decimal myWeight;
+                        dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+                        switch (myTIQRow.QueueStatus)
+                        {
+                            case "U":
+                                dr = MessageBox.Show("Contact customer to confirm if OK to pick up.", "Queuestatus = U", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                                if (dr == DialogResult.OK)
+                                {
+                                    if (CheckConfirmCustomer() == true)
+                                    {
+                                        myTIQRow.QueueStatus = "Q";
+                                        bsTIQ2.EndEdit();
+                                        taTIQ2.Update(dsTIQ2.TIQ);
+                                        RefreshQueue();
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Customer NOT confirmed, so cannot proceed!", "Customer Unconfirmed!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                                break;
+                            case "H":
+                                MessageBox.Show("Truck is still on hold, cannot proceed!", "Queuestatus = H", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                break;
+                            case "T":
+                                if (myTIQRow.QueueStatus == "T" && myTIQRow.TruckConfig == "TT")
+                                {
+                                    frmWeighTruck = new WeighTruck("Collect Tare of truck as split weight", mySiteID);
+                                    dr = frmWeighTruck.ShowDialog();
+                                }
+                                else
+                                {
+                                    frmWeighTruck = new WeighTruck("Collect Tare with whole truck on weighbridge.", mySiteID);
+                                    dr = frmWeighTruck.ShowDialog();
+                                }
+                                if (dr == DialogResult.OK)
+                                {
+                                    TIQStatusAudit(myTIQRow.TIQID, "T", frmWeighTruck.WBID, frmWeighTruck.WBConnected, frmWeighTruck.Weight, "Capture tare");
+                                    string myRego = myTIQRow.Rego;
+                                    int myTruckConfigID = myTIQRow.TruckConfigID;
+                                    int myDriverID = myTIQRow.DriverID;
+                                    int myParentTIQID = myTIQRow.TIQID;
+                                    decimal myTare = 0.0M;
+                                    decimal myTareTk = 0.0M;
+                                    if (myTIQRow.TruckConfig != "TT")
+                                    {
+                                        myTIQRow.WeighbridgeID = frmWeighTruck.WBID;
+                                        myTIQRow.WBConnected = frmWeighTruck.WBConnected;
+                                        bsTIQ2.EndEdit();
+                                        taTIQ2.Update(dsTIQ2.TIQ);
+                                        myTare = frmWeighTruck.Weight;
+                                    }
+                                    else
+                                    {
+                                        myTareTk = frmWeighTruck.Weight;
+                                        WeighTruck frmTare = new WeighTruck("Collect Tare of T&T as a total weight", mySiteID);
+                                        DialogResult dr1 = frmTare.ShowDialog();
+                                        if (dr1 == DialogResult.OK)
+                                        {
+                                            myTIQRow.WeighbridgeID = frmTare.WBID;
+                                            myTIQRow.WBConnected = frmTare.WBConnected;
+                                            bsTIQ2.EndEdit();
+                                            taTIQ2.Update(dsTIQ2.TIQ);
+                                            myTare = frmTare.Weight;
+                                        }
+                                    }
+                                    RetareTruck(myTareTk, myTare);
+                                    GoBack2BookIn(myRego, myTruckConfigID, myDriverID, myParentTIQID, myTIQRow.TruckConfig, "Retare.");
+                                    RefreshQueue();
+                                }
+                                else
+                                {
+                                    LockTIQUsp(myTIQRow.TIQID, "U");
+                                    MessageBox.Show("Tare Weighing cancelled!");
+                                }
+                                break;
+                            case "I":
+                                frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.", mySiteID);
+                                dr = frmWeighTruck.ShowDialog();
+                                myWeight = frmWeighTruck.Weight;
+                                if (dr == DialogResult.OK)
+                                {
+                                    TIQStatusAudit(myTIQRow.TIQID, "I", frmWeighTruck.WBID, frmWeighTruck.WBConnected, myWeight, "Capture gross of imported load");
+                                    if (myWeight > myTIQRow.GCM)
+                                    {
+                                        ImportedOverload frmImportedOverload = new ImportedOverload(myTIQRow.DriverID, myTIQRow.Driver, myWeight, myTIQRow.GCM);
+                                        DialogResult dr2 = frmImportedOverload.ShowDialog();
+                                        if (dr2 == DialogResult.OK)
+                                        {
+                                            myTIQRow.Gross = myWeight;
+                                            myTIQRow.QueueStatus = "G";
+                                            myTIQRow.OverloadPoints = frmImportedOverload.OverloadPoints;
+                                            myTIQRow.OverloadDesc = frmImportedOverload.OverloadDesc;
+                                            bsTIQ2.EndEdit();
+                                        }
+                                        else
+                                        {
+                                            LockTIQUsp(myTIQRow.TIQID, "U");
+                                            MessageBox.Show("Imported Weighing Cancelled!");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        myTIQRow.Gross = myWeight;
+                                        myTIQRow.QueueStatus = "G";
+                                        bsTIQ2.EndEdit();
+                                    }
+                                    bsTIQ2.EndEdit();
+                                    myTIQRow.WeighbridgeID = frmWeighTruck.WBID;
+                                    myTIQRow.WBConnected = frmWeighTruck.WBConnected;
+                                    taTIQ2.Update(dsTIQ2.TIQ);
+                                    //RefreshQueue();
+                                }
+                                else
+                                {
+                                    LockTIQUsp(myTIQRow.TIQID, "U");
+                                    MessageBox.Show("Weighing cancelled!");
+                                }
+                                break;
+                            case "G":
+                                frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.", mySiteID);
+                                dr = frmWeighTruck.ShowDialog();
+                                myWeight = frmWeighTruck.Weight;
+                                if (dr == DialogResult.OK)
+                                {
+                                    bool RetareDue = false;
+                                    string myRego = myTIQRow.Rego;
+                                    int myTruckConfigID = myTIQRow.TruckConfigID;
+                                    int myDriverID = myTIQRow.DriverID;
+                                    int myParentTIQID = myTIQRow.TIQID;
+                                    string myTruckConfig = myTIQRow.TruckConfig;
+                                    //TODO ensure > 0 and challenge if less than MinMaterial ~ 8.0t
+                                    decimal myNett = myTIQRow.Gross - myWeight;
+                                    if (myNett < Properties.Settings.Default.MinimumMaterial)
+                                    {
+                                        MessageBox.Show("Under loaded!");
+                                    }
+
+                                    if (myTIQRow.Tare == 0.00M)
+                                    {
+                                        RetareDue = true;
+                                    }
+                                    myTIQRow.Tare = myWeight;
+                                    myTIQRow.Nett = myNett;
+                                    myTIQRow.WeighbridgeID = frmWeighTruck.WBID;
+                                    myTIQRow.WBConnected = frmWeighTruck.WBConnected;
+                                    myTIQRow.QueueStatus = "E";
+                                    bsTIQ2.EndEdit();
+                                    taTIQ2.Update(dsTIQ2.TIQ);
+                                    TIQStatusAudit(myTIQRow.TIQID, "G", frmWeighTruck.WBID, frmWeighTruck.WBConnected, myWeight, "Capture tare of imported load");
+
+                                    if (ConfirmPostDocket())
+                                    {
+                                        PostDocket();
+                                        if (RetareDue == true)
+                                        {
+                                            GoBack2BookIn(myRego, myTruckConfigID, myDriverID, myParentTIQID, myTruckConfig, "Imported load.");
+                                        }
+                                    }
+                                }
+
+                                break;
+                            case "Q":
+                                frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.", mySiteID);
+                                dr = frmWeighTruck.ShowDialog();
+                                if (dr == DialogResult.OK)
+                                {
+                                    string myRego = myTIQRow.Rego;
+                                    int myTIQID = myTIQRow.TIQID;
+                                    int myTruckConfigID = myTIQRow.TruckConfigID;
+                                    int myDriverID = myTIQRow.DriverID;
+                                    string myTruckConfig = myTIQRow.TruckConfig;
+
+                                    decimal myGVM = myTIQRow.GCM;
+                                    if (myTruckConfig == "TKs")
+                                    {
+                                        myGVM = myTIQRow.GVMTruck + myTIQRow.Tare - myTIQRow.TareTk;
+                                    }
+                                    myWeight = frmWeighTruck.Weight;
+                                    if (myWeight > myGVM)
+                                    {
+                                        decimal Overweight = myWeight - myGVM;
+                                        string msg = "Truck overloaded by : " + Overweight.ToString() + "t";
+                                        MessageBox.Show(msg, "Overweight", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        TIQStatusAudit(myTIQRow.TIQID, "O", frmWeighTruck.WBID, frmWeighTruck.WBConnected, myWeight, msg);
+                                    }
+                                    else
+                                    {
+                                        TIQStatusAudit(myTIQRow.TIQID, "Q", frmWeighTruck.WBID, frmWeighTruck.WBConnected, myWeight, "weight logged");
+                                        decimal myQty = myWeight - myTIQRow.Tare;
+                                        myTIQRow.Gross = myWeight;
+                                        myTIQRow.Nett = myQty;
+                                        string myTruckRego = myTIQRow.Rego;
+                                        myTIQRow.WeighbridgeID = frmWeighTruck.WBID;
+                                        myTIQRow.WBConnected = frmWeighTruck.WBConnected;
+                                        bsTIQ2.EndEdit();
+                                        taTIQ2.Update(dsTIQ2.TIQ);
+                                        if (ConfirmPostDocket())
+                                        {
+                                            if (myTruckConfig == "TKs" || myTruckConfig == "BDa")
+                                            {
+                                                int myPosition = bsTIQ2.Find("ParentTIQID", myTIQID);
+                                                if (myPosition >= 0)
+                                                {
+                                                    ReleaseSplit(myTruckRego, myWeight);
+                                                }
+                                            }
+                                            PostDocket();
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    LockTIQUsp(myTIQRow.TIQID, "U");
+                                    MessageBox.Show("Weighing cancelled!");
+                                }
+                                break;
+                            case "S":
+                                MessageBox.Show("Please process truck first!", "Split Load", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                break;
+
+                            case "X": // Truck or Trailer Only Split Load
+                                frmWeighTruck = new WeighTruck("Collect weight with both truck and trailer on weighbridge.", mySiteID);
+                                dr = frmWeighTruck.ShowDialog();
+                                myWeight = frmWeighTruck.Weight;
+                                if (dr == DialogResult.OK)
+                                {
+                                    //string myRego = myTIQRow.Rego;
+                                    //int myTruckConfigID = myTIQRow.TruckConfigID;
+                                    //int myDriverID = myTIQRow.DriverID;
+                                    //int myParentTIQID = myTIQRow.TIQID;
+                                    //string myTruckConfig = myTIQRow.TruckConfig;
+
+                                    int myWBID = frmWeighTruck.WBID;
+                                    bool myWBConnected = frmWeighTruck.WBConnected;
+
+                                    TIQStatusAudit(myTIQRow.TIQID, "X", myWBID, myWBConnected, myWeight, "temp tare captured");
+
+                                    myTIQRow.Tare = myWeight;
+                                    myTIQRow.WeighbridgeID = myWBID;
+                                    myTIQRow.WBConnected = myWBConnected;
+                                    myTIQRow.QueueStatus = "Q";
+                                    bsTIQ2.EndEdit();
+                                    taTIQ2.Update(dsTIQ2.TIQ);
+                                }
+                                break;
+
+                            default:
+                                break;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select a truck to weigh!", "No truck selected yet!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
        
@@ -890,7 +921,16 @@ namespace QWS_Local
 
         private void btnTINReleaseHold_Click(object sender, EventArgs e)
         {
-            ButtonUpdate(); // button labelled Update (F4)
+            var parent = this.MdiParent as QWS_MDIParent;
+            if (parent.LoginStatus == "O")
+            {
+                MessageBox.Show("Please login!");
+            }
+            else
+            {
+
+                ButtonUpdate(); // button labelled Update (F4)
+            }
         }
 
         private void ButtonUpdate()
@@ -1026,7 +1066,14 @@ namespace QWS_Local
         private void PrintDocket()
         {
             var parent = this.MdiParent as QWS_MDIParent;
-            parent.PrintDocket();
+            if (parent.LoginStatus == "O")
+            {
+                MessageBox.Show("Please login!");
+            }
+            else
+            {
+                parent.PrintDocket();
+            }
         }
     }
 }

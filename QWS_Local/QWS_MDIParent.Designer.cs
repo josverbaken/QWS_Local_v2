@@ -59,6 +59,7 @@
             this.bsOperator = new System.Windows.Forms.BindingSource(this.components);
             this.taOperator = new QWS_Local.dsAdminTableAdapters.OperatorTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsAdminTableAdapters.TableAdapterManager();
+            this.tspInfo = new System.Windows.Forms.ToolStripTextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsOperator)).BeginInit();
@@ -76,7 +77,8 @@
             this.toolStripTextBox1,
             this.tspSite,
             this.tspUserName,
-            this.tspSignInOut});
+            this.tspSignInOut,
+            this.tspInfo});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MdiWindowListItem = this.windowsToolStripMenuItem;
             this.menuStrip1.Name = "menuStrip1";
@@ -299,6 +301,11 @@
             this.tableAdapterManager.RoleTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsAdminTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // tspInfo
+            // 
+            this.tspInfo.Name = "tspInfo";
+            this.tspInfo.Size = new System.Drawing.Size(100, 27);
+            // 
             // QWS_MDIParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -355,5 +362,6 @@
         private System.Windows.Forms.BindingSource bsOperator;
         private dsAdminTableAdapters.OperatorTableAdapter taOperator;
         private dsAdminTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.ToolStripTextBox tspInfo;
     }
 }

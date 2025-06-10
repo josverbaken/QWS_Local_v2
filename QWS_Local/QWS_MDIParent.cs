@@ -47,6 +47,12 @@ namespace QWS_Local
             get { return myComputerName; }
         }
 
+        private string myLoginStatus; // W = Windows, G = Generic, O = signed out
+        public string LoginStatus
+        {
+            get { return myLoginStatus; }
+        }
+
 
         public QWS_MDIParent()
         {
@@ -125,6 +131,7 @@ namespace QWS_Local
                     dsAdmin.OperatorRow row = (dsAdmin.OperatorRow)dsAdmin.Operator.Rows[0];
                     if (row.Generic == false) // Windows User
                     {
+                        myLoginStatus = "W";
                         myUserName = ComputerUsername;
                         CheckIfAdmin(row.OperatorID);
                         tspUserName.Text = "WBO = " + myUserName;
@@ -132,32 +139,50 @@ namespace QWS_Local
                     }
                     else // Generic
                     {
-                        GenericLogin frmGenericLogin = new GenericLogin();
-                        DialogResult dr = frmGenericLogin.ShowDialog();
-                        if (dr == DialogResult.OK)
-                        {
-                            int gCount = taOperator.FillBy(dsAdmin.Operator, ComputerUsername);
-                            if (gCount ==1)
-                            {
-                                myUserName = frmGenericLogin.UserName;
-                                dsAdmin.OperatorRow gRow = (dsAdmin.OperatorRow)dsAdmin.Operator.Rows[0];
-                                CheckIfAdmin(gRow.OperatorID);
-                                tspUserName.Text = "WBO = " + myUserName;
-                                tspSignInOut.Visible = true;
-                            }
-                            else
-                            {
-                                CheckIfAdmin(0);
-                                tspUserName.Text = "WBO = " + myUserName + " ..";
-                            }
-                        }
-
+                        GenericUserLogin();
                     }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "GetUserName Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void GenericUserLogin()
+        {
+            try
+            {
+                GenericLogin frmGenericLogin = new GenericLogin();
+                DialogResult dr = frmGenericLogin.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    myLoginStatus = "G";
+                    myUserName = frmGenericLogin.UserName;
+                    int gCount = taOperator.FillBy(dsAdmin.Operator, myUserName);
+                    if (gCount == 1)
+                    {
+                        dsAdmin.OperatorRow gRow = (dsAdmin.OperatorRow)dsAdmin.Operator.Rows[0];
+                        CheckIfAdmin(gRow.OperatorID);
+                        tspUserName.Text = "WBO = " + myUserName;
+                        tspSignInOut.Visible = true;
+                    }
+                    else
+                    {
+                        CheckIfAdmin(0);
+                        tspUserName.Text = "WBO = " + myUserName + " ..";
+                    }
+                }
+                else
+                {
+                    myLoginStatus = "O";
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -386,7 +411,14 @@ namespace QWS_Local
                     frmTIQ.BringToFront();
                     break;
                 case Keys.F8:
-                    PrintDocket();
+                    if (myLoginStatus != "O")
+                    {
+                        PrintDocket();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please login.");
+                    }
                     break;
             }
         }
@@ -402,7 +434,24 @@ namespace QWS_Local
 
         private void tspSignInOut_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("TODO allow sign out if using generic Windows account.");
+            switch (myLoginStatus)
+            {
+                case "G":
+                    myLoginStatus = "O";
+                    tspUserName.Text = "logged out"; // not showing
+                    break;
+                case "O":
+                    GenericUserLogin();
+                    break;
+                case "W":
+                    // nothing
+                    break;
+                default:
+                    // invalid
+                    // TODO handle
+                    break;
+            }
+
         }
 
         private void operatorBindingNavigatorSaveItem_Click(object sender, EventArgs e)
