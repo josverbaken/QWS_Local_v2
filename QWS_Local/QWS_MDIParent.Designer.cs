@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tIQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pBSMaintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +55,13 @@
             this.tspSite = new System.Windows.Forms.ToolStripTextBox();
             this.tspUserName = new System.Windows.Forms.ToolStripTextBox();
             this.tspSignInOut = new System.Windows.Forms.ToolStripMenuItem();
+            this.dsAdmin = new QWS_Local.dsAdmin();
+            this.bsOperator = new System.Windows.Forms.BindingSource(this.components);
+            this.taOperator = new QWS_Local.dsAdminTableAdapters.OperatorTableAdapter();
+            this.tableAdapterManager = new QWS_Local.dsAdminTableAdapters.TableAdapterManager();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsOperator)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -268,6 +275,30 @@
             this.tspSignInOut.Text = "Sign In / Out";
             this.tspSignInOut.Click += new System.EventHandler(this.tspSignInOut_Click);
             // 
+            // dsAdmin
+            // 
+            this.dsAdmin.DataSetName = "dsAdmin";
+            this.dsAdmin.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bsOperator
+            // 
+            this.bsOperator.DataMember = "Operator";
+            this.bsOperator.DataSource = this.dsAdmin;
+            // 
+            // taOperator
+            // 
+            this.taOperator.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.FunctionsTableAdapter = null;
+            this.tableAdapterManager.OperatorRolesTableAdapter = null;
+            this.tableAdapterManager.OperatorTableAdapter = this.taOperator;
+            this.tableAdapterManager.RoleFunctionsTableAdapter = null;
+            this.tableAdapterManager.RoleTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = QWS_Local.dsAdminTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // QWS_MDIParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -285,6 +316,8 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.QWS_MDIParent_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsOperator)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,5 +351,9 @@
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripTextBox tspSite;
         private System.Windows.Forms.ToolStripMenuItem tspSignInOut;
+        private dsAdmin dsAdmin;
+        private System.Windows.Forms.BindingSource bsOperator;
+        private dsAdminTableAdapters.OperatorTableAdapter taOperator;
+        private dsAdminTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }

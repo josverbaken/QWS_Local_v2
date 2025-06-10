@@ -113,6 +113,7 @@ namespace QWS_Local
                 {
                     //msg = "Lot No: " + CurrentSPLotNo().SPLotNo.ToString() + " status: " + CurrentSPLotNo().LotStatus + " remaining tonnes: " + CurrentSPLotNo().TonnesRemaining.ToString();
                     msg = "Lot No: " + CurrentSPLotNo().SPLotNo.ToString() +  " .. Remaining tonnes: " + CurrentSPLotNo().TonnesRemaining.ToString();
+                    // TODO extend message to include additional open lots
                 }
                 txtInfo.Text = msg;
             }

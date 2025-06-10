@@ -135,7 +135,10 @@ namespace QWS_Local
             }
         }
 
-      
+        private void dataGridView2_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        {
+            e.Row.Cells[0].Value = "tba";
+        }
     }
     
 }

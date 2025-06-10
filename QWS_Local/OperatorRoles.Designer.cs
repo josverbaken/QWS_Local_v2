@@ -29,30 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource5 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.bsOperatorRolesDetailed = new System.Windows.Forms.BindingSource(this.components);
             this.dsAdmin = new QWS_Local.dsAdmin();
             this.btnFind = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tpList = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WBOFunction = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tpDetails = new System.Windows.Forms.TabPage();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.tpOperator = new System.Windows.Forms.TabPage();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.operatorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.domainDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genericDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.PIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.bsOperator = new System.Windows.Forms.BindingSource(this.components);
-            this.btnSaveOperator = new System.Windows.Forms.Button();
             this.tpRole = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
@@ -69,6 +50,18 @@
             this.descriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsFunctions = new System.Windows.Forms.BindingSource(this.components);
             this.btnSaveFunctions = new System.Windows.Forms.Button();
+            this.tpOperator = new System.Windows.Forms.TabPage();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.bsOperator = new System.Windows.Forms.BindingSource(this.components);
+            this.btnSaveOperator = new System.Windows.Forms.Button();
+            this.tpList = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WBOFunction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tpDetails = new System.Windows.Forms.TabPage();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tpOperatorConfig = new System.Windows.Forms.TabPage();
             this.btnSaveRoleFunctions = new System.Windows.Forms.Button();
             this.btnSaveOperatorRoles = new System.Windows.Forms.Button();
@@ -87,19 +80,15 @@
             this.taFunctions = new QWS_Local.dsAdminTableAdapters.FunctionsTableAdapter();
             this.operatorRolesTableAdapter = new QWS_Local.dsAdminTableAdapters.OperatorRolesTableAdapter();
             this.taRoleFunctions = new QWS_Local.dsAdminTableAdapters.RoleFunctionsTableAdapter();
+            this.operatorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genericDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.PIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bsOperatorRolesDetailed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.tpList.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tpDetails.SuspendLayout();
-            this.tpOperator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsOperator)).BeginInit();
             this.tpRole.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -114,6 +103,16 @@
             this.splitContainer4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFunctions)).BeginInit();
+            this.tpOperator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsOperator)).BeginInit();
+            this.tpList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tpDetails.SuspendLayout();
             this.tpOperatorConfig.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsRoleFunctions)).BeginInit();
@@ -159,200 +158,12 @@
             this.tabControl1.Size = new System.Drawing.Size(995, 590);
             this.tabControl1.TabIndex = 0;
             // 
-            // tpList
-            // 
-            this.tpList.Controls.Add(this.dataGridView1);
-            this.tpList.Location = new System.Drawing.Point(4, 27);
-            this.tpList.Margin = new System.Windows.Forms.Padding(4);
-            this.tpList.Name = "tpList";
-            this.tpList.Padding = new System.Windows.Forms.Padding(4);
-            this.tpList.Size = new System.Drawing.Size(771, 559);
-            this.tpList.TabIndex = 0;
-            this.tpList.Text = "List";
-            this.tpList.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.usernameDataGridViewTextBoxColumn,
-            this.roleDataGridViewTextBoxColumn,
-            this.WBOFunction});
-            this.dataGridView1.DataSource = this.bsOperatorRolesDetailed;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 4);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(763, 551);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // usernameDataGridViewTextBoxColumn
-            // 
-            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
-            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
-            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
-            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.usernameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // roleDataGridViewTextBoxColumn
-            // 
-            this.roleDataGridViewTextBoxColumn.DataPropertyName = "Role";
-            this.roleDataGridViewTextBoxColumn.HeaderText = "Role";
-            this.roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
-            this.roleDataGridViewTextBoxColumn.ReadOnly = true;
-            this.roleDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // WBOFunction
-            // 
-            this.WBOFunction.DataPropertyName = "WBOFunction";
-            this.WBOFunction.HeaderText = "WBOFunction";
-            this.WBOFunction.Name = "WBOFunction";
-            this.WBOFunction.ReadOnly = true;
-            this.WBOFunction.Width = 300;
-            // 
-            // tpDetails
-            // 
-            this.tpDetails.Controls.Add(this.reportViewer1);
-            this.tpDetails.Location = new System.Drawing.Point(4, 27);
-            this.tpDetails.Margin = new System.Windows.Forms.Padding(4);
-            this.tpDetails.Name = "tpDetails";
-            this.tpDetails.Padding = new System.Windows.Forms.Padding(4);
-            this.tpDetails.Size = new System.Drawing.Size(771, 559);
-            this.tpDetails.TabIndex = 1;
-            this.tpDetails.Text = "Details";
-            this.tpDetails.UseVisualStyleBackColor = true;
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource5.Name = "ReportDataSet";
-            reportDataSource5.Value = this.bsOperatorRolesDetailed;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource5);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "QWS_Local.OperatorRolesDetailed.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(4, 4);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(763, 551);
-            this.reportViewer1.TabIndex = 0;
-            // 
-            // tpOperator
-            // 
-            this.tpOperator.Controls.Add(this.splitContainer2);
-            this.tpOperator.Location = new System.Drawing.Point(4, 27);
-            this.tpOperator.Name = "tpOperator";
-            this.tpOperator.Size = new System.Drawing.Size(987, 559);
-            this.tpOperator.TabIndex = 2;
-            this.tpOperator.Text = "Operator";
-            this.tpOperator.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.dataGridView2);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.splitContainer2.Panel2.Controls.Add(this.btnSaveOperator);
-            this.splitContainer2.Panel2.Controls.Add(this.btnFind);
-            this.splitContainer2.Size = new System.Drawing.Size(987, 559);
-            this.splitContainer2.SplitterDistance = 447;
-            this.splitContainer2.TabIndex = 0;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.operatorIDDataGridViewTextBoxColumn,
-            this.FirstName,
-            this.LastName,
-            this.domainDataGridViewTextBoxColumn,
-            this.genericDataGridViewCheckBoxColumn,
-            this.PIN,
-            this.activeDataGridViewCheckBoxColumn});
-            this.dataGridView2.DataSource = this.bsOperator;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(987, 447);
-            this.dataGridView2.TabIndex = 0;
-            // 
-            // operatorIDDataGridViewTextBoxColumn
-            // 
-            this.operatorIDDataGridViewTextBoxColumn.DataPropertyName = "OperatorID";
-            this.operatorIDDataGridViewTextBoxColumn.HeaderText = "OperatorID";
-            this.operatorIDDataGridViewTextBoxColumn.Name = "operatorIDDataGridViewTextBoxColumn";
-            this.operatorIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // FirstName
-            // 
-            this.FirstName.DataPropertyName = "FirstName";
-            this.FirstName.HeaderText = "FirstName";
-            this.FirstName.Name = "FirstName";
-            // 
-            // LastName
-            // 
-            this.LastName.DataPropertyName = "LastName";
-            this.LastName.HeaderText = "LastName";
-            this.LastName.Name = "LastName";
-            // 
-            // domainDataGridViewTextBoxColumn
-            // 
-            this.domainDataGridViewTextBoxColumn.DataPropertyName = "Domain";
-            this.domainDataGridViewTextBoxColumn.HeaderText = "Domain";
-            this.domainDataGridViewTextBoxColumn.Name = "domainDataGridViewTextBoxColumn";
-            // 
-            // genericDataGridViewCheckBoxColumn
-            // 
-            this.genericDataGridViewCheckBoxColumn.DataPropertyName = "Generic";
-            this.genericDataGridViewCheckBoxColumn.HeaderText = "Generic";
-            this.genericDataGridViewCheckBoxColumn.Name = "genericDataGridViewCheckBoxColumn";
-            // 
-            // PIN
-            // 
-            this.PIN.DataPropertyName = "PIN";
-            this.PIN.HeaderText = "PIN";
-            this.PIN.Name = "PIN";
-            // 
-            // activeDataGridViewCheckBoxColumn
-            // 
-            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
-            this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
-            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
-            // 
-            // bsOperator
-            // 
-            this.bsOperator.DataMember = "Operator";
-            this.bsOperator.DataSource = this.dsAdmin;
-            // 
-            // btnSaveOperator
-            // 
-            this.btnSaveOperator.Location = new System.Drawing.Point(26, 32);
-            this.btnSaveOperator.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSaveOperator.Name = "btnSaveOperator";
-            this.btnSaveOperator.Size = new System.Drawing.Size(112, 32);
-            this.btnSaveOperator.TabIndex = 3;
-            this.btnSaveOperator.Text = "Save";
-            this.btnSaveOperator.UseVisualStyleBackColor = true;
-            this.btnSaveOperator.Click += new System.EventHandler(this.btnSaveOperator_Click);
-            // 
             // tpRole
             // 
             this.tpRole.Controls.Add(this.splitContainer3);
             this.tpRole.Location = new System.Drawing.Point(4, 27);
             this.tpRole.Name = "tpRole";
-            this.tpRole.Size = new System.Drawing.Size(771, 559);
+            this.tpRole.Size = new System.Drawing.Size(987, 559);
             this.tpRole.TabIndex = 3;
             this.tpRole.Text = "Role";
             this.tpRole.UseVisualStyleBackColor = true;
@@ -372,7 +183,7 @@
             // 
             this.splitContainer3.Panel2.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainer3.Panel2.Controls.Add(this.btnSaveRole);
-            this.splitContainer3.Size = new System.Drawing.Size(771, 559);
+            this.splitContainer3.Size = new System.Drawing.Size(987, 559);
             this.splitContainer3.SplitterDistance = 422;
             this.splitContainer3.TabIndex = 0;
             // 
@@ -388,7 +199,7 @@
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(0, 0);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(771, 422);
+            this.dataGridView3.Size = new System.Drawing.Size(987, 422);
             this.dataGridView3.TabIndex = 0;
             // 
             // roleIDDataGridViewTextBoxColumn
@@ -433,7 +244,7 @@
             this.tpFunction.Controls.Add(this.splitContainer4);
             this.tpFunction.Location = new System.Drawing.Point(4, 27);
             this.tpFunction.Name = "tpFunction";
-            this.tpFunction.Size = new System.Drawing.Size(771, 559);
+            this.tpFunction.Size = new System.Drawing.Size(987, 559);
             this.tpFunction.TabIndex = 4;
             this.tpFunction.Text = "Function";
             this.tpFunction.UseVisualStyleBackColor = true;
@@ -453,7 +264,7 @@
             // 
             this.splitContainer4.Panel2.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainer4.Panel2.Controls.Add(this.btnSaveFunctions);
-            this.splitContainer4.Size = new System.Drawing.Size(771, 559);
+            this.splitContainer4.Size = new System.Drawing.Size(987, 559);
             this.splitContainer4.SplitterDistance = 446;
             this.splitContainer4.TabIndex = 0;
             // 
@@ -469,7 +280,7 @@
             this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView4.Location = new System.Drawing.Point(0, 0);
             this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(771, 446);
+            this.dataGridView4.Size = new System.Drawing.Size(987, 446);
             this.dataGridView4.TabIndex = 0;
             // 
             // functionIDDataGridViewTextBoxColumn
@@ -509,6 +320,151 @@
             this.btnSaveFunctions.UseVisualStyleBackColor = true;
             this.btnSaveFunctions.Click += new System.EventHandler(this.button1_Click);
             // 
+            // tpOperator
+            // 
+            this.tpOperator.Controls.Add(this.splitContainer2);
+            this.tpOperator.Location = new System.Drawing.Point(4, 27);
+            this.tpOperator.Name = "tpOperator";
+            this.tpOperator.Size = new System.Drawing.Size(987, 559);
+            this.tpOperator.TabIndex = 2;
+            this.tpOperator.Text = "Operator";
+            this.tpOperator.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.dataGridView2);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer2.Panel2.Controls.Add(this.btnSaveOperator);
+            this.splitContainer2.Panel2.Controls.Add(this.btnFind);
+            this.splitContainer2.Size = new System.Drawing.Size(987, 559);
+            this.splitContainer2.SplitterDistance = 447;
+            this.splitContainer2.TabIndex = 0;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.operatorIDDataGridViewTextBoxColumn,
+            this.FirstName,
+            this.LastName,
+            this.genericDataGridViewCheckBoxColumn,
+            this.PIN,
+            this.activeDataGridViewCheckBoxColumn});
+            this.dataGridView2.DataSource = this.bsOperator;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(987, 447);
+            this.dataGridView2.TabIndex = 0;
+            this.dataGridView2.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView2_DefaultValuesNeeded);
+            // 
+            // bsOperator
+            // 
+            this.bsOperator.DataMember = "Operator";
+            this.bsOperator.DataSource = this.dsAdmin;
+            // 
+            // btnSaveOperator
+            // 
+            this.btnSaveOperator.Location = new System.Drawing.Point(26, 32);
+            this.btnSaveOperator.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSaveOperator.Name = "btnSaveOperator";
+            this.btnSaveOperator.Size = new System.Drawing.Size(112, 32);
+            this.btnSaveOperator.TabIndex = 3;
+            this.btnSaveOperator.Text = "Save";
+            this.btnSaveOperator.UseVisualStyleBackColor = true;
+            this.btnSaveOperator.Click += new System.EventHandler(this.btnSaveOperator_Click);
+            // 
+            // tpList
+            // 
+            this.tpList.Controls.Add(this.dataGridView1);
+            this.tpList.Location = new System.Drawing.Point(4, 27);
+            this.tpList.Margin = new System.Windows.Forms.Padding(4);
+            this.tpList.Name = "tpList";
+            this.tpList.Padding = new System.Windows.Forms.Padding(4);
+            this.tpList.Size = new System.Drawing.Size(987, 559);
+            this.tpList.TabIndex = 0;
+            this.tpList.Text = "List";
+            this.tpList.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.usernameDataGridViewTextBoxColumn,
+            this.roleDataGridViewTextBoxColumn,
+            this.WBOFunction});
+            this.dataGridView1.DataSource = this.bsOperatorRolesDetailed;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(979, 551);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
+            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
+            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.usernameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // roleDataGridViewTextBoxColumn
+            // 
+            this.roleDataGridViewTextBoxColumn.DataPropertyName = "Role";
+            this.roleDataGridViewTextBoxColumn.HeaderText = "Role";
+            this.roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
+            this.roleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.roleDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // WBOFunction
+            // 
+            this.WBOFunction.DataPropertyName = "WBOFunction";
+            this.WBOFunction.HeaderText = "WBOFunction";
+            this.WBOFunction.Name = "WBOFunction";
+            this.WBOFunction.ReadOnly = true;
+            this.WBOFunction.Width = 300;
+            // 
+            // tpDetails
+            // 
+            this.tpDetails.Controls.Add(this.reportViewer1);
+            this.tpDetails.Location = new System.Drawing.Point(4, 27);
+            this.tpDetails.Margin = new System.Windows.Forms.Padding(4);
+            this.tpDetails.Name = "tpDetails";
+            this.tpDetails.Padding = new System.Windows.Forms.Padding(4);
+            this.tpDetails.Size = new System.Drawing.Size(987, 559);
+            this.tpDetails.TabIndex = 1;
+            this.tpDetails.Text = "Details";
+            this.tpDetails.UseVisualStyleBackColor = true;
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource2.Name = "ReportDataSet";
+            reportDataSource2.Value = this.bsOperatorRolesDetailed;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "QWS_Local.OperatorRolesDetailed.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(4, 4);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(979, 551);
+            this.reportViewer1.TabIndex = 0;
+            // 
             // tpOperatorConfig
             // 
             this.tpOperatorConfig.Controls.Add(this.btnSaveRoleFunctions);
@@ -517,7 +473,7 @@
             this.tpOperatorConfig.Controls.Add(this.dataGridView5);
             this.tpOperatorConfig.Location = new System.Drawing.Point(4, 27);
             this.tpOperatorConfig.Name = "tpOperatorConfig";
-            this.tpOperatorConfig.Size = new System.Drawing.Size(771, 559);
+            this.tpOperatorConfig.Size = new System.Drawing.Size(987, 559);
             this.tpOperatorConfig.TabIndex = 5;
             this.tpOperatorConfig.Text = "Operator Config";
             this.tpOperatorConfig.UseVisualStyleBackColor = true;
@@ -633,6 +589,43 @@
             // 
             this.taRoleFunctions.ClearBeforeFill = true;
             // 
+            // operatorIDDataGridViewTextBoxColumn
+            // 
+            this.operatorIDDataGridViewTextBoxColumn.DataPropertyName = "OperatorID";
+            this.operatorIDDataGridViewTextBoxColumn.HeaderText = "OperatorID";
+            this.operatorIDDataGridViewTextBoxColumn.Name = "operatorIDDataGridViewTextBoxColumn";
+            this.operatorIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "FirstName";
+            this.FirstName.Name = "FirstName";
+            // 
+            // LastName
+            // 
+            this.LastName.DataPropertyName = "LastName";
+            this.LastName.HeaderText = "LastName";
+            this.LastName.Name = "LastName";
+            // 
+            // genericDataGridViewCheckBoxColumn
+            // 
+            this.genericDataGridViewCheckBoxColumn.DataPropertyName = "Generic";
+            this.genericDataGridViewCheckBoxColumn.HeaderText = "Generic";
+            this.genericDataGridViewCheckBoxColumn.Name = "genericDataGridViewCheckBoxColumn";
+            // 
+            // PIN
+            // 
+            this.PIN.DataPropertyName = "PIN";
+            this.PIN.HeaderText = "PIN";
+            this.PIN.Name = "PIN";
+            // 
+            // activeDataGridViewCheckBoxColumn
+            // 
+            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
+            this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
+            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
+            // 
             // OperatorRoles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -647,16 +640,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsOperatorRolesDetailed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.tpList.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tpDetails.ResumeLayout(false);
-            this.tpOperator.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsOperator)).EndInit();
             this.tpRole.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
@@ -671,6 +654,16 @@
             this.splitContainer4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFunctions)).EndInit();
+            this.tpOperator.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsOperator)).EndInit();
+            this.tpList.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tpDetails.ResumeLayout(false);
             this.tpOperatorConfig.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsRoleFunctions)).EndInit();
@@ -735,7 +728,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn operatorIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn domainDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn genericDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PIN;
         private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;

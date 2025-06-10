@@ -36,6 +36,7 @@ namespace QWS_Local
                 ValidUsername = false;
                 MessageBox.Show("Please enter last name.");
             }
+       
             if (ValidUsername == true)
             {
                 myUserName = txtFirstName.Text + "." + txtLastName.Text;

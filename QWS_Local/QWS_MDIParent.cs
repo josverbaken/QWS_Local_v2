@@ -55,6 +55,8 @@ namespace QWS_Local
 
         private void QWS_MDIParent_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsAdmin.Operator' table. You can move, or remove it, as needed.
+            this.taOperator.Fill(this.dsAdmin.Operator);
             bool OK2Continue = true;
 
             string msg = ""; // "QWS Local - ";
@@ -117,35 +119,39 @@ namespace QWS_Local
         {
             try
             {
-                int iOperator = CheckUser(ComputerUsername, "Windows");
-                if (iOperator > 0)
+                int iCount = taOperator.FillBy(dsAdmin.Operator, ComputerUsername);
+                if (iCount == 1)
                 {
-                    myUserName = ComputerUsername;
-                    CheckIfAdmin(iOperator);
-                    tspUserName.Text = "WBO = " + myUserName;
-                    tspSignInOut.Visible = false;
-                }
-                else
-                {
-                    GenericLogin frmGenericLogin = new GenericLogin();
-                    DialogResult dr = frmGenericLogin.ShowDialog();
-                    if (dr == DialogResult.OK)
+                    dsAdmin.OperatorRow row = (dsAdmin.OperatorRow)dsAdmin.Operator.Rows[0];
+                    if (row.Generic == false) // Windows User
                     {
-                        string myLogin = frmGenericLogin.UserName;
-                        myUserName = myLogin;
-                        int myOperatorID = CheckUser(myUserName, "Generic");
-                        if (myOperatorID > 0)
+                        myUserName = ComputerUsername;
+                        CheckIfAdmin(row.OperatorID);
+                        tspUserName.Text = "WBO = " + myUserName;
+                        tspSignInOut.Visible = false;
+                    }
+                    else // Generic
+                    {
+                        GenericLogin frmGenericLogin = new GenericLogin();
+                        DialogResult dr = frmGenericLogin.ShowDialog();
+                        if (dr == DialogResult.OK)
                         {
-                            CheckIfAdmin(myOperatorID);
-                            tspUserName.Text = "WBO = " + myUserName;
-                            tspSignInOut.Visible = true;
+                            int gCount = taOperator.FillBy(dsAdmin.Operator, ComputerUsername);
+                            if (gCount ==1)
+                            {
+                                myUserName = frmGenericLogin.UserName;
+                                dsAdmin.OperatorRow gRow = (dsAdmin.OperatorRow)dsAdmin.Operator.Rows[0];
+                                CheckIfAdmin(gRow.OperatorID);
+                                tspUserName.Text = "WBO = " + myUserName;
+                                tspSignInOut.Visible = true;
+                            }
+                            else
+                            {
+                                CheckIfAdmin(0);
+                                tspUserName.Text = "WBO = " + myUserName + " ..";
+                            }
                         }
 
-                        else
-                        {
-                            CheckIfAdmin(0);
-                            tspUserName.Text = "WBO = " + myUserName + " unallocated!";
-                        }
                     }
                 }
             }
@@ -153,24 +159,6 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message, "GetUserName Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private int CheckUser(string ComputerUsername, string UserType)
-        {
-            SqlConnection sqlConnection = new SqlConnection();
-            myConnectionString = Properties.Settings.Default.cnQWSLocal;
-            sqlConnection = new SqlConnection(myConnectionString);
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = sqlConnection;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "CheckUser";
-            cmd.Parameters.AddWithValue("@ComputerUsername", ComputerUsername);
-            cmd.Parameters.AddWithValue("UserType", UserType);
-            // TODO add Windows vs Generic
-            cmd.Connection.Open();
-            int iOperator = (int)Convert.ToInt64(cmd.ExecuteScalar());
-            cmd.Connection.Close();
-            return iOperator;
         }
 
         private void CheckIfAdmin(int myOperatorID)
@@ -415,6 +403,14 @@ namespace QWS_Local
         private void tspSignInOut_Click(object sender, EventArgs e)
         {
             MessageBox.Show("TODO allow sign out if using generic Windows account.");
+        }
+
+        private void operatorBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.bsOperator.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.dsAdmin);
+
         }
     }
 }
