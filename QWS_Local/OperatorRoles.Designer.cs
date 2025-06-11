@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.bsOperatorRolesDetailed = new System.Windows.Forms.BindingSource(this.components);
             this.dsAdmin = new QWS_Local.dsAdmin();
             this.btnFind = new System.Windows.Forms.Button();
@@ -81,6 +81,7 @@
             this.operatorRolesTableAdapter = new QWS_Local.dsAdminTableAdapters.OperatorRolesTableAdapter();
             this.taRoleFunctions = new QWS_Local.dsAdminTableAdapters.RoleFunctionsTableAdapter();
             this.operatorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Domain = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genericDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -356,6 +357,7 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.operatorIDDataGridViewTextBoxColumn,
+            this.Domain,
             this.FirstName,
             this.LastName,
             this.genericDataGridViewCheckBoxColumn,
@@ -455,9 +457,9 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource2.Name = "ReportDataSet";
-            reportDataSource2.Value = this.bsOperatorRolesDetailed;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource1.Name = "ReportDataSet";
+            reportDataSource1.Value = this.bsOperatorRolesDetailed;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "QWS_Local.OperatorRolesDetailed.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(4, 4);
             this.reportViewer1.Name = "reportViewer1";
@@ -596,6 +598,13 @@
             this.operatorIDDataGridViewTextBoxColumn.Name = "operatorIDDataGridViewTextBoxColumn";
             this.operatorIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // Domain
+            // 
+            this.Domain.DataPropertyName = "Domain";
+            this.Domain.HeaderText = "Domain";
+            this.Domain.Name = "Domain";
+            this.Domain.Visible = false;
+            // 
             // FirstName
             // 
             this.FirstName.DataPropertyName = "FirstName";
@@ -726,6 +735,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn operatorIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Domain;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewCheckBoxColumn genericDataGridViewCheckBoxColumn;

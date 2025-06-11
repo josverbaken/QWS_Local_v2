@@ -158,6 +158,8 @@ namespace QWS_Local
                 if (dr == DialogResult.OK)
                 {
                     myLoginStatus = "G";
+                    menuitemMenu.Enabled = true;
+                    menuitemQuality.Enabled = true;
                     myUserName = frmGenericLogin.UserName;
                     int gCount = taOperator.FillBy(dsAdmin.Operator, myUserName);
                     if (gCount == 1)
@@ -170,6 +172,7 @@ namespace QWS_Local
                     else
                     {
                         CheckIfAdmin(0);
+                        menuitemQuality.Enabled = false;
                         tspUserName.Text = "WBO = " + myUserName + " ..";
                     }
                 }
@@ -272,7 +275,14 @@ namespace QWS_Local
 
         private void printDocketToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PrintDocket();
+            if (LoginStatus == "O")
+            {
+                MessageBox.Show("Please login!");
+            }
+            else
+            {
+                PrintDocket();
+            }
         }
 
         public void PrintDocket()
@@ -439,6 +449,7 @@ namespace QWS_Local
                 case "G":
                     myLoginStatus = "O";
                     tspUserName.Text = "logged out"; // not showing
+                    menuitemMenu.Enabled = false;
                     break;
                 case "O":
                     GenericUserLogin();

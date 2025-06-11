@@ -137,7 +137,19 @@ namespace QWS_Local
 
         private void dataGridView2_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
-            e.Row.Cells[0].Value = "tba";
+            try
+            {
+                e.Row.Cells[0].Value = -9; // "tba";
+                e.Row.Cells[1].Value = "na";
+                e.Row.Cells[4].Value = true;
+                e.Row.Cells[5].Value = 0;
+                e.Row.Cells[6].Value =true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Operator Data ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
         }
     }
     

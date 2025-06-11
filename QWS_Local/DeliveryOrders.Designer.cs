@@ -45,6 +45,8 @@ namespace QWS_Local
             System.Windows.Forms.Label projectLabel;
             System.Windows.Forms.Label commentLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnImportedOrders = new System.Windows.Forms.Button();
+            this.btnGetExBinOrders = new System.Windows.Forms.Button();
             this.gbOderDate = new System.Windows.Forms.GroupBox();
             this.rbClearDate = new System.Windows.Forms.RadioButton();
             this.rbFuture = new System.Windows.Forms.RadioButton();
@@ -90,8 +92,6 @@ namespace QWS_Local
             this.deliveryOrdersAllTableAdapter1 = new QWS_Local.dsBookInTableAdapters.DeliveryOrdersAllTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsBookInTableAdapters.TableAdapterManager();
             this.taQuarryOrders = new QWS_Local.dsBookInTableAdapters.QuarryOrdersTableAdapter();
-            this.btnGetExBinOrders = new System.Windows.Forms.Button();
-            this.btnImportedOrders = new System.Windows.Forms.Button();
             docNumLabel = new System.Windows.Forms.Label();
             materialLabel = new System.Windows.Forms.Label();
             quantityLabel = new System.Windows.Forms.Label();
@@ -266,6 +266,26 @@ namespace QWS_Local
             this.splitContainer1.Size = new System.Drawing.Size(1067, 554);
             this.splitContainer1.SplitterDistance = 200;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // btnImportedOrders
+            // 
+            this.btnImportedOrders.Location = new System.Drawing.Point(25, 466);
+            this.btnImportedOrders.Name = "btnImportedOrders";
+            this.btnImportedOrders.Size = new System.Drawing.Size(136, 47);
+            this.btnImportedOrders.TabIndex = 5;
+            this.btnImportedOrders.Text = "Imported";
+            this.btnImportedOrders.UseVisualStyleBackColor = true;
+            this.btnImportedOrders.Click += new System.EventHandler(this.btnImportedOrders_Click);
+            // 
+            // btnGetExBinOrders
+            // 
+            this.btnGetExBinOrders.Location = new System.Drawing.Point(25, 413);
+            this.btnGetExBinOrders.Name = "btnGetExBinOrders";
+            this.btnGetExBinOrders.Size = new System.Drawing.Size(136, 47);
+            this.btnGetExBinOrders.TabIndex = 4;
+            this.btnGetExBinOrders.Text = "ExBin";
+            this.btnGetExBinOrders.UseVisualStyleBackColor = true;
+            this.btnGetExBinOrders.Click += new System.EventHandler(this.btnGetExBinOrders_Click);
             // 
             // gbOderDate
             // 
@@ -693,26 +713,6 @@ namespace QWS_Local
             // 
             this.taQuarryOrders.ClearBeforeFill = true;
             // 
-            // btnGetExBinOrders
-            // 
-            this.btnGetExBinOrders.Location = new System.Drawing.Point(25, 413);
-            this.btnGetExBinOrders.Name = "btnGetExBinOrders";
-            this.btnGetExBinOrders.Size = new System.Drawing.Size(136, 47);
-            this.btnGetExBinOrders.TabIndex = 4;
-            this.btnGetExBinOrders.Text = "ExBin";
-            this.btnGetExBinOrders.UseVisualStyleBackColor = true;
-            this.btnGetExBinOrders.Click += new System.EventHandler(this.btnGetExBinOrders_Click);
-            // 
-            // btnImportedOrders
-            // 
-            this.btnImportedOrders.Location = new System.Drawing.Point(25, 466);
-            this.btnImportedOrders.Name = "btnImportedOrders";
-            this.btnImportedOrders.Size = new System.Drawing.Size(136, 47);
-            this.btnImportedOrders.TabIndex = 5;
-            this.btnImportedOrders.Text = "Imported";
-            this.btnImportedOrders.UseVisualStyleBackColor = true;
-            this.btnImportedOrders.Click += new System.EventHandler(this.btnImportedOrders_Click);
-            // 
             // DeliveryOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -722,7 +722,7 @@ namespace QWS_Local
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DeliveryOrders";
-            this.Text = "Open Delivery Orders";
+            this.Text = "Open Orders";
             this.Load += new System.EventHandler(this.DeliveryOrders_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

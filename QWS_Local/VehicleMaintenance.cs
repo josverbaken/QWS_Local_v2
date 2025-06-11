@@ -115,6 +115,8 @@ namespace QWS_Local
                             if (dr1 == DialogResult.OK)
                             {
                                 iRows = this.taVehicle.FillBy(dsQWSLocal2024.Vehicle, vehicleSearch.Rego);
+                                // TODO would be nicer to get row from VehicleSearch rather than do second search
+                                // TODO use import row, currently works because USP handles exact match on Rego
                                 iRows += 2;
                                 VehicleFound();
                             }

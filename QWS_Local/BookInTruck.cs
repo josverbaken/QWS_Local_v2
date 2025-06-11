@@ -133,6 +133,7 @@ namespace QWS_Local
                     else
                     {
                         UpdateOwnerGUI();
+                        TIQID = NewTIQ(TIQType.EnterRego, 0, "tba");
                         dataGridView1.ClearSelection();
                         DGVLoaded = true;
                     }
@@ -462,9 +463,17 @@ namespace QWS_Local
             dsTIQ2.TIQRow myTIQ = CurrentTIQ();
             dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
             dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
+            if (myTruckDriver != null)
+            {
+                myTIQ.DriverID = myTruckDriver.CntctCode;
+                myTIQ.Driver = myTruckDriver.Person;
+            }
+            else
+            {
+                myTIQ.DriverID = 0;
+                myTIQ.Driver = "tba";
+            }
             myTIQ.Operator = myWBO;//myUsername;
-            myTIQ.DriverID = myTruckDriver.CntctCode;
-            myTIQ.Driver = myTruckDriver.Person;
             myTIQ.AllocateDTTM = DateTime.Now;
             myTIQ.Rego = myConfigTruck.RegoTk;
             myTIQ.RegoTr1 = myConfigTruck.RegoTr1;
@@ -849,7 +858,8 @@ namespace QWS_Local
     
         private void ProceedAfterRegoSelection()
         {
-            TIQID = NewTIQ(TIQType.EnterRego, 0, CurrentConfigTruck().VehicleType);
+            //TIQID = NewTIQ(TIQType.EnterRego, 0, CurrentConfigTruck().VehicleType);
+            UpdateTIQ(TIQType.EnterRego, CurrentConfigTruck().VehicleType);
             CheckConfigOK2Proceed();
         }
 
@@ -864,7 +874,7 @@ namespace QWS_Local
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            if (DGVLoaded == true && bsTIQ.Count == 0) // TIQ created on initialise when called with trailer config and parent tiq
+            if (DGVLoaded == true) // && bsTIQ.Count == 0) // TIQ created on initialise when called with trailer config and parent tiq
             {
                         ProceedAfterRegoSelection();
             }

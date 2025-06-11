@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tIQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pBSMaintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuitemMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.axleConfigurationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.feeCodesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,7 +41,7 @@
             this.vehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pBSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trucktrailerConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.qualityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuitemQuality = new System.Windows.Forms.ToolStripMenuItem();
             this.lotNumbersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deliveryOrdersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +59,6 @@
             this.bsOperator = new System.Windows.Forms.BindingSource(this.components);
             this.taOperator = new QWS_Local.dsAdminTableAdapters.OperatorTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsAdminTableAdapters.TableAdapterManager();
-            this.tspInfo = new System.Windows.Forms.ToolStripTextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsOperator)).BeginInit();
@@ -70,15 +69,14 @@
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tIQToolStripMenuItem,
-            this.pBSMaintenanceToolStripMenuItem,
+            this.menuitemMenu,
             this.printDocketToolStripMenuItem,
             this.windowsToolStripMenuItem,
             this.helloToolStripMenuItem,
             this.toolStripTextBox1,
             this.tspSite,
             this.tspUserName,
-            this.tspSignInOut,
-            this.tspInfo});
+            this.tspSignInOut});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MdiWindowListItem = this.windowsToolStripMenuItem;
             this.menuStrip1.Name = "menuStrip1";
@@ -93,16 +91,16 @@
             this.tIQToolStripMenuItem.Text = "Home";
             this.tIQToolStripMenuItem.Click += new System.EventHandler(this.tIQToolStripMenuItem_Click);
             // 
-            // pBSMaintenanceToolStripMenuItem
+            // menuitemMenu
             // 
-            this.pBSMaintenanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuitemMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adminToolStripMenuItem,
             this.maintainToolStripMenuItem,
-            this.qualityToolStripMenuItem,
+            this.menuitemQuality,
             this.salesToolStripMenuItem});
-            this.pBSMaintenanceToolStripMenuItem.Name = "pBSMaintenanceToolStripMenuItem";
-            this.pBSMaintenanceToolStripMenuItem.Size = new System.Drawing.Size(58, 27);
-            this.pBSMaintenanceToolStripMenuItem.Text = "Menu";
+            this.menuitemMenu.Name = "menuitemMenu";
+            this.menuitemMenu.Size = new System.Drawing.Size(58, 27);
+            this.menuitemMenu.Text = "Menu";
             // 
             // adminToolStripMenuItem
             // 
@@ -112,7 +110,7 @@
             this.nHVRGVMToolStripMenuItem,
             this.operatorRolesToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.adminToolStripMenuItem.Text = "Admin";
             // 
             // axleConfigurationToolStripMenuItem1
@@ -150,7 +148,7 @@
             this.pBSToolStripMenuItem,
             this.trucktrailerConfigToolStripMenuItem});
             this.maintainToolStripMenuItem.Name = "maintainToolStripMenuItem";
-            this.maintainToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.maintainToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.maintainToolStripMenuItem.Text = "Maintain";
             // 
             // vehiclesToolStripMenuItem
@@ -174,18 +172,18 @@
             this.trucktrailerConfigToolStripMenuItem.Text = "Truck/trailer Config";
             this.trucktrailerConfigToolStripMenuItem.Click += new System.EventHandler(this.trucktrailerConfigToolStripMenuItem_Click);
             // 
-            // qualityToolStripMenuItem
+            // menuitemQuality
             // 
-            this.qualityToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuitemQuality.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lotNumbersToolStripMenuItem});
-            this.qualityToolStripMenuItem.Name = "qualityToolStripMenuItem";
-            this.qualityToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
-            this.qualityToolStripMenuItem.Text = "Quality";
+            this.menuitemQuality.Name = "menuitemQuality";
+            this.menuitemQuality.Size = new System.Drawing.Size(180, 24);
+            this.menuitemQuality.Text = "Quality";
             // 
             // lotNumbersToolStripMenuItem
             // 
             this.lotNumbersToolStripMenuItem.Name = "lotNumbersToolStripMenuItem";
-            this.lotNumbersToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
+            this.lotNumbersToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.lotNumbersToolStripMenuItem.Text = "Lot Numbers";
             this.lotNumbersToolStripMenuItem.Click += new System.EventHandler(this.lotNumbersToolStripMenuItem_Click);
             // 
@@ -194,7 +192,7 @@
             this.salesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deliveryOrdersToolStripMenuItem1});
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.salesToolStripMenuItem.Text = "Sales";
             // 
             // deliveryOrdersToolStripMenuItem1
@@ -301,11 +299,6 @@
             this.tableAdapterManager.RoleTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsAdminTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // tspInfo
-            // 
-            this.tspInfo.Name = "tspInfo";
-            this.tspInfo.Size = new System.Drawing.Size(100, 27);
-            // 
             // QWS_MDIParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -333,7 +326,7 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem pBSMaintenanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuitemMenu;
         private System.Windows.Forms.ToolStripMenuItem windowsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tIQToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeAllToolStripMenuItem;
@@ -349,7 +342,7 @@
         private System.Windows.Forms.ToolStripMenuItem vehiclesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pBSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trucktrailerConfigToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem qualityToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuitemQuality;
         private System.Windows.Forms.ToolStripMenuItem salesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lotNumbersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deliveryOrdersToolStripMenuItem1;
@@ -362,6 +355,5 @@
         private System.Windows.Forms.BindingSource bsOperator;
         private dsAdminTableAdapters.OperatorTableAdapter taOperator;
         private dsAdminTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.ToolStripTextBox tspInfo;
     }
 }
