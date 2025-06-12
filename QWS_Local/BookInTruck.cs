@@ -25,6 +25,7 @@ namespace QWS_Local
         private string myUserName;
         private static string myWBO = "Barney.Rubble";
         private static int mySiteID;
+        private dsTIQ2.TIQRow _TIQRow;
 
 
         private enum TIQType
@@ -65,23 +66,32 @@ namespace QWS_Local
         }
 
         // Resume in progress TIQ
-        public BookInTruck(int myTIQID, string Rego, int TruckConfigID, int myDriverID, bool Resume)
+        public BookInTruck(dsTIQ2.TIQRow TIQRow, bool Resume)
         {
             InitializeComponent();
             CallingMessage = "";
-            txtTruckRego.Text = Rego;
-            TIQID = myTIQID; //Do first before calling FindTruckConfig
-            TIQGet(myTIQID);
-            FindTruckConfig(Rego, Resume);
-            SelectTruckConfig(TruckConfigID);
-            if (myDriverID > 0)
-            {
-                GetTruckDriver(myDriverID);
+            _TIQRow = TIQRow;
+            dsTIQ2.TIQ.Clear();
+            dsTIQ2.TIQ.ImportRow(TIQRow);
+            txtTruckRego.Text = _TIQRow.Rego;
+
+            if (_TIQRow.Rego.Length > 0)
+            { 
+            FindTruckConfig(_TIQRow.Rego, Resume);
+            SelectTruckConfig(_TIQRow.TruckConfigID);
+                if (_TIQRow.DriverID > 0)
+                {
+                GetTruckDriver(_TIQRow.DriverID);
+                }
+                // TODO find why it is disabled
+                if (btnGetDriver.Enabled == false)
+                {
+                    btnGetDriver.Enabled = true;
+                }
             }
-            // TODO find why it is disabled
-            if (btnGetDriver.Enabled ==  false)
+            else
             {
-                btnGetDriver.Enabled = true;
+                MessageBox.Show("Resume booking in failed!");
             }
         }
 
@@ -133,7 +143,12 @@ namespace QWS_Local
                     else
                     {
                         UpdateOwnerGUI();
-                        TIQID = NewTIQ(TIQType.EnterRego, 0, "tba");
+                        //TIQID = NewTIQ(TIQType.EnterRego, 0, "tba"); // TODO don't want new row on resume!@#
+                        // TODO on resume highlight previously selected configuration
+                        string msg = "TIQ Row was passed with Rego = ";
+                        msg += _TIQRow.Rego + " TruckconfigID = ";
+                        msg += _TIQRow.TruckConfigID.ToString();
+                        MessageBox.Show(msg);
                         dataGridView1.ClearSelection();
                         DGVLoaded = true;
                     }
@@ -490,6 +505,11 @@ namespace QWS_Local
             myTIQ.AgrLine = 0;
             switch (myTIQType)
             {
+                case TIQType.EnterRego:
+                    myTIQ.QueueStatus = "P";
+                    myTIQ.Material = "Truck Rego";
+                    myTIQ.MaterialDesc = "Book in started";
+                    break;
                 case TIQType.Retare:
                     myTIQ.QueueStatus = "T";
                     myTIQ.Material = "Retare";
@@ -628,12 +648,14 @@ namespace QWS_Local
 
         private void BookInMaterial()
         {
-            if (TIQID > 0)
+            // TODO continue working with passed in row so count should only = 1
+            if (_TIQRow.TIQID > 0)
             {
-                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
-                UpdateTIQ(BookInTIQType, myTIQRow.TruckConfig);
-                BookInMaterial frmExBin = new BookInMaterial(TIQID,mySiteID, BookInTIQType.ToString(), CurrentConfigTruck().TruckConfigID, CustCardCode, ExBinCustomer, IsPrefCust, CurrentTruckDriver());
-                TIQID = 0;
+                //dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+                UpdateTIQ(BookInTIQType, _TIQRow.TruckConfig);
+                // TODO pass in TIQRow _TIQRow
+                BookInMaterial frmExBin = new BookInMaterial(_TIQRow, BookInTIQType.ToString(), IsPrefCust, CurrentTruckDriver());
+                //TIQID = 0; // does nothing anyway! because form gets closed in this block
                 frmExBin.MdiParent = this.MdiParent;
                 frmExBin.Show();
                 this.Close();
@@ -751,7 +773,7 @@ namespace QWS_Local
                     sqlConnection.Open();
                     iTIQID = System.Convert.ToInt32(cmd.ExecuteScalar());
                     sqlConnection.Close();
-                    TIQGet(iTIQID);
+                    TIQGet(mySiteID, iTIQID);
                     return iTIQID;
                 }
                 else
@@ -766,16 +788,18 @@ namespace QWS_Local
             }
         }
 
-        private void TIQGet(int iTIQID)
+        private int TIQGet(int mySiteID, int myTIQID)
         {
             try
             {
                 dsTIQ2.Clear();
-                int iRow = taTIQ.FillBy(dsTIQ2.TIQ, mySiteID, iTIQID); // 1 row only!
+                int iRow = taTIQ.FillBy(dsTIQ2.TIQ, mySiteID, myTIQID); // 1 row only!
+                return iRow;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                return -9;
             }
         }
 
@@ -858,7 +882,6 @@ namespace QWS_Local
     
         private void ProceedAfterRegoSelection()
         {
-            //TIQID = NewTIQ(TIQType.EnterRego, 0, CurrentConfigTruck().VehicleType);
             UpdateTIQ(TIQType.EnterRego, CurrentConfigTruck().VehicleType);
             CheckConfigOK2Proceed();
         }

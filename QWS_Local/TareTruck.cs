@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 
-
 namespace QWS_Local
 {
     public partial class TareTruck : Form
@@ -53,20 +52,6 @@ namespace QWS_Local
             dsTIQ2.TIQ.ImportRow(TIQRow);
         }
 
-        //private dsTruckConfig.ConfiguredTrucksRow CurrentConfigTruck()
-        //{
-        //    if (bsConfiguredTrucks.Count > 0)
-        //    {
-        //        DataRow myRow = ((DataRowView)bsConfiguredTrucks.Current).Row;
-        //        dsTruckConfig.ConfiguredTrucksRow configuredTruckRow = (dsTruckConfig.ConfiguredTrucksRow)myRow;
-        //        return configuredTruckRow;
-        //    }
-        //    else
-        //    {
-        //        return null;
-        //    }
-        //}
-
         private dsTIQ2.TIQRow CurrentTIQ()
         {
             if (bsTIQ.Count > 0)
@@ -80,7 +65,6 @@ namespace QWS_Local
                 return null;
             }
         }
-
 
         private bool TruckConfigTare(int TruckConfigID, decimal TareTk, decimal Tare)
         {

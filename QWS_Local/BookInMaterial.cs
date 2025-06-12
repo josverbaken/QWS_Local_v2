@@ -20,7 +20,8 @@ namespace QWS_Local
         private int TIQID;
         private string CardCode;
         private string CustomerName;
-        private dsQWSLocal2024.TruckDriverRow DriverRow;
+        private dsQWSLocal2024.TruckDriverRow _DriverRow;
+        private dsTIQ2.TIQRow _TIQRow;
         private int mySiteID;
 
         private enum TIQType // N.B. these match variables in SQL usp QuarryOrders
@@ -38,41 +39,50 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public BookInMaterial(int myTIQID,int SiteID, string myTIQType,int myTruckConfigID, string myCardCode, string myCustomerName, bool myIsPrefCust , dsQWSLocal2024.TruckDriverRow driverRow)
+        public BookInMaterial(dsTIQ2.TIQRow TIQRow , string myTIQType, bool myIsPrefCust , dsQWSLocal2024.TruckDriverRow driverRow)
         {
-            mySiteID = SiteID;
-            InitializeComponent();
-            TIQID = myTIQID;
-            TruckConfigID = myTruckConfigID;
-            CardCode = myCardCode;
-            CustomerName = myCustomerName;
-            IsPrefCust = myIsPrefCust;
-            DriverRow = driverRow;
-            int ImportedGrpCode = Properties.Settings.Default.ImportedGrpCode;
-            int ImportedPickUpGrpCode = Properties.Settings.Default.ImportedPickUpGrpCode;
-            string ImportGrpCod = ImportedGrpCode.ToString();
-            string ImportPUGrpCod = ImportedPickUpGrpCode.ToString();   
-            switch (myTIQType) 
+            try
             {
-                case "Delivery":
-                    this.Text = "Book In Delivery";
-                    FormTIQType = TIQType.Delivery;
-                    break;
-                case "ExBin":
-                    this.Text = "Book In ExBin";
-                    FormTIQType = TIQType.ExBin;
-                    break;
-                case "Imported":
-                    this.Text = "Book In Imported";
-                    FormTIQType = TIQType.Imported;
-                    break;
-                case "ImportedPickUp":
-                    this.Text = "Book In Imported PickUp";
-                    FormTIQType = TIQType.ImportedPickUp;
-                    break;
-                default:
+                InitializeComponent();
+                TIQID = TIQRow.TIQID;
+                dsTIQ2.TIQ.Clear();
+                dsTIQ2.TIQ.ImportRow(TIQRow);
+                dsQWSLocal2024.TruckDriver.Clear();
+                dsQWSLocal2024.TruckDriver.ImportRow(driverRow);
+                TruckConfigID = TIQRow.TruckConfigID;
+                CardCode = TIQRow.CustomerCode;
+                CustomerName = TIQRow.Customer;
+                IsPrefCust = myIsPrefCust;
+                int ImportedGrpCode = Properties.Settings.Default.ImportedGrpCode;
+                int ImportedPickUpGrpCode = Properties.Settings.Default.ImportedPickUpGrpCode;
+                string ImportGrpCod = ImportedGrpCode.ToString();
+                string ImportPUGrpCod = ImportedPickUpGrpCode.ToString();   
+                switch (myTIQType) 
+                {
+                    case "Delivery":
+                        this.Text = "Book In Delivery";
+                        FormTIQType = TIQType.Delivery;
+                        break;
+                    case "ExBin":
+                        this.Text = "Book In ExBin";
+                        FormTIQType = TIQType.ExBin;
+                        break;
+                    case "Imported":
+                        this.Text = "Book In Imported";
+                        FormTIQType = TIQType.Imported;
+                        break;
+                    case "ImportedPickUp":
+                        this.Text = "Book In Imported PickUp";
+                        FormTIQType = TIQType.ImportedPickUp;
+                        break;
+                    default:
                     
-                    break;
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -101,9 +111,7 @@ namespace QWS_Local
 
         private void BookInMaterial_Load(object sender, EventArgs e)
         {
-            LoadTIQ();
             LoadConfiguredTruckGVM(TruckConfigID);
-            LoadDriver();
             QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
             SetExBinNoOrderCustomer();
             FormLoaded = true;
@@ -112,25 +120,6 @@ namespace QWS_Local
             {
                 //tpExBinNoOrder.Hide(); // known not to work, must remove
                 tabControl2.TabPages.Remove(tpExBinNoOrder);
-            }
-        }
-
-        private void LoadTIQ()
-        {
-            try
-            {
-                dsTIQ2.Clear();
-            int iRow = taTIQ2.FillBy(dsTIQ2.TIQ, mySiteID, TIQID);
-            if (iRow != 1)
-            {
-                MessageBox.Show("Error loading TIQ row!","Form BookInExBin LoadTIQ",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
-            dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
-            string myDriver = myTIQRow.Driver;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "LoadTIQ Error!");
             }
         }
 
@@ -143,12 +132,6 @@ namespace QWS_Local
         private void LoadConfiguredTruckGVM(int myTruckConfigID)
         {
             taConfiguredTruckGVM.Fill(dsTruckConfig.ConfiguredTruckGVM, "", myTruckConfigID);
-        }
-
-        private void LoadDriver()
-        {
-            dsQWSLocal2024.TruckDriver.Clear();
-            dsQWSLocal2024.TruckDriver.ImportRow(DriverRow);
         }
 
         private dsTruckConfig.ConfiguredTruckGVMRow CurrentTruckGVM()
@@ -351,7 +334,10 @@ namespace QWS_Local
 
         private void bsConfiguredTruckGVM_CurrentChanged(object sender, EventArgs e)
         {
-            CalcPayload();
+            if (FormLoaded == true)
+            {
+                CalcPayload();
+            }
         }
 
         private void btnExBinItems_Click(object sender, EventArgs e)
@@ -406,7 +392,7 @@ namespace QWS_Local
         {
             try
             {
-                if (bsTIQ2.Count > 0)
+                if (bsTIQ2.Count ==1)
                 {
                     DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
                     dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;

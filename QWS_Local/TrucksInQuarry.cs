@@ -1008,7 +1008,7 @@ namespace QWS_Local
         {
             try
             {
-                BookInTruck frmBookIn = new BookInTruck(CurrentTIQ().TIQID, CurrentTIQ().Rego, CurrentTIQ().TruckConfigID, CurrentTIQ().DriverID, true);
+                BookInTruck frmBookIn = new BookInTruck(CurrentTIQ(), true);
                 frmBookIn.MdiParent = this.MdiParent;
                 frmBookIn.Show();
             }
