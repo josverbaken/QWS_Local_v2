@@ -133,25 +133,41 @@ namespace QWS_Local
                 dsQWSLocal2024.TruckDriver.Clear();
                 dsTruckConfig.ConfiguredTrucks.Clear();
                 int iCount = taConfiguredTrucks.FillByRego(dsTruckConfig.ConfiguredTrucks, Rego);
-                if (iCount > 0)
+                if (iCount > 0) // Configured Truck found
                 {
                     EntryDTTM = DateTime.Now;
-                    if (IsBookedIn(Rego) == true && Resume == false)
+                    if (IsBookedIn(Rego) == true) // && Resume == false)
                     {
-                        MessageBox.Show("Cannot proceed! \r\nTruck already in queue!", "Already Booked In!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        if (Resume == false)
+                        {
+                            MessageBox.Show("Cannot proceed! \r\nTruck already in queue!", "Already Booked In!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        }
+                        else
+                        {
+                            // Resume == True
+                            UpdateOwnerGUI();
+                            if (_TIQRow != null)
+                            {
+                                string msg = "TIQ Row was passed with Rego = ";
+                                msg += _TIQRow.Rego + " TruckconfigID = ";
+                                msg += _TIQRow.TruckConfigID.ToString();
+                                MessageBox.Show(msg);
+                                dataGridView1.ClearSelection();
+                                DGVLoaded = true;
+                            }
+                        }
                     }
                     else
                     {
-                        UpdateOwnerGUI();
-                        //TIQID = NewTIQ(TIQType.EnterRego, 0, "tba"); // TODO don't want new row on resume!@#
-                        // TODO on resume highlight previously selected configuration
-                        string msg = "TIQ Row was passed with Rego = ";
-                        msg += _TIQRow.Rego + " TruckconfigID = ";
-                        msg += _TIQRow.TruckConfigID.ToString();
-                        MessageBox.Show(msg);
-                        dataGridView1.ClearSelection();
-                        DGVLoaded = true;
-                    }
+                        if (Resume == false)
+                        {
+                            UpdateOwnerGUI();
+                            TIQID = NewTIQ(TIQType.EnterRego, 0, "tba");
+                            // TODO on resume highlight previously selected configuration
+                            dataGridView1.ClearSelection();
+                            DGVLoaded = true;
+                        }
+                    }                    
                 }
                 else
                 {
@@ -214,26 +230,26 @@ namespace QWS_Local
             }
         }
 
-        private dsTIQ2.TIQRow CurrentTIQ()
-        {
-            if (bsTIQ.Count > 0)
-            {
-                DataRow myRow = ((DataRowView)bsTIQ.Current).Row;
-                if (myRow != null)
-                {
-                    dsTIQ2.TIQRow myTIQ = (dsTIQ2.TIQRow)myRow;
-                    return myTIQ;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            else
-            {
-                return null;
-            }
-        }
+        //private dsTIQ2.TIQRow CurrentTIQ()
+        //{
+        //    if (bsTIQ.Count > 0)
+        //    {
+        //        DataRow myRow = ((DataRowView)bsTIQ.Current).Row;
+        //        if (myRow != null)
+        //        {
+        //            dsTIQ2.TIQRow myTIQ = (dsTIQ2.TIQRow)myRow;
+        //            return myTIQ;
+        //        }
+        //        else
+        //        {
+        //            return null;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
 
         private dsTruckConfig.ConfiguredTrucksRow CurrentConfigTruck()
         {
@@ -429,38 +445,39 @@ namespace QWS_Local
         {
             try
             {
-                if (CurrentTIQ() != null)
+                //if (CurrentTIQ() != null)
+                if (_TIQRow != null)
                 {
                     bsTIQ.EndEdit();
                     bsTruckDriver.EndEdit();
 
-                    dsTIQ2.TIQRow myTIQ = CurrentTIQ();
+                    //dsTIQ2.TIQRow myTIQ = CurrentTIQ();
                     dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
                     dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
-                    myTIQ.Operator = myWBO;//myUsername;
-                    myTIQ.DriverID = myTruckDriver.CntctCode;
-                    myTIQ.Driver = myTruckDriver.Person;
-                    myTIQ.AllocateDTTM = DateTime.Now;
-                    myTIQ.Rego = myConfigTruck.RegoTk;
-                    myTIQ.RegoTr1 = myConfigTruck.RegoTr1;
-                    myTIQ.RegoTr2 = myConfigTruck.RegoTr2;
-                    myTIQ.RegoTr3 = myConfigTruck.RegoTr3;
-                    myTIQ.RegoTrailers = myConfigTruck.RegoTrailer;
+                    _TIQRow.Operator = myWBO;//myUsername;
+                    _TIQRow.DriverID = myTruckDriver.CntctCode;
+                    _TIQRow.Driver = myTruckDriver.Person;
+                    _TIQRow.AllocateDTTM = DateTime.Now;
+                    _TIQRow.Rego = myConfigTruck.RegoTk;
+                    _TIQRow.RegoTr1 = myConfigTruck.RegoTr1;
+                    _TIQRow.RegoTr2 = myConfigTruck.RegoTr2;
+                    _TIQRow.RegoTr3 = myConfigTruck.RegoTr3;
+                    _TIQRow.RegoTrailers = myConfigTruck.RegoTrailer;
                     //myTIQ.TruckConfig = TruckTrailerConfig; //myConfigTruck.VehicleType;
-                    myTIQ.TruckConfigID = myConfigTruck.TruckConfigID;
-                    myTIQ.AxleConfiguration = myConfigTruck.AxleConfiguration;
-                    myTIQ.FeeCode = myConfigTruck.FeeCode;
-                    myTIQ.TruckOwnerCode = myConfigTruck.CardCode;
-                    myTIQ.TruckOwner = myConfigTruck.TruckOwner;
-                    myTIQ.AgrNo = 0;
-                    myTIQ.AgrLine = 0;
+                    _TIQRow.TruckConfigID = myConfigTruck.TruckConfigID;
+                    _TIQRow.AxleConfiguration = myConfigTruck.AxleConfiguration;
+                    _TIQRow.FeeCode = myConfigTruck.FeeCode;
+                    _TIQRow.TruckOwnerCode = myConfigTruck.CardCode;
+                    _TIQRow.TruckOwner = myConfigTruck.TruckOwner;
+                    _TIQRow.AgrNo = 0;
+                    _TIQRow.AgrLine = 0;
 
                     bsTIQ.EndEdit();
                     taTIQ.Update(dsTIQ2.TIQ);
                 }
                 else
                 {
-                    MessageBox.Show("CurrentTIQ is NULL!");
+                    MessageBox.Show("Current TIQ row is NULL!");
                 }
             }
             catch (Exception ex)
@@ -475,7 +492,7 @@ namespace QWS_Local
             bsTIQ.EndEdit();
             bsTruckDriver.EndEdit();
 
-            dsTIQ2.TIQRow myTIQ = CurrentTIQ();
+            dsTIQ2.TIQRow myTIQ = _TIQRow;
             dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
             dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
             if (myTruckDriver != null)
@@ -634,7 +651,7 @@ namespace QWS_Local
 
         private void GoToBookInMaterial()
         {
-                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+            dsTIQ2.TIQRow myTIQRow = _TIQRow; //CurrentTIQ();
                 if (myTIQRow.TruckConfig == "TT")
                 {
                     gbSplitLoad.Enabled = true;
@@ -648,14 +665,12 @@ namespace QWS_Local
 
         private void BookInMaterial()
         {
-            // TODO continue working with passed in row so count should only = 1
             if (_TIQRow.TIQID > 0)
             {
-                //dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+                _TIQRow.CustomerCode = CustCardCode;
+                _TIQRow.Customer = ExBinCustomer;
                 UpdateTIQ(BookInTIQType, _TIQRow.TruckConfig);
-                // TODO pass in TIQRow _TIQRow
                 BookInMaterial frmExBin = new BookInMaterial(_TIQRow, BookInTIQType.ToString(), IsPrefCust, CurrentTruckDriver());
-                //TIQID = 0; // does nothing anyway! because form gets closed in this block
                 frmExBin.MdiParent = this.MdiParent;
                 frmExBin.Show();
                 this.Close();
@@ -672,7 +687,7 @@ namespace QWS_Local
         {
             if (TIQID > 0)
             {
-                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+                dsTIQ2.TIQRow myTIQRow = _TIQRow; // CurrentTIQ();
                 UpdateTIQ(TIQType.Retare, myTIQRow.TruckConfig);
                 TIQID = 0;
                 ((QWS_MDIParent)this.MdiParent).BringTIQ2Front();
@@ -774,7 +789,7 @@ namespace QWS_Local
                     iTIQID = System.Convert.ToInt32(cmd.ExecuteScalar());
                     sqlConnection.Close();
                     TIQGet(mySiteID, iTIQID);
-                    return iTIQID;
+                    return iTIQID;  
                 }
                 else
                 {
@@ -794,7 +809,15 @@ namespace QWS_Local
             {
                 dsTIQ2.Clear();
                 int iRow = taTIQ.FillBy(dsTIQ2.TIQ, mySiteID, myTIQID); // 1 row only!
-                return iRow;
+                if (iRow == 1)
+                {
+                    _TIQRow = (dsTIQ2.TIQRow)dsTIQ2.TIQ.Rows[0];
+                }
+                else
+                {
+                    MessageBox.Show("Error retrieving new TIQ!");
+                }
+                    return iRow;
             }
             catch (Exception ex)
             {
@@ -849,7 +872,8 @@ namespace QWS_Local
             try
             {
                 string msg = "Put on hold, direct to park in holding bay and proceed to office to resolve driver issue.";
-                if (CurrentTIQ() == null)
+                //if (CurrentTIQ() == null)
+                if (_TIQRow == null)
                 {
                     // create record with just rego to capture entry time for KPI
                     NewTIQ(TIQType.ParkUp, 0, "tba");
@@ -914,8 +938,8 @@ namespace QWS_Local
             {
                 // TODO set TIQ.TruckConfig to TKs if first load
                 btnContinue.Enabled = true;
-                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
-                myTIQRow.TruckConfig = "TKs";
+                //dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+                _TIQRow.TruckConfig = "TKs";
                 bsTIQ.EndEdit();
             }
         }
@@ -926,9 +950,9 @@ namespace QWS_Local
             {
                 // TODO set TIQ.TruckConfig to TKx if first load
                 btnContinue.Enabled = true;
-                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
-                myTIQRow.TruckConfig = "TKs";
-                myTIQRow.QueueStatus = "X";
+                //dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+                _TIQRow.TruckConfig = "TKs";
+                _TIQRow.QueueStatus = "X";
                 bsTIQ.EndEdit();
             }
         }
@@ -939,9 +963,9 @@ namespace QWS_Local
             {
                 // TODO set TIQ.TruckConfig to TRx if first load
                 btnContinue.Enabled = true;
-                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
-                myTIQRow.TruckConfig = "TRs";
-                myTIQRow.QueueStatus = "X";
+                //dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+                _TIQRow.TruckConfig = "TRs";
+                _TIQRow.QueueStatus = "X";
                 bsTIQ.EndEdit();
             }
         }

@@ -52,6 +52,7 @@ namespace QWS_Local
                 TruckConfigID = TIQRow.TruckConfigID;
                 CardCode = TIQRow.CustomerCode;
                 CustomerName = TIQRow.Customer;
+                mySiteID = TIQRow.SiteID;
                 IsPrefCust = myIsPrefCust;
                 int ImportedGrpCode = Properties.Settings.Default.ImportedGrpCode;
                 int ImportedPickUpGrpCode = Properties.Settings.Default.ImportedPickUpGrpCode;

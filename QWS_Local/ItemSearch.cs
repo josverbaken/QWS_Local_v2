@@ -66,11 +66,18 @@ namespace QWS_Local
 
         private void AcceptSelect()
         {
-            DataRow dataRow = ((DataRowView)bsItem.Current).Row;
-            dsQWSViews.ItemRow itemRow = (dsQWSViews.ItemRow)dataRow;
-            ItemRow = itemRow;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            try
+            {
+                DataRow dataRow = ((DataRowView)bsItem.Current).Row;
+                dsQWSViews.ItemRow itemRow = (dsQWSViews.ItemRow)dataRow;
+                ItemRow = itemRow;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
