@@ -69,20 +69,6 @@ namespace QWS_Local
             }
         }
 
-        private dsTIQ2.TIQRow CurrentTIQ()
-        {
-            if (bsTIQ2.Count > 0)
-            {
-                DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
-                dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
-                return myTIQRow;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
         private dsTIQ2.SPLotNoAssignRow CurrentSPLotNo()
         {
             if (bsSPLotNo.Count > 0)
@@ -103,7 +89,7 @@ namespace QWS_Local
             try
             {
                 string msg = "";
-                this.taSPLotNo.Fill(this.dsTIQ2.SPLotNoAssign, CurrentTIQ().Material, System.Convert.ToInt32( CurrentTIQ().Nett));
+                this.taSPLotNo.Fill(this.dsTIQ2.SPLotNoAssign, myRow.Material, System.Convert.ToInt32(myRow.Nett));
                 mySPLotNo = CurrentSPLotNo().SPLotNo;
                 if (CurrentSPLotNo().LotStatus == 'M'.ToString())
                 {
@@ -111,7 +97,6 @@ namespace QWS_Local
                 }
                 else
                 {
-                    //msg = "Lot No: " + CurrentSPLotNo().SPLotNo.ToString() + " status: " + CurrentSPLotNo().LotStatus + " remaining tonnes: " + CurrentSPLotNo().TonnesRemaining.ToString();
                     msg = "Lot No: " + CurrentSPLotNo().SPLotNo.ToString() +  " .. Remaining tonnes: " + CurrentSPLotNo().TonnesRemaining.ToString();
                     // TODO extend message to include additional open lots
                 }

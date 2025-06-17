@@ -8,8 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static QWS_Local.dsQWSLocal2024;
-//using Microsoft.Data.SqlClient;
 
 namespace QWS_Local
 {
@@ -473,7 +471,8 @@ namespace QWS_Local
                     _TIQRow.AgrLine = 0;
 
                     bsTIQ.EndEdit();
-                    taTIQ.Update(dsTIQ2.TIQ);
+                    int iRow = taTIQ.Update(dsTIQ2.TIQ);
+                    iRow += 1;
                 }
                 else
                 {
@@ -573,7 +572,8 @@ namespace QWS_Local
                     break;
             }
             bsTIQ.EndEdit();
-            taTIQ.Update(dsTIQ2.TIQ);
+            int iRow = taTIQ.Update(dsTIQ2.TIQ);
+            iRow += 1;
         }
 
         private bool SetExBinCustomer()

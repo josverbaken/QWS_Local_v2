@@ -45,9 +45,10 @@ namespace QWS_Local
             {
                 InitializeComponent();
                 TIQID = TIQRow.TIQID;
+                //_TIQRow = TIQRow;
                 dsTIQ2.TIQ.Clear();
                 dsTIQ2.TIQ.ImportRow(TIQRow);
-                _TIQRow = TIQRow;
+                _TIQRow = (dsTIQ2.TIQRow)dsTIQ2.TIQ.Rows[0]; // bind to dataset
                 dsQWSLocal2024.TruckDriver.Clear();
                 dsQWSLocal2024.TruckDriver.ImportRow(driverRow);
                 _DriverRow = driverRow;
@@ -287,22 +288,24 @@ namespace QWS_Local
         {
             try
             {
-                _TIQRow.AllocateDTTM = DateTime.Now;
-                _TIQRow.SAPOrder = CurrentQuarryOrder().DocNum;
+                dsTIQ2.TIQRow myTIQ = _TIQRow; // don't remove, need for binding!@#
+                myTIQ.AllocateDTTM = DateTime.Now;
+                myTIQ.SAPOrder = CurrentQuarryOrder().DocNum;
                 if (CurrentQuarryOrder().ItemQA == "Y")
                 {
-                    _TIQRow.StockpileLotNo = -9;
+                    myTIQ.StockpileLotNo = -9;
                 }
                 else
                 {
-                    _TIQRow.StockpileLotNo = 0;
+                    myTIQ.StockpileLotNo = 0;
                 }
-                _TIQRow.CustON = CurrentQuarryOrder().PurchaseOrder;
-                _TIQRow.Material = CurrentQuarryOrder().MaterialCode;
-                _TIQRow.MaterialDesc = CurrentQuarryOrder().Material;
-                _TIQRow.DeliveryAddress = "Ex-Bin";
-                _TIQRow.CartageCode = "";
-                _TIQRow.QueueStatus = "Q";
+                myTIQ.CustON = CurrentQuarryOrder().PurchaseOrder;
+                myTIQ.Material = CurrentQuarryOrder().MaterialCode;
+                myTIQ.MaterialDesc = CurrentQuarryOrder().Material;
+                myTIQ.DeliveryAddress = "Ex-Bin";
+                myTIQ.CartageCode = "";
+                myTIQ.QueueStatus = "Q";
+                this.Validate();
                 bsTIQ2.EndEdit();
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 if (iRow == 1)
@@ -365,19 +368,22 @@ namespace QWS_Local
             try
             {
                 dsBookIn.QuarryOrdersRow myOrderRow = CurrentQuarryOrder();
-                _TIQRow.SAPOrder = myOrderRow.DocNum;
-                _TIQRow.CustomerCode = myOrderRow.CardCode;
-                _TIQRow.Customer = myOrderRow.Customer;
-                _TIQRow.CustON = myOrderRow.PurchaseOrder;
-                _TIQRow.Material = myOrderRow.MaterialCode;
-                _TIQRow.MaterialDesc = myOrderRow.Material;
-                _TIQRow.DeliveryAddress = myOrderRow.DeliveryAddress;
+                dsTIQ2.TIQRow myTIQ = _TIQRow;
+                myTIQ.SAPOrder = myOrderRow.DocNum;
+                myTIQ.CustomerCode = myOrderRow.CardCode;
+                myTIQ.Customer = myOrderRow.Customer;
+                myTIQ.CustON = myOrderRow.PurchaseOrder;
+                myTIQ.Material = myOrderRow.MaterialCode;
+                myTIQ.MaterialDesc = myOrderRow.Material;
+                myTIQ.DeliveryAddress = myOrderRow.DeliveryAddress;
                 if (myOrderRow.CartageCode.Length > 0 )
                 {
-                    _TIQRow.CartageCode = myOrderRow.CartageCode; 
+                    myTIQ.CartageCode = myOrderRow.CartageCode; 
                 }
+                this.Validate();            
                 bsTIQ2.EndEdit();
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
+                iRow += 1;
                 tabControl2.SelectedTab = tpTruckconfig;
             }
             catch (Exception ex)
@@ -487,57 +493,62 @@ namespace QWS_Local
             try
             {
                 SetTIQPayload();
-                _TIQRow.AllocateDTTM = DateTime.Now;
-                _TIQRow.CartageCode = "";
+                dsTIQ2.TIQRow myTIQ = _TIQRow;
+                myTIQ.AllocateDTTM = DateTime.Now;
+                myTIQ.CartageCode = "";
                 switch (FormTIQType) // test ExBin or Delivery for Truck or Trailer Only Load
                 {
                     case TIQType.ExBin:
                         if (IsPrefCust == true)
                         {
-                            switch (_TIQRow.TruckConfig)
+                            switch (myTIQ.TruckConfig)
                             {
                                 case "TRs":
                                 case "BDb":
-                                    if (_TIQRow.QueueStatus.Equals("X") == false)
+                                    if (myTIQ.QueueStatus.Equals("X") == false)
                                     {
-                                        _TIQRow.QueueStatus = "S";
+                                        myTIQ.QueueStatus = "S";
                                     }
                                     break;
                             }
                         }
                         else
                         {
-                            _TIQRow.QueueStatus = "U";
+                            myTIQ.QueueStatus = "U";
                         }
                         break;
                     case TIQType.Delivery:
-                        switch (_TIQRow.TruckConfig)
+                        switch (myTIQ.TruckConfig)
                         {
                             case "TRs":
                             case "BDb":
-                                if (_TIQRow.QueueStatus.Equals("X") == false)
+                                if (myTIQ.QueueStatus.Equals("X") == false)
                                 {
-                                    _TIQRow.QueueStatus = "S";
+                                    myTIQ.QueueStatus = "S";
                                 }
                                 break;
                         }
                         break;
                 }
 
-                if (_TIQRow.QueueStatus == "P")
+                if (myTIQ.QueueStatus == "P")
                 {
-                    _TIQRow.QueueStatus = "Q";
+                    myTIQ.QueueStatus = "Q";
                 }
-                                       
+                //this.Validate();
+                //string msg = "Rowstate = ";
+                //msg += _TIQRow.RowState.ToString();
+                //MessageBox.Show(msg); // modified so issue probably with not specifying binding source due to import statement!@#
+
                 bsTIQ2.EndEdit();
-                int iRow = taTIQ2.Update(dsTIQ2.TIQ);
+                int iRow = taTIQ2.Update(dsTIQ2.TIQ); // TK delivery iRow = 0 ??? TODO 20250616
                 if (iRow == 1) // test if split load
                 {
-                    if (_TIQRow.TruckConfig == "TKs" && _TIQRow.QueueStatus != "X") // X = truck only
+                    if (myTIQ.TruckConfig == "TKs" && myTIQ.QueueStatus != "X") // X = truck only
                     {
-                        GoBack2BookIn(_TIQRow.Rego, _TIQRow.TruckConfigID, _TIQRow.DriverID, _TIQRow.TIQID, "TRs");
+                        GoBack2BookIn(myTIQ.Rego, myTIQ.TruckConfigID, myTIQ.DriverID, myTIQ.TIQID, "TRs");
                     }
-                    else if (_TIQRow.TruckConfig == "Bda")
+                    else if (myTIQ.TruckConfig == "Bda")
                     {
                         // TODO handle split load for B-double
                         MessageBox.Show("","Split B-double",MessageBoxButtons.OK,MessageBoxIcon.Information);
