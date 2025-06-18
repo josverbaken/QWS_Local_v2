@@ -34,7 +34,6 @@ namespace QWS_Local
             System.Windows.Forms.Label inductionExpLabel;
             System.Windows.Forms.Label licenseExpLabel;
             System.Windows.Forms.Label licenseTypeLabel;
-            System.Windows.Forms.Label tIQIDLabel;
             this.bsConfiguredTrucks = new System.Windows.Forms.BindingSource(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.txtTruckRego = new System.Windows.Forms.TextBox();
@@ -95,12 +94,10 @@ namespace QWS_Local
             this.gbTruckOwner = new System.Windows.Forms.GroupBox();
             this.chkACCPickUp = new System.Windows.Forms.CheckBox();
             this.btnSessionID = new System.Windows.Forms.Button();
-            this.tIQIDTextBox = new System.Windows.Forms.TextBox();
             cardStatusLabel = new System.Windows.Forms.Label();
             inductionExpLabel = new System.Windows.Forms.Label();
             licenseExpLabel = new System.Windows.Forms.Label();
             licenseTypeLabel = new System.Windows.Forms.Label();
-            tIQIDLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -709,30 +706,11 @@ namespace QWS_Local
             this.btnSessionID.UseVisualStyleBackColor = true;
             this.btnSessionID.Click += new System.EventHandler(this.btnSessionID_Click);
             // 
-            // tIQIDLabel
-            // 
-            tIQIDLabel.AutoSize = true;
-            tIQIDLabel.Location = new System.Drawing.Point(667, 25);
-            tIQIDLabel.Name = "tIQIDLabel";
-            tIQIDLabel.Size = new System.Drawing.Size(48, 17);
-            tIQIDLabel.TabIndex = 84;
-            tIQIDLabel.Text = "TIQID:";
-            // 
-            // tIQIDTextBox
-            // 
-            this.tIQIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "TIQID", true));
-            this.tIQIDTextBox.Location = new System.Drawing.Point(721, 22);
-            this.tIQIDTextBox.Name = "tIQIDTextBox";
-            this.tIQIDTextBox.Size = new System.Drawing.Size(100, 23);
-            this.tIQIDTextBox.TabIndex = 85;
-            // 
             // BookInTruck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 658);
-            this.Controls.Add(tIQIDLabel);
-            this.Controls.Add(this.tIQIDTextBox);
             this.Controls.Add(this.btnSessionID);
             this.Controls.Add(this.gbTruckOwner);
             this.Controls.Add(this.gbSplitLoad);
@@ -838,6 +816,5 @@ namespace QWS_Local
         private System.Windows.Forms.GroupBox gbTruckOwner;
         private System.Windows.Forms.CheckBox chkACCPickUp;
         private System.Windows.Forms.Button btnSessionID;
-        private System.Windows.Forms.TextBox tIQIDTextBox;
     }
 }

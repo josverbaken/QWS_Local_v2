@@ -287,7 +287,7 @@ namespace QWS_Local
 
         private void PrefCustomerSearch()
         {
-            // TODO refactor PrefCustomerSearch to just return found BP
+            // refactor PrefCustomerSearch to just return found BP
             try
             {
                 BusinessSearch frmBusinessSearch = new BusinessSearch(""); // txtPrefCustName.Text);

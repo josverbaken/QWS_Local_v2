@@ -541,7 +541,7 @@ namespace QWS_Local
                 //MessageBox.Show(msg); // modified so issue probably with not specifying binding source due to import statement!@#
 
                 bsTIQ2.EndEdit();
-                int iRow = taTIQ2.Update(dsTIQ2.TIQ); // TK delivery iRow = 0 ??? TODO 20250616
+                int iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 if (iRow == 1) // test if split load
                 {
                     if (_TIQRow.TruckConfig == "TKs" && _TIQRow.QueueStatus != "X") // X = truck only

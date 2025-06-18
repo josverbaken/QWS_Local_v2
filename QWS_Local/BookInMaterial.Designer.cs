@@ -79,12 +79,11 @@ namespace QWS_Local
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label7;
             System.Windows.Forms.Label label13;
-            System.Windows.Forms.Label tIQIDLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.truckConfigTextBox = new System.Windows.Forms.TextBox();
             this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
+            this.truckConfigTextBox = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
@@ -212,7 +211,6 @@ namespace QWS_Local
             this.taQuarryOrders = new QWS_Local.dsBookInTableAdapters.QuarryOrdersTableAdapter();
             this.bsBlanketAgreement = new System.Windows.Forms.BindingSource(this.components);
             this.taBlanketAgreement = new QWS_Local.dsBookInTableAdapters.BlanketAgreementCheckTableAdapter();
-            this.tIQIDTextBox = new System.Windows.Forms.TextBox();
             gCMLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
@@ -262,7 +260,6 @@ namespace QWS_Local
             label6 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
-            tIQIDLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -774,8 +771,6 @@ namespace QWS_Local
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
-            this.splitContainer2.Panel1.Controls.Add(tIQIDLabel);
-            this.splitContainer2.Panel1.Controls.Add(this.tIQIDTextBox);
             this.splitContainer2.Panel1.Controls.Add(this.truckConfigTextBox);
             this.splitContainer2.Panel1.Controls.Add(this.textBox4);
             this.splitContainer2.Panel1.Controls.Add(mobLabel);
@@ -794,14 +789,6 @@ namespace QWS_Local
             this.splitContainer2.SplitterDistance = 228;
             this.splitContainer2.TabIndex = 3;
             // 
-            // truckConfigTextBox
-            // 
-            this.truckConfigTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "TruckConfig", true));
-            this.truckConfigTextBox.Location = new System.Drawing.Point(364, 12);
-            this.truckConfigTextBox.Name = "truckConfigTextBox";
-            this.truckConfigTextBox.Size = new System.Drawing.Size(100, 23);
-            this.truckConfigTextBox.TabIndex = 84;
-            // 
             // bsTIQ2
             // 
             this.bsTIQ2.DataMember = "TIQ";
@@ -811,6 +798,14 @@ namespace QWS_Local
             // 
             this.dsTIQ2.DataSetName = "dsTIQ2";
             this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // truckConfigTextBox
+            // 
+            this.truckConfigTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "TruckConfig", true));
+            this.truckConfigTextBox.Location = new System.Drawing.Point(364, 12);
+            this.truckConfigTextBox.Name = "truckConfigTextBox";
+            this.truckConfigTextBox.Size = new System.Drawing.Size(100, 23);
+            this.truckConfigTextBox.TabIndex = 84;
             // 
             // textBox4
             // 
@@ -1519,7 +1514,7 @@ namespace QWS_Local
             this.tpDetails.Location = new System.Drawing.Point(4, 22);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(977, 267);
+            this.tpDetails.Size = new System.Drawing.Size(977, 270);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -2010,23 +2005,6 @@ namespace QWS_Local
             // 
             this.taBlanketAgreement.ClearBeforeFill = true;
             // 
-            // tIQIDLabel
-            // 
-            tIQIDLabel.AutoSize = true;
-            tIQIDLabel.Location = new System.Drawing.Point(558, 145);
-            tIQIDLabel.Name = "tIQIDLabel";
-            tIQIDLabel.Size = new System.Drawing.Size(48, 17);
-            tIQIDLabel.TabIndex = 84;
-            tIQIDLabel.Text = "TIQID:";
-            // 
-            // tIQIDTextBox
-            // 
-            this.tIQIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "TIQID", true));
-            this.tIQIDTextBox.Location = new System.Drawing.Point(612, 142);
-            this.tIQIDTextBox.Name = "tIQIDTextBox";
-            this.tIQIDTextBox.Size = new System.Drawing.Size(100, 23);
-            this.tIQIDTextBox.TabIndex = 85;
-            // 
             // BookInMaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2225,6 +2203,5 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox tIQIDTextBox;
     }
 }

@@ -80,7 +80,6 @@ namespace QWS_Local
                 int myPBSID = CurrentPBS().PBS_ID;  //Convert.ToInt32(txtPBS_ID.Text);
                 e.Row.Cells["PBS_ID"].Value = myPBSID;
                 e.Row.Cells["MassMgmtRqd1"].Value = "true"; // TODO does not work nor error!@#
-                // TODO maybe do at Dataset or BindingSource level instead. Howto access new record?
             }
             catch (Exception ex)
             {
@@ -90,7 +89,7 @@ namespace QWS_Local
 
         private void NewVA(int PBSVA)
         {
-            // create new record using built in functionality of DataGridView and set default value for VA.
+            // TODO create new record using built in functionality of DataGridView and set default value for VA.
             label1.Text = "Click new row in grid below and add Version and Approval Date before saving.";
         }
 

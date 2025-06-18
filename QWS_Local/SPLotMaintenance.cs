@@ -259,7 +259,7 @@ namespace QWS_Local
         private void btnSaveBaseItemMapping_Click(object sender, EventArgs e)
         {
             //taSPLotItemsMap
-            // TODO add update method to data adaptor
+            MessageBox.Show("Contact Jos to update database.");
         }
 
         private void btnClear_Click(object sender, EventArgs e)

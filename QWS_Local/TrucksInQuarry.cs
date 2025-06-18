@@ -339,7 +339,6 @@ namespace QWS_Local
                                     int myDriverID = myTIQRow.DriverID;
                                     int myParentTIQID = myTIQRow.TIQID;
                                     string myTruckConfig = myTIQRow.TruckConfig;
-                                    //TODO ensure > 0 and challenge if less than MinMaterial ~ 8.0t
                                     decimal myNett = myTIQRow.Gross - myWeight;
                                     if (myNett < Properties.Settings.Default.MinimumMaterial)
                                     {
@@ -500,12 +499,15 @@ namespace QWS_Local
             {
                 //MessageBox.Show("Retare form OK");
             }
+            else
+            {
+                MessageBox.Show("Retare failed/cancelled!");
+            }
         }
 
         private void PostDocket()
         {
             // create new WBDockets row using NewDocket, then add lines
-            // TODO ensure docket has not already been posted, in case second WBO tries to sneak in!@#
             dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
             int DocketExists = CheckDocketExists(myTIQRow.TIQID);
             if (DocketExists == 0)

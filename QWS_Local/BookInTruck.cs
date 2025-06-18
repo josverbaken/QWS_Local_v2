@@ -81,7 +81,7 @@ namespace QWS_Local
                 {
                 GetTruckDriver(_TIQRow.DriverID);
                 }
-                // TODO find why it is disabled
+                // CheckConfigOK2Proceed() may set to disabled is not ok to proceed
                 if (btnGetDriver.Enabled == false)
                 {
                     btnGetDriver.Enabled = true;
@@ -936,9 +936,7 @@ namespace QWS_Local
         {
             if (rbSplitLoad.Checked == true)
             {
-                // TODO set TIQ.TruckConfig to TKs if first load
                 btnContinue.Enabled = true;
-                //dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 _TIQRow.TruckConfig = "TKs";
                 bsTIQ.EndEdit();
             }
@@ -948,9 +946,7 @@ namespace QWS_Local
         {
             if (rbTruckOnly.Checked == true)
             {
-                // TODO set TIQ.TruckConfig to TKx if first load
                 btnContinue.Enabled = true;
-                //dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 _TIQRow.TruckConfig = "TKs";
                 _TIQRow.QueueStatus = "X";
                 bsTIQ.EndEdit();
@@ -961,9 +957,7 @@ namespace QWS_Local
         {
             if (rbTrailerOnly.Checked == true)
             {
-                // TODO set TIQ.TruckConfig to TRx if first load
                 btnContinue.Enabled = true;
-                //dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 _TIQRow.TruckConfig = "TRs";
                 _TIQRow.QueueStatus = "X";
                 bsTIQ.EndEdit();

@@ -61,8 +61,6 @@ namespace QWS_Local
 
         private void QWS_MDIParent_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsAdmin.Operator' table. You can move, or remove it, as needed.
-            this.taOperator.Fill(this.dsAdmin.Operator);
             bool OK2Continue = true;
 
             string msg = ""; // "QWS Local - ";
@@ -459,7 +457,7 @@ namespace QWS_Local
                     break;
                 default:
                     // invalid
-                    // TODO handle
+                    MessageBox.Show("Unable to continue! Invalid login status = " + myLoginStatus);
                     break;
             }
 
