@@ -288,23 +288,23 @@ namespace QWS_Local
         {
             try
             {
-                dsTIQ2.TIQRow myTIQ = _TIQRow; // don't remove, need for binding!@#
-                myTIQ.AllocateDTTM = DateTime.Now;
-                myTIQ.SAPOrder = CurrentQuarryOrder().DocNum;
+                //dsTIQ2.TIQRow myTIQ = _TIQRow; // don't remove, need for binding!@#
+                _TIQRow.AllocateDTTM = DateTime.Now;
+                _TIQRow.SAPOrder = CurrentQuarryOrder().DocNum;
                 if (CurrentQuarryOrder().ItemQA == "Y")
                 {
-                    myTIQ.StockpileLotNo = -9;
+                    _TIQRow.StockpileLotNo = -9;
                 }
                 else
                 {
-                    myTIQ.StockpileLotNo = 0;
+                    _TIQRow.StockpileLotNo = 0;
                 }
-                myTIQ.CustON = CurrentQuarryOrder().PurchaseOrder;
-                myTIQ.Material = CurrentQuarryOrder().MaterialCode;
-                myTIQ.MaterialDesc = CurrentQuarryOrder().Material;
-                myTIQ.DeliveryAddress = "Ex-Bin";
-                myTIQ.CartageCode = "";
-                myTIQ.QueueStatus = "Q";
+                _TIQRow.CustON = CurrentQuarryOrder().PurchaseOrder;
+                _TIQRow.Material = CurrentQuarryOrder().MaterialCode;
+                _TIQRow.MaterialDesc = CurrentQuarryOrder().Material;
+                _TIQRow.DeliveryAddress = "Ex-Bin";
+                _TIQRow.CartageCode = "";
+                _TIQRow.QueueStatus = "Q";
                 this.Validate();
                 bsTIQ2.EndEdit();
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
@@ -368,17 +368,17 @@ namespace QWS_Local
             try
             {
                 dsBookIn.QuarryOrdersRow myOrderRow = CurrentQuarryOrder();
-                dsTIQ2.TIQRow myTIQ = _TIQRow;
-                myTIQ.SAPOrder = myOrderRow.DocNum;
-                myTIQ.CustomerCode = myOrderRow.CardCode;
-                myTIQ.Customer = myOrderRow.Customer;
-                myTIQ.CustON = myOrderRow.PurchaseOrder;
-                myTIQ.Material = myOrderRow.MaterialCode;
-                myTIQ.MaterialDesc = myOrderRow.Material;
-                myTIQ.DeliveryAddress = myOrderRow.DeliveryAddress;
+                //dsTIQ2.TIQRow myTIQ = _TIQRow;
+                _TIQRow.SAPOrder = myOrderRow.DocNum;
+                _TIQRow.CustomerCode = myOrderRow.CardCode;
+                _TIQRow.Customer = myOrderRow.Customer;
+                _TIQRow.CustON = myOrderRow.PurchaseOrder;
+                _TIQRow.Material = myOrderRow.MaterialCode;
+                _TIQRow.MaterialDesc = myOrderRow.Material;
+                _TIQRow.DeliveryAddress = myOrderRow.DeliveryAddress;
                 if (myOrderRow.CartageCode.Length > 0 )
                 {
-                    myTIQ.CartageCode = myOrderRow.CartageCode; 
+                    _TIQRow.CartageCode = myOrderRow.CartageCode; 
                 }
                 this.Validate();            
                 bsTIQ2.EndEdit();
@@ -493,47 +493,47 @@ namespace QWS_Local
             try
             {
                 SetTIQPayload();
-                dsTIQ2.TIQRow myTIQ = _TIQRow;
-                myTIQ.AllocateDTTM = DateTime.Now;
-                myTIQ.CartageCode = "";
+                //dsTIQ2.TIQRow myTIQ = _TIQRow;
+                _TIQRow.AllocateDTTM = DateTime.Now;
+                _TIQRow.CartageCode = "";
                 switch (FormTIQType) // test ExBin or Delivery for Truck or Trailer Only Load
                 {
                     case TIQType.ExBin:
                         if (IsPrefCust == true)
                         {
-                            switch (myTIQ.TruckConfig)
+                            switch (_TIQRow.TruckConfig)
                             {
                                 case "TRs":
                                 case "BDb":
-                                    if (myTIQ.QueueStatus.Equals("X") == false)
+                                    if (_TIQRow.QueueStatus.Equals("X") == false)
                                     {
-                                        myTIQ.QueueStatus = "S";
+                                        _TIQRow.QueueStatus = "S";
                                     }
                                     break;
                             }
                         }
                         else
                         {
-                            myTIQ.QueueStatus = "U";
+                            _TIQRow.QueueStatus = "U";
                         }
                         break;
                     case TIQType.Delivery:
-                        switch (myTIQ.TruckConfig)
+                        switch (_TIQRow.TruckConfig)
                         {
                             case "TRs":
                             case "BDb":
-                                if (myTIQ.QueueStatus.Equals("X") == false)
+                                if (_TIQRow.QueueStatus.Equals("X") == false)
                                 {
-                                    myTIQ.QueueStatus = "S";
+                                    _TIQRow.QueueStatus = "S";
                                 }
                                 break;
                         }
                         break;
                 }
 
-                if (myTIQ.QueueStatus == "P")
+                if (_TIQRow.QueueStatus == "P")
                 {
-                    myTIQ.QueueStatus = "Q";
+                    _TIQRow.QueueStatus = "Q";
                 }
                 //this.Validate();
                 //string msg = "Rowstate = ";
@@ -544,11 +544,11 @@ namespace QWS_Local
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ); // TK delivery iRow = 0 ??? TODO 20250616
                 if (iRow == 1) // test if split load
                 {
-                    if (myTIQ.TruckConfig == "TKs" && myTIQ.QueueStatus != "X") // X = truck only
+                    if (_TIQRow.TruckConfig == "TKs" && _TIQRow.QueueStatus != "X") // X = truck only
                     {
-                        GoBack2BookIn(myTIQ.Rego, myTIQ.TruckConfigID, myTIQ.DriverID, myTIQ.TIQID, "TRs");
+                        GoBack2BookIn(_TIQRow.Rego, _TIQRow.TruckConfigID, _TIQRow.DriverID, _TIQRow.TIQID, "TRs");
                     }
-                    else if (myTIQ.TruckConfig == "Bda")
+                    else if (_TIQRow.TruckConfig == "Bda")
                     {
                         // TODO handle split load for B-double
                         MessageBox.Show("","Split B-double",MessageBoxButtons.OK,MessageBoxIcon.Information);
