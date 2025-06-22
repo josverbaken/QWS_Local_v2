@@ -38,13 +38,14 @@ namespace QWS_Local
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.txtTruckRego = new System.Windows.Forms.TextBox();
             this.btnFindTruck = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvConfiguredTrucks = new System.Windows.Forms.DataGridView();
             this.regoTkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.regoTrailerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RegoCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nHVLDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TareDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VehicleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TruckConfigID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtAxleConfig = new System.Windows.Forms.TextBox();
             this.txtVehicleDescription = new System.Windows.Forms.TextBox();
             this.cardCodeTextBox = new System.Windows.Forms.TextBox();
@@ -94,13 +95,15 @@ namespace QWS_Local
             this.gbTruckOwner = new System.Windows.Forms.GroupBox();
             this.chkACCPickUp = new System.Windows.Forms.CheckBox();
             this.btnSessionID = new System.Windows.Forms.Button();
+            this.btnTruckConfig = new System.Windows.Forms.Button();
+            this.btnSetTruckConfig = new System.Windows.Forms.Button();
             cardStatusLabel = new System.Windows.Forms.Label();
             inductionExpLabel = new System.Windows.Forms.Label();
             licenseExpLabel = new System.Windows.Forms.Label();
             licenseTypeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConfiguredTrucks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -178,28 +181,28 @@ namespace QWS_Local
             this.btnFindTruck.UseVisualStyleBackColor = true;
             this.btnFindTruck.Click += new System.EventHandler(this.btnFindTruck_Click);
             // 
-            // dataGridView1
+            // dgvConfiguredTrucks
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvConfiguredTrucks.AllowUserToAddRows = false;
+            this.dgvConfiguredTrucks.AllowUserToDeleteRows = false;
+            this.dgvConfiguredTrucks.AutoGenerateColumns = false;
+            this.dgvConfiguredTrucks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConfiguredTrucks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.regoTkDataGridViewTextBoxColumn,
             this.regoTrailerDataGridViewTextBoxColumn,
             this.RegoCheck,
             this.nHVLDataGridViewTextBoxColumn,
             this.TareDT,
-            this.VehicleType});
-            this.dataGridView1.DataSource = this.bsConfiguredTrucks;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 250);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(979, 150);
-            this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
-            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            this.VehicleType,
+            this.TruckConfigID});
+            this.dgvConfiguredTrucks.DataSource = this.bsConfiguredTrucks;
+            this.dgvConfiguredTrucks.Location = new System.Drawing.Point(21, 250);
+            this.dgvConfiguredTrucks.MultiSelect = false;
+            this.dgvConfiguredTrucks.Name = "dgvConfiguredTrucks";
+            this.dgvConfiguredTrucks.ReadOnly = true;
+            this.dgvConfiguredTrucks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvConfiguredTrucks.Size = new System.Drawing.Size(979, 150);
+            this.dgvConfiguredTrucks.TabIndex = 3;
             // 
             // regoTkDataGridViewTextBoxColumn
             // 
@@ -244,6 +247,14 @@ namespace QWS_Local
             this.VehicleType.HeaderText = "TruckConfig";
             this.VehicleType.Name = "VehicleType";
             this.VehicleType.ReadOnly = true;
+            // 
+            // TruckConfigID
+            // 
+            this.TruckConfigID.DataPropertyName = "TruckConfigID";
+            this.TruckConfigID.HeaderText = "TruckConfigID";
+            this.TruckConfigID.Name = "TruckConfigID";
+            this.TruckConfigID.ReadOnly = true;
+            this.TruckConfigID.Visible = false;
             // 
             // txtAxleConfig
             // 
@@ -706,11 +717,33 @@ namespace QWS_Local
             this.btnSessionID.UseVisualStyleBackColor = true;
             this.btnSessionID.Click += new System.EventHandler(this.btnSessionID_Click);
             // 
+            // btnTruckConfig
+            // 
+            this.btnTruckConfig.Location = new System.Drawing.Point(261, 406);
+            this.btnTruckConfig.Name = "btnTruckConfig";
+            this.btnTruckConfig.Size = new System.Drawing.Size(84, 23);
+            this.btnTruckConfig.TabIndex = 75;
+            this.btnTruckConfig.Text = "Clear";
+            this.btnTruckConfig.UseVisualStyleBackColor = true;
+            this.btnTruckConfig.Click += new System.EventHandler(this.btnTruckConfig_Click);
+            // 
+            // btnSetTruckConfig
+            // 
+            this.btnSetTruckConfig.Location = new System.Drawing.Point(156, 406);
+            this.btnSetTruckConfig.Name = "btnSetTruckConfig";
+            this.btnSetTruckConfig.Size = new System.Drawing.Size(84, 23);
+            this.btnSetTruckConfig.TabIndex = 85;
+            this.btnSetTruckConfig.Text = "Set";
+            this.btnSetTruckConfig.UseVisualStyleBackColor = true;
+            this.btnSetTruckConfig.Click += new System.EventHandler(this.btnSetTruckConfig_Click);
+            // 
             // BookInTruck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 658);
+            this.Controls.Add(this.btnSetTruckConfig);
+            this.Controls.Add(this.btnTruckConfig);
             this.Controls.Add(this.btnSessionID);
             this.Controls.Add(this.gbTruckOwner);
             this.Controls.Add(this.gbSplitLoad);
@@ -721,7 +754,7 @@ namespace QWS_Local
             this.Controls.Add(this.txtFeeCode);
             this.Controls.Add(this.txtVehicleDescription);
             this.Controls.Add(this.txtAxleConfig);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvConfiguredTrucks);
             this.Controls.Add(this.btnFindTruck);
             this.Controls.Add(this.txtTruckRego);
             this.Controls.Add(this.pictureSchematic);
@@ -734,7 +767,7 @@ namespace QWS_Local
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BookInTruck_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConfiguredTrucks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -761,7 +794,7 @@ namespace QWS_Local
         private dsTruckConfig dsTruckConfig;
         private System.Windows.Forms.TextBox txtTruckRego;
         private System.Windows.Forms.Button btnFindTruck;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvConfiguredTrucks;
         private dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter taConfiguredTrucks;
         private System.Windows.Forms.TextBox txtAxleConfig;
         private System.Windows.Forms.TextBox txtVehicleDescription;
@@ -801,12 +834,6 @@ namespace QWS_Local
         private dsTIQ2 dsTIQ2;
         private System.Windows.Forms.BindingSource bsTIQ;
         private dsTIQ2TableAdapters.TIQTableAdapter taTIQ;
-        private System.Windows.Forms.DataGridViewTextBoxColumn regoTkDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn regoTrailerDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn RegoCheck;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nHVLDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VehicleType;
         private System.Windows.Forms.GroupBox gbSplitLoad;
         private System.Windows.Forms.RadioButton rbTrailerOnly;
         private System.Windows.Forms.RadioButton rbTruckOnly;
@@ -816,5 +843,14 @@ namespace QWS_Local
         private System.Windows.Forms.GroupBox gbTruckOwner;
         private System.Windows.Forms.CheckBox chkACCPickUp;
         private System.Windows.Forms.Button btnSessionID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn regoTkDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn regoTrailerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn RegoCheck;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nHVLDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VehicleType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TruckConfigID;
+        private System.Windows.Forms.Button btnTruckConfig;
+        private System.Windows.Forms.Button btnSetTruckConfig;
     }
 }

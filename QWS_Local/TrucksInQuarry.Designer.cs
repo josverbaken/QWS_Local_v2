@@ -113,6 +113,7 @@ namespace QWS_Local
             this.bsQuarryOrderLines = new System.Windows.Forms.BindingSource(this.components);
             this.taQuarryOrderLines = new QWS_Local.dsBookInTableAdapters.QuarryOrderLinesTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsBookInTableAdapters.TableAdapterManager();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             entryDTTMLabel = new System.Windows.Forms.Label();
             sAPOrderLabel = new System.Windows.Forms.Label();
             roadAccessLabel = new System.Windows.Forms.Label();
@@ -579,6 +580,7 @@ namespace QWS_Local
             // tpDetails
             // 
             this.tpDetails.AutoScroll = true;
+            this.tpDetails.Controls.Add(this.textBox5);
             this.tpDetails.Controls.Add(this.textBox3);
             this.tpDetails.Controls.Add(this.textBox2);
             this.tpDetails.Controls.Add(label1);
@@ -626,7 +628,7 @@ namespace QWS_Local
             this.tpDetails.Location = new System.Drawing.Point(4, 29);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(1356, 379);
+            this.tpDetails.Size = new System.Drawing.Size(1356, 345);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -949,6 +951,15 @@ namespace QWS_Local
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsBookInTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // textBox5
+            // 
+            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "RegoTrailers", true));
+            this.textBox5.Location = new System.Drawing.Point(256, 14);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(192, 26);
+            this.textBox5.TabIndex = 78;
+            // 
             // TrucksInQuarry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1051,5 +1062,6 @@ namespace QWS_Local
         private dsBookInTableAdapters.QuarryOrderLinesTableAdapter taQuarryOrderLines;
         private dsBookInTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.Button btnPrintDocket;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }

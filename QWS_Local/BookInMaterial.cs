@@ -20,8 +20,8 @@ namespace QWS_Local
         private int TIQID;
         private string CardCode;
         private string CustomerName;
-        private dsQWSLocal2024.TruckDriverRow _DriverRow;
-        private dsTIQ2.TIQRow _TIQRow;
+        private static dsQWSLocal2024.TruckDriverRow _DriverRow;
+        //private static dsTIQ2.TIQRow _TIQRow;
         private int mySiteID;
 
         private enum TIQType // N.B. these match variables in SQL usp QuarryOrders
@@ -48,7 +48,7 @@ namespace QWS_Local
                 //_TIQRow = TIQRow;
                 dsTIQ2.TIQ.Clear();
                 dsTIQ2.TIQ.ImportRow(TIQRow);
-                _TIQRow = (dsTIQ2.TIQRow)dsTIQ2.TIQ.Rows[0]; // bind to dataset
+                //_TIQRow = (dsTIQ2.TIQRow)dsTIQ2.TIQ.Rows[0]; // bind to dataset
                 dsQWSLocal2024.TruckDriver.Clear();
                 dsQWSLocal2024.TruckDriver.ImportRow(driverRow);
                 _DriverRow = driverRow;
@@ -90,8 +90,24 @@ namespace QWS_Local
             }
         }
 
+        private dsTIQ2.TIQRow CurrentTIQ()
+        {
+            if (bsTIQ2.Count > 0)
+            {
+                DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
+                dsTIQ2.TIQRow TIQRow = (dsTIQ2.TIQRow)myRow;
+                return TIQRow;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
         private int GetCartageInt()
         {
+            dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
             int myCartageInt;
             switch (_TIQRow.TruckConfig)
             {
@@ -177,6 +193,7 @@ namespace QWS_Local
 
                 myPayload = PayloadLimit;
                 nudPayload.Value = myPayload;
+                dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
                 switch (_TIQRow.TruckConfig)
                 {
                     case "TT":
@@ -289,6 +306,7 @@ namespace QWS_Local
             try
             {
                 //dsTIQ2.TIQRow myTIQ = _TIQRow; // don't remove, need for binding!@#
+                dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
                 _TIQRow.AllocateDTTM = DateTime.Now;
                 _TIQRow.SAPOrder = CurrentQuarryOrder().DocNum;
                 if (CurrentQuarryOrder().ItemQA == "Y")
@@ -369,6 +387,7 @@ namespace QWS_Local
             {
                 dsBookIn.QuarryOrdersRow myOrderRow = CurrentQuarryOrder();
                 //dsTIQ2.TIQRow myTIQ = _TIQRow;
+                dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
                 _TIQRow.SAPOrder = myOrderRow.DocNum;
                 _TIQRow.CustomerCode = myOrderRow.CardCode;
                 _TIQRow.Customer = myOrderRow.Customer;
@@ -425,6 +444,7 @@ namespace QWS_Local
             {
                 myGCM = myMaxGVM;
             }
+            dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
             _TIQRow.GCM = myGCM;
             _TIQRow.GVMTruck = myTruckGVM.GVMTruck;
             bsTIQ2.EndEdit();
@@ -494,6 +514,7 @@ namespace QWS_Local
             {
                 SetTIQPayload();
                 //dsTIQ2.TIQRow myTIQ = _TIQRow;
+                dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
                 _TIQRow.AllocateDTTM = DateTime.Now;
                 _TIQRow.CartageCode = "";
                 switch (FormTIQType) // test ExBin or Delivery for Truck or Trailer Only Load
@@ -568,6 +589,7 @@ namespace QWS_Local
 
         private void SetTIQPayload()
         {
+            dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
             _TIQRow.Payload = nudPayload.Value;
             if (txtPayloadSplit.Text.Length == 0)
             {
@@ -626,6 +648,7 @@ namespace QWS_Local
                 if (myRow != null && ItemOK == true)
                     {
                         dsBookIn.ItemRow itemRow = (dsBookIn.ItemRow)myRow;
+                        dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
                         _TIQRow.SAPOrder = 0;
                         _TIQRow.CustomerCode = txtCardCode.Text;
                         _TIQRow.Customer = txtCustomer.Text;
@@ -671,6 +694,7 @@ namespace QWS_Local
         private void GoBack2BookIn(string Rego, int TruckConfigID, int DriverID, int myParentTIQID, string TrailerConfig)
         {
             // call to book in trailer for split load
+            dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
             BookInTruck frmBookInStep1 = new BookInTruck(Rego, TruckConfigID, DriverID, myParentTIQID,_TIQRow.TruckConfig, "Called after book in TKs", TrailerConfig);
             frmBookInStep1.MdiParent = this.MdiParent;
             frmBookInStep1.Show();
