@@ -149,7 +149,6 @@ namespace QWS_Local
                         else
                         {
                             // Resume == True
-                            // TODO on resume highlight previously selected configuration
                             UpdateOwnerGUI();
                             dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
                             if (_TIQRow != null)
@@ -157,22 +156,6 @@ namespace QWS_Local
                                 string msg = "TIQ Row was passed with Rego = ";
                                 msg += _TIQRow.Rego + " TruckconfigID = ";
                                 msg += _TIQRow.TruckConfigID.ToString();
-                                //MessageBox.Show(msg);
-                                //bsConfiguredTrucks.Find("TruckConfigID", _TIQRow.TruckConfigID);
-                            //    int j = 0;
-
-                            //    foreach (DataGridViewRow row in dgvConfiguredTrucks.Rows)
-                            //    {
-                            //        //if (row.Cells["TruckConfigID"].Value.ToString() == _TIQRow.TruckConfigID.ToString())
-                            //        if (j == 1)
-                            //        {
-                            //            row.Selected = true;
-                            //            //break;
-                            //            j += 1;
-                            //        }
-                            //    }
-                            //    j += 10;
-
                                 DGVLoaded = true;
                             }
                         }
@@ -247,7 +230,6 @@ namespace QWS_Local
             {
                 bsConfiguredTrucks.Position = index;
             }
-            bsConfiguredTrucks.Filter = "TruckConfigID = " + TruckConfigID.ToString();
         }
 
         //private dsTIQ2.TIQRow CurrentTIQ()
@@ -1034,12 +1016,7 @@ namespace QWS_Local
             int ProcessID = System.Diagnostics.Process.GetCurrentProcess().Id;
             MessageBox.Show("Process ID = " + ProcessID.ToString());
         }
-
-        private void btnTruckConfig_Click(object sender, EventArgs e)
-        {
-            bsConfiguredTrucks.Filter = "";
-        }
-
+       
         private void btnSetTruckConfig_Click(object sender, EventArgs e)
         {
             UpdateTIQ(TIQType.EnterRego); //,"Cfg"); 

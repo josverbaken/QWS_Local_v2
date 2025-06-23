@@ -95,7 +95,6 @@ namespace QWS_Local
             this.gbTruckOwner = new System.Windows.Forms.GroupBox();
             this.chkACCPickUp = new System.Windows.Forms.CheckBox();
             this.btnSessionID = new System.Windows.Forms.Button();
-            this.btnTruckConfig = new System.Windows.Forms.Button();
             this.btnSetTruckConfig = new System.Windows.Forms.Button();
             cardStatusLabel = new System.Windows.Forms.Label();
             inductionExpLabel = new System.Windows.Forms.Label();
@@ -717,16 +716,6 @@ namespace QWS_Local
             this.btnSessionID.UseVisualStyleBackColor = true;
             this.btnSessionID.Click += new System.EventHandler(this.btnSessionID_Click);
             // 
-            // btnTruckConfig
-            // 
-            this.btnTruckConfig.Location = new System.Drawing.Point(261, 406);
-            this.btnTruckConfig.Name = "btnTruckConfig";
-            this.btnTruckConfig.Size = new System.Drawing.Size(84, 23);
-            this.btnTruckConfig.TabIndex = 75;
-            this.btnTruckConfig.Text = "Clear";
-            this.btnTruckConfig.UseVisualStyleBackColor = true;
-            this.btnTruckConfig.Click += new System.EventHandler(this.btnTruckConfig_Click);
-            // 
             // btnSetTruckConfig
             // 
             this.btnSetTruckConfig.Location = new System.Drawing.Point(156, 406);
@@ -743,7 +732,6 @@ namespace QWS_Local
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 658);
             this.Controls.Add(this.btnSetTruckConfig);
-            this.Controls.Add(this.btnTruckConfig);
             this.Controls.Add(this.btnSessionID);
             this.Controls.Add(this.gbTruckOwner);
             this.Controls.Add(this.gbSplitLoad);
@@ -850,7 +838,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn VehicleType;
         private System.Windows.Forms.DataGridViewTextBoxColumn TruckConfigID;
-        private System.Windows.Forms.Button btnTruckConfig;
         private System.Windows.Forms.Button btnSetTruckConfig;
     }
 }
