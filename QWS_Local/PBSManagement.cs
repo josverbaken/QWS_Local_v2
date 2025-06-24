@@ -64,6 +64,13 @@ namespace QWS_Local
             if (dr == DialogResult.OK)
             {
                 MessageBox.Show(frmBusinessSearch.BusinessName);
+                label3.Text = "Click new row in grid below and add Version and Approval Date before saving.";
+                txtCardCode.Text = frmBusinessSearch.SAPCode;
+                txtOperator.Text = frmBusinessSearch.BusinessName;
+            }
+            else
+            {
+                label3.Text = "...";
             }
         }
 
@@ -89,8 +96,7 @@ namespace QWS_Local
 
         private void NewVA(int PBSVA)
         {
-            // TODO create new record using built in functionality of DataGridView and set default value for VA.
-            label1.Text = "Click new row in grid below and add Version and Approval Date before saving.";
+            label1.Text = "Find SAP Busness Partner";              
         }
 
         private void dgvPBS_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
@@ -100,8 +106,10 @@ namespace QWS_Local
             int myPBSVA = Convert.ToInt32(txtVehicleApproval.Text);
                 //e.Row.Cells["Vehicle Approval"].Value = myPBSVA;
                 // investigate why not recognising column names?
-                // 20250325 handled elsewhere by using index of column
+                // 20250325 handled elsewhere by using index of column (dgv not dataset)
                 e.Row.Cells[0].Value = myPBSVA;
+                e.Row.Cells[3].Value = txtOperator.Text;
+                e.Row.Cells[4].Value = txtCardCode.Text;
             }
             catch (Exception ex)
             {

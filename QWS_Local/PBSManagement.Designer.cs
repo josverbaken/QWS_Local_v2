@@ -57,9 +57,6 @@
             this.bsPBSConfigScheme = new System.Windows.Forms.BindingSource(this.components);
             this.gbPBSVA = new System.Windows.Forms.GroupBox();
             this.dgvPBS = new System.Windows.Forms.DataGridView();
-            this.vehicleApprovalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.versionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.approvalDTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbPBSTables = new System.Windows.Forms.GroupBox();
             this.dgvPBSConfig = new System.Windows.Forms.DataGridView();
             this.tableNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,6 +69,12 @@
             this.taPBSConfig = new QWS_Local.dsPBSTableAdapters.PBS_ConfigTableAdapter();
             this.taPBSConfigScheme = new QWS_Local.dsPBSTableAdapters.PBS_ConfigSchemeTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsPBSTableAdapters.TableAdapterManager();
+            this.vehicleApprovalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.versionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.approvalDTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Operator = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CardCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -98,6 +101,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.txtCardCode);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
@@ -335,7 +339,9 @@
             this.dgvPBS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.vehicleApprovalDataGridViewTextBoxColumn,
             this.versionDataGridViewTextBoxColumn,
-            this.approvalDTDataGridViewTextBoxColumn});
+            this.approvalDTDataGridViewTextBoxColumn,
+            this.Operator,
+            this.CardCode});
             this.dgvPBS.DataSource = this.bsPBS;
             this.dgvPBS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPBS.Location = new System.Drawing.Point(3, 20);
@@ -343,31 +349,6 @@
             this.dgvPBS.Size = new System.Drawing.Size(367, 201);
             this.dgvPBS.TabIndex = 7;
             this.dgvPBS.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvPBS_DefaultValuesNeeded);
-            // 
-            // vehicleApprovalDataGridViewTextBoxColumn
-            // 
-            this.vehicleApprovalDataGridViewTextBoxColumn.DataPropertyName = "VehicleApproval";
-            this.vehicleApprovalDataGridViewTextBoxColumn.HeaderText = "Vehicle Approval";
-            this.vehicleApprovalDataGridViewTextBoxColumn.Name = "vehicleApprovalDataGridViewTextBoxColumn";
-            this.vehicleApprovalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.vehicleApprovalDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // versionDataGridViewTextBoxColumn
-            // 
-            this.versionDataGridViewTextBoxColumn.DataPropertyName = "Version";
-            this.versionDataGridViewTextBoxColumn.HeaderText = "Version";
-            this.versionDataGridViewTextBoxColumn.Name = "versionDataGridViewTextBoxColumn";
-            this.versionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.versionDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // approvalDTDataGridViewTextBoxColumn
-            // 
-            this.approvalDTDataGridViewTextBoxColumn.DataPropertyName = "ApprovalDT";
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            this.approvalDTDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.approvalDTDataGridViewTextBoxColumn.HeaderText = "ApprovalDT";
-            this.approvalDTDataGridViewTextBoxColumn.Name = "approvalDTDataGridViewTextBoxColumn";
             // 
             // gbPBSTables
             // 
@@ -455,6 +436,53 @@
             this.tableAdapterManager.PBSTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsPBSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // vehicleApprovalDataGridViewTextBoxColumn
+            // 
+            this.vehicleApprovalDataGridViewTextBoxColumn.DataPropertyName = "VehicleApproval";
+            this.vehicleApprovalDataGridViewTextBoxColumn.HeaderText = "Vehicle Approval";
+            this.vehicleApprovalDataGridViewTextBoxColumn.Name = "vehicleApprovalDataGridViewTextBoxColumn";
+            this.vehicleApprovalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vehicleApprovalDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // versionDataGridViewTextBoxColumn
+            // 
+            this.versionDataGridViewTextBoxColumn.DataPropertyName = "Version";
+            this.versionDataGridViewTextBoxColumn.HeaderText = "Version";
+            this.versionDataGridViewTextBoxColumn.Name = "versionDataGridViewTextBoxColumn";
+            this.versionDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // approvalDTDataGridViewTextBoxColumn
+            // 
+            this.approvalDTDataGridViewTextBoxColumn.DataPropertyName = "ApprovalDT";
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.approvalDTDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.approvalDTDataGridViewTextBoxColumn.HeaderText = "ApprovalDT";
+            this.approvalDTDataGridViewTextBoxColumn.Name = "approvalDTDataGridViewTextBoxColumn";
+            // 
+            // Operator
+            // 
+            this.Operator.DataPropertyName = "Operator";
+            this.Operator.HeaderText = "Operator";
+            this.Operator.Name = "Operator";
+            this.Operator.Visible = false;
+            // 
+            // CardCode
+            // 
+            this.CardCode.DataPropertyName = "CardCode";
+            this.CardCode.HeaderText = "CardCode";
+            this.CardCode.Name = "CardCode";
+            this.CardCode.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(508, 105);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(20, 18);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "...";
+            // 
             // PBSManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -495,9 +523,6 @@
         private System.Windows.Forms.BindingSource bsPBS;
         private dsPBSTableAdapters.PBSTableAdapter taPBS;
         private System.Windows.Forms.TextBox txtOperator;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleApprovalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn versionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn approvalDTDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridView dgvPBSConfig;
         private System.Windows.Forms.BindingSource bsPBSConfig;
         private dsPBSTableAdapters.PBS_ConfigTableAdapter taPBSConfig;
@@ -531,5 +556,11 @@
         private System.Windows.Forms.Button btnSavePBSTables;
         private System.Windows.Forms.Button btnSaveVA;
         private System.Windows.Forms.BindingSource pBS_ConfigBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleApprovalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn versionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn approvalDTDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Operator;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CardCode;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -305,7 +305,6 @@ namespace QWS_Local
                         break;
                 }
                 //if (myTruckConfigGVM.Compartments > 1 && myTruckConfigGVM.AxleConfiguration.IndexOf("R") > 0)
-                //    // TODO how to handle B-double
                 ////if (CurrentTruckGVM().GCM != CurrentTruckGVM().GVMTruck)
                 //{
                 //    myPayloadTk = myTruckConfigGVM.GVMTruck - myTruckConfigGVM  .TareTk;
@@ -639,6 +638,7 @@ namespace QWS_Local
                     {
                         // TODO handle split load for B-double
                         MessageBox.Show("","Split B-double",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        GoBack2BookIn(_TIQRow.Rego, _TIQRow.TruckConfigID, _TIQRow.DriverID, _TIQRow.TIQID, "BDb");
                     }
                     else
                     {
