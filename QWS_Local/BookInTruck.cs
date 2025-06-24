@@ -531,8 +531,7 @@ namespace QWS_Local
                 _TIQRow.RegoTr2 = myConfigTruck.RegoTr2;
                 _TIQRow.RegoTr3 = myConfigTruck.RegoTr3;
                 _TIQRow.RegoTrailers = myConfigTruck.RegoTrailer;
-                //_TIQRow.TruckConfig = TruckTrailerConfig; //myConfigTruck.VehicleType;
-                _TIQRow.TruckConfig = myConfigTruck.VehicleType; // TODO check if I can remove passed in value
+                _TIQRow.TruckConfig = myConfigTruck.VehicleType;
                 _TIQRow.TruckConfigID = myConfigTruck.TruckConfigID;
                 _TIQRow.AxleConfiguration = myConfigTruck.AxleConfiguration;
                 _TIQRow.FeeCode = myConfigTruck.FeeCode;

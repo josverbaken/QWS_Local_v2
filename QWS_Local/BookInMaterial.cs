@@ -231,6 +231,72 @@ namespace QWS_Local
                         //+ " (" + myPayload.ToString() + ")";
                         btnUpdatePayloadSplit.Enabled = true;
                         break;
+                    case "BD":
+                        nudPayloadTk.Value = myPayload;
+                        nudPayloadTk.Enabled = true;
+                        //nudPayloadTr.Value = myPayloadTr;
+                        nudPayloadTr.Enabled = false;
+                        txtPayloadSplit.Text = "";//myPayload.ToString();
+                        btnUpdatePayloadSplit.Enabled = false;
+                        break;
+                    case "BDa": // TODO fix logic
+                        myPayloadTk = myTruckConfigGVM.GVMTruck - myTruckConfigGVM.TareTk;
+                        myPayloadTr = myPayload - myPayloadTk;
+                        nudPayloadTk.Value = myPayloadTk;
+                        nudPayloadTk.Enabled = true;
+                        nudPayloadTr.Value = myPayloadTr;
+                        nudPayloadTr.Enabled = false;
+                        txtPayloadSplit.Text = myPayloadTk.ToString();
+                        //+ " / " + myPayloadTr.ToString();
+                        //+ " (" + myPayload.ToString() + ")";
+                        btnUpdatePayloadSplit.Enabled = true;
+                        break;
+                    case "BDb": // TODO fix logic
+                        myPayloadTk = myTruckConfigGVM.GVMTruck - myTruckConfigGVM.TareTk;
+                        myPayloadTr = myPayload - myPayloadTk;
+                        nudPayloadTk.Value = myPayloadTk;
+                        nudPayloadTk.Enabled = false;
+                        nudPayloadTr.Value = myPayloadTr;
+                        nudPayloadTr.Enabled = true;
+                        txtPayloadSplit.Text = myPayloadTr.ToString();
+                        //txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString();
+                        //+ " (" + myPayload.ToString() + ")";
+                        btnUpdatePayloadSplit.Enabled = true;
+                        break;
+
+                    case "AD": // ADa, ADb treat like TT because dolly i.e 12A3RD3A3
+                        nudPayloadTk.Value = myPayload;
+                        nudPayloadTk.Enabled = true;
+                        //nudPayloadTr.Value = myPayloadTr;
+                        nudPayloadTr.Enabled = false;
+                        txtPayloadSplit.Text = ""; // myPayload.ToString();
+                        btnUpdatePayloadSplit.Enabled = false;
+                        break;
+                    case "ADa": // TODO fix logic
+                        myPayloadTk = myTruckConfigGVM.GVMTruck - myTruckConfigGVM.TareTk;
+                        myPayloadTr = myPayload - myPayloadTk;
+                        nudPayloadTk.Value = myPayloadTk;
+                        nudPayloadTk.Enabled = true;
+                        nudPayloadTr.Value = myPayloadTr;
+                        nudPayloadTr.Enabled = false;
+                        txtPayloadSplit.Text = myPayloadTk.ToString();
+                        //+ " / " + myPayloadTr.ToString();
+                        //+ " (" + myPayload.ToString() + ")";
+                        btnUpdatePayloadSplit.Enabled = true;
+                        break;
+                    case "ADb": // TODO fix logic
+                        myPayloadTk = myTruckConfigGVM.GVMTruck - myTruckConfigGVM.TareTk;
+                        myPayloadTr = myPayload - myPayloadTk;
+                        nudPayloadTk.Value = myPayloadTk;
+                        nudPayloadTk.Enabled = false;
+                        nudPayloadTr.Value = myPayloadTr;
+                        nudPayloadTr.Enabled = true;
+                        txtPayloadSplit.Text = myPayloadTr.ToString();
+                        //txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString();
+                        //+ " (" + myPayload.ToString() + ")";
+                        btnUpdatePayloadSplit.Enabled = true;
+                        break;
+
                     default:
                         txtPayloadSplit.Text = string.Empty; // value to write to TIQ determined later
                         nudPayloadTk.Enabled = false;

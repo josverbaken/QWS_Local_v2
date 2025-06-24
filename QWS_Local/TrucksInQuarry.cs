@@ -222,6 +222,7 @@ namespace QWS_Local
                                         bsTIQ2.EndEdit();
                                         taTIQ2.Update(dsTIQ2.TIQ);
                                         RefreshQueue();
+                                        //GoToWeighTruck(); // refactor - need to select same TIQID
                                     }
                                 }
                                 else

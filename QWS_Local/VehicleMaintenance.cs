@@ -370,7 +370,7 @@ namespace QWS_Local
 
                 this.taFeeCodes.FillByBoth(this.dsQWSLocal2024.VehicleRegFeeCodes, feeCodeSearch._FeeCodeRow.FeeCode, feeCodeSearch._FeeCodeRow.Jurisdiction);
 
-                dtpExpiryDT.Focus();
+                this.txtRegoExpDT.Focus();
             }
             else
             {
@@ -695,6 +695,16 @@ namespace QWS_Local
                 MessageBox.Show(ex.Message, "IsACC Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+        }
+
+        private void btnSavePrefCust_Click(object sender, EventArgs e)
+        {
+            SavePrefCustomers();
+        }
+
+        private void btnSaveVehicle_Click(object sender, EventArgs e)
+        {
+            VehicleSaveBlock();
         }
     }
 }
