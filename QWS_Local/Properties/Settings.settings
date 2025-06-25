@@ -11,14 +11,6 @@
     <Setting Name="RetareInterval" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">180</Value>
     </Setting>
-    <Setting Name="cnQWSLocal" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionString&gt;Data Source=ch-sql02;Initial Catalog=QWS_NQ_Dev;Integrated Security=True;TrustServerCertificate=True&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=ch-sql02;Initial Catalog=QWS_NQ_Dev;Integrated Security=True;TrustServerCertificate=True</Value>
-    </Setting>
     <Setting Name="OverloadMinor" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">0</Value>
     </Setting>
@@ -51,6 +43,14 @@
     </Setting>
     <Setting Name="ShortLoadFee" Type="System.String" Scope="Application">
       <Value Profile="(Default)">070-200-1</Value>
+    </Setting>
+    <Setting Name="cnQWSLocal" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionString&gt;Data Source=ch-sql02;Initial Catalog=QWS_NQ_Dev;Integrated Security=True;TrustServerCertificate=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=ch-sql02;Initial Catalog=QWS_NQ_Dev;Integrated Security=True;TrustServerCertificate=True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

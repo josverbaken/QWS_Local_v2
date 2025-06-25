@@ -140,6 +140,10 @@ namespace QWS_Local
                         GenericUserLogin();
                     }
                 }
+                else // user not in database
+                {
+                    GenericUserLogin();
+                }
             }
             catch (Exception ex)
             {
