@@ -12,6 +12,9 @@ namespace QWS_Local
 {
     public partial class PBSManagement : Form
     {
+        private string myCardCode;
+        private string myOperator;
+
         public PBSManagement()
         {
             InitializeComponent();
@@ -65,6 +68,8 @@ namespace QWS_Local
             {
                 MessageBox.Show(frmBusinessSearch.BusinessName);
                 label3.Text = "Click new row in grid below and add Version and Approval Date before saving.";
+                myCardCode = frmBusinessSearch.SAPCode;
+                myOperator = frmBusinessSearch.BusinessName;
                 txtCardCode.Text = frmBusinessSearch.SAPCode;
                 txtOperator.Text = frmBusinessSearch.BusinessName;
             }
@@ -76,8 +81,16 @@ namespace QWS_Local
 
         private void dgvPBSConfigScheme_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
-            int myPBSConfigID = CurrentPBSConfig().PBS_ConfigID; //Convert.ToInt32(txtPBS_ConfigID.Text);
-            e.Row.Cells["PBS_ConfigID"].Value = myPBSConfigID;
+            try
+            {
+                int myPBSConfigID = CurrentPBSConfig().PBS_ConfigID; //Convert.ToInt32(txtPBS_ConfigID.Text);
+                e.Row.Cells[1].Value = myPBSConfigID; // "PBS_ConfigID"
+                e.Row.Cells[7].Value = false; //"MassMgmtRqd"
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void dgvPBSConfig_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
@@ -85,8 +98,7 @@ namespace QWS_Local
             try
             {
                 int myPBSID = CurrentPBS().PBS_ID;  //Convert.ToInt32(txtPBS_ID.Text);
-                e.Row.Cells["PBS_ID"].Value = myPBSID;
-                e.Row.Cells["MassMgmtRqd1"].Value = "true"; // TODO does not work nor error!@#
+                e.Row.Cells[1].Value = myPBSID; // "PBS_ID"
             }
             catch (Exception ex)
             {
@@ -108,8 +120,8 @@ namespace QWS_Local
                 // investigate why not recognising column names?
                 // 20250325 handled elsewhere by using index of column (dgv not dataset)
                 e.Row.Cells[0].Value = myPBSVA;
-                e.Row.Cells[3].Value = txtOperator.Text;
-                e.Row.Cells[4].Value = txtCardCode.Text;
+                e.Row.Cells[3].Value = myOperator;
+                e.Row.Cells[4].Value = myCardCode;
             }
             catch (Exception ex)
             {

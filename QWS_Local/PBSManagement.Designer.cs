@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCardCode = new System.Windows.Forms.TextBox();
             this.bsPBS = new System.Windows.Forms.BindingSource(this.components);
@@ -74,7 +75,6 @@
             this.approvalDTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Operator = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -122,6 +122,15 @@
             this.splitContainer1.Size = new System.Drawing.Size(1111, 783);
             this.splitContainer1.SplitterDistance = 195;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(508, 105);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(20, 18);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "...";
             // 
             // label1
             // 
@@ -208,7 +217,7 @@
             // 
             // btnSavePBSTables
             // 
-            this.btnSavePBSTables.Location = new System.Drawing.Point(677, 238);
+            this.btnSavePBSTables.Location = new System.Drawing.Point(871, 241);
             this.btnSavePBSTables.Name = "btnSavePBSTables";
             this.btnSavePBSTables.Size = new System.Drawing.Size(193, 29);
             this.btnSavePBSTables.TabIndex = 21;
@@ -326,7 +335,7 @@
             this.gbPBSVA.Controls.Add(this.dgvPBS);
             this.gbPBSVA.Location = new System.Drawing.Point(12, 11);
             this.gbPBSVA.Name = "gbPBSVA";
-            this.gbPBSVA.Size = new System.Drawing.Size(373, 224);
+            this.gbPBSVA.Size = new System.Drawing.Size(587, 224);
             this.gbPBSVA.TabIndex = 18;
             this.gbPBSVA.TabStop = false;
             this.gbPBSVA.Text = "Vehicle Approvals";
@@ -346,14 +355,14 @@
             this.dgvPBS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPBS.Location = new System.Drawing.Point(3, 20);
             this.dgvPBS.Name = "dgvPBS";
-            this.dgvPBS.Size = new System.Drawing.Size(367, 201);
+            this.dgvPBS.Size = new System.Drawing.Size(581, 201);
             this.dgvPBS.TabIndex = 7;
             this.dgvPBS.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvPBS_DefaultValuesNeeded);
             // 
             // gbPBSTables
             // 
             this.gbPBSTables.Controls.Add(this.dgvPBSConfig);
-            this.gbPBSTables.Location = new System.Drawing.Point(418, 72);
+            this.gbPBSTables.Location = new System.Drawing.Point(612, 75);
             this.gbPBSTables.Name = "gbPBSTables";
             this.gbPBSTables.Size = new System.Drawing.Size(455, 160);
             this.gbPBSTables.TabIndex = 3;
@@ -454,9 +463,9 @@
             // approvalDTDataGridViewTextBoxColumn
             // 
             this.approvalDTDataGridViewTextBoxColumn.DataPropertyName = "ApprovalDT";
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            this.approvalDTDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.approvalDTDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.approvalDTDataGridViewTextBoxColumn.HeaderText = "ApprovalDT";
             this.approvalDTDataGridViewTextBoxColumn.Name = "approvalDTDataGridViewTextBoxColumn";
             // 
@@ -465,23 +474,12 @@
             this.Operator.DataPropertyName = "Operator";
             this.Operator.HeaderText = "Operator";
             this.Operator.Name = "Operator";
-            this.Operator.Visible = false;
             // 
             // CardCode
             // 
             this.CardCode.DataPropertyName = "CardCode";
             this.CardCode.HeaderText = "CardCode";
             this.CardCode.Name = "CardCode";
-            this.CardCode.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(508, 105);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(20, 18);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "...";
             // 
             // PBSManagement
             // 
@@ -556,11 +554,11 @@
         private System.Windows.Forms.Button btnSavePBSTables;
         private System.Windows.Forms.Button btnSaveVA;
         private System.Windows.Forms.BindingSource pBS_ConfigBindingSource;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn vehicleApprovalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn versionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn approvalDTDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Operator;
         private System.Windows.Forms.DataGridViewTextBoxColumn CardCode;
-        private System.Windows.Forms.Label label3;
     }
 }

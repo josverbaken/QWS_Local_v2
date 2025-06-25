@@ -612,7 +612,7 @@ namespace QWS_Local
 
         private void dgvPBS_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
-            e.Row.Cells["Rego"].Value = CurrentVehicle().Rego;
+            e.Row.Cells[1].Value = CurrentVehicle().Rego; // "Rego"
         }
 
         private void VehicleSaveBlock()
