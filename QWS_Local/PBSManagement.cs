@@ -48,6 +48,12 @@ namespace QWS_Local
                         label1.Text = "***";
                     }
                 }
+                else
+                {
+                    // variables CardCode, Operator
+                    myCardCode = CurrentPBS().CardCode;
+                    myOperator = CurrentPBS().Operator;
+                }
             }
             catch (Exception ex)
             {
@@ -151,6 +157,7 @@ namespace QWS_Local
         {
             try
             {
+                dsPBS.PBS_ConfigScheme.Clear();
                 if (CurrentPBS()  != null)
                 {
                     taPBSConfig.FillByPBSID(dsPBS.PBS_Config, CurrentPBS().PBS_ID);
