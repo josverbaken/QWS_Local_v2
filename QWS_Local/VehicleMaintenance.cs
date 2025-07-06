@@ -115,10 +115,15 @@ namespace QWS_Local
                             if (dr1 == DialogResult.OK)
                             {
                                 iRows = this.taVehicle.FillBy(dsQWSLocal2024.Vehicle, vehicleSearch.Rego);
-                                // TODO would be nicer to get row from VehicleSearch rather than do second search
-                                // TODO use import row, currently works because USP handles exact match on Rego
-                                iRows += 2;
-                                VehicleFound();
+                                if (iRows == 1)
+                                {
+                                    VehicleFound();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error finding vehicle!");
+                                    txtRego.Focus();
+                                }
                             }
                             else
                             {
@@ -255,7 +260,7 @@ namespace QWS_Local
                 string myAxleConfig = axleConfigurationSearch._AxleConfigurationRow.AxleConfiguration;
                 txtAxleConfig.Text = myAxleConfig;
                 CurrentVehicle().AxleConfiguration = myAxleConfig;
-                CurrentVehicle().IsLeadVehicle = true; 
+                //CurrentVehicle().IsLeadVehicle = true; // 20250701 already set when chose Fee Code
                 this.taAxleConfig.FillByAxleConfig(dsQWSLocal2024.AxleConfiguration, myAxleConfig); // WHY - for the picture!
                 VehicleSaveBlock();
             }
@@ -350,6 +355,7 @@ namespace QWS_Local
             else
             {
                 CurrentVehicle().FeeCodeID = CurrentFeeCode().FeeCodeID;
+                CurrentVehicle().IsLeadVehicle = CurrentFeeCode().IsLeadVehicle;
 
                 txtAxleConfig.Focus();
             }
@@ -367,6 +373,7 @@ namespace QWS_Local
             if (dr == DialogResult.OK)
             {
                 CurrentVehicle().FeeCodeID = feeCodeSearch._FeeCodeRow.FeeCodeID;
+                CurrentVehicle().IsLeadVehicle = feeCodeSearch._FeeCodeRow.IsLeadVehicle;
 
                 this.taFeeCodes.FillByBoth(this.dsQWSLocal2024.VehicleRegFeeCodes, feeCodeSearch._FeeCodeRow.FeeCode, feeCodeSearch._FeeCodeRow.Jurisdiction);
 
@@ -446,7 +453,7 @@ namespace QWS_Local
         {
             if (CurrentVehicle().IsLeadVehicle == true)
             {
-                // TODO check if form already open
+                // TODO check if form already open - copy logic from PrintDocket
                 TruckConfigMaintenance frmTruckConfig = new TruckConfigMaintenance(CurrentVehicle().Rego);
                 frmTruckConfig.MdiParent = this.MdiParent;
                 frmTruckConfig.Show();

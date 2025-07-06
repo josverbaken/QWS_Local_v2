@@ -40,7 +40,7 @@ namespace QWS_Local
             InitializeComponent();
             Search4Vehicle(CardCode,true);
             this.txtSearch1.Text = CardCode;
-            //MessageBox.Show("Truck Axle config = " + AxleConfig + " Exact = " + Exact.ToString());
+            this.rbCardCode.Checked = true;
             FilterByAxleConfig(AxleConfig,Exact);
         }
 
@@ -58,17 +58,21 @@ namespace QWS_Local
             {
                 if (IsCardCode)
                 {
-                    this.taVehicleDetails2.FillByCardCode(this.dsQWSLocal2024.VehicleDetails, strSearch);
+                    int iRow = this.taVehicleDetails2.FillByCardCode(this.dsQWSLocal2024.VehicleDetails, strSearch);
+
                     //this.bsVehicleDetails.Filter = "IsLeadVehicle = 1";
-                    // maybe pass in as a parameter from calling form
+                    // ToConsider pass in as a parameter from calling form
                     // maybe create function for filter
-                    // testing 20241002
-                    if (bsVehicleDetails2.Count > 0)
+                    if (bsVehicleDetails2.Count > 0 && iRow > 0)
                     {
                         DataRow myDR = ((DataRowView)bsVehicleDetails2.Current).Row;
                         dsQWSLocal2024.VehicleDetailsRow vehicleDetailsRow = (dsQWSLocal2024.VehicleDetailsRow)myDR;
                         myRego = vehicleDetailsRow.Rego;
                         myCardCode = vehicleDetailsRow.CardCode;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No vehicles found for supplied CardCode!");
                     }
                 }
                 else
@@ -137,7 +141,19 @@ namespace QWS_Local
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            Search4Vehicle(this.txtSearch1.Text, false);
+            if (rbCardCode.Checked == true)
+            {
+                Search4Vehicle(this.txtSearch1.Text, true);
+            }
+            else if (rbRego.Checked == true) 
+            {
+                Search4Vehicle(this.txtSearch1.Text, false);
+            }
+            else
+            {
+                MessageBox.Show("Please check either Rego or CardCode.");
+            }
+                
         }
 
         private void btnCancel1_Click(object sender, EventArgs e)
@@ -158,6 +174,14 @@ namespace QWS_Local
             if (rbClear.Checked == true)
             {
                 bsVehicleDetails2.Filter = "";
+            }
+        }
+
+        private void rbAxleConfig_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbAxleConfig.Checked == true)
+            {
+                bsVehicleDetails2.Filter = "AxleConfiguration like '" + txtAxleConfig.Text + "%'";
             }
         }
     }

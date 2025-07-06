@@ -61,6 +61,7 @@ namespace QWS_Local
             this.rbFeeCode = new System.Windows.Forms.RadioButton();
             this.feeCodeTextBox = new System.Windows.Forms.TextBox();
             this.rbCoupling = new System.Windows.Forms.RadioButton();
+            this.isLeadVehicleCheckBox = new System.Windows.Forms.CheckBox();
             jurisdictionLabel = new System.Windows.Forms.Label();
             feeCodeLabel = new System.Windows.Forms.Label();
             feeTypeLabel = new System.Windows.Forms.Label();
@@ -118,7 +119,7 @@ namespace QWS_Local
             // maxAxlesLabel
             // 
             maxAxlesLabel.AutoSize = true;
-            maxAxlesLabel.Location = new System.Drawing.Point(84, 188);
+            maxAxlesLabel.Location = new System.Drawing.Point(84, 232);
             maxAxlesLabel.Name = "maxAxlesLabel";
             maxAxlesLabel.Size = new System.Drawing.Size(79, 18);
             maxAxlesLabel.TabIndex = 14;
@@ -127,7 +128,7 @@ namespace QWS_Local
             // maxGVMLabel
             // 
             maxGVMLabel.AutoSize = true;
-            maxGVMLabel.Location = new System.Drawing.Point(85, 218);
+            maxGVMLabel.Location = new System.Drawing.Point(85, 262);
             maxGVMLabel.Name = "maxGVMLabel";
             maxGVMLabel.Size = new System.Drawing.Size(78, 18);
             maxGVMLabel.TabIndex = 16;
@@ -136,7 +137,7 @@ namespace QWS_Local
             // maxTrailersLabel
             // 
             maxTrailersLabel.AutoSize = true;
-            maxTrailersLabel.Location = new System.Drawing.Point(70, 248);
+            maxTrailersLabel.Location = new System.Drawing.Point(70, 292);
             maxTrailersLabel.Name = "maxTrailersLabel";
             maxTrailersLabel.Size = new System.Drawing.Size(93, 18);
             maxTrailersLabel.TabIndex = 18;
@@ -145,7 +146,7 @@ namespace QWS_Local
             // couplingLabel
             // 
             couplingLabel.AutoSize = true;
-            couplingLabel.Location = new System.Drawing.Point(93, 278);
+            couplingLabel.Location = new System.Drawing.Point(93, 322);
             couplingLabel.Name = "couplingLabel";
             couplingLabel.Size = new System.Drawing.Size(70, 18);
             couplingLabel.TabIndex = 20;
@@ -154,7 +155,7 @@ namespace QWS_Local
             // axlesLabel
             // 
             axlesLabel.AutoSize = true;
-            axlesLabel.Location = new System.Drawing.Point(116, 308);
+            axlesLabel.Location = new System.Drawing.Point(116, 352);
             axlesLabel.Name = "axlesLabel";
             axlesLabel.Size = new System.Drawing.Size(47, 18);
             axlesLabel.TabIndex = 21;
@@ -197,6 +198,8 @@ namespace QWS_Local
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.AutoScroll = true;
+            this.splitContainer2.Panel2.Controls.Add(this.isLeadVehicleCheckBox);
             this.splitContainer2.Panel2.Controls.Add(axlesLabel);
             this.splitContainer2.Panel2.Controls.Add(this.axlesTextBox);
             this.splitContainer2.Panel2.Controls.Add(couplingLabel);
@@ -258,7 +261,7 @@ namespace QWS_Local
             // axlesTextBox
             // 
             this.axlesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsFeeCodes, "Axles", true));
-            this.axlesTextBox.Location = new System.Drawing.Point(169, 305);
+            this.axlesTextBox.Location = new System.Drawing.Point(169, 349);
             this.axlesTextBox.Name = "axlesTextBox";
             this.axlesTextBox.Size = new System.Drawing.Size(100, 24);
             this.axlesTextBox.TabIndex = 22;
@@ -266,7 +269,7 @@ namespace QWS_Local
             // maxTrailersTextBox
             // 
             this.maxTrailersTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsFeeCodes, "MaxTrailers", true));
-            this.maxTrailersTextBox.Location = new System.Drawing.Point(169, 245);
+            this.maxTrailersTextBox.Location = new System.Drawing.Point(169, 289);
             this.maxTrailersTextBox.Name = "maxTrailersTextBox";
             this.maxTrailersTextBox.Size = new System.Drawing.Size(100, 24);
             this.maxTrailersTextBox.TabIndex = 19;
@@ -274,7 +277,7 @@ namespace QWS_Local
             // maxGVMTextBox
             // 
             this.maxGVMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsFeeCodes, "MaxGVM", true));
-            this.maxGVMTextBox.Location = new System.Drawing.Point(169, 215);
+            this.maxGVMTextBox.Location = new System.Drawing.Point(169, 259);
             this.maxGVMTextBox.Name = "maxGVMTextBox";
             this.maxGVMTextBox.Size = new System.Drawing.Size(100, 24);
             this.maxGVMTextBox.TabIndex = 17;
@@ -282,7 +285,7 @@ namespace QWS_Local
             // maxAxlesTextBox
             // 
             this.maxAxlesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsFeeCodes, "MaxAxles", true));
-            this.maxAxlesTextBox.Location = new System.Drawing.Point(169, 185);
+            this.maxAxlesTextBox.Location = new System.Drawing.Point(169, 229);
             this.maxAxlesTextBox.Name = "maxAxlesTextBox";
             this.maxAxlesTextBox.Size = new System.Drawing.Size(100, 24);
             this.maxAxlesTextBox.TabIndex = 15;
@@ -301,7 +304,7 @@ namespace QWS_Local
             this.feeTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsFeeCodes, "FeeType", true));
             this.feeTypeTextBox.Location = new System.Drawing.Point(169, 86);
             this.feeTypeTextBox.Name = "feeTypeTextBox";
-            this.feeTypeTextBox.Size = new System.Drawing.Size(100, 24);
+            this.feeTypeTextBox.Size = new System.Drawing.Size(252, 24);
             this.feeTypeTextBox.TabIndex = 11;
             // 
             // jurisdictionTextBox
@@ -345,7 +348,7 @@ namespace QWS_Local
             // couplingTextBox
             // 
             this.couplingTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsFeeCodes, "Coupling", true));
-            this.couplingTextBox.Location = new System.Drawing.Point(169, 275);
+            this.couplingTextBox.Location = new System.Drawing.Point(169, 319);
             this.couplingTextBox.Name = "couplingTextBox";
             this.couplingTextBox.Size = new System.Drawing.Size(100, 24);
             this.couplingTextBox.TabIndex = 5;
@@ -381,6 +384,16 @@ namespace QWS_Local
             this.rbCoupling.Text = "filter";
             this.rbCoupling.UseVisualStyleBackColor = true;
             this.rbCoupling.CheckedChanged += new System.EventHandler(this.rbCoupling_CheckedChanged);
+            // 
+            // isLeadVehicleCheckBox
+            // 
+            this.isLeadVehicleCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bsFeeCodes, "IsLeadVehicle", true));
+            this.isLeadVehicleCheckBox.Location = new System.Drawing.Point(169, 185);
+            this.isLeadVehicleCheckBox.Name = "isLeadVehicleCheckBox";
+            this.isLeadVehicleCheckBox.Size = new System.Drawing.Size(136, 24);
+            this.isLeadVehicleCheckBox.TabIndex = 24;
+            this.isLeadVehicleCheckBox.Text = "Is Lead Vehicle";
+            this.isLeadVehicleCheckBox.UseVisualStyleBackColor = true;
             // 
             // FeeCodeSearch
             // 
@@ -428,5 +441,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox jurisdictionTextBox;
         private System.Windows.Forms.TextBox axlesTextBox;
         private System.Windows.Forms.TextBox maxTrailersTextBox;
+        private System.Windows.Forms.CheckBox isLeadVehicleCheckBox;
     }
 }

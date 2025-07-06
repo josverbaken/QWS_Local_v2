@@ -305,13 +305,33 @@ namespace QWS_Local
                             }
                             break;
                         case 3: // BD
-                            Okay2Continue = false; // TESTING
+                            TrailerAxleConfig = CombinationAxleConfig.Substring(iBreak, CombinationAxleConfig.Length - iBreak); //keep R or A
+                            string BTrailer = "";
+                            VehicleSearch frmVehicleSearchBD = new VehicleSearch(myVehicle.CardCode, TrailerAxleConfig, true);
+                            DialogResult dr1 = frmVehicleSearchBD.ShowDialog();
+                            if (dr1 == DialogResult.OK)
+                            {
+                                BTrailer = frmVehicleSearchBD.Rego;
+                            }
+                            RegoArray[1] = BTrailer;
+                            foreach (dsTruckConfig.ConfiguredTrucksRow myConfigTruck in dsTruckConfig.ConfiguredTrucks)
+                            {
+                                string testRego = RegoArray[0] + RegoArray[1];
+                                string compareRego = myConfigTruck.RegoTk + myConfigTruck.RegoTr1;
+                                if (testRego == compareRego)
+                                {
+                                    Okay2Continue = false;
+                                    MessageBox.Show("Already configured! \r\nCannot continue.", "Duplicate Check", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    break;
+                                }
+                            }
+                            Okay2Continue = false; // TODO
                             break;
                         case 4: // A-Double with converter dolly
-                            Okay2Continue = false; // TESTING
+                            Okay2Continue = false; // TODO
                             break;
                         default:
-                            Okay2Continue = false; // TESTING
+                            Okay2Continue = false; // TODO
                             break;
                     }
                     }
@@ -520,7 +540,7 @@ namespace QWS_Local
                     
                 TruckConfigNHVRDelete(myTruckConfigID, myTruckTypeID);
 
-                GetConfiguredTruck(txtRego.Text); // TODO review how best to Refresh
+                GetConfiguredTruck(txtRego.Text);
             }
         }
     }

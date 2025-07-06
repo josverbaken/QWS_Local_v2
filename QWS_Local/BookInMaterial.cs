@@ -272,7 +272,7 @@ namespace QWS_Local
                         txtPayloadSplit.Text = ""; // myPayload.ToString();
                         btnUpdatePayloadSplit.Enabled = false;
                         break;
-                    case "ADa": // TODO fix logic
+                    case "ADa": // 
                         myPayloadTk = myTruckConfigGVM.GVMTruck - myTruckConfigGVM.TareTk;
                         myPayloadTr = myPayload - myPayloadTk;
                         nudPayloadTk.Value = myPayloadTk;

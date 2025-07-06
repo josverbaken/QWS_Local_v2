@@ -123,7 +123,7 @@ namespace QWS_Local
                     rbWB2.Visible = true;
                     rbWB3.Visible = true;
                     Instruction += "\r\nSelect Weighbridge.";
-                    // TODO Check if WB Connected after WB selected
+                    // ToConsider Check if WB Connected after WB selected, maybe ping and if no answer switch to manual but this might confuse WBO
                     break;
                 default:
                     MessageBox.Show("Invalid weighbridge configuration.");
