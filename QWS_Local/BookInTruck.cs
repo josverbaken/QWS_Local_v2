@@ -23,7 +23,7 @@ namespace QWS_Local
         private string myUserName;
         private static string myWBO = "Barney.Rubble";
         private static int mySiteID;
-        //private static dsTIQ2.TIQRow _TIQRow;
+        private static dsTIQ2.TIQRow _TIQRow;
 
 
         private enum TIQType
@@ -72,11 +72,11 @@ namespace QWS_Local
             dgvConfiguredTrucks.DefaultCellStyle.SelectionForeColor = Color.Black;
 
             CallingMessage = "";
-            //_TIQRow = TIQRow;
+            _TIQRow = TIQRow;
             dsTIQ2.TIQ.Clear();
             dsTIQ2.TIQ.ImportRow(TIQRow);
-            //_TIQRow = (dsTIQ2.TIQRow)dsTIQ2.TIQ.Rows[0]; // bind to dataset
-            dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
+            _TIQRow = (dsTIQ2.TIQRow)dsTIQ2.TIQ.Rows[0]; // bind to dataset
+            //dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
             txtTruckRego.Text = _TIQRow.Rego;
 
             if (_TIQRow.Rego.Length > 0)
@@ -150,7 +150,7 @@ namespace QWS_Local
                         {
                             // Resume == True
                             UpdateOwnerGUI();
-                            dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
+                            //dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
                             if (_TIQRow != null)
                             {
                                 string msg = "TIQ Row was passed with Rego = ";
@@ -268,19 +268,19 @@ namespace QWS_Local
             }
         }
 
-        private dsTIQ2.TIQRow CurrentTIQ()
-        {
-            if (bsTIQ.Count > 0)
-            {
-                DataRow myRow = ((DataRowView)bsTIQ.Current).Row;
-                dsTIQ2.TIQRow TIQRow = (dsTIQ2.TIQRow)myRow;
-                return TIQRow;
-            }
-            else
-            {
-                return null;
-            }
-        }
+        //private dsTIQ2.TIQRow CurrentTIQ()
+        //{
+        //    if (bsTIQ.Count > 0)
+        //    {
+        //        DataRow myRow = ((DataRowView)bsTIQ.Current).Row;
+        //        dsTIQ2.TIQRow TIQRow = (dsTIQ2.TIQRow)myRow;
+        //        return TIQRow;
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
 
                 private dsQWSLocal2024.TruckDriverRow CurrentTruckDriver()
                 {
@@ -462,7 +462,7 @@ namespace QWS_Local
             try
             {
                 //if (CurrentTIQ() != null)
-                dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
+                //dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
                 if (_TIQRow != null)
                 {
                     bsTIQ.EndEdit();
@@ -511,9 +511,9 @@ namespace QWS_Local
             bsTruckDriver.EndEdit();
             dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
             dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
-            if (CurrentTIQ() != null)
-            {
-                dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
+            //if (CurrentTIQ() != null)
+            //{
+                //dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
                 if (myTruckDriver != null)
                 {
                     _TIQRow.DriverID = myTruckDriver.CntctCode;
@@ -594,11 +594,11 @@ namespace QWS_Local
                 bsTIQ.EndEdit();
                 int iRow = taTIQ.Update(dsTIQ2.TIQ);
                 iRow += 1;
-            }
-            else
-            {
-                MessageBox.Show("Error retrieving TIQ");
-            }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Error retrieving TIQ");
+            //}
         }
 
         private bool SetExBinCustomer()
@@ -677,7 +677,7 @@ namespace QWS_Local
         private void GoToBookInMaterial()
         {
             //dsTIQ2.TIQRow myTIQRow = _TIQRow; //CurrentTIQ();
-            dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
+            //dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
             if (_TIQRow.TruckConfig == "TT")
                 {
                     gbSplitLoad.Enabled = true;
@@ -691,7 +691,7 @@ namespace QWS_Local
 
         private void BookInMaterial()
         {
-            dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
+            //dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
             if (_TIQRow.TIQID > 0)
             {
                 _TIQRow.CustomerCode = CustCardCode;
@@ -715,7 +715,7 @@ namespace QWS_Local
             if (TIQID > 0)
             {
                 //dsTIQ2.TIQRow myTIQRow = _TIQRow; // CurrentTIQ();
-                dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
+                //dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
                 UpdateTIQ(TIQType.Retare); //, _TIQRow.TruckConfig);
                 TIQID = 0;
                 ((QWS_MDIParent)this.MdiParent).BringTIQ2Front();
@@ -848,7 +848,7 @@ namespace QWS_Local
                 int iRow = taTIQ.FillBy(dsTIQ2.TIQ, mySiteID, myTIQID); // 1 row only!
                 if (iRow == 1)
                 {
-                    //_TIQRow = (dsTIQ2.TIQRow)dsTIQ2.TIQ.Rows[0];
+                    _TIQRow = (dsTIQ2.TIQRow)dsTIQ2.TIQ.Rows[0];
                 }
                 else
                 {
@@ -910,7 +910,7 @@ namespace QWS_Local
             {
                 string msg = "Put on hold, direct to park in holding bay and proceed to office to resolve driver issue.";
                 //if (CurrentTIQ() == null)
-                dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
+                //dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
                 if (_TIQRow == null)
                 {
                     // create record with just rego to capture entry time for KPI
@@ -972,7 +972,7 @@ namespace QWS_Local
 
         private void rbSplitLoad_CheckedChanged(object sender, EventArgs e)
         {
-            dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
+            //dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
             if (rbSplitLoad.Checked == true)
             {
                 btnContinue.Enabled = true;
@@ -983,7 +983,7 @@ namespace QWS_Local
 
         private void rbTruckOnly_CheckedChanged(object sender, EventArgs e)
         {
-            dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
+            //dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
             if (rbTruckOnly.Checked == true)
             {
                 btnContinue.Enabled = true;
@@ -995,7 +995,7 @@ namespace QWS_Local
 
         private void rbTrailerOnly_CheckedChanged(object sender, EventArgs e)
         {
-            dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
+            //dsTIQ2.TIQRow _TIQRow = CurrentTIQ();
             if (rbTrailerOnly.Checked == true)
             {
                 btnContinue.Enabled = true;
