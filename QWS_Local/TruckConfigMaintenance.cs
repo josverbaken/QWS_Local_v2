@@ -262,40 +262,81 @@ namespace QWS_Local
                 RegoArray[0] = Rego;
                 dsQWSLocal2024.VehicleRow myVehicle = CurrentVehicle();
                 string TruckAxleConfig = myVehicle.AxleConfiguration; 
-                string TrailerAxleConfig = myVehicle.AxleConfiguration;
+                string TrailerAxleConfig = "tba";
                 int iBreak = TruckAxleConfig.Length - 1;
-            
-                if (bsConfiguredTrucks.Count > 0) 
+                string CombinationAxleConfig = "tba"; // CurrentConfigTruck().AxleConfiguration;
+                switch (Vehicles)
+                {
+                    case 1:
+                    if (bsConfiguredTrucks.Count > 0)
                     {
-                    string CombinationAxleConfig = CurrentConfigTruck().AxleConfiguration;
-                    switch (Vehicles)
+                        foreach (dsTruckConfig.ConfiguredTrucksRow myConfigTruck in dsTruckConfig.ConfiguredTrucks)
+                        {
+                        // ensure comparison config is for vehicles = 1
+                            if (myConfigTruck.RegoTk == Rego && myConfigTruck.Vehicles == 1 && myVehicle.AxleConfiguration.Contains("R") == true)
+                            {
+                                Okay2Continue = false;
+                                MessageBox.Show("Already configured! \r\nCannot continue.", "Duplicate Check", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                break;
+                            }
+                        }
+                    }
+                        break;
+                    case 2: // T&T or ST
+                        //TrailerAxleConfig = CombinationAxleConfig.Substring(iBreak, CombinationAxleConfig.Length - iBreak); //keep R or A
+                        TrailerAxleConfig = AxleConfig.Substring(iBreak, AxleConfig.Length - iBreak); //keep R or A
+                        string Trailer = "";
+                        VehicleSearch frmVehicleSearch = new VehicleSearch(myVehicle.CardCode, TrailerAxleConfig, true);
+                        DialogResult dr = frmVehicleSearch.ShowDialog();
+                        if (dr == DialogResult.OK)
+                        {
+                            Trailer = frmVehicleSearch.Rego;
+                        }
+                        RegoArray[1] = Trailer;
+                    if (bsConfiguredTrucks.Count > 0)
                     {
-                        case 1:
+                        foreach (dsTruckConfig.ConfiguredTrucksRow myConfigTruck in dsTruckConfig.ConfiguredTrucks)
+                        {
+                            string testRego = RegoArray[0] + RegoArray[1];
+                            string compareRego = myConfigTruck.RegoTk + myConfigTruck.RegoTr1;
+                            if (testRego == compareRego)
+                            {
+                                Okay2Continue = false;
+                                MessageBox.Show("Already configured! \r\nCannot continue.", "Duplicate Check", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                break;
+                            }
+                        }
+                    }
+                        break;
+                    case 3: // BD
+                        TrailerAxleConfig = AxleConfig.Substring(iBreak, 2); // A3, A2 etc
+                        string BTrailer = "";
+                        VehicleSearch frmVehicleSearchBD = new VehicleSearch(myVehicle.CardCode, TrailerAxleConfig, false);
+                        DialogResult dr1 = frmVehicleSearchBD.ShowDialog();
+                        if (dr1 == DialogResult.OK)
+                        {
+                            BTrailer = frmVehicleSearchBD.Rego;
+                        }
+                        RegoArray[1] = BTrailer;
+
+                        // repeat above block for second trailer
+
+                        TrailerAxleConfig = AxleConfig.Substring(iBreak + 2, 2); // 12A3 etc
+                        string B2Trailer = "";
+                        VehicleSearch frmVehicleSearchBD2 = new VehicleSearch(myVehicle.CardCode, TrailerAxleConfig, false);
+                        DialogResult drB1 = frmVehicleSearchBD.ShowDialog();
+                        if (dr1 == DialogResult.OK)
+                        {
+                            B2Trailer = frmVehicleSearchBD.Rego;
+                        }
+                        RegoArray[2] = B2Trailer;
+
+                        if (bsConfiguredTrucks.Count > 0)
+                        {
                             foreach (dsTruckConfig.ConfiguredTrucksRow myConfigTruck in dsTruckConfig.ConfiguredTrucks)
                             {
-                                // ensure comparison config is for vehicles = 1
-                                if (myConfigTruck.RegoTk == Rego && myConfigTruck.Vehicles == 1 && myVehicle.AxleConfiguration.Contains("R") == true)
-                                {
-                                    Okay2Continue = false;
-                                    MessageBox.Show("Already configured! \r\nCannot continue.", "Duplicate Check", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                    break;
-                                }
-                            }
-                            break;
-                        case 2: // T&T or ST
-                            TrailerAxleConfig = CombinationAxleConfig.Substring(iBreak, CombinationAxleConfig.Length - iBreak); //keep R or A
-                            string Trailer = "";
-                            VehicleSearch frmVehicleSearch = new VehicleSearch(myVehicle.CardCode, TrailerAxleConfig, true);
-                            DialogResult dr = frmVehicleSearch.ShowDialog();
-                            if (dr == DialogResult.OK)
-                            {
-                                Trailer = frmVehicleSearch.Rego;
-                            }
-                            RegoArray[1] = Trailer;
-                            foreach (dsTruckConfig.ConfiguredTrucksRow myConfigTruck in dsTruckConfig.ConfiguredTrucks)
-                            {
-                                string testRego = RegoArray[0] + RegoArray[1];
-                                string compareRego = myConfigTruck.RegoTk + myConfigTruck.RegoTr1;
+                                string testRego = RegoArray[0] + RegoArray[1] + RegoArray[2];
+                                string compareRego = myConfigTruck.RegoTk + myConfigTruck.RegoTr1 + myConfigTruck.RegoTr2;
                                 if (testRego == compareRego)
                                 {
                                     Okay2Continue = false;
@@ -303,38 +344,31 @@ namespace QWS_Local
                                     break;
                                 }
                             }
-                            break;
-                        case 3: // BD
-                            TrailerAxleConfig = CombinationAxleConfig.Substring(iBreak, 2); // CombinationAxleConfig.Length - iBreak); //keep R or A
-                            string BTrailer = "";
-                            VehicleSearch frmVehicleSearchBD = new VehicleSearch(myVehicle.CardCode, TrailerAxleConfig, false); //true);
-                            DialogResult dr1 = frmVehicleSearchBD.ShowDialog();
-                            if (dr1 == DialogResult.OK)
+                        }
+                        break;
+                    case 4: // A-Double with converter dolly
+                    Okay2Continue = false; // TODO
+
+                    if (bsConfiguredTrucks.Count > 0)
+                    {
+                        foreach (dsTruckConfig.ConfiguredTrucksRow myConfigTruck in dsTruckConfig.ConfiguredTrucks)
+                        {
+                            string testRego = RegoArray[0] + RegoArray[1] + RegoArray[2] + RegoArray[3];
+                            string compareRego = myConfigTruck.RegoTk + myConfigTruck.RegoTr1 + myConfigTruck.RegoTr2 + myConfigTruck.RegoTr3;
+                            if (testRego == compareRego)
                             {
-                                BTrailer = frmVehicleSearchBD.Rego;
+                                Okay2Continue = false;
+                                MessageBox.Show("Already configured! \r\nCannot continue.", "Duplicate Check", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                break;
                             }
-                            RegoArray[1] = BTrailer;
-                            foreach (dsTruckConfig.ConfiguredTrucksRow myConfigTruck in dsTruckConfig.ConfiguredTrucks)
-                            {
-                                string testRego = RegoArray[0] + RegoArray[1];
-                                string compareRego = myConfigTruck.RegoTk + myConfigTruck.RegoTr1;
-                                if (testRego == compareRego)
-                                {
-                                    Okay2Continue = false;
-                                    MessageBox.Show("Already configured! \r\nCannot continue.", "Duplicate Check", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                    break;
-                                }
-                            }
-                            Okay2Continue = false; // TODO
-                            break;
-                        case 4: // A-Double with converter dolly
-                            Okay2Continue = false; // TODO
-                            break;
-                        default:
-                            Okay2Continue = false; // TODO
-                            break;
+                        }
                     }
-                    }
+                        break;
+                    default:
+                        Okay2Continue = false; // Might be an issue in the future
+                        break;
+                }
+            //}
 
                 if (Okay2Continue == true)            
                 {
@@ -342,7 +376,10 @@ namespace QWS_Local
                     for (int i = 0; i < Vehicles; i++) 
                     {
                         // note Position is One based sp = i+1
-                        TruckConfigVehicleAdd(myTruckConfigID, RegoArray[i], i+1, 0.0M);
+                        if (RegoArray[i] != null)
+                        {
+                            TruckConfigVehicleAdd(myTruckConfigID, RegoArray[i], i + 1, 0.0M);
+                        }
                     }
                     GetConfiguredTruck(Rego);
                 }
@@ -518,7 +555,7 @@ namespace QWS_Local
             {
                 int myTruckConfigID = CurrentConfigTruck().TruckConfigID;
                 TruckConfigDelete(myTruckConfigID);
-                GetConfiguredTruck(txtRego.Text); // TODO review how best to Refresh
+                GetConfiguredTruck(txtRego.Text); 
             }
         }
 
