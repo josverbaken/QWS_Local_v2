@@ -347,22 +347,57 @@ namespace QWS_Local
                         }
                         break;
                     case 4: // A-Double with converter dolly
-                    Okay2Continue = false; // TODO
-
-                    if (bsConfiguredTrucks.Count > 0)
-                    {
-                        foreach (dsTruckConfig.ConfiguredTrucksRow myConfigTruck in dsTruckConfig.ConfiguredTrucks)
+                        // A-trailer
+                        TrailerAxleConfig = AxleConfig.Substring(iBreak, 2); // A3, A2 etc
+                        string ATrailer = "";
+                        VehicleSearch frmVehicleSearchATrailer = new VehicleSearch(myVehicle.CardCode, TrailerAxleConfig, false); 
+                        DialogResult dr2 = frmVehicleSearchATrailer.ShowDialog();
+                        if (dr2 == DialogResult.OK)
                         {
-                            string testRego = RegoArray[0] + RegoArray[1] + RegoArray[2] + RegoArray[3];
-                            string compareRego = myConfigTruck.RegoTk + myConfigTruck.RegoTr1 + myConfigTruck.RegoTr2 + myConfigTruck.RegoTr3;
-                            if (testRego == compareRego)
+                            ATrailer = frmVehicleSearchATrailer.Rego;
+                        }
+                        RegoArray[1] = ATrailer;
+
+                        // Dolly
+
+                        TrailerAxleConfig = AxleConfig.Substring(iBreak + 2, 2); // 12A3 etc
+                        string Dolly = "";
+                        VehicleSearch frmVehicleSearchDolly = new VehicleSearch(myVehicle.CardCode, TrailerAxleConfig, false); 
+                        DialogResult drA1 = frmVehicleSearchDolly.ShowDialog();
+                        if (drA1 == DialogResult.OK)
+                        {
+                            Dolly = frmVehicleSearchDolly.Rego;
+                        }
+                        RegoArray[2] = Dolly;
+
+                        // B-trailer
+
+                        TrailerAxleConfig = AxleConfig.Substring(iBreak + 4, 2); // 12A3 etc
+                        string ADBTrailer = "";
+                        VehicleSearch frmVehicleSearchADBtrailer = new VehicleSearch(myVehicle.CardCode, TrailerAxleConfig, false);
+                        DialogResult drA2 = frmVehicleSearchADBtrailer.ShowDialog();
+                        if (drA2 == DialogResult.OK)
+                        {
+                            ADBTrailer = frmVehicleSearchADBtrailer.Rego;
+                        }
+                        RegoArray[3] = ADBTrailer;
+
+                        // check for duplicates
+                        if (bsConfiguredTrucks.Count > 0)
+                        {
+                            foreach (dsTruckConfig.ConfiguredTrucksRow myConfigTruck in dsTruckConfig.ConfiguredTrucks)
                             {
-                                Okay2Continue = false;
-                                MessageBox.Show("Already configured! \r\nCannot continue.", "Duplicate Check", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                break;
+                                string testRego = RegoArray[0] + RegoArray[1] + RegoArray[2] + RegoArray[3];
+                                string compareRego = myConfigTruck.RegoTk + myConfigTruck.RegoTr1 + myConfigTruck.RegoTr2 + myConfigTruck.RegoTr3;
+                                if (testRego == compareRego)
+                                {
+                                    Okay2Continue = false;
+                                    MessageBox.Show("Already configured! \r\nCannot continue.", "Duplicate Check", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    break;
+                                }
                             }
                         }
-                    }
+
                         break;
                     default:
                         Okay2Continue = false; // Might be an issue in the future

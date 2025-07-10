@@ -26,9 +26,16 @@ namespace QWS_Local
 
               private void tspUpdate_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.bsAxleConfig.EndEdit();
-            this.taAxleConfig.Update(this.dsQWSLocal2024.AxleConfiguration);
+            try
+            {
+                this.Validate();
+                this.bsAxleConfig.EndEdit();
+                this.taAxleConfig.Update(this.dsQWSLocal2024.AxleConfiguration);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnUpload_Click(object sender, EventArgs e)
