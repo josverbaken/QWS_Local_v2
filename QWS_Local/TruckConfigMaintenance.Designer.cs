@@ -878,6 +878,7 @@
             this.btnCheckConfig.TabIndex = 7;
             this.btnCheckConfig.Text = "Check Config";
             this.btnCheckConfig.UseVisualStyleBackColor = false;
+            this.btnCheckConfig.Visible = false;
             this.btnCheckConfig.Click += new System.EventHandler(this.btnCheckConfig_Click);
             // 
             // btnAddGVM

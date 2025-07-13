@@ -34,6 +34,7 @@ namespace QWS_Local
             System.Windows.Forms.Label inductionExpLabel;
             System.Windows.Forms.Label licenseExpLabel;
             System.Windows.Forms.Label licenseTypeLabel;
+            System.Windows.Forms.Label truckConfigLabel;
             this.bsConfiguredTrucks = new System.Windows.Forms.BindingSource(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.txtTruckRego = new System.Windows.Forms.TextBox();
@@ -96,10 +97,12 @@ namespace QWS_Local
             this.chkACCPickUp = new System.Windows.Forms.CheckBox();
             this.btnSessionID = new System.Windows.Forms.Button();
             this.btnSetTruckConfig = new System.Windows.Forms.Button();
+            this.truckConfigTextBox = new System.Windows.Forms.TextBox();
             cardStatusLabel = new System.Windows.Forms.Label();
             inductionExpLabel = new System.Windows.Forms.Label();
             licenseExpLabel = new System.Windows.Forms.Label();
             licenseTypeLabel = new System.Windows.Forms.Label();
+            truckConfigLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConfiguredTrucks)).BeginInit();
@@ -395,6 +398,8 @@ namespace QWS_Local
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(truckConfigLabel);
+            this.groupBox1.Controls.Add(this.truckConfigTextBox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnHold);
             this.groupBox1.Controls.Add(this.label3);
@@ -406,7 +411,7 @@ namespace QWS_Local
             this.groupBox1.Controls.Add(this.btnExBin);
             this.groupBox1.Location = new System.Drawing.Point(398, 427);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(394, 200);
+            this.groupBox1.Size = new System.Drawing.Size(394, 223);
             this.groupBox1.TabIndex = 78;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Book In Mode";
@@ -726,6 +731,23 @@ namespace QWS_Local
             this.btnSetTruckConfig.UseVisualStyleBackColor = true;
             this.btnSetTruckConfig.Click += new System.EventHandler(this.btnSetTruckConfig_Click);
             // 
+            // truckConfigLabel
+            // 
+            truckConfigLabel.AutoSize = true;
+            truckConfigLabel.Location = new System.Drawing.Point(174, 172);
+            truckConfigLabel.Name = "truckConfigLabel";
+            truckConfigLabel.Size = new System.Drawing.Size(92, 17);
+            truckConfigLabel.TabIndex = 62;
+            truckConfigLabel.Text = "Truck Config:";
+            // 
+            // truckConfigTextBox
+            // 
+            this.truckConfigTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "TruckConfig", true));
+            this.truckConfigTextBox.Location = new System.Drawing.Point(272, 169);
+            this.truckConfigTextBox.Name = "truckConfigTextBox";
+            this.truckConfigTextBox.Size = new System.Drawing.Size(100, 23);
+            this.truckConfigTextBox.TabIndex = 63;
+            // 
             // BookInTruck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -839,5 +861,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn VehicleType;
         private System.Windows.Forms.DataGridViewTextBoxColumn TruckConfigID;
         private System.Windows.Forms.Button btnSetTruckConfig;
+        private System.Windows.Forms.TextBox truckConfigTextBox;
     }
 }

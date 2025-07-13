@@ -25,10 +25,7 @@ namespace QWS_Local
         {
             try
             {
-                //txtJurisdiction.Text = Properties.Settings.Default.defaultJurisdiction;
-                //tabControl1.TabPages.Remove(tpPrefCust);
                 this.KeyPreview = true; // enable Function keys
-                //txtRegoExpiryDT.Text.
             }
             catch (Exception ex)
             {
@@ -377,7 +374,7 @@ namespace QWS_Local
 
                 this.taFeeCodes.FillByBoth(this.dsQWSLocal2024.VehicleRegFeeCodes, feeCodeSearch._FeeCodeRow.FeeCode, feeCodeSearch._FeeCodeRow.Jurisdiction);
 
-                this.txtRegoExpDT.Focus();
+                this.dtpRegoExpiry.Focus();
             }
             else
             {

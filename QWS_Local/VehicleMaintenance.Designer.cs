@@ -76,6 +76,7 @@ namespace QWS_Local
             this.gbFeeCodes = new System.Windows.Forms.GroupBox();
             this.btnSetAxleConfig = new System.Windows.Forms.Button();
             this.gbRegistration = new System.Windows.Forms.GroupBox();
+            this.dtpRegoExpiry = new System.Windows.Forms.DateTimePicker();
             this.lblExpiryDT = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.txtVehicleMake = new System.Windows.Forms.TextBox();
@@ -88,8 +89,10 @@ namespace QWS_Local
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tpPrefCust = new System.Windows.Forms.TabPage();
             this.gbPrefCustomers = new System.Windows.Forms.GroupBox();
+            this.btnSavePrefCust = new System.Windows.Forms.Button();
             this.btnLoadPrefCustomers = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnSaveVehicle = new System.Windows.Forms.Button();
             this.chkACC = new System.Windows.Forms.CheckBox();
             this.btnSetOwner = new System.Windows.Forms.Button();
             this.btnDeleteVehicle = new System.Windows.Forms.Button();
@@ -99,9 +102,6 @@ namespace QWS_Local
             this.taVehicle = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleTableAdapter();
             this.taVehiclePBS2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehiclePBSTableAdapter();
             this.taFeeCodes = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter();
-            this.txtRegoExpDT = new System.Windows.Forms.TextBox();
-            this.btnSavePrefCust = new System.Windows.Forms.Button();
-            this.btnSaveVehicle = new System.Windows.Forms.Button();
             vINLabel = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -599,7 +599,7 @@ namespace QWS_Local
             // 
             // gbRegistration
             // 
-            this.gbRegistration.Controls.Add(this.txtRegoExpDT);
+            this.gbRegistration.Controls.Add(this.dtpRegoExpiry);
             this.gbRegistration.Controls.Add(this.lblExpiryDT);
             this.gbRegistration.Controls.Add(vINLabel);
             this.gbRegistration.Controls.Add(this.txtVIN);
@@ -611,11 +611,20 @@ namespace QWS_Local
             this.gbRegistration.Controls.Add(this.textBox5);
             this.gbRegistration.Location = new System.Drawing.Point(9, 6);
             this.gbRegistration.Name = "gbRegistration";
-            this.gbRegistration.Size = new System.Drawing.Size(439, 265);
+            this.gbRegistration.Size = new System.Drawing.Size(362, 265);
             this.gbRegistration.TabIndex = 88;
             this.gbRegistration.TabStop = false;
             this.gbRegistration.Text = "Registration Details";
             this.gbRegistration.Leave += new System.EventHandler(this.groupBox2_Leave);
+            // 
+            // dtpRegoExpiry
+            // 
+            this.dtpRegoExpiry.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bsVehicle, "RegistrationExpiryDT", true));
+            this.dtpRegoExpiry.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpRegoExpiry.Location = new System.Drawing.Point(146, 139);
+            this.dtpRegoExpiry.Name = "dtpRegoExpiry";
+            this.dtpRegoExpiry.Size = new System.Drawing.Size(181, 24);
+            this.dtpRegoExpiry.TabIndex = 95;
             // 
             // lblExpiryDT
             // 
@@ -712,9 +721,9 @@ namespace QWS_Local
             // tpPrefCust
             // 
             this.tpPrefCust.Controls.Add(this.gbPrefCustomers);
-            this.tpPrefCust.Location = new System.Drawing.Point(4, 27);
+            this.tpPrefCust.Location = new System.Drawing.Point(4, 22);
             this.tpPrefCust.Name = "tpPrefCust";
-            this.tpPrefCust.Size = new System.Drawing.Size(1286, 421);
+            this.tpPrefCust.Size = new System.Drawing.Size(1286, 426);
             this.tpPrefCust.TabIndex = 2;
             this.tpPrefCust.Text = "Preferred Customers";
             this.tpPrefCust.UseVisualStyleBackColor = true;
@@ -728,10 +737,24 @@ namespace QWS_Local
             this.gbPrefCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbPrefCustomers.Location = new System.Drawing.Point(0, 0);
             this.gbPrefCustomers.Name = "gbPrefCustomers";
-            this.gbPrefCustomers.Size = new System.Drawing.Size(1286, 421);
+            this.gbPrefCustomers.Size = new System.Drawing.Size(1286, 426);
             this.gbPrefCustomers.TabIndex = 81;
             this.gbPrefCustomers.TabStop = false;
             this.gbPrefCustomers.Text = "Manage Preferred Customers";
+            // 
+            // btnSavePrefCust
+            // 
+            this.btnSavePrefCust.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSavePrefCust.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSavePrefCust.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSavePrefCust.Location = new System.Drawing.Point(347, 44);
+            this.btnSavePrefCust.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSavePrefCust.Name = "btnSavePrefCust";
+            this.btnSavePrefCust.Size = new System.Drawing.Size(114, 25);
+            this.btnSavePrefCust.TabIndex = 81;
+            this.btnSavePrefCust.Text = "Save Pref Cust";
+            this.btnSavePrefCust.UseVisualStyleBackColor = false;
+            this.btnSavePrefCust.Click += new System.EventHandler(this.btnSavePrefCust_Click);
             // 
             // btnLoadPrefCustomers
             // 
@@ -774,6 +797,20 @@ namespace QWS_Local
             this.splitContainer1.Size = new System.Drawing.Size(1294, 661);
             this.splitContainer1.SplitterDistance = 205;
             this.splitContainer1.TabIndex = 83;
+            // 
+            // btnSaveVehicle
+            // 
+            this.btnSaveVehicle.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSaveVehicle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveVehicle.Location = new System.Drawing.Point(737, 115);
+            this.btnSaveVehicle.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSaveVehicle.Name = "btnSaveVehicle";
+            this.btnSaveVehicle.Size = new System.Drawing.Size(222, 33);
+            this.btnSaveVehicle.TabIndex = 72;
+            this.btnSaveVehicle.Text = "Save Vehicle Details";
+            this.btnSaveVehicle.UseVisualStyleBackColor = false;
+            this.btnSaveVehicle.Click += new System.EventHandler(this.btnSaveVehicle_Click);
             // 
             // chkACC
             // 
@@ -843,42 +880,6 @@ namespace QWS_Local
             // taFeeCodes
             // 
             this.taFeeCodes.ClearBeforeFill = true;
-            // 
-            // txtRegoExpDT
-            // 
-            this.txtRegoExpDT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehicle, "RegistrationExpiryDT", true));
-            this.txtRegoExpDT.Location = new System.Drawing.Point(147, 141);
-            this.txtRegoExpDT.Name = "txtRegoExpDT";
-            this.txtRegoExpDT.Size = new System.Drawing.Size(180, 24);
-            this.txtRegoExpDT.TabIndex = 93;
-            // 
-            // btnSavePrefCust
-            // 
-            this.btnSavePrefCust.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSavePrefCust.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSavePrefCust.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSavePrefCust.Location = new System.Drawing.Point(347, 44);
-            this.btnSavePrefCust.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSavePrefCust.Name = "btnSavePrefCust";
-            this.btnSavePrefCust.Size = new System.Drawing.Size(114, 25);
-            this.btnSavePrefCust.TabIndex = 81;
-            this.btnSavePrefCust.Text = "Save Pref Cust";
-            this.btnSavePrefCust.UseVisualStyleBackColor = false;
-            this.btnSavePrefCust.Click += new System.EventHandler(this.btnSavePrefCust_Click);
-            // 
-            // btnSaveVehicle
-            // 
-            this.btnSaveVehicle.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSaveVehicle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveVehicle.Location = new System.Drawing.Point(737, 115);
-            this.btnSaveVehicle.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSaveVehicle.Name = "btnSaveVehicle";
-            this.btnSaveVehicle.Size = new System.Drawing.Size(222, 33);
-            this.btnSaveVehicle.TabIndex = 72;
-            this.btnSaveVehicle.Text = "Save Vehicle Details";
-            this.btnSaveVehicle.UseVisualStyleBackColor = false;
-            this.btnSaveVehicle.Click += new System.EventHandler(this.btnSaveVehicle_Click);
             // 
             // VehicleMaintenance
             // 
@@ -985,8 +986,8 @@ namespace QWS_Local
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox chkACC;
-        private System.Windows.Forms.TextBox txtRegoExpDT;
         private System.Windows.Forms.Button btnSavePrefCust;
         private System.Windows.Forms.Button btnSaveVehicle;
+        private System.Windows.Forms.DateTimePicker dtpRegoExpiry;
     }
 }
