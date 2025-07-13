@@ -102,6 +102,8 @@ namespace QWS_Local
             this.taVehicle = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleTableAdapter();
             this.taVehiclePBS2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehiclePBSTableAdapter();
             this.taFeeCodes = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter();
+            this.txtRegoFound = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             vINLabel = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -236,18 +238,15 @@ namespace QWS_Local
             // 
             // txtRego
             // 
-            this.txtRego.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehicle, "Rego", true));
-            this.txtRego.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRego.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRego.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.txtRego.Location = new System.Drawing.Point(473, 14);
+            this.txtRego.Location = new System.Drawing.Point(473, 28);
             this.txtRego.Margin = new System.Windows.Forms.Padding(4);
             this.txtRego.Name = "txtRego";
-            this.txtRego.Size = new System.Drawing.Size(190, 35);
+            this.txtRego.Size = new System.Drawing.Size(256, 26);
             this.txtRego.TabIndex = 1;
-            this.txtRego.Text = "Rego or Owner";
             this.txtRego.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.txtRego, "Search by Rego or Owner");
-            this.txtRego.Click += new System.EventHandler(this.txtRego_Click);
             this.txtRego.Enter += new System.EventHandler(this.txtRego_Enter);
             // 
             // bsVehicle
@@ -269,6 +268,8 @@ namespace QWS_Local
             this.txtVIN.Name = "txtVIN";
             this.txtVIN.Size = new System.Drawing.Size(180, 24);
             this.txtVIN.TabIndex = 3;
+            this.txtVIN.Click += new System.EventHandler(this.txtVIN_Click);
+            this.txtVIN.Enter += new System.EventHandler(this.txtVIN_Enter);
             // 
             // txtOwner
             // 
@@ -780,6 +781,8 @@ namespace QWS_Local
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
+            this.splitContainer1.Panel1.Controls.Add(this.label6);
+            this.splitContainer1.Panel1.Controls.Add(this.txtRegoFound);
             this.splitContainer1.Panel1.Controls.Add(this.btnSaveVehicle);
             this.splitContainer1.Panel1.Controls.Add(this.chkACC);
             this.splitContainer1.Panel1.Controls.Add(this.btnSetOwner);
@@ -880,6 +883,26 @@ namespace QWS_Local
             // taFeeCodes
             // 
             this.taFeeCodes.ClearBeforeFill = true;
+            // 
+            // txtRegoFound
+            // 
+            this.txtRegoFound.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehicle, "Rego", true));
+            this.txtRegoFound.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRegoFound.Location = new System.Drawing.Point(473, 131);
+            this.txtRegoFound.Margin = new System.Windows.Forms.Padding(4);
+            this.txtRegoFound.Name = "txtRegoFound";
+            this.txtRegoFound.ReadOnly = true;
+            this.txtRegoFound.Size = new System.Drawing.Size(130, 35);
+            this.txtRegoFound.TabIndex = 73;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(544, 58);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(110, 18);
+            this.label6.TabIndex = 74;
+            this.label6.Text = "Rego or Owner";
             // 
             // VehicleMaintenance
             // 
@@ -989,5 +1012,7 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnSavePrefCust;
         private System.Windows.Forms.Button btnSaveVehicle;
         private System.Windows.Forms.DateTimePicker dtpRegoExpiry;
+        private System.Windows.Forms.TextBox txtRegoFound;
+        private System.Windows.Forms.Label label6;
     }
 }

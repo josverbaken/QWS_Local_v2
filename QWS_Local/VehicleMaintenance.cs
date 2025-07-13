@@ -143,6 +143,7 @@ namespace QWS_Local
 
         private void VehicleFound()
         {
+            txtRego.Text = string.Empty;
             dsQWSLocal2024.VehicleRow myVehicle = CurrentVehicle();
             if (CheckACC(myVehicle.Rego) == true)
             {
@@ -709,6 +710,16 @@ namespace QWS_Local
         private void btnSaveVehicle_Click(object sender, EventArgs e)
         {
             VehicleSaveBlock();
+        }
+
+        private void txtVIN_Click(object sender, EventArgs e)
+        {
+            txtVIN.SelectAll();
+        }
+
+        private void txtVIN_Enter(object sender, EventArgs e)
+        {
+            txtVIN.SelectAll();
         }
     }
 }
