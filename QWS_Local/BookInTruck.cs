@@ -23,7 +23,6 @@ namespace QWS_Local
         private string myUserName;
         private static string myWBO = "Barney.Rubble";
         private static int mySiteID;
-        private static string myTruckConfig;
         private static dsTIQ2.TIQRow _TIQRow;
 
 
@@ -483,7 +482,7 @@ namespace QWS_Local
             _TIQRow.RegoTr2 = myConfigTruck.RegoTr2;
             _TIQRow.RegoTr3 = myConfigTruck.RegoTr3;
             _TIQRow.RegoTrailers = myConfigTruck.RegoTrailer;
-            //_TIQRow.TruckConfig = myTruckConfig; // set elsewhere, don't overwrite!
+            //_TIQRow.TruckConfig // set elsewhere, don't overwrite!
             _TIQRow.TruckConfigID = myConfigTruck.TruckConfigID;
             _TIQRow.AxleConfiguration = myConfigTruck.AxleConfiguration;
             _TIQRow.FeeCode = myConfigTruck.FeeCode;

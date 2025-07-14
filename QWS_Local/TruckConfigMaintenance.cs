@@ -264,7 +264,6 @@ namespace QWS_Local
                 string TruckAxleConfig = myVehicle.AxleConfiguration; 
                 string TrailerAxleConfig = "tba";
                 int iBreak = TruckAxleConfig.Length - 1;
-                string CombinationAxleConfig = "tba"; // CurrentConfigTruck().AxleConfiguration;
                 switch (Vehicles)
                 {
                     case 1:
