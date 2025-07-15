@@ -474,5 +474,13 @@ namespace QWS_Local
             this.tableAdapterManager.UpdateAll(this.dsAdmin);
 
         }
+
+        private void sMSToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            SMTP2GO frmSMTP2GO = new SMTP2GO();
+            frmSMTP2GO.MdiParent = this;
+            frmSMTP2GO.WindowState = FormWindowState.Maximized;
+            frmSMTP2GO.Show();
+        }
     }
 }

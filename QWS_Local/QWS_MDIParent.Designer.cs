@@ -59,6 +59,7 @@
             this.bsOperator = new System.Windows.Forms.BindingSource(this.components);
             this.taOperator = new QWS_Local.dsAdminTableAdapters.OperatorTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsAdminTableAdapters.TableAdapterManager();
+            this.sMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsOperator)).BeginInit();
@@ -108,7 +109,8 @@
             this.axleConfigurationToolStripMenuItem1,
             this.feeCodesToolStripMenuItem,
             this.nHVRGVMToolStripMenuItem,
-            this.operatorRolesToolStripMenuItem});
+            this.operatorRolesToolStripMenuItem,
+            this.sMSToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.adminToolStripMenuItem.Text = "Admin";
@@ -183,7 +185,7 @@
             // lotNumbersToolStripMenuItem
             // 
             this.lotNumbersToolStripMenuItem.Name = "lotNumbersToolStripMenuItem";
-            this.lotNumbersToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.lotNumbersToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
             this.lotNumbersToolStripMenuItem.Text = "Lot Numbers";
             this.lotNumbersToolStripMenuItem.Click += new System.EventHandler(this.lotNumbersToolStripMenuItem_Click);
             // 
@@ -299,6 +301,13 @@
             this.tableAdapterManager.RoleTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsAdminTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // sMSToolStripMenuItem
+            // 
+            this.sMSToolStripMenuItem.Name = "sMSToolStripMenuItem";
+            this.sMSToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.sMSToolStripMenuItem.Text = "SMS";
+            this.sMSToolStripMenuItem.Click += new System.EventHandler(this.sMSToolStripMenuItem_Click_1);
+            // 
             // QWS_MDIParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -355,5 +364,6 @@
         private System.Windows.Forms.BindingSource bsOperator;
         private dsAdminTableAdapters.OperatorTableAdapter taOperator;
         private dsAdminTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.ToolStripMenuItem sMSToolStripMenuItem;
     }
 }
