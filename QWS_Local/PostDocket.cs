@@ -98,7 +98,7 @@ namespace QWS_Local
                 else
                 {
                     msg = "Lot No: " + CurrentSPLotNo().SPLotNo.ToString() +  " .. Remaining tonnes: " + CurrentSPLotNo().TonnesRemaining.ToString();
-                    // TODO extend message to include additional open lots
+                    // extend message to include additional open lots, after go-live, not critical after discussion with David
                 }
                 txtInfo.Text = msg;
             }

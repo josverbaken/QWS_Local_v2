@@ -452,6 +452,7 @@ namespace QWS_Local
             if (CurrentVehicle().IsLeadVehicle == true)
             {
                 // TODO check if form already open - copy logic from PrintDocket
+                // after go-live, users might prefer being able to process 2 vehicles at once
                 TruckConfigMaintenance frmTruckConfig = new TruckConfigMaintenance(CurrentVehicle().Rego);
                 frmTruckConfig.MdiParent = this.MdiParent;
                 frmTruckConfig.Show();
