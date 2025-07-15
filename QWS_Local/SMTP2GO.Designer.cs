@@ -38,6 +38,7 @@
             this.txtRecipient = new System.Windows.Forms.TextBox();
             this.txtSender = new System.Windows.Forms.TextBox();
             this.txtResult = new System.Windows.Forms.TextBox();
+            this.btnTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -85,7 +86,7 @@
             this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSend.Location = new System.Drawing.Point(31, 390);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(331, 59);
+            this.btnSend.Size = new System.Drawing.Size(249, 59);
             this.btnSend.TabIndex = 4;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -139,11 +140,23 @@
             this.txtResult.Size = new System.Drawing.Size(334, 165);
             this.txtResult.TabIndex = 9;
             // 
+            // btnTest
+            // 
+            this.btnTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTest.Location = new System.Drawing.Point(286, 390);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(79, 59);
+            this.btnTest.TabIndex = 10;
+            this.btnTest.Text = "Test";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
             // SMTP2GO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(412, 681);
+            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.txtResult);
             this.Controls.Add(this.txtSender);
             this.Controls.Add(this.txtRecipient);
@@ -173,5 +186,6 @@
         private System.Windows.Forms.TextBox txtRecipient;
         private System.Windows.Forms.TextBox txtSender;
         private System.Windows.Forms.TextBox txtResult;
+        private System.Windows.Forms.Button btnTest;
     }
 }

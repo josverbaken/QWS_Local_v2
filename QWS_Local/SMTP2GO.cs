@@ -20,17 +20,29 @@ namespace QWS_Local
         }
 
 
-        private async Task SendSMSAsync(string message)
+        private async Task SendSMSAsync(string message, bool test)
         {
             // Key api-E167F974C30E4DC1B7F1CF18A5BC43BB
             var options = new RestClientOptions("https://api.smtp2go.com/v3/sms/send");
             var client = new RestClient(options);
             var request = new RestRequest("");
             request.AddHeader("X-Smtp2go-Api-Key", "api-E167F974C30E4DC1B7F1CF18A5BC43BB");
-            request.AddJsonBody("{\"destination\":[\"+61409163869\"],\"sender\":\"+614\",\"content\":\"hello from qws version 2\"}", false);
-            var response = await client.PostAsync(request);
-
-            txtResult.Text = response.Content;
+            // construct json body
+            string jsonbody = "{\"destination\":[\""; //
+            jsonbody += txtRecipient.Text + "\"],\"sender\":\"+614\",\"content\":\"";
+            jsonbody += txtMessage.Text + "\"}";
+            //"{\"destination\":[\"+61409163869\"],\"sender\":\"+614\",\"content\":\"hello from qws version 2\"}"
+            // note each name:value pair is wrapped individually in quotes with colon as separator
+            if (test == true)
+            {
+                txtResult.Text =   jsonbody;
+            }
+            else
+            {
+                request.AddJsonBody(jsonbody, false);
+                var response = await client.PostAsync(request);
+                txtResult.Text = response.Content;
+            }
             //Console.WriteLine("{0}", response.Content);
         }
 
@@ -39,7 +51,7 @@ namespace QWS_Local
             try
             {
                 // TODO handle async nicely!
-                SendSMSAsync(txtMessage.Text);
+                SendSMSAsync(txtMessage.Text, false);
             }
             catch (Exception ex)
             {
@@ -55,6 +67,11 @@ namespace QWS_Local
         private void txtMessage_Click(object sender, EventArgs e)
         {
             txtMessage.SelectAll();
+        }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            SendSMSAsync(txtMessage.Text,true);
         }
     }
 }
