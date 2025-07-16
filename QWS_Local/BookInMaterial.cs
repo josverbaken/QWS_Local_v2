@@ -673,16 +673,24 @@ namespace QWS_Local
                 dsBookIn.BlanketAgreementCheckRow myBlanketRow = (dsBookIn.BlanketAgreementCheckRow)CheckBlanketAgreement(txtCardCode.Text, txtExBinItem.Text);
                 if (myBlanketRow != null) 
                     {
-                        if (myBlanketRow.AgrStatus == "D")
+                        switch (myBlanketRow.AgrStatus)
                         {
-                            MessageBox.Show("Unable to continue! Please resolve Agreement no " + myBlanketRow.AgrNo.ToString());
-                            ItemOK = false;
-                        }
-                        if (myBlanketRow.AgrStatus == "A")
-                        {
-                            MessageBox.Show("Blanket Agreement is approved!");
-                            myAgrNo = myBlanketRow.AgrNo;
-                            myAgrLine = myBlanketRow.AgrLineNum;
+                            case "D":
+                                MessageBox.Show("Unable to continue! Please resolve Agreement no : " + myBlanketRow.Number.ToString());
+                                ItemOK = false;
+                                break;
+                            case "F":
+                                MessageBox.Show("Unable to continue because Agreement is on hold : " + myBlanketRow.Number.ToString());
+                                ItemOK = false;
+                                break;
+                            case "A":
+                                MessageBox.Show("Blanket Agreement is approved!");
+                                myAgrNo = myBlanketRow.AgrNo;
+                                myAgrLine = myBlanketRow.AgrLineNum;
+                                break;
+                            default:
+                                MessageBox.Show("Invalid BA Status : " + myBlanketRow.AgrStatus.ToString());
+                                break;
                         }
                     }
                 DataRow myRow = ((DataRowView)bsItem.Current).Row;
@@ -844,7 +852,11 @@ namespace QWS_Local
                     BlanketAgreementCheckRow myRow = (BlanketAgreementCheckRow) dsBookIn.BlanketAgreementCheck.Rows[0];
                     return myRow;
                 }
-                return null;
+                else
+                {
+                    MessageBox.Show("Multiple Blanket Agreements - cannot proceed!");
+                }
+                    return null;
             }
             catch (Exception ex)
             {

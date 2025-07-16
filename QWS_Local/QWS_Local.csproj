@@ -30,7 +30,7 @@
     <PublisherName>Jos Verbaken</PublisherName>
     <SuiteName>Quarry Weighbridge System</SuiteName>
     <WebPage>QWSLocal</WebPage>
-    <ApplicationRevision>55</ApplicationRevision>
+    <ApplicationRevision>56</ApplicationRevision>
     <ApplicationVersion>0.5.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -400,12 +400,6 @@
       <DependentUpon>QWS_MDIParent.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="SMSGlobal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SMSGlobal.Designer.cs">
-      <DependentUpon>SMSGlobal.cs</DependentUpon>
-    </Compile>
     <Compile Include="SplitLoadType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -551,9 +545,6 @@
       <DependentUpon>QWS_MDIParent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DocketRpt.rdlc" />
-    <EmbeddedResource Include="SMSGlobal.resx">
-      <DependentUpon>SMSGlobal.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SMTP2GO.resx">
       <DependentUpon>SMTP2GO.cs</DependentUpon>
     </EmbeddedResource>

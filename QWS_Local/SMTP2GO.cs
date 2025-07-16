@@ -14,15 +14,25 @@ namespace QWS_Local
 {
     public partial class SMTP2GO : Form
     {
+        private string myRecipient;
+        private string myMessage;
+
         public SMTP2GO()
         {
             InitializeComponent();
         }
 
+        public SMTP2GO(string Recipient, string Message)
+        {
+            InitializeComponent();
+            myRecipient = Recipient;
+            myMessage = Message;    
+        }
 
         private async Task SendSMSAsync(string message, bool test)
         {
             // Key api-E167F974C30E4DC1B7F1CF18A5BC43BB
+            // message length set to 549 = 3 units
             var options = new RestClientOptions("https://api.smtp2go.com/v3/sms/send");
             var client = new RestClient(options);
             var request = new RestRequest("");
@@ -36,6 +46,7 @@ namespace QWS_Local
             if (test == true)
             {
                 txtResult.Text =   jsonbody;
+                txtMsgLength.Text = jsonbody.Length.ToString();
             }
             else
             {

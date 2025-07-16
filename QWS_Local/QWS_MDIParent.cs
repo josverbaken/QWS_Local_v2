@@ -399,22 +399,6 @@ namespace QWS_Local
             frmOperatorRoles.Show();
         }
 
-        private void sMSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SMSGlobal frmSMS = new SMSGlobal();
-            frmSMS.MdiParent = this;
-            frmSMS.WindowState = FormWindowState.Maximized;
-            frmSMS.Show();
-        }
-
-        private void emailToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SMSGlobal frmSMS = new SMSGlobal();
-            frmSMS.MdiParent = this;
-            frmSMS.WindowState = FormWindowState.Maximized;
-            frmSMS.Show();
-        }
-
         private void QWS_MDIParent_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)

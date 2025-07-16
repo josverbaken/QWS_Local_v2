@@ -3380,6 +3380,8 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnAgrStatus;
             
+            private global::System.Data.DataColumn columnNumber;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public BlanketAgreementCheckDataTable() {
@@ -3439,6 +3441,14 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NumberColumn {
+                get {
+                    return this.columnNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3474,12 +3484,13 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public BlanketAgreementCheckRow AddBlanketAgreementCheckRow(int AgrNo, int AgrLineNum, string AgrStatus) {
+            public BlanketAgreementCheckRow AddBlanketAgreementCheckRow(int AgrNo, int AgrLineNum, string AgrStatus, int Number) {
                 BlanketAgreementCheckRow rowBlanketAgreementCheckRow = ((BlanketAgreementCheckRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         AgrNo,
                         AgrLineNum,
-                        AgrStatus};
+                        AgrStatus,
+                        Number};
                 rowBlanketAgreementCheckRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBlanketAgreementCheckRow);
                 return rowBlanketAgreementCheckRow;
@@ -3513,6 +3524,7 @@ namespace QWS_Local {
                 this.columnAgrNo = base.Columns["AgrNo"];
                 this.columnAgrLineNum = base.Columns["AgrLineNum"];
                 this.columnAgrStatus = base.Columns["AgrStatus"];
+                this.columnNumber = base.Columns["Number"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3524,6 +3536,8 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnAgrLineNum);
                 this.columnAgrStatus = new global::System.Data.DataColumn("AgrStatus", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAgrStatus);
+                this.columnNumber = new global::System.Data.DataColumn("Number", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNumber);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnAgrNo,
                                 this.columnAgrLineNum}, true));
@@ -5811,6 +5825,34 @@ namespace QWS_Local {
                     this[this.tableBlanketAgreementCheck.AgrStatusColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Number {
+                get {
+                    try {
+                        return ((int)(this[this.tableBlanketAgreementCheck.NumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Number\' in table \'BlanketAgreementCheck\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBlanketAgreementCheck.NumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNumberNull() {
+                return this.IsNull(this.tableBlanketAgreementCheck.NumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNumberNull() {
+                this[this.tableBlanketAgreementCheck.NumberColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -7235,6 +7277,7 @@ FROM            ExBinOrders AS t0";
             tableMapping.ColumnMappings.Add("AgrNo", "AgrNo");
             tableMapping.ColumnMappings.Add("AgrLineNum", "AgrLineNum");
             tableMapping.ColumnMappings.Add("AgrStatus", "AgrStatus");
+            tableMapping.ColumnMappings.Add("Number", "Number");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
