@@ -9,11 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static QWS_Local.dsTIQ2;
 
 namespace QWS_Local
 {
     public partial class SMTP2GO : Form
     {
+        private int myDocNum;
         private string myRecipient;
         private string myMessage;
 
@@ -27,6 +29,33 @@ namespace QWS_Local
             InitializeComponent();
             myRecipient = Recipient;
             myMessage = Message;    
+        }
+
+        public SMTP2GO(int DocNum)
+        {
+            InitializeComponent();
+            myDocNum = DocNum;
+
+        }
+
+        private void SetSMSVariables()
+        {
+            int iRow = taWBDockets.FillBy(dsTIQ2.WBDockets, myDocNum);
+            if (iRow == 1)
+            {
+                WBDocketsRow myDocket = (WBDocketsRow)dsTIQ2.WBDockets.Rows[0];
+                if (myDocket.ContactMobile.StartsWith("04") == true)
+                {
+                    string SMSMessage = "Dear " + myDocket.ContactName;
+                    SMSMessage += " your load, has left the quarry.";
+                    myRecipient = myDocket.ContactMobile;
+                    SendSMSAsync(SMSMessage,false);
+                }
+                else
+                {
+                    MessageBox.Show("Can't semd SMS, invalid phone number : " + myDocket.ContactMobile.ToString());
+                }
+            }
         }
 
         private async Task SendSMSAsync(string message, bool test)
@@ -83,6 +112,22 @@ namespace QWS_Local
         private void btnTest_Click(object sender, EventArgs e)
         {
             SendSMSAsync(txtMessage.Text,true);
+        }
+
+        private void wBDocketsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.wBDocketsBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.dsTIQ2);
+
+        }
+
+        private void SMTP2GO_Load(object sender, EventArgs e)
+        {
+            if (myDocNum > 0)
+            {
+                SetSMSVariables();
+            }
         }
     }
 }

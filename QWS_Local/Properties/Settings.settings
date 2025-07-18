@@ -52,5 +52,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=ch-sql02;Initial Catalog=QWS_NQ_Dev;Integrated Security=True;TrustServerCertificate=True</Value>
     </Setting>
+    <Setting Name="EnableSMS" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

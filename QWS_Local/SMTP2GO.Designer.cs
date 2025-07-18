@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label docNumLabel;
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSend = new System.Windows.Forms.Button();
@@ -36,6 +38,14 @@
             this.txtResult = new System.Windows.Forms.TextBox();
             this.btnTest = new System.Windows.Forms.Button();
             this.txtMsgLength = new System.Windows.Forms.TextBox();
+            this.dsTIQ2 = new QWS_Local.dsTIQ2();
+            this.wBDocketsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.taWBDockets = new QWS_Local.dsTIQ2TableAdapters.WBDocketsTableAdapter();
+            this.tableAdapterManager = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
+            this.docNumTextBox = new System.Windows.Forms.TextBox();
+            docNumLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wBDocketsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -121,12 +131,56 @@
             this.txtMsgLength.TabIndex = 11;
             this.txtMsgLength.Text = " ";
             // 
+            // dsTIQ2
+            // 
+            this.dsTIQ2.DataSetName = "dsTIQ2";
+            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // wBDocketsBindingSource
+            // 
+            this.wBDocketsBindingSource.DataMember = "WBDockets";
+            this.wBDocketsBindingSource.DataSource = this.dsTIQ2;
+            // 
+            // taWBDockets
+            // 
+            this.taWBDockets.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.StockpileBOMTableAdapter = null;
+            this.tableAdapterManager.StockpileLotAllocationTableAdapter = null;
+            this.tableAdapterManager.StockpileManualAllocationTableAdapter = null;
+            this.tableAdapterManager.TIQTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = QWS_Local.dsTIQ2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.WBDocketLinesTableAdapter = null;
+            this.tableAdapterManager.WBDocketsTableAdapter = this.taWBDockets;
+            // 
+            // docNumLabel
+            // 
+            docNumLabel.AutoSize = true;
+            docNumLabel.Location = new System.Drawing.Point(202, 26);
+            docNumLabel.Name = "docNumLabel";
+            docNumLabel.Size = new System.Drawing.Size(55, 13);
+            docNumLabel.TabIndex = 12;
+            docNumLabel.Text = "Doc Num:";
+            // 
+            // docNumTextBox
+            // 
+            this.docNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wBDocketsBindingSource, "DocNum", true));
+            this.docNumTextBox.Location = new System.Drawing.Point(267, 23);
+            this.docNumTextBox.Name = "docNumTextBox";
+            this.docNumTextBox.Size = new System.Drawing.Size(100, 20);
+            this.docNumTextBox.TabIndex = 13;
+            // 
             // SMTP2GO
             // 
             this.AcceptButton = this.btnSend;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 518);
+            this.ClientSize = new System.Drawing.Size(412, 526);
+            this.Controls.Add(docNumLabel);
+            this.Controls.Add(this.docNumTextBox);
             this.Controls.Add(this.txtMsgLength);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.txtResult);
@@ -137,6 +191,9 @@
             this.Controls.Add(this.label2);
             this.Name = "SMTP2GO";
             this.Text = "SMTP2GO";
+            this.Load += new System.EventHandler(this.SMTP2GO_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wBDocketsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,5 +208,10 @@
         private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.TextBox txtMsgLength;
+        private dsTIQ2 dsTIQ2;
+        private System.Windows.Forms.BindingSource wBDocketsBindingSource;
+        private dsTIQ2TableAdapters.WBDocketsTableAdapter taWBDockets;
+        private dsTIQ2TableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.TextBox docNumTextBox;
     }
 }

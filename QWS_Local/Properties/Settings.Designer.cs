@@ -159,5 +159,14 @@ namespace QWS_Local.Properties {
                 return ((string)(this["cnQWSLocal"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EnableSMS {
+            get {
+                return ((bool)(this["EnableSMS"]));
+            }
+        }
     }
 }

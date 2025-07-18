@@ -25,7 +25,8 @@ namespace QWS_Local
         private string ComputerName;
         private string Domain;
         private string myConnectionString;
-
+        private bool IsDelivery = false;
+        
         public TrucksInQuarry()
         {
             InitializeComponent();
@@ -509,6 +510,8 @@ namespace QWS_Local
         private void PostDocket()
         {
             // create new WBDockets row using NewDocket, then add lines
+            IsDelivery = false;
+
             dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
             int DocketExists = CheckDocketExists(myTIQRow.TIQID);
             if (DocketExists == 0)
@@ -537,6 +540,8 @@ namespace QWS_Local
                                     break;
                                 case "Freight":
                                     DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, false, 99, myOrderLine.SWW, 0, myOrderLine.DocEntry);
+                                    // TODO collect variables for SMS
+                                    IsDelivery = true;                                    
                                     break;
                                 case "Other":
                                     // surcharge maybe
@@ -557,8 +562,13 @@ namespace QWS_Local
                         DocketLineAdd(ShortLoadFee, "Short Load Fee", GetItemQA(ShortLoadFee), GetItmsGrpCod(ShortLoadFee), "Other", 0, 0);
                     }
                     taWBDocketLines.Update(dsTIQ2.WBDocketLines);
+                    if (Properties.Settings.Default.EnableSMS == true && IsDelivery == true)
+                    {
+                        NotifyDeliveryBySMS(myDocNum);
+                    }
                     RemoveFromTIQ(myTIQID, "Docket posted successfully.");
                     RefreshQueue();
+             
                 }
                 else
                 {
@@ -1076,6 +1086,31 @@ namespace QWS_Local
             else
             {
                 parent.PrintDocket();
+            }
+        }
+
+        private void NotifyDeliveryBySMS(int myDocNum)
+        {
+            try
+            {
+                int iRow = taWBDockets.FillBy(dsTIQ2.WBDockets, myDocNum);
+                if (iRow ==1)
+                {
+                    WBDocketsRow myDocket = (WBDocketsRow)dsTIQ2.WBDockets.Rows[0];
+                    if (myDocket.ContactMobile.StartsWith("04") == true )
+                    {
+                        SMTP2GO frmSMTP2GO = new SMTP2GO(myDocket.ContactMobile, myDocket.ContactName);
+                        DialogResult dr = frmSMTP2GO.ShowDialog();
+                        if (dr != DialogResult.OK)
+                        {
+                            MessageBox.Show("SMS Cancelled!");
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Unable to send SMS!");
             }
         }
     }
