@@ -521,7 +521,7 @@ namespace QWS_Local
                 if (myDocNum > 0)
                 {
                     NewDocket(myDocNum);
-                    taWBDockets.Update(dsTIQ2.WBDockets);
+                    taWBDockets.Update(dsTIQ2.WBDockets); // TODO why not call update in NewDocket() ??
                     int myOrderBaseEntry = 0;
                     myOrderBaseEntry = GetOrderDocEntry(myTIQRow.SAPOrder);
                     if (myOrderBaseEntry > 0) // i.e. SAP Order
@@ -540,7 +540,6 @@ namespace QWS_Local
                                     break;
                                 case "Freight":
                                     DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, false, 99, myOrderLine.SWW, 0, myOrderLine.DocEntry);
-                                    // TODO collect variables for SMS
                                     IsDelivery = true;                                    
                                     break;
                                 case "Other":
@@ -818,45 +817,64 @@ namespace QWS_Local
 
         private void NewDocket(int DocNum)
         {
-            dsTIQ2.WBDockets.Clear();
-            dsTIQ2.WBDocketLines.Clear();
+            try
+            {
 
-            DataRow dr = dsTIQ2.WBDockets.NewRow();
-            dsTIQ2.WBDocketsRow docketsRow = (dsTIQ2.WBDocketsRow)dr;
+                dsTIQ2.WBDockets.Clear();
+                dsTIQ2.WBDocketLines.Clear();
 
-            docketsRow.DocNum = DocNum;
-            docketsRow.DocDate = DateTime.Now;
-            docketsRow.CardCode = CurrentTIQ().CustomerCode;
-            docketsRow.CardName = CurrentTIQ().Customer;
-            docketsRow.PurchaseOrder = CurrentTIQ().CustON;
-            docketsRow.CntCode = -9;
-            docketsRow.ContactName = "";
-            docketsRow.ContactMobile = "";
-            docketsRow.DeliveryDate = DateTime.Now;
-            docketsRow.DeliveryAddress = "";
-            docketsRow.MapRef = "";
-            docketsRow.Distance = 0;
-            docketsRow.TruckRego = CurrentTIQ().Rego;
-            docketsRow.TruckOwnerCode = "tba";
-            docketsRow.TruckOwner = "";
-            docketsRow.TruckConfig = "";
-            docketsRow.TruckConfigID = 1;
-            docketsRow.GrossLegal = 0;
-            docketsRow.Gross = CurrentTIQ().Gross;
-            docketsRow.Tare = CurrentTIQ().Tare;
-            docketsRow.Nett = CurrentTIQ().Nett;
-            docketsRow.OverloadPoints = CurrentTIQ().OverloadPoints;
-            docketsRow.OverloadDesc = CurrentTIQ().OverloadDesc;
-            docketsRow.WBMode = "m";
-            docketsRow.TruckDriverID = -1;
-            docketsRow.TruckDriver = "";//"Truck Driver";
-            docketsRow.SalesPersonCode = -1;
-            docketsRow.SalesPerson = "";//"Weighbridge Operator";
-            docketsRow.Comments = "";
-            docketsRow.CreatedDTTM = DateTime.Now;
-            docketsRow.TIQID = CurrentTIQ().TIQID;
-            dsTIQ2.WBDockets.AddWBDocketsRow(docketsRow);
-            bsWBDockets.EndEdit();
+                // get Order
+                string myContactName = "";
+                string myContactMobile = "";
+                int myORDRDocNum = CurrentTIQ().SAPOrder;
+                if (myORDRDocNum > 0)
+                {               
+                    int iRows = taQuarryOrders.FillBy(dsBookIn.QuarryOrders, CurrentTIQ().SAPOrder);
+                    dsBookIn.QuarryOrdersRow myOrderRow = (dsBookIn.QuarryOrdersRow)dsBookIn.QuarryOrders.Rows[0];
+                    myContactName = myOrderRow.ContactName;
+                    myContactMobile = myOrderRow.ContactMobile;
+                }
+                DataRow dr = dsTIQ2.WBDockets.NewRow();
+                dsTIQ2.WBDocketsRow docketsRow = (dsTIQ2.WBDocketsRow)dr;
+
+                docketsRow.DocNum = DocNum;
+                docketsRow.DocDate = DateTime.Now;
+                docketsRow.CardCode = CurrentTIQ().CustomerCode;
+                docketsRow.CardName = CurrentTIQ().Customer;
+                docketsRow.PurchaseOrder = CurrentTIQ().CustON;
+                docketsRow.CntCode = -9;
+                docketsRow.ContactName = myContactName;
+                docketsRow.ContactMobile = myContactMobile;
+                docketsRow.DeliveryDate = DateTime.Now;
+                docketsRow.DeliveryAddress = "";
+                docketsRow.MapRef = "";
+                docketsRow.Distance = 0;
+                docketsRow.TruckRego = CurrentTIQ().Rego;
+                docketsRow.TruckOwnerCode = "tba";
+                docketsRow.TruckOwner = "";
+                docketsRow.TruckConfig = "";
+                docketsRow.TruckConfigID = 1;
+                docketsRow.GrossLegal = 0;
+                docketsRow.Gross = CurrentTIQ().Gross;
+                docketsRow.Tare = CurrentTIQ().Tare;
+                docketsRow.Nett = CurrentTIQ().Nett;
+                docketsRow.OverloadPoints = CurrentTIQ().OverloadPoints;
+                docketsRow.OverloadDesc = CurrentTIQ().OverloadDesc;
+                docketsRow.WBMode = "m";
+                docketsRow.TruckDriverID = -1;
+                docketsRow.TruckDriver = "";//"Truck Driver";
+                docketsRow.SalesPersonCode = -1;
+                docketsRow.SalesPerson = "";//"Weighbridge Operator";
+                docketsRow.Comments = "";
+                docketsRow.CreatedDTTM = DateTime.Now;
+                docketsRow.TIQID = CurrentTIQ().TIQID;
+                dsTIQ2.WBDockets.AddWBDocketsRow(docketsRow);
+                bsWBDockets.EndEdit();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "New Docket Error!");
+            }
         }
 
         private void DocketLineAdd(string ItemCode, string ItemDescription, bool ItemQA, int ItmsGrpCod, string SWW, int SPLot, int BaseEntry)
@@ -1113,5 +1131,7 @@ namespace QWS_Local
                 MessageBox.Show("Unable to send SMS!");
             }
         }
+
+   
     }
 }

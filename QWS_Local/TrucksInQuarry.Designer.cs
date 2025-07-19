@@ -73,6 +73,7 @@ namespace QWS_Local
             this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.tpDetails = new System.Windows.Forms.TabPage();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -113,7 +114,8 @@ namespace QWS_Local
             this.bsQuarryOrderLines = new System.Windows.Forms.BindingSource(this.components);
             this.taQuarryOrderLines = new QWS_Local.dsBookInTableAdapters.QuarryOrderLinesTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsBookInTableAdapters.TableAdapterManager();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.bsQuarryOrders = new System.Windows.Forms.BindingSource(this.components);
+            this.taQuarryOrders = new QWS_Local.dsBookInTableAdapters.QuarryOrdersTableAdapter();
             entryDTTMLabel = new System.Windows.Forms.Label();
             sAPOrderLabel = new System.Windows.Forms.Label();
             roadAccessLabel = new System.Windows.Forms.Label();
@@ -149,6 +151,7 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfiguration)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsBookIn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsQuarryOrderLines)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsQuarryOrders)).BeginInit();
             this.SuspendLayout();
             // 
             // entryDTTMLabel
@@ -633,6 +636,15 @@ namespace QWS_Local
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
             // 
+            // textBox5
+            // 
+            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "RegoTrailers", true));
+            this.textBox5.Location = new System.Drawing.Point(256, 14);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(192, 26);
+            this.textBox5.TabIndex = 78;
+            // 
             // textBox3
             // 
             this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "ParentTIQID", true));
@@ -951,14 +963,14 @@ namespace QWS_Local
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsBookInTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // textBox5
+            // bsQuarryOrders
             // 
-            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "RegoTrailers", true));
-            this.textBox5.Location = new System.Drawing.Point(256, 14);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(192, 26);
-            this.textBox5.TabIndex = 78;
+            this.bsQuarryOrders.DataMember = "QuarryOrders";
+            this.bsQuarryOrders.DataSource = this.dsBookIn;
+            // 
+            // taQuarryOrders
+            // 
+            this.taQuarryOrders.ClearBeforeFill = true;
             // 
             // TrucksInQuarry
             // 
@@ -993,6 +1005,7 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfiguration)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsBookIn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsQuarryOrderLines)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsQuarryOrders)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1063,5 +1076,7 @@ namespace QWS_Local
         private dsBookInTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.Button btnPrintDocket;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.BindingSource bsQuarryOrders;
+        private dsBookInTableAdapters.QuarryOrdersTableAdapter taQuarryOrders;
     }
 }
