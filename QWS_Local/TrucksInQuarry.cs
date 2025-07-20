@@ -828,11 +828,14 @@ namespace QWS_Local
                 string myContactMobile = "";
                 int myORDRDocNum = CurrentTIQ().SAPOrder;
                 if (myORDRDocNum > 0)
-                {               
+                {
                     int iRows = taQuarryOrders.FillBy(dsBookIn.QuarryOrders, CurrentTIQ().SAPOrder);
-                    dsBookIn.QuarryOrdersRow myOrderRow = (dsBookIn.QuarryOrdersRow)dsBookIn.QuarryOrders.Rows[0];
-                    myContactName = myOrderRow.ContactName;
-                    myContactMobile = myOrderRow.ContactMobile;
+                    if (iRows > 0)
+                    { 
+                        dsBookIn.QuarryOrdersRow myOrderRow = (dsBookIn.QuarryOrdersRow)dsBookIn.QuarryOrders.Rows[0];
+                        myContactName = myOrderRow.ContactName;
+                        myContactMobile = myOrderRow.ContactMobile;
+                    }
                 }
                 DataRow dr = dsTIQ2.WBDockets.NewRow();
                 dsTIQ2.WBDocketsRow docketsRow = (dsTIQ2.WBDocketsRow)dr;
