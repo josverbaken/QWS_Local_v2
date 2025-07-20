@@ -1117,7 +1117,7 @@ namespace QWS_Local
                     WBDocketsRow myDocket = (WBDocketsRow)dsTIQ2.WBDockets.Rows[0];
                     if (myDocket.ContactMobile.StartsWith("04") == true )
                     {
-                        SMTP2GO frmSMTP2GO = new SMTP2GO(myDocket.ContactMobile, myDocket.ContactName);
+                        SMTP2GO frmSMTP2GO = new SMTP2GO(myDocNum);
                         DialogResult dr = frmSMTP2GO.ShowDialog();
                         if (dr != DialogResult.OK)
                         {

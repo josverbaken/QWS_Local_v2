@@ -39,14 +39,25 @@
             this.btnTest = new System.Windows.Forms.Button();
             this.txtMsgLength = new System.Windows.Forms.TextBox();
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
-            this.wBDocketsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bsWBDockets = new System.Windows.Forms.BindingSource(this.components);
             this.taWBDockets = new QWS_Local.dsTIQ2TableAdapters.WBDocketsTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.docNumTextBox = new System.Windows.Forms.TextBox();
+            this.btnSent = new System.Windows.Forms.Button();
+            this.btnCloseSuccessful = new System.Windows.Forms.Button();
             docNumLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wBDocketsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsWBDockets)).BeginInit();
             this.SuspendLayout();
+            // 
+            // docNumLabel
+            // 
+            docNumLabel.AutoSize = true;
+            docNumLabel.Location = new System.Drawing.Point(202, 26);
+            docNumLabel.Name = "docNumLabel";
+            docNumLabel.Size = new System.Drawing.Size(55, 13);
+            docNumLabel.TabIndex = 12;
+            docNumLabel.Text = "Doc Num:";
             // 
             // label2
             // 
@@ -136,10 +147,10 @@
             this.dsTIQ2.DataSetName = "dsTIQ2";
             this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // wBDocketsBindingSource
+            // bsWBDockets
             // 
-            this.wBDocketsBindingSource.DataMember = "WBDockets";
-            this.wBDocketsBindingSource.DataSource = this.dsTIQ2;
+            this.bsWBDockets.DataMember = "WBDockets";
+            this.bsWBDockets.DataSource = this.dsTIQ2;
             // 
             // taWBDockets
             // 
@@ -156,29 +167,44 @@
             this.tableAdapterManager.WBDocketLinesTableAdapter = null;
             this.tableAdapterManager.WBDocketsTableAdapter = this.taWBDockets;
             // 
-            // docNumLabel
-            // 
-            docNumLabel.AutoSize = true;
-            docNumLabel.Location = new System.Drawing.Point(202, 26);
-            docNumLabel.Name = "docNumLabel";
-            docNumLabel.Size = new System.Drawing.Size(55, 13);
-            docNumLabel.TabIndex = 12;
-            docNumLabel.Text = "Doc Num:";
-            // 
             // docNumTextBox
             // 
-            this.docNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wBDocketsBindingSource, "DocNum", true));
+            this.docNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "DocNum", true));
             this.docNumTextBox.Location = new System.Drawing.Point(267, 23);
             this.docNumTextBox.Name = "docNumTextBox";
             this.docNumTextBox.Size = new System.Drawing.Size(100, 20);
             this.docNumTextBox.TabIndex = 13;
+            // 
+            // btnSent
+            // 
+            this.btnSent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSent.Location = new System.Drawing.Point(30, 512);
+            this.btnSent.Name = "btnSent";
+            this.btnSent.Size = new System.Drawing.Size(249, 59);
+            this.btnSent.TabIndex = 14;
+            this.btnSent.Text = "Sent Successfully";
+            this.btnSent.UseVisualStyleBackColor = true;
+            this.btnSent.Click += new System.EventHandler(this.btnSent_Click);
+            // 
+            // btnCloseSuccessful
+            // 
+            this.btnCloseSuccessful.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseSuccessful.Location = new System.Drawing.Point(285, 512);
+            this.btnCloseSuccessful.Name = "btnCloseSuccessful";
+            this.btnCloseSuccessful.Size = new System.Drawing.Size(82, 59);
+            this.btnCloseSuccessful.TabIndex = 15;
+            this.btnCloseSuccessful.Text = "Close";
+            this.btnCloseSuccessful.UseVisualStyleBackColor = true;
+            this.btnCloseSuccessful.Click += new System.EventHandler(this.btnCloseSuccessful_Click);
             // 
             // SMTP2GO
             // 
             this.AcceptButton = this.btnSend;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 526);
+            this.ClientSize = new System.Drawing.Size(412, 599);
+            this.Controls.Add(this.btnCloseSuccessful);
+            this.Controls.Add(this.btnSent);
             this.Controls.Add(docNumLabel);
             this.Controls.Add(this.docNumTextBox);
             this.Controls.Add(this.txtMsgLength);
@@ -193,7 +219,7 @@
             this.Text = "SMTP2GO";
             this.Load += new System.EventHandler(this.SMTP2GO_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wBDocketsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsWBDockets)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,9 +235,11 @@
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.TextBox txtMsgLength;
         private dsTIQ2 dsTIQ2;
-        private System.Windows.Forms.BindingSource wBDocketsBindingSource;
+        private System.Windows.Forms.BindingSource bsWBDockets;
         private dsTIQ2TableAdapters.WBDocketsTableAdapter taWBDockets;
         private dsTIQ2TableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.TextBox docNumTextBox;
+        private System.Windows.Forms.Button btnSent;
+        private System.Windows.Forms.Button btnCloseSuccessful;
     }
 }

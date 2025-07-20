@@ -35,7 +35,6 @@ namespace QWS_Local
         {
             InitializeComponent();
             myDocNum = DocNum;
-
         }
 
         private void SetSMSVariables()
@@ -46,10 +45,15 @@ namespace QWS_Local
                 WBDocketsRow myDocket = (WBDocketsRow)dsTIQ2.WBDockets.Rows[0];
                 if (myDocket.ContactMobile.StartsWith("04") == true)
                 {
-                    string SMSMessage = "Dear " + myDocket.ContactName;
-                    SMSMessage += " your load, has left the quarry.";
-                    myRecipient = myDocket.ContactMobile;
-                    SendSMSAsync(SMSMessage,false);
+                    string mobile = "+614";
+                    mobile += myDocket.ContactMobile.Substring(2).Replace(" ", "");
+                    txtRecipient.Text = mobile;
+                    txtMessage.Text = "Dear " + myDocket.ContactName;
+                    txtMessage.Text += ", your load has left the quarry aboard ";
+                    txtMessage.Text += myDocket.TruckRego + " with payload of " + myDocket.Nett.ToString();
+                    txtMessage.Text += "t"; // of " + myDocket.
+                    // need DocketLine for Material
+                    bsWBDockets.EndEdit();
                 }
                 else
                 {
@@ -117,7 +121,7 @@ namespace QWS_Local
         private void wBDocketsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.wBDocketsBindingSource.EndEdit();
+            this.bsWBDockets.EndEdit();
             this.tableAdapterManager.UpdateAll(this.dsTIQ2);
 
         }
@@ -128,6 +132,18 @@ namespace QWS_Local
             {
                 SetSMSVariables();
             }
+        }
+
+        private void btnCloseSuccessful_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void btnSent_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }
