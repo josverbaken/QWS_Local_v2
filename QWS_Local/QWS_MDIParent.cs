@@ -324,9 +324,23 @@ namespace QWS_Local
 
         private void deliveryOrdersToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            DeliveryOrders frmDeliveryOrders = new DeliveryOrders();
-            frmDeliveryOrders.MdiParent = this;
-            frmDeliveryOrders.Show();
+            bool formFound = false;
+            foreach (var item in this.MdiChildren)
+            {
+                if (item.Name == "DeliveryOrders")
+                {
+                    formFound = true;
+                    item.BringToFront();
+                    break;
+                }
+            }
+            if (formFound == false)
+            {
+                DeliveryOrders frmDeliveryOrders = new DeliveryOrders();
+                frmDeliveryOrders.MdiParent = this;
+                frmDeliveryOrders.WindowState = FormWindowState.Maximized;
+                frmDeliveryOrders.Show();
+            }
         }
 
         private void pBSToolStripMenuItem_Click(object sender, EventArgs e)

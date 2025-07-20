@@ -15,6 +15,14 @@ namespace QWS_Local
         private static string DeliveryModeFilter = "";
         private static string DeliveryDateFilter = "";
         private int mySiteID;
+        enum OrderType
+        {
+            Delivery,
+            ExBin,
+            Imported,
+            None,
+        };
+        private OrderType myOrderType;
 
         public DeliveryOrders()
         {
@@ -30,53 +38,64 @@ namespace QWS_Local
 
         private void SetDeliveryModeFilter()
         {
-            string myFilter = "";
-            string mySitePrefix = "";
-            if (mySiteID ==2)
+            if (myOrderType == OrderType.Delivery)
             {
-                mySitePrefix = "02";
-            }
-            else if (mySiteID ==7)
-            {
-                mySitePrefix = "07";
-            }
-            if (rbTruck.Checked)
-            {
-                DeliveryModeFilter = "CartageCode like '" + mySitePrefix + "6%'";
-                if (DeliveryDateFilter.Length > 0)
+                string myFilter = "";
+                string mySitePrefix = "";
+                if (mySiteID == 2)
                 {
-                    myFilter = DeliveryModeFilter + " and " + DeliveryDateFilter;
+                    mySitePrefix = "02";
                 }
-                else
+                else if (mySiteID == 7)
                 {
-                    myFilter = DeliveryModeFilter;
+                    mySitePrefix = "07";
                 }
+                if (rbTruck.Checked)
+                {
+                    DeliveryModeFilter = "CartageCode like '" + mySitePrefix + "6%'";
+                    if (DeliveryDateFilter.Length > 0)
+                    {
+                        myFilter = DeliveryModeFilter + " and " + DeliveryDateFilter;
+                    }
+                    else
+                    {
+                        myFilter = DeliveryModeFilter;
+                    }
+                }
+                if (rbTnT.Checked)
+                {
+                    DeliveryModeFilter = "CartageCode like '" + mySitePrefix + "7%'";
+                    if (DeliveryDateFilter.Length > 0)
+                    {
+                        myFilter = DeliveryModeFilter + " and " + DeliveryDateFilter;
+                    }
+                    else
+                    {
+                        myFilter = DeliveryModeFilter;
+                    }
+                }
+                if (rbClear.Checked)
+                {
+                    DeliveryModeFilter = "";
+                    if (DeliveryDateFilter.Length > 0)
+                    {
+                        myFilter = DeliveryDateFilter;
+                    }
+                }
+                bsQuarryOrders.Filter = myFilter;
             }
-            if (rbTnT.Checked)
-            {
-                DeliveryModeFilter = "CartageCode like '" + mySitePrefix + "7%'";
-                if (DeliveryDateFilter.Length > 0)
-                {
-                    myFilter = DeliveryModeFilter + " and " + DeliveryDateFilter;
-                }
-                else
-                {
-                    myFilter = DeliveryModeFilter;
-                }
-            }
-            if (rbClear.Checked)
+            else
             {
                 DeliveryModeFilter = "";
-                if (DeliveryDateFilter.Length > 0)
-                {
-                    myFilter = DeliveryDateFilter;
-                }
+                rbClear.Checked = true;
             }
-                bsQuarryOrders.Filter =myFilter;
-            }
+        }
+
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            bsQuarryOrders.Filter = "";
+
             GetQuarryOrders();
         }
 
@@ -89,7 +108,11 @@ namespace QWS_Local
             {
                 myFilter = DeliveryModeFilter + " and  DeliveryDate <= '" + DateTime.Today + "'";
             }
-            bsQuarryOrders.Filter = myFilter;
+            else
+            {
+                myFilter = "DeliveryDate <= '" + DateTime.Today + "'";
+            }
+                bsQuarryOrders.Filter = myFilter;
             }
         }
 
@@ -102,7 +125,11 @@ namespace QWS_Local
                 {
                     myFilter = DeliveryModeFilter + " and  DeliveryDate > '" + DateTime.Today + "'";
                 }
-                bsQuarryOrders.Filter = myFilter;
+                else
+                {
+                    myFilter = "DeliveryDate > '" + DateTime.Today + "'";
+                }
+                    bsQuarryOrders.Filter = myFilter;
             }
         }
 
@@ -124,6 +151,7 @@ namespace QWS_Local
         {
             try
             {
+                myOrderType = OrderType.Delivery;
                 taQuarryOrders.Fill(dsBookIn.QuarryOrders, "Delivery", "xxx", 0, mySiteID);
             }
             catch (Exception ex)
@@ -135,7 +163,8 @@ namespace QWS_Local
         private void GetExBinOrders()
         {
             try
-            {             
+            {      
+                myOrderType = OrderType.ExBin;
                 taQuarryOrders.Fill(dsBookIn.QuarryOrders, "ExBin", "AnyCustomer", 0, mySiteID);
             }
             catch (Exception ex)
@@ -149,6 +178,7 @@ namespace QWS_Local
         {
             try
             {
+                myOrderType = OrderType.Imported;
                 taQuarryOrders.Fill(dsBookIn.QuarryOrders, "Imported", "AnyCustomer", 0, mySiteID);
             }
             catch (Exception ex)
@@ -174,12 +204,18 @@ namespace QWS_Local
 
         private void btnGetExBinOrders_Click(object sender, EventArgs e)
         {
+            bsQuarryOrders.Filter = "";
+            rbClearDate.Checked = true;
+            rbClear.Checked = true;
             GetExBinOrders();
         }
 
         private void btnImportedOrders_Click(object sender, EventArgs e)
         {
+            bsQuarryOrders.Filter = "";
+            rbClearDate.Checked=true;
+            rbClear.Checked = true; 
             GetImportedOrders();
-        }
+        }     
     }
 }
