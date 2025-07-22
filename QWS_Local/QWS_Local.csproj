@@ -30,7 +30,7 @@
     <PublisherName>Jos Verbaken</PublisherName>
     <SuiteName>Quarry Weighbridge System</SuiteName>
     <WebPage>QWSLocal</WebPage>
-    <ApplicationRevision>58</ApplicationRevision>
+    <ApplicationRevision>59</ApplicationRevision>
     <ApplicationVersion>0.5.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
