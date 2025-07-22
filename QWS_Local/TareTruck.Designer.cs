@@ -138,7 +138,6 @@
             this.regoTextBox.Location = new System.Drawing.Point(25, 31);
             this.regoTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.regoTextBox.Name = "regoTextBox";
-            this.regoTextBox.ReadOnly = true;
             this.regoTextBox.Size = new System.Drawing.Size(148, 24);
             this.regoTextBox.TabIndex = 6;
             // 
@@ -149,7 +148,6 @@
             this.truckConfigTextBox.Location = new System.Drawing.Point(181, 31);
             this.truckConfigTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.truckConfigTextBox.Name = "truckConfigTextBox";
-            this.truckConfigTextBox.ReadOnly = true;
             this.truckConfigTextBox.Size = new System.Drawing.Size(56, 24);
             this.truckConfigTextBox.TabIndex = 7;
             // 
@@ -160,7 +158,6 @@
             this.axleConfigurationTextBox.Location = new System.Drawing.Point(245, 31);
             this.axleConfigurationTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.axleConfigurationTextBox.Name = "axleConfigurationTextBox";
-            this.axleConfigurationTextBox.ReadOnly = true;
             this.axleConfigurationTextBox.Size = new System.Drawing.Size(48, 24);
             this.axleConfigurationTextBox.TabIndex = 8;
             // 
@@ -171,7 +168,6 @@
             this.truckOwnerTextBox.Location = new System.Drawing.Point(25, 64);
             this.truckOwnerTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.truckOwnerTextBox.Name = "truckOwnerTextBox";
-            this.truckOwnerTextBox.ReadOnly = true;
             this.truckOwnerTextBox.Size = new System.Drawing.Size(452, 24);
             this.truckOwnerTextBox.TabIndex = 10;
             // 
@@ -182,7 +178,6 @@
             this.truckOwnerCodeTextBox.Location = new System.Drawing.Point(485, 64);
             this.truckOwnerCodeTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.truckOwnerCodeTextBox.Name = "truckOwnerCodeTextBox";
-            this.truckOwnerCodeTextBox.ReadOnly = true;
             this.truckOwnerCodeTextBox.Size = new System.Drawing.Size(100, 24);
             this.truckOwnerCodeTextBox.TabIndex = 12;
             // 
@@ -193,7 +188,6 @@
             this.driverTextBox.Location = new System.Drawing.Point(25, 96);
             this.driverTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.driverTextBox.Name = "driverTextBox";
-            this.driverTextBox.ReadOnly = true;
             this.driverTextBox.Size = new System.Drawing.Size(268, 24);
             this.driverTextBox.TabIndex = 14;
             // 
@@ -204,7 +198,6 @@
             this.tareTextBox.Location = new System.Drawing.Point(224, 146);
             this.tareTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.tareTextBox.Name = "tareTextBox";
-            this.tareTextBox.ReadOnly = true;
             this.tareTextBox.Size = new System.Drawing.Size(100, 24);
             this.tareTextBox.TabIndex = 16;
             // 
@@ -215,7 +208,6 @@
             this.tareTkTextBox.Location = new System.Drawing.Point(485, 145);
             this.tareTkTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.tareTkTextBox.Name = "tareTkTextBox";
-            this.tareTkTextBox.ReadOnly = true;
             this.tareTkTextBox.Size = new System.Drawing.Size(100, 24);
             this.tareTkTextBox.TabIndex = 18;
             // 

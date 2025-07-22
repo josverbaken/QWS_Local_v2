@@ -1732,7 +1732,7 @@ FROM            SPLotItemsMap</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_WBDocketLines_WBDockets" msdata:parent="WBDockets" msdata:child="WBDocketLines" msdata:parentkey="DocNum" msdata:childkey="DocNum" msprop:Generator_UserParentTable="WBDockets" msprop:Generator_UserChildTable="WBDocketLines" msprop:Generator_RelationVarName="relationFK_WBDocketLines_WBDockets" msprop:Generator_ChildPropName="GetWBDocketLinesRows" msprop:Generator_UserRelationName="FK_WBDocketLines_WBDockets" msprop:Generator_ParentPropName="WBDocketsRow" />
+      <msdata:Relationship name="FK_WBDocketLines_WBDockets" msdata:parent="WBDockets" msdata:child="WBDocketLines" msdata:parentkey="DocNum" msdata:childkey="DocNum" msprop:Generator_UserParentTable="WBDockets" msprop:Generator_UserChildTable="WBDocketLines" msprop:Generator_RelationVarName="relationFK_WBDocketLines_WBDockets" msprop:Generator_ChildPropName="GetWBDocketLinesRows" msprop:Generator_ParentPropName="WBDocketsRow" msprop:Generator_UserRelationName="FK_WBDocketLines_WBDockets" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
