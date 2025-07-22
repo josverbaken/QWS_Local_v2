@@ -65,6 +65,9 @@ namespace QWS_Local
             this.personTextBox = new System.Windows.Forms.TextBox();
             this.btnGetDriver = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.truckConfigTextBox = new System.Windows.Forms.TextBox();
+            this.bsTIQ = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.label1 = new System.Windows.Forms.Label();
             this.btnHold = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -84,8 +87,6 @@ namespace QWS_Local
             this.taPrefCustomers2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter();
             this.tableAdapterManager3 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
             this.taTruckDriver1 = new QWS_Local.dsQWSLocal2024TableAdapters.TruckDriverTableAdapter();
-            this.dsTIQ2 = new QWS_Local.dsTIQ2();
-            this.bsTIQ = new System.Windows.Forms.BindingSource(this.components);
             this.taTIQ = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.gbSplitLoad = new System.Windows.Forms.GroupBox();
             this.btnContinue = new System.Windows.Forms.Button();
@@ -97,7 +98,6 @@ namespace QWS_Local
             this.chkACCPickUp = new System.Windows.Forms.CheckBox();
             this.btnSessionID = new System.Windows.Forms.Button();
             this.btnSetTruckConfig = new System.Windows.Forms.Button();
-            this.truckConfigTextBox = new System.Windows.Forms.TextBox();
             cardStatusLabel = new System.Windows.Forms.Label();
             inductionExpLabel = new System.Windows.Forms.Label();
             licenseExpLabel = new System.Windows.Forms.Label();
@@ -109,11 +109,11 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSchematic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).BeginInit();
             this.gbSplitLoad.SuspendLayout();
             this.gbTruckOwner.SuspendLayout();
             this.SuspendLayout();
@@ -153,6 +153,15 @@ namespace QWS_Local
             licenseTypeLabel.Size = new System.Drawing.Size(97, 17);
             licenseTypeLabel.TabIndex = 67;
             licenseTypeLabel.Text = "License Type:";
+            // 
+            // truckConfigLabel
+            // 
+            truckConfigLabel.AutoSize = true;
+            truckConfigLabel.Location = new System.Drawing.Point(174, 172);
+            truckConfigLabel.Name = "truckConfigLabel";
+            truckConfigLabel.Size = new System.Drawing.Size(92, 17);
+            truckConfigLabel.TabIndex = 62;
+            truckConfigLabel.Text = "Truck Config:";
             // 
             // bsConfiguredTrucks
             // 
@@ -263,6 +272,7 @@ namespace QWS_Local
             this.txtAxleConfig.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "AxleConfiguration", true));
             this.txtAxleConfig.Location = new System.Drawing.Point(63, 212);
             this.txtAxleConfig.Name = "txtAxleConfig";
+            this.txtAxleConfig.ReadOnly = true;
             this.txtAxleConfig.Size = new System.Drawing.Size(100, 23);
             this.txtAxleConfig.TabIndex = 4;
             // 
@@ -271,6 +281,7 @@ namespace QWS_Local
             this.txtVehicleDescription.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "VehicleDescription", true));
             this.txtVehicleDescription.Location = new System.Drawing.Point(169, 212);
             this.txtVehicleDescription.Name = "txtVehicleDescription";
+            this.txtVehicleDescription.ReadOnly = true;
             this.txtVehicleDescription.Size = new System.Drawing.Size(304, 23);
             this.txtVehicleDescription.TabIndex = 5;
             // 
@@ -304,6 +315,8 @@ namespace QWS_Local
             // chkACCDelivery
             // 
             this.chkACCDelivery.AutoSize = true;
+            this.chkACCDelivery.Enabled = false;
+            this.chkACCDelivery.ForeColor = System.Drawing.SystemColors.ControlText;
             this.chkACCDelivery.Location = new System.Drawing.Point(326, 53);
             this.chkACCDelivery.Name = "chkACCDelivery";
             this.chkACCDelivery.Size = new System.Drawing.Size(110, 21);
@@ -316,6 +329,7 @@ namespace QWS_Local
             this.txtFeeCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "FeeCode", true));
             this.txtFeeCode.Location = new System.Drawing.Point(544, 212);
             this.txtFeeCode.Name = "txtFeeCode";
+            this.txtFeeCode.ReadOnly = true;
             this.txtFeeCode.Size = new System.Drawing.Size(76, 23);
             this.txtFeeCode.TabIndex = 20;
             // 
@@ -324,6 +338,7 @@ namespace QWS_Local
             this.txtFeeCodeConditions.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "FeeConditions", true));
             this.txtFeeCodeConditions.Location = new System.Drawing.Point(626, 212);
             this.txtFeeCodeConditions.Name = "txtFeeCodeConditions";
+            this.txtFeeCodeConditions.ReadOnly = true;
             this.txtFeeCodeConditions.Size = new System.Drawing.Size(374, 23);
             this.txtFeeCodeConditions.TabIndex = 21;
             // 
@@ -332,6 +347,7 @@ namespace QWS_Local
             this.txtLicenseExp.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "LicenseExp", true));
             this.txtLicenseExp.Location = new System.Drawing.Point(224, 135);
             this.txtLicenseExp.Name = "txtLicenseExp";
+            this.txtLicenseExp.ReadOnly = true;
             this.txtLicenseExp.Size = new System.Drawing.Size(100, 23);
             this.txtLicenseExp.TabIndex = 74;
             // 
@@ -350,6 +366,7 @@ namespace QWS_Local
             this.txtInductionExp.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "InductionExp", true));
             this.txtInductionExp.Location = new System.Drawing.Point(224, 162);
             this.txtInductionExp.Name = "txtInductionExp";
+            this.txtInductionExp.ReadOnly = true;
             this.txtInductionExp.Size = new System.Drawing.Size(100, 23);
             this.txtInductionExp.TabIndex = 73;
             // 
@@ -358,6 +375,7 @@ namespace QWS_Local
             this.licenseTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "LicenseType", true));
             this.licenseTypeTextBox.Location = new System.Drawing.Point(224, 109);
             this.licenseTypeTextBox.Name = "licenseTypeTextBox";
+            this.licenseTypeTextBox.ReadOnly = true;
             this.licenseTypeTextBox.Size = new System.Drawing.Size(100, 23);
             this.licenseTypeTextBox.TabIndex = 68;
             // 
@@ -366,6 +384,7 @@ namespace QWS_Local
             this.mobTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Mob", true));
             this.mobTextBox.Location = new System.Drawing.Point(23, 79);
             this.mobTextBox.Name = "mobTextBox";
+            this.mobTextBox.ReadOnly = true;
             this.mobTextBox.Size = new System.Drawing.Size(100, 23);
             this.mobTextBox.TabIndex = 64;
             // 
@@ -374,6 +393,7 @@ namespace QWS_Local
             this.positionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Position", true));
             this.positionTextBox.Location = new System.Drawing.Point(23, 50);
             this.positionTextBox.Name = "positionTextBox";
+            this.positionTextBox.ReadOnly = true;
             this.positionTextBox.Size = new System.Drawing.Size(258, 23);
             this.positionTextBox.TabIndex = 62;
             // 
@@ -382,6 +402,7 @@ namespace QWS_Local
             this.personTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver, "Person", true));
             this.personTextBox.Location = new System.Drawing.Point(23, 21);
             this.personTextBox.Name = "personTextBox";
+            this.personTextBox.ReadOnly = true;
             this.personTextBox.Size = new System.Drawing.Size(194, 23);
             this.personTextBox.TabIndex = 61;
             // 
@@ -415,6 +436,25 @@ namespace QWS_Local
             this.groupBox1.TabIndex = 78;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Book In Mode";
+            // 
+            // truckConfigTextBox
+            // 
+            this.truckConfigTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "TruckConfig", true));
+            this.truckConfigTextBox.Location = new System.Drawing.Point(272, 169);
+            this.truckConfigTextBox.Name = "truckConfigTextBox";
+            this.truckConfigTextBox.ReadOnly = true;
+            this.truckConfigTextBox.Size = new System.Drawing.Size(100, 23);
+            this.truckConfigTextBox.TabIndex = 63;
+            // 
+            // bsTIQ
+            // 
+            this.bsTIQ.DataMember = "TIQ";
+            this.bsTIQ.DataSource = this.dsTIQ2;
+            // 
+            // dsTIQ2
+            // 
+            this.dsTIQ2.DataSetName = "dsTIQ2";
+            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -570,6 +610,7 @@ namespace QWS_Local
             this.txtTruckConfig.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "VehicleType", true));
             this.txtTruckConfig.Location = new System.Drawing.Point(480, 212);
             this.txtTruckConfig.Name = "txtTruckConfig";
+            this.txtTruckConfig.ReadOnly = true;
             this.txtTruckConfig.Size = new System.Drawing.Size(33, 23);
             this.txtTruckConfig.TabIndex = 81;
             // 
@@ -596,16 +637,6 @@ namespace QWS_Local
             // taTruckDriver1
             // 
             this.taTruckDriver1.ClearBeforeFill = true;
-            // 
-            // dsTIQ2
-            // 
-            this.dsTIQ2.DataSetName = "dsTIQ2";
-            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bsTIQ
-            // 
-            this.bsTIQ.DataMember = "TIQ";
-            this.bsTIQ.DataSource = this.dsTIQ2;
             // 
             // taTIQ
             // 
@@ -703,6 +734,8 @@ namespace QWS_Local
             // chkACCPickUp
             // 
             this.chkACCPickUp.AutoSize = true;
+            this.chkACCPickUp.Enabled = false;
+            this.chkACCPickUp.ForeColor = System.Drawing.SystemColors.ControlText;
             this.chkACCPickUp.Location = new System.Drawing.Point(326, 92);
             this.chkACCPickUp.Name = "chkACCPickUp";
             this.chkACCPickUp.Size = new System.Drawing.Size(103, 21);
@@ -730,23 +763,6 @@ namespace QWS_Local
             this.btnSetTruckConfig.Text = "Set";
             this.btnSetTruckConfig.UseVisualStyleBackColor = true;
             this.btnSetTruckConfig.Click += new System.EventHandler(this.btnSetTruckConfig_Click);
-            // 
-            // truckConfigLabel
-            // 
-            truckConfigLabel.AutoSize = true;
-            truckConfigLabel.Location = new System.Drawing.Point(174, 172);
-            truckConfigLabel.Name = "truckConfigLabel";
-            truckConfigLabel.Size = new System.Drawing.Size(92, 17);
-            truckConfigLabel.TabIndex = 62;
-            truckConfigLabel.Text = "Truck Config:";
-            // 
-            // truckConfigTextBox
-            // 
-            this.truckConfigTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ, "TruckConfig", true));
-            this.truckConfigTextBox.Location = new System.Drawing.Point(272, 169);
-            this.truckConfigTextBox.Name = "truckConfigTextBox";
-            this.truckConfigTextBox.Size = new System.Drawing.Size(100, 23);
-            this.truckConfigTextBox.TabIndex = 63;
             // 
             // BookInTruck
             // 
@@ -782,12 +798,12 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSchematic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ)).EndInit();
             this.gbSplitLoad.ResumeLayout(false);
             this.gbSplitLoad.PerformLayout();
             this.gbTruckOwner.ResumeLayout(false);

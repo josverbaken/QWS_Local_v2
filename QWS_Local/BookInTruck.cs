@@ -909,7 +909,13 @@ namespace QWS_Local
 
         private void rbTnT_CheckedChanged(object sender, EventArgs e)
         {
-            btnContinue.Enabled = true;
+            if (rbTnT.Checked == true)
+            {
+                btnContinue.Enabled = true;
+                _TIQRow.TruckConfig = "TT";
+                _TIQRow.QueueStatus = "Q";
+                bsTIQ.EndEdit();
+            }
         }
 
         private void rbSplitLoad_CheckedChanged(object sender, EventArgs e)

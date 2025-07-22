@@ -846,17 +846,17 @@ namespace QWS_Local
         {
             try
             {
-               int iCount = this.taBlanketAgreement.Fill(this.dsBookIn.BlanketAgreementCheck,CardCode, ItemCode);
+                int iCount = this.taBlanketAgreement.Fill(this.dsBookIn.BlanketAgreementCheck,CardCode, ItemCode);
                 if (iCount == 1)
                 {
                     BlanketAgreementCheckRow myRow = (BlanketAgreementCheckRow) dsBookIn.BlanketAgreementCheck.Rows[0];
                     return myRow;
                 }
-                else
+                else if (iCount > 1) 
                 {
                     MessageBox.Show("Multiple Blanket Agreements - cannot proceed!");
                 }
-                    return null;
+                return null;
             }
             catch (Exception ex)
             {
