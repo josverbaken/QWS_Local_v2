@@ -212,6 +212,7 @@ namespace QWS_Local
 
         private void CaptureSingleWeight()
         {
+            //Task<WeighTruck> task = CaptureSingleWeightAsync();
             CaptureSingleWeightAsync();
         }
         private async Task CaptureSingleWeightAsync()

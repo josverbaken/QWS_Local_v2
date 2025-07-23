@@ -67,6 +67,30 @@ namespace QWS_Local
             {
                 txtNett.BackColor = Color.LightSalmon;
             }
+            CheckCOD(myRow.CustomerCode);
+        }
+
+        private void CheckCOD(string CardCode)
+        {
+            try
+            {
+                txtCOD.Visible = false;
+                int iRows = taCustomer.FillByCardCode(dsTIQ2.BusinessGetByCode, CardCode);
+                if (iRows == 1)
+                {
+                    dsTIQ2.BusinessGetByCodeRow myCustomerRow = (dsTIQ2.BusinessGetByCodeRow)dsTIQ2.BusinessGetByCode.Rows[0];
+                    if (myCustomerRow.ACType == "AR - COD")
+                    {
+                        txtCOD.BackColor = Color.LightCyan;
+                        txtCOD.Text = "Cash On Delivery!";
+                        txtCOD.Visible = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private dsTIQ2.SPLotNoAssignRow CurrentSPLotNo()

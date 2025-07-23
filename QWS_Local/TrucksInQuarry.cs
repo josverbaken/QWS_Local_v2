@@ -521,7 +521,6 @@ namespace QWS_Local
                 if (myDocNum > 0)
                 {
                     NewDocket(myDocNum);
-                    taWBDockets.Update(dsTIQ2.WBDockets); // TODO why not call update in NewDocket() ??
                     int myOrderBaseEntry = 0;
                     myOrderBaseEntry = GetOrderDocEntry(myTIQRow.SAPOrder);
                     if (myOrderBaseEntry > 0) // i.e. SAP Order
@@ -873,6 +872,7 @@ namespace QWS_Local
                 docketsRow.TIQID = CurrentTIQ().TIQID;
                 dsTIQ2.WBDockets.AddWBDocketsRow(docketsRow);
                 bsWBDockets.EndEdit();
+                taWBDockets.Update(dsTIQ2.WBDockets); 
             }
             catch (Exception ex)
             {

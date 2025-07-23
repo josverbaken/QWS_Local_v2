@@ -35,8 +35,6 @@
             System.Windows.Forms.Label custONLabel;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.regoTextBox = new System.Windows.Forms.TextBox();
-            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.txtNett = new System.Windows.Forms.TextBox();
             this.tareTextBox = new System.Windows.Forms.TextBox();
             this.txtGross = new System.Windows.Forms.TextBox();
@@ -47,22 +45,28 @@
             this.materialDescTextBox = new System.Windows.Forms.TextBox();
             this.materialTextBox = new System.Windows.Forms.TextBox();
             this.custONTextBox = new System.Windows.Forms.TextBox();
-            this.bsSPLotNo = new System.Windows.Forms.BindingSource(this.components);
             this.btnOkay = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTIQ2 = new QWS_Local.dsTIQ2();
+            this.bsSPLotNo = new System.Windows.Forms.BindingSource(this.components);
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.taSPLotNo = new QWS_Local.dsTIQ2TableAdapters.SPLotNoAssignTableAdapter();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.bsCustomer = new System.Windows.Forms.BindingSource(this.components);
+            this.taCustomer = new QWS_Local.dsTIQ2TableAdapters.BusinessGetByCodeTableAdapter();
+            this.txtCOD = new System.Windows.Forms.TextBox();
             grossLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             nettLabel = new System.Windows.Forms.Label();
             custONLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotNo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsCustomer)).BeginInit();
             this.SuspendLayout();
             // 
             // grossLabel
@@ -128,16 +132,6 @@
             this.regoTextBox.Size = new System.Drawing.Size(133, 29);
             this.regoTextBox.TabIndex = 9;
             // 
-            // bsTIQ2
-            // 
-            this.bsTIQ2.DataMember = "TIQ";
-            this.bsTIQ2.DataSource = this.dsTIQ2;
-            // 
-            // dsTIQ2
-            // 
-            this.dsTIQ2.DataSetName = "dsTIQ2";
-            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // txtNett
             // 
             this.txtNett.BackColor = System.Drawing.SystemColors.Control;
@@ -168,10 +162,11 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtCOD);
             this.groupBox2.Controls.Add(this.customerTextBox);
             this.groupBox2.Location = new System.Drawing.Point(12, 187);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(518, 102);
+            this.groupBox2.Size = new System.Drawing.Size(518, 130);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "2) Check Customer";
@@ -194,7 +189,7 @@
             this.groupBox3.Controls.Add(this.materialTextBox);
             this.groupBox3.Controls.Add(custONLabel);
             this.groupBox3.Controls.Add(this.custONTextBox);
-            this.groupBox3.Location = new System.Drawing.Point(12, 295);
+            this.groupBox3.Location = new System.Drawing.Point(12, 337);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(518, 208);
             this.groupBox3.TabIndex = 2;
@@ -239,17 +234,12 @@
             this.custONTextBox.Size = new System.Drawing.Size(100, 29);
             this.custONTextBox.TabIndex = 1;
             // 
-            // bsSPLotNo
-            // 
-            this.bsSPLotNo.DataMember = "SPLotNoAssign";
-            this.bsSPLotNo.DataSource = this.dsTIQ2;
-            // 
             // btnOkay
             // 
             this.btnOkay.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnOkay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOkay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOkay.Location = new System.Drawing.Point(289, 537);
+            this.btnOkay.Location = new System.Drawing.Point(289, 579);
             this.btnOkay.Margin = new System.Windows.Forms.Padding(4);
             this.btnOkay.Name = "btnOkay";
             this.btnOkay.Size = new System.Drawing.Size(241, 49);
@@ -257,6 +247,35 @@
             this.btnOkay.Text = "OK";
             this.btnOkay.UseVisualStyleBackColor = false;
             this.btnOkay.Click += new System.EventHandler(this.btnOkay_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(12, 579);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(241, 49);
+            this.btnCancel.TabIndex = 64;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click_1);
+            // 
+            // bsTIQ2
+            // 
+            this.bsTIQ2.DataMember = "TIQ";
+            this.bsTIQ2.DataSource = this.dsTIQ2;
+            // 
+            // dsTIQ2
+            // 
+            this.dsTIQ2.DataSetName = "dsTIQ2";
+            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bsSPLotNo
+            // 
+            this.bsSPLotNo.DataMember = "SPLotNoAssign";
+            this.bsSPLotNo.DataSource = this.dsTIQ2;
             // 
             // taTIQ2
             // 
@@ -277,25 +296,30 @@
             // 
             this.taSPLotNo.ClearBeforeFill = true;
             // 
-            // btnCancel
+            // bsCustomer
             // 
-            this.btnCancel.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(12, 537);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(241, 49);
-            this.btnCancel.TabIndex = 64;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click_1);
+            this.bsCustomer.DataMember = "BusinessGetByCode";
+            this.bsCustomer.DataSource = this.dsTIQ2;
+            // 
+            // taCustomer
+            // 
+            this.taCustomer.ClearBeforeFill = true;
+            // 
+            // txtCOD
+            // 
+            this.txtCOD.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCOD.ForeColor = System.Drawing.Color.Tomato;
+            this.txtCOD.Location = new System.Drawing.Point(25, 83);
+            this.txtCOD.Name = "txtCOD";
+            this.txtCOD.ReadOnly = true;
+            this.txtCOD.Size = new System.Drawing.Size(453, 29);
+            this.txtCOD.TabIndex = 2;
             // 
             // PostDocket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 613);
+            this.ClientSize = new System.Drawing.Size(550, 689);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOkay);
             this.Controls.Add(this.groupBox3);
@@ -311,13 +335,14 @@
             this.Load += new System.EventHandler(this.PostDocket_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotNo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsCustomer)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -344,5 +369,8 @@
         private System.Windows.Forms.BindingSource bsSPLotNo;
         private dsTIQ2TableAdapters.SPLotNoAssignTableAdapter taSPLotNo;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.BindingSource bsCustomer;
+        private dsTIQ2TableAdapters.BusinessGetByCodeTableAdapter taCustomer;
+        private System.Windows.Forms.TextBox txtCOD;
     }
 }
