@@ -439,29 +439,7 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message,"AddVehicle Error.",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-        }
- 
-        private void btnGo2Config_Click(object sender, EventArgs e)
-        {
-            VehicleSaveBlock(); // just to be sure
-            Go2GVMConfiguration();
-        }
-
-        private void Go2GVMConfiguration()
-        {
-            if (CurrentVehicle().IsLeadVehicle == true)
-            {
-                // TODO check if form already open - copy logic from PrintDocket
-                // after go-live, users might prefer being able to process 2 vehicles at once
-                TruckConfigMaintenance frmTruckConfig = new TruckConfigMaintenance(CurrentVehicle().Rego);
-                frmTruckConfig.MdiParent = this.MdiParent;
-                frmTruckConfig.Show();
-            }
-            else
-            {
-                MessageBox.Show("Please choose truck/prime mover first.","Not lead vehicle!",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            }
-        }
+        } 
   
         private void btnSetPrefCustomer_Click(object sender, EventArgs e)
         {
@@ -663,7 +641,7 @@ namespace QWS_Local
 
         private void groupBox1_Leave(object sender, EventArgs e)
         {
-            MessageBox.Show("Left groupbox1");
+            //MessageBox.Show("Left groupbox1");
             VehicleSaveBlock();
         }
 

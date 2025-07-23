@@ -22,12 +22,15 @@ namespace QWS_Local
 
         private void PBSManagement_Load(object sender, EventArgs e)
         {
-            string strInstruction = "Scheme either:\r\n\t* GML\r\n\t* HML";
-            strInstruction += "\r\nUOM either:\r\n\t* Ratio\r\n\t* Tonnes";
-            txtInstruction1.Text = strInstruction;
+            this.KeyPreview = true; // enable Function keys
         }
   
         private void button3_Click(object sender, EventArgs e)
+        {
+            VehicleApprovalFind();
+        }
+
+        private void VehicleApprovalFind()
         {
             try
             {
@@ -38,7 +41,7 @@ namespace QWS_Local
                 {
                     string strMsg = "VA";
                     strMsg += txtVehicleApproval.Text + " not found.\r\nDo you want to add a new record?";
-                    DialogResult dr = MessageBox.Show(strMsg,"VA not found",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                    DialogResult dr = MessageBox.Show(strMsg, "VA not found", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dr == DialogResult.Yes)
                     {
                         NewVA(myPBSVA);
@@ -91,6 +94,8 @@ namespace QWS_Local
             {
                 int myPBSConfigID = CurrentPBSConfig().PBS_ConfigID; //Convert.ToInt32(txtPBS_ConfigID.Text);
                 e.Row.Cells[1].Value = myPBSConfigID; // "PBS_ConfigID"
+                e.Row.Cells[3].Value = "GML";
+                e.Row.Cells[6].Value = "Ratio";
                 e.Row.Cells[7].Value = false; //"MassMgmtRqd"
             }
             catch (Exception ex)
@@ -241,6 +246,14 @@ namespace QWS_Local
             if (bsPBSConfig.Count > 0)
             {
                 taPBSConfigScheme.FillBy(dsPBS.PBS_ConfigScheme, CurrentPBSConfig().PBS_ConfigID);
+            }
+        }
+
+        private void PBSManagement_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F3)
+            {
+                VehicleApprovalFind();
             }
         }
     }

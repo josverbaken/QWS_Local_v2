@@ -56,7 +56,6 @@ namespace QWS_Local
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
-            this.btnGo2Config = new System.Windows.Forms.Button();
             this.btnSetPrefCustomer = new System.Windows.Forms.Button();
             this.txtSAPCode = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -92,6 +91,8 @@ namespace QWS_Local
             this.btnSavePrefCust = new System.Windows.Forms.Button();
             this.btnLoadPrefCustomers = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtRegoFound = new System.Windows.Forms.TextBox();
             this.btnSaveVehicle = new System.Windows.Forms.Button();
             this.chkACC = new System.Windows.Forms.CheckBox();
             this.btnSetOwner = new System.Windows.Forms.Button();
@@ -102,8 +103,6 @@ namespace QWS_Local
             this.taVehicle = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleTableAdapter();
             this.taVehiclePBS2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehiclePBSTableAdapter();
             this.taFeeCodes = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter();
-            this.txtRegoFound = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             vINLabel = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -390,20 +389,6 @@ namespace QWS_Local
             // 
             this.dsTruckConfig.DataSetName = "dsTruckConfig";
             this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // btnGo2Config
-            // 
-            this.btnGo2Config.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnGo2Config.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGo2Config.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGo2Config.Location = new System.Drawing.Point(737, 156);
-            this.btnGo2Config.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGo2Config.Name = "btnGo2Config";
-            this.btnGo2Config.Size = new System.Drawing.Size(222, 42);
-            this.btnGo2Config.TabIndex = 51;
-            this.btnGo2Config.Text = "Go to GVM configuration.";
-            this.btnGo2Config.UseVisualStyleBackColor = false;
-            this.btnGo2Config.Click += new System.EventHandler(this.btnGo2Config_Click);
             // 
             // btnSetPrefCustomer
             // 
@@ -791,7 +776,6 @@ namespace QWS_Local
             this.splitContainer1.Panel1.Controls.Add(this.txtRego);
             this.splitContainer1.Panel1.Controls.Add(this.txtSAPCode);
             this.splitContainer1.Panel1.Controls.Add(this.btnFindVehicle);
-            this.splitContainer1.Panel1.Controls.Add(this.btnGo2Config);
             this.splitContainer1.Panel1.Controls.Add(this.txtOwner);
             // 
             // splitContainer1.Panel2
@@ -801,12 +785,32 @@ namespace QWS_Local
             this.splitContainer1.SplitterDistance = 205;
             this.splitContainer1.TabIndex = 83;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(544, 58);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(110, 18);
+            this.label6.TabIndex = 74;
+            this.label6.Text = "Rego or Owner";
+            // 
+            // txtRegoFound
+            // 
+            this.txtRegoFound.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehicle, "Rego", true));
+            this.txtRegoFound.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRegoFound.Location = new System.Drawing.Point(473, 131);
+            this.txtRegoFound.Margin = new System.Windows.Forms.Padding(4);
+            this.txtRegoFound.Name = "txtRegoFound";
+            this.txtRegoFound.ReadOnly = true;
+            this.txtRegoFound.Size = new System.Drawing.Size(130, 35);
+            this.txtRegoFound.TabIndex = 73;
+            // 
             // btnSaveVehicle
             // 
             this.btnSaveVehicle.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSaveVehicle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveVehicle.Location = new System.Drawing.Point(737, 115);
+            this.btnSaveVehicle.Location = new System.Drawing.Point(737, 165);
             this.btnSaveVehicle.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveVehicle.Name = "btnSaveVehicle";
             this.btnSaveVehicle.Size = new System.Drawing.Size(222, 33);
@@ -844,7 +848,7 @@ namespace QWS_Local
             this.btnDeleteVehicle.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnDeleteVehicle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteVehicle.Location = new System.Drawing.Point(737, 74);
+            this.btnDeleteVehicle.Location = new System.Drawing.Point(737, 124);
             this.btnDeleteVehicle.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteVehicle.Name = "btnDeleteVehicle";
             this.btnDeleteVehicle.Size = new System.Drawing.Size(222, 33);
@@ -883,26 +887,6 @@ namespace QWS_Local
             // taFeeCodes
             // 
             this.taFeeCodes.ClearBeforeFill = true;
-            // 
-            // txtRegoFound
-            // 
-            this.txtRegoFound.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehicle, "Rego", true));
-            this.txtRegoFound.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRegoFound.Location = new System.Drawing.Point(473, 131);
-            this.txtRegoFound.Margin = new System.Windows.Forms.Padding(4);
-            this.txtRegoFound.Name = "txtRegoFound";
-            this.txtRegoFound.ReadOnly = true;
-            this.txtRegoFound.Size = new System.Drawing.Size(130, 35);
-            this.txtRegoFound.TabIndex = 73;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(544, 58);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 18);
-            this.label6.TabIndex = 74;
-            this.label6.Text = "Rego or Owner";
             // 
             // VehicleMaintenance
             // 
@@ -963,7 +947,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox txtJurisdiction;
         private System.Windows.Forms.Button btnFeeCodesMore;
         private dsTruckConfig dsTruckConfig;
-        private System.Windows.Forms.Button btnGo2Config;
         private System.Windows.Forms.Button btnSetPrefCustomer;
         private System.Windows.Forms.TextBox txtSAPCode;
         private System.Windows.Forms.DataGridView dataGridView2;
