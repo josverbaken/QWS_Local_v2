@@ -75,7 +75,9 @@ namespace QWS_Local
 
         private void PrintPreview()
         {
-            int myDocNum;
+            try
+            {
+                int myDocNum;
             if (bsDocketList.Count > 0)
             {
                 myDocNum = CurrentDocketList().DocNum;
@@ -86,6 +88,12 @@ namespace QWS_Local
             else
             {
                 MessageBox.Show("No dockets found!\r\nPlease try a different date.");
+            }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

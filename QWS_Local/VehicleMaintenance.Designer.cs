@@ -103,6 +103,7 @@ namespace QWS_Local
             this.taVehicle = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleTableAdapter();
             this.taVehiclePBS2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehiclePBSTableAdapter();
             this.taFeeCodes = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter();
+            this.isLeadVehicleCheckBox = new System.Windows.Forms.CheckBox();
             vINLabel = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -585,6 +586,7 @@ namespace QWS_Local
             // 
             // gbRegistration
             // 
+            this.gbRegistration.Controls.Add(this.isLeadVehicleCheckBox);
             this.gbRegistration.Controls.Add(this.dtpRegoExpiry);
             this.gbRegistration.Controls.Add(this.lblExpiryDT);
             this.gbRegistration.Controls.Add(vINLabel);
@@ -597,7 +599,7 @@ namespace QWS_Local
             this.gbRegistration.Controls.Add(this.textBox5);
             this.gbRegistration.Location = new System.Drawing.Point(9, 6);
             this.gbRegistration.Name = "gbRegistration";
-            this.gbRegistration.Size = new System.Drawing.Size(362, 265);
+            this.gbRegistration.Size = new System.Drawing.Size(376, 271);
             this.gbRegistration.TabIndex = 88;
             this.gbRegistration.TabStop = false;
             this.gbRegistration.Text = "Registration Details";
@@ -707,9 +709,9 @@ namespace QWS_Local
             // tpPrefCust
             // 
             this.tpPrefCust.Controls.Add(this.gbPrefCustomers);
-            this.tpPrefCust.Location = new System.Drawing.Point(4, 22);
+            this.tpPrefCust.Location = new System.Drawing.Point(4, 27);
             this.tpPrefCust.Name = "tpPrefCust";
-            this.tpPrefCust.Size = new System.Drawing.Size(1286, 426);
+            this.tpPrefCust.Size = new System.Drawing.Size(1286, 421);
             this.tpPrefCust.TabIndex = 2;
             this.tpPrefCust.Text = "Preferred Customers";
             this.tpPrefCust.UseVisualStyleBackColor = true;
@@ -723,7 +725,7 @@ namespace QWS_Local
             this.gbPrefCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbPrefCustomers.Location = new System.Drawing.Point(0, 0);
             this.gbPrefCustomers.Name = "gbPrefCustomers";
-            this.gbPrefCustomers.Size = new System.Drawing.Size(1286, 426);
+            this.gbPrefCustomers.Size = new System.Drawing.Size(1286, 421);
             this.gbPrefCustomers.TabIndex = 81;
             this.gbPrefCustomers.TabStop = false;
             this.gbPrefCustomers.Text = "Manage Preferred Customers";
@@ -888,6 +890,16 @@ namespace QWS_Local
             // 
             this.taFeeCodes.ClearBeforeFill = true;
             // 
+            // isLeadVehicleCheckBox
+            // 
+            this.isLeadVehicleCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bsVehicle, "IsLeadVehicle", true));
+            this.isLeadVehicleCheckBox.Location = new System.Drawing.Point(146, 210);
+            this.isLeadVehicleCheckBox.Name = "isLeadVehicleCheckBox";
+            this.isLeadVehicleCheckBox.Size = new System.Drawing.Size(125, 24);
+            this.isLeadVehicleCheckBox.TabIndex = 96;
+            this.isLeadVehicleCheckBox.Text = "IsLeadVehicle";
+            this.isLeadVehicleCheckBox.UseVisualStyleBackColor = true;
+            // 
             // VehicleMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -997,5 +1009,6 @@ namespace QWS_Local
         private System.Windows.Forms.DateTimePicker dtpRegoExpiry;
         private System.Windows.Forms.TextBox txtRegoFound;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox isLeadVehicleCheckBox;
     }
 }
