@@ -39,7 +39,7 @@ namespace QWS_Local
        
             if (ValidUsername == true)
             {
-                myUserName = txtFirstName.Text + "." + txtLastName.Text;
+                myUserName = txtFirstName.Text.Trim() + "." + txtLastName.Text.Trim();
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

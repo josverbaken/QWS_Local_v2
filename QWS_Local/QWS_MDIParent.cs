@@ -168,7 +168,15 @@ namespace QWS_Local
                     {
                         dsAdmin.OperatorRow gRow = (dsAdmin.OperatorRow)dsAdmin.Operator.Rows[0];
                         CheckIfAdmin(gRow.OperatorID);
-                        tspUserName.Text = "WBO = " + myUserName;
+                        if (gRow.LastName.Length > 0)
+                        {
+                            myUserName = gRow.FirstName + "." + gRow.LastName;
+                        }
+                        else
+                        {
+                            myUserName = gRow.FirstName;
+                        }
+                            tspUserName.Text = "WBO = " + myUserName;
                         tspSignInOut.Visible = true;
                     }
                     else
