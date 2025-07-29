@@ -70,7 +70,7 @@ namespace QWS_Local
                 var parent = this.MdiParent as QWS_MDIParent;
                 if (parent.LoginStatus == "O")
                 {
-                    MessageBox.Show("Please login!");
+                    MessageBox.Show("Please login!","TIQ F5");
                 }
                 else
                 {
@@ -95,7 +95,7 @@ namespace QWS_Local
             var parent = this.MdiParent as QWS_MDIParent;
             if (parent.LoginStatus == "O")
             {
-                MessageBox.Show("Please login!");
+                MessageBox.Show("Please login!","TIQ BookIn");
             }
             else
             {
@@ -129,7 +129,7 @@ namespace QWS_Local
             var parent = this.MdiParent as QWS_MDIParent;
             if (parent.LoginStatus == "O")
             {
-                MessageBox.Show("Please login!");
+                MessageBox.Show("Please login!","TIQ Remove F12");
             }
             else
             {
@@ -198,7 +198,7 @@ namespace QWS_Local
             var parent = this.MdiParent as QWS_MDIParent;
             if (parent.LoginStatus == "O")
             {
-                MessageBox.Show("Please login!");
+                MessageBox.Show("Please login!","TIQ Weigh F9");
             }
             else
             {
@@ -958,7 +958,7 @@ namespace QWS_Local
             var parent = this.MdiParent as QWS_MDIParent;
             if (parent.LoginStatus == "O")
             {
-                MessageBox.Show("Please login!");
+                MessageBox.Show("Please login!","TIQ Release Hold");
             }
             else
             {
@@ -1102,7 +1102,7 @@ namespace QWS_Local
             var parent = this.MdiParent as QWS_MDIParent;
             if (parent.LoginStatus == "O")
             {
-                MessageBox.Show("Please login!");
+                MessageBox.Show("Please login!", "TIQ Print Docket F8");
             }
             else
             {

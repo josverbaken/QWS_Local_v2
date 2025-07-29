@@ -30,14 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.tIQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemHome = new System.Windows.Forms.ToolStripMenuItem();
             this.menuitemMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.axleConfigurationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.feeCodesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nHVRGVMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.operatorRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.maintainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuitemMaintainVehicles = new System.Windows.Forms.ToolStripMenuItem();
             this.vehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pBSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trucktrailerConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +60,6 @@
             this.bsOperator = new System.Windows.Forms.BindingSource(this.components);
             this.taOperator = new QWS_Local.dsAdminTableAdapters.OperatorTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsAdminTableAdapters.TableAdapterManager();
-            this.sMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsOperator)).BeginInit();
@@ -69,7 +69,7 @@
             // 
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tIQToolStripMenuItem,
+            this.menuItemHome,
             this.menuitemMenu,
             this.printDocketToolStripMenuItem,
             this.windowsToolStripMenuItem,
@@ -85,23 +85,24 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // tIQToolStripMenuItem
+            // menuItemHome
             // 
-            this.tIQToolStripMenuItem.Name = "tIQToolStripMenuItem";
-            this.tIQToolStripMenuItem.Size = new System.Drawing.Size(62, 27);
-            this.tIQToolStripMenuItem.Text = "Home";
-            this.tIQToolStripMenuItem.Click += new System.EventHandler(this.tIQToolStripMenuItem_Click);
+            this.menuItemHome.Name = "menuItemHome";
+            this.menuItemHome.Size = new System.Drawing.Size(62, 27);
+            this.menuItemHome.Text = "&Home";
+            this.menuItemHome.Click += new System.EventHandler(this.tIQToolStripMenuItem_Click);
             // 
             // menuitemMenu
             // 
             this.menuitemMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adminToolStripMenuItem,
-            this.maintainToolStripMenuItem,
+            this.menuitemMaintainVehicles,
             this.menuitemQuality,
             this.salesToolStripMenuItem});
             this.menuitemMenu.Name = "menuitemMenu";
+            this.menuitemMenu.ShortcutKeys = System.Windows.Forms.Keys.F6;
             this.menuitemMenu.Size = new System.Drawing.Size(58, 27);
-            this.menuitemMenu.Text = "Menu";
+            this.menuitemMenu.Text = "&Menu";
             // 
             // adminToolStripMenuItem
             // 
@@ -143,34 +144,44 @@
             this.operatorRolesToolStripMenuItem.Text = "Operator Roles";
             this.operatorRolesToolStripMenuItem.Click += new System.EventHandler(this.operatorRolesToolStripMenuItem_Click);
             // 
-            // maintainToolStripMenuItem
+            // sMSToolStripMenuItem
             // 
-            this.maintainToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sMSToolStripMenuItem.Name = "sMSToolStripMenuItem";
+            this.sMSToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.sMSToolStripMenuItem.Text = "SMS";
+            this.sMSToolStripMenuItem.Click += new System.EventHandler(this.sMSToolStripMenuItem_Click_1);
+            // 
+            // menuitemMaintainVehicles
+            // 
+            this.menuitemMaintainVehicles.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.vehiclesToolStripMenuItem,
             this.pBSToolStripMenuItem,
             this.trucktrailerConfigToolStripMenuItem});
-            this.maintainToolStripMenuItem.Name = "maintainToolStripMenuItem";
-            this.maintainToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.maintainToolStripMenuItem.Text = "Maintain";
+            this.menuitemMaintainVehicles.Name = "menuitemMaintainVehicles";
+            this.menuitemMaintainVehicles.Size = new System.Drawing.Size(180, 24);
+            this.menuitemMaintainVehicles.Text = "Maintain";
             // 
             // vehiclesToolStripMenuItem
             // 
             this.vehiclesToolStripMenuItem.Name = "vehiclesToolStripMenuItem";
-            this.vehiclesToolStripMenuItem.Size = new System.Drawing.Size(205, 24);
+            this.vehiclesToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
+            this.vehiclesToolStripMenuItem.Size = new System.Drawing.Size(255, 24);
             this.vehiclesToolStripMenuItem.Text = "Vehicles";
             this.vehiclesToolStripMenuItem.Click += new System.EventHandler(this.vehiclesToolStripMenuItem_Click);
             // 
             // pBSToolStripMenuItem
             // 
             this.pBSToolStripMenuItem.Name = "pBSToolStripMenuItem";
-            this.pBSToolStripMenuItem.Size = new System.Drawing.Size(205, 24);
+            this.pBSToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.pBSToolStripMenuItem.Size = new System.Drawing.Size(255, 24);
             this.pBSToolStripMenuItem.Text = "PBS";
             this.pBSToolStripMenuItem.Click += new System.EventHandler(this.pBSToolStripMenuItem_Click);
             // 
             // trucktrailerConfigToolStripMenuItem
             // 
             this.trucktrailerConfigToolStripMenuItem.Name = "trucktrailerConfigToolStripMenuItem";
-            this.trucktrailerConfigToolStripMenuItem.Size = new System.Drawing.Size(205, 24);
+            this.trucktrailerConfigToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.trucktrailerConfigToolStripMenuItem.Size = new System.Drawing.Size(255, 24);
             this.trucktrailerConfigToolStripMenuItem.Text = "Truck/trailer Config";
             this.trucktrailerConfigToolStripMenuItem.Click += new System.EventHandler(this.trucktrailerConfigToolStripMenuItem_Click);
             // 
@@ -208,7 +219,7 @@
             // 
             this.printDocketToolStripMenuItem.Name = "printDocketToolStripMenuItem";
             this.printDocketToolStripMenuItem.Size = new System.Drawing.Size(102, 27);
-            this.printDocketToolStripMenuItem.Text = "Print Docket";
+            this.printDocketToolStripMenuItem.Text = "&Print Docket";
             this.printDocketToolStripMenuItem.Click += new System.EventHandler(this.printDocketToolStripMenuItem_Click);
             // 
             // windowsToolStripMenuItem
@@ -217,12 +228,13 @@
             this.closeAllToolStripMenuItem});
             this.windowsToolStripMenuItem.Name = "windowsToolStripMenuItem";
             this.windowsToolStripMenuItem.Size = new System.Drawing.Size(82, 27);
-            this.windowsToolStripMenuItem.Text = "Windows";
+            this.windowsToolStripMenuItem.Text = "&Windows";
             // 
             // closeAllToolStripMenuItem
             // 
             this.closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
-            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.closeAllToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
+            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.closeAllToolStripMenuItem.Text = "Close All";
             this.closeAllToolStripMenuItem.Click += new System.EventHandler(this.closeAllToolStripMenuItem_Click);
             // 
@@ -238,14 +250,15 @@
             // onlineHelpToolStripMenuItem
             // 
             this.onlineHelpToolStripMenuItem.Name = "onlineHelpToolStripMenuItem";
-            this.onlineHelpToolStripMenuItem.Size = new System.Drawing.Size(157, 24);
+            this.onlineHelpToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.onlineHelpToolStripMenuItem.Text = "Online Help";
+            this.onlineHelpToolStripMenuItem.Visible = false;
             this.onlineHelpToolStripMenuItem.Click += new System.EventHandler(this.onlineHelpToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(157, 24);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -301,13 +314,6 @@
             this.tableAdapterManager.RoleTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsAdminTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // sMSToolStripMenuItem
-            // 
-            this.sMSToolStripMenuItem.Name = "sMSToolStripMenuItem";
-            this.sMSToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
-            this.sMSToolStripMenuItem.Text = "SMS";
-            this.sMSToolStripMenuItem.Click += new System.EventHandler(this.sMSToolStripMenuItem_Click_1);
-            // 
             // QWS_MDIParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -337,7 +343,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuitemMenu;
         private System.Windows.Forms.ToolStripMenuItem windowsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tIQToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuItemHome;
         private System.Windows.Forms.ToolStripMenuItem closeAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printDocketToolStripMenuItem;
@@ -347,7 +353,7 @@
         private System.Windows.Forms.ToolStripMenuItem axleConfigurationToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem feeCodesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nHVRGVMToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem maintainToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuitemMaintainVehicles;
         private System.Windows.Forms.ToolStripMenuItem vehiclesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pBSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trucktrailerConfigToolStripMenuItem;

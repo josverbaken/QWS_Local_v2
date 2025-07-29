@@ -27,6 +27,7 @@ namespace QWS_Local
 
         private void VehicleSearch_Load(object sender, EventArgs e)
         {
+            this.KeyPreview = true;
             rbClear.Checked = true;
         }
 
@@ -69,10 +70,11 @@ namespace QWS_Local
                         dsQWSLocal2024.VehicleDetailsRow vehicleDetailsRow = (dsQWSLocal2024.VehicleDetailsRow)myDR;
                         myRego = vehicleDetailsRow.Rego;
                         myCardCode = vehicleDetailsRow.CardCode;
+                        lblSearchInfo.Text = "Found " + iRow.ToString() + " vehicles.";
                     }
                     else
                     {
-                        MessageBox.Show("No vehicles found for supplied CardCode!");
+                        lblSearchInfo.Text = "No vehicles found for supplied CardCode!";
                     }
                 }
                 else
@@ -141,11 +143,16 @@ namespace QWS_Local
 
         private void btnFind_Click(object sender, EventArgs e)
         {
+            SearchVehicleBy();                
+        }
+
+        private void SearchVehicleBy()
+        {
             if (rbCardCode.Checked == true)
             {
                 Search4Vehicle(this.txtSearch1.Text, true);
             }
-            else if (rbRego.Checked == true) 
+            else if (rbRego.Checked == true)
             {
                 Search4Vehicle(this.txtSearch1.Text, false);
             }
@@ -153,13 +160,6 @@ namespace QWS_Local
             {
                 MessageBox.Show("Please check either Rego or CardCode.");
             }
-                
-        }
-
-        private void btnCancel1_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
         }
 
         private void btnSelect1_Click(object sender, EventArgs e)
@@ -182,6 +182,14 @@ namespace QWS_Local
             if (rbAxleConfig.Checked == true)
             {
                 bsVehicleDetails2.Filter = "AxleConfiguration like '" + txtAxleConfig.Text + "%'";
+            }
+        }
+
+        private void VehicleSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F3)
+            {
+                SearchVehicleBy();
             }
         }
     }

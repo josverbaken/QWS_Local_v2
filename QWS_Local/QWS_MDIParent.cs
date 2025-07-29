@@ -14,7 +14,7 @@ namespace QWS_Local
 {
     public partial class QWS_MDIParent : Form
     {
-        private string myUserName;
+        private string myUserName = "";
         private int mySiteID = 99;
         private bool myTestMode = false;
         private string myConnectionString = "";
@@ -65,6 +65,10 @@ namespace QWS_Local
 
             string msg = ""; // "QWS Local - ";
             string SiteLabel = string.Empty;
+
+            //menuItemHome.ShortcutKeys = Keys.Home; // fails on compile and also if try to set in properties GUI
+            //menuitemMenu.ShortcutKeys = Keys.F10; // this is controlled by Windows!@#
+
             myConnectionString = Properties.Settings.Default.cnQWSLocal;
             if (myConnectionString.Contains("QWS_NQ") == true)
             {
@@ -111,6 +115,10 @@ namespace QWS_Local
                 string ComputerUsername = Environment.UserName;
                 myComputerName = Environment.MachineName;
                 GetUsername(ComputerUsername);
+                if (myUserName.Length == 0)
+                {
+                    tspUserName.Text = "Please login!";
+                }
                 this.Size = new Size(1400, 800);
                 this.KeyPreview = true;
                 frmTIQ = new TrucksInQuarry();
@@ -257,7 +265,7 @@ namespace QWS_Local
 
         private void tIQToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BringTIQ2Front();
+            BringTIQ2Front(); //20250730
         }
 
         private void closeAllToolStripMenuItem_Click(object sender, EventArgs e)
@@ -280,21 +288,7 @@ namespace QWS_Local
                 }
             }
         }
-
-  
-
-        private void printDocketToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (LoginStatus == "O")
-            {
-                MessageBox.Show("Please login!");
-            }
-            else
-            {
-                PrintDocket();
-            }
-        }
-
+ 
         public void PrintDocket()
         {
             bool formFound = false;
@@ -420,27 +414,7 @@ namespace QWS_Local
             frmOperatorRoles.WindowState = FormWindowState.Maximized;
             frmOperatorRoles.Show();
         }
-
-        private void QWS_MDIParent_KeyDown(object sender, KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.Home:
-                    frmTIQ.BringToFront();
-                    break;
-                case Keys.F8:
-                    if (myLoginStatus != "O")
-                    {
-                        PrintDocket();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please login.");
-                    }
-                    break;
-            }
-        }
-
+  
         private void pBSV1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PBSMaintenance frmPBSMaintenance = new PBSMaintenance();
@@ -487,6 +461,19 @@ namespace QWS_Local
             frmSMTP2GO.MdiParent = this;
             frmSMTP2GO.WindowState = FormWindowState.Maximized;
             frmSMTP2GO.Show();
+        }
+
+        private void QWS_MDIParent_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Home)
+            {
+                frmTIQ.BringToFront();
+            }
+        }
+
+        private void printDocketToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PrintDocket();
         }
     }
 }
