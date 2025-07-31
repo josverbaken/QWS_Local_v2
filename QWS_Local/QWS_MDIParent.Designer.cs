@@ -46,7 +46,6 @@
             this.lotNumbersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deliveryOrdersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.printDocketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,7 +70,6 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemHome,
             this.menuitemMenu,
-            this.printDocketToolStripMenuItem,
             this.windowsToolStripMenuItem,
             this.helloToolStripMenuItem,
             this.toolStripTextBox1,
@@ -113,7 +111,7 @@
             this.operatorRolesToolStripMenuItem,
             this.sMSToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.adminToolStripMenuItem.Text = "Admin";
             // 
             // axleConfigurationToolStripMenuItem1
@@ -172,16 +170,16 @@
             // pBSToolStripMenuItem
             // 
             this.pBSToolStripMenuItem.Name = "pBSToolStripMenuItem";
-            this.pBSToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.pBSToolStripMenuItem.Size = new System.Drawing.Size(255, 24);
+            this.pBSToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
+            this.pBSToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
             this.pBSToolStripMenuItem.Text = "PBS";
             this.pBSToolStripMenuItem.Click += new System.EventHandler(this.pBSToolStripMenuItem_Click);
             // 
             // trucktrailerConfigToolStripMenuItem
             // 
             this.trucktrailerConfigToolStripMenuItem.Name = "trucktrailerConfigToolStripMenuItem";
-            this.trucktrailerConfigToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.trucktrailerConfigToolStripMenuItem.Size = new System.Drawing.Size(255, 24);
+            this.trucktrailerConfigToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F11;
+            this.trucktrailerConfigToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
             this.trucktrailerConfigToolStripMenuItem.Text = "Truck/trailer Config";
             this.trucktrailerConfigToolStripMenuItem.Click += new System.EventHandler(this.trucktrailerConfigToolStripMenuItem_Click);
             // 
@@ -190,7 +188,7 @@
             this.menuitemQuality.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lotNumbersToolStripMenuItem});
             this.menuitemQuality.Name = "menuitemQuality";
-            this.menuitemQuality.Size = new System.Drawing.Size(180, 24);
+            this.menuitemQuality.Size = new System.Drawing.Size(136, 24);
             this.menuitemQuality.Text = "Quality";
             // 
             // lotNumbersToolStripMenuItem
@@ -205,7 +203,7 @@
             this.salesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deliveryOrdersToolStripMenuItem1});
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.salesToolStripMenuItem.Text = "Sales";
             // 
             // deliveryOrdersToolStripMenuItem1
@@ -214,13 +212,6 @@
             this.deliveryOrdersToolStripMenuItem1.Size = new System.Drawing.Size(122, 24);
             this.deliveryOrdersToolStripMenuItem1.Text = "Orders";
             this.deliveryOrdersToolStripMenuItem1.Click += new System.EventHandler(this.deliveryOrdersToolStripMenuItem1_Click);
-            // 
-            // printDocketToolStripMenuItem
-            // 
-            this.printDocketToolStripMenuItem.Name = "printDocketToolStripMenuItem";
-            this.printDocketToolStripMenuItem.Size = new System.Drawing.Size(102, 27);
-            this.printDocketToolStripMenuItem.Text = "&Print Docket";
-            this.printDocketToolStripMenuItem.Click += new System.EventHandler(this.printDocketToolStripMenuItem_Click);
             // 
             // windowsToolStripMenuItem
             // 
@@ -233,7 +224,6 @@
             // closeAllToolStripMenuItem
             // 
             this.closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
-            this.closeAllToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
             this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.closeAllToolStripMenuItem.Text = "Close All";
             this.closeAllToolStripMenuItem.Click += new System.EventHandler(this.closeAllToolStripMenuItem_Click);
@@ -245,12 +235,12 @@
             this.aboutToolStripMenuItem});
             this.helloToolStripMenuItem.Name = "helloToolStripMenuItem";
             this.helloToolStripMenuItem.Size = new System.Drawing.Size(53, 27);
-            this.helloToolStripMenuItem.Text = "Help";
+            this.helloToolStripMenuItem.Text = "H&elp";
             // 
             // onlineHelpToolStripMenuItem
             // 
             this.onlineHelpToolStripMenuItem.Name = "onlineHelpToolStripMenuItem";
-            this.onlineHelpToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.onlineHelpToolStripMenuItem.Size = new System.Drawing.Size(157, 24);
             this.onlineHelpToolStripMenuItem.Text = "Online Help";
             this.onlineHelpToolStripMenuItem.Visible = false;
             this.onlineHelpToolStripMenuItem.Click += new System.EventHandler(this.onlineHelpToolStripMenuItem_Click);
@@ -258,6 +248,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
@@ -346,7 +337,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuItemHome;
         private System.Windows.Forms.ToolStripMenuItem closeAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helloToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem printDocketToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem onlineHelpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
