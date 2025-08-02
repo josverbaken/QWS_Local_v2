@@ -59,6 +59,7 @@
             this.bsOperator = new System.Windows.Forms.BindingSource(this.components);
             this.taOperator = new QWS_Local.dsAdminTableAdapters.OperatorTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsAdminTableAdapters.TableAdapterManager();
+            this.pBSVehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsOperator)).BeginInit();
@@ -111,7 +112,7 @@
             this.operatorRolesToolStripMenuItem,
             this.sMSToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.adminToolStripMenuItem.Text = "Admin";
             // 
             // axleConfigurationToolStripMenuItem1
@@ -154,7 +155,8 @@
             this.menuitemMaintainVehicles.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.vehiclesToolStripMenuItem,
             this.pBSToolStripMenuItem,
-            this.trucktrailerConfigToolStripMenuItem});
+            this.trucktrailerConfigToolStripMenuItem,
+            this.pBSVehiclesToolStripMenuItem});
             this.menuitemMaintainVehicles.Name = "menuitemMaintainVehicles";
             this.menuitemMaintainVehicles.Size = new System.Drawing.Size(180, 24);
             this.menuitemMaintainVehicles.Text = "Maintain";
@@ -163,7 +165,7 @@
             // 
             this.vehiclesToolStripMenuItem.Name = "vehiclesToolStripMenuItem";
             this.vehiclesToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
-            this.vehiclesToolStripMenuItem.Size = new System.Drawing.Size(255, 24);
+            this.vehiclesToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
             this.vehiclesToolStripMenuItem.Text = "Vehicles";
             this.vehiclesToolStripMenuItem.Click += new System.EventHandler(this.vehiclesToolStripMenuItem_Click);
             // 
@@ -188,7 +190,7 @@
             this.menuitemQuality.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lotNumbersToolStripMenuItem});
             this.menuitemQuality.Name = "menuitemQuality";
-            this.menuitemQuality.Size = new System.Drawing.Size(136, 24);
+            this.menuitemQuality.Size = new System.Drawing.Size(180, 24);
             this.menuitemQuality.Text = "Quality";
             // 
             // lotNumbersToolStripMenuItem
@@ -203,7 +205,7 @@
             this.salesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deliveryOrdersToolStripMenuItem1});
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.salesToolStripMenuItem.Text = "Sales";
             // 
             // deliveryOrdersToolStripMenuItem1
@@ -224,7 +226,7 @@
             // closeAllToolStripMenuItem
             // 
             this.closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
-            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.closeAllToolStripMenuItem.Text = "Close All";
             this.closeAllToolStripMenuItem.Click += new System.EventHandler(this.closeAllToolStripMenuItem_Click);
             // 
@@ -249,7 +251,7 @@
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(157, 24);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -304,6 +306,13 @@
             this.tableAdapterManager.RoleFunctionsTableAdapter = null;
             this.tableAdapterManager.RoleTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsAdminTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // pBSVehiclesToolStripMenuItem
+            // 
+            this.pBSVehiclesToolStripMenuItem.Name = "pBSVehiclesToolStripMenuItem";
+            this.pBSVehiclesToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
+            this.pBSVehiclesToolStripMenuItem.Text = "PBSVehicles";
+            this.pBSVehiclesToolStripMenuItem.Click += new System.EventHandler(this.pBSVehiclesToolStripMenuItem_Click);
             // 
             // QWS_MDIParent
             // 
@@ -361,5 +370,6 @@
         private dsAdminTableAdapters.OperatorTableAdapter taOperator;
         private dsAdminTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.ToolStripMenuItem sMSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pBSVehiclesToolStripMenuItem;
     }
 }

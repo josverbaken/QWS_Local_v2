@@ -634,10 +634,10 @@ FROM            Business AS t0</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VehicleDetailsTableAdapter" GeneratorDataComponentClassName="VehicleDetailsTableAdapter" Name="VehicleDetails" UserDataComponentName="VehicleDetailsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.VehicleDetails" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWS_NQ_Dev.dbo.VehicleDetails" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCode, Jurisdiction, FeeType, FeeConditions, RegistrationExpDT, IsLeadVehicle, VehicleDescription, 
+                    <CommandText>SELECT        Rego, VIN, CardCode, TruckOwner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCode, Jurisdiction, FeeType, FeeConditions, RegistrationExpDT, IsLeadVehicle, VehicleDescription, 
                          Schematic, Active, CreateDTTM
 FROM            VehicleDetails AS t0</CommandText>
                     <Parameters />
@@ -649,7 +649,6 @@ FROM            VehicleDetails AS t0</CommandText>
               <Mapping SourceColumn="Rego" DataSetColumn="Rego" />
               <Mapping SourceColumn="VIN" DataSetColumn="VIN" />
               <Mapping SourceColumn="CardCode" DataSetColumn="CardCode" />
-              <Mapping SourceColumn="Owner" DataSetColumn="Owner" />
               <Mapping SourceColumn="Make" DataSetColumn="Make" />
               <Mapping SourceColumn="Model" DataSetColumn="Model" />
               <Mapping SourceColumn="AxleConfiguration" DataSetColumn="AxleConfiguration" />
@@ -665,9 +664,10 @@ FROM            VehicleDetails AS t0</CommandText>
               <Mapping SourceColumn="Schematic" DataSetColumn="Schematic" />
               <Mapping SourceColumn="Active" DataSetColumn="Active" />
               <Mapping SourceColumn="CreateDTTM" DataSetColumn="CreateDTTM" />
+              <Mapping SourceColumn="TruckOwner" DataSetColumn="TruckOwner" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.VehicleDetailsFind" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWS_NQ_Dev.dbo.VehicleDetailsFind" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.VehicleDetailsFind</CommandText>
@@ -678,7 +678,7 @@ FROM            VehicleDetails AS t0</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.VehicleDetailsCardCode" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillByCardCode" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCardCode" GeneratorSourceName="FillByCardCode" GetMethodModifier="Public" GetMethodName="GetDataByCardCode" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCardCode" UserSourceName="FillByCardCode">
+              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWS_NQ_Dev.dbo.VehicleDetailsCardCode" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillByCardCode" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCardCode" GeneratorSourceName="FillByCardCode" GetMethodModifier="Public" GetMethodName="GetDataByCardCode" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCardCode" UserSourceName="FillByCardCode">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.VehicleDetailsCardCode</CommandText>
@@ -1087,7 +1087,7 @@ WHERE Rego like @Rego</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ReferenceDocument" msprop:Generator_ColumnPropNameInRow="ReferenceDocument" msprop:Generator_ColumnPropNameInTable="ReferenceDocumentColumn" msprop:Generator_ColumnVarNameInTable="columnReferenceDocument" msprop:Generator_UserColumnName="ReferenceDocument">
+              <xs:element name="ReferenceDocument" msprop:Generator_UserColumnName="ReferenceDocument" msprop:Generator_ColumnPropNameInTable="ReferenceDocumentColumn" msprop:Generator_ColumnPropNameInRow="ReferenceDocument" msprop:Generator_ColumnVarNameInTable="columnReferenceDocument">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />
@@ -1351,13 +1351,6 @@ WHERE Rego like @Rego</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Owner" msprop:Generator_ColumnPropNameInTable="OwnerColumn" msprop:Generator_ColumnPropNameInRow="Owner" msprop:Generator_UserColumnName="Owner" msprop:Generator_ColumnVarNameInTable="columnOwner">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="Make" msprop:Generator_ColumnPropNameInTable="MakeColumn" msprop:Generator_ColumnPropNameInRow="Make" msprop:Generator_UserColumnName="Make" msprop:Generator_ColumnVarNameInTable="columnMake">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -1427,6 +1420,13 @@ WHERE Rego like @Rego</CommandText>
               <xs:element name="Schematic" msprop:Generator_ColumnPropNameInTable="SchematicColumn" msprop:Generator_ColumnPropNameInRow="Schematic" msprop:Generator_UserColumnName="Schematic" msprop:Generator_ColumnVarNameInTable="columnSchematic" type="xs:base64Binary" minOccurs="0" />
               <xs:element name="Active" msprop:Generator_ColumnPropNameInTable="ActiveColumn" msprop:Generator_ColumnPropNameInRow="Active" msprop:Generator_UserColumnName="Active" msprop:Generator_ColumnVarNameInTable="columnActive" type="xs:boolean" />
               <xs:element name="CreateDTTM" msprop:Generator_ColumnPropNameInTable="CreateDTTMColumn" msprop:Generator_ColumnPropNameInRow="CreateDTTM" msprop:Generator_UserColumnName="CreateDTTM" msprop:Generator_ColumnVarNameInTable="columnCreateDTTM" type="xs:dateTime" />
+              <xs:element name="TruckOwner" msprop:Generator_ColumnPropNameInRow="TruckOwner" msprop:Generator_ColumnPropNameInTable="TruckOwnerColumn" msprop:Generator_ColumnVarNameInTable="columnTruckOwner" msprop:Generator_UserColumnName="TruckOwner">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1537,11 +1537,11 @@ WHERE Rego like @Rego</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_NHVL_AxleConfiguration" msdata:parent="AxleConfiguration" msdata:child="NHVR" msdata:parentkey="AxleConfiguration" msdata:childkey="AxleConfiguration" msprop:Generator_UserParentTable="AxleConfiguration" msprop:Generator_UserChildTable="NHVR" msprop:Generator_RelationVarName="relationFK_NHVL_AxleConfiguration" msprop:Generator_ChildPropName="GetNHVRRows" msprop:Generator_ParentPropName="AxleConfigurationRow" msprop:Generator_UserRelationName="FK_NHVL_AxleConfiguration" />
-      <msdata:Relationship name="FK_VehiclePreCustomers_Vehicle" msdata:parent="Vehicle" msdata:child="VehiclePrefCustomers" msdata:parentkey="Rego" msdata:childkey="Rego" msprop:Generator_UserParentTable="Vehicle" msprop:Generator_UserChildTable="VehiclePrefCustomers" msprop:Generator_RelationVarName="relationFK_VehiclePreCustomers_Vehicle" msprop:Generator_ChildPropName="GetVehiclePrefCustomersRows" msprop:Generator_UserRelationName="FK_VehiclePreCustomers_Vehicle" msprop:Generator_ParentPropName="VehicleRow" />
-      <msdata:Relationship name="FK_Vehicle_AxleConfiguration" msdata:parent="AxleConfiguration" msdata:child="Vehicle" msdata:parentkey="AxleConfiguration" msdata:childkey="AxleConfiguration" msprop:Generator_UserParentTable="AxleConfiguration" msprop:Generator_UserChildTable="Vehicle" msprop:Generator_RelationVarName="relationFK_Vehicle_AxleConfiguration" msprop:Generator_ChildPropName="GetVehicleRows" msprop:Generator_ParentPropName="AxleConfigurationRow" msprop:Generator_UserRelationName="FK_Vehicle_AxleConfiguration" />
-      <msdata:Relationship name="FK_Vehicle_VehicleRegFeeCodes" msdata:parent="VehicleRegFeeCodes" msdata:child="Vehicle" msdata:parentkey="FeeCodeID" msdata:childkey="FeeCodeID" msprop:Generator_UserParentTable="VehicleRegFeeCodes" msprop:Generator_UserChildTable="Vehicle" msprop:Generator_RelationVarName="relationFK_Vehicle_VehicleRegFeeCodes" msprop:Generator_ChildPropName="GetVehicleRows" msprop:Generator_UserRelationName="FK_Vehicle_VehicleRegFeeCodes" msprop:Generator_ParentPropName="VehicleRegFeeCodesRow" />
-      <msdata:Relationship name="FK_VehiclePBS_Vehicle" msdata:parent="Vehicle" msdata:child="VehiclePBS" msdata:parentkey="Rego" msdata:childkey="Rego" msprop:Generator_UserParentTable="Vehicle" msprop:Generator_UserChildTable="VehiclePBS" msprop:Generator_RelationVarName="relationFK_VehiclePBS_Vehicle" msprop:Generator_ChildPropName="GetVehiclePBSRows" msprop:Generator_ParentPropName="VehicleRow" msprop:Generator_UserRelationName="FK_VehiclePBS_Vehicle" />
+      <msdata:Relationship name="FK_NHVL_AxleConfiguration" msdata:parent="AxleConfiguration" msdata:child="NHVR" msdata:parentkey="AxleConfiguration" msdata:childkey="AxleConfiguration" msprop:Generator_UserParentTable="AxleConfiguration" msprop:Generator_UserChildTable="NHVR" msprop:Generator_RelationVarName="relationFK_NHVL_AxleConfiguration" msprop:Generator_ChildPropName="GetNHVRRows" msprop:Generator_UserRelationName="FK_NHVL_AxleConfiguration" msprop:Generator_ParentPropName="AxleConfigurationRow" />
+      <msdata:Relationship name="FK_VehiclePreCustomers_Vehicle" msdata:parent="Vehicle" msdata:child="VehiclePrefCustomers" msdata:parentkey="Rego" msdata:childkey="Rego" msprop:Generator_UserParentTable="Vehicle" msprop:Generator_UserChildTable="VehiclePrefCustomers" msprop:Generator_RelationVarName="relationFK_VehiclePreCustomers_Vehicle" msprop:Generator_ChildPropName="GetVehiclePrefCustomersRows" msprop:Generator_ParentPropName="VehicleRow" msprop:Generator_UserRelationName="FK_VehiclePreCustomers_Vehicle" />
+      <msdata:Relationship name="FK_Vehicle_AxleConfiguration" msdata:parent="AxleConfiguration" msdata:child="Vehicle" msdata:parentkey="AxleConfiguration" msdata:childkey="AxleConfiguration" msprop:Generator_UserParentTable="AxleConfiguration" msprop:Generator_UserChildTable="Vehicle" msprop:Generator_RelationVarName="relationFK_Vehicle_AxleConfiguration" msprop:Generator_ChildPropName="GetVehicleRows" msprop:Generator_UserRelationName="FK_Vehicle_AxleConfiguration" msprop:Generator_ParentPropName="AxleConfigurationRow" />
+      <msdata:Relationship name="FK_Vehicle_VehicleRegFeeCodes" msdata:parent="VehicleRegFeeCodes" msdata:child="Vehicle" msdata:parentkey="FeeCodeID" msdata:childkey="FeeCodeID" msprop:Generator_UserParentTable="VehicleRegFeeCodes" msprop:Generator_UserChildTable="Vehicle" msprop:Generator_RelationVarName="relationFK_Vehicle_VehicleRegFeeCodes" msprop:Generator_ChildPropName="GetVehicleRows" msprop:Generator_ParentPropName="VehicleRegFeeCodesRow" msprop:Generator_UserRelationName="FK_Vehicle_VehicleRegFeeCodes" />
+      <msdata:Relationship name="FK_VehiclePBS_Vehicle" msdata:parent="Vehicle" msdata:child="VehiclePBS" msdata:parentkey="Rego" msdata:childkey="Rego" msprop:Generator_UserParentTable="Vehicle" msprop:Generator_UserChildTable="VehiclePBS" msprop:Generator_RelationVarName="relationFK_VehiclePBS_Vehicle" msprop:Generator_ChildPropName="GetVehiclePBSRows" msprop:Generator_UserRelationName="FK_VehiclePBS_Vehicle" msprop:Generator_ParentPropName="VehicleRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

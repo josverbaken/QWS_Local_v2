@@ -475,5 +475,13 @@ namespace QWS_Local
         {
             PrintDocket();
         }
+
+        private void pBSVehiclesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PBSVehicles frmPBSVehicles = new PBSVehicles();
+            frmPBSVehicles.MdiParent = this;
+            frmPBSVehicles.WindowState = FormWindowState.Maximized;
+            frmPBSVehicles.Show();
+        }
     }
 }
