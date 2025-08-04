@@ -483,5 +483,10 @@ namespace QWS_Local
             frmPBSVehicles.WindowState = FormWindowState.Maximized;
             frmPBSVehicles.Show();
         }
+
+        private void pBSVehiclesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -59,7 +59,7 @@
             this.bsOperator = new System.Windows.Forms.BindingSource(this.components);
             this.taOperator = new QWS_Local.dsAdminTableAdapters.OperatorTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsAdminTableAdapters.TableAdapterManager();
-            this.pBSVehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pBSVehiclesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsOperator)).BeginInit();
@@ -110,7 +110,8 @@
             this.feeCodesToolStripMenuItem,
             this.nHVRGVMToolStripMenuItem,
             this.operatorRolesToolStripMenuItem,
-            this.sMSToolStripMenuItem});
+            this.sMSToolStripMenuItem,
+            this.pBSVehiclesToolStripMenuItem1});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.adminToolStripMenuItem.Text = "Admin";
@@ -155,8 +156,7 @@
             this.menuitemMaintainVehicles.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.vehiclesToolStripMenuItem,
             this.pBSToolStripMenuItem,
-            this.trucktrailerConfigToolStripMenuItem,
-            this.pBSVehiclesToolStripMenuItem});
+            this.trucktrailerConfigToolStripMenuItem});
             this.menuitemMaintainVehicles.Name = "menuitemMaintainVehicles";
             this.menuitemMaintainVehicles.Size = new System.Drawing.Size(180, 24);
             this.menuitemMaintainVehicles.Text = "Maintain";
@@ -307,12 +307,12 @@
             this.tableAdapterManager.RoleTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsAdminTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // pBSVehiclesToolStripMenuItem
+            // pBSVehiclesToolStripMenuItem1
             // 
-            this.pBSVehiclesToolStripMenuItem.Name = "pBSVehiclesToolStripMenuItem";
-            this.pBSVehiclesToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
-            this.pBSVehiclesToolStripMenuItem.Text = "PBSVehicles";
-            this.pBSVehiclesToolStripMenuItem.Click += new System.EventHandler(this.pBSVehiclesToolStripMenuItem_Click);
+            this.pBSVehiclesToolStripMenuItem1.Name = "pBSVehiclesToolStripMenuItem1";
+            this.pBSVehiclesToolStripMenuItem1.Size = new System.Drawing.Size(202, 24);
+            this.pBSVehiclesToolStripMenuItem1.Text = "PBS Vehicles";
+            this.pBSVehiclesToolStripMenuItem1.Click += new System.EventHandler(this.pBSVehiclesToolStripMenuItem1_Click);
             // 
             // QWS_MDIParent
             // 
@@ -370,6 +370,6 @@
         private dsAdminTableAdapters.OperatorTableAdapter taOperator;
         private dsAdminTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.ToolStripMenuItem sMSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pBSVehiclesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pBSVehiclesToolStripMenuItem1;
     }
 }

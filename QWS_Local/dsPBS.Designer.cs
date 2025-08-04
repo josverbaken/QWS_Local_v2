@@ -32,11 +32,15 @@ namespace QWS_Local {
         
         private PBS_VehiclesDataTable tablePBS_Vehicles;
         
+        private PBS_ConfigMatrixDataTable tablePBS_ConfigMatrix;
+        
         private global::System.Data.DataRelation relationFK_PBS_Config_PBS;
         
         private global::System.Data.DataRelation relationFK_PBS_ConfigScheme_PBS_Config;
         
         private global::System.Data.DataRelation relationFK_PBS_Vehicles_PBS;
+        
+        private global::System.Data.DataRelation relationFK_PBS_ConfigMatrix_PBS_Config;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -77,6 +81,9 @@ namespace QWS_Local {
                 }
                 if ((ds.Tables["PBS_Vehicles"] != null)) {
                     base.Tables.Add(new PBS_VehiclesDataTable(ds.Tables["PBS_Vehicles"]));
+                }
+                if ((ds.Tables["PBS_ConfigMatrix"] != null)) {
+                    base.Tables.Add(new PBS_ConfigMatrixDataTable(ds.Tables["PBS_ConfigMatrix"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -133,6 +140,16 @@ namespace QWS_Local {
         public PBS_VehiclesDataTable PBS_Vehicles {
             get {
                 return this.tablePBS_Vehicles;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public PBS_ConfigMatrixDataTable PBS_ConfigMatrix {
+            get {
+                return this.tablePBS_ConfigMatrix;
             }
         }
         
@@ -215,6 +232,9 @@ namespace QWS_Local {
                 if ((ds.Tables["PBS_Vehicles"] != null)) {
                     base.Tables.Add(new PBS_VehiclesDataTable(ds.Tables["PBS_Vehicles"]));
                 }
+                if ((ds.Tables["PBS_ConfigMatrix"] != null)) {
+                    base.Tables.Add(new PBS_ConfigMatrixDataTable(ds.Tables["PBS_ConfigMatrix"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -272,9 +292,16 @@ namespace QWS_Local {
                     this.tablePBS_Vehicles.InitVars();
                 }
             }
+            this.tablePBS_ConfigMatrix = ((PBS_ConfigMatrixDataTable)(base.Tables["PBS_ConfigMatrix"]));
+            if ((initTable == true)) {
+                if ((this.tablePBS_ConfigMatrix != null)) {
+                    this.tablePBS_ConfigMatrix.InitVars();
+                }
+            }
             this.relationFK_PBS_Config_PBS = this.Relations["FK_PBS_Config_PBS"];
             this.relationFK_PBS_ConfigScheme_PBS_Config = this.Relations["FK_PBS_ConfigScheme_PBS_Config"];
             this.relationFK_PBS_Vehicles_PBS = this.Relations["FK_PBS_Vehicles_PBS"];
+            this.relationFK_PBS_ConfigMatrix_PBS_Config = this.Relations["FK_PBS_ConfigMatrix_PBS_Config"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -293,6 +320,8 @@ namespace QWS_Local {
             base.Tables.Add(this.tablePBS_ConfigScheme);
             this.tablePBS_Vehicles = new PBS_VehiclesDataTable();
             base.Tables.Add(this.tablePBS_Vehicles);
+            this.tablePBS_ConfigMatrix = new PBS_ConfigMatrixDataTable();
+            base.Tables.Add(this.tablePBS_ConfigMatrix);
             this.relationFK_PBS_Config_PBS = new global::System.Data.DataRelation("FK_PBS_Config_PBS", new global::System.Data.DataColumn[] {
                         this.tablePBS.PBS_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tablePBS_Config.PBS_IDColumn}, false);
@@ -305,6 +334,10 @@ namespace QWS_Local {
                         this.tablePBS.PBS_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tablePBS_Vehicles.PBS_IDColumn}, false);
             this.Relations.Add(this.relationFK_PBS_Vehicles_PBS);
+            this.relationFK_PBS_ConfigMatrix_PBS_Config = new global::System.Data.DataRelation("FK_PBS_ConfigMatrix_PBS_Config", new global::System.Data.DataColumn[] {
+                        this.tablePBS_Config.PBS_ConfigIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePBS_ConfigMatrix.PBS_ConfigIDColumn}, false);
+            this.Relations.Add(this.relationFK_PBS_ConfigMatrix_PBS_Config);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -328,6 +361,12 @@ namespace QWS_Local {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializePBS_Vehicles() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializePBS_ConfigMatrix() {
             return false;
         }
         
@@ -397,6 +436,9 @@ namespace QWS_Local {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void PBS_VehiclesRowChangeEventHandler(object sender, PBS_VehiclesRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void PBS_ConfigMatrixRowChangeEventHandler(object sender, PBS_ConfigMatrixRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1780,6 +1822,316 @@ namespace QWS_Local {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class PBS_ConfigMatrixDataTable : global::System.Data.TypedTableBase<PBS_ConfigMatrixRow> {
+            
+            private global::System.Data.DataColumn columnPBS_ConfigMatrixID;
+            
+            private global::System.Data.DataColumn columnPBS_ConfigID;
+            
+            private global::System.Data.DataColumn columnPBS_TruckNo;
+            
+            private global::System.Data.DataColumn columnPBS_TrailerNo;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PBS_ConfigMatrixDataTable() {
+                this.TableName = "PBS_ConfigMatrix";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal PBS_ConfigMatrixDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected PBS_ConfigMatrixDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PBS_ConfigMatrixIDColumn {
+                get {
+                    return this.columnPBS_ConfigMatrixID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PBS_ConfigIDColumn {
+                get {
+                    return this.columnPBS_ConfigID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PBS_TruckNoColumn {
+                get {
+                    return this.columnPBS_TruckNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PBS_TrailerNoColumn {
+                get {
+                    return this.columnPBS_TrailerNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PBS_ConfigMatrixRow this[int index] {
+                get {
+                    return ((PBS_ConfigMatrixRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event PBS_ConfigMatrixRowChangeEventHandler PBS_ConfigMatrixRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event PBS_ConfigMatrixRowChangeEventHandler PBS_ConfigMatrixRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event PBS_ConfigMatrixRowChangeEventHandler PBS_ConfigMatrixRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event PBS_ConfigMatrixRowChangeEventHandler PBS_ConfigMatrixRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddPBS_ConfigMatrixRow(PBS_ConfigMatrixRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PBS_ConfigMatrixRow AddPBS_ConfigMatrixRow(PBS_ConfigRow parentPBS_ConfigRowByFK_PBS_ConfigMatrix_PBS_Config, int PBS_TruckNo, int PBS_TrailerNo) {
+                PBS_ConfigMatrixRow rowPBS_ConfigMatrixRow = ((PBS_ConfigMatrixRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        PBS_TruckNo,
+                        PBS_TrailerNo};
+                if ((parentPBS_ConfigRowByFK_PBS_ConfigMatrix_PBS_Config != null)) {
+                    columnValuesArray[1] = parentPBS_ConfigRowByFK_PBS_ConfigMatrix_PBS_Config[0];
+                }
+                rowPBS_ConfigMatrixRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPBS_ConfigMatrixRow);
+                return rowPBS_ConfigMatrixRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PBS_ConfigMatrixRow FindByPBS_ConfigMatrixID(int PBS_ConfigMatrixID) {
+                return ((PBS_ConfigMatrixRow)(this.Rows.Find(new object[] {
+                            PBS_ConfigMatrixID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                PBS_ConfigMatrixDataTable cln = ((PBS_ConfigMatrixDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new PBS_ConfigMatrixDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnPBS_ConfigMatrixID = base.Columns["PBS_ConfigMatrixID"];
+                this.columnPBS_ConfigID = base.Columns["PBS_ConfigID"];
+                this.columnPBS_TruckNo = base.Columns["PBS_TruckNo"];
+                this.columnPBS_TrailerNo = base.Columns["PBS_TrailerNo"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnPBS_ConfigMatrixID = new global::System.Data.DataColumn("PBS_ConfigMatrixID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPBS_ConfigMatrixID);
+                this.columnPBS_ConfigID = new global::System.Data.DataColumn("PBS_ConfigID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPBS_ConfigID);
+                this.columnPBS_TruckNo = new global::System.Data.DataColumn("PBS_TruckNo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPBS_TruckNo);
+                this.columnPBS_TrailerNo = new global::System.Data.DataColumn("PBS_TrailerNo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPBS_TrailerNo);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnPBS_ConfigMatrixID}, true));
+                this.columnPBS_ConfigMatrixID.AutoIncrement = true;
+                this.columnPBS_ConfigMatrixID.AutoIncrementSeed = -1;
+                this.columnPBS_ConfigMatrixID.AutoIncrementStep = -1;
+                this.columnPBS_ConfigMatrixID.AllowDBNull = false;
+                this.columnPBS_ConfigMatrixID.ReadOnly = true;
+                this.columnPBS_ConfigMatrixID.Unique = true;
+                this.columnPBS_ConfigID.AllowDBNull = false;
+                this.columnPBS_TruckNo.AllowDBNull = false;
+                this.columnPBS_TrailerNo.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PBS_ConfigMatrixRow NewPBS_ConfigMatrixRow() {
+                return ((PBS_ConfigMatrixRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new PBS_ConfigMatrixRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(PBS_ConfigMatrixRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.PBS_ConfigMatrixRowChanged != null)) {
+                    this.PBS_ConfigMatrixRowChanged(this, new PBS_ConfigMatrixRowChangeEvent(((PBS_ConfigMatrixRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.PBS_ConfigMatrixRowChanging != null)) {
+                    this.PBS_ConfigMatrixRowChanging(this, new PBS_ConfigMatrixRowChangeEvent(((PBS_ConfigMatrixRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.PBS_ConfigMatrixRowDeleted != null)) {
+                    this.PBS_ConfigMatrixRowDeleted(this, new PBS_ConfigMatrixRowChangeEvent(((PBS_ConfigMatrixRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.PBS_ConfigMatrixRowDeleting != null)) {
+                    this.PBS_ConfigMatrixRowDeleting(this, new PBS_ConfigMatrixRowChangeEvent(((PBS_ConfigMatrixRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemovePBS_ConfigMatrixRow(PBS_ConfigMatrixRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsPBS ds = new dsPBS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "PBS_ConfigMatrixDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class PBSRow : global::System.Data.DataRow {
@@ -1970,6 +2322,17 @@ namespace QWS_Local {
                 }
                 else {
                     return ((PBS_ConfigSchemeRow[])(base.GetChildRows(this.Table.ChildRelations["FK_PBS_ConfigScheme_PBS_Config"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PBS_ConfigMatrixRow[] GetPBS_ConfigMatrixRows() {
+                if ((this.Table.ChildRelations["FK_PBS_ConfigMatrix_PBS_Config"] == null)) {
+                    return new PBS_ConfigMatrixRow[0];
+                }
+                else {
+                    return ((PBS_ConfigMatrixRow[])(base.GetChildRows(this.Table.ChildRelations["FK_PBS_ConfigMatrix_PBS_Config"])));
                 }
             }
         }
@@ -2181,6 +2544,76 @@ namespace QWS_Local {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class PBS_ConfigMatrixRow : global::System.Data.DataRow {
+            
+            private PBS_ConfigMatrixDataTable tablePBS_ConfigMatrix;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal PBS_ConfigMatrixRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablePBS_ConfigMatrix = ((PBS_ConfigMatrixDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int PBS_ConfigMatrixID {
+                get {
+                    return ((int)(this[this.tablePBS_ConfigMatrix.PBS_ConfigMatrixIDColumn]));
+                }
+                set {
+                    this[this.tablePBS_ConfigMatrix.PBS_ConfigMatrixIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int PBS_ConfigID {
+                get {
+                    return ((int)(this[this.tablePBS_ConfigMatrix.PBS_ConfigIDColumn]));
+                }
+                set {
+                    this[this.tablePBS_ConfigMatrix.PBS_ConfigIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int PBS_TruckNo {
+                get {
+                    return ((int)(this[this.tablePBS_ConfigMatrix.PBS_TruckNoColumn]));
+                }
+                set {
+                    this[this.tablePBS_ConfigMatrix.PBS_TruckNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int PBS_TrailerNo {
+                get {
+                    return ((int)(this[this.tablePBS_ConfigMatrix.PBS_TrailerNoColumn]));
+                }
+                set {
+                    this[this.tablePBS_ConfigMatrix.PBS_TrailerNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PBS_ConfigRow PBS_ConfigRow {
+                get {
+                    return ((PBS_ConfigRow)(this.GetParentRow(this.Table.ParentRelations["FK_PBS_ConfigMatrix_PBS_Config"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_PBS_ConfigMatrix_PBS_Config"]);
+                }
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2302,6 +2735,40 @@ namespace QWS_Local {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public PBS_VehiclesRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class PBS_ConfigMatrixRowChangeEvent : global::System.EventArgs {
+            
+            private PBS_ConfigMatrixRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PBS_ConfigMatrixRowChangeEvent(PBS_ConfigMatrixRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PBS_ConfigMatrixRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -4080,6 +4547,355 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo FROM PBS_Vehicles WHER
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class PBS_ConfigMatrixTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public PBS_ConfigMatrixTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "PBS_ConfigMatrix";
+            tableMapping.ColumnMappings.Add("PBS_ConfigMatrixID", "PBS_ConfigMatrixID");
+            tableMapping.ColumnMappings.Add("PBS_ConfigID", "PBS_ConfigID");
+            tableMapping.ColumnMappings.Add("PBS_TruckNo", "PBS_TruckNo");
+            tableMapping.ColumnMappings.Add("PBS_TrailerNo", "PBS_TrailerNo");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [PBS_ConfigMatrix] WHERE (([PBS_ConfigMatrixID] = @Original_PBS_Confi" +
+                "gMatrixID) AND ([PBS_ConfigID] = @Original_PBS_ConfigID) AND ([PBS_TruckNo] = @O" +
+                "riginal_PBS_TruckNo) AND ([PBS_TrailerNo] = @Original_PBS_TrailerNo))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_ConfigMatrixID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ConfigMatrixID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_ConfigID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ConfigID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_TruckNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_TruckNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_TrailerNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_TrailerNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [PBS_ConfigMatrix] ([PBS_ConfigID], [PBS_TruckNo], [PBS_TrailerNo]) VALUES (@PBS_ConfigID, @PBS_TruckNo, @PBS_TrailerNo);
+SELECT PBS_ConfigMatrixID, PBS_ConfigID, PBS_TruckNo, PBS_TrailerNo FROM PBS_ConfigMatrix WHERE (PBS_ConfigMatrixID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ConfigID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ConfigID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_TruckNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_TruckNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_TrailerNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_TrailerNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [PBS_ConfigMatrix] SET [PBS_ConfigID] = @PBS_ConfigID, [PBS_TruckNo] = @PBS_TruckNo, [PBS_TrailerNo] = @PBS_TrailerNo WHERE (([PBS_ConfigMatrixID] = @Original_PBS_ConfigMatrixID) AND ([PBS_ConfigID] = @Original_PBS_ConfigID) AND ([PBS_TruckNo] = @Original_PBS_TruckNo) AND ([PBS_TrailerNo] = @Original_PBS_TrailerNo));
+SELECT PBS_ConfigMatrixID, PBS_ConfigID, PBS_TruckNo, PBS_TrailerNo FROM PBS_ConfigMatrix WHERE (PBS_ConfigMatrixID = @PBS_ConfigMatrixID)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ConfigID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ConfigID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_TruckNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_TruckNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_TrailerNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_TrailerNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_ConfigMatrixID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ConfigMatrixID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_ConfigID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ConfigID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_TruckNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_TruckNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_TrailerNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_TrailerNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ConfigMatrixID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ConfigMatrixID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::QWS_Local.Properties.Settings.Default.cnQWSLocal;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT        PBS_ConfigMatrixID, PBS_ConfigID, PBS_TruckNo, PBS_TrailerNo\r\nFROM " +
+                "           PBS_ConfigMatrix";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        PBS_ConfigMatrixID, PBS_ConfigID, PBS_TruckNo, PBS_TrailerNo\r\nFROM " +
+                "           PBS_ConfigMatrix\r\nwhere PBS_ConfigID = @PBS_ConfigID";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ConfigID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ConfigID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(dsPBS.PBS_ConfigMatrixDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual dsPBS.PBS_ConfigMatrixDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            dsPBS.PBS_ConfigMatrixDataTable dataTable = new dsPBS.PBS_ConfigMatrixDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(dsPBS.PBS_ConfigMatrixDataTable dataTable, int PBS_ConfigID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PBS_ConfigID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dsPBS.PBS_ConfigMatrixDataTable GetDataBy(int PBS_ConfigID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PBS_ConfigID));
+            dsPBS.PBS_ConfigMatrixDataTable dataTable = new dsPBS.PBS_ConfigMatrixDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dsPBS.PBS_ConfigMatrixDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dsPBS dataSet) {
+            return this.Adapter.Update(dataSet, "PBS_ConfigMatrix");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_PBS_ConfigMatrixID, int Original_PBS_ConfigID, int Original_PBS_TruckNo, int Original_PBS_TrailerNo) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_PBS_ConfigMatrixID));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_PBS_ConfigID));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_PBS_TruckNo));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_PBS_TrailerNo));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(int PBS_ConfigID, int PBS_TruckNo, int PBS_TrailerNo) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(PBS_ConfigID));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(PBS_TruckNo));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(PBS_TrailerNo));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(int PBS_ConfigID, int PBS_TruckNo, int PBS_TrailerNo, int Original_PBS_ConfigMatrixID, int Original_PBS_ConfigID, int Original_PBS_TruckNo, int Original_PBS_TrailerNo, int PBS_ConfigMatrixID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(PBS_ConfigID));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(PBS_TruckNo));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(PBS_TrailerNo));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_PBS_ConfigMatrixID));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_PBS_ConfigID));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_PBS_TruckNo));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_PBS_TrailerNo));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(PBS_ConfigMatrixID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(int PBS_ConfigID, int PBS_TruckNo, int PBS_TrailerNo, int Original_PBS_ConfigMatrixID, int Original_PBS_ConfigID, int Original_PBS_TruckNo, int Original_PBS_TrailerNo) {
+            return this.Update(PBS_ConfigID, PBS_TruckNo, PBS_TrailerNo, Original_PBS_ConfigMatrixID, Original_PBS_ConfigID, Original_PBS_TruckNo, Original_PBS_TrailerNo, Original_PBS_ConfigMatrixID);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4098,6 +4914,8 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo FROM PBS_Vehicles WHER
         private PBS_ConfigSchemeTableAdapter _pBS_ConfigSchemeTableAdapter;
         
         private PBS_VehiclesTableAdapter _pBS_VehiclesTableAdapter;
+        
+        private PBS_ConfigMatrixTableAdapter _pBS_ConfigMatrixTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -4172,6 +4990,20 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo FROM PBS_Vehicles WHER
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public PBS_ConfigMatrixTableAdapter PBS_ConfigMatrixTableAdapter {
+            get {
+                return this._pBS_ConfigMatrixTableAdapter;
+            }
+            set {
+                this._pBS_ConfigMatrixTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -4205,6 +5037,10 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo FROM PBS_Vehicles WHER
                             && (this._pBS_VehiclesTableAdapter.Connection != null))) {
                     return this._pBS_VehiclesTableAdapter.Connection;
                 }
+                if (((this._pBS_ConfigMatrixTableAdapter != null) 
+                            && (this._pBS_ConfigMatrixTableAdapter.Connection != null))) {
+                    return this._pBS_ConfigMatrixTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -4228,6 +5064,9 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo FROM PBS_Vehicles WHER
                     count = (count + 1);
                 }
                 if ((this._pBS_VehiclesTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._pBS_ConfigMatrixTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -4277,6 +5116,15 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo FROM PBS_Vehicles WHER
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._pBS_ConfigMatrixTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.PBS_ConfigMatrix.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._pBS_ConfigMatrixTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -4319,6 +5167,14 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo FROM PBS_Vehicles WHER
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._pBS_ConfigMatrixTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.PBS_ConfigMatrix.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._pBS_ConfigMatrixTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -4329,6 +5185,14 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo FROM PBS_Vehicles WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(dsPBS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._pBS_ConfigMatrixTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.PBS_ConfigMatrix.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._pBS_ConfigMatrixTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._pBS_VehiclesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.PBS_Vehicles.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -4420,6 +5284,11 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo FROM PBS_Vehicles WHER
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
+            if (((this._pBS_ConfigMatrixTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._pBS_ConfigMatrixTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
@@ -4486,6 +5355,15 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo FROM PBS_Vehicles WHER
                     if (this._pBS_VehiclesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._pBS_VehiclesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._pBS_VehiclesTableAdapter.Adapter);
+                    }
+                }
+                if ((this._pBS_ConfigMatrixTableAdapter != null)) {
+                    revertConnections.Add(this._pBS_ConfigMatrixTableAdapter, this._pBS_ConfigMatrixTableAdapter.Connection);
+                    this._pBS_ConfigMatrixTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._pBS_ConfigMatrixTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._pBS_ConfigMatrixTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._pBS_ConfigMatrixTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._pBS_ConfigMatrixTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -4561,6 +5439,10 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo FROM PBS_Vehicles WHER
                 if ((this._pBS_VehiclesTableAdapter != null)) {
                     this._pBS_VehiclesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._pBS_VehiclesTableAdapter]));
                     this._pBS_VehiclesTableAdapter.Transaction = null;
+                }
+                if ((this._pBS_ConfigMatrixTableAdapter != null)) {
+                    this._pBS_ConfigMatrixTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._pBS_ConfigMatrixTableAdapter]));
+                    this._pBS_ConfigMatrixTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

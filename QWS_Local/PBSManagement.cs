@@ -17,7 +17,14 @@ namespace QWS_Local
 
         public PBSManagement()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void PBSManagement_Load(object sender, EventArgs e)
@@ -166,6 +173,7 @@ namespace QWS_Local
                 if (CurrentPBS()  != null)
                 {
                     taPBSConfig.FillByPBSID(dsPBS.PBS_Config, CurrentPBS().PBS_ID);
+                    taPBSVehicles.FillByPBS_ID(dsPBS.PBS_Vehicles, CurrentPBS().PBS_ID);
                 }
             }
             catch (Exception ex)
@@ -226,26 +234,29 @@ namespace QWS_Local
             }
         }
 
-        private dsPBS.PBS_ConfigSchemeRow CurrentPBSConfigScheme()
-        {
-            try
-            {
-                DataRow myDR = ((DataRowView)bsPBSConfigScheme.Current).Row;
-                dsPBS.PBS_ConfigSchemeRow PBS_ConfigSchemeRow = (dsPBS.PBS_ConfigSchemeRow)myDR;
-                return PBS_ConfigSchemeRow;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return null;
-            }
-        }
+        //private dsPBS.PBS_ConfigSchemeRow CurrentPBSConfigScheme()
+        //{
+        //    try
+        //    {
+        //        DataRow myDR = ((DataRowView)bsPBSConfigScheme.Current).Row;
+        //        dsPBS.PBS_ConfigSchemeRow PBS_ConfigSchemeRow = (dsPBS.PBS_ConfigSchemeRow)myDR;
+        //        return PBS_ConfigSchemeRow;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //        return null;
+        //    }
+        //}
 
         private void bsPBSConfig_CurrentChanged(object sender, EventArgs e)
         {
             if (bsPBSConfig.Count > 0)
             {
-                taPBSConfigScheme.FillBy(dsPBS.PBS_ConfigScheme, CurrentPBSConfig().PBS_ConfigID);
+                int myPBS_ConfigID = CurrentPBSConfig().PBS_ConfigID;
+                taPBSConfigScheme.FillBy(dsPBS.PBS_ConfigScheme, myPBS_ConfigID);
+                int iRows = taPBSConfigMatrix.FillBy(dsPBS.PBS_ConfigMatrix, myPBS_ConfigID);
+                iRows += 1;
             }
         }
 
@@ -255,6 +266,79 @@ namespace QWS_Local
             {
                 VehicleApprovalFind();
             }
+        }
+
+        private void btnFindPBS_Vehicle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int myPBS_ID = CurrentPBS().PBS_ID;
+                taPBSVehicles.FillByPBS_ID(dsPBS.PBS_Vehicles, myPBS_ID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void btnSAVEPBS_Vehicle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bsPBSVehicles.EndEdit();
+                taPBSVehicles.Update(dsPBS.PBS_Vehicles);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnFindPBSConfigMatrix_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int myPBS_ConfigID = CurrentPBSConfig().PBS_ConfigID;
+                taPBSConfigMatrix.FillBy(dsPBS.PBS_ConfigMatrix, myPBS_ConfigID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnSavePBSConfigMatrix_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bsPBSConfigMatrix.EndEdit();
+                int iRows = taPBSConfigMatrix.Update(dsPBS.PBS_ConfigMatrix);
+                iRows += 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void pBS_VehiclesDataGridView_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        {
+            try
+            {
+                int myPBS_ID = CurrentPBS().PBS_ID;
+                e.Row.Cells[1].Value = myPBS_ID.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dgvPBSConfigMatrix_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        {
+            int myPBS_ConfigID = CurrentPBSConfig().PBS_ConfigID;
+            e.Row.Cells[1].Value = myPBS_ConfigID.ToString();
         }
     }
 }
