@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+
 
 namespace QWS_Local
 {
@@ -212,6 +214,36 @@ namespace QWS_Local
             }
         }
 
+        private dsPBS.PBS_VehiclesRow CurrentPBSVehicle()
+        {
+            try
+            {
+                if (bsPBSVehicles.Count > 0)
+                {
+                    DataRow myDR = ((DataRowView)bsPBSVehicles.Current).Row;
+                    if (myDR != null)
+                    {
+                        dsPBS.PBS_VehiclesRow row = (dsPBS.PBS_VehiclesRow)myDR;
+                        return row;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
         private dsPBS.PBS_ConfigRow CurrentPBSConfig()
         {
             try
@@ -339,6 +371,39 @@ namespace QWS_Local
         {
             int myPBS_ConfigID = CurrentPBSConfig().PBS_ConfigID;
             e.Row.Cells[1].Value = myPBS_ConfigID.ToString();
+        }
+
+        private void btnFindVIN_Click(object sender, EventArgs e)
+        {
+            txtFoundVIN.Text = GetVIN(txtRego4VIN.Text);
+        }
+
+        private string GetVIN(string Rego)
+        {
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "FindVIN";
+                cmd.Parameters.AddWithValue("@Rego", Rego);
+                sqlConnection.Open();
+                string myVIN = cmd.ExecuteScalar().ToString();
+                sqlConnection.Close();
+                return myVIN;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return "not found";
+            }
+        }
+
+        private void btnAcceptVIN_Click(object sender, EventArgs e)
+        {
+            CurrentPBSVehicle().VIN = txtFoundVIN.Text;
+            bsPBSVehicles.EndEdit();
         }
     }
 }
