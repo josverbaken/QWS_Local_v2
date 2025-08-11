@@ -1511,6 +1511,8 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnTruckTypeNo;
             
+            private global::System.Data.DataColumn columnRego;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public PBS_VehiclesDataTable() {
@@ -1586,6 +1588,14 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RegoColumn {
+                get {
+                    return this.columnRego;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1621,14 +1631,15 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PBS_VehiclesRow AddPBS_VehiclesRow(PBSRow parentPBSRowByFK_PBS_Vehicles_PBS, string VIN, string TruckType, int TruckTypeNo) {
+            public PBS_VehiclesRow AddPBS_VehiclesRow(PBSRow parentPBSRowByFK_PBS_Vehicles_PBS, string VIN, string TruckType, int TruckTypeNo, string Rego) {
                 PBS_VehiclesRow rowPBS_VehiclesRow = ((PBS_VehiclesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         VIN,
                         TruckType,
-                        TruckTypeNo};
+                        TruckTypeNo,
+                        Rego};
                 if ((parentPBSRowByFK_PBS_Vehicles_PBS != null)) {
                     columnValuesArray[1] = parentPBSRowByFK_PBS_Vehicles_PBS[0];
                 }
@@ -1666,6 +1677,7 @@ namespace QWS_Local {
                 this.columnVIN = base.Columns["VIN"];
                 this.columnTruckType = base.Columns["TruckType"];
                 this.columnTruckTypeNo = base.Columns["TruckTypeNo"];
+                this.columnRego = base.Columns["Rego"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1681,6 +1693,8 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnTruckType);
                 this.columnTruckTypeNo = new global::System.Data.DataColumn("TruckTypeNo", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTruckTypeNo);
+                this.columnRego = new global::System.Data.DataColumn("Rego", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRego);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPBS_VehicleID}, true));
                 this.columnPBS_VehicleID.AutoIncrement = true;
@@ -1695,6 +1709,8 @@ namespace QWS_Local {
                 this.columnTruckType.AllowDBNull = false;
                 this.columnTruckType.MaxLength = 50;
                 this.columnTruckTypeNo.AllowDBNull = false;
+                this.columnRego.ReadOnly = true;
+                this.columnRego.MaxLength = 6;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2533,6 +2549,22 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Rego {
+                get {
+                    try {
+                        return ((string)(this[this.tablePBS_Vehicles.RegoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Rego\' in table \'PBS_Vehicles\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePBS_Vehicles.RegoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public PBSRow PBSRow {
                 get {
                     return ((PBSRow)(this.GetParentRow(this.Table.ParentRelations["FK_PBS_Vehicles_PBS"])));
@@ -2540,6 +2572,18 @@ namespace QWS_Local {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_PBS_Vehicles_PBS"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRegoNull() {
+                return this.IsNull(this.tablePBS_Vehicles.RegoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRegoNull() {
+                this[this.tablePBS_Vehicles.RegoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4273,6 +4317,7 @@ SELECT PBS_ConfigSchemeID, PBS_ConfigID, PBS_Level, SchemeCode, GCM, GVMTruck, D
             tableMapping.ColumnMappings.Add("VIN", "VIN");
             tableMapping.ColumnMappings.Add("TruckType", "TruckType");
             tableMapping.ColumnMappings.Add("TruckTypeNo", "TruckTypeNo");
+            tableMapping.ColumnMappings.Add("Rego", "Rego");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -4289,7 +4334,8 @@ SELECT PBS_ConfigSchemeID, PBS_ConfigID, PBS_Level, SchemeCode, GCM, GVMTruck, D
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [PBS_Vehicles] ([PBS_ID], [VIN], [TruckType], [TruckTypeNo]) VALUES (" +
                 "@PBS_ID, @VIN, @TruckType, @TruckTypeNo);\r\nSELECT PBS_VehicleID, PBS_ID, VIN, Tr" +
-                "uckType, TruckTypeNo FROM PBS_Vehicles WHERE (PBS_VehicleID = SCOPE_IDENTITY())";
+                "uckType, TruckTypeNo, \'tba\' AS Rego FROM PBS_Vehicles WHERE (PBS_VehicleID = SCO" +
+                "PE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VIN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4298,7 +4344,7 @@ SELECT PBS_ConfigSchemeID, PBS_ConfigID, PBS_Level, SchemeCode, GCM, GVMTruck, D
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [PBS_Vehicles] SET [PBS_ID] = @PBS_ID, [VIN] = @VIN, [TruckType] = @TruckType, [TruckTypeNo] = @TruckTypeNo WHERE (([PBS_VehicleID] = @Original_PBS_VehicleID) AND ([PBS_ID] = @Original_PBS_ID) AND ([VIN] = @Original_VIN) AND ([TruckType] = @Original_TruckType) AND ([TruckTypeNo] = @Original_TruckTypeNo));
-SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo FROM PBS_Vehicles WHERE (PBS_VehicleID = @PBS_VehicleID)";
+SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo, 'tba' AS Rego FROM PBS_Vehicles WHERE (PBS_VehicleID = @PBS_VehicleID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VIN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4325,15 +4371,15 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo FROM PBS_Vehicles WHER
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo\r\nFROM           " +
-                " PBS_Vehicles";
+            this._commandCollection[0].CommandText = "SELECT        PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo, \'tba\' as Rego\r\n" +
+                "FROM            PBS_Vehicles";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo\r\nFROM           " +
-                " PBS_Vehicles\r\nwhere PBS_ID = @PBS_ID";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].CommandText = "dbo.PBSVehiclePlusRego";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4364,9 +4410,14 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo FROM PBS_Vehicles WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByPBS_ID(dsPBS.PBS_VehiclesDataTable dataTable, int PBS_ID) {
+        public virtual int FillBy(dsPBS.PBS_VehiclesDataTable dataTable, global::System.Nullable<int> PBS_ID) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PBS_ID));
+            if ((PBS_ID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(PBS_ID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -4378,9 +4429,14 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo FROM PBS_Vehicles WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual dsPBS.PBS_VehiclesDataTable GetDataByPBS_ID(int PBS_ID) {
+        public virtual dsPBS.PBS_VehiclesDataTable GetDataBy(global::System.Nullable<int> PBS_ID) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PBS_ID));
+            if ((PBS_ID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(PBS_ID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             dsPBS.PBS_VehiclesDataTable dataTable = new dsPBS.PBS_VehiclesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

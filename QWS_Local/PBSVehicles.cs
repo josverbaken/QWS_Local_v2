@@ -63,7 +63,7 @@ namespace QWS_Local
             try
             {
                 int myPBS_ID = Convert.ToInt32( txtPBS_ID.Text);
-                this.taPBS_Vehicles.FillByPBS_ID(this.dsPBS.PBS_Vehicles,myPBS_ID);
+                this.taPBS_Vehicles.FillBy(this.dsPBS.PBS_Vehicles,myPBS_ID);
             }
             catch (Exception ex)
             {

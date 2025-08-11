@@ -175,7 +175,7 @@ namespace QWS_Local
                 if (CurrentPBS()  != null)
                 {
                     taPBSConfig.FillByPBSID(dsPBS.PBS_Config, CurrentPBS().PBS_ID);
-                    taPBSVehicles.FillByPBS_ID(dsPBS.PBS_Vehicles, CurrentPBS().PBS_ID);
+                    taPBSVehicles.FillBy(dsPBS.PBS_Vehicles, CurrentPBS().PBS_ID);
                 }
             }
             catch (Exception ex)
@@ -305,7 +305,7 @@ namespace QWS_Local
             try
             {
                 int myPBS_ID = CurrentPBS().PBS_ID;
-                taPBSVehicles.FillByPBS_ID(dsPBS.PBS_Vehicles, myPBS_ID);
+                taPBSVehicles.FillBy(dsPBS.PBS_Vehicles, myPBS_ID);
             }
             catch (Exception ex)
             {
@@ -375,7 +375,9 @@ namespace QWS_Local
 
         private void btnFindVIN_Click(object sender, EventArgs e)
         {
-            txtFoundVIN.Text = GetVIN(txtRego4VIN.Text);
+            string myRego = txtRego4VIN.Text;
+            myRego = CurrentPBSVehicle().Rego;
+            txtFoundVIN.Text = GetVIN(myRego);
         }
 
         private string GetVIN(string Rego)
@@ -404,6 +406,19 @@ namespace QWS_Local
         {
             CurrentPBSVehicle().VIN = txtFoundVIN.Text;
             bsPBSVehicles.EndEdit();
+        }
+
+        private void btnRefreshPBSVehicles_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int myPBS_ID = CurrentPBS().PBS_ID;
+                taPBSVehicles.FillBy(dsPBS.PBS_Vehicles, myPBS_ID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
