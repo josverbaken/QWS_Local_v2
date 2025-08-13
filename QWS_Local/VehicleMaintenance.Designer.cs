@@ -38,7 +38,6 @@ namespace QWS_Local
             System.Windows.Forms.Label label7;
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label5;
-            System.Windows.Forms.Label label1;
             this.txtRego = new System.Windows.Forms.TextBox();
             this.bsVehicle = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
@@ -75,16 +74,13 @@ namespace QWS_Local
             this.gbFeeCodes = new System.Windows.Forms.GroupBox();
             this.btnSetAxleConfig = new System.Windows.Forms.Button();
             this.gbRegistration = new System.Windows.Forms.GroupBox();
+            this.isLeadVehicleCheckBox = new System.Windows.Forms.CheckBox();
             this.dtpRegoExpiry = new System.Windows.Forms.DateTimePicker();
             this.lblExpiryDT = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.txtVehicleMake = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.gbPBS = new System.Windows.Forms.GroupBox();
-            this.dgvPBS = new System.Windows.Forms.DataGridView();
-            this.vehicleApprovalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rego = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsVehiclePBS2 = new System.Windows.Forms.BindingSource(this.components);
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tpPrefCust = new System.Windows.Forms.TabPage();
             this.gbPrefCustomers = new System.Windows.Forms.GroupBox();
@@ -101,9 +97,7 @@ namespace QWS_Local
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
             this.taPrefCustomers = new QWS_Local.dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter();
             this.taVehicle = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleTableAdapter();
-            this.taVehiclePBS2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehiclePBSTableAdapter();
             this.taFeeCodes = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter();
-            this.isLeadVehicleCheckBox = new System.Windows.Forms.CheckBox();
             vINLabel = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -112,7 +106,6 @@ namespace QWS_Local
             label7 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFeeCodes)).BeginInit();
@@ -127,8 +120,6 @@ namespace QWS_Local
             this.gbFeeCodes.SuspendLayout();
             this.gbRegistration.SuspendLayout();
             this.gbPBS.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPBS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsVehiclePBS2)).BeginInit();
             this.tpPrefCust.SuspendLayout();
             this.gbPrefCustomers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -217,24 +208,13 @@ namespace QWS_Local
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(7, 182);
+            label5.Location = new System.Drawing.Point(7, 34);
             label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(169, 18);
+            label5.Size = new System.Drawing.Size(86, 18);
             label5.TabIndex = 85;
-            label5.Text = "Mass Mgmt Accred No :";
+            label5.Text = "Accred No :";
             label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(24, 32);
-            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(158, 18);
-            label1.TabIndex = 86;
-            label1.Text = "PBS Vehicle Approval :";
-            label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtRego
             // 
@@ -605,6 +585,16 @@ namespace QWS_Local
             this.gbRegistration.Text = "Registration Details";
             this.gbRegistration.Leave += new System.EventHandler(this.groupBox2_Leave);
             // 
+            // isLeadVehicleCheckBox
+            // 
+            this.isLeadVehicleCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bsVehicle, "IsLeadVehicle", true));
+            this.isLeadVehicleCheckBox.Location = new System.Drawing.Point(146, 210);
+            this.isLeadVehicleCheckBox.Name = "isLeadVehicleCheckBox";
+            this.isLeadVehicleCheckBox.Size = new System.Drawing.Size(125, 24);
+            this.isLeadVehicleCheckBox.TabIndex = 96;
+            this.isLeadVehicleCheckBox.Text = "IsLeadVehicle";
+            this.isLeadVehicleCheckBox.UseVisualStyleBackColor = true;
+            // 
             // dtpRegoExpiry
             // 
             this.dtpRegoExpiry.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bsVehicle, "RegistrationExpiryDT", true));
@@ -652,8 +642,6 @@ namespace QWS_Local
             // 
             // gbPBS
             // 
-            this.gbPBS.Controls.Add(label1);
-            this.gbPBS.Controls.Add(this.dgvPBS);
             this.gbPBS.Controls.Add(label5);
             this.gbPBS.Controls.Add(this.textBox3);
             this.gbPBS.Location = new System.Drawing.Point(789, 6);
@@ -661,46 +649,13 @@ namespace QWS_Local
             this.gbPBS.Size = new System.Drawing.Size(247, 269);
             this.gbPBS.TabIndex = 87;
             this.gbPBS.TabStop = false;
-            this.gbPBS.Text = "PBS and Mass Management";
+            this.gbPBS.Text = "NHVR Mass Management";
             this.gbPBS.Leave += new System.EventHandler(this.groupBox1_Leave);
-            // 
-            // dgvPBS
-            // 
-            this.dgvPBS.AutoGenerateColumns = false;
-            this.dgvPBS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPBS.ColumnHeadersVisible = false;
-            this.dgvPBS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.vehicleApprovalDataGridViewTextBoxColumn,
-            this.Rego});
-            this.dgvPBS.DataSource = this.bsVehiclePBS2;
-            this.dgvPBS.Location = new System.Drawing.Point(64, 63);
-            this.dgvPBS.Name = "dgvPBS";
-            this.dgvPBS.Size = new System.Drawing.Size(163, 106);
-            this.dgvPBS.TabIndex = 72;
-            this.dgvPBS.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvPBS_DefaultValuesNeeded);
-            // 
-            // vehicleApprovalDataGridViewTextBoxColumn
-            // 
-            this.vehicleApprovalDataGridViewTextBoxColumn.DataPropertyName = "VehicleApproval";
-            this.vehicleApprovalDataGridViewTextBoxColumn.HeaderText = "VA";
-            this.vehicleApprovalDataGridViewTextBoxColumn.Name = "vehicleApprovalDataGridViewTextBoxColumn";
-            // 
-            // Rego
-            // 
-            this.Rego.DataPropertyName = "Rego";
-            this.Rego.HeaderText = "Rego";
-            this.Rego.Name = "Rego";
-            this.Rego.Visible = false;
-            // 
-            // bsVehiclePBS2
-            // 
-            this.bsVehiclePBS2.DataMember = "VehiclePBS";
-            this.bsVehiclePBS2.DataSource = this.dsQWSLocal2024;
             // 
             // textBox3
             // 
             this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehicle, "MassAccreditationLabel", true));
-            this.textBox3.Location = new System.Drawing.Point(97, 210);
+            this.textBox3.Location = new System.Drawing.Point(101, 31);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(130, 24);
@@ -709,9 +664,9 @@ namespace QWS_Local
             // tpPrefCust
             // 
             this.tpPrefCust.Controls.Add(this.gbPrefCustomers);
-            this.tpPrefCust.Location = new System.Drawing.Point(4, 27);
+            this.tpPrefCust.Location = new System.Drawing.Point(4, 22);
             this.tpPrefCust.Name = "tpPrefCust";
-            this.tpPrefCust.Size = new System.Drawing.Size(1286, 421);
+            this.tpPrefCust.Size = new System.Drawing.Size(1286, 426);
             this.tpPrefCust.TabIndex = 2;
             this.tpPrefCust.Text = "Preferred Customers";
             this.tpPrefCust.UseVisualStyleBackColor = true;
@@ -725,7 +680,7 @@ namespace QWS_Local
             this.gbPrefCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbPrefCustomers.Location = new System.Drawing.Point(0, 0);
             this.gbPrefCustomers.Name = "gbPrefCustomers";
-            this.gbPrefCustomers.Size = new System.Drawing.Size(1286, 421);
+            this.gbPrefCustomers.Size = new System.Drawing.Size(1286, 426);
             this.gbPrefCustomers.TabIndex = 81;
             this.gbPrefCustomers.TabStop = false;
             this.gbPrefCustomers.Text = "Manage Preferred Customers";
@@ -882,23 +837,9 @@ namespace QWS_Local
             // 
             this.taVehicle.ClearBeforeFill = true;
             // 
-            // taVehiclePBS2
-            // 
-            this.taVehiclePBS2.ClearBeforeFill = true;
-            // 
             // taFeeCodes
             // 
             this.taFeeCodes.ClearBeforeFill = true;
-            // 
-            // isLeadVehicleCheckBox
-            // 
-            this.isLeadVehicleCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bsVehicle, "IsLeadVehicle", true));
-            this.isLeadVehicleCheckBox.Location = new System.Drawing.Point(146, 210);
-            this.isLeadVehicleCheckBox.Name = "isLeadVehicleCheckBox";
-            this.isLeadVehicleCheckBox.Size = new System.Drawing.Size(125, 24);
-            this.isLeadVehicleCheckBox.TabIndex = 96;
-            this.isLeadVehicleCheckBox.Text = "IsLeadVehicle";
-            this.isLeadVehicleCheckBox.UseVisualStyleBackColor = true;
             // 
             // VehicleMaintenance
             // 
@@ -931,8 +872,6 @@ namespace QWS_Local
             this.gbRegistration.PerformLayout();
             this.gbPBS.ResumeLayout(false);
             this.gbPBS.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPBS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsVehiclePBS2)).EndInit();
             this.tpPrefCust.ResumeLayout(false);
             this.gbPrefCustomers.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -983,18 +922,13 @@ namespace QWS_Local
         private dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter taPrefCustomers;
         private System.Windows.Forms.BindingSource bsVehicle;
         private dsQWSLocal2024TableAdapters.VehicleTableAdapter taVehicle;
-        private System.Windows.Forms.BindingSource bsVehiclePBS2;
-        private dsQWSLocal2024TableAdapters.VehiclePBSTableAdapter taVehiclePBS2;
         private System.Windows.Forms.BindingSource bsFeeCodes;
         private dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter taFeeCodes;
         private System.Windows.Forms.Button btnDeleteVehicle;
         private System.Windows.Forms.GroupBox gbPBS;
-        private System.Windows.Forms.DataGridView dgvPBS;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.GroupBox gbFeeCodes;
         private System.Windows.Forms.GroupBox gbRegistration;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleApprovalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rego;
         private System.Windows.Forms.GroupBox gbPrefCustomers;
         private System.Windows.Forms.Label lblExpiryDT;
         private System.Windows.Forms.Button btnSetOwner;

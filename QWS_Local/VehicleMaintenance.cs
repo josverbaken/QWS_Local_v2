@@ -165,7 +165,6 @@ namespace QWS_Local
             SynchAxleConfig(myVehicle.AxleConfiguration);
             SynchFeeCode(myVehicle.FeeCodeID);
             CheckExpiryDT();
-            GetPBSApprovals(myVehicle.Rego);
             LoadPrefCustomers();
         }
 
@@ -446,60 +445,6 @@ namespace QWS_Local
             PrefCustomerSearch();
         }
 
-        private void UpdateVehiclePBS()
-        {
-            try
-            {
-                bsVehiclePBS2.EndEdit();
-                this.taVehiclePBS2.Update(dsQWSLocal2024.VehiclePBS);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void GetPBSApprovals(string Rego)
-        {
-            try
-            {
-              int iCount =  this.taVehiclePBS2.FillBy(this.dsQWSLocal2024.VehiclePBS,Rego);
-                iCount += 1;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void bsVehiclePBS_AddingNew(object sender, AddingNewEventArgs e)
-        {
-            try
-            {
-                e.NewObject = NewVehiclePBS();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);            }
-        }
-
-        private dsQWSLocal2024.VehiclePBSRow NewVehiclePBS()
-        {
-            try
-            {
-                DataRow dr = dsQWSLocal2024.VehiclePBS.NewRow();
-            dsQWSLocal2024.VehiclePBSRow vehiclePBSRow = (dsQWSLocal2024.VehiclePBSRow)dr;
-            vehiclePBSRow.Rego = CurrentVehicle().Rego;
-                vehiclePBSRow.VehicleApproval = -9;
-                return vehiclePBSRow;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return null;
-            }
-        }
-
         private void AddVehiclePreCustomer(string CardCode, string CardName)
         {
             try
@@ -603,7 +548,6 @@ namespace QWS_Local
         {
             VehicleSave();
             SavePrefCustomers();
-            UpdateVehiclePBS();
             CheckExpiryDT();
         }
 
