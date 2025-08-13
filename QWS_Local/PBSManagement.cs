@@ -319,6 +319,8 @@ namespace QWS_Local
             try
             {
                 bsPBSVehicles.EndEdit();
+                txtRego4VIN.Text = "";
+                txtFoundVIN.Text = "";
                 taPBSVehicles.Update(dsPBS.PBS_Vehicles);
             }
             catch (Exception ex)
@@ -360,6 +362,10 @@ namespace QWS_Local
             {
                 int myPBS_ID = CurrentPBS().PBS_ID;
                 e.Row.Cells[1].Value = myPBS_ID.ToString();
+                e.Row.Cells[2].Value = "VIN123";
+                e.Row.Cells[3].Value = "TK..";
+                e.Row.Cells[4].Value = "0";
+                e.Row.Cells[5].Value = "tba";
             }
             catch (Exception ex)
             {
@@ -375,8 +381,8 @@ namespace QWS_Local
 
         private void btnFindVIN_Click(object sender, EventArgs e)
         {
-            string myRego = txtRego4VIN.Text;
-            myRego = CurrentPBSVehicle().Rego;
+            string myRego = txtRego4VIN.Text.ToUpper();
+            txtRego4VIN.Text = myRego;
             txtFoundVIN.Text = GetVIN(myRego);
         }
 
@@ -404,7 +410,13 @@ namespace QWS_Local
 
         private void btnAcceptVIN_Click(object sender, EventArgs e)
         {
-            CurrentPBSVehicle().VIN = txtFoundVIN.Text;
+            //CurrentPBSVehicle().VIN = txtFoundVIN.Text;
+            int iRow = dgvPBS_Vehicles.CurrentCellAddress.Y;
+            if (iRow > 0)
+            {
+                dgvPBS_Vehicles.Rows[iRow].Cells[2].Value = txtFoundVIN.Text;
+                //dgvPBS_Vehicles.Rows[iRow].Cells[5].Value = txtRego4VIN.Text; // column Rego is Read Only!
+            }
             bsPBSVehicles.EndEdit();
         }
 
@@ -414,6 +426,33 @@ namespace QWS_Local
             {
                 int myPBS_ID = CurrentPBS().PBS_ID;
                 taPBSVehicles.FillBy(dsPBS.PBS_Vehicles, myPBS_ID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnNewVIN_Click(object sender, EventArgs e)
+        {
+            NewPBSVehicle();
+        }
+
+        private void NewPBSVehicle()
+        {
+            try
+            {
+                string myVIN = txtFoundVIN.Text;              
+                string myRego = txtRego4VIN.Text.ToUpper();
+                DataRow dr = dsPBS.PBS_Vehicles.NewRow();
+                dsPBS.PBS_VehiclesRow myVehicle = (dsPBS.PBS_VehiclesRow)dr;
+                myVehicle.PBS_ID = CurrentPBS().PBS_ID;
+                myVehicle.VIN = myVIN;
+                myVehicle.Rego = myRego;
+                myVehicle.TruckType = "tba";
+                myVehicle.TruckTypeNo = 0;
+                dsPBS.PBS_Vehicles.AddPBS_VehiclesRow(myVehicle);
+                bsPBSVehicles.EndEdit();
             }
             catch (Exception ex)
             {

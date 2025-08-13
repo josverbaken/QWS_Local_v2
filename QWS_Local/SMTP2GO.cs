@@ -64,12 +64,12 @@ namespace QWS_Local
 
         private async Task SendSMSAsync(string message, bool test)
         {
-            // Key api-E167F974C30E4DC1B7F1CF18A5BC43BB
+            // Key 
             // message length set to 549 = 3 units
             var options = new RestClientOptions("https://api.smtp2go.com/v3/sms/send");
             var client = new RestClient(options);
             var request = new RestRequest("");
-            request.AddHeader("X-Smtp2go-Api-Key", "api-E167F974C30E4DC1B7F1CF18A5BC43BB");
+            request.AddHeader("X-Smtp2go-Api-Key", "to be added when new key is issued");
             // construct json body
             string jsonbody = "{\"destination\":[\""; //
             jsonbody += txtRecipient.Text + "\"],\"sender\":\"+614\",\"content\":\"";
