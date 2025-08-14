@@ -322,6 +322,7 @@ namespace QWS_Local
                 txtRego4VIN.Text = "";
                 txtFoundVIN.Text = "";
                 taPBSVehicles.Update(dsPBS.PBS_Vehicles);
+                RefreshPBSVehicles();
             }
             catch (Exception ex)
             {
@@ -349,23 +350,6 @@ namespace QWS_Local
                 bsPBSConfigMatrix.EndEdit();
                 int iRows = taPBSConfigMatrix.Update(dsPBS.PBS_ConfigMatrix);
                 iRows += 1;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void pBS_VehiclesDataGridView_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
-        {
-            try
-            {
-                int myPBS_ID = CurrentPBS().PBS_ID;
-                e.Row.Cells[1].Value = myPBS_ID.ToString();
-                e.Row.Cells[2].Value = "VIN123";
-                e.Row.Cells[3].Value = "TK..";
-                e.Row.Cells[4].Value = "0";
-                e.Row.Cells[5].Value = "tba";
             }
             catch (Exception ex)
             {
@@ -422,6 +406,11 @@ namespace QWS_Local
 
         private void btnRefreshPBSVehicles_Click(object sender, EventArgs e)
         {
+            RefreshPBSVehicles();
+        }
+
+        private void RefreshPBSVehicles()
+        {
             try
             {
                 int myPBS_ID = CurrentPBS().PBS_ID;
@@ -436,6 +425,23 @@ namespace QWS_Local
         private void btnNewVIN_Click(object sender, EventArgs e)
         {
             NewPBSVehicle();
+            Move2TruckType();
+        }
+
+        private void Move2TruckType()
+        {
+            try
+            {
+                int iRow = dgvPBS_Vehicles.RowCount;
+                dgvPBS_Vehicles.ClearSelection();
+                dgvPBS_Vehicles.CurrentCell = dgvPBS_Vehicles.Rows[iRow - 1].Cells[3];
+                //dgvPBS_Vehicles.CurrentCell.Selected = true; // same as above
+                // seems quite convoluted to actually select cell contents
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void NewPBSVehicle()

@@ -415,15 +415,6 @@ namespace QWS_Local
             frmOperatorRoles.Show();
         }
   
-        private void pBSV1ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PBSMaintenance frmPBSMaintenance = new PBSMaintenance();
-            frmPBSMaintenance.MdiParent = this;
-            frmPBSMaintenance.WindowState = FormWindowState.Maximized;
-            frmPBSMaintenance.Show();
-
-        }
-
         private void tspSignInOut_Click(object sender, EventArgs e)
         {
             switch (myLoginStatus)
