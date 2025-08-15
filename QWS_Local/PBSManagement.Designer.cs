@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,9 +56,6 @@
             this.btnSavePBSConfigMatrix = new System.Windows.Forms.Button();
             this.btnFindPBSConfigMatrix = new System.Windows.Forms.Button();
             this.dgvPBSConfig = new System.Windows.Forms.DataGridView();
-            this.tableNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PBS_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bridgeAssessmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSavePBSTables = new System.Windows.Forms.Button();
             this.gbPBSGVMConfig = new System.Windows.Forms.GroupBox();
             this.dgvPBSConfigScheme = new System.Windows.Forms.DataGridView();
@@ -76,6 +73,12 @@
             this.btnRefreshPBSVehicles = new System.Windows.Forms.Button();
             this.btnAcceptVIN = new System.Windows.Forms.Button();
             this.dgvPBS_Vehicles = new System.Windows.Forms.DataGridView();
+            this.pBSVehicleIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pBSIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.truckTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.truckTypeNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rego = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsPBSVehicles = new System.Windows.Forms.BindingSource(this.components);
             this.btnSaveVA = new System.Windows.Forms.Button();
             this.txtFoundVIN = new System.Windows.Forms.TextBox();
@@ -94,12 +97,9 @@
             this.tableAdapterManager = new QWS_Local.dsPBSTableAdapters.TableAdapterManager();
             this.taPBSVehicles = new QWS_Local.dsPBSTableAdapters.PBS_VehiclesTableAdapter();
             this.taPBSConfigMatrix = new QWS_Local.dsPBSTableAdapters.PBS_ConfigMatrixTableAdapter();
-            this.pBSVehicleIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pBSIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.truckTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.truckTypeNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rego = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PBS_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bridgeAssessmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -364,26 +364,6 @@
             this.dgvPBSConfig.TabIndex = 2;
             this.dgvPBSConfig.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvPBSConfig_DefaultValuesNeeded);
             // 
-            // tableNoDataGridViewTextBoxColumn
-            // 
-            this.tableNoDataGridViewTextBoxColumn.DataPropertyName = "TableNo";
-            this.tableNoDataGridViewTextBoxColumn.HeaderText = "TableNo";
-            this.tableNoDataGridViewTextBoxColumn.Name = "tableNoDataGridViewTextBoxColumn";
-            // 
-            // PBS_ID
-            // 
-            this.PBS_ID.DataPropertyName = "PBS_ID";
-            this.PBS_ID.HeaderText = "PBS_ID";
-            this.PBS_ID.Name = "PBS_ID";
-            this.PBS_ID.Visible = false;
-            // 
-            // bridgeAssessmentDataGridViewTextBoxColumn
-            // 
-            this.bridgeAssessmentDataGridViewTextBoxColumn.DataPropertyName = "BridgeAssessment";
-            this.bridgeAssessmentDataGridViewTextBoxColumn.HeaderText = "BridgeAssessment";
-            this.bridgeAssessmentDataGridViewTextBoxColumn.Name = "bridgeAssessmentDataGridViewTextBoxColumn";
-            this.bridgeAssessmentDataGridViewTextBoxColumn.Width = 150;
-            // 
             // btnSavePBSTables
             // 
             this.btnSavePBSTables.Location = new System.Drawing.Point(368, 67);
@@ -552,6 +532,60 @@
             this.dgvPBS_Vehicles.Size = new System.Drawing.Size(554, 171);
             this.dgvPBS_Vehicles.TabIndex = 21;
             // 
+            // pBSVehicleIDDataGridViewTextBoxColumn
+            // 
+            this.pBSVehicleIDDataGridViewTextBoxColumn.DataPropertyName = "PBS_VehicleID";
+            this.pBSVehicleIDDataGridViewTextBoxColumn.HeaderText = "PBS_VehicleID";
+            this.pBSVehicleIDDataGridViewTextBoxColumn.Name = "pBSVehicleIDDataGridViewTextBoxColumn";
+            this.pBSVehicleIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pBSVehicleIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // pBSIDDataGridViewTextBoxColumn
+            // 
+            this.pBSIDDataGridViewTextBoxColumn.DataPropertyName = "PBS_ID";
+            this.pBSIDDataGridViewTextBoxColumn.HeaderText = "PBS_ID";
+            this.pBSIDDataGridViewTextBoxColumn.Name = "pBSIDDataGridViewTextBoxColumn";
+            this.pBSIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // vINDataGridViewTextBoxColumn
+            // 
+            this.vINDataGridViewTextBoxColumn.DataPropertyName = "VIN";
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vINDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.vINDataGridViewTextBoxColumn.HeaderText = "VIN";
+            this.vINDataGridViewTextBoxColumn.Name = "vINDataGridViewTextBoxColumn";
+            this.vINDataGridViewTextBoxColumn.Width = 180;
+            // 
+            // truckTypeDataGridViewTextBoxColumn
+            // 
+            this.truckTypeDataGridViewTextBoxColumn.DataPropertyName = "TruckType";
+            this.truckTypeDataGridViewTextBoxColumn.HeaderText = "TruckType";
+            this.truckTypeDataGridViewTextBoxColumn.Items.AddRange(new object[] {
+            "TK",
+            "TR",
+            "PM",
+            "TR1",
+            "DY",
+            "TR2",
+            "tba"});
+            this.truckTypeDataGridViewTextBoxColumn.Name = "truckTypeDataGridViewTextBoxColumn";
+            this.truckTypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.truckTypeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // truckTypeNoDataGridViewTextBoxColumn
+            // 
+            this.truckTypeNoDataGridViewTextBoxColumn.DataPropertyName = "TruckTypeNo";
+            this.truckTypeNoDataGridViewTextBoxColumn.HeaderText = "TruckTypeNo";
+            this.truckTypeNoDataGridViewTextBoxColumn.Name = "truckTypeNoDataGridViewTextBoxColumn";
+            this.truckTypeNoDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // Rego
+            // 
+            this.Rego.DataPropertyName = "Rego";
+            this.Rego.HeaderText = "Rego";
+            this.Rego.Name = "Rego";
+            this.Rego.ReadOnly = true;
+            // 
             // bsPBSVehicles
             // 
             this.bsPBSVehicles.DataMember = "PBS_Vehicles";
@@ -688,59 +722,31 @@
             // 
             this.taPBSConfigMatrix.ClearBeforeFill = true;
             // 
-            // pBSVehicleIDDataGridViewTextBoxColumn
+            // tableNoDataGridViewTextBoxColumn
             // 
-            this.pBSVehicleIDDataGridViewTextBoxColumn.DataPropertyName = "PBS_VehicleID";
-            this.pBSVehicleIDDataGridViewTextBoxColumn.HeaderText = "PBS_VehicleID";
-            this.pBSVehicleIDDataGridViewTextBoxColumn.Name = "pBSVehicleIDDataGridViewTextBoxColumn";
-            this.pBSVehicleIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pBSVehicleIDDataGridViewTextBoxColumn.Visible = false;
+            this.tableNoDataGridViewTextBoxColumn.DataPropertyName = "TableNo";
+            this.tableNoDataGridViewTextBoxColumn.HeaderText = "TableNo";
+            this.tableNoDataGridViewTextBoxColumn.Name = "tableNoDataGridViewTextBoxColumn";
             // 
-            // pBSIDDataGridViewTextBoxColumn
+            // PBS_ID
             // 
-            this.pBSIDDataGridViewTextBoxColumn.DataPropertyName = "PBS_ID";
-            this.pBSIDDataGridViewTextBoxColumn.HeaderText = "PBS_ID";
-            this.pBSIDDataGridViewTextBoxColumn.Name = "pBSIDDataGridViewTextBoxColumn";
-            this.pBSIDDataGridViewTextBoxColumn.Visible = false;
+            this.PBS_ID.DataPropertyName = "PBS_ID";
+            this.PBS_ID.HeaderText = "PBS_ID";
+            this.PBS_ID.Name = "PBS_ID";
+            this.PBS_ID.Visible = false;
             // 
-            // vINDataGridViewTextBoxColumn
+            // bridgeAssessmentDataGridViewTextBoxColumn
             // 
-            this.vINDataGridViewTextBoxColumn.DataPropertyName = "VIN";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vINDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.vINDataGridViewTextBoxColumn.HeaderText = "VIN";
-            this.vINDataGridViewTextBoxColumn.Name = "vINDataGridViewTextBoxColumn";
-            this.vINDataGridViewTextBoxColumn.Width = 180;
-            // 
-            // truckTypeDataGridViewTextBoxColumn
-            // 
-            this.truckTypeDataGridViewTextBoxColumn.DataPropertyName = "TruckType";
-            this.truckTypeDataGridViewTextBoxColumn.HeaderText = "TruckType";
-            this.truckTypeDataGridViewTextBoxColumn.Items.AddRange(new object[] {
-            "TK",
-            "TR",
-            "PM",
-            "TR1",
-            "DY",
-            "TR2",
+            this.bridgeAssessmentDataGridViewTextBoxColumn.DataPropertyName = "BridgeAssessment";
+            this.bridgeAssessmentDataGridViewTextBoxColumn.HeaderText = "BridgeAssessment";
+            this.bridgeAssessmentDataGridViewTextBoxColumn.Items.AddRange(new object[] {
+            "Tier 1",
+            "Tier 2/3",
             "tba"});
-            this.truckTypeDataGridViewTextBoxColumn.Name = "truckTypeDataGridViewTextBoxColumn";
-            this.truckTypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.truckTypeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // truckTypeNoDataGridViewTextBoxColumn
-            // 
-            this.truckTypeNoDataGridViewTextBoxColumn.DataPropertyName = "TruckTypeNo";
-            this.truckTypeNoDataGridViewTextBoxColumn.HeaderText = "TruckTypeNo";
-            this.truckTypeNoDataGridViewTextBoxColumn.Name = "truckTypeNoDataGridViewTextBoxColumn";
-            this.truckTypeNoDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // Rego
-            // 
-            this.Rego.DataPropertyName = "Rego";
-            this.Rego.HeaderText = "Rego";
-            this.Rego.Name = "Rego";
-            this.Rego.ReadOnly = true;
+            this.bridgeAssessmentDataGridViewTextBoxColumn.Name = "bridgeAssessmentDataGridViewTextBoxColumn";
+            this.bridgeAssessmentDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.bridgeAssessmentDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.bridgeAssessmentDataGridViewTextBoxColumn.Width = 150;
             // 
             // PBSManagement
             // 
@@ -798,9 +804,6 @@
         private System.Windows.Forms.TextBox txtVehicleApproval;
         private System.Windows.Forms.Button btnFindOwner;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tableNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PBS_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bridgeAssessmentDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox txtCardCode;
         private System.Windows.Forms.GroupBox gbPBSTables;
         private System.Windows.Forms.GroupBox gbPBSGVMConfig;
@@ -850,5 +853,8 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn truckTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn truckTypeNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rego;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tableNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PBS_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn bridgeAssessmentDataGridViewTextBoxColumn;
     }
 }

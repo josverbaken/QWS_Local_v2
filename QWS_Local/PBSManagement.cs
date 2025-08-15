@@ -119,6 +119,7 @@ namespace QWS_Local
             {
                 int myPBSID = CurrentPBS().PBS_ID;  //Convert.ToInt32(txtPBS_ID.Text);
                 e.Row.Cells[1].Value = myPBSID; // "PBS_ID"
+                e.Row.Cells[2].Value = "Tier 1"; // 99%, some Tier 2/3
             }
             catch (Exception ex)
             {
