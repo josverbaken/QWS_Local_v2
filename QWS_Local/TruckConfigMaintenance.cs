@@ -367,7 +367,14 @@ namespace QWS_Local
                         {
                             Dolly = frmVehicleSearchDolly.Rego;
                         }
-                        RegoArray[2] = Dolly;
+                        else
+                        {
+                            MessageBox.Show("Unable to continue, dolly not found!");
+                            Okay2Continue = false;
+                            break;
+
+                        }
+                            RegoArray[2] = Dolly;
 
                         // B-trailer
 
