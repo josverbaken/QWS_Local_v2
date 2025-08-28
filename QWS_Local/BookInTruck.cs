@@ -220,10 +220,17 @@ namespace QWS_Local
 
         private void SelectTruckConfig(int TruckConfigID)
         {
-            int index = bsConfiguredTrucks.Find("TruckConfigID", TruckConfigID);
+            try
+            {
+                int index = bsConfiguredTrucks.Find("TruckConfigID", TruckConfigID);
             if (index >= 0)
             {
                 bsConfiguredTrucks.Position = index;
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "SelectTruckConfig");
             }
         }
 
@@ -305,7 +312,7 @@ namespace QWS_Local
         {
             // 20241023 also check if Tare = Zero
             double TareInterval = Properties.Settings.Default.RetareInterval;
-            dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
+            dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck(); // zero rows on resume 20250828
             DateTime RetareDT = myConfigTruck.TareDT.AddDays(TareInterval);
             Decimal TareTruck = myConfigTruck.Tare;
             if (RetareDT < DateTime.Today || TareTruck == 0.0M)

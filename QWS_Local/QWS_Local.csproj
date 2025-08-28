@@ -32,7 +32,7 @@
     <WebPage>QWSLocal</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>69</ApplicationRevision>
+    <ApplicationRevision>70</ApplicationRevision>
     <ApplicationVersion>0.5.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -343,12 +343,6 @@
     <Compile Include="PBSVehicles.Designer.cs">
       <DependentUpon>PBSVehicles.cs</DependentUpon>
     </Compile>
-    <Compile Include="SMTP2GO.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SMTP2GO.Designer.cs">
-      <DependentUpon>SMTP2GO.cs</DependentUpon>
-    </Compile>
     <Compile Include="WeighbridgeRead.cs" />
     <Compile Include="NHVR_GVM.cs">
       <SubType>Form</SubType>
@@ -546,9 +540,6 @@
       <DependentUpon>QWS_MDIParent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DocketRpt.rdlc" />
-    <EmbeddedResource Include="SMTP2GO.resx">
-      <DependentUpon>SMTP2GO.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SplitLoadType.resx">
       <DependentUpon>SplitLoadType.cs</DependentUpon>
     </EmbeddedResource>

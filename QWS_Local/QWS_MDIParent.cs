@@ -82,7 +82,7 @@ namespace QWS_Local
             {
                 myTestMode = true;
             }
-            
+
             if (mySiteID == 7 && myTestMode == false)
             {
                 SiteLabel = "Northern Quarries"; // SiteID 07";
@@ -184,7 +184,7 @@ namespace QWS_Local
                         {
                             myUserName = gRow.FirstName;
                         }
-                            tspUserName.Text = "WBO = " + myUserName;
+                        tspUserName.Text = "WBO = " + myUserName;
                         tspSignInOut.Visible = true;
                     }
                     else
@@ -247,7 +247,7 @@ namespace QWS_Local
 
         private void deliveryOrdersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         public void BringTIQ2Front()
@@ -276,7 +276,7 @@ namespace QWS_Local
         private void CloseMDIChildren()
         {
             // except home page = TrucksInQuarry
-           while (this.MdiChildren.Length>1)
+            while (this.MdiChildren.Length > 1)
             {
                 for (int x = 0; x < 2; x++)
                 {
@@ -288,7 +288,7 @@ namespace QWS_Local
                 }
             }
         }
- 
+
         public void PrintDocket()
         {
             bool formFound = false;
@@ -350,7 +350,7 @@ namespace QWS_Local
             PBSManagement frmPBSManagement = new PBSManagement();
             frmPBSManagement.MdiParent = this;
             frmPBSManagement.WindowState = FormWindowState.Maximized;
-            frmPBSManagement.Show();            
+            frmPBSManagement.Show();
         }
 
         private void vehiclesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -414,7 +414,7 @@ namespace QWS_Local
             frmOperatorRoles.WindowState = FormWindowState.Maximized;
             frmOperatorRoles.Show();
         }
-  
+
         private void tspSignInOut_Click(object sender, EventArgs e)
         {
             switch (myLoginStatus)
@@ -446,14 +446,6 @@ namespace QWS_Local
 
         }
 
-        private void sMSToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            SMTP2GO frmSMTP2GO = new SMTP2GO();
-            frmSMTP2GO.MdiParent = this;
-            frmSMTP2GO.WindowState = FormWindowState.Maximized;
-            frmSMTP2GO.Show();
-        }
-
         private void QWS_MDIParent_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Home)
@@ -474,10 +466,6 @@ namespace QWS_Local
             frmPBSVehicles.WindowState = FormWindowState.Maximized;
             frmPBSVehicles.Show();
         }
-
-        private void pBSVehiclesToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
+    
 }

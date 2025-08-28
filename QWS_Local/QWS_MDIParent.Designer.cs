@@ -37,7 +37,6 @@
             this.feeCodesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nHVRGVMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.operatorRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuitemMaintainVehicles = new System.Windows.Forms.ToolStripMenuItem();
             this.vehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pBSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +58,6 @@
             this.bsOperator = new System.Windows.Forms.BindingSource(this.components);
             this.taOperator = new QWS_Local.dsAdminTableAdapters.OperatorTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsAdminTableAdapters.TableAdapterManager();
-            this.pBSVehiclesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsOperator)).BeginInit();
@@ -109,9 +107,7 @@
             this.axleConfigurationToolStripMenuItem1,
             this.feeCodesToolStripMenuItem,
             this.nHVRGVMToolStripMenuItem,
-            this.operatorRolesToolStripMenuItem,
-            this.sMSToolStripMenuItem,
-            this.pBSVehiclesToolStripMenuItem1});
+            this.operatorRolesToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.adminToolStripMenuItem.Text = "Admin";
@@ -143,13 +139,6 @@
             this.operatorRolesToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
             this.operatorRolesToolStripMenuItem.Text = "Operator Roles";
             this.operatorRolesToolStripMenuItem.Click += new System.EventHandler(this.operatorRolesToolStripMenuItem_Click);
-            // 
-            // sMSToolStripMenuItem
-            // 
-            this.sMSToolStripMenuItem.Name = "sMSToolStripMenuItem";
-            this.sMSToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
-            this.sMSToolStripMenuItem.Text = "SMS";
-            this.sMSToolStripMenuItem.Click += new System.EventHandler(this.sMSToolStripMenuItem_Click_1);
             // 
             // menuitemMaintainVehicles
             // 
@@ -211,7 +200,7 @@
             // deliveryOrdersToolStripMenuItem1
             // 
             this.deliveryOrdersToolStripMenuItem1.Name = "deliveryOrdersToolStripMenuItem1";
-            this.deliveryOrdersToolStripMenuItem1.Size = new System.Drawing.Size(122, 24);
+            this.deliveryOrdersToolStripMenuItem1.Size = new System.Drawing.Size(180, 24);
             this.deliveryOrdersToolStripMenuItem1.Text = "Orders";
             this.deliveryOrdersToolStripMenuItem1.Click += new System.EventHandler(this.deliveryOrdersToolStripMenuItem1_Click);
             // 
@@ -307,13 +296,6 @@
             this.tableAdapterManager.RoleTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsAdminTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // pBSVehiclesToolStripMenuItem1
-            // 
-            this.pBSVehiclesToolStripMenuItem1.Name = "pBSVehiclesToolStripMenuItem1";
-            this.pBSVehiclesToolStripMenuItem1.Size = new System.Drawing.Size(202, 24);
-            this.pBSVehiclesToolStripMenuItem1.Text = "PBS Vehicles";
-            this.pBSVehiclesToolStripMenuItem1.Click += new System.EventHandler(this.pBSVehiclesToolStripMenuItem1_Click);
-            // 
             // QWS_MDIParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -369,7 +351,5 @@
         private System.Windows.Forms.BindingSource bsOperator;
         private dsAdminTableAdapters.OperatorTableAdapter taOperator;
         private dsAdminTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.ToolStripMenuItem sMSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pBSVehiclesToolStripMenuItem1;
     }
 }

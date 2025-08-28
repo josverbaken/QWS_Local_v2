@@ -72,9 +72,9 @@ namespace QWS_Local
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.gbFeeCodes = new System.Windows.Forms.GroupBox();
+            this.isLeadVehicleCheckBox = new System.Windows.Forms.CheckBox();
             this.btnSetAxleConfig = new System.Windows.Forms.Button();
             this.gbRegistration = new System.Windows.Forms.GroupBox();
-            this.isLeadVehicleCheckBox = new System.Windows.Forms.CheckBox();
             this.dtpRegoExpiry = new System.Windows.Forms.DateTimePicker();
             this.lblExpiryDT = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -98,6 +98,7 @@ namespace QWS_Local
             this.taPrefCustomers = new QWS_Local.dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter();
             this.taVehicle = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleTableAdapter();
             this.taFeeCodes = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter();
+            this.btnListByCardCode = new System.Windows.Forms.Button();
             vINLabel = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -531,6 +532,7 @@ namespace QWS_Local
             // 
             // gbFeeCodes
             // 
+            this.gbFeeCodes.Controls.Add(this.isLeadVehicleCheckBox);
             this.gbFeeCodes.Controls.Add(this.btnSetAxleConfig);
             this.gbFeeCodes.Controls.Add(jurisdictionLabel1);
             this.gbFeeCodes.Controls.Add(this.textBox8);
@@ -544,11 +546,22 @@ namespace QWS_Local
             this.gbFeeCodes.Controls.Add(label3);
             this.gbFeeCodes.Location = new System.Drawing.Point(391, 6);
             this.gbFeeCodes.Name = "gbFeeCodes";
-            this.gbFeeCodes.Size = new System.Drawing.Size(371, 308);
+            this.gbFeeCodes.Size = new System.Drawing.Size(371, 328);
             this.gbFeeCodes.TabIndex = 89;
             this.gbFeeCodes.TabStop = false;
             this.gbFeeCodes.Text = "Fee Code Conditions";
             this.gbFeeCodes.Leave += new System.EventHandler(this.groupBox3_Leave);
+            // 
+            // isLeadVehicleCheckBox
+            // 
+            this.isLeadVehicleCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bsVehicle, "IsLeadVehicle", true));
+            this.isLeadVehicleCheckBox.Enabled = false;
+            this.isLeadVehicleCheckBox.Location = new System.Drawing.Point(221, 292);
+            this.isLeadVehicleCheckBox.Name = "isLeadVehicleCheckBox";
+            this.isLeadVehicleCheckBox.Size = new System.Drawing.Size(125, 24);
+            this.isLeadVehicleCheckBox.TabIndex = 96;
+            this.isLeadVehicleCheckBox.Text = "IsLeadVehicle";
+            this.isLeadVehicleCheckBox.UseVisualStyleBackColor = true;
             // 
             // btnSetAxleConfig
             // 
@@ -566,7 +579,6 @@ namespace QWS_Local
             // 
             // gbRegistration
             // 
-            this.gbRegistration.Controls.Add(this.isLeadVehicleCheckBox);
             this.gbRegistration.Controls.Add(this.dtpRegoExpiry);
             this.gbRegistration.Controls.Add(this.lblExpiryDT);
             this.gbRegistration.Controls.Add(vINLabel);
@@ -584,16 +596,6 @@ namespace QWS_Local
             this.gbRegistration.TabStop = false;
             this.gbRegistration.Text = "Registration Details";
             this.gbRegistration.Leave += new System.EventHandler(this.groupBox2_Leave);
-            // 
-            // isLeadVehicleCheckBox
-            // 
-            this.isLeadVehicleCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bsVehicle, "IsLeadVehicle", true));
-            this.isLeadVehicleCheckBox.Location = new System.Drawing.Point(146, 210);
-            this.isLeadVehicleCheckBox.Name = "isLeadVehicleCheckBox";
-            this.isLeadVehicleCheckBox.Size = new System.Drawing.Size(125, 24);
-            this.isLeadVehicleCheckBox.TabIndex = 96;
-            this.isLeadVehicleCheckBox.Text = "IsLeadVehicle";
-            this.isLeadVehicleCheckBox.UseVisualStyleBackColor = true;
             // 
             // dtpRegoExpiry
             // 
@@ -723,6 +725,7 @@ namespace QWS_Local
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
+            this.splitContainer1.Panel1.Controls.Add(this.btnListByCardCode);
             this.splitContainer1.Panel1.Controls.Add(this.label6);
             this.splitContainer1.Panel1.Controls.Add(this.txtRegoFound);
             this.splitContainer1.Panel1.Controls.Add(this.btnSaveVehicle);
@@ -745,11 +748,11 @@ namespace QWS_Local
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(544, 58);
+            this.label6.Location = new System.Drawing.Point(581, 58);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 18);
+            this.label6.Size = new System.Drawing.Size(44, 18);
             this.label6.TabIndex = 74;
-            this.label6.Text = "Rego or Owner";
+            this.label6.Text = "Rego";
             // 
             // txtRegoFound
             // 
@@ -840,6 +843,20 @@ namespace QWS_Local
             // taFeeCodes
             // 
             this.taFeeCodes.ClearBeforeFill = true;
+            // 
+            // btnListByCardCode
+            // 
+            this.btnListByCardCode.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnListByCardCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListByCardCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListByCardCode.Location = new System.Drawing.Point(652, 174);
+            this.btnListByCardCode.Margin = new System.Windows.Forms.Padding(4);
+            this.btnListByCardCode.Name = "btnListByCardCode";
+            this.btnListByCardCode.Size = new System.Drawing.Size(77, 24);
+            this.btnListByCardCode.TabIndex = 75;
+            this.btnListByCardCode.Text = "List";
+            this.btnListByCardCode.UseVisualStyleBackColor = false;
+            this.btnListByCardCode.Click += new System.EventHandler(this.btnListByCardCode_Click);
             // 
             // VehicleMaintenance
             // 
@@ -944,5 +961,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox txtRegoFound;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox isLeadVehicleCheckBox;
+        private System.Windows.Forms.Button btnListByCardCode;
     }
 }

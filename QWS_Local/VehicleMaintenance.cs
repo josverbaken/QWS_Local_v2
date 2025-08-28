@@ -76,12 +76,21 @@ namespace QWS_Local
             }
         }
 
-        private void FindByOwnerOrRego()
+
+        private void FindVehicleByRego()
         {
-            //find by owner or rego using SQL stored procedure
+            // TODO refactor for Rego only
             try
             {
-                if (txtRego.Text != "Rego or Owner" && txtRego.Text != "newReg")
+                if (txtRego.Text.Length > 6) 
+                {
+                    MessageBox.Show("Rego is too long!");
+                }
+                else if (txtRego.Text.Length == 0)
+                {
+                    MessageBox.Show("Please enter a Rego to search for.");
+                }
+                else
                 {
                     string strSearch = this.txtRego.Text;
                     string _SAPCode = "";
@@ -91,45 +100,58 @@ namespace QWS_Local
                         _SAPCode = CurrentVehicle().CardCode;
                         _Owner = CurrentVehicle().Owner;
                     }
-                    int iRows = this.taVehicle.FillBy(dsQWSLocal2024.Vehicle, strSearch);
+                    int iRows = this.taVehicle.FillByRego(dsQWSLocal2024.Vehicle, strSearch);
                     switch (iRows)
                     {
-                        case 0: DialogResult dr = MessageBox.Show("No Vehicles Found! Do you wish to add this Rego?","Add New Vehicle", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                        case 0:
+                            DialogResult dr = MessageBox.Show("No Vehicles Found! Do you wish to add this Rego?", "Add New Vehicle", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                             dsQWSLocal2024.Clear();
                             if (dr == DialogResult.Yes)
                             {
-                                AddVehicleRequest(strSearch);                        
+                                AddVehicleRequest(strSearch);
                                 txtOwner.Focus();
                             }
-                                break;
+                            break;
                         case 1:
                             VehicleFound();
-                            break;
-                        case int n when(n > 1):
-                            VehicleSearch vehicleSearch = new VehicleSearch(strSearch, false);
-                            dsQWSLocal2024.Clear();
-                            DialogResult dr1 = vehicleSearch.ShowDialog();
-                            if (dr1 == DialogResult.OK)
-                            {
-                                iRows = this.taVehicle.FillBy(dsQWSLocal2024.Vehicle, vehicleSearch.Rego);
-                                if (iRows == 1)
-                                {
-                                    VehicleFound();
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Error finding vehicle!");
-                                    txtRego.Focus();
-                                }
-                            }
-                            else
-                            {
-                                txtRego.Focus();
-                            }
                             break;
                         default:
                             break;
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                dsQWSLocal2024.Clear();
+                txtRego.Focus();
+            }
+
+        }
+
+        private void FindByOwner(string CardCode)
+        {
+            try
+            {
+                VehicleSearch vehicleSearch = new VehicleSearch(CardCode, true);
+                dsQWSLocal2024.Clear();
+                DialogResult dr1 = vehicleSearch.ShowDialog();
+                if (dr1 == DialogResult.OK)
+                {
+                    int iRows = this.taVehicle.FillBy(dsQWSLocal2024.Vehicle, vehicleSearch.Rego);
+                    if (iRows == 1)
+                    {
+                        VehicleFound();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error finding vehicle!");
+                        txtRego.Focus();
+                    }
+                }
+                else
+                {
+                    txtRego.Focus();
                 }
             }
             catch (Exception ex)
@@ -318,7 +340,7 @@ namespace QWS_Local
 
         private void btnFindVehicle_Click(object sender, EventArgs e)
         {
-            FindByOwnerOrRego();
+            FindVehicleByRego();
         }
 
          private void txtRegoSelectAll()
@@ -507,7 +529,7 @@ namespace QWS_Local
         {
             if (e.KeyCode == Keys.F3)
             {
-                FindByOwnerOrRego();
+                FindVehicleByRego();
             }
         }
 
@@ -643,6 +665,27 @@ namespace QWS_Local
         private void txtVIN_Enter(object sender, EventArgs e)
         {
             txtVIN.SelectAll();
+        }
+
+        private void btnListByCardCode_Click(object sender, EventArgs e)
+        {
+            if (txtSAPCode.Text.Length > 0)
+            {
+                ListVehiclesByCardCode(txtSAPCode.Text);
+            }
+        }
+
+        private void ListVehiclesByCardCode(string CardCode)
+        {
+            // List vehicles by CardCode of selected vehicle
+            try
+            {
+                FindByOwner(CardCode);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

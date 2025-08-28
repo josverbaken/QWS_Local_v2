@@ -560,10 +560,11 @@ namespace QWS_Local
                         DocketLineAdd(ShortLoadFee, "Short Load Fee", GetItemQA(ShortLoadFee), GetItmsGrpCod(ShortLoadFee), "Other", 0, 0);
                     }
                     taWBDocketLines.Update(dsTIQ2.WBDocketLines);
-                    if (Properties.Settings.Default.EnableSMS == true && IsDelivery == true)
-                    {
-                        NotifyDeliveryBySMS(myDocNum);
-                    }
+                    // 20250828 Not using SMTP2GO, may use a different process later.
+                    //if (Properties.Settings.Default.EnableSMS == true && IsDelivery == true)
+                    //{
+                    //    NotifyDeliveryBySMS(myDocNum);
+                    //}
                     RemoveFromTIQ(myTIQID, "Docket posted successfully.");
                     RefreshQueue();
              
@@ -1109,32 +1110,6 @@ namespace QWS_Local
                 parent.PrintDocket();
             }
         }
-
-        private void NotifyDeliveryBySMS(int myDocNum)
-        {
-            try
-            {
-                int iRow = taWBDockets.FillBy(dsTIQ2.WBDockets, myDocNum);
-                if (iRow ==1)
-                {
-                    WBDocketsRow myDocket = (WBDocketsRow)dsTIQ2.WBDockets.Rows[0];
-                    if (myDocket.ContactMobile.StartsWith("04") == true )
-                    {
-                        SMTP2GO frmSMTP2GO = new SMTP2GO(myDocNum);
-                        DialogResult dr = frmSMTP2GO.ShowDialog();
-                        if (dr != DialogResult.OK)
-                        {
-                            MessageBox.Show("SMS Cancelled!");
-                        }
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Unable to send SMS!");
-            }
-        }
-
    
     }
 }
