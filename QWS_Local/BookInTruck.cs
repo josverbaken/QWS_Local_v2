@@ -603,7 +603,7 @@ namespace QWS_Local
 
         private bool GetExBinCustomer()
         {
-            BusinessSearch frmBusinessSearch = new BusinessSearch();
+            BusinessSearch frmBusinessSearch = new BusinessSearch(true);
             DialogResult dr = frmBusinessSearch.ShowDialog();
             if (dr == DialogResult.OK)
             {

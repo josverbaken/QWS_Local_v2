@@ -13,6 +13,7 @@ namespace QWS_Local
     public partial class BusinessSearch : Form
     {
         private string mySAPCode;
+        private bool SearchCustomerOnly = false;
         public string SAPCode
         {
             get { return mySAPCode; }
@@ -26,6 +27,11 @@ namespace QWS_Local
         public BusinessSearch()
         {
             InitializeComponent();
+        }
+        public BusinessSearch(bool CustomerOnly)
+        {
+            InitializeComponent();
+            SearchCustomerOnly = CustomerOnly;
         }
         public BusinessSearch(string myCode)
         {
@@ -49,23 +55,15 @@ namespace QWS_Local
         {
             try
             {
-                //if (txtSAPCode.Text != "Name or SAP Code")
-                //{
-                   int iCount = this.taBusiness.FillByNameOrCode(this.dsQWSLocal2024.Business, txtSearch.Text);
-                   //if (iCount > 0)
-                   // {
-                   //     txtSAPCode.Text = "Name or SAP Code";
-                   // }
-                   iCount += 2;
-                //}
+                int iCount = this.taBusiness.FillByNameOrCode(this.dsQWSLocal2024.Business, txtSearch.Text);
+                if (SearchCustomerOnly == true)
+                {
+                    bsBusiness.Filter = "SAPCode like 'C%'";
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-               // txtSAPCode.Text = "Name or SAP Code";
             }
         }
 

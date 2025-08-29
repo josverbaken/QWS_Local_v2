@@ -982,7 +982,15 @@ namespace QWS_Local
                             if (CheckConfirmCustomer() == true)
                             {
                                 blSave = true;
-                                CurrentTIQ().QueueStatus = "Q";
+                                string myTruckConfig = CurrentTIQ().TruckConfig;
+                                if (myTruckConfig == "TRs")
+                                {
+                                    CurrentTIQ().QueueStatus = "S";
+                                } // TKs will default to Q as below
+                                else
+                                {
+                                    CurrentTIQ().QueueStatus = "Q";
+                                }
                             }
                             break;
                         case "Q":
