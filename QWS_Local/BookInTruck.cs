@@ -79,7 +79,7 @@ namespace QWS_Local
 
             if (_TIQRow.Rego.Length > 0)
             { 
-                FindTruckConfig(_TIQRow.Rego, Resume);
+                FindTruckConfig(_TIQRow.Rego.Trim(), Resume); // somehow short rego gets padded out in TIQ
                 SelectTruckConfig(_TIQRow.TruckConfigID);
                 if (_TIQRow.DriverID > 0)
                 {
@@ -119,7 +119,7 @@ namespace QWS_Local
 
         private void btnFindTruck_Click(object sender, EventArgs e)
         {
-            FindTruckConfig(txtTruckRego.Text, false);
+            FindTruckConfig(txtTruckRego.Text.Trim(), false);
         }
 
         private void FindTruckConfig(string Rego, bool Resume)
