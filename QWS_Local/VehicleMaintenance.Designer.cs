@@ -87,6 +87,7 @@ namespace QWS_Local
             this.btnSavePrefCust = new System.Windows.Forms.Button();
             this.btnLoadPrefCustomers = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnListByCardCode = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtRegoFound = new System.Windows.Forms.TextBox();
             this.btnSaveVehicle = new System.Windows.Forms.Button();
@@ -98,7 +99,6 @@ namespace QWS_Local
             this.taPrefCustomers = new QWS_Local.dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter();
             this.taVehicle = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleTableAdapter();
             this.taFeeCodes = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter();
-            this.btnListByCardCode = new System.Windows.Forms.Button();
             vINLabel = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -745,6 +745,21 @@ namespace QWS_Local
             this.splitContainer1.SplitterDistance = 205;
             this.splitContainer1.TabIndex = 83;
             // 
+            // btnListByCardCode
+            // 
+            this.btnListByCardCode.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnListByCardCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListByCardCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListByCardCode.Location = new System.Drawing.Point(636, 139);
+            this.btnListByCardCode.Margin = new System.Windows.Forms.Padding(4);
+            this.btnListByCardCode.Name = "btnListByCardCode";
+            this.btnListByCardCode.Size = new System.Drawing.Size(77, 24);
+            this.btnListByCardCode.TabIndex = 75;
+            this.btnListByCardCode.Text = "List";
+            this.btnListByCardCode.UseVisualStyleBackColor = false;
+            this.btnListByCardCode.Visible = false;
+            this.btnListByCardCode.Click += new System.EventHandler(this.btnListByCardCode_Click);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -843,20 +858,6 @@ namespace QWS_Local
             // taFeeCodes
             // 
             this.taFeeCodes.ClearBeforeFill = true;
-            // 
-            // btnListByCardCode
-            // 
-            this.btnListByCardCode.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnListByCardCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnListByCardCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListByCardCode.Location = new System.Drawing.Point(652, 174);
-            this.btnListByCardCode.Margin = new System.Windows.Forms.Padding(4);
-            this.btnListByCardCode.Name = "btnListByCardCode";
-            this.btnListByCardCode.Size = new System.Drawing.Size(77, 24);
-            this.btnListByCardCode.TabIndex = 75;
-            this.btnListByCardCode.Text = "List";
-            this.btnListByCardCode.UseVisualStyleBackColor = false;
-            this.btnListByCardCode.Click += new System.EventHandler(this.btnListByCardCode_Click);
             // 
             // VehicleMaintenance
             // 
