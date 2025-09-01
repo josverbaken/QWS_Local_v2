@@ -79,7 +79,6 @@ namespace QWS_Local
 
         private void FindVehicleByRego()
         {
-            // TODO refactor for Rego only
             try
             {
                 if (txtRego.Text.Length > 6) 
@@ -95,7 +94,7 @@ namespace QWS_Local
                     string strSearch = this.txtRego.Text;
                     string _SAPCode = "";
                     string _Owner = "";
-                    if (bsVehicle.Count > 0) //to carry over owner for new truck 
+                    if (bsVehicle.Count > 0) // carry over owner for new truck 
                     {
                         _SAPCode = CurrentVehicle().CardCode;
                         _Owner = CurrentVehicle().Owner;
