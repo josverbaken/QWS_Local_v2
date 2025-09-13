@@ -2751,6 +2751,12 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnCreateDTTM;
             
+            private global::System.Data.DataColumn columnACCDelivery;
+            
+            private global::System.Data.DataColumn columnACCPickup;
+            
+            private global::System.Data.DataColumn columnOverrideMinCart;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public VehicleDataTable() {
@@ -2898,6 +2904,30 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ACCDeliveryColumn {
+                get {
+                    return this.columnACCDelivery;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ACCPickupColumn {
+                get {
+                    return this.columnACCPickup;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn OverrideMinCartColumn {
+                get {
+                    return this.columnOverrideMinCart;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2933,7 +2963,24 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VehicleRow AddVehicleRow(string Rego, string VIN, string CardCode, string Owner, string Make, string Model, AxleConfigurationRow parentAxleConfigurationRowByFK_Vehicle_AxleConfiguration, string MassAccreditationLabel, decimal RegisteredTare, VehicleRegFeeCodesRow parentVehicleRegFeeCodesRowByFK_Vehicle_VehicleRegFeeCodes, System.DateTime RegistrationExpiryDT, bool IsLeadVehicle, bool Active, System.DateTime CreateDTTM) {
+            public VehicleRow AddVehicleRow(
+                        string Rego, 
+                        string VIN, 
+                        string CardCode, 
+                        string Owner, 
+                        string Make, 
+                        string Model, 
+                        AxleConfigurationRow parentAxleConfigurationRowByFK_Vehicle_AxleConfiguration, 
+                        string MassAccreditationLabel, 
+                        decimal RegisteredTare, 
+                        VehicleRegFeeCodesRow parentVehicleRegFeeCodesRowByFK_Vehicle_VehicleRegFeeCodes, 
+                        System.DateTime RegistrationExpiryDT, 
+                        bool IsLeadVehicle, 
+                        bool Active, 
+                        System.DateTime CreateDTTM, 
+                        bool ACCDelivery, 
+                        bool ACCPickup, 
+                        bool OverrideMinCart) {
                 VehicleRow rowVehicleRow = ((VehicleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Rego,
@@ -2949,7 +2996,10 @@ namespace QWS_Local {
                         RegistrationExpiryDT,
                         IsLeadVehicle,
                         Active,
-                        CreateDTTM};
+                        CreateDTTM,
+                        ACCDelivery,
+                        ACCPickup,
+                        OverrideMinCart};
                 if ((parentAxleConfigurationRowByFK_Vehicle_AxleConfiguration != null)) {
                     columnValuesArray[6] = parentAxleConfigurationRowByFK_Vehicle_AxleConfiguration[0];
                 }
@@ -2999,6 +3049,9 @@ namespace QWS_Local {
                 this.columnIsLeadVehicle = base.Columns["IsLeadVehicle"];
                 this.columnActive = base.Columns["Active"];
                 this.columnCreateDTTM = base.Columns["CreateDTTM"];
+                this.columnACCDelivery = base.Columns["ACCDelivery"];
+                this.columnACCPickup = base.Columns["ACCPickup"];
+                this.columnOverrideMinCart = base.Columns["OverrideMinCart"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3032,6 +3085,12 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnActive);
                 this.columnCreateDTTM = new global::System.Data.DataColumn("CreateDTTM", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCreateDTTM);
+                this.columnACCDelivery = new global::System.Data.DataColumn("ACCDelivery", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACCDelivery);
+                this.columnACCPickup = new global::System.Data.DataColumn("ACCPickup", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACCPickup);
+                this.columnOverrideMinCart = new global::System.Data.DataColumn("OverrideMinCart", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOverrideMinCart);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRego}, true));
                 this.columnRego.AllowDBNull = false;
@@ -3057,6 +3116,9 @@ namespace QWS_Local {
                 this.columnIsLeadVehicle.AllowDBNull = false;
                 this.columnActive.AllowDBNull = false;
                 this.columnCreateDTTM.AllowDBNull = false;
+                this.columnACCDelivery.AllowDBNull = false;
+                this.columnACCPickup.AllowDBNull = false;
+                this.columnOverrideMinCart.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5918,6 +5980,39 @@ namespace QWS_Local {
                 }
                 set {
                     this[this.tableVehicle.CreateDTTMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool ACCDelivery {
+                get {
+                    return ((bool)(this[this.tableVehicle.ACCDeliveryColumn]));
+                }
+                set {
+                    this[this.tableVehicle.ACCDeliveryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool ACCPickup {
+                get {
+                    return ((bool)(this[this.tableVehicle.ACCPickupColumn]));
+                }
+                set {
+                    this[this.tableVehicle.ACCPickupColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool OverrideMinCart {
+                get {
+                    return ((bool)(this[this.tableVehicle.OverrideMinCartColumn]));
+                }
+                set {
+                    this[this.tableVehicle.OverrideMinCartColumn] = value;
                 }
             }
             
@@ -9382,10 +9477,13 @@ SELECT PrefCustID, Rego, CardCode, PrefCustomer, IsDefault, Rank, Comment, Activ
             tableMapping.ColumnMappings.Add("IsLeadVehicle", "IsLeadVehicle");
             tableMapping.ColumnMappings.Add("Active", "Active");
             tableMapping.ColumnMappings.Add("CreateDTTM", "CreateDTTM");
+            tableMapping.ColumnMappings.Add("ACCDelivery", "ACCDelivery");
+            tableMapping.ColumnMappings.Add("ACCPickup", "ACCPickup");
+            tableMapping.ColumnMappings.Add("OverrideMinCart", "OverrideMinCart");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Vehicle] WHERE (([Rego] = @Original_Rego) AND ([VIN] = @Original_VIN) AND ([CardCode] = @Original_CardCode) AND ([Owner] = @Original_Owner) AND ([Make] = @Original_Make) AND ([Model] = @Original_Model) AND ([AxleConfiguration] = @Original_AxleConfiguration) AND ([MassAccreditationLabel] = @Original_MassAccreditationLabel) AND ([RegisteredTare] = @Original_RegisteredTare) AND ([FeeCodeID] = @Original_FeeCodeID) AND ([RegistrationExpiryDT] = @Original_RegistrationExpiryDT) AND ([IsLeadVehicle] = @Original_IsLeadVehicle) AND ([Active] = @Original_Active) AND ([CreateDTTM] = @Original_CreateDTTM))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Vehicle] WHERE (([Rego] = @Original_Rego) AND ([VIN] = @Original_VIN) AND ([CardCode] = @Original_CardCode) AND ([Owner] = @Original_Owner) AND ([Make] = @Original_Make) AND ([Model] = @Original_Model) AND ([AxleConfiguration] = @Original_AxleConfiguration) AND ([MassAccreditationLabel] = @Original_MassAccreditationLabel) AND ([RegisteredTare] = @Original_RegisteredTare) AND ([FeeCodeID] = @Original_FeeCodeID) AND ([RegistrationExpiryDT] = @Original_RegistrationExpiryDT) AND ([IsLeadVehicle] = @Original_IsLeadVehicle) AND ([Active] = @Original_Active) AND ([CreateDTTM] = @Original_CreateDTTM) AND ([ACCDelivery] = @Original_ACCDelivery) AND ([ACCPickup] = @Original_ACCPickup) AND ([OverrideMinCart] = @Original_OverrideMinCart))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VIN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VIN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -9401,10 +9499,13 @@ SELECT PrefCustID, Rego, CardCode, PrefCustomer, IsDefault, Rank, Comment, Activ
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IsLeadVehicle", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IsLeadVehicle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Active", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreateDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ACCDelivery", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACCDelivery", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ACCPickup", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACCPickup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OverrideMinCart", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OverrideMinCart", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Vehicle] ([Rego], [VIN], [CardCode], [Owner], [Make], [Model], [AxleConfiguration], [MassAccreditationLabel], [RegisteredTare], [FeeCodeID], [RegistrationExpiryDT], [IsLeadVehicle], [Active], [CreateDTTM]) VALUES (@Rego, @VIN, @CardCode, @Owner, @Make, @Model, @AxleConfiguration, @MassAccreditationLabel, @RegisteredTare, @FeeCodeID, @RegistrationExpiryDT, @IsLeadVehicle, @Active, @CreateDTTM);
-SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, IsLeadVehicle, Active, CreateDTTM FROM Vehicle AS t0 WHERE (Rego = @Rego)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Vehicle] ([Rego], [VIN], [CardCode], [Owner], [Make], [Model], [AxleConfiguration], [MassAccreditationLabel], [RegisteredTare], [FeeCodeID], [RegistrationExpiryDT], [IsLeadVehicle], [Active], [CreateDTTM], [ACCDelivery], [ACCPickup], [OverrideMinCart]) VALUES (@Rego, @VIN, @CardCode, @Owner, @Make, @Model, @AxleConfiguration, @MassAccreditationLabel, @RegisteredTare, @FeeCodeID, @RegistrationExpiryDT, @IsLeadVehicle, @Active, @CreateDTTM, @ACCDelivery, @ACCPickup, @OverrideMinCart);
+SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, IsLeadVehicle, Active, CreateDTTM, ACCDelivery, ACCPickup, OverrideMinCart FROM Vehicle AS t0 WHERE (Rego = @Rego)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VIN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -9420,10 +9521,13 @@ SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccredita
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsLeadVehicle", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IsLeadVehicle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Active", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACCDelivery", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACCDelivery", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACCPickup", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACCPickup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OverrideMinCart", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OverrideMinCart", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Vehicle] SET [Rego] = @Rego, [VIN] = @VIN, [CardCode] = @CardCode, [Owner] = @Owner, [Make] = @Make, [Model] = @Model, [AxleConfiguration] = @AxleConfiguration, [MassAccreditationLabel] = @MassAccreditationLabel, [RegisteredTare] = @RegisteredTare, [FeeCodeID] = @FeeCodeID, [RegistrationExpiryDT] = @RegistrationExpiryDT, [IsLeadVehicle] = @IsLeadVehicle, [Active] = @Active, [CreateDTTM] = @CreateDTTM WHERE (([Rego] = @Original_Rego) AND ([VIN] = @Original_VIN) AND ([CardCode] = @Original_CardCode) AND ([Owner] = @Original_Owner) AND ([Make] = @Original_Make) AND ([Model] = @Original_Model) AND ([AxleConfiguration] = @Original_AxleConfiguration) AND ([MassAccreditationLabel] = @Original_MassAccreditationLabel) AND ([RegisteredTare] = @Original_RegisteredTare) AND ([FeeCodeID] = @Original_FeeCodeID) AND ([RegistrationExpiryDT] = @Original_RegistrationExpiryDT) AND ([IsLeadVehicle] = @Original_IsLeadVehicle) AND ([Active] = @Original_Active) AND ([CreateDTTM] = @Original_CreateDTTM));
-SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, IsLeadVehicle, Active, CreateDTTM FROM Vehicle AS t0 WHERE (Rego = @Rego)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Vehicle] SET [Rego] = @Rego, [VIN] = @VIN, [CardCode] = @CardCode, [Owner] = @Owner, [Make] = @Make, [Model] = @Model, [AxleConfiguration] = @AxleConfiguration, [MassAccreditationLabel] = @MassAccreditationLabel, [RegisteredTare] = @RegisteredTare, [FeeCodeID] = @FeeCodeID, [RegistrationExpiryDT] = @RegistrationExpiryDT, [IsLeadVehicle] = @IsLeadVehicle, [Active] = @Active, [CreateDTTM] = @CreateDTTM, [ACCDelivery] = @ACCDelivery, [ACCPickup] = @ACCPickup, [OverrideMinCart] = @OverrideMinCart WHERE (([Rego] = @Original_Rego) AND ([VIN] = @Original_VIN) AND ([CardCode] = @Original_CardCode) AND ([Owner] = @Original_Owner) AND ([Make] = @Original_Make) AND ([Model] = @Original_Model) AND ([AxleConfiguration] = @Original_AxleConfiguration) AND ([MassAccreditationLabel] = @Original_MassAccreditationLabel) AND ([RegisteredTare] = @Original_RegisteredTare) AND ([FeeCodeID] = @Original_FeeCodeID) AND ([RegistrationExpiryDT] = @Original_RegistrationExpiryDT) AND ([IsLeadVehicle] = @Original_IsLeadVehicle) AND ([Active] = @Original_Active) AND ([CreateDTTM] = @Original_CreateDTTM) AND ([ACCDelivery] = @Original_ACCDelivery) AND ([ACCPickup] = @Original_ACCPickup) AND ([OverrideMinCart] = @Original_OverrideMinCart));
+SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, IsLeadVehicle, Active, CreateDTTM, ACCDelivery, ACCPickup, OverrideMinCart FROM Vehicle AS t0 WHERE (Rego = @Rego)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VIN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -9439,6 +9543,9 @@ SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccredita
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsLeadVehicle", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IsLeadVehicle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Active", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDTTM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACCDelivery", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACCDelivery", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ACCPickup", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACCPickup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OverrideMinCart", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OverrideMinCart", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VIN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VIN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CardCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CardCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -9453,6 +9560,9 @@ SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccredita
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IsLeadVehicle", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IsLeadVehicle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Active", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreateDTTM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDTTM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ACCDelivery", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACCDelivery", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ACCPickup", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ACCPickup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OverrideMinCart", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OverrideMinCart", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9468,9 +9578,9 @@ SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccredita
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAcc" +
-                "reditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, IsLeadVehicle," +
-                " Active, CreateDTTM\r\nFROM            Vehicle AS t0";
+            this._commandCollection[0].CommandText = @"SELECT        Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, IsLeadVehicle, Active, CreateDTTM, ACCDelivery, ACCPickup, 
+                         OverrideMinCart
+FROM            Vehicle AS t0";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -9657,7 +9767,24 @@ SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccredita
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Rego, string Original_VIN, string Original_CardCode, string Original_Owner, string Original_Make, string Original_Model, string Original_AxleConfiguration, string Original_MassAccreditationLabel, decimal Original_RegisteredTare, int Original_FeeCodeID, System.DateTime Original_RegistrationExpiryDT, bool Original_IsLeadVehicle, bool Original_Active, System.DateTime Original_CreateDTTM) {
+        public virtual int Delete(
+                    string Original_Rego, 
+                    string Original_VIN, 
+                    string Original_CardCode, 
+                    string Original_Owner, 
+                    string Original_Make, 
+                    string Original_Model, 
+                    string Original_AxleConfiguration, 
+                    string Original_MassAccreditationLabel, 
+                    decimal Original_RegisteredTare, 
+                    int Original_FeeCodeID, 
+                    System.DateTime Original_RegistrationExpiryDT, 
+                    bool Original_IsLeadVehicle, 
+                    bool Original_Active, 
+                    System.DateTime Original_CreateDTTM, 
+                    bool Original_ACCDelivery, 
+                    bool Original_ACCPickup, 
+                    bool Original_OverrideMinCart) {
             if ((Original_Rego == null)) {
                 throw new global::System.ArgumentNullException("Original_Rego");
             }
@@ -9712,6 +9839,9 @@ SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccredita
             this.Adapter.DeleteCommand.Parameters[11].Value = ((bool)(Original_IsLeadVehicle));
             this.Adapter.DeleteCommand.Parameters[12].Value = ((bool)(Original_Active));
             this.Adapter.DeleteCommand.Parameters[13].Value = ((System.DateTime)(Original_CreateDTTM));
+            this.Adapter.DeleteCommand.Parameters[14].Value = ((bool)(Original_ACCDelivery));
+            this.Adapter.DeleteCommand.Parameters[15].Value = ((bool)(Original_ACCPickup));
+            this.Adapter.DeleteCommand.Parameters[16].Value = ((bool)(Original_OverrideMinCart));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9732,7 +9862,24 @@ SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccredita
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Rego, string VIN, string CardCode, string Owner, string Make, string Model, string AxleConfiguration, string MassAccreditationLabel, decimal RegisteredTare, int FeeCodeID, System.DateTime RegistrationExpiryDT, bool IsLeadVehicle, bool Active, System.DateTime CreateDTTM) {
+        public virtual int Insert(
+                    string Rego, 
+                    string VIN, 
+                    string CardCode, 
+                    string Owner, 
+                    string Make, 
+                    string Model, 
+                    string AxleConfiguration, 
+                    string MassAccreditationLabel, 
+                    decimal RegisteredTare, 
+                    int FeeCodeID, 
+                    System.DateTime RegistrationExpiryDT, 
+                    bool IsLeadVehicle, 
+                    bool Active, 
+                    System.DateTime CreateDTTM, 
+                    bool ACCDelivery, 
+                    bool ACCPickup, 
+                    bool OverrideMinCart) {
             if ((Rego == null)) {
                 throw new global::System.ArgumentNullException("Rego");
             }
@@ -9787,6 +9934,9 @@ SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccredita
             this.Adapter.InsertCommand.Parameters[11].Value = ((bool)(IsLeadVehicle));
             this.Adapter.InsertCommand.Parameters[12].Value = ((bool)(Active));
             this.Adapter.InsertCommand.Parameters[13].Value = ((System.DateTime)(CreateDTTM));
+            this.Adapter.InsertCommand.Parameters[14].Value = ((bool)(ACCDelivery));
+            this.Adapter.InsertCommand.Parameters[15].Value = ((bool)(ACCPickup));
+            this.Adapter.InsertCommand.Parameters[16].Value = ((bool)(OverrideMinCart));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9822,6 +9972,9 @@ SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccredita
                     bool IsLeadVehicle, 
                     bool Active, 
                     System.DateTime CreateDTTM, 
+                    bool ACCDelivery, 
+                    bool ACCPickup, 
+                    bool OverrideMinCart, 
                     string Original_Rego, 
                     string Original_VIN, 
                     string Original_CardCode, 
@@ -9835,7 +9988,10 @@ SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccredita
                     System.DateTime Original_RegistrationExpiryDT, 
                     bool Original_IsLeadVehicle, 
                     bool Original_Active, 
-                    System.DateTime Original_CreateDTTM) {
+                    System.DateTime Original_CreateDTTM, 
+                    bool Original_ACCDelivery, 
+                    bool Original_ACCPickup, 
+                    bool Original_OverrideMinCart) {
             if ((Rego == null)) {
                 throw new global::System.ArgumentNullException("Rego");
             }
@@ -9890,60 +10046,66 @@ SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccredita
             this.Adapter.UpdateCommand.Parameters[11].Value = ((bool)(IsLeadVehicle));
             this.Adapter.UpdateCommand.Parameters[12].Value = ((bool)(Active));
             this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(CreateDTTM));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((bool)(ACCDelivery));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((bool)(ACCPickup));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((bool)(OverrideMinCart));
             if ((Original_Rego == null)) {
                 throw new global::System.ArgumentNullException("Original_Rego");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Rego));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Rego));
             }
             if ((Original_VIN == null)) {
                 throw new global::System.ArgumentNullException("Original_VIN");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_VIN));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_VIN));
             }
             if ((Original_CardCode == null)) {
                 throw new global::System.ArgumentNullException("Original_CardCode");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_CardCode));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_CardCode));
             }
             if ((Original_Owner == null)) {
                 throw new global::System.ArgumentNullException("Original_Owner");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Owner));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Owner));
             }
             if ((Original_Make == null)) {
                 throw new global::System.ArgumentNullException("Original_Make");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Make));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Make));
             }
             if ((Original_Model == null)) {
                 throw new global::System.ArgumentNullException("Original_Model");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Model));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_Model));
             }
             if ((Original_AxleConfiguration == null)) {
                 throw new global::System.ArgumentNullException("Original_AxleConfiguration");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_AxleConfiguration));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_AxleConfiguration));
             }
             if ((Original_MassAccreditationLabel == null)) {
                 throw new global::System.ArgumentNullException("Original_MassAccreditationLabel");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_MassAccreditationLabel));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_MassAccreditationLabel));
             }
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((decimal)(Original_RegisteredTare));
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Original_FeeCodeID));
-            this.Adapter.UpdateCommand.Parameters[24].Value = ((System.DateTime)(Original_RegistrationExpiryDT));
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((bool)(Original_IsLeadVehicle));
-            this.Adapter.UpdateCommand.Parameters[26].Value = ((bool)(Original_Active));
-            this.Adapter.UpdateCommand.Parameters[27].Value = ((System.DateTime)(Original_CreateDTTM));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((decimal)(Original_RegisteredTare));
+            this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(Original_FeeCodeID));
+            this.Adapter.UpdateCommand.Parameters[27].Value = ((System.DateTime)(Original_RegistrationExpiryDT));
+            this.Adapter.UpdateCommand.Parameters[28].Value = ((bool)(Original_IsLeadVehicle));
+            this.Adapter.UpdateCommand.Parameters[29].Value = ((bool)(Original_Active));
+            this.Adapter.UpdateCommand.Parameters[30].Value = ((System.DateTime)(Original_CreateDTTM));
+            this.Adapter.UpdateCommand.Parameters[31].Value = ((bool)(Original_ACCDelivery));
+            this.Adapter.UpdateCommand.Parameters[32].Value = ((bool)(Original_ACCPickup));
+            this.Adapter.UpdateCommand.Parameters[33].Value = ((bool)(Original_OverrideMinCart));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9978,6 +10140,9 @@ SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccredita
                     bool IsLeadVehicle, 
                     bool Active, 
                     System.DateTime CreateDTTM, 
+                    bool ACCDelivery, 
+                    bool ACCPickup, 
+                    bool OverrideMinCart, 
                     string Original_Rego, 
                     string Original_VIN, 
                     string Original_CardCode, 
@@ -9991,8 +10156,11 @@ SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccredita
                     System.DateTime Original_RegistrationExpiryDT, 
                     bool Original_IsLeadVehicle, 
                     bool Original_Active, 
-                    System.DateTime Original_CreateDTTM) {
-            return this.Update(Original_Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, IsLeadVehicle, Active, CreateDTTM, Original_Rego, Original_VIN, Original_CardCode, Original_Owner, Original_Make, Original_Model, Original_AxleConfiguration, Original_MassAccreditationLabel, Original_RegisteredTare, Original_FeeCodeID, Original_RegistrationExpiryDT, Original_IsLeadVehicle, Original_Active, Original_CreateDTTM);
+                    System.DateTime Original_CreateDTTM, 
+                    bool Original_ACCDelivery, 
+                    bool Original_ACCPickup, 
+                    bool Original_OverrideMinCart) {
+            return this.Update(Original_Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccreditationLabel, RegisteredTare, FeeCodeID, RegistrationExpiryDT, IsLeadVehicle, Active, CreateDTTM, ACCDelivery, ACCPickup, OverrideMinCart, Original_Rego, Original_VIN, Original_CardCode, Original_Owner, Original_Make, Original_Model, Original_AxleConfiguration, Original_MassAccreditationLabel, Original_RegisteredTare, Original_FeeCodeID, Original_RegistrationExpiryDT, Original_IsLeadVehicle, Original_Active, Original_CreateDTTM, Original_ACCDelivery, Original_ACCPickup, Original_OverrideMinCart);
         }
     }
     

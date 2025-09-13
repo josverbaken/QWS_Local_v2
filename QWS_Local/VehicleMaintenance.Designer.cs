@@ -39,18 +39,14 @@ namespace QWS_Local
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label5;
             this.txtRego = new System.Windows.Forms.TextBox();
-            this.bsVehicle = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
             this.txtVIN = new System.Windows.Forms.TextBox();
             this.txtOwner = new System.Windows.Forms.TextBox();
             this.btnFeeCodesMore = new System.Windows.Forms.Button();
             this.txtJurisdiction = new System.Windows.Forms.TextBox();
-            this.bsFeeCodes = new System.Windows.Forms.BindingSource(this.components);
             this.btnFindVehicle = new System.Windows.Forms.Button();
             this.txtFeeCode = new System.Windows.Forms.TextBox();
             this.txtAxleConfig = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.bsAxleConfig = new System.Windows.Forms.BindingSource(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -59,18 +55,12 @@ namespace QWS_Local
             this.txtSAPCode = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.isDefaultDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.cardCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prefCustomerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.bsPrefCustomers = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpDetails = new System.Windows.Forms.TabPage();
             this.gbACC = new System.Windows.Forms.GroupBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkOverridgeMinCart = new System.Windows.Forms.CheckBox();
+            this.chkACCPickup = new System.Windows.Forms.CheckBox();
+            this.chkACCDelivery = new System.Windows.Forms.CheckBox();
             this.gbFeeCodes = new System.Windows.Forms.GroupBox();
             this.isLeadVehicleCheckBox = new System.Windows.Forms.CheckBox();
             this.btnSetAxleConfig = new System.Windows.Forms.Button();
@@ -94,6 +84,16 @@ namespace QWS_Local
             this.chkACC = new System.Windows.Forms.CheckBox();
             this.btnSetOwner = new System.Windows.Forms.Button();
             this.btnDeleteVehicle = new System.Windows.Forms.Button();
+            this.bsVehicle = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
+            this.bsAxleConfig = new System.Windows.Forms.BindingSource(this.components);
+            this.bsFeeCodes = new System.Windows.Forms.BindingSource(this.components);
+            this.isDefaultDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cardCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prefCustomerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bsPrefCustomers = new System.Windows.Forms.BindingSource(this.components);
             this.taAxleConfig = new QWS_Local.dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
             this.taPrefCustomers = new QWS_Local.dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter();
@@ -107,14 +107,9 @@ namespace QWS_Local
             label7 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.bsVehicle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsFeeCodes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpDetails.SuspendLayout();
             this.gbACC.SuspendLayout();
@@ -127,6 +122,11 @@ namespace QWS_Local
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVehicle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsFeeCodes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).BeginInit();
             this.SuspendLayout();
             // 
             // vINLabel
@@ -230,16 +230,6 @@ namespace QWS_Local
             this.toolTip1.SetToolTip(this.txtRego, "Search by Rego or Owner");
             this.txtRego.Enter += new System.EventHandler(this.txtRego_Enter);
             // 
-            // bsVehicle
-            // 
-            this.bsVehicle.DataMember = "Vehicle";
-            this.bsVehicle.DataSource = this.dsQWSLocal2024;
-            // 
-            // dsQWSLocal2024
-            // 
-            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
-            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // txtVIN
             // 
             this.txtVIN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehicle, "VIN", true));
@@ -285,11 +275,6 @@ namespace QWS_Local
             this.txtJurisdiction.Name = "txtJurisdiction";
             this.txtJurisdiction.Size = new System.Drawing.Size(107, 24);
             this.txtJurisdiction.TabIndex = 9;
-            // 
-            // bsFeeCodes
-            // 
-            this.bsFeeCodes.DataMember = "VehicleRegFeeCodes";
-            this.bsFeeCodes.DataSource = this.dsQWSLocal2024;
             // 
             // btnFindVehicle
             // 
@@ -338,11 +323,6 @@ namespace QWS_Local
             this.textBox8.TabIndex = 36;
             this.textBox8.TabStop = false;
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // bsAxleConfig
-            // 
-            this.bsAxleConfig.DataMember = "AxleConfiguration";
-            this.bsAxleConfig.DataSource = this.dsQWSLocal2024;
             // 
             // textBox1
             // 
@@ -425,43 +405,6 @@ namespace QWS_Local
             this.dataGridView2.Size = new System.Drawing.Size(911, 285);
             this.dataGridView2.TabIndex = 77;
             // 
-            // isDefaultDataGridViewCheckBoxColumn
-            // 
-            this.isDefaultDataGridViewCheckBoxColumn.DataPropertyName = "IsDefault";
-            this.isDefaultDataGridViewCheckBoxColumn.HeaderText = "IsDefault";
-            this.isDefaultDataGridViewCheckBoxColumn.Name = "isDefaultDataGridViewCheckBoxColumn";
-            // 
-            // cardCodeDataGridViewTextBoxColumn
-            // 
-            this.cardCodeDataGridViewTextBoxColumn.DataPropertyName = "CardCode";
-            this.cardCodeDataGridViewTextBoxColumn.HeaderText = "CardCode";
-            this.cardCodeDataGridViewTextBoxColumn.Name = "cardCodeDataGridViewTextBoxColumn";
-            // 
-            // prefCustomerDataGridViewTextBoxColumn
-            // 
-            this.prefCustomerDataGridViewTextBoxColumn.DataPropertyName = "PrefCustomer";
-            this.prefCustomerDataGridViewTextBoxColumn.HeaderText = "PrefCustomer";
-            this.prefCustomerDataGridViewTextBoxColumn.Name = "prefCustomerDataGridViewTextBoxColumn";
-            this.prefCustomerDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // commentDataGridViewTextBoxColumn
-            // 
-            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
-            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
-            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
-            this.commentDataGridViewTextBoxColumn.Width = 300;
-            // 
-            // activeDataGridViewCheckBoxColumn
-            // 
-            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
-            this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
-            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
-            // 
-            // bsPrefCustomers
-            // 
-            this.bsPrefCustomers.DataMember = "VehiclePrefCustomers";
-            this.bsPrefCustomers.DataSource = this.dsQWSLocal2024;
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tpDetails);
@@ -490,9 +433,9 @@ namespace QWS_Local
             // 
             // gbACC
             // 
-            this.gbACC.Controls.Add(this.checkBox3);
-            this.gbACC.Controls.Add(this.checkBox2);
-            this.gbACC.Controls.Add(this.checkBox1);
+            this.gbACC.Controls.Add(this.chkOverridgeMinCart);
+            this.gbACC.Controls.Add(this.chkACCPickup);
+            this.gbACC.Controls.Add(this.chkACCDelivery);
             this.gbACC.Location = new System.Drawing.Point(1063, 7);
             this.gbACC.Name = "gbACC";
             this.gbACC.Size = new System.Drawing.Size(200, 268);
@@ -500,35 +443,38 @@ namespace QWS_Local
             this.gbACC.TabStop = false;
             this.gbACC.Text = "ACC Vehicle";
             // 
-            // checkBox3
+            // chkOverridgeMinCart
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(28, 107);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(143, 22);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "Override Min Cart";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.chkOverridgeMinCart.AutoSize = true;
+            this.chkOverridgeMinCart.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bsVehicle, "OverrideMinCart", true));
+            this.chkOverridgeMinCart.Location = new System.Drawing.Point(28, 107);
+            this.chkOverridgeMinCart.Name = "chkOverridgeMinCart";
+            this.chkOverridgeMinCart.Size = new System.Drawing.Size(143, 22);
+            this.chkOverridgeMinCart.TabIndex = 2;
+            this.chkOverridgeMinCart.Text = "Override Min Cart";
+            this.chkOverridgeMinCart.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // chkACCPickup
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(28, 73);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(111, 22);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "ACC-PickUp";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chkACCPickup.AutoSize = true;
+            this.chkACCPickup.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bsVehicle, "ACCPickup", true));
+            this.chkACCPickup.Location = new System.Drawing.Point(28, 73);
+            this.chkACCPickup.Name = "chkACCPickup";
+            this.chkACCPickup.Size = new System.Drawing.Size(111, 22);
+            this.chkACCPickup.TabIndex = 1;
+            this.chkACCPickup.Text = "ACC-PickUp";
+            this.chkACCPickup.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // chkACCDelivery
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(28, 41);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(115, 22);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "ACC-Delivery";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkACCDelivery.AutoSize = true;
+            this.chkACCDelivery.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bsVehicle, "ACCDelivery", true));
+            this.chkACCDelivery.Location = new System.Drawing.Point(28, 41);
+            this.chkACCDelivery.Name = "chkACCDelivery";
+            this.chkACCDelivery.Size = new System.Drawing.Size(115, 22);
+            this.chkACCDelivery.TabIndex = 0;
+            this.chkACCDelivery.Text = "ACC-Delivery";
+            this.chkACCDelivery.UseVisualStyleBackColor = true;
             // 
             // gbFeeCodes
             // 
@@ -666,9 +612,9 @@ namespace QWS_Local
             // tpPrefCust
             // 
             this.tpPrefCust.Controls.Add(this.gbPrefCustomers);
-            this.tpPrefCust.Location = new System.Drawing.Point(4, 22);
+            this.tpPrefCust.Location = new System.Drawing.Point(4, 27);
             this.tpPrefCust.Name = "tpPrefCust";
-            this.tpPrefCust.Size = new System.Drawing.Size(1286, 426);
+            this.tpPrefCust.Size = new System.Drawing.Size(1286, 421);
             this.tpPrefCust.TabIndex = 2;
             this.tpPrefCust.Text = "Preferred Customers";
             this.tpPrefCust.UseVisualStyleBackColor = true;
@@ -832,6 +778,63 @@ namespace QWS_Local
             this.btnDeleteVehicle.UseVisualStyleBackColor = false;
             this.btnDeleteVehicle.Click += new System.EventHandler(this.btnDeleteVehicle_Click);
             // 
+            // bsVehicle
+            // 
+            this.bsVehicle.DataMember = "Vehicle";
+            this.bsVehicle.DataSource = this.dsQWSLocal2024;
+            // 
+            // dsQWSLocal2024
+            // 
+            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
+            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bsAxleConfig
+            // 
+            this.bsAxleConfig.DataMember = "AxleConfiguration";
+            this.bsAxleConfig.DataSource = this.dsQWSLocal2024;
+            // 
+            // bsFeeCodes
+            // 
+            this.bsFeeCodes.DataMember = "VehicleRegFeeCodes";
+            this.bsFeeCodes.DataSource = this.dsQWSLocal2024;
+            // 
+            // isDefaultDataGridViewCheckBoxColumn
+            // 
+            this.isDefaultDataGridViewCheckBoxColumn.DataPropertyName = "IsDefault";
+            this.isDefaultDataGridViewCheckBoxColumn.HeaderText = "IsDefault";
+            this.isDefaultDataGridViewCheckBoxColumn.Name = "isDefaultDataGridViewCheckBoxColumn";
+            // 
+            // cardCodeDataGridViewTextBoxColumn
+            // 
+            this.cardCodeDataGridViewTextBoxColumn.DataPropertyName = "CardCode";
+            this.cardCodeDataGridViewTextBoxColumn.HeaderText = "CardCode";
+            this.cardCodeDataGridViewTextBoxColumn.Name = "cardCodeDataGridViewTextBoxColumn";
+            // 
+            // prefCustomerDataGridViewTextBoxColumn
+            // 
+            this.prefCustomerDataGridViewTextBoxColumn.DataPropertyName = "PrefCustomer";
+            this.prefCustomerDataGridViewTextBoxColumn.HeaderText = "PrefCustomer";
+            this.prefCustomerDataGridViewTextBoxColumn.Name = "prefCustomerDataGridViewTextBoxColumn";
+            this.prefCustomerDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // commentDataGridViewTextBoxColumn
+            // 
+            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
+            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
+            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
+            this.commentDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // activeDataGridViewCheckBoxColumn
+            // 
+            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
+            this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
+            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
+            // 
+            // bsPrefCustomers
+            // 
+            this.bsPrefCustomers.DataMember = "VehiclePrefCustomers";
+            this.bsPrefCustomers.DataSource = this.dsQWSLocal2024;
+            // 
             // taAxleConfig
             // 
             this.taAxleConfig.ClearBeforeFill = true;
@@ -872,14 +875,9 @@ namespace QWS_Local
             this.Text = "Vehicle Maintenance";
             this.Load += new System.EventHandler(this.Vehicle_Maintenance_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VehicleMaintenance_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.bsVehicle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsFeeCodes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpDetails.ResumeLayout(false);
             this.gbACC.ResumeLayout(false);
@@ -897,6 +895,11 @@ namespace QWS_Local
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bsVehicle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsAxleConfig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsFeeCodes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPrefCustomers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -952,9 +955,9 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnSetOwner;
         private System.Windows.Forms.Button btnSetAxleConfig;
         private System.Windows.Forms.GroupBox gbACC;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkOverridgeMinCart;
+        private System.Windows.Forms.CheckBox chkACCPickup;
+        private System.Windows.Forms.CheckBox chkACCDelivery;
         private System.Windows.Forms.CheckBox chkACC;
         private System.Windows.Forms.Button btnSavePrefCust;
         private System.Windows.Forms.Button btnSaveVehicle;
