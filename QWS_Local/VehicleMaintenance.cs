@@ -445,6 +445,9 @@ namespace QWS_Local
                 vehicleRow.FeeCodeID = 0;
                 vehicleRow.RegistrationExpiryDT = DateTime.Now;
                 vehicleRow.IsLeadVehicle = false;
+                vehicleRow.ACCDelivery = false;
+                vehicleRow.ACCPickup = false;
+                vehicleRow.OverrideMinCart = false;
                 vehicleRow.Active = true;
                 vehicleRow.CreateDTTM = DateTime.Now;
                 dsQWSLocal2024.Vehicle.AddVehicleRow(vehicleRow);
