@@ -2689,6 +2689,12 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnMassAccreditationLabel;
             
+            private global::System.Data.DataColumn columnACCDelivery;
+            
+            private global::System.Data.DataColumn columnACCPickup;
+            
+            private global::System.Data.DataColumn columnOverrideMinCart;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ConfiguredTrucksDataTable() {
@@ -2972,6 +2978,30 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ACCDeliveryColumn {
+                get {
+                    return this.columnACCDelivery;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ACCPickupColumn {
+                get {
+                    return this.columnACCPickup;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn OverrideMinCartColumn {
+                get {
+                    return this.columnOverrideMinCart;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3037,7 +3067,10 @@ namespace QWS_Local {
                         string FeeConditions, 
                         decimal MaxGVM, 
                         int MaxAxles, 
-                        string MassAccreditationLabel) {
+                        string MassAccreditationLabel, 
+                        bool ACCDelivery, 
+                        bool ACCPickup, 
+                        bool OverrideMinCart) {
                 ConfiguredTrucksRow rowConfiguredTrucksRow = ((ConfiguredTrucksRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RegoTk,
@@ -3070,7 +3103,10 @@ namespace QWS_Local {
                         FeeConditions,
                         MaxGVM,
                         MaxAxles,
-                        MassAccreditationLabel};
+                        MassAccreditationLabel,
+                        ACCDelivery,
+                        ACCPickup,
+                        OverrideMinCart};
                 rowConfiguredTrucksRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowConfiguredTrucksRow);
                 return rowConfiguredTrucksRow;
@@ -3124,6 +3160,9 @@ namespace QWS_Local {
                 this.columnMaxGVM = base.Columns["MaxGVM"];
                 this.columnMaxAxles = base.Columns["MaxAxles"];
                 this.columnMassAccreditationLabel = base.Columns["MassAccreditationLabel"];
+                this.columnACCDelivery = base.Columns["ACCDelivery"];
+                this.columnACCPickup = base.Columns["ACCPickup"];
+                this.columnOverrideMinCart = base.Columns["OverrideMinCart"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3191,6 +3230,12 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnMaxAxles);
                 this.columnMassAccreditationLabel = new global::System.Data.DataColumn("MassAccreditationLabel", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMassAccreditationLabel);
+                this.columnACCDelivery = new global::System.Data.DataColumn("ACCDelivery", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACCDelivery);
+                this.columnACCPickup = new global::System.Data.DataColumn("ACCPickup", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACCPickup);
+                this.columnOverrideMinCart = new global::System.Data.DataColumn("OverrideMinCart", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOverrideMinCart);
                 this.columnRegoTk.AllowDBNull = false;
                 this.columnRegoTk.MaxLength = 6;
                 this.columnRegoTr1.MaxLength = 6;
@@ -3232,6 +3277,9 @@ namespace QWS_Local {
                 this.columnMaxAxles.AllowDBNull = false;
                 this.columnMassAccreditationLabel.AllowDBNull = false;
                 this.columnMassAccreditationLabel.MaxLength = 50;
+                this.columnACCDelivery.AllowDBNull = false;
+                this.columnACCPickup.AllowDBNull = false;
+                this.columnOverrideMinCart.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6365,6 +6413,39 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool ACCDelivery {
+                get {
+                    return ((bool)(this[this.tableConfiguredTrucks.ACCDeliveryColumn]));
+                }
+                set {
+                    this[this.tableConfiguredTrucks.ACCDeliveryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool ACCPickup {
+                get {
+                    return ((bool)(this[this.tableConfiguredTrucks.ACCPickupColumn]));
+                }
+                set {
+                    this[this.tableConfiguredTrucks.ACCPickupColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool OverrideMinCart {
+                get {
+                    return ((bool)(this[this.tableConfiguredTrucks.OverrideMinCartColumn]));
+                }
+                set {
+                    this[this.tableConfiguredTrucks.OverrideMinCartColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsRegoTr1Null() {
                 return this.IsNull(this.tableConfiguredTrucks.RegoTr1Column);
             }
@@ -8765,6 +8846,9 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)";
             tableMapping.ColumnMappings.Add("MaxGVM", "MaxGVM");
             tableMapping.ColumnMappings.Add("MaxAxles", "MaxAxles");
             tableMapping.ColumnMappings.Add("MassAccreditationLabel", "MassAccreditationLabel");
+            tableMapping.ColumnMappings.Add("ACCDelivery", "ACCDelivery");
+            tableMapping.ColumnMappings.Add("ACCPickup", "ACCPickup");
+            tableMapping.ColumnMappings.Add("OverrideMinCart", "OverrideMinCart");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

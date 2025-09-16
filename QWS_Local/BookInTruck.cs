@@ -198,15 +198,15 @@ namespace QWS_Local
 
             switch (myConfigTruckRow.GroupCode)
             {
-                case 117:
+                case 117: // these are for the owner
                     chkACCDelivery.Checked = true;
                     chkACCPickUp.Checked = false;
                     break;
-                case 118:
+                case 123:
                     chkACCDelivery.Checked=false;
                     chkACCPickUp.Checked = true;
                     break;
-                case 119:
+                case 124:
                     chkACCDelivery.Checked = true;
                     chkACCPickUp.Checked=true;
                     break;
@@ -384,7 +384,7 @@ namespace QWS_Local
                 {
                     btnExBin.Enabled = true;
                     btnImported.Enabled = true;
-                    btnImportedPickUp.Enabled = true;
+                    // btnImportedPickUp.Enabled = true leave as is after truck selection
                 }
                 else
                 {
@@ -401,7 +401,7 @@ namespace QWS_Local
                 }
                 if (myTruckDriverRow.Position == "Authorised Cartage Contractor"|| myTruckDriverRow.Position.Contains("ACC") == true)
                 {
-                    if (chkACCDelivery.Checked == true && blInduction == true)
+                    if (chkACCDelivery.Checked == true && blInduction == true && btnDelivery.Enabled == true)
                     {
                         btnDelivery.Enabled = true;
                     }
@@ -414,7 +414,6 @@ namespace QWS_Local
                 {
                     btnExBin.Enabled = false;
                     btnDelivery.Enabled = false;
-                    //btnImported.Enabled = false;
                     btnImported.Enabled = true; //these arrive fully loaded, so get tare after unloading
                     btnImportedPickUp.Enabled = false;
                 }
@@ -899,11 +898,12 @@ namespace QWS_Local
 
         private void btnImportedPickUp_Click(object sender, EventArgs e)
         {
-            BookInTIQType = TIQType.ImportedPickUp;
-            if (SetExBinCustomer() == true)
-            {
-                GoToBookInMaterial();
-            }
+            MessageBox.Show("Not yet implemented.","Imported Pickup Message",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //BookInTIQType = TIQType.ImportedPickUp;
+            //if (SetExBinCustomer() == true)
+            //{
+            //    GoToBookInMaterial();
+            //}
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -971,8 +971,17 @@ namespace QWS_Local
        
         private void btnSetTruckConfig_Click(object sender, EventArgs e)
         {
-            _TIQRow.TruckConfig = CurrentConfigTruck().VehicleType.ToString();
-            UpdateTIQ(TIQType.EnterRego); //,"Cfg"); 
+            dsTruckConfig.ConfiguredTrucksRow myConfiguredTrucksRow = CurrentConfigTruck();
+            _TIQRow.TruckConfig = myConfiguredTrucksRow.VehicleType.ToString(); // CurrentConfigTruck().VehicleType.ToString();
+            if (myConfiguredTrucksRow.ACCDelivery == true)
+            {
+                btnDelivery.Enabled = true;
+            }
+            if (myConfiguredTrucksRow.ACCPickup == true)
+            {
+                btnImportedPickUp.Enabled = true;
+            }
+            UpdateTIQ(TIQType.EnterRego);
             CheckConfigOK2Proceed();
         }
     }

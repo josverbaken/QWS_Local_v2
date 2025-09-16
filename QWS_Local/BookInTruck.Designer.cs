@@ -35,8 +35,6 @@ namespace QWS_Local
             System.Windows.Forms.Label licenseExpLabel;
             System.Windows.Forms.Label licenseTypeLabel;
             System.Windows.Forms.Label truckConfigLabel;
-            this.bsConfiguredTrucks = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.txtTruckRego = new System.Windows.Forms.TextBox();
             this.btnFindTruck = new System.Windows.Forms.Button();
             this.dgvConfiguredTrucks = new System.Windows.Forms.DataGridView();
@@ -47,6 +45,8 @@ namespace QWS_Local
             this.TareDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VehicleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TruckConfigID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsConfiguredTrucks = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.txtAxleConfig = new System.Windows.Forms.TextBox();
             this.txtVehicleDescription = new System.Windows.Forms.TextBox();
             this.cardCodeTextBox = new System.Windows.Forms.TextBox();
@@ -78,8 +78,6 @@ namespace QWS_Local
             this.btnImported = new System.Windows.Forms.Button();
             this.btnExBin = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.taConfiguredTrucks = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
-            this.tableAdapterManager = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
             this.pictureSchematic = new System.Windows.Forms.PictureBox();
             this.tableAdapterManager2 = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.txtTruckConfig = new System.Windows.Forms.TextBox();
@@ -98,14 +96,16 @@ namespace QWS_Local
             this.chkACCPickUp = new System.Windows.Forms.CheckBox();
             this.btnSessionID = new System.Windows.Forms.Button();
             this.btnSetTruckConfig = new System.Windows.Forms.Button();
+            this.taConfiguredTrucks = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
+            this.tableAdapterManager = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
             cardStatusLabel = new System.Windows.Forms.Label();
             inductionExpLabel = new System.Windows.Forms.Label();
             licenseExpLabel = new System.Windows.Forms.Label();
             licenseTypeLabel = new System.Windows.Forms.Label();
             truckConfigLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConfiguredTrucks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvConfiguredTrucks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -162,16 +162,6 @@ namespace QWS_Local
             truckConfigLabel.Size = new System.Drawing.Size(92, 17);
             truckConfigLabel.TabIndex = 62;
             truckConfigLabel.Text = "Truck Config:";
-            // 
-            // bsConfiguredTrucks
-            // 
-            this.bsConfiguredTrucks.DataMember = "ConfiguredTrucks";
-            this.bsConfiguredTrucks.DataSource = this.dsTruckConfig;
-            // 
-            // dsTruckConfig
-            // 
-            this.dsTruckConfig.DataSetName = "dsTruckConfig";
-            this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtTruckRego
             // 
@@ -266,6 +256,16 @@ namespace QWS_Local
             this.TruckConfigID.Name = "TruckConfigID";
             this.TruckConfigID.ReadOnly = true;
             this.TruckConfigID.Visible = false;
+            // 
+            // bsConfiguredTrucks
+            // 
+            this.bsConfiguredTrucks.DataMember = "ConfiguredTrucks";
+            this.bsConfiguredTrucks.DataSource = this.dsTruckConfig;
+            // 
+            // dsTruckConfig
+            // 
+            this.dsTruckConfig.DataSetName = "dsTruckConfig";
+            this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtAxleConfig
             // 
@@ -573,16 +573,6 @@ namespace QWS_Local
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Truck Driver";
             // 
-            // taConfiguredTrucks
-            // 
-            this.taConfiguredTrucks.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.UpdateOrder = QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
             // pictureSchematic
             // 
             this.pictureSchematic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -764,6 +754,16 @@ namespace QWS_Local
             this.btnSetTruckConfig.UseVisualStyleBackColor = true;
             this.btnSetTruckConfig.Click += new System.EventHandler(this.btnSetTruckConfig_Click);
             // 
+            // taConfiguredTrucks
+            // 
+            this.taConfiguredTrucks.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.UpdateOrder = QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // BookInTruck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -791,9 +791,9 @@ namespace QWS_Local
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.BookInTruck_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BookInTruck_KeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConfiguredTrucks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvConfiguredTrucks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -869,6 +869,8 @@ namespace QWS_Local
         private System.Windows.Forms.GroupBox gbTruckOwner;
         private System.Windows.Forms.CheckBox chkACCPickUp;
         private System.Windows.Forms.Button btnSessionID;
+        private System.Windows.Forms.Button btnSetTruckConfig;
+        private System.Windows.Forms.TextBox truckConfigTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn regoTkDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn regoTrailerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn RegoCheck;
@@ -876,7 +878,5 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn VehicleType;
         private System.Windows.Forms.DataGridViewTextBoxColumn TruckConfigID;
-        private System.Windows.Forms.Button btnSetTruckConfig;
-        private System.Windows.Forms.TextBox truckConfigTextBox;
     }
 }
