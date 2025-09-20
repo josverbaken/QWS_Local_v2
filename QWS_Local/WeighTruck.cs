@@ -212,8 +212,8 @@ namespace QWS_Local
 
         private void CaptureSingleWeight()
         {
-            //Task<WeighTruck> task = CaptureSingleWeightAsync();
-            CaptureSingleWeightAsync();
+            // ignore warning for the time being, a bit of a double dip !@#
+             CaptureSingleWeightAsync();
         }
         private async Task CaptureSingleWeightAsync()
         {
