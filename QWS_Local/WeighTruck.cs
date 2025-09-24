@@ -214,8 +214,48 @@ namespace QWS_Local
         {
             // ignore warning for the time being, a bit of a double dip !@#
             // 20250922 use discard to resolve _ = // need more research on this
-             CaptureSingleWeightAsync();
+             //CaptureSingleWeightAsync();
+             CaptureSingleWeightSync();
         }
+
+        private void CaptureSingleWeightSync()
+        {
+            // get weight from appropriate site and weighbridge id
+            // and change how to call GetSingleWeight, might need to add ScaleFactor to Properties
+            // also check what other differences in process logic
+            decimal myWeight = 99.99M;
+            int iWBCount = dsTIQ2.WBConfig4Site.Count();
+            if (iWBCount == 1)
+            {
+                rbWB1.Checked = true;
+            }
+            if (rbWB1.Checked == true && rbAuto.Checked == true)
+            {
+                WeighbridgeRead weighbridgeRead = new WeighbridgeRead();
+                if (mySiteID == 7)
+                {
+                    myWeight = weighbridgeRead.CurrentWeightSync("NQWB1");
+                }
+                else if (mySiteID == 2)
+                {
+                    myWeight = weighbridgeRead.CurrentWeightSync("SQWB1");
+                }
+                mtxtWeight.Text = myWeight.ToString();
+            }
+            else if (rbWB2.Checked == true && rbAuto.Checked == true)
+            {
+                WeighbridgeRead weighbridgeRead = new WeighbridgeRead();
+                myWeight = weighbridgeRead.CurrentWeightSync("NQWB2");
+                mtxtWeight.Text = myWeight.ToString();
+            }
+            else if (rbWB3.Checked == true && rbAuto.Checked == true)
+            {
+                WeighbridgeRead weighbridgeRead = new WeighbridgeRead();
+                myWeight = weighbridgeRead.CurrentWeightSync("NQWB3");
+                mtxtWeight.Text = myWeight.ToString();
+            }
+        }
+
         private async Task CaptureSingleWeightAsync()
         {
             // get weight from appropriate site and weighbridge id
