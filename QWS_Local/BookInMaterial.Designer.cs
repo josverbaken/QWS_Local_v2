@@ -81,9 +81,9 @@ namespace QWS_Local
             System.Windows.Forms.Label label13;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.truckConfigTextBox = new System.Windows.Forms.TextBox();
             this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
-            this.truckConfigTextBox = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
@@ -156,6 +156,7 @@ namespace QWS_Local
             this.configSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pBSLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BridgeAssessment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpDetails = new System.Windows.Forms.TabPage();
             this.maxGVMTextBox = new System.Windows.Forms.TextBox();
             this.maxAxlesTextBox = new System.Windows.Forms.TextBox();
@@ -789,6 +790,14 @@ namespace QWS_Local
             this.splitContainer2.SplitterDistance = 228;
             this.splitContainer2.TabIndex = 3;
             // 
+            // truckConfigTextBox
+            // 
+            this.truckConfigTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "TruckConfig", true));
+            this.truckConfigTextBox.Location = new System.Drawing.Point(364, 12);
+            this.truckConfigTextBox.Name = "truckConfigTextBox";
+            this.truckConfigTextBox.Size = new System.Drawing.Size(100, 23);
+            this.truckConfigTextBox.TabIndex = 84;
+            // 
             // bsTIQ2
             // 
             this.bsTIQ2.DataMember = "TIQ";
@@ -798,14 +807,6 @@ namespace QWS_Local
             // 
             this.dsTIQ2.DataSetName = "dsTIQ2";
             this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // truckConfigTextBox
-            // 
-            this.truckConfigTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "TruckConfig", true));
-            this.truckConfigTextBox.Location = new System.Drawing.Point(364, 12);
-            this.truckConfigTextBox.Name = "truckConfigTextBox";
-            this.truckConfigTextBox.Size = new System.Drawing.Size(100, 23);
-            this.truckConfigTextBox.TabIndex = 84;
             // 
             // textBox4
             // 
@@ -1376,9 +1377,9 @@ namespace QWS_Local
             // tpTruckconfig
             // 
             this.tpTruckconfig.Controls.Add(this.splitContainer4);
-            this.tpTruckconfig.Location = new System.Drawing.Point(4, 22);
+            this.tpTruckconfig.Location = new System.Drawing.Point(4, 25);
             this.tpTruckconfig.Name = "tpTruckconfig";
-            this.tpTruckconfig.Size = new System.Drawing.Size(1419, 296);
+            this.tpTruckconfig.Size = new System.Drawing.Size(1419, 293);
             this.tpTruckconfig.TabIndex = 2;
             this.tpTruckconfig.Text = "Truck config";
             this.tpTruckconfig.UseVisualStyleBackColor = true;
@@ -1398,7 +1399,7 @@ namespace QWS_Local
             this.splitContainer4.Panel2.Controls.Add(label13);
             this.splitContainer4.Panel2.Controls.Add(this.textBox13);
             this.splitContainer4.Panel2.Controls.Add(this.btnSetTruckConfig);
-            this.splitContainer4.Size = new System.Drawing.Size(1419, 296);
+            this.splitContainer4.Size = new System.Drawing.Size(1419, 293);
             this.splitContainer4.SplitterDistance = 985;
             this.splitContainer4.TabIndex = 103;
             // 
@@ -1410,7 +1411,7 @@ namespace QWS_Local
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(985, 296);
+            this.tabControl1.Size = new System.Drawing.Size(985, 293);
             this.tabControl1.TabIndex = 70;
             // 
             // tpList
@@ -1419,7 +1420,7 @@ namespace QWS_Local
             this.tpList.Location = new System.Drawing.Point(4, 25);
             this.tpList.Name = "tpList";
             this.tpList.Padding = new System.Windows.Forms.Padding(3);
-            this.tpList.Size = new System.Drawing.Size(977, 267);
+            this.tpList.Size = new System.Drawing.Size(977, 264);
             this.tpList.TabIndex = 0;
             this.tpList.Text = "List";
             this.tpList.UseVisualStyleBackColor = true;
@@ -1435,13 +1436,14 @@ namespace QWS_Local
             this.gCMDataGridViewTextBoxColumn,
             this.configSourceDataGridViewTextBoxColumn,
             this.pBSLevelDataGridViewTextBoxColumn,
-            this.schemeCodeDataGridViewTextBoxColumn});
+            this.schemeCodeDataGridViewTextBoxColumn,
+            this.BridgeAssessment});
             this.dgvTruckConfig.DataSource = this.bsConfiguredTruckGVM;
             this.dgvTruckConfig.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTruckConfig.Location = new System.Drawing.Point(3, 3);
             this.dgvTruckConfig.Name = "dgvTruckConfig";
             this.dgvTruckConfig.ReadOnly = true;
-            this.dgvTruckConfig.Size = new System.Drawing.Size(971, 261);
+            this.dgvTruckConfig.Size = new System.Drawing.Size(971, 258);
             this.dgvTruckConfig.TabIndex = 69;
             // 
             // roadAccessDataGridViewTextBoxColumn
@@ -1480,6 +1482,13 @@ namespace QWS_Local
             this.schemeCodeDataGridViewTextBoxColumn.Name = "schemeCodeDataGridViewTextBoxColumn";
             this.schemeCodeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // BridgeAssessment
+            // 
+            this.BridgeAssessment.DataPropertyName = "BridgeAssessment";
+            this.BridgeAssessment.HeaderText = "Bridge";
+            this.BridgeAssessment.Name = "BridgeAssessment";
+            this.BridgeAssessment.ReadOnly = true;
+            // 
             // tpDetails
             // 
             this.tpDetails.Controls.Add(maxGVMLabel);
@@ -1514,7 +1523,7 @@ namespace QWS_Local
             this.tpDetails.Location = new System.Drawing.Point(4, 22);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(977, 270);
+            this.tpDetails.Size = new System.Drawing.Size(977, 267);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -2150,11 +2159,6 @@ namespace QWS_Local
         private System.Windows.Forms.SplitContainer splitContainer4;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn roadAccessDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gCMDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn configSourceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pBSLevelDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn schemeCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage tpDetails;
         private System.Windows.Forms.TextBox feeConditionsTextBox;
         private System.Windows.Forms.TextBox feeCodeTextBox;
@@ -2203,5 +2207,11 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roadAccessDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gCMDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn configSourceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pBSLevelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn schemeCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BridgeAssessment;
     }
 }

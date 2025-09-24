@@ -213,6 +213,7 @@ namespace QWS_Local
         private void CaptureSingleWeight()
         {
             // ignore warning for the time being, a bit of a double dip !@#
+            // 20250922 use discard to resolve _ = // need more research on this
              CaptureSingleWeightAsync();
         }
         private async Task CaptureSingleWeightAsync()
@@ -256,7 +257,7 @@ namespace QWS_Local
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             // Get new weight for selected WB, check if WB is selected if n > 1
-            CaptureSingleWeight();
+          CaptureSingleWeight();
         }
 
         private void btnMonitor_Click(object sender, EventArgs e)
