@@ -447,7 +447,7 @@ namespace QWS_Local
                     _TIQRow.AxleConfiguration = myConfigTruck.AxleConfiguration;
                     _TIQRow.FeeCode = myConfigTruck.FeeCode;
                     _TIQRow.TruckOwnerCode = myConfigTruck.CardCode;
-                    _TIQRow.TruckOwner = myConfigTruck.TruckOwner;
+                    _TIQRow.TruckOwner = myConfigTruck.TruckOwner.Substring(0,50);
                     _TIQRow.AgrNo = 0;
                     _TIQRow.AgrLine = 0;
                     int iRow = taTIQ.Update(dsTIQ2.TIQ);
