@@ -68,6 +68,11 @@ namespace QWS_Local
                 txtNett.BackColor = Color.LightSalmon;
             }
             CheckCOD(myRow.CustomerCode);
+            if (myRow.Tare == 0.0M)
+            {
+                MessageBox.Show("Tare = zero! \r\nUnable to proceed.","Zero Tare ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                PostDocketCancel();
+            }
         }
 
         private void CheckCOD(string CardCode)
