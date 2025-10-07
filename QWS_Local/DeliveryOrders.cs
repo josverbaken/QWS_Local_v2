@@ -94,7 +94,8 @@ namespace QWS_Local
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            bsQuarryOrders.Filter = "";
+            //bsQuarryOrders.Filter = "";
+            rbClear.Checked = true;
 
             GetQuarryOrders();
         }

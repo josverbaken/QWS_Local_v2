@@ -25,7 +25,7 @@ namespace QWS_Local
         private string ComputerName;
         private string Domain;
         private string myConnectionString;
-        private bool IsDelivery = false;
+        //private bool IsDelivery;
         
         public TrucksInQuarry()
         {
@@ -510,7 +510,7 @@ namespace QWS_Local
         private void PostDocket()
         {
             // create new WBDockets row using NewDocket, then add lines
-            IsDelivery = false;
+            //IsDelivery = false;
 
             dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
             int DocketExists = CheckDocketExists(myTIQRow.TIQID);
@@ -532,14 +532,14 @@ namespace QWS_Local
                             switch (myOrderLine.SWW)
                             {
                                 case "Items":
-                                    DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myOrderLine.ItemCode), myOrderLine.SWW, mySPLotNo, myOrderLine.DocEntry);
+                                    DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myOrderLine.ItemCode), myOrderLine.SWW, mySPLotNo, myOrderLine.DocEntry, myOrderLine.LineNum);
                                     break;
                                 case "Imported":
-                                    DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myOrderLine.ItemCode), myOrderLine.SWW, mySPLotNo, myOrderLine.DocEntry);
+                                    DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myOrderLine.ItemCode), myOrderLine.SWW, mySPLotNo, myOrderLine.DocEntry, myOrderLine.LineNum);
                                     break;
                                 case "Freight":
-                                    DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, false, 99, myOrderLine.SWW, 0, myOrderLine.DocEntry);
-                                    IsDelivery = true;                                    
+                                    DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, false, 99, myOrderLine.SWW, 0, myOrderLine.DocEntry, myOrderLine.LineNum);
+                                    //IsDelivery = true;                                    
                                     break;
                                 case "Other":
                                     // surcharge maybe
@@ -552,17 +552,18 @@ namespace QWS_Local
                     else
                     {
                         // ExBin No Order
-                        DocketLineAdd(myTIQRow.Material, myTIQRow.MaterialDesc, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myTIQRow.Material), "Items", mySPLotNo, myOrderBaseEntry);
+                        DocketLineAdd(myTIQRow.Material, myTIQRow.MaterialDesc, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myTIQRow.Material), "Items", mySPLotNo, myOrderBaseEntry,0);
                     }
                     if (myTIQRow.Nett < Properties.Settings.Default.MinimumMaterial)
                     {
                         string ShortLoadFee = Properties.Settings.Default.ShortLoadFee;
-                        DocketLineAdd(ShortLoadFee, "Short Load Fee", GetItemQA(ShortLoadFee), GetItmsGrpCod(ShortLoadFee), "Other", 0, 0);
+                        DocketLineAdd(ShortLoadFee, "Short Load Fee", GetItemQA(ShortLoadFee), GetItmsGrpCod(ShortLoadFee), "Other", 0, 0, 9);
+                        // TODO resolve lineNum
                     }
                     taWBDocketLines.Update(dsTIQ2.WBDocketLines);
                     // 20250828 Not using SMTP2GO, may use a different process later.
                     //if (Properties.Settings.Default.EnableSMS == true && IsDelivery == true)
-                    //{
+                    //{               
                     //    NotifyDeliveryBySMS(myDocNum);
                     //}
                     RemoveFromTIQ(myTIQID, "Docket posted successfully.");
@@ -881,7 +882,7 @@ namespace QWS_Local
             }
         }
 
-        private void DocketLineAdd(string ItemCode, string ItemDescription, bool ItemQA, int ItmsGrpCod, string SWW, int SPLot, int BaseEntry)
+        private void DocketLineAdd(string ItemCode, string ItemDescription, bool ItemQA, int ItmsGrpCod, string SWW, int SPLot, int BaseEntry, int lineNum)
         {
             try
             {
@@ -895,7 +896,7 @@ namespace QWS_Local
 
                 linesRow.DocNum = docketsRow.DocNum;
                 linesRow.BaseEntry = BaseEntry;
-                linesRow.DocketLine = iLines;
+                linesRow.DocketLine = lineNum;
                 linesRow.WarehouseCode = "7";
                 linesRow.ItemCode = ItemCode;
                 linesRow.ItemDescription = ItemDescription;
