@@ -35,10 +35,13 @@
             System.Windows.Forms.Label custONLabel;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.regoTextBox = new System.Windows.Forms.TextBox();
+            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.txtNett = new System.Windows.Forms.TextBox();
-            this.tareTextBox = new System.Windows.Forms.TextBox();
+            this.txtTare = new System.Windows.Forms.TextBox();
             this.txtGross = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtCOD = new System.Windows.Forms.TextBox();
             this.customerTextBox = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtInfo = new System.Windows.Forms.TextBox();
@@ -47,24 +50,21 @@
             this.custONTextBox = new System.Windows.Forms.TextBox();
             this.btnOkay = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.bsSPLotNo = new System.Windows.Forms.BindingSource(this.components);
             this.taTIQ2 = new QWS_Local.dsTIQ2TableAdapters.TIQTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.taSPLotNo = new QWS_Local.dsTIQ2TableAdapters.SPLotNoAssignTableAdapter();
             this.bsCustomer = new System.Windows.Forms.BindingSource(this.components);
             this.taCustomer = new QWS_Local.dsTIQ2TableAdapters.BusinessGetByCodeTableAdapter();
-            this.txtCOD = new System.Windows.Forms.TextBox();
             grossLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             nettLabel = new System.Windows.Forms.Label();
             custONLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotNo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCustomer)).BeginInit();
             this.SuspendLayout();
@@ -112,7 +112,7 @@
             this.groupBox1.Controls.Add(nettLabel);
             this.groupBox1.Controls.Add(this.txtNett);
             this.groupBox1.Controls.Add(tareLabel);
-            this.groupBox1.Controls.Add(this.tareTextBox);
+            this.groupBox1.Controls.Add(this.txtTare);
             this.groupBox1.Controls.Add(grossLabel);
             this.groupBox1.Controls.Add(this.txtGross);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -132,6 +132,16 @@
             this.regoTextBox.Size = new System.Drawing.Size(133, 29);
             this.regoTextBox.TabIndex = 9;
             // 
+            // bsTIQ2
+            // 
+            this.bsTIQ2.DataMember = "TIQ";
+            this.bsTIQ2.DataSource = this.dsTIQ2;
+            // 
+            // dsTIQ2
+            // 
+            this.dsTIQ2.DataSetName = "dsTIQ2";
+            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // txtNett
             // 
             this.txtNett.BackColor = System.Drawing.SystemColors.Control;
@@ -142,14 +152,14 @@
             this.txtNett.Size = new System.Drawing.Size(100, 24);
             this.txtNett.TabIndex = 7;
             // 
-            // tareTextBox
+            // txtTare
             // 
-            this.tareTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Tare", true));
-            this.tareTextBox.Location = new System.Drawing.Point(378, 89);
-            this.tareTextBox.Name = "tareTextBox";
-            this.tareTextBox.ReadOnly = true;
-            this.tareTextBox.Size = new System.Drawing.Size(100, 24);
-            this.tareTextBox.TabIndex = 5;
+            this.txtTare.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Tare", true));
+            this.txtTare.Location = new System.Drawing.Point(378, 89);
+            this.txtTare.Name = "txtTare";
+            this.txtTare.ReadOnly = true;
+            this.txtTare.Size = new System.Drawing.Size(100, 24);
+            this.txtTare.TabIndex = 5;
             // 
             // txtGross
             // 
@@ -171,6 +181,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "2) Check Customer";
             this.groupBox2.UseCompatibleTextRendering = true;
+            // 
+            // txtCOD
+            // 
+            this.txtCOD.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCOD.ForeColor = System.Drawing.Color.Tomato;
+            this.txtCOD.Location = new System.Drawing.Point(25, 83);
+            this.txtCOD.Name = "txtCOD";
+            this.txtCOD.ReadOnly = true;
+            this.txtCOD.Size = new System.Drawing.Size(453, 29);
+            this.txtCOD.TabIndex = 2;
             // 
             // customerTextBox
             // 
@@ -262,16 +282,6 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click_1);
             // 
-            // bsTIQ2
-            // 
-            this.bsTIQ2.DataMember = "TIQ";
-            this.bsTIQ2.DataSource = this.dsTIQ2;
-            // 
-            // dsTIQ2
-            // 
-            this.dsTIQ2.DataSetName = "dsTIQ2";
-            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // bsSPLotNo
             // 
             this.bsSPLotNo.DataMember = "SPLotNoAssign";
@@ -305,16 +315,6 @@
             // 
             this.taCustomer.ClearBeforeFill = true;
             // 
-            // txtCOD
-            // 
-            this.txtCOD.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCOD.ForeColor = System.Drawing.Color.Tomato;
-            this.txtCOD.Location = new System.Drawing.Point(25, 83);
-            this.txtCOD.Name = "txtCOD";
-            this.txtCOD.ReadOnly = true;
-            this.txtCOD.Size = new System.Drawing.Size(453, 29);
-            this.txtCOD.TabIndex = 2;
-            // 
             // PostDocket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -335,12 +335,12 @@
             this.Load += new System.EventHandler(this.PostDocket_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotNo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCustomer)).EndInit();
             this.ResumeLayout(false);
@@ -359,7 +359,7 @@
         private dsTIQ2TableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.TextBox regoTextBox;
         private System.Windows.Forms.TextBox txtNett;
-        private System.Windows.Forms.TextBox tareTextBox;
+        private System.Windows.Forms.TextBox txtTare;
         private System.Windows.Forms.TextBox txtGross;
         private System.Windows.Forms.TextBox customerTextBox;
         private System.Windows.Forms.TextBox materialDescTextBox;

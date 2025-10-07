@@ -21,6 +21,7 @@ namespace QWS_Local
     {
         private int mySiteID;
         private int mySPLotNo;
+        private decimal myTareWeight;
         private string WeighbridgeOperator;
         private string ComputerName;
         private string Domain;
@@ -488,6 +489,12 @@ namespace QWS_Local
             {
                 //MessageBox.Show(frmPostDocket.SPLotNo.ToString());
                 mySPLotNo = frmPostDocket.SPLotNo;
+                myTareWeight = frmPostDocket.TareWeight;
+                if (CurrentTIQ().Tare == 0.0M)
+                {
+                    CurrentTIQ().Tare = myTareWeight;
+                    CurrentTIQ().Nett = CurrentTIQ().Gross - myTareWeight;
+                }
                 return true;
             }
             return false;

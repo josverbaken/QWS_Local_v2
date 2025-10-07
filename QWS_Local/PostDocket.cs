@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,10 +17,16 @@ namespace QWS_Local
         private dsTIQ2.TIQRow myRow;
         private int mySPLotNo;
         private bool myItemQA;
+        private decimal myTareWeight;
 
         public int SPLotNo
         {
             get { return mySPLotNo; }
+        }
+
+        public decimal TareWeight
+        {
+            get { return myTareWeight; }
         }
 
         public PostDocket()
@@ -35,9 +43,10 @@ namespace QWS_Local
 
         private void btnOkay_Click(object sender, EventArgs e)
         {
-            if (myRow.Nett <= 0.0M)
+            myTareWeight = System.Convert.ToDecimal(txtTare.Text);
+            if (myRow.Nett <= 0.0M && myTareWeight == 0.0M)
             {
-                //MessageBox.Show("Unable to proceed NETT <= 0!", "Zero Nett Weight.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Unable to proceed NETT <= 0!\r\nor Tare = 0", "Zero Nett Weight.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 PostDocketCancel();
             }
             else
@@ -70,8 +79,8 @@ namespace QWS_Local
             CheckCOD(myRow.CustomerCode);
             if (myRow.Tare == 0.0M)
             {
-                MessageBox.Show("Tare = zero! \r\nUnable to proceed.","Zero Tare ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                PostDocketCancel();
+                txtTare.ReadOnly = false;
+                MessageBox.Show("Tare = zero! \r\nPlease enter Tare Weight.","Zero Tare ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 
@@ -141,5 +150,6 @@ namespace QWS_Local
         {
             PostDocketCancel();
         }
+
     }
 }
