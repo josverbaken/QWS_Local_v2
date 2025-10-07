@@ -433,6 +433,15 @@ namespace QWS_Local
                     bsTruckDriver.EndEdit();
                     dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
                     dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
+                    string myTruckOwner;
+                    if (myConfigTruck.TruckOwner.Length > 50)
+                    {
+                        myTruckOwner = myConfigTruck.TruckOwner.Substring(0, 50);
+                    }
+                    else
+                    {
+                        myTruckOwner  =myConfigTruck.TruckOwner;
+                    }
                     _TIQRow.Operator = myWBO;//myUsername;
                     _TIQRow.DriverID = myTruckDriver.CntctCode;
                     _TIQRow.Driver = myTruckDriver.Person;
@@ -447,7 +456,7 @@ namespace QWS_Local
                     _TIQRow.AxleConfiguration = myConfigTruck.AxleConfiguration;
                     _TIQRow.FeeCode = myConfigTruck.FeeCode;
                     _TIQRow.TruckOwnerCode = myConfigTruck.CardCode;
-                    _TIQRow.TruckOwner = myConfigTruck.TruckOwner.Substring(0,50);
+                    _TIQRow.TruckOwner = myTruckOwner;
                     _TIQRow.AgrNo = 0;
                     _TIQRow.AgrLine = 0;
                     int iRow = taTIQ.Update(dsTIQ2.TIQ);
