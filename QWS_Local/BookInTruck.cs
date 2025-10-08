@@ -648,7 +648,7 @@ namespace QWS_Local
         private void BookInMaterial()
         {
             {
-                if (BookInTIQType == TIQType.ExBin)
+                if (BookInTIQType == TIQType.ExBin || BookInTIQType == TIQType.Imported)
                 {
                     if (SetExBinCustomer() == true)
                     {
@@ -852,10 +852,7 @@ namespace QWS_Local
     private void btnImported_Click(object sender, EventArgs e)
         {
             BookInTIQType = TIQType.Imported;
-            if (SetExBinCustomer() == true)
-            {
-                GoToBookInMaterial();
-            }
+            GoToBookInMaterial();
         }
     
         private void btnHold_Click(object sender, EventArgs e)

@@ -117,7 +117,10 @@ namespace QWS_Local
         {
             LoadConfiguredTruckGVM(TruckConfigID);
             QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
-            SetExBinNoOrderCustomer();
+            if (FormTIQType == TIQType.ExBin)
+            {
+                SetExBinNoOrderCustomer();
+            }
             FormLoaded = true;
             dgvQuarryOrders.ClearSelection();
             if (FormTIQType != TIQType.ExBin)
@@ -778,7 +781,8 @@ namespace QWS_Local
         {
             try
             {
-                this.taQuarryOrders.Fill(this.dsBookIn.QuarryOrders, OrderType,CardCode, CartageInt,mySiteID);
+                int iRow = this.taQuarryOrders.Fill(this.dsBookIn.QuarryOrders, OrderType,CardCode, CartageInt,mySiteID);
+                iRow += 1;
             }
             catch (System.Exception ex)
             {
