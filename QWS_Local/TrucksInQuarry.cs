@@ -249,7 +249,7 @@ namespace QWS_Local
                                 if (dr == DialogResult.OK)
                                 {
                                     TIQStatusAudit(myTIQRow.TIQID, "T", frmWeighTruck.WBID, frmWeighTruck.WBConnected, frmWeighTruck.Weight, "Capture tare");
-                                    string myRego = myTIQRow.Rego;
+                                    string myRego = myTIQRow.Rego.Trim();
                                     int myTruckConfigID = myTIQRow.TruckConfigID;
                                     int myDriverID = myTIQRow.DriverID;
                                     int myParentTIQID = myTIQRow.TIQID;
