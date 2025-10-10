@@ -861,8 +861,8 @@ namespace QWS_Local
                 docketsRow.MapRef = "";
                 docketsRow.Distance = 0;
                 docketsRow.TruckRego = CurrentTIQ().Rego;
-                docketsRow.TruckOwnerCode = "tba";
-                docketsRow.TruckOwner = "";
+                docketsRow.TruckOwnerCode = CurrentTIQ().TruckOwnerCode;
+                docketsRow.TruckOwner = CurrentTIQ().TruckOwner;
                 docketsRow.TruckConfig = "";
                 docketsRow.TruckConfigID = 1;
                 docketsRow.GrossLegal = 0;
@@ -872,8 +872,8 @@ namespace QWS_Local
                 docketsRow.OverloadPoints = CurrentTIQ().OverloadPoints;
                 docketsRow.OverloadDesc = CurrentTIQ().OverloadDesc;
                 docketsRow.WBMode = "m";
-                docketsRow.TruckDriverID = -1;
-                docketsRow.TruckDriver = "";//"Truck Driver";
+                docketsRow.TruckDriverID = CurrentTIQ().DriverID;
+                docketsRow.TruckDriver = CurrentTIQ().Driver;
                 docketsRow.SalesPersonCode = -1;
                 docketsRow.SalesPerson = "";//"Weighbridge Operator";
                 docketsRow.Comments = "";
