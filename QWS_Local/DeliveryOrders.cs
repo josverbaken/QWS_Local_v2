@@ -174,13 +174,25 @@ namespace QWS_Local
             }
         }
 
-
         private void GetImportedOrders()
         {
             try
             {
                 myOrderType = OrderType.Imported;
                 taQuarryOrders.Fill(dsBookIn.QuarryOrders, "Imported", "AnyCustomer", 0, mySiteID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void GetImportedPickupOrders()
+        {
+            try
+            {
+                myOrderType = OrderType.Imported;
+                taQuarryOrders.Fill(dsBookIn.QuarryOrders, "ImportedPickUp", "AnyCustomer", 0, mySiteID);
             }
             catch (Exception ex)
             {
@@ -217,6 +229,14 @@ namespace QWS_Local
             rbClearDate.Checked=true;
             rbClear.Checked = true; 
             GetImportedOrders();
-        }     
+        }
+
+        private void btnImportedPickupOrders_Click(object sender, EventArgs e)
+        {
+            bsQuarryOrders.Filter = "";
+            rbClearDate.Checked = true;
+            rbClear.Checked = true;
+            GetImportedPickupOrders();
+        }
     }
 }

@@ -92,6 +92,7 @@ namespace QWS_Local
             this.deliveryOrdersAllTableAdapter1 = new QWS_Local.dsBookInTableAdapters.DeliveryOrdersAllTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsBookInTableAdapters.TableAdapterManager();
             this.taQuarryOrders = new QWS_Local.dsBookInTableAdapters.QuarryOrdersTableAdapter();
+            this.btnImportedPickupOrders = new System.Windows.Forms.Button();
             docNumLabel = new System.Windows.Forms.Label();
             materialLabel = new System.Windows.Forms.Label();
             quantityLabel = new System.Windows.Forms.Label();
@@ -254,6 +255,7 @@ namespace QWS_Local
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnImportedPickupOrders);
             this.splitContainer1.Panel1.Controls.Add(this.btnImportedOrders);
             this.splitContainer1.Panel1.Controls.Add(this.btnGetExBinOrders);
             this.splitContainer1.Panel1.Controls.Add(this.gbOderDate);
@@ -540,7 +542,7 @@ namespace QWS_Local
             this.tpDetails.Location = new System.Drawing.Point(4, 22);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(855, 528);
+            this.tpDetails.Size = new System.Drawing.Size(855, 582);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -713,6 +715,16 @@ namespace QWS_Local
             // 
             this.taQuarryOrders.ClearBeforeFill = true;
             // 
+            // btnImportedPickupOrders
+            // 
+            this.btnImportedPickupOrders.Location = new System.Drawing.Point(25, 519);
+            this.btnImportedPickupOrders.Name = "btnImportedPickupOrders";
+            this.btnImportedPickupOrders.Size = new System.Drawing.Size(136, 47);
+            this.btnImportedPickupOrders.TabIndex = 6;
+            this.btnImportedPickupOrders.Text = "Imported Pickup";
+            this.btnImportedPickupOrders.UseVisualStyleBackColor = true;
+            this.btnImportedPickupOrders.Click += new System.EventHandler(this.btnImportedPickupOrders_Click);
+            // 
             // DeliveryOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -793,5 +805,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox projectTextBox;
         private System.Windows.Forms.Button btnGetExBinOrders;
         private System.Windows.Forms.Button btnImportedOrders;
+        private System.Windows.Forms.Button btnImportedPickupOrders;
     }
 }
