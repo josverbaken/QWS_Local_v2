@@ -867,7 +867,7 @@ namespace QWS_Local
                 docketsRow.TruckOwner = CurrentTIQ().TruckOwner;
                 docketsRow.TruckConfig = "";
                 docketsRow.TruckConfigID = 1;
-                docketsRow.GrossLegal = 0;
+                docketsRow.GrossLegal = CurrentTIQ().GCM; //0;
                 docketsRow.Gross = CurrentTIQ().Gross;
                 docketsRow.Tare = CurrentTIQ().Tare;
                 docketsRow.Nett = CurrentTIQ().Nett;
