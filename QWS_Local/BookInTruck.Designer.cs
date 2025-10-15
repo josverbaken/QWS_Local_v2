@@ -500,7 +500,6 @@ namespace QWS_Local
             // 
             // btnImportedPickUp
             // 
-            this.btnImportedPickUp.Enabled = false;
             this.btnImportedPickUp.Location = new System.Drawing.Point(140, 120);
             this.btnImportedPickUp.Name = "btnImportedPickUp";
             this.btnImportedPickUp.Size = new System.Drawing.Size(110, 38);

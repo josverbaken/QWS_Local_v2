@@ -905,11 +905,8 @@ namespace QWS_Local
         private void btnImportedPickUp_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Not yet implemented.","Imported Pickup Message",MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //BookInTIQType = TIQType.ImportedPickUp;
-            //if (SetExBinCustomer() == true)
-            //{
-            //    GoToBookInMaterial();
-            //}
+            BookInTIQType = TIQType.ImportedPickUp;
+                GoToBookInMaterial();
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)

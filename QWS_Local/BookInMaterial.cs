@@ -116,6 +116,10 @@ namespace QWS_Local
         private void BookInMaterial_Load(object sender, EventArgs e)
         {
             LoadConfiguredTruckGVM(TruckConfigID);
+            if (FormTIQType == TIQType.ImportedPickUp)
+            {
+                CardCode = "AnyCustomer";
+            }
             QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
             if (FormTIQType == TIQType.ExBin)
             {

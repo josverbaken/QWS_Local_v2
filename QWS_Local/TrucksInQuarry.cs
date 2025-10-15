@@ -26,6 +26,7 @@ namespace QWS_Local
         private string ComputerName;
         private string Domain;
         private string myConnectionString;
+        private bool blOverRideMinCart;
         //private bool IsDelivery;
         
         public TrucksInQuarry()
@@ -44,7 +45,7 @@ namespace QWS_Local
             myConnectionString = Properties.Settings.Default.cnQWSLocal;
             int iRows = this.taAxleConfiguration.Fill(this.dsQWSLocal2024.AxleConfiguration);
             iRows += 1;
-
+            blOverRideMinCart = false;
             RefreshQueue();
         }
 
@@ -542,6 +543,7 @@ namespace QWS_Local
                                     DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myOrderLine.ItemCode), myOrderLine.SWW, mySPLotNo, myOrderLine.DocEntry, myOrderLine.LineNum);
                                     break;
                                 case "Imported":
+                                    blOverRideMinCart = true;
                                     DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myOrderLine.ItemCode), myOrderLine.SWW, mySPLotNo, myOrderLine.DocEntry, myOrderLine.LineNum);
                                     break;
                                 case "Freight":
@@ -561,7 +563,7 @@ namespace QWS_Local
                         // ExBin No Order
                         DocketLineAdd(myTIQRow.Material, myTIQRow.MaterialDesc, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myTIQRow.Material), "Items", mySPLotNo, myOrderBaseEntry,0);
                     }
-                    if (myTIQRow.Nett < Properties.Settings.Default.MinimumMaterial)
+                    if (myTIQRow.Nett < Properties.Settings.Default.MinimumMaterial && blOverRideMinCart == false)
                     {
                         string ShortLoadFee = Properties.Settings.Default.ShortLoadFee;
                         DocketLineAdd(ShortLoadFee, "Short Load Fee", GetItemQA(ShortLoadFee), GetItmsGrpCod(ShortLoadFee), "Other", 0, 0, 9);
