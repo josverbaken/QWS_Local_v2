@@ -497,7 +497,6 @@ namespace QWS_Local
             _TIQRow.RegoTr2 = myConfigTruck.RegoTr2;
             _TIQRow.RegoTr3 = myConfigTruck.RegoTr3;
             _TIQRow.RegoTrailers = myConfigTruck.RegoTrailer;
-            //_TIQRow.TruckConfig // set elsewhere, don't overwrite!
             _TIQRow.TruckConfigID = myConfigTruck.TruckConfigID;
             _TIQRow.AxleConfiguration = myConfigTruck.AxleConfiguration;
             _TIQRow.FeeCode = myConfigTruck.FeeCode;
@@ -511,6 +510,9 @@ namespace QWS_Local
                     _TIQRow.QueueStatus = "P";
                     _TIQRow.Material = "Truck Rego";
                     _TIQRow.MaterialDesc = "Book in started";
+                    _TIQRow.Tare = myConfigTruck.Tare;
+                    _TIQRow.TareTk = myConfigTruck.TareTk;
+                    _TIQRow.TruckConfig = myConfigTruck.VehicleType;
                     break;
                 case TIQType.Retare:
                     _TIQRow.QueueStatus = "T";
@@ -657,7 +659,7 @@ namespace QWS_Local
                         bsTIQ.EndEdit();
                     }
                 }
-                UpdateTIQ(BookInTIQType); //, _TIQRow.TruckConfig);
+                UpdateTIQ(BookInTIQType);
                 BookInMaterial frmExBin = new BookInMaterial(_TIQRow, BookInTIQType.ToString(), IsPrefCust, CurrentTruckDriver());
                 frmExBin.MdiParent = this.MdiParent;
                 frmExBin.Show();
@@ -675,7 +677,7 @@ namespace QWS_Local
         {
             if (TIQID > 0)
             {
-                UpdateTIQ(TIQType.Retare); //, _TIQRow.TruckConfig);
+                UpdateTIQ(TIQType.Retare);
                 TIQID = 0;
                 ((QWS_MDIParent)this.MdiParent).BringTIQ2Front();
                 this.Close();
@@ -736,7 +738,7 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@RegoTr2", "RegoTr2"); // myConfigTruck.RegoTr2);
                 cmd.Parameters.AddWithValue("@RegoTr3", "RegoTr3"); // myConfigTruck.RegoTr3);
                 cmd.Parameters.AddWithValue("@RegoTrailers", "RegoTrailers"); // myConfigTruck.RegoTrailer);
-                cmd.Parameters.AddWithValue("@TruckConfig", TruckOrTrailerConfig); // myConfigTruck.VehicleType);
+                cmd.Parameters.AddWithValue("@TruckConfig", "tba"); // TruckOrTrailerConfig); // myConfigTruck.VehicleType);
                 cmd.Parameters.AddWithValue("@TruckConfigID", myTruckConfigID); //myConfigTruck.TruckConfigID);
                 cmd.Parameters.AddWithValue("@AxleConfiguration", myConfigTruck.AxleConfiguration);
                 cmd.Parameters.AddWithValue("@FeeCode", myConfigTruck.FeeCode);
@@ -759,13 +761,13 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@TruckOwner", myConfigTruck.TruckOwner);
                 cmd.Parameters.AddWithValue("@DriverID", myDriverID);
                 cmd.Parameters.AddWithValue("@Driver", myDriver);
-                cmd.Parameters.AddWithValue("@Payload", 0);
+                cmd.Parameters.AddWithValue("@Payload", 0.0M);
                 cmd.Parameters.AddWithValue("@PayloadSplit", ""); // text 12.5/20.5
-                cmd.Parameters.AddWithValue("@GCM", 0);
-                cmd.Parameters.AddWithValue("@GVMTruck", 0);
+                cmd.Parameters.AddWithValue("@GCM", 0.0M);
+                cmd.Parameters.AddWithValue("@GVMTruck", 0.0M);
                 cmd.Parameters.AddWithValue("@Gross", 0.0M);
-                cmd.Parameters.AddWithValue("@Tare", myConfigTruck.Tare);
-                cmd.Parameters.AddWithValue("@TareTk", 0);
+                cmd.Parameters.AddWithValue("@Tare", 0.0M); // myConfigTruck.Tare);
+                cmd.Parameters.AddWithValue("@TareTk", 0.0M);
                 cmd.Parameters.AddWithValue("@Nett", 0.0M);
                 cmd.Parameters.AddWithValue("@EntryDTTM", EntryDTTM);
                 cmd.Parameters.AddWithValue("@TruckConfigDTTM", DateTime.Now);
@@ -973,6 +975,11 @@ namespace QWS_Local
         }
        
         private void btnSetTruckConfig_Click(object sender, EventArgs e)
+        {
+            SetTruckConfig();
+        }
+
+        private void SetTruckConfig()
         {
             dsTruckConfig.ConfiguredTrucksRow myConfiguredTrucksRow = CurrentConfigTruck();
             _TIQRow.TruckConfig = myConfiguredTrucksRow.VehicleType.ToString(); // CurrentConfigTruck().VehicleType.ToString();

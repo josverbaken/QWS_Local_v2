@@ -10401,6 +10401,7 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GVMTruck", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "GVMTruck", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gross", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "Gross", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tare", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "Tare", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TareTk", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "TareTk", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nett", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "Nett", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OverloadPoints", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "OverloadPoints", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OverloadDesc", global::System.Data.SqlDbType.VarChar, 25, global::System.Data.ParameterDirection.Input, 0, 0, "OverloadDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -10971,6 +10972,7 @@ namespace QWS_Local.dsTIQ2TableAdapters {
                     global::System.Nullable<decimal> GVMTruck, 
                     global::System.Nullable<decimal> Gross, 
                     global::System.Nullable<decimal> Tare, 
+                    global::System.Nullable<decimal> TareTk, 
                     global::System.Nullable<decimal> Nett, 
                     global::System.Nullable<int> OverloadPoints, 
                     string OverloadDesc, 
@@ -11180,35 +11182,41 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
-            if ((Nett.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((decimal)(Nett.Value));
+            if ((TareTk.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((decimal)(TareTk.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
             }
-            if ((OverloadPoints.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(OverloadPoints.Value));
+            if ((Nett.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((decimal)(Nett.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
             }
-            if ((OverloadDesc == null)) {
+            if ((OverloadPoints.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((int)(OverloadPoints.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(OverloadDesc));
-            }
-            if ((AgrNo.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((int)(AgrNo.Value));
-            }
-            else {
+            if ((OverloadDesc == null)) {
                 this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
             }
-            if ((AgrLine.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((int)(AgrLine.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(OverloadDesc));
+            }
+            if ((AgrNo.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((int)(AgrNo.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            if ((AgrLine.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((int)(AgrLine.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
