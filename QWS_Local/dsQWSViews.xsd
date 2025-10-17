@@ -50,7 +50,7 @@ and substring(ItemCode,1,2) like @SiteCode</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DocketListTableAdapter" GeneratorDataComponentClassName="DocketListTableAdapter" Name="DocketList" UserDataComponentName="DocketListTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.DocketList" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWS_NQ_Dev.dbo.DocketList" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT t0.* 
@@ -79,6 +79,8 @@ FROM DocketList t0</CommandText>
               <Mapping SourceColumn="OverloadDesc" DataSetColumn="OverloadDesc" />
               <Mapping SourceColumn="WBMode" DataSetColumn="WBMode" />
               <Mapping SourceColumn="Overload" DataSetColumn="Overload" />
+              <Mapping SourceColumn="SiteID" DataSetColumn="SiteID" />
+              <Mapping SourceColumn="ProcessStatus" DataSetColumn="ProcessStatus" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.DeliveryDocketsToday" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
@@ -260,10 +262,18 @@ FROM DocketList t0</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Overload" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Overload" msprop:Generator_ColumnPropNameInTable="OverloadColumn" msprop:Generator_ColumnPropNameInRow="Overload" msprop:Generator_ColumnVarNameInTable="columnOverload" minOccurs="0">
+              <xs:element name="Overload" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="OverloadColumn" msprop:Generator_ColumnPropNameInRow="Overload" msprop:Generator_UserColumnName="Overload" msprop:Generator_ColumnVarNameInTable="columnOverload" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="22" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SiteID" msprop:Generator_ColumnPropNameInRow="SiteID" msprop:Generator_ColumnPropNameInTable="SiteIDColumn" msprop:Generator_ColumnVarNameInTable="columnSiteID" msprop:Generator_UserColumnName="SiteID" type="xs:int" />
+              <xs:element name="ProcessStatus" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="ProcessStatus" msprop:Generator_ColumnPropNameInTable="ProcessStatusColumn" msprop:Generator_ColumnVarNameInTable="columnProcessStatus" msprop:Generator_UserColumnName="ProcessStatus" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

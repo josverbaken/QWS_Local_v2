@@ -2695,6 +2695,8 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnOverrideMinCart;
             
+            private global::System.Data.DataColumn columnTareTk;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ConfiguredTrucksDataTable() {
@@ -3002,6 +3004,14 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TareTkColumn {
+                get {
+                    return this.columnTareTk;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3070,7 +3080,8 @@ namespace QWS_Local {
                         string MassAccreditationLabel, 
                         bool ACCDelivery, 
                         bool ACCPickup, 
-                        bool OverrideMinCart) {
+                        bool OverrideMinCart, 
+                        decimal TareTk) {
                 ConfiguredTrucksRow rowConfiguredTrucksRow = ((ConfiguredTrucksRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RegoTk,
@@ -3106,7 +3117,8 @@ namespace QWS_Local {
                         MassAccreditationLabel,
                         ACCDelivery,
                         ACCPickup,
-                        OverrideMinCart};
+                        OverrideMinCart,
+                        TareTk};
                 rowConfiguredTrucksRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowConfiguredTrucksRow);
                 return rowConfiguredTrucksRow;
@@ -3163,6 +3175,7 @@ namespace QWS_Local {
                 this.columnACCDelivery = base.Columns["ACCDelivery"];
                 this.columnACCPickup = base.Columns["ACCPickup"];
                 this.columnOverrideMinCart = base.Columns["OverrideMinCart"];
+                this.columnTareTk = base.Columns["TareTk"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3236,6 +3249,8 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnACCPickup);
                 this.columnOverrideMinCart = new global::System.Data.DataColumn("OverrideMinCart", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOverrideMinCart);
+                this.columnTareTk = new global::System.Data.DataColumn("TareTk", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTareTk);
                 this.columnRegoTk.AllowDBNull = false;
                 this.columnRegoTk.MaxLength = 6;
                 this.columnRegoTr1.MaxLength = 6;
@@ -6446,6 +6461,22 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal TareTk {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableConfiguredTrucks.TareTkColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TareTk\' in table \'ConfiguredTrucks\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableConfiguredTrucks.TareTkColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsRegoTr1Null() {
                 return this.IsNull(this.tableConfiguredTrucks.RegoTr1Column);
             }
@@ -6610,6 +6641,18 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetRegoCheckNull() {
                 this[this.tableConfiguredTrucks.RegoCheckColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTareTkNull() {
+                return this.IsNull(this.tableConfiguredTrucks.TareTkColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTareTkNull() {
+                this[this.tableConfiguredTrucks.TareTkColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8849,6 +8892,7 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)";
             tableMapping.ColumnMappings.Add("ACCDelivery", "ACCDelivery");
             tableMapping.ColumnMappings.Add("ACCPickup", "ACCPickup");
             tableMapping.ColumnMappings.Add("OverrideMinCart", "OverrideMinCart");
+            tableMapping.ColumnMappings.Add("TareTk", "TareTk");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

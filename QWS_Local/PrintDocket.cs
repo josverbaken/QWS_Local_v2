@@ -118,5 +118,10 @@ namespace QWS_Local
                 return null;
             }
         }
+
+        private void btnPrintDocket_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Still to implement PrintDirect");
+        }
     }
 }

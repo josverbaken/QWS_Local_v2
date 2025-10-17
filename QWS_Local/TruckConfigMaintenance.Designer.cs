@@ -59,25 +59,13 @@
             System.Windows.Forms.Label tareDTLabel;
             System.Windows.Forms.Label truckConfigIDLabel;
             System.Windows.Forms.Label truckTypeIDLabel;
+            System.Windows.Forms.Label tareTkLabel1;
             this.txtRego = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.roadAccessDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.configSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schemeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gCMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.regoTkDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.regoTrailerDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.axleConfigurationDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VehicleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehicleDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.feeCodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsConfiguredTrucks = new System.Windows.Forms.BindingSource(this.components);
             this.tpDetails = new System.Windows.Forms.TabPage();
             this.truckConfigIDTextBox = new System.Windows.Forms.TextBox();
             this.feeConditionsTextBox = new System.Windows.Forms.TextBox();
@@ -133,9 +121,23 @@
             this.bsVehicle2 = new System.Windows.Forms.BindingSource(this.components);
             this.taVehicle2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleTableAdapter();
             this.tableAdapterManager2 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
+            this.regoTkDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.regoTrailerDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.axleConfigurationDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.feeCodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsConfiguredTrucks = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTruckConfig = new QWS_Local.dsTruckConfig();
+            this.roadAccessDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.configSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schemeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schemeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gCMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsConfiguredTruckGVM = new System.Windows.Forms.BindingSource(this.components);
             this.taConfiguredTruckGVM = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTruckGVMTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
             this.taConfiguredTrucks = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
+            this.tareTkTextBox1 = new System.Windows.Forms.TextBox();
             vehicleTypeLabel = new System.Windows.Forms.Label();
             axlesLabel = new System.Windows.Forms.Label();
             axleGroupsLabel = new System.Windows.Forms.Label();
@@ -166,13 +168,11 @@
             tareDTLabel = new System.Windows.Forms.Label();
             truckConfigIDLabel = new System.Windows.Forms.Label();
             truckTypeIDLabel = new System.Windows.Forms.Label();
+            tareTkLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
             this.tpDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.schematicPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -188,12 +188,15 @@
             this.tpConfigGVMDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicle2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
             this.SuspendLayout();
             // 
             // vehicleTypeLabel
             // 
             vehicleTypeLabel.AutoSize = true;
-            vehicleTypeLabel.Location = new System.Drawing.Point(605, 116);
+            vehicleTypeLabel.Location = new System.Drawing.Point(739, 116);
             vehicleTypeLabel.Name = "vehicleTypeLabel";
             vehicleTypeLabel.Size = new System.Drawing.Size(95, 18);
             vehicleTypeLabel.TabIndex = 11;
@@ -202,7 +205,7 @@
             // axlesLabel
             // 
             axlesLabel.AutoSize = true;
-            axlesLabel.Location = new System.Drawing.Point(28, 177);
+            axlesLabel.Location = new System.Drawing.Point(60, 177);
             axlesLabel.Name = "axlesLabel";
             axlesLabel.Size = new System.Drawing.Size(47, 18);
             axlesLabel.TabIndex = 12;
@@ -211,7 +214,7 @@
             // axleGroupsLabel
             // 
             axleGroupsLabel.AutoSize = true;
-            axleGroupsLabel.Location = new System.Drawing.Point(188, 177);
+            axleGroupsLabel.Location = new System.Drawing.Point(14, 207);
             axleGroupsLabel.Name = "axleGroupsLabel";
             axleGroupsLabel.Size = new System.Drawing.Size(93, 18);
             axleGroupsLabel.TabIndex = 13;
@@ -220,7 +223,7 @@
             // compartmentsLabel
             // 
             compartmentsLabel.AutoSize = true;
-            compartmentsLabel.Location = new System.Drawing.Point(529, 177);
+            compartmentsLabel.Location = new System.Drawing.Point(492, 177);
             compartmentsLabel.Name = "compartmentsLabel";
             compartmentsLabel.Size = new System.Drawing.Size(111, 18);
             compartmentsLabel.TabIndex = 15;
@@ -238,7 +241,7 @@
             // maxGVMLabel
             // 
             maxGVMLabel.AutoSize = true;
-            maxGVMLabel.Location = new System.Drawing.Point(29, 207);
+            maxGVMLabel.Location = new System.Drawing.Point(218, 177);
             maxGVMLabel.Name = "maxGVMLabel";
             maxGVMLabel.Size = new System.Drawing.Size(78, 18);
             maxGVMLabel.TabIndex = 18;
@@ -256,11 +259,11 @@
             // massAccreditationLabelLabel
             // 
             massAccreditationLabelLabel.AutoSize = true;
-            massAccreditationLabelLabel.Location = new System.Drawing.Point(417, 207);
+            massAccreditationLabelLabel.Location = new System.Drawing.Point(469, 207);
             massAccreditationLabelLabel.Name = "massAccreditationLabelLabel";
-            massAccreditationLabelLabel.Size = new System.Drawing.Size(177, 18);
+            massAccreditationLabelLabel.Size = new System.Drawing.Size(134, 18);
             massAccreditationLabelLabel.TabIndex = 22;
-            massAccreditationLabelLabel.Text = "Mass Accreditation Label:";
+            massAccreditationLabelLabel.Text = "Mass Accreditation";
             // 
             // feeConditionsLabel
             // 
@@ -487,54 +490,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(972, 298);
             this.dataGridView1.TabIndex = 2;
             // 
-            // roadAccessDataGridViewTextBoxColumn
-            // 
-            this.roadAccessDataGridViewTextBoxColumn.DataPropertyName = "RoadAccess";
-            this.roadAccessDataGridViewTextBoxColumn.HeaderText = "RoadAccess";
-            this.roadAccessDataGridViewTextBoxColumn.Name = "roadAccessDataGridViewTextBoxColumn";
-            this.roadAccessDataGridViewTextBoxColumn.ReadOnly = true;
-            this.roadAccessDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // configSourceDataGridViewTextBoxColumn
-            // 
-            this.configSourceDataGridViewTextBoxColumn.DataPropertyName = "ConfigSource";
-            this.configSourceDataGridViewTextBoxColumn.HeaderText = "Config Source";
-            this.configSourceDataGridViewTextBoxColumn.Name = "configSourceDataGridViewTextBoxColumn";
-            this.configSourceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.configSourceDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // schemeCodeDataGridViewTextBoxColumn
-            // 
-            this.schemeCodeDataGridViewTextBoxColumn.DataPropertyName = "SchemeCode";
-            this.schemeCodeDataGridViewTextBoxColumn.HeaderText = "Scheme Code";
-            this.schemeCodeDataGridViewTextBoxColumn.Name = "schemeCodeDataGridViewTextBoxColumn";
-            this.schemeCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // schemeDataGridViewTextBoxColumn
-            // 
-            this.schemeDataGridViewTextBoxColumn.DataPropertyName = "Scheme";
-            this.schemeDataGridViewTextBoxColumn.HeaderText = "Scheme";
-            this.schemeDataGridViewTextBoxColumn.Name = "schemeDataGridViewTextBoxColumn";
-            this.schemeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.schemeDataGridViewTextBoxColumn.Width = 400;
-            // 
-            // gCMDataGridViewTextBoxColumn
-            // 
-            this.gCMDataGridViewTextBoxColumn.DataPropertyName = "GCM";
-            this.gCMDataGridViewTextBoxColumn.HeaderText = "GCM";
-            this.gCMDataGridViewTextBoxColumn.Name = "gCMDataGridViewTextBoxColumn";
-            this.gCMDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bsConfiguredTruckGVM
-            // 
-            this.bsConfiguredTruckGVM.DataMember = "ConfiguredTruckGVM";
-            this.bsConfiguredTruckGVM.DataSource = this.dsTruckConfig;
-            // 
-            // dsTruckConfig
-            // 
-            this.dsTruckConfig.DataSetName = "dsTruckConfig";
-            this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tpList);
@@ -578,29 +533,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(972, 247);
             this.dataGridView2.TabIndex = 0;
             // 
-            // regoTkDataGridViewTextBoxColumn1
-            // 
-            this.regoTkDataGridViewTextBoxColumn1.DataPropertyName = "RegoTk";
-            this.regoTkDataGridViewTextBoxColumn1.HeaderText = "RegoTk";
-            this.regoTkDataGridViewTextBoxColumn1.Name = "regoTkDataGridViewTextBoxColumn1";
-            this.regoTkDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // regoTrailerDataGridViewTextBoxColumn1
-            // 
-            this.regoTrailerDataGridViewTextBoxColumn1.DataPropertyName = "RegoTrailer";
-            this.regoTrailerDataGridViewTextBoxColumn1.HeaderText = "Rego Trailer/s";
-            this.regoTrailerDataGridViewTextBoxColumn1.Name = "regoTrailerDataGridViewTextBoxColumn1";
-            this.regoTrailerDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.regoTrailerDataGridViewTextBoxColumn1.Width = 200;
-            // 
-            // axleConfigurationDataGridViewTextBoxColumn1
-            // 
-            this.axleConfigurationDataGridViewTextBoxColumn1.DataPropertyName = "AxleConfiguration";
-            this.axleConfigurationDataGridViewTextBoxColumn1.HeaderText = "Axle Config";
-            this.axleConfigurationDataGridViewTextBoxColumn1.Name = "axleConfigurationDataGridViewTextBoxColumn1";
-            this.axleConfigurationDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.axleConfigurationDataGridViewTextBoxColumn1.Width = 120;
-            // 
             // VehicleType
             // 
             this.VehicleType.DataPropertyName = "VehicleType";
@@ -609,30 +541,11 @@
             this.VehicleType.ReadOnly = true;
             this.VehicleType.Width = 60;
             // 
-            // vehicleDescriptionDataGridViewTextBoxColumn
-            // 
-            this.vehicleDescriptionDataGridViewTextBoxColumn.DataPropertyName = "VehicleDescription";
-            this.vehicleDescriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.vehicleDescriptionDataGridViewTextBoxColumn.Name = "vehicleDescriptionDataGridViewTextBoxColumn";
-            this.vehicleDescriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.vehicleDescriptionDataGridViewTextBoxColumn.Width = 340;
-            // 
-            // feeCodeDataGridViewTextBoxColumn1
-            // 
-            this.feeCodeDataGridViewTextBoxColumn1.DataPropertyName = "FeeCode";
-            this.feeCodeDataGridViewTextBoxColumn1.HeaderText = "FeeCode";
-            this.feeCodeDataGridViewTextBoxColumn1.Name = "feeCodeDataGridViewTextBoxColumn1";
-            this.feeCodeDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // bsConfiguredTrucks
-            // 
-            this.bsConfiguredTrucks.DataMember = "ConfiguredTrucks";
-            this.bsConfiguredTrucks.DataSource = this.dsTruckConfig;
-            this.bsConfiguredTrucks.CurrentChanged += new System.EventHandler(this.bsConfiguredTrucks_CurrentChanged);
-            // 
             // tpDetails
             // 
             this.tpDetails.AutoScroll = true;
+            this.tpDetails.Controls.Add(tareTkLabel1);
+            this.tpDetails.Controls.Add(this.tareTkTextBox1);
             this.tpDetails.Controls.Add(truckConfigIDLabel);
             this.tpDetails.Controls.Add(this.truckConfigIDTextBox);
             this.tpDetails.Controls.Add(feeConditionsLabel);
@@ -661,10 +574,10 @@
             this.tpDetails.Controls.Add(this.feeCodeTextBox);
             this.tpDetails.Controls.Add(this.truckOwnerTextBox);
             this.tpDetails.Controls.Add(this.regoTkTextBox);
-            this.tpDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpDetails.Location = new System.Drawing.Point(4, 27);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(978, 258);
+            this.tpDetails.Size = new System.Drawing.Size(978, 253);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -688,7 +601,7 @@
             // massAccreditationLabelTextBox
             // 
             this.massAccreditationLabelTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "MassAccreditationLabel", true));
-            this.massAccreditationLabelTextBox.Location = new System.Drawing.Point(600, 204);
+            this.massAccreditationLabelTextBox.Location = new System.Drawing.Point(609, 204);
             this.massAccreditationLabelTextBox.Name = "massAccreditationLabelTextBox";
             this.massAccreditationLabelTextBox.Size = new System.Drawing.Size(100, 24);
             this.massAccreditationLabelTextBox.TabIndex = 23;
@@ -704,7 +617,7 @@
             // maxGVMTextBox
             // 
             this.maxGVMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "MaxGVM", true));
-            this.maxGVMTextBox.Location = new System.Drawing.Point(113, 204);
+            this.maxGVMTextBox.Location = new System.Drawing.Point(302, 174);
             this.maxGVMTextBox.Name = "maxGVMTextBox";
             this.maxGVMTextBox.Size = new System.Drawing.Size(100, 24);
             this.maxGVMTextBox.TabIndex = 19;
@@ -720,7 +633,7 @@
             // compartmentsTextBox
             // 
             this.compartmentsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "Compartments", true));
-            this.compartmentsTextBox.Location = new System.Drawing.Point(646, 174);
+            this.compartmentsTextBox.Location = new System.Drawing.Point(609, 174);
             this.compartmentsTextBox.Name = "compartmentsTextBox";
             this.compartmentsTextBox.Size = new System.Drawing.Size(100, 24);
             this.compartmentsTextBox.TabIndex = 16;
@@ -728,7 +641,7 @@
             // axleGroupsTextBox
             // 
             this.axleGroupsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "AxleGroups", true));
-            this.axleGroupsTextBox.Location = new System.Drawing.Point(287, 174);
+            this.axleGroupsTextBox.Location = new System.Drawing.Point(113, 204);
             this.axleGroupsTextBox.Name = "axleGroupsTextBox";
             this.axleGroupsTextBox.Size = new System.Drawing.Size(100, 24);
             this.axleGroupsTextBox.TabIndex = 14;
@@ -736,7 +649,7 @@
             // axlesTextBox
             // 
             this.axlesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "Axles", true));
-            this.axlesTextBox.Location = new System.Drawing.Point(81, 174);
+            this.axlesTextBox.Location = new System.Drawing.Point(113, 174);
             this.axlesTextBox.Name = "axlesTextBox";
             this.axlesTextBox.Size = new System.Drawing.Size(100, 24);
             this.axlesTextBox.TabIndex = 13;
@@ -744,7 +657,7 @@
             // vehicleTypeTextBox
             // 
             this.vehicleTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "VehicleType", true));
-            this.vehicleTypeTextBox.Location = new System.Drawing.Point(706, 113);
+            this.vehicleTypeTextBox.Location = new System.Drawing.Point(840, 113);
             this.vehicleTypeTextBox.Name = "vehicleTypeTextBox";
             this.vehicleTypeTextBox.Size = new System.Drawing.Size(100, 24);
             this.vehicleTypeTextBox.TabIndex = 12;
@@ -762,15 +675,15 @@
             this.regoTrailerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "RegoTrailer", true));
             this.regoTrailerTextBox.Location = new System.Drawing.Point(609, 23);
             this.regoTrailerTextBox.Name = "regoTrailerTextBox";
-            this.regoTrailerTextBox.Size = new System.Drawing.Size(197, 24);
+            this.regoTrailerTextBox.Size = new System.Drawing.Size(225, 24);
             this.regoTrailerTextBox.TabIndex = 10;
             // 
             // tareDTTextBox
             // 
             this.tareDTTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "TareDT", true));
-            this.tareDTTextBox.Location = new System.Drawing.Point(609, 83);
+            this.tareDTTextBox.Location = new System.Drawing.Point(770, 81);
             this.tareDTTextBox.Name = "tareDTTextBox";
-            this.tareDTTextBox.Size = new System.Drawing.Size(197, 24);
+            this.tareDTTextBox.Size = new System.Drawing.Size(170, 24);
             this.tareDTTextBox.TabIndex = 9;
             // 
             // tareTextBox
@@ -793,7 +706,7 @@
             // feeCodeTextBox
             // 
             this.feeCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "FeeCode", true));
-            this.feeCodeTextBox.Location = new System.Drawing.Point(812, 23);
+            this.feeCodeTextBox.Location = new System.Drawing.Point(840, 23);
             this.feeCodeTextBox.Name = "feeCodeTextBox";
             this.feeCodeTextBox.Size = new System.Drawing.Size(100, 24);
             this.feeCodeTextBox.TabIndex = 5;
@@ -994,10 +907,10 @@
             this.tpConfigGVMDetails.Controls.Add(this.axleConfigurationTextBox1);
             this.tpConfigGVMDetails.Controls.Add(regoTrailerLabel);
             this.tpConfigGVMDetails.Controls.Add(this.regoTrailerTextBox1);
-            this.tpConfigGVMDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpConfigGVMDetails.Location = new System.Drawing.Point(4, 27);
             this.tpConfigGVMDetails.Name = "tpConfigGVMDetails";
             this.tpConfigGVMDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpConfigGVMDetails.Size = new System.Drawing.Size(978, 309);
+            this.tpConfigGVMDetails.Size = new System.Drawing.Size(978, 304);
             this.tpConfigGVMDetails.TabIndex = 1;
             this.tpConfigGVMDetails.Text = "Details";
             this.tpConfigGVMDetails.UseVisualStyleBackColor = true;
@@ -1187,6 +1100,98 @@
             this.tableAdapterManager2.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager2.VehicleTableAdapter = this.taVehicle2;
             // 
+            // regoTkDataGridViewTextBoxColumn1
+            // 
+            this.regoTkDataGridViewTextBoxColumn1.DataPropertyName = "RegoTk";
+            this.regoTkDataGridViewTextBoxColumn1.HeaderText = "RegoTk";
+            this.regoTkDataGridViewTextBoxColumn1.Name = "regoTkDataGridViewTextBoxColumn1";
+            this.regoTkDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // regoTrailerDataGridViewTextBoxColumn1
+            // 
+            this.regoTrailerDataGridViewTextBoxColumn1.DataPropertyName = "RegoTrailer";
+            this.regoTrailerDataGridViewTextBoxColumn1.HeaderText = "Rego Trailer/s";
+            this.regoTrailerDataGridViewTextBoxColumn1.Name = "regoTrailerDataGridViewTextBoxColumn1";
+            this.regoTrailerDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.regoTrailerDataGridViewTextBoxColumn1.Width = 200;
+            // 
+            // axleConfigurationDataGridViewTextBoxColumn1
+            // 
+            this.axleConfigurationDataGridViewTextBoxColumn1.DataPropertyName = "AxleConfiguration";
+            this.axleConfigurationDataGridViewTextBoxColumn1.HeaderText = "Axle Config";
+            this.axleConfigurationDataGridViewTextBoxColumn1.Name = "axleConfigurationDataGridViewTextBoxColumn1";
+            this.axleConfigurationDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.axleConfigurationDataGridViewTextBoxColumn1.Width = 120;
+            // 
+            // vehicleDescriptionDataGridViewTextBoxColumn
+            // 
+            this.vehicleDescriptionDataGridViewTextBoxColumn.DataPropertyName = "VehicleDescription";
+            this.vehicleDescriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.vehicleDescriptionDataGridViewTextBoxColumn.Name = "vehicleDescriptionDataGridViewTextBoxColumn";
+            this.vehicleDescriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vehicleDescriptionDataGridViewTextBoxColumn.Width = 340;
+            // 
+            // feeCodeDataGridViewTextBoxColumn1
+            // 
+            this.feeCodeDataGridViewTextBoxColumn1.DataPropertyName = "FeeCode";
+            this.feeCodeDataGridViewTextBoxColumn1.HeaderText = "FeeCode";
+            this.feeCodeDataGridViewTextBoxColumn1.Name = "feeCodeDataGridViewTextBoxColumn1";
+            this.feeCodeDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // bsConfiguredTrucks
+            // 
+            this.bsConfiguredTrucks.DataMember = "ConfiguredTrucks";
+            this.bsConfiguredTrucks.DataSource = this.dsTruckConfig;
+            this.bsConfiguredTrucks.CurrentChanged += new System.EventHandler(this.bsConfiguredTrucks_CurrentChanged);
+            // 
+            // dsTruckConfig
+            // 
+            this.dsTruckConfig.DataSetName = "dsTruckConfig";
+            this.dsTruckConfig.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // roadAccessDataGridViewTextBoxColumn
+            // 
+            this.roadAccessDataGridViewTextBoxColumn.DataPropertyName = "RoadAccess";
+            this.roadAccessDataGridViewTextBoxColumn.HeaderText = "RoadAccess";
+            this.roadAccessDataGridViewTextBoxColumn.Name = "roadAccessDataGridViewTextBoxColumn";
+            this.roadAccessDataGridViewTextBoxColumn.ReadOnly = true;
+            this.roadAccessDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // configSourceDataGridViewTextBoxColumn
+            // 
+            this.configSourceDataGridViewTextBoxColumn.DataPropertyName = "ConfigSource";
+            this.configSourceDataGridViewTextBoxColumn.HeaderText = "Config Source";
+            this.configSourceDataGridViewTextBoxColumn.Name = "configSourceDataGridViewTextBoxColumn";
+            this.configSourceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.configSourceDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // schemeCodeDataGridViewTextBoxColumn
+            // 
+            this.schemeCodeDataGridViewTextBoxColumn.DataPropertyName = "SchemeCode";
+            this.schemeCodeDataGridViewTextBoxColumn.HeaderText = "Scheme Code";
+            this.schemeCodeDataGridViewTextBoxColumn.Name = "schemeCodeDataGridViewTextBoxColumn";
+            this.schemeCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // schemeDataGridViewTextBoxColumn
+            // 
+            this.schemeDataGridViewTextBoxColumn.DataPropertyName = "Scheme";
+            this.schemeDataGridViewTextBoxColumn.HeaderText = "Scheme";
+            this.schemeDataGridViewTextBoxColumn.Name = "schemeDataGridViewTextBoxColumn";
+            this.schemeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.schemeDataGridViewTextBoxColumn.Width = 400;
+            // 
+            // gCMDataGridViewTextBoxColumn
+            // 
+            this.gCMDataGridViewTextBoxColumn.DataPropertyName = "GCM";
+            this.gCMDataGridViewTextBoxColumn.HeaderText = "GCM";
+            this.gCMDataGridViewTextBoxColumn.Name = "gCMDataGridViewTextBoxColumn";
+            this.gCMDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bsConfiguredTruckGVM
+            // 
+            this.bsConfiguredTruckGVM.DataMember = "ConfiguredTruckGVM";
+            this.bsConfiguredTruckGVM.DataSource = this.dsTruckConfig;
+            // 
             // taConfiguredTruckGVM
             // 
             this.taConfiguredTruckGVM.ClearBeforeFill = true;
@@ -1200,6 +1205,23 @@
             // taConfiguredTrucks
             // 
             this.taConfiguredTrucks.ClearBeforeFill = true;
+            // 
+            // tareTkLabel1
+            // 
+            tareTkLabel1.AutoSize = true;
+            tareTkLabel1.Location = new System.Drawing.Point(611, 84);
+            tareTkLabel1.Name = "tareTkLabel1";
+            tareTkLabel1.Size = new System.Drawing.Size(63, 18);
+            tareTkLabel1.TabIndex = 28;
+            tareTkLabel1.Text = "Tare Tk:";
+            // 
+            // tareTkTextBox1
+            // 
+            this.tareTkTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTrucks, "TareTk", true));
+            this.tareTkTextBox1.Location = new System.Drawing.Point(680, 81);
+            this.tareTkTextBox1.Name = "tareTkTextBox1";
+            this.tareTkTextBox1.Size = new System.Drawing.Size(84, 24);
+            this.tareTkTextBox1.TabIndex = 29;
             // 
             // TruckConfigMaintenance
             // 
@@ -1216,12 +1238,9 @@
             this.Load += new System.EventHandler(this.TruckConfigMaintenance_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TruckConfigMaintenance_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
             this.tpDetails.ResumeLayout(false);
             this.tpDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.schematicPictureBox)).EndInit();
@@ -1240,6 +1259,9 @@
             this.tpConfigGVMDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicle2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1322,5 +1344,6 @@
         private System.Windows.Forms.TextBox truckConfigIDTextBox;
         private System.Windows.Forms.Button btnDeleteConfigGVM;
         private System.Windows.Forms.TextBox truckTypeIDTextBox;
+        private System.Windows.Forms.TextBox tareTkTextBox1;
     }
 }

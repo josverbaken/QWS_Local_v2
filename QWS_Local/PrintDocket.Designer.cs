@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.bsDeliveryDocket = new System.Windows.Forms.BindingSource(this.components);
+            this.dsDocketReport = new QWS_Local.dsDocketReport();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -39,7 +41,20 @@
             this.btnGetDocketList = new System.Windows.Forms.Button();
             this.dtpDocketList = new System.Windows.Forms.DateTimePicker();
             this.dgvDocketList = new System.Windows.Forms.DataGridView();
+            this.tpDocket = new System.Windows.Forms.TabPage();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnGetDocket = new System.Windows.Forms.Button();
+            this.txtDocketNo = new System.Windows.Forms.TextBox();
+            this.btnPrintDocket = new System.Windows.Forms.Button();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.taDeliveryDocket = new QWS_Local.dsDocketReportTableAdapters.DeliveryDocketTableAdapter();
+            this.bsDocketList = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWS = new QWS_Local.dsQWSViews();
+            this.taDocketList = new QWS_Local.dsQWSViewsTableAdapters.DocketListTableAdapter();
+            this.tableAdapterManager = new QWS_Local.dsQWSViewsTableAdapters.TableAdapterManager();
             this.docNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProcessStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.docDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.truckRegoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grossDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,20 +68,8 @@
             this.overloadPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.overloadDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wBModeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsDocketList = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWS = new QWS_Local.dsQWSViews();
-            this.tpDocket = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnGetDocket = new System.Windows.Forms.Button();
-            this.txtDocketNo = new System.Windows.Forms.TextBox();
-            this.btnPrintDocket = new System.Windows.Forms.Button();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.taDocketList = new QWS_Local.dsQWSViewsTableAdapters.DocketListTableAdapter();
-            this.tableAdapterManager = new QWS_Local.dsQWSViewsTableAdapters.TableAdapterManager();
-            this.bsDeliveryDocket = new System.Windows.Forms.BindingSource(this.components);
-            this.dsDocketReport = new QWS_Local.dsDocketReport();
-            this.taDeliveryDocket = new QWS_Local.dsDocketReportTableAdapters.DeliveryDocketTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDeliveryDocket)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsDocketReport)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -74,16 +77,24 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocketList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsDocketList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWS)).BeginInit();
             this.tpDocket.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsDeliveryDocket)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsDocketReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDocketList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWS)).BeginInit();
             this.SuspendLayout();
+            // 
+            // bsDeliveryDocket
+            // 
+            this.bsDeliveryDocket.DataMember = "DeliveryDocket";
+            this.bsDeliveryDocket.DataSource = this.dsDocketReport;
+            // 
+            // dsDocketReport
+            // 
+            this.dsDocketReport.DataSetName = "dsDocketReport";
+            this.dsDocketReport.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabControl1
             // 
@@ -172,6 +183,7 @@
             this.dgvDocketList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDocketList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.docNumDataGridViewTextBoxColumn,
+            this.ProcessStatus,
             this.docDateDataGridViewTextBoxColumn,
             this.truckRegoDataGridViewTextBoxColumn,
             this.grossDataGridViewTextBoxColumn,
@@ -193,12 +205,128 @@
             this.dgvDocketList.Size = new System.Drawing.Size(966, 584);
             this.dgvDocketList.TabIndex = 0;
             // 
+            // tpDocket
+            // 
+            this.tpDocket.Controls.Add(this.splitContainer1);
+            this.tpDocket.Location = new System.Drawing.Point(4, 27);
+            this.tpDocket.Margin = new System.Windows.Forms.Padding(4);
+            this.tpDocket.Name = "tpDocket";
+            this.tpDocket.Padding = new System.Windows.Forms.Padding(4);
+            this.tpDocket.Size = new System.Drawing.Size(1192, 592);
+            this.tpDocket.TabIndex = 1;
+            this.tpDocket.Text = "Docket";
+            this.tpDocket.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.btnGetDocket);
+            this.splitContainer1.Panel1.Controls.Add(this.txtDocketNo);
+            this.splitContainer1.Panel1.Controls.Add(this.btnPrintDocket);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.reportViewer1);
+            this.splitContainer1.Size = new System.Drawing.Size(1184, 589);
+            this.splitContainer1.SplitterDistance = 280;
+            this.splitContainer1.SplitterWidth = 6;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(53, 208);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 24);
+            this.textBox1.TabIndex = 3;
+            // 
+            // btnGetDocket
+            // 
+            this.btnGetDocket.Location = new System.Drawing.Point(44, 168);
+            this.btnGetDocket.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGetDocket.Name = "btnGetDocket";
+            this.btnGetDocket.Size = new System.Drawing.Size(150, 32);
+            this.btnGetDocket.TabIndex = 2;
+            this.btnGetDocket.Text = "Find";
+            this.btnGetDocket.UseVisualStyleBackColor = true;
+            this.btnGetDocket.Click += new System.EventHandler(this.btnGetDocket_Click);
+            // 
+            // txtDocketNo
+            // 
+            this.txtDocketNo.Location = new System.Drawing.Point(44, 115);
+            this.txtDocketNo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDocketNo.Name = "txtDocketNo";
+            this.txtDocketNo.Size = new System.Drawing.Size(148, 24);
+            this.txtDocketNo.TabIndex = 1;
+            // 
+            // btnPrintDocket
+            // 
+            this.btnPrintDocket.Location = new System.Drawing.Point(44, 238);
+            this.btnPrintDocket.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrintDocket.Name = "btnPrintDocket";
+            this.btnPrintDocket.Size = new System.Drawing.Size(150, 32);
+            this.btnPrintDocket.TabIndex = 0;
+            this.btnPrintDocket.Text = "Print";
+            this.btnPrintDocket.UseVisualStyleBackColor = true;
+            this.btnPrintDocket.Click += new System.EventHandler(this.btnPrintDocket_Click);
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "DocketReportDataset";
+            reportDataSource1.Value = this.bsDeliveryDocket;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "QWS_Local.DocketRpt.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(898, 589);
+            this.reportViewer1.TabIndex = 1;
+            // 
+            // taDeliveryDocket
+            // 
+            this.taDeliveryDocket.ClearBeforeFill = true;
+            // 
+            // bsDocketList
+            // 
+            this.bsDocketList.DataMember = "DocketList";
+            this.bsDocketList.DataSource = this.dsQWS;
+            // 
+            // dsQWS
+            // 
+            this.dsQWS.DataSetName = "dsQWSViews";
+            this.dsQWS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // taDocketList
+            // 
+            this.taDocketList.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSViewsTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // docNumDataGridViewTextBoxColumn
             // 
             this.docNumDataGridViewTextBoxColumn.DataPropertyName = "DocNum";
             this.docNumDataGridViewTextBoxColumn.HeaderText = "Docket";
             this.docNumDataGridViewTextBoxColumn.Name = "docNumDataGridViewTextBoxColumn";
             this.docNumDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ProcessStatus
+            // 
+            this.ProcessStatus.DataPropertyName = "ProcessStatus";
+            this.ProcessStatus.HeaderText = "Status";
+            this.ProcessStatus.Name = "ProcessStatus";
+            this.ProcessStatus.ReadOnly = true;
+            this.ProcessStatus.Width = 60;
             // 
             // docDateDataGridViewTextBoxColumn
             // 
@@ -294,123 +422,6 @@
             this.wBModeDataGridViewTextBoxColumn.Name = "wBModeDataGridViewTextBoxColumn";
             this.wBModeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // bsDocketList
-            // 
-            this.bsDocketList.DataMember = "DocketList";
-            this.bsDocketList.DataSource = this.dsQWS;
-            // 
-            // dsQWS
-            // 
-            this.dsQWS.DataSetName = "dsQWSViews";
-            this.dsQWS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tpDocket
-            // 
-            this.tpDocket.Controls.Add(this.splitContainer1);
-            this.tpDocket.Location = new System.Drawing.Point(4, 27);
-            this.tpDocket.Margin = new System.Windows.Forms.Padding(4);
-            this.tpDocket.Name = "tpDocket";
-            this.tpDocket.Padding = new System.Windows.Forms.Padding(4);
-            this.tpDocket.Size = new System.Drawing.Size(1192, 592);
-            this.tpDocket.TabIndex = 1;
-            this.tpDocket.Text = "Docket";
-            this.tpDocket.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(4, 4);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
-            this.splitContainer1.Panel1.Controls.Add(this.btnGetDocket);
-            this.splitContainer1.Panel1.Controls.Add(this.txtDocketNo);
-            this.splitContainer1.Panel1.Controls.Add(this.btnPrintDocket);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.reportViewer1);
-            this.splitContainer1.Size = new System.Drawing.Size(1184, 584);
-            this.splitContainer1.SplitterDistance = 280;
-            this.splitContainer1.SplitterWidth = 6;
-            this.splitContainer1.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(53, 208);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 24);
-            this.textBox1.TabIndex = 3;
-            // 
-            // btnGetDocket
-            // 
-            this.btnGetDocket.Location = new System.Drawing.Point(44, 168);
-            this.btnGetDocket.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGetDocket.Name = "btnGetDocket";
-            this.btnGetDocket.Size = new System.Drawing.Size(150, 32);
-            this.btnGetDocket.TabIndex = 2;
-            this.btnGetDocket.Text = "Find";
-            this.btnGetDocket.UseVisualStyleBackColor = true;
-            this.btnGetDocket.Click += new System.EventHandler(this.btnGetDocket_Click);
-            // 
-            // txtDocketNo
-            // 
-            this.txtDocketNo.Location = new System.Drawing.Point(44, 115);
-            this.txtDocketNo.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDocketNo.Name = "txtDocketNo";
-            this.txtDocketNo.Size = new System.Drawing.Size(148, 24);
-            this.txtDocketNo.TabIndex = 1;
-            // 
-            // btnPrintDocket
-            // 
-            this.btnPrintDocket.Location = new System.Drawing.Point(44, 238);
-            this.btnPrintDocket.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPrintDocket.Name = "btnPrintDocket";
-            this.btnPrintDocket.Size = new System.Drawing.Size(150, 32);
-            this.btnPrintDocket.TabIndex = 0;
-            this.btnPrintDocket.Text = "Print";
-            this.btnPrintDocket.UseVisualStyleBackColor = true;
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DocketReportDataset";
-            reportDataSource1.Value = this.bsDeliveryDocket;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "QWS_Local.DocketRpt.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(898, 584);
-            this.reportViewer1.TabIndex = 1;
-            // 
-            // taDocketList
-            // 
-            this.taDocketList.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSViewsTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // bsDeliveryDocket
-            // 
-            this.bsDeliveryDocket.DataMember = "DeliveryDocket";
-            this.bsDeliveryDocket.DataSource = this.dsDocketReport;
-            // 
-            // dsDocketReport
-            // 
-            this.dsDocketReport.DataSetName = "dsDocketReport";
-            this.dsDocketReport.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // taDeliveryDocket
-            // 
-            this.taDeliveryDocket.ClearBeforeFill = true;
-            // 
             // PrintDocket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -422,6 +433,8 @@
             this.Name = "PrintDocket";
             this.Text = "Print Docket";
             this.Load += new System.EventHandler(this.PrintDocket_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bsDeliveryDocket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsDocketReport)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpList.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
@@ -430,16 +443,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocketList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsDocketList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWS)).EndInit();
             this.tpDocket.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bsDeliveryDocket)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsDocketReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDocketList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -459,7 +470,17 @@
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private dsQWSViews dsQWS;
         private System.Windows.Forms.BindingSource bsDocketList;
+        private System.Windows.Forms.Button btnGetDocketList;
+        private System.Windows.Forms.DateTimePicker dtpDocketList;
+        private dsQWSViewsTableAdapters.TableAdapterManager tableAdapterManager;
+        private dsDocketReport dsDocketReport;
+        private System.Windows.Forms.Button btnPrintPreview;
+        private System.Windows.Forms.BindingSource bsDeliveryDocket;
+        private dsDocketReportTableAdapters.DeliveryDocketTableAdapter taDeliveryDocket;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DataGridViewTextBoxColumn docNumDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProcessStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn docDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn truckRegoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn grossDataGridViewTextBoxColumn;
@@ -473,14 +494,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn overloadPointsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn overloadDescDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn wBModeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnGetDocketList;
-        private System.Windows.Forms.DateTimePicker dtpDocketList;
-        private dsQWSViewsTableAdapters.TableAdapterManager tableAdapterManager;
-        private dsDocketReport dsDocketReport;
-        private System.Windows.Forms.Button btnPrintPreview;
-        private System.Windows.Forms.BindingSource bsDeliveryDocket;
-        private dsDocketReportTableAdapters.DeliveryDocketTableAdapter taDeliveryDocket;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
     }
 }

@@ -764,6 +764,10 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnOverload;
             
+            private global::System.Data.DataColumn columnSiteID;
+            
+            private global::System.Data.DataColumn columnProcessStatus;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DocketListDataTable() {
@@ -943,6 +947,22 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SiteIDColumn {
+                get {
+                    return this.columnSiteID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ProcessStatusColumn {
+                get {
+                    return this.columnProcessStatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -996,7 +1016,9 @@ namespace QWS_Local {
                         int OverloadPoints, 
                         string OverloadDesc, 
                         string WBMode, 
-                        string Overload) {
+                        string Overload, 
+                        int SiteID, 
+                        string ProcessStatus) {
                 DocketListRow rowDocketListRow = ((DocketListRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DocNum,
@@ -1016,7 +1038,9 @@ namespace QWS_Local {
                         OverloadPoints,
                         OverloadDesc,
                         WBMode,
-                        Overload};
+                        Overload,
+                        SiteID,
+                        ProcessStatus};
                 rowDocketListRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDocketListRow);
                 return rowDocketListRow;
@@ -1064,6 +1088,8 @@ namespace QWS_Local {
                 this.columnOverloadDesc = base.Columns["OverloadDesc"];
                 this.columnWBMode = base.Columns["WBMode"];
                 this.columnOverload = base.Columns["Overload"];
+                this.columnSiteID = base.Columns["SiteID"];
+                this.columnProcessStatus = base.Columns["ProcessStatus"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1105,6 +1131,10 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnWBMode);
                 this.columnOverload = new global::System.Data.DataColumn("Overload", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOverload);
+                this.columnSiteID = new global::System.Data.DataColumn("SiteID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSiteID);
+                this.columnProcessStatus = new global::System.Data.DataColumn("ProcessStatus", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProcessStatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnDocNum}, true));
                 this.columnDocNum.AllowDBNull = false;
@@ -1136,6 +1166,9 @@ namespace QWS_Local {
                 this.columnWBMode.MaxLength = 50;
                 this.columnOverload.ReadOnly = true;
                 this.columnOverload.MaxLength = 22;
+                this.columnSiteID.AllowDBNull = false;
+                this.columnProcessStatus.ReadOnly = true;
+                this.columnProcessStatus.MaxLength = 1;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1627,6 +1660,33 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int SiteID {
+                get {
+                    return ((int)(this[this.tableDocketList.SiteIDColumn]));
+                }
+                set {
+                    this[this.tableDocketList.SiteIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ProcessStatus {
+                get {
+                    try {
+                        return ((string)(this[this.tableDocketList.ProcessStatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProcessStatus\' in table \'DocketList\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDocketList.ProcessStatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsOverloadPointsNull() {
                 return this.IsNull(this.tableDocketList.OverloadPointsColumn);
             }
@@ -1659,6 +1719,18 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetOverloadNull() {
                 this[this.tableDocketList.OverloadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsProcessStatusNull() {
+                return this.IsNull(this.tableDocketList.ProcessStatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetProcessStatusNull() {
+                this[this.tableDocketList.ProcessStatusColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2094,6 +2166,8 @@ namespace QWS_Local.dsQWSViewsTableAdapters {
             tableMapping.ColumnMappings.Add("OverloadDesc", "OverloadDesc");
             tableMapping.ColumnMappings.Add("WBMode", "WBMode");
             tableMapping.ColumnMappings.Add("Overload", "Overload");
+            tableMapping.ColumnMappings.Add("SiteID", "SiteID");
+            tableMapping.ColumnMappings.Add("ProcessStatus", "ProcessStatus");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
