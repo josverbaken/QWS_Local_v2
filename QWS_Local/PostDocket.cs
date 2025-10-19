@@ -76,7 +76,15 @@ namespace QWS_Local
             {
                 txtNett.BackColor = Color.LightSalmon;
             }
-            CheckCOD(myRow.CustomerCode);
+            if (myRow.Payload - myRow.Nett > 2.0M)
+            {
+                txtNett.BackColor = Color.LightPink;
+            }
+            else
+            {
+                txtNett.BackColor = Color.PaleGreen;
+            }
+                CheckCOD(myRow.CustomerCode);
             if (myRow.Tare == 0.0M)
             {
                 txtTare.ReadOnly = false;

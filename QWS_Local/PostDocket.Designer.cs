@@ -33,6 +33,7 @@
             System.Windows.Forms.Label tareLabel;
             System.Windows.Forms.Label nettLabel;
             System.Windows.Forms.Label custONLabel;
+            System.Windows.Forms.Label label1;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.regoTextBox = new System.Windows.Forms.TextBox();
             this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
@@ -56,10 +57,12 @@
             this.taSPLotNo = new QWS_Local.dsTIQ2TableAdapters.SPLotNoAssignTableAdapter();
             this.bsCustomer = new System.Windows.Forms.BindingSource(this.components);
             this.taCustomer = new QWS_Local.dsTIQ2TableAdapters.BusinessGetByCodeTableAdapter();
+            this.txtPayload = new System.Windows.Forms.TextBox();
             grossLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             nettLabel = new System.Windows.Forms.Label();
             custONLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
@@ -72,7 +75,7 @@
             // grossLabel
             // 
             grossLabel.AutoSize = true;
-            grossLabel.Location = new System.Drawing.Point(318, 62);
+            grossLabel.Location = new System.Drawing.Point(318, 37);
             grossLabel.Name = "grossLabel";
             grossLabel.Size = new System.Drawing.Size(54, 18);
             grossLabel.TabIndex = 2;
@@ -81,7 +84,7 @@
             // tareLabel
             // 
             tareLabel.AutoSize = true;
-            tareLabel.Location = new System.Drawing.Point(330, 92);
+            tareLabel.Location = new System.Drawing.Point(330, 67);
             tareLabel.Name = "tareLabel";
             tareLabel.Size = new System.Drawing.Size(42, 18);
             tareLabel.TabIndex = 4;
@@ -90,7 +93,7 @@
             // nettLabel
             // 
             nettLabel.AutoSize = true;
-            nettLabel.Location = new System.Drawing.Point(333, 122);
+            nettLabel.Location = new System.Drawing.Point(333, 97);
             nettLabel.Name = "nettLabel";
             nettLabel.Size = new System.Drawing.Size(39, 18);
             nettLabel.TabIndex = 6;
@@ -108,6 +111,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(label1);
+            this.groupBox1.Controls.Add(this.txtPayload);
             this.groupBox1.Controls.Add(this.regoTextBox);
             this.groupBox1.Controls.Add(nettLabel);
             this.groupBox1.Controls.Add(this.txtNett);
@@ -146,7 +151,7 @@
             // 
             this.txtNett.BackColor = System.Drawing.SystemColors.Control;
             this.txtNett.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Nett", true));
-            this.txtNett.Location = new System.Drawing.Point(378, 119);
+            this.txtNett.Location = new System.Drawing.Point(378, 94);
             this.txtNett.Name = "txtNett";
             this.txtNett.ReadOnly = true;
             this.txtNett.Size = new System.Drawing.Size(100, 24);
@@ -155,7 +160,7 @@
             // txtTare
             // 
             this.txtTare.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Tare", true));
-            this.txtTare.Location = new System.Drawing.Point(378, 89);
+            this.txtTare.Location = new System.Drawing.Point(378, 64);
             this.txtTare.Name = "txtTare";
             this.txtTare.ReadOnly = true;
             this.txtTare.Size = new System.Drawing.Size(100, 24);
@@ -164,7 +169,7 @@
             // txtGross
             // 
             this.txtGross.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Gross", true));
-            this.txtGross.Location = new System.Drawing.Point(378, 59);
+            this.txtGross.Location = new System.Drawing.Point(378, 34);
             this.txtGross.Name = "txtGross";
             this.txtGross.ReadOnly = true;
             this.txtGross.Size = new System.Drawing.Size(100, 24);
@@ -315,6 +320,25 @@
             // 
             this.taCustomer.ClearBeforeFill = true;
             // 
+            // txtPayload
+            // 
+            this.txtPayload.BackColor = System.Drawing.SystemColors.Control;
+            this.txtPayload.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Payload", true));
+            this.txtPayload.Location = new System.Drawing.Point(378, 124);
+            this.txtPayload.Name = "txtPayload";
+            this.txtPayload.ReadOnly = true;
+            this.txtPayload.Size = new System.Drawing.Size(100, 24);
+            this.txtPayload.TabIndex = 10;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(307, 127);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(65, 18);
+            label1.TabIndex = 11;
+            label1.Text = "Payload:";
+            // 
             // PostDocket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -372,5 +396,6 @@
         private System.Windows.Forms.BindingSource bsCustomer;
         private dsTIQ2TableAdapters.BusinessGetByCodeTableAdapter taCustomer;
         private System.Windows.Forms.TextBox txtCOD;
+        private System.Windows.Forms.TextBox txtPayload;
     }
 }
