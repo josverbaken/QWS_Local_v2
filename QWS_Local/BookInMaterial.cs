@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace QWS_Local
         private int TIQID;
         private string CardCode;
         private string CustomerName;
+        private static bool IsPORequired = false;
         private static dsQWSLocal2024.TruckDriverRow _DriverRow;
         private static dsTIQ2.TIQRow _TIQRow;
         private int mySiteID;
@@ -138,6 +140,7 @@ namespace QWS_Local
         {
             txtCardCode.Text = CardCode;
             txtCustomer.Text = CustomerName;
+            IsPORequired = CheckPORequired(CardCode);
         }
 
         private void LoadConfiguredTruckGVM(int myTruckConfigID)
@@ -701,6 +704,12 @@ namespace QWS_Local
                         }
                     }
                 DataRow myRow = ((DataRowView)bsItem.Current).Row;
+                if (IsPORequired == true && txtCustON.TextLength == 0)
+                {
+                    //PO Required cannot proceed
+                    MessageBox.Show("Customer PO is required \r\nplease enter.","PO Required",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ItemOK = false;
+                }
                 if (myRow != null && ItemOK == true)
                     {
                         dsBookIn.ItemRow itemRow = (dsBookIn.ItemRow)myRow;
@@ -736,7 +745,7 @@ namespace QWS_Local
             {
                 txtCardCode.Text = frmBusinessSearch.SAPCode;
                 txtCustomer.Text = frmBusinessSearch.BusinessName;
-                //return 
+                CheckPORequired(txtCustomer.Text);
             }
             else
             {
@@ -873,6 +882,25 @@ namespace QWS_Local
             }
         }
 
-
+        private bool CheckPORequired(string CardCode)
+        {
+            SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = sqlConnection;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "PORequired";
+            cmd.Parameters.AddWithValue("@CardCode", CardCode);
+            sqlConnection.Open();
+            string myPOReq = (string)cmd.ExecuteScalar();
+            sqlConnection.Close();
+            if (myPOReq == "Y")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

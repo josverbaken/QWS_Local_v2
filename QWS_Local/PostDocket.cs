@@ -77,7 +77,20 @@ namespace QWS_Local
                 txtNett.BackColor = Color.LightSalmon;
             }
             decimal UnderloadAmount = myRow.Payload - myRow.Nett;
-            if (UnderloadAmount > 1.0M)
+            bool SplitLoad = false;
+            switch (myRow.TruckConfig)
+            {
+                case "TRs":
+                        SplitLoad=true;
+                    break;
+                case "TKs":
+                    SplitLoad = true;   
+                    break;
+                default:
+                    SplitLoad = false;
+                    break;
+            }
+            if (UnderloadAmount > 1.0M && SplitLoad == false)
             {
                 txtNett.BackColor = Color.LightPink;
                 txtUnderload.Text = "Under by : " + UnderloadAmount.ToString() + "t";
