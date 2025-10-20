@@ -58,6 +58,7 @@
             this.bsCustomer = new System.Windows.Forms.BindingSource(this.components);
             this.taCustomer = new QWS_Local.dsTIQ2TableAdapters.BusinessGetByCodeTableAdapter();
             this.txtPayload = new System.Windows.Forms.TextBox();
+            this.txtUnderload = new System.Windows.Forms.TextBox();
             grossLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             nettLabel = new System.Windows.Forms.Label();
@@ -111,6 +112,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtUnderload);
             this.groupBox1.Controls.Add(label1);
             this.groupBox1.Controls.Add(this.txtPayload);
             this.groupBox1.Controls.Add(this.regoTextBox);
@@ -339,6 +341,17 @@
             label1.TabIndex = 11;
             label1.Text = "Payload:";
             // 
+            // txtUnderload
+            // 
+            this.txtUnderload.BackColor = System.Drawing.SystemColors.Control;
+            this.txtUnderload.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUnderload.Location = new System.Drawing.Point(25, 127);
+            this.txtUnderload.Name = "txtUnderload";
+            this.txtUnderload.ReadOnly = true;
+            this.txtUnderload.Size = new System.Drawing.Size(276, 17);
+            this.txtUnderload.TabIndex = 12;
+            this.txtUnderload.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // PostDocket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -397,5 +410,6 @@
         private dsTIQ2TableAdapters.BusinessGetByCodeTableAdapter taCustomer;
         private System.Windows.Forms.TextBox txtCOD;
         private System.Windows.Forms.TextBox txtPayload;
+        private System.Windows.Forms.TextBox txtUnderload;
     }
 }

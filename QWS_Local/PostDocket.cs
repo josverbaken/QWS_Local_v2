@@ -76,9 +76,11 @@ namespace QWS_Local
             {
                 txtNett.BackColor = Color.LightSalmon;
             }
-            if (myRow.Payload - myRow.Nett > 2.0M)
+            decimal UnderloadAmount = myRow.Payload - myRow.Nett;
+            if (UnderloadAmount > 1.0M)
             {
                 txtNett.BackColor = Color.LightPink;
+                txtUnderload.Text = "Under by : " + UnderloadAmount.ToString() + "t";
             }
             else
             {
