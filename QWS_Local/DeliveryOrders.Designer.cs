@@ -45,6 +45,7 @@ namespace QWS_Local
             System.Windows.Forms.Label projectLabel;
             System.Windows.Forms.Label commentLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnImportedPickupOrders = new System.Windows.Forms.Button();
             this.btnImportedOrders = new System.Windows.Forms.Button();
             this.btnGetExBinOrders = new System.Windows.Forms.Button();
             this.gbOderDate = new System.Windows.Forms.GroupBox();
@@ -59,14 +60,6 @@ namespace QWS_Local
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.docNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deliveryDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.openQtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deliveryAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cartageCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsQuarryOrders = new System.Windows.Forms.BindingSource(this.components);
             this.dsBookIn = new QWS_Local.dsBookIn();
             this.tpDetails = new System.Windows.Forms.TabPage();
@@ -92,7 +85,15 @@ namespace QWS_Local
             this.deliveryOrdersAllTableAdapter1 = new QWS_Local.dsBookInTableAdapters.DeliveryOrdersAllTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsBookInTableAdapters.TableAdapterManager();
             this.taQuarryOrders = new QWS_Local.dsBookInTableAdapters.QuarryOrdersTableAdapter();
-            this.btnImportedPickupOrders = new System.Windows.Forms.Button();
+            this.docNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deliveryDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.openQtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PurchaseOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deliveryAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartageCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             docNumLabel = new System.Windows.Forms.Label();
             materialLabel = new System.Windows.Forms.Label();
             quantityLabel = new System.Windows.Forms.Label();
@@ -269,6 +270,16 @@ namespace QWS_Local
             this.splitContainer1.SplitterDistance = 200;
             this.splitContainer1.TabIndex = 0;
             // 
+            // btnImportedPickupOrders
+            // 
+            this.btnImportedPickupOrders.Location = new System.Drawing.Point(25, 519);
+            this.btnImportedPickupOrders.Name = "btnImportedPickupOrders";
+            this.btnImportedPickupOrders.Size = new System.Drawing.Size(136, 47);
+            this.btnImportedPickupOrders.TabIndex = 6;
+            this.btnImportedPickupOrders.Text = "Imported Pickup";
+            this.btnImportedPickupOrders.UseVisualStyleBackColor = true;
+            this.btnImportedPickupOrders.Click += new System.EventHandler(this.btnImportedPickupOrders_Click);
+            // 
             // btnImportedOrders
             // 
             this.btnImportedOrders.Location = new System.Drawing.Point(25, 466);
@@ -426,6 +437,7 @@ namespace QWS_Local
             this.deliveryDateDataGridViewTextBoxColumn,
             this.openQtyDataGridViewTextBoxColumn,
             this.customerDataGridViewTextBoxColumn,
+            this.PurchaseOrder,
             this.deliveryAddressDataGridViewTextBoxColumn,
             this.materialCodeDataGridViewTextBoxColumn,
             this.materialDataGridViewTextBoxColumn,
@@ -437,62 +449,6 @@ namespace QWS_Local
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(849, 573);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // docNumDataGridViewTextBoxColumn
-            // 
-            this.docNumDataGridViewTextBoxColumn.DataPropertyName = "DocNum";
-            this.docNumDataGridViewTextBoxColumn.HeaderText = "DocNum";
-            this.docNumDataGridViewTextBoxColumn.Name = "docNumDataGridViewTextBoxColumn";
-            this.docNumDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // deliveryDateDataGridViewTextBoxColumn
-            // 
-            this.deliveryDateDataGridViewTextBoxColumn.DataPropertyName = "DeliveryDate";
-            this.deliveryDateDataGridViewTextBoxColumn.HeaderText = "DeliveryDate";
-            this.deliveryDateDataGridViewTextBoxColumn.Name = "deliveryDateDataGridViewTextBoxColumn";
-            this.deliveryDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // openQtyDataGridViewTextBoxColumn
-            // 
-            this.openQtyDataGridViewTextBoxColumn.DataPropertyName = "OpenQty";
-            this.openQtyDataGridViewTextBoxColumn.HeaderText = "OpenQty";
-            this.openQtyDataGridViewTextBoxColumn.Name = "openQtyDataGridViewTextBoxColumn";
-            this.openQtyDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // customerDataGridViewTextBoxColumn
-            // 
-            this.customerDataGridViewTextBoxColumn.DataPropertyName = "Customer";
-            this.customerDataGridViewTextBoxColumn.HeaderText = "Customer";
-            this.customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
-            this.customerDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // deliveryAddressDataGridViewTextBoxColumn
-            // 
-            this.deliveryAddressDataGridViewTextBoxColumn.DataPropertyName = "DeliveryAddress";
-            this.deliveryAddressDataGridViewTextBoxColumn.HeaderText = "DeliveryAddress";
-            this.deliveryAddressDataGridViewTextBoxColumn.Name = "deliveryAddressDataGridViewTextBoxColumn";
-            this.deliveryAddressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // materialCodeDataGridViewTextBoxColumn
-            // 
-            this.materialCodeDataGridViewTextBoxColumn.DataPropertyName = "MaterialCode";
-            this.materialCodeDataGridViewTextBoxColumn.HeaderText = "MaterialCode";
-            this.materialCodeDataGridViewTextBoxColumn.Name = "materialCodeDataGridViewTextBoxColumn";
-            this.materialCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // materialDataGridViewTextBoxColumn
-            // 
-            this.materialDataGridViewTextBoxColumn.DataPropertyName = "Material";
-            this.materialDataGridViewTextBoxColumn.HeaderText = "Material";
-            this.materialDataGridViewTextBoxColumn.Name = "materialDataGridViewTextBoxColumn";
-            this.materialDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cartageCodeDataGridViewTextBoxColumn
-            // 
-            this.cartageCodeDataGridViewTextBoxColumn.DataPropertyName = "CartageCode";
-            this.cartageCodeDataGridViewTextBoxColumn.HeaderText = "CartageCode";
-            this.cartageCodeDataGridViewTextBoxColumn.Name = "cartageCodeDataGridViewTextBoxColumn";
-            this.cartageCodeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // bsQuarryOrders
             // 
@@ -715,15 +671,73 @@ namespace QWS_Local
             // 
             this.taQuarryOrders.ClearBeforeFill = true;
             // 
-            // btnImportedPickupOrders
+            // docNumDataGridViewTextBoxColumn
             // 
-            this.btnImportedPickupOrders.Location = new System.Drawing.Point(25, 519);
-            this.btnImportedPickupOrders.Name = "btnImportedPickupOrders";
-            this.btnImportedPickupOrders.Size = new System.Drawing.Size(136, 47);
-            this.btnImportedPickupOrders.TabIndex = 6;
-            this.btnImportedPickupOrders.Text = "Imported Pickup";
-            this.btnImportedPickupOrders.UseVisualStyleBackColor = true;
-            this.btnImportedPickupOrders.Click += new System.EventHandler(this.btnImportedPickupOrders_Click);
+            this.docNumDataGridViewTextBoxColumn.DataPropertyName = "DocNum";
+            this.docNumDataGridViewTextBoxColumn.HeaderText = "DocNum";
+            this.docNumDataGridViewTextBoxColumn.Name = "docNumDataGridViewTextBoxColumn";
+            this.docNumDataGridViewTextBoxColumn.ReadOnly = true;
+            this.docNumDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // deliveryDateDataGridViewTextBoxColumn
+            // 
+            this.deliveryDateDataGridViewTextBoxColumn.DataPropertyName = "DeliveryDate";
+            this.deliveryDateDataGridViewTextBoxColumn.HeaderText = "DeliveryDate";
+            this.deliveryDateDataGridViewTextBoxColumn.Name = "deliveryDateDataGridViewTextBoxColumn";
+            this.deliveryDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // openQtyDataGridViewTextBoxColumn
+            // 
+            this.openQtyDataGridViewTextBoxColumn.DataPropertyName = "OpenQty";
+            this.openQtyDataGridViewTextBoxColumn.HeaderText = "OpenQty";
+            this.openQtyDataGridViewTextBoxColumn.Name = "openQtyDataGridViewTextBoxColumn";
+            this.openQtyDataGridViewTextBoxColumn.ReadOnly = true;
+            this.openQtyDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // customerDataGridViewTextBoxColumn
+            // 
+            this.customerDataGridViewTextBoxColumn.DataPropertyName = "Customer";
+            this.customerDataGridViewTextBoxColumn.HeaderText = "Customer";
+            this.customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
+            this.customerDataGridViewTextBoxColumn.ReadOnly = true;
+            this.customerDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // PurchaseOrder
+            // 
+            this.PurchaseOrder.DataPropertyName = "PurchaseOrder";
+            this.PurchaseOrder.HeaderText = "PurchaseOrder";
+            this.PurchaseOrder.Name = "PurchaseOrder";
+            this.PurchaseOrder.ReadOnly = true;
+            this.PurchaseOrder.Width = 80;
+            // 
+            // deliveryAddressDataGridViewTextBoxColumn
+            // 
+            this.deliveryAddressDataGridViewTextBoxColumn.DataPropertyName = "DeliveryAddress";
+            this.deliveryAddressDataGridViewTextBoxColumn.HeaderText = "DeliveryAddress";
+            this.deliveryAddressDataGridViewTextBoxColumn.Name = "deliveryAddressDataGridViewTextBoxColumn";
+            this.deliveryAddressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // materialCodeDataGridViewTextBoxColumn
+            // 
+            this.materialCodeDataGridViewTextBoxColumn.DataPropertyName = "MaterialCode";
+            this.materialCodeDataGridViewTextBoxColumn.HeaderText = "MaterialCode";
+            this.materialCodeDataGridViewTextBoxColumn.Name = "materialCodeDataGridViewTextBoxColumn";
+            this.materialCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.materialCodeDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // materialDataGridViewTextBoxColumn
+            // 
+            this.materialDataGridViewTextBoxColumn.DataPropertyName = "Material";
+            this.materialDataGridViewTextBoxColumn.HeaderText = "Material";
+            this.materialDataGridViewTextBoxColumn.Name = "materialDataGridViewTextBoxColumn";
+            this.materialDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cartageCodeDataGridViewTextBoxColumn
+            // 
+            this.cartageCodeDataGridViewTextBoxColumn.DataPropertyName = "CartageCode";
+            this.cartageCodeDataGridViewTextBoxColumn.HeaderText = "CartageCode";
+            this.cartageCodeDataGridViewTextBoxColumn.Name = "cartageCodeDataGridViewTextBoxColumn";
+            this.cartageCodeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // DeliveryOrders
             // 
@@ -784,14 +798,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox docDateTextBox;
         private System.Windows.Forms.TextBox cartageTextBox;
         private System.Windows.Forms.TextBox cartageCodeTextBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn docNumDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deliveryDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn openQtyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deliveryAddressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn materialCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn materialDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cartageCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.GroupBox gbOderDate;
         private System.Windows.Forms.RadioButton rbClearDate;
         private System.Windows.Forms.RadioButton rbFuture;
@@ -806,5 +812,14 @@ namespace QWS_Local
         private System.Windows.Forms.Button btnGetExBinOrders;
         private System.Windows.Forms.Button btnImportedOrders;
         private System.Windows.Forms.Button btnImportedPickupOrders;
+        private System.Windows.Forms.DataGridViewTextBoxColumn docNumDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deliveryDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn openQtyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PurchaseOrder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deliveryAddressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materialCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materialDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cartageCodeDataGridViewTextBoxColumn;
     }
 }
