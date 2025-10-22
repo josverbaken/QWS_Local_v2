@@ -490,6 +490,7 @@ namespace QWS_Local
             {
                 //MessageBox.Show(frmPostDocket.SPLotNo.ToString());
                 mySPLotNo = frmPostDocket.SPLotNo;
+                // note that SP Lots are closed by USP
                 myTareWeight = frmPostDocket.TareWeight;
                 if (CurrentTIQ().Tare == 0.0M)
                 {

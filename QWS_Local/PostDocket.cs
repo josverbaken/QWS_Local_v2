@@ -151,15 +151,20 @@ namespace QWS_Local
             {
                 string msg = "";
                 this.taSPLotNo.Fill(this.dsTIQ2.SPLotNoAssign, myRow.Material, System.Convert.ToInt32(myRow.Nett));
-                mySPLotNo = CurrentSPLotNo().SPLotNo;
-                if (CurrentSPLotNo().LotStatus == 'M'.ToString())
+                dsTIQ2.SPLotNoAssignRow row = CurrentSPLotNo();
+                mySPLotNo = row.SPLotNo;
+                if (row.LotStatus == 'M'.ToString())
                 {
                     msg = "No lot allocated yet!";
                 }
                 else
                 {
-                    msg = "Lot No: " + CurrentSPLotNo().SPLotNo.ToString() +  " .. Remaining tonnes: " + CurrentSPLotNo().TonnesRemaining.ToString();
-                    // extend message to include additional open lots, after go-live, not critical after discussion with David
+                    if (row.TonnesRemaining <= 0)
+                    {
+                        string strMsg = "Stockpile Lot No: " + row.SPLotNo.ToString() + " closed!";
+                        MessageBox.Show(strMsg, "Lot closed",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    }
+                    msg = "Lot No: " + row.SPLotNo.ToString() +  " .. Remaining tonnes: " + row.TonnesRemaining.ToString();
                 }
                 txtInfo.Text = msg;
             }

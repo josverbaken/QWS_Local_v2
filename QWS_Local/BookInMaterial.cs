@@ -577,7 +577,7 @@ namespace QWS_Local
                             {
                                 case "TRs":
                                 case "BDb":
-                                    if (_TIQRow.QueueStatus.Equals("X") == false)
+                                    if (_TIQRow.QueueStatus.Equals("X") == false) // i.e not TR only
                                     {
                                         _TIQRow.QueueStatus = "S";
                                     }
@@ -594,7 +594,7 @@ namespace QWS_Local
                         {
                             case "TRs":
                             case "BDb":
-                                if (_TIQRow.QueueStatus.Equals("X") == false)
+                                if (_TIQRow.QueueStatus.Equals("X") == false) // i.e not TR only
                                 {
                                     _TIQRow.QueueStatus = "S";
                                 }
@@ -607,10 +607,6 @@ namespace QWS_Local
                 {
                     _TIQRow.QueueStatus = "Q";
                 }
-                //this.Validate();
-                //string msg = "Rowstate = ";
-                //msg += _TIQRow.RowState.ToString();
-                //MessageBox.Show(msg); // modified so issue probably with not specifying binding source due to import statement!@#
 
                 bsTIQ2.EndEdit();
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
