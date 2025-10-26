@@ -63,23 +63,38 @@ namespace QWS_Local
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "SearchByCode Error!");
             }
         }
 
         private void btnSelectBusiness_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            SetOwnerParams();
+            if (SetOwnerParams() == true)
+            {
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                this.DialogResult = DialogResult.No;
+            }
             this.Close();
         }
 
-        private void SetOwnerParams()
+        private bool SetOwnerParams()
         {
             DataRow dataRow = ((DataRowView)bsBusiness.Current).Row;
             dsQWSLocal2024.BusinessRow businessRow = (dsQWSLocal2024.BusinessRow)dataRow;
             mySAPCode = businessRow.SAPCode;
             myBusinessName = businessRow.TradingName;
+            if (businessRow.AccountStatus == "A")
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Unable to proceed card status = " + businessRow.AccountStatus,"Account Status",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return false;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -109,9 +124,15 @@ namespace QWS_Local
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            SetOwnerParams();
-            this.Close();
+            if (SetOwnerParams() == true)
+            {
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                this.DialogResult = DialogResult.Cancel;
+            }
+                this.Close();
         }
    
         private void btnInfo_Click(object sender, EventArgs e)

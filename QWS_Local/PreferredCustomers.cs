@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static QWS_Local.dsQWSLocal2024;
 
 namespace QWS_Local 
 {
@@ -55,7 +56,15 @@ namespace QWS_Local
         {
             DataRow dataRow = ((DataRowView)bsPrefCustomers2.Current).Row;
             myCustomersRow = (dsQWSLocal2024.VehiclePrefCustomersRow)dataRow;
-            this.DialogResult = DialogResult.OK;
+            if (myCustomersRow.Active == true)
+            {
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                MessageBox.Show("Unable to proceed card not active", "Account Status", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.DialogResult = DialogResult.No;
+            }
             this.Close();
         }
 

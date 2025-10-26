@@ -26,7 +26,7 @@ namespace QWS_Local
         private string ComputerName;
         private string Domain;
         private string myConnectionString;
-        private bool blOverRideMinCart;
+        private bool blOverRideShortLoad;
         //private bool IsDelivery;
         
         public TrucksInQuarry()
@@ -45,7 +45,7 @@ namespace QWS_Local
             myConnectionString = Properties.Settings.Default.cnQWSLocal;
             int iRows = this.taAxleConfiguration.Fill(this.dsQWSLocal2024.AxleConfiguration);
             iRows += 1;
-            blOverRideMinCart = false;
+            blOverRideShortLoad = false;
             RefreshQueue();
         }
 
@@ -544,12 +544,15 @@ namespace QWS_Local
                                     DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myOrderLine.ItemCode), myOrderLine.SWW, mySPLotNo, myOrderLine.DocEntry, myOrderLine.LineNum);
                                     break;
                                 case "Imported":
-                                    blOverRideMinCart = true;
+                                    blOverRideShortLoad = true;
                                     DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myOrderLine.ItemCode), myOrderLine.SWW, mySPLotNo, myOrderLine.DocEntry, myOrderLine.LineNum);
                                     break;
                                 case "Freight":
                                     DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, false, 99, myOrderLine.SWW, 0, myOrderLine.DocEntry, myOrderLine.LineNum);
-                                    //IsDelivery = true;                                    
+                                    if (blOverRideShortLoad == false)
+                                    {
+                                        blOverRideShortLoad = CheckOverRideMinCart(myTIQRow.Rego);
+                                    }
                                     break;
                                 case "Other":
                                     // surcharge maybe
@@ -564,7 +567,7 @@ namespace QWS_Local
                         // ExBin No Order
                         DocketLineAdd(myTIQRow.Material, myTIQRow.MaterialDesc, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myTIQRow.Material), "Items", mySPLotNo, myOrderBaseEntry,0);
                     }
-                    if (myTIQRow.Nett < Properties.Settings.Default.MinimumMaterial && blOverRideMinCart == false)
+                    if (myTIQRow.Nett < Properties.Settings.Default.MinimumMaterial && blOverRideShortLoad == false)
                     {
                         string ShortLoadFee = Properties.Settings.Default.ShortLoadFee;
                         DocketLineAdd(ShortLoadFee, "Short Load Fee", GetItemQA(ShortLoadFee), GetItmsGrpCod(ShortLoadFee), "Other", 0, 0, 9);
@@ -833,19 +836,21 @@ namespace QWS_Local
 
                 dsTIQ2.WBDockets.Clear();
                 dsTIQ2.WBDocketLines.Clear();
-
+                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
                 // get Order
                 string myContactName = "";
                 string myContactMobile = "";
-                int myORDRDocNum = CurrentTIQ().SAPOrder;
+                int myCntCode = -9;
+                int myORDRDocNum = myTIQRow.SAPOrder;
                 if (myORDRDocNum > 0)
                 {
-                    int iRows = taQuarryOrders.FillBy(dsBookIn.QuarryOrders, CurrentTIQ().SAPOrder);
+                    int iRows = taQuarryOrders.FillBy(dsBookIn.QuarryOrders, myTIQRow.SAPOrder);
                     if (iRows > 0)
                     { 
                         dsBookIn.QuarryOrdersRow myOrderRow = (dsBookIn.QuarryOrdersRow)dsBookIn.QuarryOrders.Rows[0];
                         myContactName = myOrderRow.ContactName;
                         myContactMobile = myOrderRow.ContactMobile;
+                        myCntCode = myOrderRow.CntctCode;
                     }
                 }
                 DataRow dr = dsTIQ2.WBDockets.NewRow();
@@ -853,35 +858,35 @@ namespace QWS_Local
 
                 docketsRow.DocNum = DocNum;
                 docketsRow.DocDate = DateTime.Now;
-                docketsRow.CardCode = CurrentTIQ().CustomerCode;
-                docketsRow.CardName = CurrentTIQ().Customer;
-                docketsRow.PurchaseOrder = CurrentTIQ().CustON;
-                docketsRow.CntCode = -9;
+                docketsRow.CardCode = myTIQRow.CustomerCode;
+                docketsRow.CardName = myTIQRow.Customer;
+                docketsRow.PurchaseOrder = myTIQRow.CustON;
+                docketsRow.CntCode = myCntCode;
                 docketsRow.ContactName = myContactName;
                 docketsRow.ContactMobile = myContactMobile;
                 docketsRow.DeliveryDate = DateTime.Now;
                 docketsRow.DeliveryAddress = "";
                 docketsRow.MapRef = "";
                 docketsRow.Distance = 0;
-                docketsRow.TruckRego = CurrentTIQ().Rego;
-                docketsRow.TruckOwnerCode = CurrentTIQ().TruckOwnerCode;
-                docketsRow.TruckOwner = CurrentTIQ().TruckOwner;
+                docketsRow.TruckRego = myTIQRow.Rego;
+                docketsRow.TruckOwnerCode = myTIQRow.TruckOwnerCode;
+                docketsRow.TruckOwner = myTIQRow.TruckOwner;
                 docketsRow.TruckConfig = "";
                 docketsRow.TruckConfigID = 1;
-                docketsRow.GrossLegal = CurrentTIQ().GCM; //0;
-                docketsRow.Gross = CurrentTIQ().Gross;
-                docketsRow.Tare = CurrentTIQ().Tare;
-                docketsRow.Nett = CurrentTIQ().Nett;
-                docketsRow.OverloadPoints = CurrentTIQ().OverloadPoints;
-                docketsRow.OverloadDesc = CurrentTIQ().OverloadDesc;
+                docketsRow.GrossLegal = myTIQRow.GCM; //0;
+                docketsRow.Gross = myTIQRow.Gross;
+                docketsRow.Tare = myTIQRow.Tare;
+                docketsRow.Nett = myTIQRow.Nett;
+                docketsRow.OverloadPoints = myTIQRow.OverloadPoints;
+                docketsRow.OverloadDesc = myTIQRow.OverloadDesc;
                 docketsRow.WBMode = "m";
-                docketsRow.TruckDriverID = CurrentTIQ().DriverID;
-                docketsRow.TruckDriver = CurrentTIQ().Driver;
+                docketsRow.TruckDriverID = myTIQRow.DriverID;
+                docketsRow.TruckDriver = myTIQRow.Driver;
                 docketsRow.SalesPersonCode = -1;
                 docketsRow.SalesPerson = "";//"Weighbridge Operator";
                 docketsRow.Comments = "";
                 docketsRow.CreatedDTTM = DateTime.Now;
-                docketsRow.TIQID = CurrentTIQ().TIQID;
+                docketsRow.TIQID = myTIQRow.TIQID;
                 dsTIQ2.WBDockets.AddWBDocketsRow(docketsRow);
                 bsWBDockets.EndEdit();
                 taWBDockets.Update(dsTIQ2.WBDockets); 
@@ -1056,6 +1061,30 @@ namespace QWS_Local
                 return true;
             }
             return false;
+        }
+
+        private bool CheckOverRideMinCart(string Rego)
+        {
+            try
+            {
+                bool blOverRide;
+                SqlConnection sqlConnection = new SqlConnection(myConnectionString);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "CheckOverRidMinCart";
+                cmd.Parameters.AddWithValue("@Rego",Rego);
+                sqlConnection.Open();
+                blOverRide = System.Convert.ToBoolean(cmd.ExecuteScalar());
+                sqlConnection.Close();
+                return blOverRide;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
 
         private void ContinueInProgress()

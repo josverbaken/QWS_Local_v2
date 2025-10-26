@@ -88,7 +88,7 @@ namespace QWS_Local
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "BookIn Material Initialise Error!");
             }
         }
 
@@ -795,7 +795,7 @@ namespace QWS_Local
             }
             catch (System.Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
+                System.Windows.Forms.MessageBox.Show(ex.Message,"Orders Load Error!");
             }
         }
 
@@ -873,7 +873,7 @@ namespace QWS_Local
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "CheckBlanketAgreement Error!");
                 return null;
             }
         }

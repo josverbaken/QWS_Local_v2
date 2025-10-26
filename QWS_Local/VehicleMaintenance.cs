@@ -165,7 +165,7 @@ namespace QWS_Local
         private void VehicleFound()
         {
             txtRego.Text = string.Empty;
-            chkOverridgeMinCart.Enabled = false;
+            chkOverrideMinCart.Enabled = false;
             dsQWSLocal2024.VehicleRow myVehicle = CurrentVehicle();
             if (CheckACC(myVehicle.Rego) == true)
             {
@@ -173,7 +173,7 @@ namespace QWS_Local
                 gbACC.Enabled = true;
                 if (myVehicle.IsLeadVehicle == true)
                 {
-                    chkOverridgeMinCart.Enabled = true;                    
+                    chkOverrideMinCart.Enabled = true;                    
                 }
             }
             else

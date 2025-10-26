@@ -623,7 +623,8 @@ namespace QWS_Local
             }
             else
             {
-                MessageBox.Show("Customer not found/set. Cannot proceed!");
+                //MessageBox.Show("Customer not found/set. Cannot proceed!");
+                // One message is enough
                 return false;
             }
         }
@@ -649,22 +650,31 @@ namespace QWS_Local
 
         private void BookInMaterial()
         {
+            bool OK2Continue = true;
+            if (BookInTIQType == TIQType.ExBin || BookInTIQType == TIQType.Imported)
             {
-                if (BookInTIQType == TIQType.ExBin || BookInTIQType == TIQType.Imported)
+                if (SetExBinCustomer() == true)
                 {
-                    if (SetExBinCustomer() == true)
-                    {
-                        _TIQRow.CustomerCode = CustCardCode;
-                        _TIQRow.Customer = ExBinCustomer;
-                        bsTIQ.EndEdit();
-                    }
+                    _TIQRow.CustomerCode = CustCardCode;
+                    _TIQRow.Customer = ExBinCustomer;
+                    bsTIQ.EndEdit();
                 }
+                else
+                {
+                    OK2Continue = false;
+                    MessageBox.Show("Cannot proeed!");
+                    // TODO - cancel and log or park as "P" but don't proceed until a valid customer entered 
+                    // 20251024
+                }
+            }
+            if (OK2Continue == true)
+            {
                 UpdateTIQ(BookInTIQType);
                 BookInMaterial frmExBin = new BookInMaterial(_TIQRow, BookInTIQType.ToString(), IsPrefCust, CurrentTruckDriver());
                 frmExBin.MdiParent = this.MdiParent;
                 frmExBin.Show();
-                this.Close();
             }
+            this.Close();            
         }
 
         private void btnDelivery_Click(object sender, EventArgs e)
