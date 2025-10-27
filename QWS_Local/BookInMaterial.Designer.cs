@@ -190,6 +190,7 @@ namespace QWS_Local
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.btnBookIn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtMaxGVM = new System.Windows.Forms.TextBox();
             this.btnUpdatePayloadSplit = new System.Windows.Forms.Button();
             this.txtPayloadSplit = new System.Windows.Forms.TextBox();
             this.nudPayloadTk = new System.Windows.Forms.NumericUpDown();
@@ -1377,9 +1378,9 @@ namespace QWS_Local
             // tpTruckconfig
             // 
             this.tpTruckconfig.Controls.Add(this.splitContainer4);
-            this.tpTruckconfig.Location = new System.Drawing.Point(4, 25);
+            this.tpTruckconfig.Location = new System.Drawing.Point(4, 22);
             this.tpTruckconfig.Name = "tpTruckconfig";
-            this.tpTruckconfig.Size = new System.Drawing.Size(1419, 293);
+            this.tpTruckconfig.Size = new System.Drawing.Size(1419, 296);
             this.tpTruckconfig.TabIndex = 2;
             this.tpTruckconfig.Text = "Truck config";
             this.tpTruckconfig.UseVisualStyleBackColor = true;
@@ -1399,7 +1400,7 @@ namespace QWS_Local
             this.splitContainer4.Panel2.Controls.Add(label13);
             this.splitContainer4.Panel2.Controls.Add(this.textBox13);
             this.splitContainer4.Panel2.Controls.Add(this.btnSetTruckConfig);
-            this.splitContainer4.Size = new System.Drawing.Size(1419, 293);
+            this.splitContainer4.Size = new System.Drawing.Size(1419, 296);
             this.splitContainer4.SplitterDistance = 985;
             this.splitContainer4.TabIndex = 103;
             // 
@@ -1411,7 +1412,7 @@ namespace QWS_Local
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(985, 293);
+            this.tabControl1.Size = new System.Drawing.Size(985, 296);
             this.tabControl1.TabIndex = 70;
             // 
             // tpList
@@ -1420,7 +1421,7 @@ namespace QWS_Local
             this.tpList.Location = new System.Drawing.Point(4, 25);
             this.tpList.Name = "tpList";
             this.tpList.Padding = new System.Windows.Forms.Padding(3);
-            this.tpList.Size = new System.Drawing.Size(977, 264);
+            this.tpList.Size = new System.Drawing.Size(977, 267);
             this.tpList.TabIndex = 0;
             this.tpList.Text = "List";
             this.tpList.UseVisualStyleBackColor = true;
@@ -1443,7 +1444,7 @@ namespace QWS_Local
             this.dgvTruckConfig.Location = new System.Drawing.Point(3, 3);
             this.dgvTruckConfig.Name = "dgvTruckConfig";
             this.dgvTruckConfig.ReadOnly = true;
-            this.dgvTruckConfig.Size = new System.Drawing.Size(971, 258);
+            this.dgvTruckConfig.Size = new System.Drawing.Size(971, 261);
             this.dgvTruckConfig.TabIndex = 69;
             // 
             // roadAccessDataGridViewTextBoxColumn
@@ -1817,6 +1818,7 @@ namespace QWS_Local
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtMaxGVM);
             this.groupBox3.Controls.Add(this.btnUpdatePayloadSplit);
             this.groupBox3.Controls.Add(this.txtPayloadSplit);
             this.groupBox3.Controls.Add(lblTKs);
@@ -1838,6 +1840,15 @@ namespace QWS_Local
             this.groupBox3.TabIndex = 68;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Truck Details";
+            // 
+            // txtMaxGVM
+            // 
+            this.txtMaxGVM.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "MaxGVM", true));
+            this.txtMaxGVM.Location = new System.Drawing.Point(19, 43);
+            this.txtMaxGVM.Name = "txtMaxGVM";
+            this.txtMaxGVM.Size = new System.Drawing.Size(72, 23);
+            this.txtMaxGVM.TabIndex = 116;
+            this.txtMaxGVM.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnUpdatePayloadSplit
             // 
@@ -2213,5 +2224,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn pBSLevelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn schemeCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn BridgeAssessment;
+        private System.Windows.Forms.TextBox txtMaxGVM;
     }
 }

@@ -1072,7 +1072,7 @@ namespace QWS_Local
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "CheckOverRidMinCart";
+                cmd.CommandText = "CheckOverRideMinCart";
                 cmd.Parameters.AddWithValue("@Rego",Rego);
                 sqlConnection.Open();
                 blOverRide = System.Convert.ToBoolean(cmd.ExecuteScalar());

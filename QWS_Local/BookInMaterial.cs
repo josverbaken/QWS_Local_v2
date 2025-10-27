@@ -134,6 +134,14 @@ namespace QWS_Local
                 //tpExBinNoOrder.Hide(); // known not to work, must remove
                 tabControl2.TabPages.Remove(tpExBinNoOrder);
             }
+            if (CurrentTruckGVM().MaxGVM > 0.0M)
+            {
+                this.txtMaxGVM.BackColor = Color.PaleGreen;
+            }
+            else
+            {
+                this.txtMaxGVM.BackColor = SystemColors.Control;
+            }
         }
 
         private void SetExBinNoOrderCustomer()

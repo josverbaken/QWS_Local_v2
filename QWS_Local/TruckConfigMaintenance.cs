@@ -297,7 +297,8 @@ namespace QWS_Local
                         foreach (dsTruckConfig.ConfiguredTrucksRow myConfigTruck in dsTruckConfig.ConfiguredTrucks)
                         {
                             string testRego = RegoArray[0] + RegoArray[1];
-                            string compareRego = myConfigTruck.RegoTk + myConfigTruck.RegoTr1;
+                                string compareRego = myConfigTruck.RegoTk + myConfigTruck.RegoTrailer.Replace(" ","");
+                                // 20251028 compare all trailers
                             if (testRego == compareRego)
                             {
                                 Okay2Continue = false;
