@@ -517,7 +517,7 @@ WHERE        (1 = 1) AND (ItemCode LIKE @Prefix + '%') AND (ExBinNoOrder LIKE 'Y
               <xs:element name="ItemName" msprop:Generator_ColumnPropNameInTable="ItemNameColumn" msprop:Generator_ColumnPropNameInRow="ItemName" msprop:Generator_UserColumnName="ItemName" msprop:Generator_ColumnVarNameInTable="columnItemName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
+                    <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -769,7 +769,7 @@ WHERE        (1 = 1) AND (ItemCode LIKE @Prefix + '%') AND (ExBinNoOrder LIKE 'Y
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Number" msprop:Generator_UserColumnName="Number" msprop:Generator_ColumnPropNameInTable="NumberColumn" msprop:Generator_ColumnPropNameInRow="Number" msprop:Generator_ColumnVarNameInTable="columnNumber" type="xs:int" minOccurs="0" />
+              <xs:element name="Number" msprop:Generator_ColumnPropNameInTable="NumberColumn" msprop:Generator_ColumnPropNameInRow="Number" msprop:Generator_UserColumnName="Number" msprop:Generator_ColumnVarNameInTable="columnNumber" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

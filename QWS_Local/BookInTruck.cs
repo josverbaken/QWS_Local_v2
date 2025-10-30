@@ -748,7 +748,7 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@RegoTr2", "RegoTr2"); // myConfigTruck.RegoTr2);
                 cmd.Parameters.AddWithValue("@RegoTr3", "RegoTr3"); // myConfigTruck.RegoTr3);
                 cmd.Parameters.AddWithValue("@RegoTrailers", "RegoTrailers"); // myConfigTruck.RegoTrailer);
-                cmd.Parameters.AddWithValue("@TruckConfig", "tba"); // TruckOrTrailerConfig); // myConfigTruck.VehicleType);
+                cmd.Parameters.AddWithValue("@TruckConfig", TruckOrTrailerConfig); 
                 cmd.Parameters.AddWithValue("@TruckConfigID", myTruckConfigID); //myConfigTruck.TruckConfigID);
                 cmd.Parameters.AddWithValue("@AxleConfiguration", myConfigTruck.AxleConfiguration);
                 cmd.Parameters.AddWithValue("@FeeCode", myConfigTruck.FeeCode);

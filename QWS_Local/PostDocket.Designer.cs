@@ -35,9 +35,11 @@
             System.Windows.Forms.Label custONLabel;
             System.Windows.Forms.Label label1;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.regoTextBox = new System.Windows.Forms.TextBox();
+            this.txtUnderload = new System.Windows.Forms.TextBox();
+            this.txtPayload = new System.Windows.Forms.TextBox();
             this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
+            this.regoTextBox = new System.Windows.Forms.TextBox();
             this.txtNett = new System.Windows.Forms.TextBox();
             this.txtTare = new System.Windows.Forms.TextBox();
             this.txtGross = new System.Windows.Forms.TextBox();
@@ -57,8 +59,6 @@
             this.taSPLotNo = new QWS_Local.dsTIQ2TableAdapters.SPLotNoAssignTableAdapter();
             this.bsCustomer = new System.Windows.Forms.BindingSource(this.components);
             this.taCustomer = new QWS_Local.dsTIQ2TableAdapters.BusinessGetByCodeTableAdapter();
-            this.txtPayload = new System.Windows.Forms.TextBox();
-            this.txtUnderload = new System.Windows.Forms.TextBox();
             grossLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             nettLabel = new System.Windows.Forms.Label();
@@ -104,11 +104,20 @@
             // 
             custONLabel.AutoSize = true;
             custONLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            custONLabel.Location = new System.Drawing.Point(46, 101);
+            custONLabel.Location = new System.Drawing.Point(286, 117);
             custONLabel.Name = "custONLabel";
             custONLabel.Size = new System.Drawing.Size(86, 24);
             custONLabel.TabIndex = 0;
             custONLabel.Text = "Cust ON:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(307, 127);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(65, 18);
+            label1.TabIndex = 11;
+            label1.Text = "Payload:";
             // 
             // groupBox1
             // 
@@ -129,15 +138,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "1) Check Truck Details";
             // 
-            // regoTextBox
+            // txtUnderload
             // 
-            this.regoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Rego", true));
-            this.regoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.regoTextBox.Location = new System.Drawing.Point(25, 29);
-            this.regoTextBox.Name = "regoTextBox";
-            this.regoTextBox.ReadOnly = true;
-            this.regoTextBox.Size = new System.Drawing.Size(133, 29);
-            this.regoTextBox.TabIndex = 9;
+            this.txtUnderload.BackColor = System.Drawing.SystemColors.Control;
+            this.txtUnderload.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUnderload.Location = new System.Drawing.Point(25, 127);
+            this.txtUnderload.Name = "txtUnderload";
+            this.txtUnderload.ReadOnly = true;
+            this.txtUnderload.Size = new System.Drawing.Size(276, 17);
+            this.txtUnderload.TabIndex = 12;
+            this.txtUnderload.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtPayload
+            // 
+            this.txtPayload.BackColor = System.Drawing.SystemColors.Control;
+            this.txtPayload.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Payload", true));
+            this.txtPayload.Location = new System.Drawing.Point(378, 124);
+            this.txtPayload.Name = "txtPayload";
+            this.txtPayload.ReadOnly = true;
+            this.txtPayload.Size = new System.Drawing.Size(100, 24);
+            this.txtPayload.TabIndex = 10;
             // 
             // bsTIQ2
             // 
@@ -148,6 +168,16 @@
             // 
             this.dsTIQ2.DataSetName = "dsTIQ2";
             this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // regoTextBox
+            // 
+            this.regoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Rego", true));
+            this.regoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.regoTextBox.Location = new System.Drawing.Point(25, 29);
+            this.regoTextBox.Name = "regoTextBox";
+            this.regoTextBox.ReadOnly = true;
+            this.regoTextBox.Size = new System.Drawing.Size(133, 29);
+            this.regoTextBox.TabIndex = 9;
             // 
             // txtNett
             // 
@@ -235,17 +265,18 @@
             // 
             this.materialDescTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "MaterialDesc", true));
             this.materialDescTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.materialDescTextBox.Location = new System.Drawing.Point(138, 63);
+            this.materialDescTextBox.Location = new System.Drawing.Point(25, 23);
+            this.materialDescTextBox.Multiline = true;
             this.materialDescTextBox.Name = "materialDescTextBox";
             this.materialDescTextBox.ReadOnly = true;
-            this.materialDescTextBox.Size = new System.Drawing.Size(234, 29);
+            this.materialDescTextBox.Size = new System.Drawing.Size(347, 73);
             this.materialDescTextBox.TabIndex = 5;
             // 
             // materialTextBox
             // 
             this.materialTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Material", true));
             this.materialTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.materialTextBox.Location = new System.Drawing.Point(378, 63);
+            this.materialTextBox.Location = new System.Drawing.Point(378, 23);
             this.materialTextBox.Name = "materialTextBox";
             this.materialTextBox.ReadOnly = true;
             this.materialTextBox.Size = new System.Drawing.Size(100, 29);
@@ -255,7 +286,7 @@
             // 
             this.custONTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "CustON", true));
             this.custONTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.custONTextBox.Location = new System.Drawing.Point(138, 98);
+            this.custONTextBox.Location = new System.Drawing.Point(378, 114);
             this.custONTextBox.Name = "custONTextBox";
             this.custONTextBox.ReadOnly = true;
             this.custONTextBox.Size = new System.Drawing.Size(100, 29);
@@ -321,36 +352,6 @@
             // taCustomer
             // 
             this.taCustomer.ClearBeforeFill = true;
-            // 
-            // txtPayload
-            // 
-            this.txtPayload.BackColor = System.Drawing.SystemColors.Control;
-            this.txtPayload.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Payload", true));
-            this.txtPayload.Location = new System.Drawing.Point(378, 124);
-            this.txtPayload.Name = "txtPayload";
-            this.txtPayload.ReadOnly = true;
-            this.txtPayload.Size = new System.Drawing.Size(100, 24);
-            this.txtPayload.TabIndex = 10;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(307, 127);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(65, 18);
-            label1.TabIndex = 11;
-            label1.Text = "Payload:";
-            // 
-            // txtUnderload
-            // 
-            this.txtUnderload.BackColor = System.Drawing.SystemColors.Control;
-            this.txtUnderload.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUnderload.Location = new System.Drawing.Point(25, 127);
-            this.txtUnderload.Name = "txtUnderload";
-            this.txtUnderload.ReadOnly = true;
-            this.txtUnderload.Size = new System.Drawing.Size(276, 17);
-            this.txtUnderload.TabIndex = 12;
-            this.txtUnderload.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // PostDocket
             // 

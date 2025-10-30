@@ -2041,7 +2041,7 @@ namespace QWS_Local {
                 this.columnItemCode.Unique = true;
                 this.columnItemCode.MaxLength = 50;
                 this.columnItemName.AllowDBNull = false;
-                this.columnItemName.MaxLength = 100;
+                this.columnItemName.MaxLength = 200;
                 this.columnLongName.AllowDBNull = false;
                 this.columnLongName.MaxLength = 100;
                 this.columnItmsGrpCod.AllowDBNull = false;

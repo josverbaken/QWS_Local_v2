@@ -1650,7 +1650,7 @@ namespace QWS_Local {
                 this.columnMaterial.AllowDBNull = false;
                 this.columnMaterial.MaxLength = 50;
                 this.columnMaterialDesc.AllowDBNull = false;
-                this.columnMaterialDesc.MaxLength = 50;
+                this.columnMaterialDesc.MaxLength = 200;
                 this.columnStockpileLotNo.AllowDBNull = false;
                 this.columnTruckOwnerCode.AllowDBNull = false;
                 this.columnTruckOwnerCode.MaxLength = 15;
@@ -2923,7 +2923,7 @@ namespace QWS_Local {
                 this.columnItemCode.AllowDBNull = false;
                 this.columnItemCode.MaxLength = 50;
                 this.columnItemDescription.AllowDBNull = false;
-                this.columnItemDescription.MaxLength = 50;
+                this.columnItemDescription.MaxLength = 200;
                 this.columnItemQA.AllowDBNull = false;
                 this.columnItmsGrpCod.AllowDBNull = false;
                 this.columnStockpileLot.AllowDBNull = false;
@@ -4806,7 +4806,7 @@ namespace QWS_Local {
                 this.columnWarehouseCode.AllowDBNull = false;
                 this.columnWarehouseCode.MaxLength = 50;
                 this.columnItemCode.MaxLength = 50;
-                this.columnItemDescription.MaxLength = 50;
+                this.columnItemDescription.MaxLength = 200;
                 this.columnItemQA.AllowDBNull = false;
                 this.columnBaseItemCode.MaxLength = 15;
                 this.columnSWW.MaxLength = 15;
@@ -6265,7 +6265,7 @@ namespace QWS_Local {
                 this.columnItemCode.AllowDBNull = false;
                 this.columnItemCode.MaxLength = 50;
                 this.columnItemDescription.AllowDBNull = false;
-                this.columnItemDescription.MaxLength = 50;
+                this.columnItemDescription.MaxLength = 200;
                 this.columnItemQA.AllowDBNull = false;
                 this.columnItmsGrpCod.AllowDBNull = false;
                 this.columnSWW.AllowDBNull = false;
