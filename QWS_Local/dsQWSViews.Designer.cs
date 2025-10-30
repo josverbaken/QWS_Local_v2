@@ -571,7 +571,7 @@ namespace QWS_Local {
                 this.columnItemCode.AllowDBNull = false;
                 this.columnItemCode.MaxLength = 50;
                 this.columnItemName.AllowDBNull = false;
-                this.columnItemName.MaxLength = 100;
+                this.columnItemName.MaxLength = 200;
                 this.columnLongName.AllowDBNull = false;
                 this.columnLongName.MaxLength = 100;
                 this.columnItmsGrpCod.AllowDBNull = false;
@@ -1160,7 +1160,7 @@ namespace QWS_Local {
                 this.columnItemCode.AllowDBNull = false;
                 this.columnItemCode.MaxLength = 50;
                 this.columnItemDescription.AllowDBNull = false;
-                this.columnItemDescription.MaxLength = 50;
+                this.columnItemDescription.MaxLength = 200;
                 this.columnOverloadDesc.MaxLength = 25;
                 this.columnWBMode.AllowDBNull = false;
                 this.columnWBMode.MaxLength = 50;

@@ -705,7 +705,7 @@ namespace QWS_Local
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new System.Drawing.Point(363, 63);
+            label16.Location = new System.Drawing.Point(463, 63);
             label16.Name = "label16";
             label16.Size = new System.Drawing.Size(70, 17);
             label16.TabIndex = 81;
@@ -1524,7 +1524,7 @@ namespace QWS_Local
             this.tpDetails.Location = new System.Drawing.Point(4, 22);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(977, 267);
+            this.tpDetails.Size = new System.Drawing.Size(977, 270);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -1702,7 +1702,7 @@ namespace QWS_Local
             this.groupBox2.Controls.Add(this.textBox7);
             this.groupBox2.Location = new System.Drawing.Point(10, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(564, 223);
+            this.groupBox2.Size = new System.Drawing.Size(639, 223);
             this.groupBox2.TabIndex = 114;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Customer / Order Summary";
@@ -1710,7 +1710,7 @@ namespace QWS_Local
             // textBox10
             // 
             this.textBox10.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "SAPOrder", true));
-            this.textBox10.Location = new System.Drawing.Point(439, 60);
+            this.textBox10.Location = new System.Drawing.Point(539, 60);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
             this.textBox10.Size = new System.Drawing.Size(81, 23);
@@ -1719,7 +1719,7 @@ namespace QWS_Local
             // textBox1
             // 
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsQuarryOrders, "ContactMobile", true));
-            this.textBox1.Location = new System.Drawing.Point(439, 89);
+            this.textBox1.Location = new System.Drawing.Point(539, 89);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(81, 23);
@@ -1745,7 +1745,7 @@ namespace QWS_Local
             // textBox6
             // 
             this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Material", true));
-            this.textBox6.Location = new System.Drawing.Point(439, 147);
+            this.textBox6.Location = new System.Drawing.Point(539, 147);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(81, 23);
@@ -1757,13 +1757,13 @@ namespace QWS_Local
             this.materialDescTextBox.Location = new System.Drawing.Point(143, 147);
             this.materialDescTextBox.Name = "materialDescTextBox";
             this.materialDescTextBox.ReadOnly = true;
-            this.materialDescTextBox.Size = new System.Drawing.Size(290, 23);
+            this.materialDescTextBox.Size = new System.Drawing.Size(377, 23);
             this.materialDescTextBox.TabIndex = 10;
             // 
             // cartageCodeTextBox1
             // 
             this.cartageCodeTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "CartageCode", true));
-            this.cartageCodeTextBox1.Location = new System.Drawing.Point(439, 176);
+            this.cartageCodeTextBox1.Location = new System.Drawing.Point(539, 176);
             this.cartageCodeTextBox1.Name = "cartageCodeTextBox1";
             this.cartageCodeTextBox1.ReadOnly = true;
             this.cartageCodeTextBox1.Size = new System.Drawing.Size(81, 23);
@@ -1790,7 +1790,7 @@ namespace QWS_Local
             // customerCodeTextBox
             // 
             this.customerCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "CustomerCode", true));
-            this.customerCodeTextBox.Location = new System.Drawing.Point(439, 31);
+            this.customerCodeTextBox.Location = new System.Drawing.Point(539, 31);
             this.customerCodeTextBox.Name = "customerCodeTextBox";
             this.customerCodeTextBox.ReadOnly = true;
             this.customerCodeTextBox.Size = new System.Drawing.Size(81, 23);
@@ -1834,7 +1834,7 @@ namespace QWS_Local
             this.groupBox3.Controls.Add(this.tareTextBox);
             this.groupBox3.Controls.Add(tareLabel);
             this.groupBox3.Controls.Add(this.txtTareTruck);
-            this.groupBox3.Location = new System.Drawing.Point(580, 15);
+            this.groupBox3.Location = new System.Drawing.Point(673, 15);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(439, 167);
             this.groupBox3.TabIndex = 68;

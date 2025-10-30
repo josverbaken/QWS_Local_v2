@@ -118,7 +118,7 @@ FROM DocketList t0</CommandText>
               <xs:element name="ItemName" msprop:Generator_ColumnPropNameInTable="ItemNameColumn" msprop:Generator_ColumnPropNameInRow="ItemName" msprop:Generator_UserColumnName="ItemName" msprop:Generator_ColumnVarNameInTable="columnItemName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
+                    <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -243,7 +243,7 @@ FROM DocketList t0</CommandText>
               <xs:element name="ItemDescription" msprop:Generator_ColumnPropNameInTable="ItemDescriptionColumn" msprop:Generator_ColumnPropNameInRow="ItemDescription" msprop:Generator_UserColumnName="ItemDescription" msprop:Generator_ColumnVarNameInTable="columnItemDescription">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -269,8 +269,8 @@ FROM DocketList t0</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SiteID" msprop:Generator_ColumnPropNameInRow="SiteID" msprop:Generator_ColumnPropNameInTable="SiteIDColumn" msprop:Generator_ColumnVarNameInTable="columnSiteID" msprop:Generator_UserColumnName="SiteID" type="xs:int" />
-              <xs:element name="ProcessStatus" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="ProcessStatus" msprop:Generator_ColumnPropNameInTable="ProcessStatusColumn" msprop:Generator_ColumnVarNameInTable="columnProcessStatus" msprop:Generator_UserColumnName="ProcessStatus" minOccurs="0">
+              <xs:element name="SiteID" msprop:Generator_UserColumnName="SiteID" msprop:Generator_ColumnPropNameInTable="SiteIDColumn" msprop:Generator_ColumnPropNameInRow="SiteID" msprop:Generator_ColumnVarNameInTable="columnSiteID" type="xs:int" />
+              <xs:element name="ProcessStatus" msdata:ReadOnly="true" msprop:Generator_UserColumnName="ProcessStatus" msprop:Generator_ColumnPropNameInTable="ProcessStatusColumn" msprop:Generator_ColumnPropNameInRow="ProcessStatus" msprop:Generator_ColumnVarNameInTable="columnProcessStatus" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1" />
