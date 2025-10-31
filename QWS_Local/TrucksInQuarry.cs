@@ -22,7 +22,6 @@ namespace QWS_Local
         private int mySiteID;
         private int mySPLotNo;
         private decimal myTareWeight;
-        private string WeighbridgeOperator;
         private string ComputerName;
         private string Domain;
         private string myConnectionString;
@@ -34,11 +33,19 @@ namespace QWS_Local
             InitializeComponent();
         }
 
+        private string QWS_WBO
+        {
+            get
+            {
+                var parent = this.MdiParent as QWS_MDIParent;
+                return parent.UserName;
+            }
+        }
+
         private void TrucksInQuarry_Load(object sender, EventArgs e)
         {
             var parent = this.MdiParent as QWS_MDIParent;
             mySiteID = parent.SiteID;
-            WeighbridgeOperator = parent.UserName;
             ComputerName = parent.ComputerName;
             Domain = parent.DomainName;
             this.KeyPreview = true;
@@ -744,7 +751,7 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@Status", Status);
                 cmd.Parameters.AddWithValue("@Computer", ComputerName);
                 cmd.Parameters.AddWithValue("@Domain", Domain);
-                cmd.Parameters.AddWithValue("@Operator", WeighbridgeOperator);
+                cmd.Parameters.AddWithValue("@Operator", QWS_WBO);
                 cmd.Parameters.AddWithValue("@WBID", WBID);
                 cmd.Parameters.AddWithValue("@WBConnected", WBConnected);
                 cmd.Parameters.AddWithValue("@WBReading", WBReading);
@@ -814,7 +821,7 @@ namespace QWS_Local
                 cmd.CommandText = "TIQLock";
                 cmd.Parameters.AddWithValue("@TIQID", TIQID);
                 cmd.Parameters.AddWithValue("@ProcessID", ProcessID);
-                cmd.Parameters.AddWithValue("@Username", WeighbridgeOperator);
+                cmd.Parameters.AddWithValue("@Username", QWS_WBO);
                 cmd.Parameters.AddWithValue("@Computer", ComputerName);
                 cmd.Parameters.AddWithValue("@LockAction", LockAction);
                 sqlConnection.Open();
@@ -884,6 +891,7 @@ namespace QWS_Local
                 docketsRow.TruckDriver = myTIQRow.Driver;
                 docketsRow.SalesPersonCode = -1;
                 docketsRow.SalesPerson = "";//"Weighbridge Operator";
+                docketsRow.EnteredBy = QWS_WBO;
                 docketsRow.Comments = "";
                 docketsRow.CreatedDTTM = DateTime.Now;
                 docketsRow.TIQID = myTIQRow.TIQID;
