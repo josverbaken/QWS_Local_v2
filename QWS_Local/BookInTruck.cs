@@ -115,6 +115,7 @@ namespace QWS_Local
             TIQID = NewTIQ(TIQType.EnterRego, myParentTIQID, TrailerConfig, true);
             _TIQRow = (dsTIQ2.TIQRow)dsTIQ2.TIQ.Rows[0]; // bind to dataset // 20250712
             //check rego and axle conditions
+            CheckACCType();
             CheckConfigOK2Proceed();
         }
 
@@ -275,7 +276,6 @@ namespace QWS_Local
             if (CallingMessage.Length > 0)
             {
                 MessageBox.Show(CallingMessage, "Follow on book in.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //CheckACCType();
             }
         }
    
@@ -1024,9 +1024,5 @@ namespace QWS_Local
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            CheckACCType();
-        }
     }
 }
