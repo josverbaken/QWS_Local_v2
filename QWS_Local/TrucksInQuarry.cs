@@ -413,6 +413,8 @@ namespace QWS_Local
                                         string myTruckRego = myTIQRow.Rego;
                                         myTIQRow.WeighbridgeID = frmWeighTruck.WBID;
                                         myTIQRow.WBConnected = frmWeighTruck.WBConnected;
+                                        myTIQRow.WeightDTTM = DateTime.Now;
+                                        myTIQRow.ExitDTTM = DateTime.Now;
                                         bsTIQ2.EndEdit();
                                         taTIQ2.Update(dsTIQ2.TIQ);
                                         if (ConfirmPostDocket())

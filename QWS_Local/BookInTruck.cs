@@ -436,6 +436,7 @@ namespace QWS_Local
                     dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
                     dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
                     string myTruckOwner;
+                    DateTime fakeDTTM = new DateTime(2020, 1, 1, 6, 0, 0);
                     if (myConfigTruck.TruckOwner.Length > 50)
                     {
                         myTruckOwner = myConfigTruck.TruckOwner.Substring(0, 50);
@@ -448,6 +449,8 @@ namespace QWS_Local
                     _TIQRow.DriverID = myTruckDriver.CntctCode;
                     _TIQRow.Driver = myTruckDriver.Person;
                     _TIQRow.AllocateDTTM = DateTime.Now;
+                    _TIQRow.WeightDTTM = fakeDTTM;
+                    _TIQRow.ExitDTTM=fakeDTTM;
                     _TIQRow.Rego = myConfigTruck.RegoTk;
                     _TIQRow.RegoTr1 = myConfigTruck.RegoTr1;
                     _TIQRow.RegoTr2 = myConfigTruck.RegoTr2;
@@ -480,6 +483,7 @@ namespace QWS_Local
         {
             bsTIQ.EndEdit();
             bsTruckDriver.EndEdit();
+            DateTime fakeDTTM = new DateTime(2020, 1, 1, 6, 0, 0);
             dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
             dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
             if (myTruckDriver != null)
@@ -494,6 +498,8 @@ namespace QWS_Local
             }
             _TIQRow.Operator = myWBO;//myUsername;
             _TIQRow.AllocateDTTM = DateTime.Now;
+            _TIQRow.WeightDTTM = fakeDTTM;
+            _TIQRow.ExitDTTM = fakeDTTM;
             _TIQRow.Rego = myConfigTruck.RegoTk;
             _TIQRow.RegoTr1 = myConfigTruck.RegoTr1;
             _TIQRow.RegoTr2 = myConfigTruck.RegoTr2;
