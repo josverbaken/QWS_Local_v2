@@ -80,16 +80,16 @@ namespace QWS_Local
             if (_TIQRow.Rego.Length > 0)
             { 
                 FindTruckConfig(_TIQRow.Rego.Trim(), Resume); // somehow short rego gets padded out in TIQ
-                SelectTruckConfig(_TIQRow.TruckConfigID);
+                SelectTruckConfig(_TIQRow.TruckConfigID); // ensures correct combination is selected
                 if (_TIQRow.DriverID > 0)
                 {
                 GetTruckDriver(_TIQRow.DriverID);
                 }
-                // CheckConfigOK2Proceed() may set to disabled is not ok to proceed
                 if (btnGetDriver.Enabled == false)
                 {
                     btnGetDriver.Enabled = true;
                 }
+                CheckACCType();
             }
             else
             {
@@ -110,8 +110,9 @@ namespace QWS_Local
             {
                 GetTruckDriver(myDriverID);
             }
+            UpdateOwnerGUI();
             // Create new TIQ
-            TIQID = NewTIQ(TIQType.EnterRego, myParentTIQID, TrailerConfig);
+            TIQID = NewTIQ(TIQType.EnterRego, myParentTIQID, TrailerConfig, true);
             _TIQRow = (dsTIQ2.TIQRow)dsTIQ2.TIQ.Rows[0]; // bind to dataset // 20250712
             //check rego and axle conditions
             CheckConfigOK2Proceed();
@@ -160,7 +161,7 @@ namespace QWS_Local
                         if (Resume == false)
                         {
                             UpdateOwnerGUI();
-                            TIQID = NewTIQ(TIQType.EnterRego, 0, "tba");
+                            TIQID = NewTIQ(TIQType.EnterRego, 0, "tba", false);
                             dgvConfiguredTrucks.ClearSelection();
                             DGVLoaded = true;
                         }
@@ -274,6 +275,7 @@ namespace QWS_Local
             if (CallingMessage.Length > 0)
             {
                 MessageBox.Show(CallingMessage, "Follow on book in.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //CheckACCType();
             }
         }
    
@@ -694,7 +696,7 @@ namespace QWS_Local
             }
         }
 
-        private int NewTIQ(TIQType myTIQType, int myParentTIQID, string TruckOrTrailerConfig)
+        private int NewTIQ(TIQType myTIQType, int myParentTIQID, string TruckOrTrailerConfig, bool FollowOn)
         {
             try
             {
@@ -744,10 +746,24 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@SiteID", mySiteID);
                 cmd.Parameters.AddWithValue("@Operator", myWBO);
                 cmd.Parameters.AddWithValue("@Rego", myConfigTruck.RegoTk);
-                cmd.Parameters.AddWithValue("@RegoTr1", "RegoTr1"); // myConfigTruck.RegoTr1);
-                cmd.Parameters.AddWithValue("@RegoTr2", "RegoTr2"); // myConfigTruck.RegoTr2);
-                cmd.Parameters.AddWithValue("@RegoTr3", "RegoTr3"); // myConfigTruck.RegoTr3);
-                cmd.Parameters.AddWithValue("@RegoTrailers", "RegoTrailers"); // myConfigTruck.RegoTrailer);
+                if (FollowOn == true)
+                {
+                    cmd.Parameters.AddWithValue("@RegoTr1", myConfigTruck.RegoTr1);
+                    cmd.Parameters.AddWithValue("@RegoTr2", myConfigTruck.RegoTr2);
+                    cmd.Parameters.AddWithValue("@RegoTr3", myConfigTruck.RegoTr3);
+                    cmd.Parameters.AddWithValue("@RegoTrailers", myConfigTruck.RegoTrailer);
+                    cmd.Parameters.AddWithValue("@Tare", myConfigTruck.Tare);
+                    cmd.Parameters.AddWithValue("@TareTk", myConfigTruck.TareTk);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@RegoTr1", "tba");
+                    cmd.Parameters.AddWithValue("@RegoTr2", "tba");
+                    cmd.Parameters.AddWithValue("@RegoTr3", "tba");
+                    cmd.Parameters.AddWithValue("@RegoTrailers", "tba");
+                    cmd.Parameters.AddWithValue("@Tare", 0.0M);
+                    cmd.Parameters.AddWithValue("@TareTk", 0.0M);
+                }
                 cmd.Parameters.AddWithValue("@TruckConfig", TruckOrTrailerConfig); 
                 cmd.Parameters.AddWithValue("@TruckConfigID", myTruckConfigID); //myConfigTruck.TruckConfigID);
                 cmd.Parameters.AddWithValue("@AxleConfiguration", myConfigTruck.AxleConfiguration);
@@ -776,12 +792,10 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@GCM", 0.0M);
                 cmd.Parameters.AddWithValue("@GVMTruck", 0.0M);
                 cmd.Parameters.AddWithValue("@Gross", 0.0M);
-                cmd.Parameters.AddWithValue("@Tare", 0.0M); // myConfigTruck.Tare);
-                cmd.Parameters.AddWithValue("@TareTk", 0.0M);
                 cmd.Parameters.AddWithValue("@Nett", 0.0M);
                 cmd.Parameters.AddWithValue("@EntryDTTM", EntryDTTM);
                 cmd.Parameters.AddWithValue("@TruckConfigDTTM", DateTime.Now);
-                cmd.Parameters.AddWithValue("@AllocateDTTM", EntryDTTM);
+                cmd.Parameters.AddWithValue("@AllocateDTTM", "20200101 07:00:00");
                 cmd.Parameters.AddWithValue("@ReleaseDTTM", EntryDTTM);
                 cmd.Parameters.AddWithValue("@WeightDTTM", EntryDTTM);
                 cmd.Parameters.AddWithValue("@AcceptanceDTTM", EntryDTTM);
@@ -880,7 +894,7 @@ namespace QWS_Local
                 if (_TIQRow == null)
                 {
                     // create record with just rego to capture entry time for KPI
-                    NewTIQ(TIQType.ParkUp, 0, "tba");
+                    NewTIQ(TIQType.ParkUp, 0, "tba", false);
                 }
                 else
                 {
@@ -993,16 +1007,26 @@ namespace QWS_Local
         {
             dsTruckConfig.ConfiguredTrucksRow myConfiguredTrucksRow = CurrentConfigTruck();
             _TIQRow.TruckConfig = myConfiguredTrucksRow.VehicleType.ToString(); // CurrentConfigTruck().VehicleType.ToString();
-            if (myConfiguredTrucksRow.ACCDelivery == true)
+            CheckACCType();
+            UpdateTIQ(TIQType.EnterRego);
+            CheckConfigOK2Proceed();
+        }
+
+        private void CheckACCType()
+        {
+            if (CurrentConfigTruck().ACCDelivery == true)
             {
                 btnDelivery.Enabled = true;
             }
-            if (myConfiguredTrucksRow.ACCPickup == true)
+            if (CurrentConfigTruck().ACCPickup == true)
             {
                 btnImportedPickUp.Enabled = true;
             }
-            UpdateTIQ(TIQType.EnterRego);
-            CheckConfigOK2Proceed();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CheckACCType();
         }
     }
 }

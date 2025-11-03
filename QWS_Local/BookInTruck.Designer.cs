@@ -98,6 +98,7 @@ namespace QWS_Local
             this.btnSetTruckConfig = new System.Windows.Forms.Button();
             this.taConfiguredTrucks = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
+            this.button1 = new System.Windows.Forms.Button();
             cardStatusLabel = new System.Windows.Forms.Label();
             inductionExpLabel = new System.Windows.Forms.Label();
             licenseExpLabel = new System.Windows.Forms.Label();
@@ -419,6 +420,7 @@ namespace QWS_Local
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(truckConfigLabel);
             this.groupBox1.Controls.Add(this.truckConfigTextBox);
             this.groupBox1.Controls.Add(this.label1);
@@ -763,6 +765,16 @@ namespace QWS_Local
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(18, 172);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(142, 23);
+            this.button1.TabIndex = 75;
+            this.button1.Text = "Check ACC Type";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // BookInTruck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -877,5 +889,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn TareDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn VehicleType;
         private System.Windows.Forms.DataGridViewTextBoxColumn TruckConfigID;
+        private System.Windows.Forms.Button button1;
     }
 }

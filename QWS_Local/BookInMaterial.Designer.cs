@@ -180,7 +180,6 @@ namespace QWS_Local
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.cartageTextBox1 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.materialDescTextBox = new System.Windows.Forms.TextBox();
             this.cartageCodeTextBox1 = new System.Windows.Forms.TextBox();
@@ -498,7 +497,7 @@ namespace QWS_Local
             // cartageLabel1
             // 
             cartageLabel1.AutoSize = true;
-            cartageLabel1.Location = new System.Drawing.Point(75, 179);
+            cartageLabel1.Location = new System.Drawing.Point(458, 179);
             cartageLabel1.Name = "cartageLabel1";
             cartageLabel1.Size = new System.Drawing.Size(62, 17);
             cartageLabel1.TabIndex = 12;
@@ -1087,9 +1086,9 @@ namespace QWS_Local
             this.tpOrderDetails.Controls.Add(this.docNumTextBox1);
             this.tpOrderDetails.Controls.Add(this.btnSetExBinOrder);
             this.tpOrderDetails.Controls.Add(this.btnRefreshOrders);
-            this.tpOrderDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpOrderDetails.Location = new System.Drawing.Point(4, 25);
             this.tpOrderDetails.Name = "tpOrderDetails";
-            this.tpOrderDetails.Size = new System.Drawing.Size(1419, 296);
+            this.tpOrderDetails.Size = new System.Drawing.Size(1419, 293);
             this.tpOrderDetails.TabIndex = 3;
             this.tpOrderDetails.Text = "Order Details";
             this.tpOrderDetails.UseVisualStyleBackColor = true;
@@ -1285,10 +1284,10 @@ namespace QWS_Local
             this.tpExBinNoOrder.Controls.Add(this.btnSetItem);
             this.tpExBinNoOrder.Controls.Add(this.btnExBinItems);
             this.tpExBinNoOrder.Controls.Add(this.button1);
-            this.tpExBinNoOrder.Location = new System.Drawing.Point(4, 22);
+            this.tpExBinNoOrder.Location = new System.Drawing.Point(4, 25);
             this.tpExBinNoOrder.Name = "tpExBinNoOrder";
             this.tpExBinNoOrder.Padding = new System.Windows.Forms.Padding(3);
-            this.tpExBinNoOrder.Size = new System.Drawing.Size(1419, 296);
+            this.tpExBinNoOrder.Size = new System.Drawing.Size(1419, 293);
             this.tpExBinNoOrder.TabIndex = 1;
             this.tpExBinNoOrder.Text = "Ex-Bin No Order";
             this.tpExBinNoOrder.UseVisualStyleBackColor = true;
@@ -1378,9 +1377,9 @@ namespace QWS_Local
             // tpTruckconfig
             // 
             this.tpTruckconfig.Controls.Add(this.splitContainer4);
-            this.tpTruckconfig.Location = new System.Drawing.Point(4, 22);
+            this.tpTruckconfig.Location = new System.Drawing.Point(4, 25);
             this.tpTruckconfig.Name = "tpTruckconfig";
-            this.tpTruckconfig.Size = new System.Drawing.Size(1419, 296);
+            this.tpTruckconfig.Size = new System.Drawing.Size(1419, 293);
             this.tpTruckconfig.TabIndex = 2;
             this.tpTruckconfig.Text = "Truck config";
             this.tpTruckconfig.UseVisualStyleBackColor = true;
@@ -1400,7 +1399,7 @@ namespace QWS_Local
             this.splitContainer4.Panel2.Controls.Add(label13);
             this.splitContainer4.Panel2.Controls.Add(this.textBox13);
             this.splitContainer4.Panel2.Controls.Add(this.btnSetTruckConfig);
-            this.splitContainer4.Size = new System.Drawing.Size(1419, 296);
+            this.splitContainer4.Size = new System.Drawing.Size(1419, 293);
             this.splitContainer4.SplitterDistance = 985;
             this.splitContainer4.TabIndex = 103;
             // 
@@ -1412,7 +1411,7 @@ namespace QWS_Local
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(985, 296);
+            this.tabControl1.Size = new System.Drawing.Size(985, 293);
             this.tabControl1.TabIndex = 70;
             // 
             // tpList
@@ -1421,7 +1420,7 @@ namespace QWS_Local
             this.tpList.Location = new System.Drawing.Point(4, 25);
             this.tpList.Name = "tpList";
             this.tpList.Padding = new System.Windows.Forms.Padding(3);
-            this.tpList.Size = new System.Drawing.Size(977, 267);
+            this.tpList.Size = new System.Drawing.Size(977, 264);
             this.tpList.TabIndex = 0;
             this.tpList.Text = "List";
             this.tpList.UseVisualStyleBackColor = true;
@@ -1442,9 +1441,10 @@ namespace QWS_Local
             this.dgvTruckConfig.DataSource = this.bsConfiguredTruckGVM;
             this.dgvTruckConfig.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTruckConfig.Location = new System.Drawing.Point(3, 3);
+            this.dgvTruckConfig.MultiSelect = false;
             this.dgvTruckConfig.Name = "dgvTruckConfig";
             this.dgvTruckConfig.ReadOnly = true;
-            this.dgvTruckConfig.Size = new System.Drawing.Size(971, 261);
+            this.dgvTruckConfig.Size = new System.Drawing.Size(971, 258);
             this.dgvTruckConfig.TabIndex = 69;
             // 
             // roadAccessDataGridViewTextBoxColumn
@@ -1688,7 +1688,6 @@ namespace QWS_Local
             this.groupBox2.Controls.Add(label8);
             this.groupBox2.Controls.Add(this.textBox3);
             this.groupBox2.Controls.Add(cartageLabel1);
-            this.groupBox2.Controls.Add(this.cartageTextBox1);
             this.groupBox2.Controls.Add(label9);
             this.groupBox2.Controls.Add(this.textBox6);
             this.groupBox2.Controls.Add(this.materialDescTextBox);
@@ -1733,14 +1732,6 @@ namespace QWS_Local
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(290, 23);
             this.textBox3.TabIndex = 14;
-            // 
-            // cartageTextBox1
-            // 
-            this.cartageTextBox1.Location = new System.Drawing.Point(143, 176);
-            this.cartageTextBox1.Name = "cartageTextBox1";
-            this.cartageTextBox1.ReadOnly = true;
-            this.cartageTextBox1.Size = new System.Drawing.Size(290, 23);
-            this.cartageTextBox1.TabIndex = 13;
             // 
             // textBox6
             // 
@@ -2152,7 +2143,6 @@ namespace QWS_Local
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox cartageTextBox1;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox materialDescTextBox;
         private System.Windows.Forms.TextBox cartageCodeTextBox1;

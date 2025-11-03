@@ -499,19 +499,26 @@ namespace QWS_Local
 
         private void SetTIQTruckconfig()
         {
-            dsTruckConfig.ConfiguredTruckGVMRow myTruckGVM = CurrentTruckGVM();
-            decimal myGCM = myTruckGVM.GCM;
-            decimal myMaxGVM = myTruckGVM.MaxGVM;
-            if (myGCM > myMaxGVM && myMaxGVM > 0)
+            if (dgvTruckConfig.SelectedRows.Count == 0)
             {
-                myGCM = myMaxGVM;
+                MessageBox.Show("Please select GVM!");
             }
-            _TIQRow.GCM = myGCM;
-            _TIQRow.GVMTruck = myTruckGVM.GVMTruck;
-            bsTIQ2.EndEdit();
-            tabControl2.SelectedTab = tpPayload;        
-            CalcPayload();
-            SetSplitLoadGUI(_TIQRow.TruckConfig);
+            else
+            {
+                dsTruckConfig.ConfiguredTruckGVMRow myTruckGVM = CurrentTruckGVM();
+                decimal myGCM = myTruckGVM.GCM;
+                decimal myMaxGVM = myTruckGVM.MaxGVM;
+                if (myGCM > myMaxGVM && myMaxGVM > 0)
+                {
+                    myGCM = myMaxGVM;
+                }
+                _TIQRow.GCM = myGCM;
+                _TIQRow.GVMTruck = myTruckGVM.GVMTruck;
+                bsTIQ2.EndEdit();
+                tabControl2.SelectedTab = tpPayload;
+                CalcPayload();
+                SetSplitLoadGUI(_TIQRow.TruckConfig);
+            }
         }
 
         private void SetSplitLoadGUI(string LoadType)
@@ -721,6 +728,7 @@ namespace QWS_Local
                         _TIQRow.CustomerCode = txtCardCode.Text;
                         _TIQRow.Customer = txtCustomer.Text;
                         _TIQRow.CustON = txtCustON.Text;
+                        _TIQRow.DeliveryAddress = "Ex-Bin";
                         _TIQRow.Material = itemRow.ItemCode;
                         _TIQRow.MaterialDesc = itemRow.ItemName;
                         _TIQRow.AgrNo = myAgrNo;
@@ -728,7 +736,8 @@ namespace QWS_Local
                         bsTIQ2.EndEdit();
                         tabControl2.SelectedTab = tpTruckconfig;
                     }
-            }
+                }
+                dgvTruckConfig.ClearSelection();
             }
             catch (Exception ex)
             {
