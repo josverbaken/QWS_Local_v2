@@ -671,8 +671,6 @@ namespace QWS_Local
                 {
                     OK2Continue = false;
                     MessageBox.Show("Cannot proeed!");
-                    // TODO - cancel and log or park as "P" but don't proceed until a valid customer entered 
-                    // 20251024
                 }
             }
             if (OK2Continue == true)

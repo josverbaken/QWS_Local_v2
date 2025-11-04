@@ -540,13 +540,19 @@ namespace QWS_Local
                 {
                     NewDocket(myDocNum);
                     int myOrderBaseEntry = 0;
+                    int iRows;
+                    int iLineNumMax = 0;
                     myOrderBaseEntry = GetOrderDocEntry(myTIQRow.SAPOrder);
                     if (myOrderBaseEntry > 0) // i.e. SAP Order
                     {
-                        int iRows = taQuarryOrderLines.FillByDocEntry(dsBookIn.QuarryOrderLines, myOrderBaseEntry);
+                        iRows = taQuarryOrderLines.FillByDocEntry(dsBookIn.QuarryOrderLines, myOrderBaseEntry);
                         for (int i = 0; i < iRows; i++) // Order LineNum is also zero based
                         {
                             dsBookIn.QuarryOrderLinesRow myOrderLine = (dsBookIn.QuarryOrderLinesRow)dsBookIn.QuarryOrderLines.Rows[i];
+                            if (myOrderLine.LineNum > iLineNumMax)
+                            {
+                                iLineNumMax = myOrderLine.LineNum;
+                            }
                             switch (myOrderLine.SWW)
                             {
                                 case "Items":
@@ -578,9 +584,9 @@ namespace QWS_Local
                     }
                     if (myTIQRow.Nett < Properties.Settings.Default.MinimumMaterial && blOverRideShortLoad == false)
                     {
+                        iLineNumMax += 1; // don't duplicate LineNum from Order
                         string ShortLoadFee = Properties.Settings.Default.ShortLoadFee;
-                        DocketLineAdd(ShortLoadFee, "Short Load Fee", GetItemQA(ShortLoadFee), GetItmsGrpCod(ShortLoadFee), "Other", 0, 0, 9);
-                        // TODO resolve lineNum
+                        DocketLineAdd(ShortLoadFee, "Short Load Fee", GetItemQA(ShortLoadFee), GetItmsGrpCod(ShortLoadFee), "Other", 0, 0, iLineNumMax);
                     }
                     taWBDocketLines.Update(dsTIQ2.WBDocketLines);
                     // 20250828 Not using SMTP2GO, may use a different process later.
