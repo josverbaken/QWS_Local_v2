@@ -973,7 +973,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Project.Value + Chr(13) + Chr(10) + Fields!Street.Value + Chr(13) + Chr(10) + Fields!City.Value + " " + Fields!State.Value + " " + Fields!Postcode.Value</Value>
+                                  <Value>=Fields!GPS.Value + Chr(13) + Chr(10) + Fields!Project.Value + Chr(13) + Chr(10) + Fields!Street.Value + Chr(13) + Chr(10) + Fields!City.Value + " " + Fields!State.Value + " " + Fields!Postcode.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -1381,6 +1381,10 @@
         </Field>
         <Field Name="NHVR_RouteID">
           <DataField>NHVR_RouteID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="GPS">
+          <DataField>GPS</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

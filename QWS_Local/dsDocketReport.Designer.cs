@@ -359,6 +359,8 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnNHVR_RouteID;
             
+            private global::System.Data.DataColumn columnGPS;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DeliveryDocketDataTable() {
@@ -714,6 +716,14 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn GPSColumn {
+                get {
+                    return this.columnGPS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -789,7 +799,8 @@ namespace QWS_Local {
                         string City, 
                         string State, 
                         string Postcode, 
-                        string NHVR_RouteID) {
+                        string NHVR_RouteID, 
+                        string GPS) {
                 DeliveryDocketRow rowDeliveryDocketRow = ((DeliveryDocketRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DocNum,
@@ -831,7 +842,8 @@ namespace QWS_Local {
                         City,
                         State,
                         Postcode,
-                        NHVR_RouteID};
+                        NHVR_RouteID,
+                        GPS};
                 rowDeliveryDocketRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDeliveryDocketRow);
                 return rowDeliveryDocketRow;
@@ -901,6 +913,7 @@ namespace QWS_Local {
                 this.columnState = base.Columns["State"];
                 this.columnPostcode = base.Columns["Postcode"];
                 this.columnNHVR_RouteID = base.Columns["NHVR_RouteID"];
+                this.columnGPS = base.Columns["GPS"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -986,6 +999,8 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnPostcode);
                 this.columnNHVR_RouteID = new global::System.Data.DataColumn("NHVR_RouteID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNHVR_RouteID);
+                this.columnGPS = new global::System.Data.DataColumn("GPS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGPS);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnDocNum}, true));
                 this.columnDocNum.AllowDBNull = false;
@@ -1001,7 +1016,6 @@ namespace QWS_Local {
                 this.columnCardName.MaxLength = 100;
                 this.columnBillToAddress.ReadOnly = true;
                 this.columnBillToAddress.MaxLength = 500;
-                this.columnShipToAddress.AllowDBNull = false;
                 this.columnShipToAddress.MaxLength = 500;
                 this.columnPurchaseOrder.AllowDBNull = false;
                 this.columnPurchaseOrder.MaxLength = 50;
@@ -1027,7 +1041,6 @@ namespace QWS_Local {
                 this.columnTonnesToday.ReadOnly = true;
                 this.columnTruckConfig.AllowDBNull = false;
                 this.columnTruckConfig.MaxLength = 5;
-                this.columnSalesman.AllowDBNull = false;
                 this.columnSalesman.MaxLength = 155;
                 this.columnTruckDriver.AllowDBNull = false;
                 this.columnTruckDriver.MaxLength = 50;
@@ -1057,6 +1070,8 @@ namespace QWS_Local {
                 this.columnPostcode.MaxLength = 20;
                 this.columnNHVR_RouteID.ReadOnly = true;
                 this.columnNHVR_RouteID.MaxLength = 10;
+                this.columnGPS.ReadOnly = true;
+                this.columnGPS.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1298,7 +1313,12 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string ShipToAddress {
                 get {
-                    return ((string)(this[this.tableDeliveryDocket.ShipToAddressColumn]));
+                    try {
+                        return ((string)(this[this.tableDeliveryDocket.ShipToAddressColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ShipToAddress\' in table \'DeliveryDocket\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableDeliveryDocket.ShipToAddressColumn] = value;
@@ -1551,7 +1571,12 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Salesman {
                 get {
-                    return ((string)(this[this.tableDeliveryDocket.SalesmanColumn]));
+                    try {
+                        return ((string)(this[this.tableDeliveryDocket.SalesmanColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Salesman\' in table \'DeliveryDocket\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableDeliveryDocket.SalesmanColumn] = value;
@@ -1769,6 +1794,22 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string GPS {
+                get {
+                    try {
+                        return ((string)(this[this.tableDeliveryDocket.GPSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GPS\' in table \'DeliveryDocket\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDeliveryDocket.GPSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsDocDateNull() {
                 return this.IsNull(this.tableDeliveryDocket.DocDateColumn);
             }
@@ -1813,6 +1854,18 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetBillToAddressNull() {
                 this[this.tableDeliveryDocket.BillToAddressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsShipToAddressNull() {
+                return this.IsNull(this.tableDeliveryDocket.ShipToAddressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetShipToAddressNull() {
+                this[this.tableDeliveryDocket.ShipToAddressColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1949,6 +2002,18 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsSalesmanNull() {
+                return this.IsNull(this.tableDeliveryDocket.SalesmanColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetSalesmanNull() {
+                this[this.tableDeliveryDocket.SalesmanColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsInstructionsNull() {
                 return this.IsNull(this.tableDeliveryDocket.InstructionsColumn);
             }
@@ -2077,6 +2142,18 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetNHVR_RouteIDNull() {
                 this[this.tableDeliveryDocket.NHVR_RouteIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsGPSNull() {
+                return this.IsNull(this.tableDeliveryDocket.GPSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetGPSNull() {
+                this[this.tableDeliveryDocket.GPSColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2277,8 +2354,9 @@ namespace QWS_Local.dsDocketReportTableAdapters {
             tableMapping.ColumnMappings.Add("State", "State");
             tableMapping.ColumnMappings.Add("Postcode", "Postcode");
             tableMapping.ColumnMappings.Add("NHVR_RouteID", "NHVR_RouteID");
-            tableMapping.ColumnMappings.Add("LoadsToday", "LoadsToday");
             tableMapping.ColumnMappings.Add("TonnesToday", "TonnesToday");
+            tableMapping.ColumnMappings.Add("GPS", "GPS");
+            tableMapping.ColumnMappings.Add("LoadsToday", "LoadsToday");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

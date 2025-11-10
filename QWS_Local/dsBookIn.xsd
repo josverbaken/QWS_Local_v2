@@ -190,7 +190,8 @@ WHERE        (1 = 1) AND (ItemCode LIKE @Prefix + '%') AND (ExBinNoOrder LIKE 'Y
               <Mapping SourceColumn="SAPUpdateDTTM" DataSetColumn="SAPUpdateDTTM" />
               <Mapping SourceColumn="Comment" DataSetColumn="Comment" />
               <Mapping SourceColumn="Project" DataSetColumn="Project" />
-              <Mapping SourceColumn="Distance" DataSetColumn="Distance1" />
+              <Mapping SourceColumn="AccountStatus" DataSetColumn="AccountStatus" />
+              <Mapping SourceColumn="Distance" DataSetColumn="Distance" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWS_NQ_Dev.dbo.QuarryOrdersDocNum" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
@@ -631,7 +632,7 @@ WHERE        (1 = 1) AND (ItemCode LIKE @Prefix + '%') AND (ExBinNoOrder LIKE 'Y
               <xs:element name="NHVR_Network" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="NHVR_NetworkColumn" msprop:Generator_ColumnPropNameInRow="NHVR_Network" msprop:Generator_UserColumnName="NHVR_Network" msprop:Generator_ColumnVarNameInTable="columnNHVR_Network" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
+                    <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -711,7 +712,13 @@ WHERE        (1 = 1) AND (ItemCode LIKE @Prefix + '%') AND (ExBinNoOrder LIKE 'Y
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Distance1" msdata:ReadOnly="true" msdata:Caption="Distance" msprop:Generator_ColumnPropNameInTable="Distance1Column" msprop:Generator_ColumnPropNameInRow="Distance1" msprop:Generator_UserColumnName="Distance1" msprop:Generator_ColumnVarNameInTable="columnDistance1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AccountStatus" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="AccountStatus" msprop:Generator_ColumnPropNameInTable="AccountStatusColumn" msprop:Generator_ColumnVarNameInTable="columnAccountStatus" msprop:Generator_UserColumnName="AccountStatus" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

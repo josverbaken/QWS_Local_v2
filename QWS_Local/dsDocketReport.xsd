@@ -60,8 +60,9 @@
               <Mapping SourceColumn="State" DataSetColumn="State" />
               <Mapping SourceColumn="Postcode" DataSetColumn="Postcode" />
               <Mapping SourceColumn="NHVR_RouteID" DataSetColumn="NHVR_RouteID" />
-              <Mapping SourceColumn="LoadsToday" DataSetColumn="LoadsToday" />
               <Mapping SourceColumn="TonnesToday" DataSetColumn="TonnesToday" />
+              <Mapping SourceColumn="GPS" DataSetColumn="GPS" />
+              <Mapping SourceColumn="LoadsToday" DataSetColumn="LoadsToday" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -113,7 +114,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ShipToAddress" msprop:Generator_ColumnPropNameInTable="ShipToAddressColumn" msprop:Generator_ColumnPropNameInRow="ShipToAddress" msprop:Generator_UserColumnName="ShipToAddress" msprop:Generator_ColumnVarNameInTable="columnShipToAddress">
+              <xs:element name="ShipToAddress" msprop:Generator_ColumnPropNameInTable="ShipToAddressColumn" msprop:Generator_ColumnPropNameInRow="ShipToAddress" msprop:Generator_UserColumnName="ShipToAddress" msprop:Generator_ColumnVarNameInTable="columnShipToAddress" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="500" />
@@ -179,7 +180,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Salesman" msprop:Generator_ColumnPropNameInTable="SalesmanColumn" msprop:Generator_ColumnPropNameInRow="Salesman" msprop:Generator_UserColumnName="Salesman" msprop:Generator_ColumnVarNameInTable="columnSalesman">
+              <xs:element name="Salesman" msprop:Generator_ColumnPropNameInTable="SalesmanColumn" msprop:Generator_ColumnPropNameInRow="Salesman" msprop:Generator_UserColumnName="Salesman" msprop:Generator_ColumnVarNameInTable="columnSalesman" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="155" />
@@ -277,10 +278,17 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NHVR_RouteID" msdata:ReadOnly="true" msprop:Generator_UserColumnName="NHVR_RouteID" msprop:Generator_ColumnPropNameInTable="NHVR_RouteIDColumn" msprop:Generator_ColumnPropNameInRow="NHVR_RouteID" msprop:Generator_ColumnVarNameInTable="columnNHVR_RouteID" minOccurs="0">
+              <xs:element name="NHVR_RouteID" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="NHVR_RouteIDColumn" msprop:Generator_ColumnPropNameInRow="NHVR_RouteID" msprop:Generator_UserColumnName="NHVR_RouteID" msprop:Generator_ColumnVarNameInTable="columnNHVR_RouteID" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GPS" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="GPS" msprop:Generator_ColumnPropNameInTable="GPSColumn" msprop:Generator_ColumnVarNameInTable="columnGPS" msprop:Generator_UserColumnName="GPS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
