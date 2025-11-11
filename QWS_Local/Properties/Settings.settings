@@ -39,7 +39,7 @@
       <Value Profile="(Default)">8.0</Value>
     </Setting>
     <Setting Name="MinimumCart" Type="System.Decimal" Scope="Application">
-      <Value Profile="(Default)">11.0</Value>
+      <Value Profile="(Default)">12.0</Value>
     </Setting>
     <Setting Name="ShortLoadFee" Type="System.String" Scope="Application">
       <Value Profile="(Default)">070-200-1</Value>

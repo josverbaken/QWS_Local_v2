@@ -240,20 +240,19 @@ namespace QWS_Local
                 {
                     myWeight = weighbridgeRead.CurrentWeightSync("SQWB1");
                 }
-                mtxtWeight.Text = myWeight.ToString();
             }
             else if (rbWB2.Checked == true && rbAuto.Checked == true)
             {
                 WeighbridgeRead weighbridgeRead = new WeighbridgeRead();
                 myWeight = weighbridgeRead.CurrentWeightSync("NQWB2");
-                mtxtWeight.Text = myWeight.ToString();
             }
             else if (rbWB3.Checked == true && rbAuto.Checked == true)
             {
                 WeighbridgeRead weighbridgeRead = new WeighbridgeRead();
                 myWeight = weighbridgeRead.CurrentWeightSync("NQWB3");
-                mtxtWeight.Text = myWeight.ToString();
             }
+            mtxtWeight.Text = myWeight.ToString("00.00");
+
         }
 
         private async Task CaptureSingleWeightAsync()
