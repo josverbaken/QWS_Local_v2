@@ -156,6 +156,10 @@ namespace QWS_Local
 
         private void WBn_CheckChanged(object sender, EventArgs e)
         {
+            if (btnAccept.Enabled == false)
+            {
+                btnAccept.Enabled = true;
+            }
             if (rbWB1.Checked == true)
             {
                 foreach (dsTIQ2.WBConfig4SiteRow configRow in dsTIQ2.WBConfig4Site)

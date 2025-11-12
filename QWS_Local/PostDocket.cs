@@ -44,10 +44,29 @@ namespace QWS_Local
         private void btnOkay_Click(object sender, EventArgs e)
         {
             myTareWeight = System.Convert.ToDecimal(txtTare.Text);
-            if (myRow.Nett <= 0.0M && myTareWeight == 0.0M)
+            decimal UnderloadAmount = myRow.Payload - myRow.Nett;
+            if (myRow.Nett <= 0.0M )
             {
-                MessageBox.Show("Unable to proceed NETT <= 0!\r\nor Tare = 0", "Zero Nett Weight.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Unable to proceed NETT <= 0!","Zero Nett Weight.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 PostDocketCancel();
+            }
+            else if (myTareWeight == 0.0M)
+            {
+                MessageBox.Show("Unable to proceed Tare = 0", "Zero Tare Weight.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                PostDocketCancel();
+            }
+            else if (UnderloadAmount > 1.0M)
+            {
+                DialogResult dialogResult = MessageBox.Show("Under Y or N","Underload Check",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.No)
+                {
+                    PostDocketCancel();
+                }
+                else
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
             }
             else
             {

@@ -14,11 +14,15 @@ namespace QWS_Local
         private  int iLoopDelay = 200;
         private  decimal decWeight = System.Convert.ToDecimal(0.00);
         private  Boolean blContinue = true;
-        private  decimal CurrentWeight = 22.22M;
+        private  decimal CurrentWeight = 222.22M;
 
         public decimal getCurrentWeight()
         {
-            return CurrentWeight;
+            if (CurrentWeight != 222.22M)
+            {
+                return CurrentWeight;
+            }
+            return 0.00M;
         }
 
         public decimal CurrentWeightSync(string WB)
@@ -366,8 +370,8 @@ namespace QWS_Local
                     {
                         string newString;
                         newString = BuildString(bytes);
-                        int iLen = newString.Length;//iLen = 9,  must be some non printing or else " are counted
-                        strDecode = newString.Substring(0, iLen - 1);//(1, 6);
+                        int iLen = newString.Length;//iLen = 9 e.g. "/   0.00G"
+                        strDecode = newString.Substring(0, iLen - 1); // strip off trailing G
                         decWeight = System.Convert.ToDecimal(strDecode);
                         CurrentWeight = decWeight * 1000;
                         if (strStatus == "G")

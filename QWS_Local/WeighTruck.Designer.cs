@@ -93,7 +93,7 @@
             this.rbWB3.Name = "rbWB3";
             this.rbWB3.Size = new System.Drawing.Size(68, 28);
             this.rbWB3.TabIndex = 68;
-            this.rbWB3.Text = "WB3";
+            this.rbWB3.Text = "WB&3";
             this.rbWB3.UseVisualStyleBackColor = true;
             this.rbWB3.CheckedChanged += new System.EventHandler(this.WBn_CheckChanged);
             // 
@@ -105,7 +105,7 @@
             this.rbWB2.Name = "rbWB2";
             this.rbWB2.Size = new System.Drawing.Size(68, 28);
             this.rbWB2.TabIndex = 67;
-            this.rbWB2.Text = "WB2";
+            this.rbWB2.Text = "WB&2";
             this.rbWB2.UseVisualStyleBackColor = true;
             this.rbWB2.CheckedChanged += new System.EventHandler(this.WBn_CheckChanged);
             // 
@@ -117,7 +117,7 @@
             this.rbWB1.Name = "rbWB1";
             this.rbWB1.Size = new System.Drawing.Size(68, 28);
             this.rbWB1.TabIndex = 66;
-            this.rbWB1.Text = "WB1";
+            this.rbWB1.Text = "WB&1";
             this.rbWB1.UseVisualStyleBackColor = true;
             this.rbWB1.CheckedChanged += new System.EventHandler(this.WBn_CheckChanged);
             // 
@@ -135,6 +135,7 @@
             // btnAccept
             // 
             this.btnAccept.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnAccept.Enabled = false;
             this.btnAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAccept.Location = new System.Drawing.Point(7, 132);
@@ -167,6 +168,7 @@
             this.btnCapture.TabIndex = 71;
             this.btnCapture.Text = "Capture";
             this.btnCapture.UseVisualStyleBackColor = false;
+            this.btnCapture.Visible = false;
             this.btnCapture.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnMonitor
