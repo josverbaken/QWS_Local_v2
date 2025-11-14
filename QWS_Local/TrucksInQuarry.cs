@@ -1051,6 +1051,15 @@ namespace QWS_Local
                                 ContinueInProgress();
                             }
                             break;
+                        case "C":
+                            DialogResult drC = MessageBox.Show("Please resolve account issue, then press Yes to refresh","Account Status Issue",MessageBoxButtons.RetryCancel, MessageBoxIcon.Question);
+                            if (drC == DialogResult.Retry)
+                            {
+                                //ContinueInProgress(); // don't want to lose chose order!
+                                // TODO check AC status and update accordingly
+                                CheckAccountStatus(CurrentTIQ().CustomerCode);
+                            }
+                            break;
                         default:
                             break;
                     }
@@ -1172,6 +1181,48 @@ namespace QWS_Local
             else
             {
                 parent.PrintDocket();
+            }
+        }
+
+        private void CheckAccountStatus(string CardCode)
+        {
+            string ACStatus = "A";
+            SqlConnection sqlConnection = new SqlConnection(myConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = sqlConnection;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "CheckACStatus";
+            cmd.Parameters.AddWithValue("@CardCode", CardCode);
+            sqlConnection.Open();
+            ACStatus = System.Convert.ToString(cmd.ExecuteScalar());
+            sqlConnection.Close();
+            if (ACStatus == "A")
+            {
+                // TODO handle split load
+                // at this stage WBO needs to clear both rows
+
+                string myTruckConfig = CurrentTIQ().TruckConfig;
+                if (myTruckConfig == "TKs")
+                {
+                    CurrentTIQ().QueueStatus = "Q";
+                    // TODO find trailer
+                }
+                if (myTruckConfig == "TRs")
+                {
+                    CurrentTIQ().QueueStatus = "S";
+                }
+                else
+                {
+                    CurrentTIQ().QueueStatus = "Q";
+                }
+                bsTIQ2.EndEdit();
+                taTIQ2.Update(dsTIQ2.TIQ);
+            }
+            else
+            {
+                string msg = "Sorry - still unable to proceed AC Status = ";
+                msg += ACStatus;
+                MessageBox.Show(msg);
             }
         }
    

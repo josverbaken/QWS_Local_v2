@@ -737,7 +737,7 @@ where BaseItemCode like (select BaseItemCode from StockpileBOM where ItemCode li
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SPLotNoAuditTableAdapter" GeneratorDataComponentClassName="SPLotNoAuditTableAdapter" Name="SPLotNoAudit" UserDataComponentName="SPLotNoAuditTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.SPLotNoAudit" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWS_NQ_Dev.dbo.SPLotNoAudit" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.SPLotNoAudit</CommandText>
@@ -766,9 +766,10 @@ where BaseItemCode like (select BaseItemCode from StockpileBOM where ItemCode li
               <Mapping SourceColumn="CardCode" DataSetColumn="CardCode" />
               <Mapping SourceColumn="CardName" DataSetColumn="CardName" />
               <Mapping SourceColumn="ItemQA" DataSetColumn="ItemQA" />
-              <Mapping SourceColumn="WarehouseCode" DataSetColumn="WarehouseCode" />
               <Mapping SourceColumn="Comment" DataSetColumn="Comment" />
               <Mapping SourceColumn="Reversal" DataSetColumn="Reversal" />
+              <Mapping SourceColumn="WarehouseCode" DataSetColumn="WarehouseCode1" />
+              <Mapping SourceColumn="PurchaseOrder" DataSetColumn="PurchaseOrder" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.SPLotNoAuditItemCode" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillByItemCode" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByItemCode" GeneratorSourceName="FillByItemCode" GetMethodModifier="Public" GetMethodName="GetDataByItemCode" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByItemCode" UserSourceName="FillByItemCode">
@@ -1524,8 +1525,8 @@ FROM            SPLotItemsMap</CommandText>
         <xs:element name="SPLotNoAudit" msprop:Generator_RowEvHandlerName="SPLotNoAuditRowChangeEventHandler" msprop:Generator_RowDeletedName="SPLotNoAuditRowDeleted" msprop:Generator_RowDeletingName="SPLotNoAuditRowDeleting" msprop:Generator_RowEvArgName="SPLotNoAuditRowChangeEvent" msprop:Generator_TablePropName="SPLotNoAudit" msprop:Generator_RowChangedName="SPLotNoAuditRowChanged" msprop:Generator_UserTableName="SPLotNoAudit" msprop:Generator_RowChangingName="SPLotNoAuditRowChanging" msprop:Generator_RowClassName="SPLotNoAuditRow" msprop:Generator_TableClassName="SPLotNoAuditDataTable" msprop:Generator_TableVarName="tableSPLotNoAudit">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="DocNum" msprop:Generator_ColumnPropNameInTable="DocNumColumn" msprop:Generator_ColumnPropNameInRow="DocNum" msprop:Generator_UserColumnName="DocNum" msprop:Generator_ColumnVarNameInTable="columnDocNum" type="xs:int" />
-              <xs:element name="DocketLine" msprop:Generator_ColumnPropNameInTable="DocketLineColumn" msprop:Generator_ColumnPropNameInRow="DocketLine" msprop:Generator_UserColumnName="DocketLine" msprop:Generator_ColumnVarNameInTable="columnDocketLine" type="xs:int" />
+              <xs:element name="DocNum" msprop:Generator_ColumnPropNameInTable="DocNumColumn" msprop:Generator_ColumnPropNameInRow="DocNum" msprop:Generator_UserColumnName="DocNum" msprop:Generator_ColumnVarNameInTable="columnDocNum" type="xs:int" minOccurs="0" />
+              <xs:element name="DocketLine" msprop:Generator_ColumnPropNameInTable="DocketLineColumn" msprop:Generator_ColumnPropNameInRow="DocketLine" msprop:Generator_UserColumnName="DocketLine" msprop:Generator_ColumnVarNameInTable="columnDocketLine" type="xs:int" minOccurs="0" />
               <xs:element name="WarehouseCode" msprop:Generator_ColumnPropNameInTable="WarehouseCodeColumn" msprop:Generator_ColumnPropNameInRow="WarehouseCode" msprop:Generator_UserColumnName="WarehouseCode" msprop:Generator_ColumnVarNameInTable="columnWarehouseCode">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -1548,7 +1549,7 @@ FROM            SPLotItemsMap</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ItemQA" msprop:Generator_ColumnPropNameInTable="ItemQAColumn" msprop:Generator_ColumnPropNameInRow="ItemQA" msprop:Generator_UserColumnName="ItemQA" msprop:Generator_ColumnVarNameInTable="columnItemQA" type="xs:boolean" />
+              <xs:element name="ItemQA" msprop:Generator_ColumnPropNameInTable="ItemQAColumn" msprop:Generator_ColumnPropNameInRow="ItemQA" msprop:Generator_UserColumnName="ItemQA" msprop:Generator_ColumnVarNameInTable="columnItemQA" type="xs:boolean" minOccurs="0" />
               <xs:element name="ItmsGrpCod" msprop:Generator_ColumnPropNameInTable="ItmsGrpCodColumn" msprop:Generator_ColumnPropNameInRow="ItmsGrpCod" msprop:Generator_UserColumnName="ItmsGrpCod" msprop:Generator_ColumnVarNameInTable="columnItmsGrpCod" type="xs:int" minOccurs="0" />
               <xs:element name="StockpileLot" msprop:Generator_ColumnPropNameInTable="StockpileLotColumn" msprop:Generator_ColumnPropNameInRow="StockpileLot" msprop:Generator_UserColumnName="StockpileLot" msprop:Generator_ColumnVarNameInTable="columnStockpileLot" type="xs:int" minOccurs="0" />
               <xs:element name="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_UserColumnName="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" type="xs:decimal" minOccurs="0" />
@@ -1590,6 +1591,14 @@ FROM            SPLotItemsMap</CommandText>
               </xs:element>
               <xs:element name="Comment" msprop:Generator_ColumnPropNameInTable="CommentColumn" msprop:Generator_ColumnPropNameInRow="Comment" msprop:Generator_UserColumnName="Comment" msprop:Generator_ColumnVarNameInTable="columnComment" type="xs:string" minOccurs="0" />
               <xs:element name="Reversal" msprop:Generator_ColumnPropNameInTable="ReversalColumn" msprop:Generator_ColumnPropNameInRow="Reversal" msprop:Generator_UserColumnName="Reversal" msprop:Generator_ColumnVarNameInTable="columnReversal" type="xs:boolean" minOccurs="0" />
+              <xs:element name="WarehouseCode1" msdata:ReadOnly="true" msdata:Caption="WarehouseCode" msprop:Generator_ColumnPropNameInRow="WarehouseCode1" msprop:Generator_ColumnPropNameInTable="WarehouseCode1Column" msprop:Generator_ColumnVarNameInTable="columnWarehouseCode1" msprop:Generator_UserColumnName="WarehouseCode1" type="xs:int" minOccurs="0" />
+              <xs:element name="PurchaseOrder" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="PurchaseOrder" msprop:Generator_ColumnPropNameInTable="PurchaseOrderColumn" msprop:Generator_ColumnVarNameInTable="columnPurchaseOrder" msprop:Generator_UserColumnName="PurchaseOrder" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1861,7 +1870,7 @@ FROM            SPLotItemsMap</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_WBDocketLines_WBDockets" msdata:parent="WBDockets" msdata:child="WBDocketLines" msdata:parentkey="DocNum" msdata:childkey="DocNum" msprop:Generator_UserParentTable="WBDockets" msprop:Generator_UserChildTable="WBDocketLines" msprop:Generator_RelationVarName="relationFK_WBDocketLines_WBDockets" msprop:Generator_ChildPropName="GetWBDocketLinesRows" msprop:Generator_UserRelationName="FK_WBDocketLines_WBDockets" msprop:Generator_ParentPropName="WBDocketsRow" />
+      <msdata:Relationship name="FK_WBDocketLines_WBDockets" msdata:parent="WBDockets" msdata:child="WBDocketLines" msdata:parentkey="DocNum" msdata:childkey="DocNum" msprop:Generator_UserParentTable="WBDockets" msprop:Generator_UserChildTable="WBDocketLines" msprop:Generator_RelationVarName="relationFK_WBDocketLines_WBDockets" msprop:Generator_ChildPropName="GetWBDocketLinesRows" msprop:Generator_ParentPropName="WBDocketsRow" msprop:Generator_UserRelationName="FK_WBDocketLines_WBDockets" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

@@ -386,6 +386,10 @@ namespace QWS_Local
                 _TIQRow.MaterialDesc = CurrentQuarryOrder().Material;
                 _TIQRow.DeliveryAddress = "Ex-Bin";
                 _TIQRow.CartageCode = "";
+                if (CurrentQuarryOrder().AccountStatus != "A")
+                {
+                    _TIQRow.QueueStatus = "C";
+                }
                 _TIQRow.QueueStatus = "Q";
                 this.Validate();
                 bsTIQ2.EndEdit();
@@ -458,6 +462,10 @@ namespace QWS_Local
                 _TIQRow.Material = myOrderRow.MaterialCode;
                 _TIQRow.MaterialDesc = myOrderRow.Material;
                 _TIQRow.DeliveryAddress = myOrderRow.DeliveryAddress;
+                if (myOrderRow.AccountStatus != "A")
+                {
+                    _TIQRow.QueueStatus = "C";
+                }
                 if (myOrderRow.CartageCode.Length > 0 )
                 {
                     _TIQRow.CartageCode = myOrderRow.CartageCode; 
@@ -602,7 +610,10 @@ namespace QWS_Local
                         }
                         else
                         {
-                            _TIQRow.QueueStatus = "U";
+                            if (_TIQRow.QueueStatus != "C")
+                            {
+                                _TIQRow.QueueStatus = "U";
+                            }
                         }
                         break;
                     case TIQType.Delivery:

@@ -4456,6 +4456,10 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnReversal;
             
+            private global::System.Data.DataColumn columnWarehouseCode1;
+            
+            private global::System.Data.DataColumn columnPurchaseOrder;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public SPLotNoAuditDataTable() {
@@ -4635,6 +4639,22 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn WarehouseCode1Column {
+                get {
+                    return this.columnWarehouseCode1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PurchaseOrderColumn {
+                get {
+                    return this.columnPurchaseOrder;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4688,7 +4708,9 @@ namespace QWS_Local {
                         string CardCode, 
                         string CardName, 
                         string Comment, 
-                        bool Reversal) {
+                        bool Reversal, 
+                        int WarehouseCode1, 
+                        string PurchaseOrder) {
                 SPLotNoAuditRow rowSPLotNoAuditRow = ((SPLotNoAuditRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DocNum,
@@ -4708,7 +4730,9 @@ namespace QWS_Local {
                         CardCode,
                         CardName,
                         Comment,
-                        Reversal};
+                        Reversal,
+                        WarehouseCode1,
+                        PurchaseOrder};
                 rowSPLotNoAuditRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSPLotNoAuditRow);
                 return rowSPLotNoAuditRow;
@@ -4757,6 +4781,8 @@ namespace QWS_Local {
                 this.columnCardName = base.Columns["CardName"];
                 this.columnComment = base.Columns["Comment"];
                 this.columnReversal = base.Columns["Reversal"];
+                this.columnWarehouseCode1 = base.Columns["WarehouseCode1"];
+                this.columnPurchaseOrder = base.Columns["PurchaseOrder"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4798,6 +4824,10 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnComment);
                 this.columnReversal = new global::System.Data.DataColumn("Reversal", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnReversal);
+                this.columnWarehouseCode1 = new global::System.Data.DataColumn("WarehouseCode1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWarehouseCode1);
+                this.columnPurchaseOrder = new global::System.Data.DataColumn("PurchaseOrder", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPurchaseOrder);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnDocNum,
                                 this.columnDocketLine}, true));
@@ -4807,7 +4837,6 @@ namespace QWS_Local {
                 this.columnWarehouseCode.MaxLength = 50;
                 this.columnItemCode.MaxLength = 50;
                 this.columnItemDescription.MaxLength = 200;
-                this.columnItemQA.AllowDBNull = false;
                 this.columnBaseItemCode.MaxLength = 15;
                 this.columnSWW.MaxLength = 15;
                 this.columnAllocationStatus.ReadOnly = true;
@@ -4816,6 +4845,10 @@ namespace QWS_Local {
                 this.columnCardCode.MaxLength = 15;
                 this.columnCardName.ReadOnly = true;
                 this.columnCardName.MaxLength = 100;
+                this.columnWarehouseCode1.ReadOnly = true;
+                this.columnWarehouseCode1.Caption = "WarehouseCode";
+                this.columnPurchaseOrder.ReadOnly = true;
+                this.columnPurchaseOrder.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8756,7 +8789,12 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool ItemQA {
                 get {
-                    return ((bool)(this[this.tableSPLotNoAudit.ItemQAColumn]));
+                    try {
+                        return ((bool)(this[this.tableSPLotNoAudit.ItemQAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemQA\' in table \'SPLotNoAudit\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableSPLotNoAudit.ItemQAColumn] = value;
@@ -8941,6 +8979,38 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int WarehouseCode1 {
+                get {
+                    try {
+                        return ((int)(this[this.tableSPLotNoAudit.WarehouseCode1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WarehouseCode1\' in table \'SPLotNoAudit\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit.WarehouseCode1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string PurchaseOrder {
+                get {
+                    try {
+                        return ((string)(this[this.tableSPLotNoAudit.PurchaseOrderColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PurchaseOrder\' in table \'SPLotNoAudit\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSPLotNoAudit.PurchaseOrderColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsBaseEntryNull() {
                 return this.IsNull(this.tableSPLotNoAudit.BaseEntryColumn);
             }
@@ -8973,6 +9043,18 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetItemDescriptionNull() {
                 this[this.tableSPLotNoAudit.ItemDescriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsItemQANull() {
+                return this.IsNull(this.tableSPLotNoAudit.ItemQAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetItemQANull() {
+                this[this.tableSPLotNoAudit.ItemQAColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9105,6 +9187,30 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetReversalNull() {
                 this[this.tableSPLotNoAudit.ReversalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsWarehouseCode1Null() {
+                return this.IsNull(this.tableSPLotNoAudit.WarehouseCode1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetWarehouseCode1Null() {
+                this[this.tableSPLotNoAudit.WarehouseCode1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPurchaseOrderNull() {
+                return this.IsNull(this.tableSPLotNoAudit.PurchaseOrderColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPurchaseOrderNull() {
+                this[this.tableSPLotNoAudit.PurchaseOrderColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -14430,9 +14536,10 @@ SELECT AllocationID, BaseItemCode, MCO, LotNo, LotStatus, AllocationDTTM FROM St
             tableMapping.ColumnMappings.Add("CardCode", "CardCode");
             tableMapping.ColumnMappings.Add("CardName", "CardName");
             tableMapping.ColumnMappings.Add("ItemQA", "ItemQA");
-            tableMapping.ColumnMappings.Add("WarehouseCode", "WarehouseCode");
             tableMapping.ColumnMappings.Add("Comment", "Comment");
             tableMapping.ColumnMappings.Add("Reversal", "Reversal");
+            tableMapping.ColumnMappings.Add("WarehouseCode", "WarehouseCode1");
+            tableMapping.ColumnMappings.Add("PurchaseOrder", "PurchaseOrder");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

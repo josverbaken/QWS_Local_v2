@@ -19,7 +19,8 @@ namespace QWS_Local
 
         private void SPLotMaintenance_Load(object sender, EventArgs e)
         {
-            //tabControl1.TabPages.Remove(tpBaseItem);            
+            //tabControl1.TabPages.Remove(tpBaseItem);
+            tabControl1.SelectedTab = tpDataEntry;
         }
 
         private void FindLotsByItemCode()
