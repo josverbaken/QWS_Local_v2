@@ -670,7 +670,7 @@ namespace QWS_Local
                 else
                 {
                     OK2Continue = false;
-                    MessageBox.Show("Cannot proeed!");
+                    MessageBox.Show("Cannot proeed!","BookInMaterial Get Customer Error",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                 }
             }
             if (OK2Continue == true)

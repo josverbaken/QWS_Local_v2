@@ -24,6 +24,13 @@ namespace QWS_Local
         {
             get { return myBusinessName; }
         }
+
+        private string myACStatus;
+        public string ACStatus
+        {
+            get { return myACStatus; }
+        }
+
         public BusinessSearch()
         {
             InitializeComponent();
@@ -86,14 +93,20 @@ namespace QWS_Local
             dsQWSLocal2024.BusinessRow businessRow = (dsQWSLocal2024.BusinessRow)dataRow;
             mySAPCode = businessRow.SAPCode;
             myBusinessName = businessRow.TradingName;
+            myACStatus = businessRow.AccountStatus;
+            //if (businessRow.ACType != "C")
+            //{
+            //    MessageBox.Show("Unable to proceed card type = " + businessRow.ACType, "Account Type", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
             if (businessRow.AccountStatus == "A")
             {
                 return true;
             }
             else
             {
-                MessageBox.Show("Unable to proceed card status = " + businessRow.AccountStatus,"Account Status",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                return false;
+                MessageBox.Show("Warning card status = " + businessRow.AccountStatus,"Account Status",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return true;
             }
         }
 

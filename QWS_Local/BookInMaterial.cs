@@ -21,6 +21,7 @@ namespace QWS_Local
         private int TIQID;
         private string CardCode;
         private string CustomerName;
+        private string ACStatus;
         private static bool IsPORequired = false;
         private static dsQWSLocal2024.TruckDriverRow _DriverRow;
         private static dsTIQ2.TIQRow _TIQRow;
@@ -57,6 +58,7 @@ namespace QWS_Local
                 TruckConfigID = TIQRow.TruckConfigID;
                 CardCode = TIQRow.CustomerCode;
                 CustomerName = TIQRow.Customer;
+                ACStatus = GetAccountStatus(CardCode);
                 mySiteID = TIQRow.SiteID;
                 IsPrefCust = myIsPrefCust;
                 int ImportedGrpCode = Properties.Settings.Default.ImportedGrpCode;
@@ -148,6 +150,7 @@ namespace QWS_Local
         {
             txtCardCode.Text = CardCode;
             txtCustomer.Text = CustomerName;
+            txtACStatus.Text = ACStatus;
             IsPORequired = CheckPORequired(CardCode);
         }
 
@@ -634,7 +637,13 @@ namespace QWS_Local
                 {
                     _TIQRow.QueueStatus = "Q";
                 }
-
+                // check payload
+                if (nudPayload.Value < 9.0M)
+                {
+                    string msg = "This payload may trigger short load fee";
+                    // TODO put thi into a configuration database
+                    MessageBox.Show(msg,"Short Load Fee Warning.", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                }
                 bsTIQ2.EndEdit();
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 if (iRow == 1) // test if split load
@@ -745,6 +754,10 @@ namespace QWS_Local
                         _TIQRow.MaterialDesc = itemRow.ItemName;
                         _TIQRow.AgrNo = myAgrNo;
                         _TIQRow.AgrLine = myAgrLine;   
+                        if (ACStatus != "A")
+                        {
+                            _TIQRow.QueueStatus = "C";
+                        }
                         bsTIQ2.EndEdit();
                         tabControl2.SelectedTab = tpTruckconfig;
                     }
@@ -770,6 +783,7 @@ namespace QWS_Local
             {
                 txtCardCode.Text = frmBusinessSearch.SAPCode;
                 txtCustomer.Text = frmBusinessSearch.BusinessName;
+                txtACStatus.Text = frmBusinessSearch.ACStatus;  
                 CheckPORequired(txtCustomer.Text);
             }
             else
@@ -904,6 +918,27 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message, "CheckBlanketAgreement Error!");
                 return null;
+            }
+        }
+
+        private string GetAccountStatus(string CardCode)
+        {
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "CheckACStatus";
+                cmd.Parameters.AddWithValue("@CardCode", CardCode);
+                sqlConnection.Open();
+                string myACStatus = (string)cmd.ExecuteScalar();
+                sqlConnection.Close();
+                return myACStatus;
+            }
+            catch (Exception)
+            {
+                return "X";
             }
         }
 

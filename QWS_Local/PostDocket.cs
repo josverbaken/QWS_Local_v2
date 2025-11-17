@@ -55,10 +55,26 @@ namespace QWS_Local
                 MessageBox.Show("Unable to proceed Tare = 0", "Zero Tare Weight.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 PostDocketCancel();
             }
+            else if (myRow.Nett < 8.0M)
+            {
+                string msg1 = "Did the customer understand and accept that they will be charged a short load fee";
+                DialogResult dr1 = MessageBox.Show(msg1, "Confirm Short load Fee.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr1 == DialogResult.Yes)
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    PostDocketCancel();
+                }
+            }
+
             else if (UnderloadAmount > 1.0M)
             {
-                DialogResult dialogResult = MessageBox.Show("Under Y or N","Underload Check",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.No)
+                string msg = "Vehicle underloaded! Did the driver choose to collect more material?";
+                DialogResult dialogResult = MessageBox.Show(msg, "Underload Check", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
                 {
                     PostDocketCancel();
                 }
