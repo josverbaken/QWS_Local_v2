@@ -1055,8 +1055,6 @@ namespace QWS_Local
                             DialogResult drC = MessageBox.Show("Please resolve account issue, then press Yes to refresh","Account Status Issue",MessageBoxButtons.RetryCancel, MessageBoxIcon.Question);
                             if (drC == DialogResult.Retry)
                             {
-                                //ContinueInProgress(); // don't want to lose chose order!
-                                // TODO check AC status and update accordingly
                                 CheckAccountStatus(CurrentTIQ().CustomerCode);
                             }
                             break;
@@ -1198,9 +1196,6 @@ namespace QWS_Local
             sqlConnection.Close();
             if (ACStatus == "A")
             {
-                // TODO handle split load
-                // at this stage WBO needs to clear both rows
-
                 string myTruckConfig = CurrentTIQ().TruckConfig;
                 if (myTruckConfig == "TKs")
                 {

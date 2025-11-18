@@ -460,7 +460,6 @@ namespace QWS_Local
                 _TIQRow.SAPOrder = myOrderRow.DocNum;
                 _TIQRow.CustomerCode = myOrderRow.CardCode;
                 _TIQRow.Customer = myOrderRow.Customer;
-                // TODO _TIQRow.AccountStatus 20251110 need workflow clarification, maybe set queuestatus to "C" = CreditCheck
                 _TIQRow.CustON = myOrderRow.PurchaseOrder;
                 _TIQRow.Material = myOrderRow.MaterialCode;
                 _TIQRow.MaterialDesc = myOrderRow.Material;
@@ -641,7 +640,7 @@ namespace QWS_Local
                 if (nudPayload.Value < 9.0M)
                 {
                     string msg = "This payload may trigger short load fee";
-                    // TODO put thi into a configuration database
+                    // TODO put this into a configuration database
                     MessageBox.Show(msg,"Short Load Fee Warning.", MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 }
                 bsTIQ2.EndEdit();
