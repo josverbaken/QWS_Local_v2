@@ -343,6 +343,12 @@
     <Compile Include="PBSVehicles.Designer.cs">
       <DependentUpon>PBSVehicles.cs</DependentUpon>
     </Compile>
+    <Compile Include="TrucksInQuarryAudit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrucksInQuarryAudit.Designer.cs">
+      <DependentUpon>TrucksInQuarryAudit.cs</DependentUpon>
+    </Compile>
     <Compile Include="WeighbridgeRead.cs" />
     <Compile Include="NHVR_GVM.cs">
       <SubType>Form</SubType>
@@ -562,6 +568,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TrucksInQuarry.resx">
       <DependentUpon>TrucksInQuarry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrucksInQuarryAudit.resx">
+      <DependentUpon>TrucksInQuarryAudit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VehicleRegFeeCodes.resx">
       <DependentUpon>VehicleRegFeeCodes.cs</DependentUpon>

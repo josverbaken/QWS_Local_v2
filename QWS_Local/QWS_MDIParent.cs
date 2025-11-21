@@ -478,6 +478,20 @@ namespace QWS_Local
             BusinessSearch businessSearch = new BusinessSearch(false,msg);
             businessSearch.ShowDialog();
         }
+
+        private void weightLogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheckWeightLog();
+        }
+
+        private void CheckWeightLog()
+        {
+            // TODO check if already open
+            TrucksInQuarryAudit frmTIQAudit = new TrucksInQuarryAudit();
+            frmTIQAudit.MdiParent = this;
+            frmTIQAudit.WindowState = FormWindowState.Maximized;
+            frmTIQAudit.Show();
+        }
     }
     
 }
