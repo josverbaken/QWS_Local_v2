@@ -58,6 +58,7 @@
             this.bsOperator = new System.Windows.Forms.BindingSource(this.components);
             this.taOperator = new QWS_Local.dsAdminTableAdapters.OperatorTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsAdminTableAdapters.TableAdapterManager();
+            this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsOperator)).BeginInit();
@@ -192,7 +193,8 @@
             // salesToolStripMenuItem
             // 
             this.salesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deliveryOrdersToolStripMenuItem1});
+            this.deliveryOrdersToolStripMenuItem1,
+            this.customersToolStripMenuItem});
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
             this.salesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.salesToolStripMenuItem.Text = "Sales";
@@ -296,6 +298,13 @@
             this.tableAdapterManager.RoleTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsAdminTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // customersToolStripMenuItem
+            // 
+            this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
+            this.customersToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.customersToolStripMenuItem.Text = "Customers";
+            this.customersToolStripMenuItem.Click += new System.EventHandler(this.customersToolStripMenuItem_Click);
+            // 
             // QWS_MDIParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -351,5 +360,6 @@
         private System.Windows.Forms.BindingSource bsOperator;
         private dsAdminTableAdapters.OperatorTableAdapter taOperator;
         private dsAdminTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem;
     }
 }

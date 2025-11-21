@@ -868,6 +868,11 @@ namespace QWS_Local
                         myCntCode = myOrderRow.CntctCode;
                     }
                 }
+                string myWBMode = "Manual";
+                if (myTIQRow.WBConnected == true)
+                {
+                    myWBMode = "Auto";
+                }
                 DataRow dr = dsTIQ2.WBDockets.NewRow();
                 dsTIQ2.WBDocketsRow docketsRow = (dsTIQ2.WBDocketsRow)dr;
 
@@ -894,7 +899,7 @@ namespace QWS_Local
                 docketsRow.Nett = myTIQRow.Nett;
                 docketsRow.OverloadPoints = myTIQRow.OverloadPoints;
                 docketsRow.OverloadDesc = myTIQRow.OverloadDesc;
-                docketsRow.WBMode = "m";
+                docketsRow.WBMode = myWBMode; //"m";
                 docketsRow.TruckDriverID = myTIQRow.DriverID;
                 docketsRow.TruckDriver = myTIQRow.Driver;
                 docketsRow.SalesPersonCode = -1;
@@ -1052,7 +1057,7 @@ namespace QWS_Local
                             }
                             break;
                         case "C":
-                            DialogResult drC = MessageBox.Show("Please resolve account issue, then press Yes to refresh","Account Status Issue",MessageBoxButtons.RetryCancel, MessageBoxIcon.Question);
+                            DialogResult drC = MessageBox.Show("Please resolve account issue, then press Retry to refresh","Account Status Issue",MessageBoxButtons.RetryCancel, MessageBoxIcon.Question);
                             if (drC == DialogResult.Retry)
                             {
                                 CheckAccountStatus(CurrentTIQ().CustomerCode);

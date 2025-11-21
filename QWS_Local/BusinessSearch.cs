@@ -47,10 +47,21 @@ namespace QWS_Local
             txtSearch.Text = myCode;
             SearchByCode();
         }
+
+        public BusinessSearch(bool SearchOnly, string FromMenu)
+        {
+            InitializeComponent();
+            btnSelect.Visible = SearchOnly;
+            this.Text = FromMenu;
+        }
+
         private void BusinessSearch_Load(object sender, EventArgs e)
         {
             this.KeyPreview = true;
-            btnSearch.Focus();
+            string msg = "If data seems old and out of sync with SAP,\r\n";
+            msg += "please initiate an update by adding the following comment in SAP B1 and updating:\"Sync to QWS\"";
+            txtSAP2QWSsyncAdvice.Text = msg;
+            txtSearch.Focus();
         }
 
         private void btnSearchByCode_Click(object sender, EventArgs e)

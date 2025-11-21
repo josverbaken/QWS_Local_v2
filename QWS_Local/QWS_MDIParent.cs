@@ -466,6 +466,18 @@ namespace QWS_Local
             frmPBSVehicles.WindowState = FormWindowState.Maximized;
             frmPBSVehicles.Show();
         }
+
+        private void customersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheckCustomer();
+        }
+
+        private void CheckCustomer()
+        {
+            string msg = "SAP BP Search - Check Sync";
+            BusinessSearch businessSearch = new BusinessSearch(false,msg);
+            businessSearch.ShowDialog();
+        }
     }
     
 }

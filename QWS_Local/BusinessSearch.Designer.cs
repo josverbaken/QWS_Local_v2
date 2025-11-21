@@ -39,6 +39,7 @@ namespace QWS_Local
             System.Windows.Forms.Label accountStatusLabel;
             System.Windows.Forms.Label pORequiredLabel;
             System.Windows.Forms.Label documentOwnerLabel;
+            System.Windows.Forms.Label sAPUpdateDTTMLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSelect = new System.Windows.Forms.Button();
@@ -46,11 +47,6 @@ namespace QWS_Local
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.AccountStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sAPCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tradingNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DefaultContact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OfficePhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsBusiness = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
             this.tpDetails = new System.Windows.Forms.TabPage();
@@ -65,6 +61,11 @@ namespace QWS_Local
             this.aCTypeTextBox = new System.Windows.Forms.TextBox();
             this.taBusiness = new QWS_Local.dsQWSLocal2024TableAdapters.BusinessTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
+            this.AccountStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sAPCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tradingNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sAPUpdateDTTMTextBox = new System.Windows.Forms.TextBox();
+            this.txtSAP2QWSsyncAdvice = new System.Windows.Forms.TextBox();
             sAPCodeLabel = new System.Windows.Forms.Label();
             tradingNameLabel = new System.Windows.Forms.Label();
             alternateNameLabel = new System.Windows.Forms.Label();
@@ -74,6 +75,7 @@ namespace QWS_Local
             accountStatusLabel = new System.Windows.Forms.Label();
             pORequiredLabel = new System.Windows.Forms.Label();
             documentOwnerLabel = new System.Windows.Forms.Label();
+            sAPUpdateDTTMLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -184,8 +186,8 @@ namespace QWS_Local
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1000, 628);
-            this.splitContainer1.SplitterDistance = 108;
+            this.splitContainer1.Size = new System.Drawing.Size(597, 534);
+            this.splitContainer1.SplitterDistance = 91;
             this.splitContainer1.TabIndex = 1;
             // 
             // txtSearch
@@ -233,7 +235,7 @@ namespace QWS_Local
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1000, 516);
+            this.tabControl1.Size = new System.Drawing.Size(597, 439);
             this.tabControl1.TabIndex = 18;
             // 
             // tpList
@@ -242,7 +244,7 @@ namespace QWS_Local
             this.tpList.Location = new System.Drawing.Point(4, 27);
             this.tpList.Name = "tpList";
             this.tpList.Padding = new System.Windows.Forms.Padding(3);
-            this.tpList.Size = new System.Drawing.Size(992, 485);
+            this.tpList.Size = new System.Drawing.Size(589, 408);
             this.tpList.TabIndex = 0;
             this.tpList.Text = "List";
             this.tpList.UseVisualStyleBackColor = true;
@@ -256,50 +258,14 @@ namespace QWS_Local
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.AccountStatus,
             this.sAPCodeDataGridViewTextBoxColumn,
-            this.tradingNameDataGridViewTextBoxColumn,
-            this.DefaultContact,
-            this.OfficePhone});
+            this.tradingNameDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.bsBusiness;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(986, 479);
+            this.dataGridView1.Size = new System.Drawing.Size(583, 402);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // AccountStatus
-            // 
-            this.AccountStatus.DataPropertyName = "AccountStatus";
-            this.AccountStatus.HeaderText = "Status";
-            this.AccountStatus.Name = "AccountStatus";
-            this.AccountStatus.ReadOnly = true;
-            // 
-            // sAPCodeDataGridViewTextBoxColumn
-            // 
-            this.sAPCodeDataGridViewTextBoxColumn.DataPropertyName = "SAPCode";
-            this.sAPCodeDataGridViewTextBoxColumn.HeaderText = "SAPCode";
-            this.sAPCodeDataGridViewTextBoxColumn.Name = "sAPCodeDataGridViewTextBoxColumn";
-            this.sAPCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tradingNameDataGridViewTextBoxColumn
-            // 
-            this.tradingNameDataGridViewTextBoxColumn.DataPropertyName = "TradingName";
-            this.tradingNameDataGridViewTextBoxColumn.HeaderText = "Customer";
-            this.tradingNameDataGridViewTextBoxColumn.Name = "tradingNameDataGridViewTextBoxColumn";
-            this.tradingNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tradingNameDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // DefaultContact
-            // 
-            this.DefaultContact.HeaderText = "Contact";
-            this.DefaultContact.Name = "DefaultContact";
-            this.DefaultContact.ReadOnly = true;
-            // 
-            // OfficePhone
-            // 
-            this.OfficePhone.HeaderText = "Phone";
-            this.OfficePhone.Name = "OfficePhone";
-            this.OfficePhone.ReadOnly = true;
             // 
             // bsBusiness
             // 
@@ -313,6 +279,9 @@ namespace QWS_Local
             // 
             // tpDetails
             // 
+            this.tpDetails.Controls.Add(this.txtSAP2QWSsyncAdvice);
+            this.tpDetails.Controls.Add(this.sAPUpdateDTTMTextBox);
+            this.tpDetails.Controls.Add(sAPUpdateDTTMLabel);
             this.tpDetails.Controls.Add(this.sAPCodeTextBox);
             this.tpDetails.Controls.Add(documentOwnerLabel);
             this.tpDetails.Controls.Add(sAPCodeLabel);
@@ -331,10 +300,10 @@ namespace QWS_Local
             this.tpDetails.Controls.Add(this.aBNTextBox);
             this.tpDetails.Controls.Add(this.aCTypeTextBox);
             this.tpDetails.Controls.Add(aCTypeLabel);
-            this.tpDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpDetails.Location = new System.Drawing.Point(4, 27);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(810, 490);
+            this.tpDetails.Size = new System.Drawing.Size(589, 408);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -427,12 +396,60 @@ namespace QWS_Local
             this.tableAdapterManager1.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager1.VehicleTableAdapter = null;
             // 
+            // AccountStatus
+            // 
+            this.AccountStatus.DataPropertyName = "AccountStatus";
+            this.AccountStatus.HeaderText = "Status";
+            this.AccountStatus.Name = "AccountStatus";
+            this.AccountStatus.ReadOnly = true;
+            // 
+            // sAPCodeDataGridViewTextBoxColumn
+            // 
+            this.sAPCodeDataGridViewTextBoxColumn.DataPropertyName = "SAPCode";
+            this.sAPCodeDataGridViewTextBoxColumn.HeaderText = "SAPCode";
+            this.sAPCodeDataGridViewTextBoxColumn.Name = "sAPCodeDataGridViewTextBoxColumn";
+            this.sAPCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tradingNameDataGridViewTextBoxColumn
+            // 
+            this.tradingNameDataGridViewTextBoxColumn.DataPropertyName = "TradingName";
+            this.tradingNameDataGridViewTextBoxColumn.HeaderText = "Customer";
+            this.tradingNameDataGridViewTextBoxColumn.Name = "tradingNameDataGridViewTextBoxColumn";
+            this.tradingNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tradingNameDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // sAPUpdateDTTMLabel
+            // 
+            sAPUpdateDTTMLabel.AutoSize = true;
+            sAPUpdateDTTMLabel.Location = new System.Drawing.Point(60, 246);
+            sAPUpdateDTTMLabel.Name = "sAPUpdateDTTMLabel";
+            sAPUpdateDTTMLabel.Size = new System.Drawing.Size(99, 18);
+            sAPUpdateDTTMLabel.TabIndex = 18;
+            sAPUpdateDTTMLabel.Text = "Last Updated:";
+            sAPUpdateDTTMLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // sAPUpdateDTTMTextBox
+            // 
+            this.sAPUpdateDTTMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsBusiness, "SAPUpdateDTTM", true));
+            this.sAPUpdateDTTMTextBox.Location = new System.Drawing.Point(165, 243);
+            this.sAPUpdateDTTMTextBox.Name = "sAPUpdateDTTMTextBox";
+            this.sAPUpdateDTTMTextBox.Size = new System.Drawing.Size(269, 24);
+            this.sAPUpdateDTTMTextBox.TabIndex = 20;
+            // 
+            // txtSAP2QWSsyncAdvice
+            // 
+            this.txtSAP2QWSsyncAdvice.Location = new System.Drawing.Point(57, 274);
+            this.txtSAP2QWSsyncAdvice.Multiline = true;
+            this.txtSAP2QWSsyncAdvice.Name = "txtSAP2QWSsyncAdvice";
+            this.txtSAP2QWSsyncAdvice.ReadOnly = true;
+            this.txtSAP2QWSsyncAdvice.Size = new System.Drawing.Size(377, 117);
+            this.txtSAP2QWSsyncAdvice.TabIndex = 21;
+            // 
             // BusinessSearch
             // 
-            this.AcceptButton = this.btnSelect;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 628);
+            this.ClientSize = new System.Drawing.Size(597, 534);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -484,7 +501,7 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn AccountStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn sAPCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tradingNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DefaultContact;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OfficePhone;
+        private System.Windows.Forms.TextBox txtSAP2QWSsyncAdvice;
+        private System.Windows.Forms.TextBox sAPUpdateDTTMTextBox;
     }
 }
