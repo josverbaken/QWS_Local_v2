@@ -19,19 +19,24 @@ namespace QWS_Local
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            CheckWeightLog();
+            CheckWeightLog(txtRego.Text);
         }
 
-        private void CheckWeightLog()
+        private void CheckWeightLog(string myRego)
         {
             try
             {
-                taWeightLog.Fill(dsTIQ2.CheckWeightLog, txtRego.Text, dtpAudit.Value);
+                taWeightLog.Fill(dsTIQ2.CheckWeightLog, myRego, dtpAudit.Value);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnFindAll_Click(object sender, EventArgs e)
+        {
+            CheckWeightLog("%");
         }
     }
 }

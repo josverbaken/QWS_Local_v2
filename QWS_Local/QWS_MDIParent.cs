@@ -400,11 +400,23 @@ namespace QWS_Local
 
         private void lotNumbersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SPLotMaintenance frmSPLotMaintenance = new SPLotMaintenance();
-            frmSPLotMaintenance.MdiParent = this;
-            frmSPLotMaintenance.WindowState = FormWindowState.Maximized;
-            frmSPLotMaintenance.Show();
-
+            bool formFound = false;
+            foreach (var item in this.MdiChildren)
+            {
+                if (item.Name == "SPLotMaintenance")
+                {
+                    formFound = true;
+                    item.BringToFront();
+                    break;
+                }
+            }
+            if (formFound == false)
+            {
+                SPLotMaintenance frmSPLotMaintenance = new SPLotMaintenance();
+                frmSPLotMaintenance.MdiParent = this;
+                frmSPLotMaintenance.WindowState = FormWindowState.Maximized;
+                frmSPLotMaintenance.Show();
+            }
         }
 
         private void operatorRolesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -486,11 +498,23 @@ namespace QWS_Local
 
         private void CheckWeightLog()
         {
-            // TODO check if already open
-            TrucksInQuarryAudit frmTIQAudit = new TrucksInQuarryAudit();
-            frmTIQAudit.MdiParent = this;
-            frmTIQAudit.WindowState = FormWindowState.Maximized;
-            frmTIQAudit.Show();
+            bool formFound = false;
+            foreach (var item in this.MdiChildren)
+            {
+                if (item.Name == "TrucksInQuarryAudit")
+                {
+                    formFound = true;
+                    item.BringToFront();
+                    break;
+                }
+            }
+            if (formFound == false)
+            {
+                TrucksInQuarryAudit frmTIQAudit = new TrucksInQuarryAudit();
+                frmTIQAudit.MdiParent = this;
+                frmTIQAudit.WindowState = FormWindowState.Maximized;
+                frmTIQAudit.Show();
+            }
         }
     }
     
