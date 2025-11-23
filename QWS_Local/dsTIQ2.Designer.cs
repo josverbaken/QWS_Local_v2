@@ -2498,7 +2498,7 @@ namespace QWS_Local {
                 this.columnNett.AllowDBNull = false;
                 this.columnOverloadDesc.MaxLength = 25;
                 this.columnWBMode.AllowDBNull = false;
-                this.columnWBMode.MaxLength = 50;
+                this.columnWBMode.MaxLength = 10;
                 this.columnSalesPersonCode.AllowDBNull = false;
                 this.columnSalesPerson.AllowDBNull = false;
                 this.columnSalesPerson.MaxLength = 155;

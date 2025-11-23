@@ -1358,7 +1358,7 @@ FROM            SPLotItemsMap</CommandText>
               <xs:element name="WBMode" msprop:Generator_ColumnPropNameInTable="WBModeColumn" msprop:Generator_ColumnPropNameInRow="WBMode" msprop:Generator_UserColumnName="WBMode" msprop:Generator_ColumnVarNameInTable="columnWBMode">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1618,8 +1618,8 @@ FROM            SPLotItemsMap</CommandText>
               </xs:element>
               <xs:element name="Comment" msprop:Generator_ColumnPropNameInTable="CommentColumn" msprop:Generator_ColumnPropNameInRow="Comment" msprop:Generator_UserColumnName="Comment" msprop:Generator_ColumnVarNameInTable="columnComment" type="xs:string" minOccurs="0" />
               <xs:element name="Reversal" msprop:Generator_ColumnPropNameInTable="ReversalColumn" msprop:Generator_ColumnPropNameInRow="Reversal" msprop:Generator_UserColumnName="Reversal" msprop:Generator_ColumnVarNameInTable="columnReversal" type="xs:boolean" minOccurs="0" />
-              <xs:element name="WarehouseCode1" msdata:ReadOnly="true" msdata:Caption="WarehouseCode" msprop:Generator_UserColumnName="WarehouseCode1" msprop:Generator_ColumnPropNameInTable="WarehouseCode1Column" msprop:Generator_ColumnPropNameInRow="WarehouseCode1" msprop:Generator_ColumnVarNameInTable="columnWarehouseCode1" type="xs:int" minOccurs="0" />
-              <xs:element name="PurchaseOrder" msdata:ReadOnly="true" msprop:Generator_UserColumnName="PurchaseOrder" msprop:Generator_ColumnPropNameInTable="PurchaseOrderColumn" msprop:Generator_ColumnPropNameInRow="PurchaseOrder" msprop:Generator_ColumnVarNameInTable="columnPurchaseOrder" minOccurs="0">
+              <xs:element name="WarehouseCode1" msdata:ReadOnly="true" msdata:Caption="WarehouseCode" msprop:Generator_ColumnPropNameInTable="WarehouseCode1Column" msprop:Generator_ColumnPropNameInRow="WarehouseCode1" msprop:Generator_UserColumnName="WarehouseCode1" msprop:Generator_ColumnVarNameInTable="columnWarehouseCode1" type="xs:int" minOccurs="0" />
+              <xs:element name="PurchaseOrder" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="PurchaseOrderColumn" msprop:Generator_ColumnPropNameInRow="PurchaseOrder" msprop:Generator_UserColumnName="PurchaseOrder" msprop:Generator_ColumnVarNameInTable="columnPurchaseOrder" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -1841,41 +1841,41 @@ FROM            SPLotItemsMap</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CheckWeightLog" msprop:Generator_RowEvHandlerName="CheckWeightLogRowChangeEventHandler" msprop:Generator_RowDeletedName="CheckWeightLogRowDeleted" msprop:Generator_RowDeletingName="CheckWeightLogRowDeleting" msprop:Generator_RowEvArgName="CheckWeightLogRowChangeEvent" msprop:Generator_TablePropName="CheckWeightLog" msprop:Generator_RowChangedName="CheckWeightLogRowChanged" msprop:Generator_RowChangingName="CheckWeightLogRowChanging" msprop:Generator_TableClassName="CheckWeightLogDataTable" msprop:Generator_RowClassName="CheckWeightLogRow" msprop:Generator_TableVarName="tableCheckWeightLog" msprop:Generator_UserTableName="CheckWeightLog">
+        <xs:element name="CheckWeightLog" msprop:Generator_RowClassName="CheckWeightLogRow" msprop:Generator_RowEvHandlerName="CheckWeightLogRowChangeEventHandler" msprop:Generator_RowDeletedName="CheckWeightLogRowDeleted" msprop:Generator_RowDeletingName="CheckWeightLogRowDeleting" msprop:Generator_RowEvArgName="CheckWeightLogRowChangeEvent" msprop:Generator_TablePropName="CheckWeightLog" msprop:Generator_RowChangedName="CheckWeightLogRowChanged" msprop:Generator_UserTableName="CheckWeightLog" msprop:Generator_RowChangingName="CheckWeightLogRowChanging" msprop:Generator_TableClassName="CheckWeightLogDataTable" msprop:Generator_TableVarName="tableCheckWeightLog">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Rego" msprop:Generator_ColumnPropNameInRow="Rego" msprop:Generator_ColumnPropNameInTable="RegoColumn" msprop:Generator_ColumnVarNameInTable="columnRego" msprop:Generator_UserColumnName="Rego">
+              <xs:element name="Rego" msprop:Generator_UserColumnName="Rego" msprop:Generator_ColumnPropNameInTable="RegoColumn" msprop:Generator_ColumnPropNameInRow="Rego" msprop:Generator_ColumnVarNameInTable="columnRego">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="6" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TM" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="TM" msprop:Generator_ColumnPropNameInTable="TMColumn" msprop:Generator_ColumnVarNameInTable="columnTM" msprop:Generator_UserColumnName="TM" minOccurs="0">
+              <xs:element name="TM" msdata:ReadOnly="true" msprop:Generator_UserColumnName="TM" msprop:Generator_ColumnPropNameInTable="TMColumn" msprop:Generator_ColumnPropNameInRow="TM" msprop:Generator_ColumnVarNameInTable="columnTM" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Operator" msprop:Generator_ColumnPropNameInRow="Operator" msprop:Generator_ColumnPropNameInTable="OperatorColumn" msprop:Generator_ColumnVarNameInTable="columnOperator" msprop:Generator_UserColumnName="Operator">
+              <xs:element name="Operator" msprop:Generator_UserColumnName="Operator" msprop:Generator_ColumnPropNameInTable="OperatorColumn" msprop:Generator_ColumnPropNameInRow="Operator" msprop:Generator_ColumnVarNameInTable="columnOperator">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Status" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_UserColumnName="Status">
+              <xs:element name="Status" msprop:Generator_UserColumnName="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnVarNameInTable="columnStatus">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="WBID" msprop:Generator_ColumnPropNameInRow="WBID" msprop:Generator_ColumnPropNameInTable="WBIDColumn" msprop:Generator_ColumnVarNameInTable="columnWBID" msprop:Generator_UserColumnName="WBID" type="xs:int" />
-              <xs:element name="WBConnected" msprop:Generator_ColumnPropNameInRow="WBConnected" msprop:Generator_ColumnPropNameInTable="WBConnectedColumn" msprop:Generator_ColumnVarNameInTable="columnWBConnected" msprop:Generator_UserColumnName="WBConnected" type="xs:boolean" />
-              <xs:element name="WBReading" msprop:Generator_ColumnPropNameInRow="WBReading" msprop:Generator_ColumnPropNameInTable="WBReadingColumn" msprop:Generator_ColumnVarNameInTable="columnWBReading" msprop:Generator_UserColumnName="WBReading" type="xs:decimal" />
-              <xs:element name="Comments" msprop:Generator_ColumnPropNameInRow="Comments" msprop:Generator_ColumnPropNameInTable="CommentsColumn" msprop:Generator_ColumnVarNameInTable="columnComments" msprop:Generator_UserColumnName="Comments">
+              <xs:element name="WBID" msprop:Generator_UserColumnName="WBID" msprop:Generator_ColumnPropNameInTable="WBIDColumn" msprop:Generator_ColumnPropNameInRow="WBID" msprop:Generator_ColumnVarNameInTable="columnWBID" type="xs:int" />
+              <xs:element name="WBConnected" msprop:Generator_UserColumnName="WBConnected" msprop:Generator_ColumnPropNameInTable="WBConnectedColumn" msprop:Generator_ColumnPropNameInRow="WBConnected" msprop:Generator_ColumnVarNameInTable="columnWBConnected" type="xs:boolean" />
+              <xs:element name="WBReading" msprop:Generator_UserColumnName="WBReading" msprop:Generator_ColumnPropNameInTable="WBReadingColumn" msprop:Generator_ColumnPropNameInRow="WBReading" msprop:Generator_ColumnVarNameInTable="columnWBReading" type="xs:decimal" />
+              <xs:element name="Comments" msprop:Generator_UserColumnName="Comments" msprop:Generator_ColumnPropNameInTable="CommentsColumn" msprop:Generator_ColumnPropNameInRow="Comments" msprop:Generator_ColumnVarNameInTable="columnComments">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="500" />
@@ -1941,7 +1941,7 @@ FROM            SPLotItemsMap</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_WBDocketLines_WBDockets" msdata:parent="WBDockets" msdata:child="WBDocketLines" msdata:parentkey="DocNum" msdata:childkey="DocNum" msprop:Generator_UserParentTable="WBDockets" msprop:Generator_UserChildTable="WBDocketLines" msprop:Generator_RelationVarName="relationFK_WBDocketLines_WBDockets" msprop:Generator_ChildPropName="GetWBDocketLinesRows" msprop:Generator_UserRelationName="FK_WBDocketLines_WBDockets" msprop:Generator_ParentPropName="WBDocketsRow" />
+      <msdata:Relationship name="FK_WBDocketLines_WBDockets" msdata:parent="WBDockets" msdata:child="WBDocketLines" msdata:parentkey="DocNum" msdata:childkey="DocNum" msprop:Generator_UserParentTable="WBDockets" msprop:Generator_UserChildTable="WBDocketLines" msprop:Generator_RelationVarName="relationFK_WBDocketLines_WBDockets" msprop:Generator_ChildPropName="GetWBDocketLinesRows" msprop:Generator_ParentPropName="WBDocketsRow" msprop:Generator_UserRelationName="FK_WBDocketLines_WBDockets" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
