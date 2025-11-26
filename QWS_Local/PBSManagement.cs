@@ -75,12 +75,12 @@ namespace QWS_Local
 
         private void btnFindOwner_Click(object sender, EventArgs e)
         {
-            GetOwner();
+            GetOwner(txtOperator.Text);
         }
 
-        private void GetOwner()
+        private string GetOwner(string Owner)
         {
-            BusinessSearch frmBusinessSearch = new BusinessSearch(txtOperator.Text);
+            BusinessSearch frmBusinessSearch = new BusinessSearch(Owner);
             DialogResult dr = frmBusinessSearch.ShowDialog();
             if (dr == DialogResult.OK)
             {
@@ -90,10 +90,12 @@ namespace QWS_Local
                 myOperator = frmBusinessSearch.BusinessName;
                 txtCardCode.Text = frmBusinessSearch.SAPCode;
                 txtOperator.Text = frmBusinessSearch.BusinessName;
+                return myCardCode;
             }
             else
             {
                 label3.Text = "...";
+                return "not found";
             }
         }
 
@@ -150,16 +152,26 @@ namespace QWS_Local
             }
         }
 
-        private void btnSaveVA_Click(object sender, EventArgs e)
+        private void VehicleApprovalSave()
         {
             bsPBS.EndEdit();
             taPBS.Update(dsPBS.PBS);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void PBSConfigSave()
         {
             bsPBSConfig.EndEdit();
             taPBSConfig.Update(dsPBS.PBS_Config);
+        }
+
+        private void btnSaveVA_Click(object sender, EventArgs e)
+        {
+            VehicleApprovalSave();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            PBSConfigSave();
         }
 
         private void btnSaveConfig_Click(object sender, EventArgs e)
@@ -465,6 +477,61 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void dgvPBS_Leave(object sender, EventArgs e)
+        {
+            VehicleApprovalSave();
+        }
+
+        private void dgvPBSConfig_Leave(object sender, EventArgs e)
+        {
+            PBSConfigSave();
+        }
+
+        private void btnFindAll_Click(object sender, EventArgs e)
+        {
+            VAFindAll();
+        }
+
+        private void VAFindAll()
+        {
+            taPBS_Search.Fill(dsPBS.PBS_Search,"%","%",0);
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            PBSFindBy("xx",txtRego.Text,0);
+        }
+
+        private void PBSFindBy(string CardCode, string Rego, int VA)
+        {
+            taPBS_Search.Fill(dsPBS.PBS_Search, CardCode, Rego, VA);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            txtOwnerCode.Text = GetOwner(txtOwner2Search.Text);
+        }
+
+        private void dgvPBSConfigScheme_Leave(object sender, EventArgs e)
+        {
+            MessageBox.Show("leaving","PBSConfigScheme");
+        }
+
+        private void dgvPBSConfigMatrix_Leave(object sender, EventArgs e)
+        {
+            MessageBox.Show("leaving","PBSConfigMatrix");
+        }
+
+        private void btnFindByVA_Click(object sender, EventArgs e)
+        {
+            PBSFindBy("xx","xx",System.Convert.ToInt32(txtVA.Text));
+        }
+
+        private void btnFindByCardCode_Click(object sender, EventArgs e)
+        {
+            PBSFindBy(txtOwnerCode.Text, "xx", 0);
         }
     }
 }
