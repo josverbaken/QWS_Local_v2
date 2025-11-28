@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,56 +40,47 @@
             this.btnSaveTable = new System.Windows.Forms.Button();
             this.txtVehicleApproval = new System.Windows.Forms.TextBox();
             this.txtOperator = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnSaveConfig = new System.Windows.Forms.Button();
             this.gbPBSTables = new System.Windows.Forms.GroupBox();
             this.dgvPBSConfigMatrix = new System.Windows.Forms.DataGridView();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnSavePBSConfigMatrix = new System.Windows.Forms.Button();
-            this.btnFindPBSConfigMatrix = new System.Windows.Forms.Button();
             this.dgvPBSConfig = new System.Windows.Forms.DataGridView();
-            this.PBS_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSavePBSTables = new System.Windows.Forms.Button();
             this.gbPBSGVMConfig = new System.Windows.Forms.GroupBox();
             this.dgvPBSConfigScheme = new System.Windows.Forms.DataGridView();
-            this.PBS_ConfigID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SchemeCode = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.DriveAxleLoadUOM = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.gbPBSVA = new System.Windows.Forms.GroupBox();
-            this.btnNewVIN = new System.Windows.Forms.Button();
-            this.btnRefreshPBSVehicles = new System.Windows.Forms.Button();
-            this.btnAcceptVIN = new System.Windows.Forms.Button();
             this.dgvPBS_Vehicles = new System.Windows.Forms.DataGridView();
-            this.Rego = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSaveVA = new System.Windows.Forms.Button();
-            this.txtFoundVIN = new System.Windows.Forms.TextBox();
             this.dgvPBS = new System.Windows.Forms.DataGridView();
-            this.btnFindVIN = new System.Windows.Forms.Button();
-            this.txtRego4VIN = new System.Windows.Forms.TextBox();
-            this.btnSAVEPBS_Vehicle = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
-            this.tpMaintenance = new System.Windows.Forms.TabPage();
-            this.tpReports = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtVA = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.txtOwnerCode = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtRego = new System.Windows.Forms.TextBox();
+            this.btnFindByRego = new System.Windows.Forms.Button();
+            this.btnFindByCardCode = new System.Windows.Forms.Button();
+            this.btnFindAll = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.txtOwner2Search = new System.Windows.Forms.TextBox();
-            this.btnFindAll = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnFindByVA = new System.Windows.Forms.Button();
-            this.btnFindByCardCode = new System.Windows.Forms.Button();
-            this.btnFindByRego = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtRego = new System.Windows.Forms.TextBox();
+            this.txtVA = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tpMaintenance = new System.Windows.Forms.TabPage();
+            this.GoTo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Next1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.PBS_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Next = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Operator = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Next2 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.PBS_ConfigID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SteerAxle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DriveAxle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SchemeCode = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DriveAxleLoadUOM = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.bsPBS = new System.Windows.Forms.BindingSource(this.components);
             this.dsPBS = new QWS_Local.dsPBS();
             this.pBSIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -105,20 +96,15 @@
             this.pBSTruckNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pBSTrailerNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsPBSConfigMatrix = new System.Windows.Forms.BindingSource(this.components);
-            this.bsPBSConfig = new System.Windows.Forms.BindingSource(this.components);
             this.tableNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bridgeAssessmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.bsPBSConfig = new System.Windows.Forms.BindingSource(this.components);
             this.pBSLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gCMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gVMTruckDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.driveAxleLoadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.massMgmtRqdDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bsPBSConfigScheme = new System.Windows.Forms.BindingSource(this.components);
-            this.pBSVehicleIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pBSIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.truckTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.truckTypeNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsPBSVehicles = new System.Windows.Forms.BindingSource(this.components);
             this.vehicleApprovalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.versionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -130,7 +116,14 @@
             this.taPBSVehicles = new QWS_Local.dsPBSTableAdapters.PBS_VehiclesTableAdapter();
             this.taPBSConfigMatrix = new QWS_Local.dsPBSTableAdapters.PBS_ConfigMatrixTableAdapter();
             this.taPBS_Search = new QWS_Local.dsPBSTableAdapters.PBS_SearchTableAdapter();
-            this.txtOwnerCode = new System.Windows.Forms.TextBox();
+            this.pBSIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pBSVehicleIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rego = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rego2VIN = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.vINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.truckTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.truckTypeNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Next3 = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -145,17 +138,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPBS)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
-            this.tpMaintenance.SuspendLayout();
-            this.tpReports.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
-            this.splitContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
-            this.splitContainer4.SuspendLayout();
+            this.tpMaintenance.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsPBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPBS_Search)).BeginInit();
@@ -185,6 +173,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.button1);
             this.splitContainer1.Panel2.Controls.Add(this.btnSaveConfig);
             this.splitContainer1.Panel2.Controls.Add(this.gbPBSTables);
             this.splitContainer1.Panel2.Controls.Add(this.gbPBSGVMConfig);
@@ -264,28 +253,32 @@
             this.txtOperator.Size = new System.Drawing.Size(459, 24);
             this.txtOperator.TabIndex = 3;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1063, 397);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(114, 74);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Save and New";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // btnSaveConfig
             // 
-            this.btnSaveConfig.Location = new System.Drawing.Point(876, 453);
+            this.btnSaveConfig.Location = new System.Drawing.Point(1063, 495);
             this.btnSaveConfig.Name = "btnSaveConfig";
-            this.btnSaveConfig.Size = new System.Drawing.Size(78, 29);
+            this.btnSaveConfig.Size = new System.Drawing.Size(114, 74);
             this.btnSaveConfig.TabIndex = 22;
-            this.btnSaveConfig.Text = "Save";
+            this.btnSaveConfig.Text = "Save and Close";
             this.btnSaveConfig.UseVisualStyleBackColor = true;
             this.btnSaveConfig.Click += new System.EventHandler(this.btnSaveConfig_Click);
             // 
             // gbPBSTables
             // 
             this.gbPBSTables.Controls.Add(this.dgvPBSConfigMatrix);
-            this.gbPBSTables.Controls.Add(this.textBox2);
-            this.gbPBSTables.Controls.Add(this.textBox1);
-            this.gbPBSTables.Controls.Add(this.btnSavePBSConfigMatrix);
-            this.gbPBSTables.Controls.Add(this.btnFindPBSConfigMatrix);
             this.gbPBSTables.Controls.Add(this.dgvPBSConfig);
-            this.gbPBSTables.Controls.Add(this.btnSavePBSTables);
             this.gbPBSTables.Location = new System.Drawing.Point(15, 231);
             this.gbPBSTables.Name = "gbPBSTables";
-            this.gbPBSTables.Size = new System.Drawing.Size(855, 160);
+            this.gbPBSTables.Size = new System.Drawing.Size(799, 160);
             this.gbPBSTables.TabIndex = 3;
             this.gbPBSTables.TabStop = false;
             this.gbPBSTables.Text = "PBS Tables and Vehicle Matrix";
@@ -298,53 +291,14 @@
             this.pBSConfigMatrixIDDataGridViewTextBoxColumn,
             this.pBSConfigIDDataGridViewTextBoxColumn,
             this.pBSTruckNoDataGridViewTextBoxColumn,
-            this.pBSTrailerNoDataGridViewTextBoxColumn});
+            this.pBSTrailerNoDataGridViewTextBoxColumn,
+            this.Next1});
             this.dgvPBSConfigMatrix.DataSource = this.bsPBSConfigMatrix;
             this.dgvPBSConfigMatrix.Location = new System.Drawing.Point(458, 20);
             this.dgvPBSConfigMatrix.Name = "dgvPBSConfigMatrix";
-            this.dgvPBSConfigMatrix.Size = new System.Drawing.Size(273, 134);
+            this.dgvPBSConfigMatrix.Size = new System.Drawing.Size(324, 137);
             this.dgvPBSConfigMatrix.TabIndex = 26;
             this.dgvPBSConfigMatrix.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvPBSConfigMatrix_DefaultValuesNeeded);
-            this.dgvPBSConfigMatrix.Leave += new System.EventHandler(this.dgvPBSConfigMatrix_Leave);
-            // 
-            // textBox2
-            // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBSConfig, "PBS_ConfigID", true));
-            this.textBox2.Location = new System.Drawing.Point(368, 37);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(84, 24);
-            this.textBox2.TabIndex = 25;
-            this.textBox2.Visible = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsPBSConfigMatrix, "PBS_ConfigID", true));
-            this.textBox1.Location = new System.Drawing.Point(746, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(84, 24);
-            this.textBox1.TabIndex = 20;
-            this.textBox1.Visible = false;
-            // 
-            // btnSavePBSConfigMatrix
-            // 
-            this.btnSavePBSConfigMatrix.Location = new System.Drawing.Point(746, 109);
-            this.btnSavePBSConfigMatrix.Name = "btnSavePBSConfigMatrix";
-            this.btnSavePBSConfigMatrix.Size = new System.Drawing.Size(84, 29);
-            this.btnSavePBSConfigMatrix.TabIndex = 24;
-            this.btnSavePBSConfigMatrix.Text = "Save";
-            this.btnSavePBSConfigMatrix.UseVisualStyleBackColor = true;
-            this.btnSavePBSConfigMatrix.Click += new System.EventHandler(this.btnSavePBSConfigMatrix_Click);
-            // 
-            // btnFindPBSConfigMatrix
-            // 
-            this.btnFindPBSConfigMatrix.Location = new System.Drawing.Point(746, 35);
-            this.btnFindPBSConfigMatrix.Name = "btnFindPBSConfigMatrix";
-            this.btnFindPBSConfigMatrix.Size = new System.Drawing.Size(84, 29);
-            this.btnFindPBSConfigMatrix.TabIndex = 24;
-            this.btnFindPBSConfigMatrix.Text = "Find";
-            this.btnFindPBSConfigMatrix.UseVisualStyleBackColor = true;
-            this.btnFindPBSConfigMatrix.Visible = false;
-            this.btnFindPBSConfigMatrix.Click += new System.EventHandler(this.btnFindPBSConfigMatrix_Click);
             // 
             // dgvPBSConfig
             // 
@@ -353,39 +307,22 @@
             this.dgvPBSConfig.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tableNoDataGridViewTextBoxColumn,
             this.PBS_ID,
-            this.bridgeAssessmentDataGridViewTextBoxColumn});
+            this.bridgeAssessmentDataGridViewTextBoxColumn,
+            this.Next});
             this.dgvPBSConfig.DataSource = this.bsPBSConfig;
             this.dgvPBSConfig.Location = new System.Drawing.Point(3, 20);
             this.dgvPBSConfig.Name = "dgvPBSConfig";
-            this.dgvPBSConfig.Size = new System.Drawing.Size(359, 137);
+            this.dgvPBSConfig.Size = new System.Drawing.Size(399, 137);
             this.dgvPBSConfig.TabIndex = 2;
+            this.dgvPBSConfig.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPBSConfig_CellContentClick);
             this.dgvPBSConfig.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvPBSConfig_DefaultValuesNeeded);
-            this.dgvPBSConfig.Leave += new System.EventHandler(this.dgvPBSConfig_Leave);
-            // 
-            // PBS_ID
-            // 
-            this.PBS_ID.DataPropertyName = "PBS_ID";
-            this.PBS_ID.HeaderText = "PBS_ID";
-            this.PBS_ID.Name = "PBS_ID";
-            this.PBS_ID.Visible = false;
-            // 
-            // btnSavePBSTables
-            // 
-            this.btnSavePBSTables.Location = new System.Drawing.Point(368, 67);
-            this.btnSavePBSTables.Name = "btnSavePBSTables";
-            this.btnSavePBSTables.Size = new System.Drawing.Size(84, 29);
-            this.btnSavePBSTables.TabIndex = 21;
-            this.btnSavePBSTables.Text = "Save";
-            this.btnSavePBSTables.UseVisualStyleBackColor = true;
-            this.btnSavePBSTables.Visible = false;
-            this.btnSavePBSTables.Click += new System.EventHandler(this.button4_Click);
             // 
             // gbPBSGVMConfig
             // 
             this.gbPBSGVMConfig.Controls.Add(this.dgvPBSConfigScheme);
             this.gbPBSGVMConfig.Location = new System.Drawing.Point(12, 397);
             this.gbPBSGVMConfig.Name = "gbPBSGVMConfig";
-            this.gbPBSGVMConfig.Size = new System.Drawing.Size(858, 175);
+            this.gbPBSGVMConfig.Size = new System.Drawing.Size(1045, 175);
             this.gbPBSGVMConfig.TabIndex = 4;
             this.gbPBSGVMConfig.TabStop = false;
             this.gbPBSGVMConfig.Text = "PBS Configuration";
@@ -398,8 +335,10 @@
             this.pBSLevelDataGridViewTextBoxColumn,
             this.PBS_ConfigID,
             this.gCMDataGridViewTextBoxColumn,
-            this.SchemeCode,
+            this.SteerAxle,
+            this.DriveAxle,
             this.gVMTruckDataGridViewTextBoxColumn,
+            this.SchemeCode,
             this.driveAxleLoadDataGridViewTextBoxColumn,
             this.DriveAxleLoadUOM,
             this.massMgmtRqdDataGridViewCheckBoxColumn});
@@ -407,49 +346,14 @@
             this.dgvPBSConfigScheme.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPBSConfigScheme.Location = new System.Drawing.Point(3, 20);
             this.dgvPBSConfigScheme.Name = "dgvPBSConfigScheme";
-            this.dgvPBSConfigScheme.Size = new System.Drawing.Size(852, 152);
+            this.dgvPBSConfigScheme.Size = new System.Drawing.Size(1039, 152);
             this.dgvPBSConfigScheme.TabIndex = 3;
             this.dgvPBSConfigScheme.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvPBSConfigScheme_DefaultValuesNeeded);
-            this.dgvPBSConfigScheme.Leave += new System.EventHandler(this.dgvPBSConfigScheme_Leave);
-            // 
-            // PBS_ConfigID
-            // 
-            this.PBS_ConfigID.DataPropertyName = "PBS_ConfigID";
-            this.PBS_ConfigID.HeaderText = "PBS_ConfigID";
-            this.PBS_ConfigID.Name = "PBS_ConfigID";
-            this.PBS_ConfigID.Visible = false;
-            // 
-            // SchemeCode
-            // 
-            this.SchemeCode.DataPropertyName = "SchemeCode";
-            this.SchemeCode.HeaderText = "Scheme";
-            this.SchemeCode.Items.AddRange(new object[] {
-            "GML",
-            "HML",
-            "L1-GML"});
-            this.SchemeCode.Name = "SchemeCode";
-            // 
-            // DriveAxleLoadUOM
-            // 
-            this.DriveAxleLoadUOM.DataPropertyName = "DriveAxleLoadUOM";
-            this.DriveAxleLoadUOM.HeaderText = "UOM";
-            this.DriveAxleLoadUOM.Items.AddRange(new object[] {
-            "Ratio",
-            "Tonnes"});
-            this.DriveAxleLoadUOM.Name = "DriveAxleLoadUOM";
             // 
             // gbPBSVA
             // 
-            this.gbPBSVA.Controls.Add(this.btnNewVIN);
-            this.gbPBSVA.Controls.Add(this.btnRefreshPBSVehicles);
-            this.gbPBSVA.Controls.Add(this.btnAcceptVIN);
             this.gbPBSVA.Controls.Add(this.dgvPBS_Vehicles);
-            this.gbPBSVA.Controls.Add(this.btnSaveVA);
-            this.gbPBSVA.Controls.Add(this.txtFoundVIN);
             this.gbPBSVA.Controls.Add(this.dgvPBS);
-            this.gbPBSVA.Controls.Add(this.btnFindVIN);
-            this.gbPBSVA.Controls.Add(this.txtRego4VIN);
-            this.gbPBSVA.Controls.Add(this.btnSAVEPBS_Vehicle);
             this.gbPBSVA.Location = new System.Drawing.Point(12, 3);
             this.gbPBSVA.Name = "gbPBSVA";
             this.gbPBSVA.Size = new System.Drawing.Size(1223, 208);
@@ -457,78 +361,25 @@
             this.gbPBSVA.TabStop = false;
             this.gbPBSVA.Text = "Vehicle Approval and Associated Vehicles";
             // 
-            // btnNewVIN
-            // 
-            this.btnNewVIN.Location = new System.Drawing.Point(1030, 123);
-            this.btnNewVIN.Name = "btnNewVIN";
-            this.btnNewVIN.Size = new System.Drawing.Size(84, 29);
-            this.btnNewVIN.TabIndex = 31;
-            this.btnNewVIN.Text = "New VIN";
-            this.btnNewVIN.UseVisualStyleBackColor = true;
-            this.btnNewVIN.Click += new System.EventHandler(this.btnNewVIN_Click);
-            // 
-            // btnRefreshPBSVehicles
-            // 
-            this.btnRefreshPBSVehicles.Location = new System.Drawing.Point(1122, 23);
-            this.btnRefreshPBSVehicles.Name = "btnRefreshPBSVehicles";
-            this.btnRefreshPBSVehicles.Size = new System.Drawing.Size(84, 29);
-            this.btnRefreshPBSVehicles.TabIndex = 30;
-            this.btnRefreshPBSVehicles.Text = "Refresh";
-            this.btnRefreshPBSVehicles.UseVisualStyleBackColor = true;
-            this.btnRefreshPBSVehicles.Click += new System.EventHandler(this.btnRefreshPBSVehicles_Click);
-            // 
-            // btnAcceptVIN
-            // 
-            this.btnAcceptVIN.Location = new System.Drawing.Point(1122, 123);
-            this.btnAcceptVIN.Name = "btnAcceptVIN";
-            this.btnAcceptVIN.Size = new System.Drawing.Size(84, 29);
-            this.btnAcceptVIN.TabIndex = 29;
-            this.btnAcceptVIN.Text = "Update";
-            this.btnAcceptVIN.UseVisualStyleBackColor = true;
-            this.btnAcceptVIN.Click += new System.EventHandler(this.btnAcceptVIN_Click);
-            // 
             // dgvPBS_Vehicles
             // 
-            this.dgvPBS_Vehicles.AllowUserToAddRows = false;
             this.dgvPBS_Vehicles.AutoGenerateColumns = false;
             this.dgvPBS_Vehicles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPBS_Vehicles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.pBSVehicleIDDataGridViewTextBoxColumn,
             this.pBSIDDataGridViewTextBoxColumn,
+            this.pBSVehicleIDDataGridViewTextBoxColumn,
+            this.Rego,
+            this.Rego2VIN,
             this.vINDataGridViewTextBoxColumn,
             this.truckTypeDataGridViewTextBoxColumn,
             this.truckTypeNoDataGridViewTextBoxColumn,
-            this.Rego});
+            this.Next3});
             this.dgvPBS_Vehicles.DataSource = this.bsPBSVehicles;
-            this.dgvPBS_Vehicles.Location = new System.Drawing.Point(461, 23);
+            this.dgvPBS_Vehicles.Location = new System.Drawing.Point(552, 20);
             this.dgvPBS_Vehicles.Name = "dgvPBS_Vehicles";
-            this.dgvPBS_Vehicles.Size = new System.Drawing.Size(554, 171);
+            this.dgvPBS_Vehicles.Size = new System.Drawing.Size(665, 185);
             this.dgvPBS_Vehicles.TabIndex = 21;
-            // 
-            // Rego
-            // 
-            this.Rego.DataPropertyName = "Rego";
-            this.Rego.HeaderText = "Rego";
-            this.Rego.Name = "Rego";
-            this.Rego.ReadOnly = true;
-            // 
-            // btnSaveVA
-            // 
-            this.btnSaveVA.Location = new System.Drawing.Point(1030, 158);
-            this.btnSaveVA.Name = "btnSaveVA";
-            this.btnSaveVA.Size = new System.Drawing.Size(84, 29);
-            this.btnSaveVA.TabIndex = 20;
-            this.btnSaveVA.Text = "Save";
-            this.btnSaveVA.UseVisualStyleBackColor = true;
-            this.btnSaveVA.Visible = false;
-            this.btnSaveVA.Click += new System.EventHandler(this.btnSaveVA_Click);
-            // 
-            // txtFoundVIN
-            // 
-            this.txtFoundVIN.Location = new System.Drawing.Point(1030, 93);
-            this.txtFoundVIN.Name = "txtFoundVIN";
-            this.txtFoundVIN.Size = new System.Drawing.Size(176, 24);
-            this.txtFoundVIN.TabIndex = 27;
+            this.dgvPBS_Vehicles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPBS_Vehicles_CellContentClick);
             // 
             // dgvPBS
             // 
@@ -541,47 +392,19 @@
             this.approvalDTDataGridViewTextBoxColumn,
             this.Operator,
             this.CardCode,
-            this.Active});
+            this.Active,
+            this.Next2});
             this.dgvPBS.DataSource = this.bsPBS;
             this.dgvPBS.Location = new System.Drawing.Point(3, 20);
             this.dgvPBS.Name = "dgvPBS";
-            this.dgvPBS.Size = new System.Drawing.Size(432, 185);
+            this.dgvPBS.Size = new System.Drawing.Size(528, 185);
             this.dgvPBS.TabIndex = 7;
             this.dgvPBS.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvPBS_DefaultValuesNeeded);
-            this.dgvPBS.Leave += new System.EventHandler(this.dgvPBS_Leave);
-            // 
-            // btnFindVIN
-            // 
-            this.btnFindVIN.Location = new System.Drawing.Point(1122, 58);
-            this.btnFindVIN.Name = "btnFindVIN";
-            this.btnFindVIN.Size = new System.Drawing.Size(84, 29);
-            this.btnFindVIN.TabIndex = 24;
-            this.btnFindVIN.Text = "Find";
-            this.btnFindVIN.UseVisualStyleBackColor = true;
-            this.btnFindVIN.Click += new System.EventHandler(this.btnFindVIN_Click);
-            // 
-            // txtRego4VIN
-            // 
-            this.txtRego4VIN.Location = new System.Drawing.Point(1030, 60);
-            this.txtRego4VIN.Name = "txtRego4VIN";
-            this.txtRego4VIN.Size = new System.Drawing.Size(84, 24);
-            this.txtRego4VIN.TabIndex = 28;
-            // 
-            // btnSAVEPBS_Vehicle
-            // 
-            this.btnSAVEPBS_Vehicle.Location = new System.Drawing.Point(1122, 158);
-            this.btnSAVEPBS_Vehicle.Name = "btnSAVEPBS_Vehicle";
-            this.btnSAVEPBS_Vehicle.Size = new System.Drawing.Size(84, 29);
-            this.btnSAVEPBS_Vehicle.TabIndex = 22;
-            this.btnSAVEPBS_Vehicle.Text = "Save";
-            this.btnSAVEPBS_Vehicle.UseVisualStyleBackColor = true;
-            this.btnSAVEPBS_Vehicle.Click += new System.EventHandler(this.btnSAVEPBS_Vehicle_Click);
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tpList);
             this.tabControl1.Controls.Add(this.tpMaintenance);
-            this.tabControl1.Controls.Add(this.tpReports);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -599,29 +422,6 @@
             this.tpList.TabIndex = 0;
             this.tpList.Text = "List";
             this.tpList.UseVisualStyleBackColor = true;
-            // 
-            // tpMaintenance
-            // 
-            this.tpMaintenance.Controls.Add(this.splitContainer1);
-            this.tpMaintenance.Location = new System.Drawing.Point(4, 27);
-            this.tpMaintenance.Name = "tpMaintenance";
-            this.tpMaintenance.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMaintenance.Size = new System.Drawing.Size(1250, 752);
-            this.tpMaintenance.TabIndex = 1;
-            this.tpMaintenance.Text = "Maintenance";
-            this.tpMaintenance.UseVisualStyleBackColor = true;
-            // 
-            // tpReports
-            // 
-            this.tpReports.Controls.Add(this.splitContainer4);
-            this.tpReports.Controls.Add(this.splitContainer3);
-            this.tpReports.Location = new System.Drawing.Point(4, 27);
-            this.tpReports.Name = "tpReports";
-            this.tpReports.Padding = new System.Windows.Forms.Padding(3);
-            this.tpReports.Size = new System.Drawing.Size(1250, 752);
-            this.tpReports.TabIndex = 2;
-            this.tpReports.Text = "Reports";
-            this.tpReports.UseVisualStyleBackColor = true;
             // 
             // splitContainer2
             // 
@@ -651,62 +451,58 @@
             this.splitContainer2.SplitterDistance = 338;
             this.splitContainer2.TabIndex = 0;
             // 
-            // label4
+            // txtOwnerCode
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(63, 40);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 18);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Vehicle Approval";
+            this.txtOwnerCode.Location = new System.Drawing.Point(213, 386);
+            this.txtOwnerCode.Name = "txtOwnerCode";
+            this.txtOwnerCode.Size = new System.Drawing.Size(100, 24);
+            this.txtOwnerCode.TabIndex = 28;
             // 
-            // txtVA
+            // label5
             // 
-            this.txtVA.Location = new System.Drawing.Point(213, 37);
-            this.txtVA.Name = "txtVA";
-            this.txtVA.Size = new System.Drawing.Size(100, 24);
-            this.txtVA.TabIndex = 17;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(63, 186);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 18);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Rego";
             // 
-            // dataGridView1
+            // txtRego
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.pBSIDDataGridViewTextBoxColumn1,
-            this.vehicleApprovalDataGridViewTextBoxColumn1,
-            this.versionDataGridViewTextBoxColumn1,
-            this.approvalDTDataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn1,
-            this.operatorDataGridViewTextBoxColumn,
-            this.cardCodeDataGridViewTextBoxColumn,
-            this.activeDataGridViewCheckBoxColumn});
-            this.dataGridView1.DataSource = this.bsPBS_Search;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(902, 746);
-            this.dataGridView1.TabIndex = 0;
+            this.txtRego.Location = new System.Drawing.Point(213, 183);
+            this.txtRego.Name = "txtRego";
+            this.txtRego.Size = new System.Drawing.Size(100, 24);
+            this.txtRego.TabIndex = 26;
             // 
-            // splitContainer3
+            // btnFindByRego
             // 
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer3.Name = "splitContainer3";
-            this.splitContainer3.Size = new System.Drawing.Size(1244, 746);
-            this.splitContainer3.SplitterDistance = 270;
-            this.splitContainer3.TabIndex = 0;
+            this.btnFindByRego.Location = new System.Drawing.Point(66, 233);
+            this.btnFindByRego.Name = "btnFindByRego";
+            this.btnFindByRego.Size = new System.Drawing.Size(247, 61);
+            this.btnFindByRego.TabIndex = 25;
+            this.btnFindByRego.Text = "Find by Rego";
+            this.btnFindByRego.UseVisualStyleBackColor = true;
+            this.btnFindByRego.Click += new System.EventHandler(this.button4_Click_1);
             // 
-            // splitContainer4
+            // btnFindByCardCode
             // 
-            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer4.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer4.Name = "splitContainer4";
-            this.splitContainer4.Size = new System.Drawing.Size(1244, 746);
-            this.splitContainer4.SplitterDistance = 414;
-            this.splitContainer4.TabIndex = 1;
+            this.btnFindByCardCode.Location = new System.Drawing.Point(66, 425);
+            this.btnFindByCardCode.Name = "btnFindByCardCode";
+            this.btnFindByCardCode.Size = new System.Drawing.Size(247, 61);
+            this.btnFindByCardCode.TabIndex = 24;
+            this.btnFindByCardCode.Text = "Find by CardCode";
+            this.btnFindByCardCode.UseVisualStyleBackColor = true;
+            this.btnFindByCardCode.Click += new System.EventHandler(this.btnFindByCardCode_Click);
+            // 
+            // btnFindAll
+            // 
+            this.btnFindAll.Location = new System.Drawing.Point(213, 534);
+            this.btnFindAll.Name = "btnFindAll";
+            this.btnFindAll.Size = new System.Drawing.Size(100, 30);
+            this.btnFindAll.TabIndex = 23;
+            this.btnFindAll.Text = "Find All";
+            this.btnFindAll.UseVisualStyleBackColor = true;
+            this.btnFindAll.Click += new System.EventHandler(this.btnFindAll_Click);
             // 
             // textBox4
             // 
@@ -735,15 +531,14 @@
             this.txtOwner2Search.Size = new System.Drawing.Size(247, 24);
             this.txtOwner2Search.TabIndex = 20;
             // 
-            // btnFindAll
+            // label4
             // 
-            this.btnFindAll.Location = new System.Drawing.Point(213, 534);
-            this.btnFindAll.Name = "btnFindAll";
-            this.btnFindAll.Size = new System.Drawing.Size(100, 30);
-            this.btnFindAll.TabIndex = 23;
-            this.btnFindAll.Text = "Find All";
-            this.btnFindAll.UseVisualStyleBackColor = true;
-            this.btnFindAll.Click += new System.EventHandler(this.btnFindAll_Click);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(63, 40);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(116, 18);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Vehicle Approval";
             // 
             // btnFindByVA
             // 
@@ -755,41 +550,53 @@
             this.btnFindByVA.UseVisualStyleBackColor = true;
             this.btnFindByVA.Click += new System.EventHandler(this.btnFindByVA_Click);
             // 
-            // btnFindByCardCode
+            // txtVA
             // 
-            this.btnFindByCardCode.Location = new System.Drawing.Point(66, 425);
-            this.btnFindByCardCode.Name = "btnFindByCardCode";
-            this.btnFindByCardCode.Size = new System.Drawing.Size(247, 61);
-            this.btnFindByCardCode.TabIndex = 24;
-            this.btnFindByCardCode.Text = "Find by CardCode";
-            this.btnFindByCardCode.UseVisualStyleBackColor = true;
-            this.btnFindByCardCode.Click += new System.EventHandler(this.btnFindByCardCode_Click);
+            this.txtVA.Location = new System.Drawing.Point(213, 37);
+            this.txtVA.Name = "txtVA";
+            this.txtVA.Size = new System.Drawing.Size(100, 24);
+            this.txtVA.TabIndex = 17;
             // 
-            // btnFindByRego
+            // dataGridView1
             // 
-            this.btnFindByRego.Location = new System.Drawing.Point(66, 233);
-            this.btnFindByRego.Name = "btnFindByRego";
-            this.btnFindByRego.Size = new System.Drawing.Size(247, 61);
-            this.btnFindByRego.TabIndex = 25;
-            this.btnFindByRego.Text = "Find by Rego";
-            this.btnFindByRego.UseVisualStyleBackColor = true;
-            this.btnFindByRego.Click += new System.EventHandler(this.button4_Click_1);
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pBSIDDataGridViewTextBoxColumn1,
+            this.GoTo,
+            this.vehicleApprovalDataGridViewTextBoxColumn1,
+            this.versionDataGridViewTextBoxColumn1,
+            this.approvalDTDataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn1,
+            this.operatorDataGridViewTextBoxColumn,
+            this.cardCodeDataGridViewTextBoxColumn,
+            this.activeDataGridViewCheckBoxColumn});
+            this.dataGridView1.DataSource = this.bsPBS_Search;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(902, 746);
+            this.dataGridView1.TabIndex = 0;
             // 
-            // label5
+            // tpMaintenance
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(63, 186);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 18);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Rego";
+            this.tpMaintenance.Controls.Add(this.splitContainer1);
+            this.tpMaintenance.Location = new System.Drawing.Point(4, 27);
+            this.tpMaintenance.Name = "tpMaintenance";
+            this.tpMaintenance.Padding = new System.Windows.Forms.Padding(3);
+            this.tpMaintenance.Size = new System.Drawing.Size(1250, 752);
+            this.tpMaintenance.TabIndex = 1;
+            this.tpMaintenance.Text = "Maintenance";
+            this.tpMaintenance.UseVisualStyleBackColor = true;
             // 
-            // txtRego
+            // GoTo
             // 
-            this.txtRego.Location = new System.Drawing.Point(213, 183);
-            this.txtRego.Name = "txtRego";
-            this.txtRego.Size = new System.Drawing.Size(100, 24);
-            this.txtRego.TabIndex = 26;
+            this.GoTo.HeaderText = "GoTo";
+            this.GoTo.Name = "GoTo";
+            this.GoTo.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -797,6 +604,27 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Rego";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // Next1
+            // 
+            this.Next1.HeaderText = "Next";
+            this.Next1.Name = "Next1";
+            this.Next1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Next1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Next1.Width = 80;
+            // 
+            // PBS_ID
+            // 
+            this.PBS_ID.DataPropertyName = "PBS_ID";
+            this.PBS_ID.HeaderText = "PBS_ID";
+            this.PBS_ID.Name = "PBS_ID";
+            this.PBS_ID.Visible = false;
+            // 
+            // Next
+            // 
+            this.Next.HeaderText = "Next";
+            this.Next.Name = "Next";
+            this.Next.Width = 80;
             // 
             // Operator
             // 
@@ -818,6 +646,50 @@
             this.Active.HeaderText = "Active";
             this.Active.Name = "Active";
             this.Active.Width = 70;
+            // 
+            // Next2
+            // 
+            this.Next2.HeaderText = "Next";
+            this.Next2.Name = "Next2";
+            this.Next2.Width = 80;
+            // 
+            // PBS_ConfigID
+            // 
+            this.PBS_ConfigID.DataPropertyName = "PBS_ConfigID";
+            this.PBS_ConfigID.HeaderText = "PBS_ConfigID";
+            this.PBS_ConfigID.Name = "PBS_ConfigID";
+            this.PBS_ConfigID.Visible = false;
+            // 
+            // SteerAxle
+            // 
+            this.SteerAxle.DataPropertyName = "SteerAxle";
+            this.SteerAxle.HeaderText = "Steer Axle";
+            this.SteerAxle.Name = "SteerAxle";
+            // 
+            // DriveAxle
+            // 
+            this.DriveAxle.DataPropertyName = "DriveAxle";
+            this.DriveAxle.HeaderText = "Drive Axle";
+            this.DriveAxle.Name = "DriveAxle";
+            // 
+            // SchemeCode
+            // 
+            this.SchemeCode.DataPropertyName = "SchemeCode";
+            this.SchemeCode.HeaderText = "Scheme";
+            this.SchemeCode.Items.AddRange(new object[] {
+            "GML",
+            "HML",
+            "L1-GML"});
+            this.SchemeCode.Name = "SchemeCode";
+            // 
+            // DriveAxleLoadUOM
+            // 
+            this.DriveAxleLoadUOM.DataPropertyName = "DriveAxleLoadUOM";
+            this.DriveAxleLoadUOM.HeaderText = "UOM";
+            this.DriveAxleLoadUOM.Items.AddRange(new object[] {
+            "Ratio",
+            "Tonnes"});
+            this.DriveAxleLoadUOM.Name = "DriveAxleLoadUOM";
             // 
             // bsPBS
             // 
@@ -920,12 +792,6 @@
             this.bsPBSConfigMatrix.DataMember = "PBS_ConfigMatrix";
             this.bsPBSConfigMatrix.DataSource = this.dsPBS;
             // 
-            // bsPBSConfig
-            // 
-            this.bsPBSConfig.DataMember = "PBS_Config";
-            this.bsPBSConfig.DataSource = this.dsPBS;
-            this.bsPBSConfig.CurrentChanged += new System.EventHandler(this.bsPBSConfig_CurrentChanged);
-            // 
             // tableNoDataGridViewTextBoxColumn
             // 
             this.tableNoDataGridViewTextBoxColumn.DataPropertyName = "TableNo";
@@ -945,6 +811,12 @@
             this.bridgeAssessmentDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.bridgeAssessmentDataGridViewTextBoxColumn.Width = 150;
             // 
+            // bsPBSConfig
+            // 
+            this.bsPBSConfig.DataMember = "PBS_Config";
+            this.bsPBSConfig.DataSource = this.dsPBS;
+            this.bsPBSConfig.CurrentChanged += new System.EventHandler(this.bsPBSConfig_CurrentChanged);
+            // 
             // pBSLevelDataGridViewTextBoxColumn
             // 
             this.pBSLevelDataGridViewTextBoxColumn.DataPropertyName = "PBS_Level";
@@ -962,70 +834,24 @@
             this.gVMTruckDataGridViewTextBoxColumn.DataPropertyName = "GVMTruck";
             this.gVMTruckDataGridViewTextBoxColumn.HeaderText = "GVMTruck";
             this.gVMTruckDataGridViewTextBoxColumn.Name = "gVMTruckDataGridViewTextBoxColumn";
+            this.gVMTruckDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // driveAxleLoadDataGridViewTextBoxColumn
             // 
             this.driveAxleLoadDataGridViewTextBoxColumn.DataPropertyName = "DriveAxleLoad";
-            this.driveAxleLoadDataGridViewTextBoxColumn.HeaderText = "DriveAxleLoad";
+            this.driveAxleLoadDataGridViewTextBoxColumn.HeaderText = "Drive Axle Load";
             this.driveAxleLoadDataGridViewTextBoxColumn.Name = "driveAxleLoadDataGridViewTextBoxColumn";
             // 
             // massMgmtRqdDataGridViewCheckBoxColumn
             // 
             this.massMgmtRqdDataGridViewCheckBoxColumn.DataPropertyName = "MassMgmtRqd";
-            this.massMgmtRqdDataGridViewCheckBoxColumn.HeaderText = "MassMgmtRqd";
+            this.massMgmtRqdDataGridViewCheckBoxColumn.HeaderText = "Mass Mgmt Rqd";
             this.massMgmtRqdDataGridViewCheckBoxColumn.Name = "massMgmtRqdDataGridViewCheckBoxColumn";
             // 
             // bsPBSConfigScheme
             // 
             this.bsPBSConfigScheme.DataMember = "PBS_ConfigScheme";
             this.bsPBSConfigScheme.DataSource = this.dsPBS;
-            // 
-            // pBSVehicleIDDataGridViewTextBoxColumn
-            // 
-            this.pBSVehicleIDDataGridViewTextBoxColumn.DataPropertyName = "PBS_VehicleID";
-            this.pBSVehicleIDDataGridViewTextBoxColumn.HeaderText = "PBS_VehicleID";
-            this.pBSVehicleIDDataGridViewTextBoxColumn.Name = "pBSVehicleIDDataGridViewTextBoxColumn";
-            this.pBSVehicleIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pBSVehicleIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // pBSIDDataGridViewTextBoxColumn
-            // 
-            this.pBSIDDataGridViewTextBoxColumn.DataPropertyName = "PBS_ID";
-            this.pBSIDDataGridViewTextBoxColumn.HeaderText = "PBS_ID";
-            this.pBSIDDataGridViewTextBoxColumn.Name = "pBSIDDataGridViewTextBoxColumn";
-            this.pBSIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // vINDataGridViewTextBoxColumn
-            // 
-            this.vINDataGridViewTextBoxColumn.DataPropertyName = "VIN";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vINDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.vINDataGridViewTextBoxColumn.HeaderText = "VIN";
-            this.vINDataGridViewTextBoxColumn.Name = "vINDataGridViewTextBoxColumn";
-            this.vINDataGridViewTextBoxColumn.Width = 180;
-            // 
-            // truckTypeDataGridViewTextBoxColumn
-            // 
-            this.truckTypeDataGridViewTextBoxColumn.DataPropertyName = "TruckType";
-            this.truckTypeDataGridViewTextBoxColumn.HeaderText = "TruckType";
-            this.truckTypeDataGridViewTextBoxColumn.Items.AddRange(new object[] {
-            "TK",
-            "TR",
-            "PM",
-            "TR1",
-            "DY",
-            "TR2",
-            "tba"});
-            this.truckTypeDataGridViewTextBoxColumn.Name = "truckTypeDataGridViewTextBoxColumn";
-            this.truckTypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.truckTypeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // truckTypeNoDataGridViewTextBoxColumn
-            // 
-            this.truckTypeNoDataGridViewTextBoxColumn.DataPropertyName = "TruckTypeNo";
-            this.truckTypeNoDataGridViewTextBoxColumn.HeaderText = "TruckTypeNo";
-            this.truckTypeNoDataGridViewTextBoxColumn.Name = "truckTypeNoDataGridViewTextBoxColumn";
-            this.truckTypeNoDataGridViewTextBoxColumn.Width = 120;
             // 
             // bsPBSVehicles
             // 
@@ -1050,9 +876,9 @@
             // approvalDTDataGridViewTextBoxColumn
             // 
             this.approvalDTDataGridViewTextBoxColumn.DataPropertyName = "ApprovalDT";
-            dataGridViewCellStyle4.Format = "d";
-            dataGridViewCellStyle4.NullValue = null;
-            this.approvalDTDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.approvalDTDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.approvalDTDataGridViewTextBoxColumn.HeaderText = "ApprovalDT";
             this.approvalDTDataGridViewTextBoxColumn.Name = "approvalDTDataGridViewTextBoxColumn";
             // 
@@ -1091,12 +917,72 @@
             // 
             this.taPBS_Search.ClearBeforeFill = true;
             // 
-            // txtOwnerCode
+            // pBSIDDataGridViewTextBoxColumn
             // 
-            this.txtOwnerCode.Location = new System.Drawing.Point(213, 386);
-            this.txtOwnerCode.Name = "txtOwnerCode";
-            this.txtOwnerCode.Size = new System.Drawing.Size(100, 24);
-            this.txtOwnerCode.TabIndex = 28;
+            this.pBSIDDataGridViewTextBoxColumn.DataPropertyName = "PBS_ID";
+            this.pBSIDDataGridViewTextBoxColumn.HeaderText = "PBS_ID";
+            this.pBSIDDataGridViewTextBoxColumn.Name = "pBSIDDataGridViewTextBoxColumn";
+            this.pBSIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // pBSVehicleIDDataGridViewTextBoxColumn
+            // 
+            this.pBSVehicleIDDataGridViewTextBoxColumn.DataPropertyName = "PBS_VehicleID";
+            this.pBSVehicleIDDataGridViewTextBoxColumn.HeaderText = "PBS_VehicleID";
+            this.pBSVehicleIDDataGridViewTextBoxColumn.Name = "pBSVehicleIDDataGridViewTextBoxColumn";
+            this.pBSVehicleIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pBSVehicleIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // Rego
+            // 
+            this.Rego.HeaderText = "Rego";
+            this.Rego.Name = "Rego";
+            // 
+            // Rego2VIN
+            // 
+            this.Rego2VIN.HeaderText = "Get";
+            this.Rego2VIN.Name = "Rego2VIN";
+            this.Rego2VIN.Text = "get VIN";
+            this.Rego2VIN.ToolTipText = "Lookup VIN from Rego";
+            this.Rego2VIN.Width = 60;
+            // 
+            // vINDataGridViewTextBoxColumn
+            // 
+            this.vINDataGridViewTextBoxColumn.DataPropertyName = "VIN";
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vINDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.vINDataGridViewTextBoxColumn.HeaderText = "VIN";
+            this.vINDataGridViewTextBoxColumn.Name = "vINDataGridViewTextBoxColumn";
+            this.vINDataGridViewTextBoxColumn.Width = 180;
+            // 
+            // truckTypeDataGridViewTextBoxColumn
+            // 
+            this.truckTypeDataGridViewTextBoxColumn.DataPropertyName = "TruckType";
+            this.truckTypeDataGridViewTextBoxColumn.HeaderText = "Truck Type";
+            this.truckTypeDataGridViewTextBoxColumn.Items.AddRange(new object[] {
+            "TK",
+            "TR",
+            "PM",
+            "TR1",
+            "DY",
+            "TR2",
+            "tba"});
+            this.truckTypeDataGridViewTextBoxColumn.Name = "truckTypeDataGridViewTextBoxColumn";
+            this.truckTypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.truckTypeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // truckTypeNoDataGridViewTextBoxColumn
+            // 
+            this.truckTypeNoDataGridViewTextBoxColumn.DataPropertyName = "TruckTypeNo";
+            this.truckTypeNoDataGridViewTextBoxColumn.HeaderText = "Truck Type No";
+            this.truckTypeNoDataGridViewTextBoxColumn.Name = "truckTypeNoDataGridViewTextBoxColumn";
+            this.truckTypeNoDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // Next3
+            // 
+            this.Next3.HeaderText = "Next";
+            this.Next3.Name = "Next3";
+            this.Next3.UseColumnTextForButtonValue = true;
+            this.Next3.Width = 80;
             // 
             // PBSManagement
             // 
@@ -1116,29 +1002,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.gbPBSTables.ResumeLayout(false);
-            this.gbPBSTables.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPBSConfigMatrix)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPBSConfig)).EndInit();
             this.gbPBSGVMConfig.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPBSConfigScheme)).EndInit();
             this.gbPBSVA.ResumeLayout(false);
-            this.gbPBSVA.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPBS_Vehicles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPBS)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpList.ResumeLayout(false);
-            this.tpMaintenance.ResumeLayout(false);
-            this.tpReports.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
-            this.splitContainer3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
-            this.splitContainer4.ResumeLayout(false);
+            this.tpMaintenance.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bsPBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsPBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPBS_Search)).EndInit();
@@ -1175,47 +1054,13 @@
         private System.Windows.Forms.GroupBox gbPBSVA;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSaveConfig;
-        private System.Windows.Forms.Button btnSavePBSTables;
-        private System.Windows.Forms.Button btnSaveVA;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvPBS_Vehicles;
         private System.Windows.Forms.BindingSource bsPBSVehicles;
         private dsPBSTableAdapters.PBS_VehiclesTableAdapter taPBSVehicles;
-        private System.Windows.Forms.Button btnSAVEPBS_Vehicle;
         private System.Windows.Forms.BindingSource bsPBSConfigMatrix;
         private dsPBSTableAdapters.PBS_ConfigMatrixTableAdapter taPBSConfigMatrix;
-        private System.Windows.Forms.Button btnFindPBSConfigMatrix;
-        private System.Windows.Forms.Button btnSavePBSConfigMatrix;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DataGridView dgvPBSConfigMatrix;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pBSConfigMatrixIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pBSConfigIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pBSTruckNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pBSTrailerNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TextBox txtFoundVIN;
-        private System.Windows.Forms.TextBox txtRego4VIN;
-        private System.Windows.Forms.Button btnFindVIN;
-        private System.Windows.Forms.Button btnAcceptVIN;
-        private System.Windows.Forms.Button btnRefreshPBSVehicles;
-        private System.Windows.Forms.Button btnNewVIN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pBSVehicleIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pBSIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vINDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn truckTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn truckTypeNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rego;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tableNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PBS_ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn bridgeAssessmentDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pBSLevelDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PBS_ConfigID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gCMDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn SchemeCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gVMTruckDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn driveAxleLoadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn DriveAxleLoadUOM;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn massMgmtRqdDataGridViewCheckBoxColumn;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpList;
         private System.Windows.Forms.SplitContainer splitContainer2;
@@ -1223,19 +1068,21 @@
         private System.Windows.Forms.TextBox txtVA;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tpMaintenance;
-        private System.Windows.Forms.TabPage tpReports;
-        private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.Button btnFindAll;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtOwner2Search;
-        private System.Windows.Forms.SplitContainer splitContainer4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtRego;
         private System.Windows.Forms.Button btnFindByRego;
         private System.Windows.Forms.Button btnFindByCardCode;
         private System.Windows.Forms.Button btnFindByVA;
+        private System.Windows.Forms.BindingSource bsPBS_Search;
+        private dsPBSTableAdapters.PBS_SearchTableAdapter taPBS_Search;
+        private System.Windows.Forms.TextBox txtOwnerCode;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn pBSIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewButtonColumn GoTo;
         private System.Windows.Forms.DataGridViewTextBoxColumn vehicleApprovalDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn versionDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn approvalDTDataGridViewTextBoxColumn1;
@@ -1243,14 +1090,39 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn operatorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cardCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.BindingSource bsPBS_Search;
-        private dsPBSTableAdapters.PBS_SearchTableAdapter taPBS_Search;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pBSConfigMatrixIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pBSConfigIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pBSTruckNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pBSTrailerNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Next1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tableNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PBS_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn bridgeAssessmentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Next;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pBSLevelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PBS_ConfigID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gCMDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SteerAxle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DriveAxle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gVMTruckDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn SchemeCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn driveAxleLoadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn DriveAxleLoadUOM;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn massMgmtRqdDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vehicleApprovalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn versionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn approvalDTDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Operator;
         private System.Windows.Forms.DataGridViewTextBoxColumn CardCode;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Active;
-        private System.Windows.Forms.TextBox txtOwnerCode;
+        private System.Windows.Forms.DataGridViewButtonColumn Next2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pBSIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pBSVehicleIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rego;
+        private System.Windows.Forms.DataGridViewButtonColumn Rego2VIN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vINDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn truckTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn truckTypeNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Next3;
     }
 }

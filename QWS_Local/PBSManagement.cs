@@ -105,9 +105,10 @@ namespace QWS_Local
             {
                 int myPBSConfigID = CurrentPBSConfig().PBS_ConfigID; //Convert.ToInt32(txtPBS_ConfigID.Text);
                 e.Row.Cells[1].Value = myPBSConfigID; // "PBS_ConfigID"
-                e.Row.Cells[3].Value = "GML";
-                e.Row.Cells[6].Value = "Ratio";
-                e.Row.Cells[7].Value = false; //"MassMgmtRqd"
+                e.Row.Cells[6].Value = "GML";
+                e.Row.Cells[7].Value = 0.20M;
+                e.Row.Cells[8].Value = "Ratio";
+                e.Row.Cells[9].Value = false; //"MassMgmtRqd"
             }
             catch (Exception ex)
             {
@@ -175,6 +176,13 @@ namespace QWS_Local
         }
 
         private void btnSaveConfig_Click(object sender, EventArgs e)
+        {
+            bsPBSConfigScheme.EndEdit();
+            taPBSConfigScheme.Update(dsPBS.PBS_ConfigScheme);
+            this.Close();
+        }
+
+        private void PBSConfigSchemeSave()
         {
             bsPBSConfigScheme.EndEdit();
             taPBSConfigScheme.Update(dsPBS.PBS_ConfigScheme);
@@ -332,8 +340,6 @@ namespace QWS_Local
             try
             {
                 bsPBSVehicles.EndEdit();
-                txtRego4VIN.Text = "";
-                txtFoundVIN.Text = "";
                 taPBSVehicles.Update(dsPBS.PBS_Vehicles);
                 RefreshPBSVehicles();
             }
@@ -358,6 +364,11 @@ namespace QWS_Local
 
         private void btnSavePBSConfigMatrix_Click(object sender, EventArgs e)
         {
+            PBSConfigMatrixSave();
+        }
+
+        private void PBSConfigMatrixSave()
+        {
             try
             {
                 bsPBSConfigMatrix.EndEdit();
@@ -378,25 +389,31 @@ namespace QWS_Local
 
         private void btnFindVIN_Click(object sender, EventArgs e)
         {
-            string myRego = txtRego4VIN.Text.ToUpper();
-            txtRego4VIN.Text = myRego;
-            txtFoundVIN.Text = GetVIN(myRego);
-        }
+// do nothing
+}
 
         private string GetVIN(string Rego)
         {
             try
             {
-                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = sqlConnection;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "FindVIN";
-                cmd.Parameters.AddWithValue("@Rego", Rego);
-                sqlConnection.Open();
-                string myVIN = cmd.ExecuteScalar().ToString();
-                sqlConnection.Close();
-                return myVIN;
+                if (string.IsNullOrEmpty(Rego))
+                {
+                    MessageBox.Show("Rego missing!");
+                    return "not found";
+                }
+                else
+                { 
+                    SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = sqlConnection;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "FindVIN";
+                    cmd.Parameters.AddWithValue("@Rego", Rego);
+                    sqlConnection.Open();
+                    string myVIN = cmd.ExecuteScalar().ToString();
+                    sqlConnection.Close();
+                    return myVIN;
+                }
             }
             catch (Exception ex)
             {
@@ -411,7 +428,7 @@ namespace QWS_Local
             int iRow = dgvPBS_Vehicles.CurrentCellAddress.Y;
             if (iRow > 0)
             {
-                dgvPBS_Vehicles.Rows[iRow].Cells[2].Value = txtFoundVIN.Text;
+                //deprecated dgvPBS_Vehicles.Rows[iRow].Cells[2].Value = txtFoundVIN.Text;
                 //dgvPBS_Vehicles.Rows[iRow].Cells[5].Value = txtRego4VIN.Text; // column Rego is Read Only!
             }
             bsPBSVehicles.EndEdit();
@@ -461,8 +478,8 @@ namespace QWS_Local
         {
             try
             {
-                string myVIN = txtFoundVIN.Text;              
-                string myRego = txtRego4VIN.Text.ToUpper();
+                string myVIN = "tba";              
+                string myRego = "tba";
                 DataRow dr = dsPBS.PBS_Vehicles.NewRow();
                 dsPBS.PBS_VehiclesRow myVehicle = (dsPBS.PBS_VehiclesRow)dr;
                 myVehicle.PBS_ID = CurrentPBS().PBS_ID;
@@ -481,11 +498,13 @@ namespace QWS_Local
 
         private void dgvPBS_Leave(object sender, EventArgs e)
         {
+            dgvPBS.EndEdit();
             VehicleApprovalSave();
         }
 
         private void dgvPBSConfig_Leave(object sender, EventArgs e)
         {
+            dgvPBSConfig.EndEdit();
             PBSConfigSave();
         }
 
@@ -516,12 +535,14 @@ namespace QWS_Local
 
         private void dgvPBSConfigScheme_Leave(object sender, EventArgs e)
         {
-            MessageBox.Show("leaving","PBSConfigScheme");
+            dgvPBSConfigScheme.EndEdit();
+            PBSConfigSchemeSave();
         }
 
         private void dgvPBSConfigMatrix_Leave(object sender, EventArgs e)
         {
-            MessageBox.Show("leaving","PBSConfigMatrix");
+            dgvPBSConfigMatrix.EndEdit();
+            PBSConfigMatrixSave();
         }
 
         private void btnFindByVA_Click(object sender, EventArgs e)
@@ -532,6 +553,64 @@ namespace QWS_Local
         private void btnFindByCardCode_Click(object sender, EventArgs e)
         {
             PBSFindBy(txtOwnerCode.Text, "xx", 0);
+        }
+
+        private void dgvPBS_Vehicles_Leave(object sender, EventArgs e)
+        {
+            dgvPBS_Vehicles.EndEdit();
+            PBSVehiclesSave();
+        }
+
+        private void PBSVehiclesSave()
+        {
+            try
+            {
+                bsPBSVehicles.EndEdit();
+                taPBSVehicles.Update(dsPBS.PBS_Vehicles);
+                RefreshPBSVehicles();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dgvPBSConfig_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == dgvPBSConfig.Columns["Next"].Index && e.RowIndex >= 0)
+                {
+                    // Get the data from the clicked row (example)
+                    string rowData = dgvPBSConfig.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    MessageBox.Show($"Button clicked in row {e.RowIndex + 1}. Data: {rowData}");
+                    // Perform actions based on the clicked row
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dgvPBS_Vehicles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == dgvPBS_Vehicles.Columns["Rego2VIN"].Index && e.RowIndex >= 0)
+                {
+                    // Get the data from the clicked row (example)
+                    string rowData = dgvPBS_Vehicles.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    //MessageBox.Show($"Button clicked in row {e.RowIndex + 1}. Data: {rowData}");
+                    // Perform actions based on the clicked row
+                    string myVIN = GetVIN(rowData);
+                    dgvPBS_Vehicles.Rows[e.RowIndex].Cells[4].Value = myVIN; 
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
