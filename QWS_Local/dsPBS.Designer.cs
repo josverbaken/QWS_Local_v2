@@ -1824,6 +1824,7 @@ namespace QWS_Local {
                 this.columnTruckType.AllowDBNull = false;
                 this.columnTruckType.MaxLength = 50;
                 this.columnTruckTypeNo.AllowDBNull = false;
+                this.columnRego.AllowDBNull = false;
                 this.columnRego.MaxLength = 6;
             }
             
@@ -3065,12 +3066,7 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Rego {
                 get {
-                    try {
-                        return ((string)(this[this.tablePBS_Vehicles.RegoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Rego\' in table \'PBS_Vehicles\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tablePBS_Vehicles.RegoColumn]));
                 }
                 set {
                     this[this.tablePBS_Vehicles.RegoColumn] = value;
@@ -3086,18 +3082,6 @@ namespace QWS_Local {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_PBS_Vehicles_PBS"]);
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsRegoNull() {
-                return this.IsNull(this.tablePBS_Vehicles.RegoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetRegoNull() {
-                this[this.tablePBS_Vehicles.RegoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4994,38 +4978,41 @@ SELECT PBS_ConfigSchemeID, PBS_ConfigID, PBS_Level, SchemeCode, GCM, GVMTruck, D
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM [PBS_Vehicles] WHERE (([PBS_VehicleID] = @Original_PBS_VehicleID) AND" +
                 " ([PBS_ID] = @Original_PBS_ID) AND ([VIN] = @Original_VIN) AND ([TruckType] = @O" +
-                "riginal_TruckType) AND ([TruckTypeNo] = @Original_TruckTypeNo))";
+                "riginal_TruckType) AND ([TruckTypeNo] = @Original_TruckTypeNo) AND ([Rego] = @Or" +
+                "iginal_Rego))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_VehicleID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_VehicleID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VIN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VIN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TruckType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TruckTypeNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckTypeNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [PBS_Vehicles] ([PBS_ID], [VIN], [TruckType], [TruckTypeNo]) VALUES (" +
-                "@PBS_ID, @VIN, @TruckType, @TruckTypeNo);\r\nSELECT PBS_VehicleID, PBS_ID, VIN, Tr" +
-                "uckType, TruckTypeNo, \'tba\' AS Rego FROM PBS_Vehicles WHERE (PBS_VehicleID = SCO" +
-                "PE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [PBS_Vehicles] ([PBS_ID], [VIN], [TruckType], [TruckTypeNo], [Rego]) VALUES (@PBS_ID, @VIN, @TruckType, @TruckTypeNo, @Rego);
+SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo, Rego FROM PBS_Vehicles WHERE (PBS_VehicleID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VIN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckTypeNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckTypeNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [PBS_Vehicles] SET [PBS_ID] = @PBS_ID, [VIN] = @VIN, [TruckType] = @TruckType, [TruckTypeNo] = @TruckTypeNo WHERE (([PBS_VehicleID] = @Original_PBS_VehicleID) AND ([PBS_ID] = @Original_PBS_ID) AND ([VIN] = @Original_VIN) AND ([TruckType] = @Original_TruckType) AND ([TruckTypeNo] = @Original_TruckTypeNo));
-SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo, 'tba' AS Rego FROM PBS_Vehicles WHERE (PBS_VehicleID = @PBS_VehicleID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [PBS_Vehicles] SET [PBS_ID] = @PBS_ID, [VIN] = @VIN, [TruckType] = @TruckType, [TruckTypeNo] = @TruckTypeNo, [Rego] = @Rego WHERE (([PBS_VehicleID] = @Original_PBS_VehicleID) AND ([PBS_ID] = @Original_PBS_ID) AND ([VIN] = @Original_VIN) AND ([TruckType] = @Original_TruckType) AND ([TruckTypeNo] = @Original_TruckTypeNo) AND ([Rego] = @Original_Rego));
+SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo, Rego FROM PBS_Vehicles WHERE (PBS_VehicleID = @PBS_VehicleID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VIN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckTypeNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckTypeNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_VehicleID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_VehicleID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VIN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VIN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TruckType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TruckTypeNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckTypeNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_VehicleID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_VehicleID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -5042,8 +5029,8 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo, 'tba' AS Rego FROM PB
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo, \'tba\' as Rego\r\n" +
-                "FROM            PBS_Vehicles";
+            this._commandCollection[0].CommandText = "SELECT        PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo, Rego\r\nFROM     " +
+                "       PBS_Vehicles";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -5146,7 +5133,7 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo, 'tba' AS Rego FROM PB
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_PBS_VehicleID, int Original_PBS_ID, string Original_VIN, string Original_TruckType, int Original_TruckTypeNo) {
+        public virtual int Delete(int Original_PBS_VehicleID, int Original_PBS_ID, string Original_VIN, string Original_TruckType, int Original_TruckTypeNo, string Original_Rego) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_PBS_VehicleID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_PBS_ID));
             if ((Original_VIN == null)) {
@@ -5162,6 +5149,12 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo, 'tba' AS Rego FROM PB
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_TruckType));
             }
             this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_TruckTypeNo));
+            if ((Original_Rego == null)) {
+                throw new global::System.ArgumentNullException("Original_Rego");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Rego));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5182,7 +5175,7 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo, 'tba' AS Rego FROM PB
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int PBS_ID, string VIN, string TruckType, int TruckTypeNo) {
+        public virtual int Insert(int PBS_ID, string VIN, string TruckType, int TruckTypeNo, string Rego) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(PBS_ID));
             if ((VIN == null)) {
                 throw new global::System.ArgumentNullException("VIN");
@@ -5197,6 +5190,12 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo, 'tba' AS Rego FROM PB
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(TruckType));
             }
             this.Adapter.InsertCommand.Parameters[3].Value = ((int)(TruckTypeNo));
+            if ((Rego == null)) {
+                throw new global::System.ArgumentNullException("Rego");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Rego));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5217,7 +5216,7 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo, 'tba' AS Rego FROM PB
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int PBS_ID, string VIN, string TruckType, int TruckTypeNo, int Original_PBS_VehicleID, int Original_PBS_ID, string Original_VIN, string Original_TruckType, int Original_TruckTypeNo, int PBS_VehicleID) {
+        public virtual int Update(int PBS_ID, string VIN, string TruckType, int TruckTypeNo, string Rego, int Original_PBS_VehicleID, int Original_PBS_ID, string Original_VIN, string Original_TruckType, int Original_TruckTypeNo, string Original_Rego, int PBS_VehicleID) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(PBS_ID));
             if ((VIN == null)) {
                 throw new global::System.ArgumentNullException("VIN");
@@ -5232,22 +5231,34 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo, 'tba' AS Rego FROM PB
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(TruckType));
             }
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(TruckTypeNo));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_PBS_VehicleID));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_PBS_ID));
+            if ((Rego == null)) {
+                throw new global::System.ArgumentNullException("Rego");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Rego));
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_PBS_VehicleID));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_PBS_ID));
             if ((Original_VIN == null)) {
                 throw new global::System.ArgumentNullException("Original_VIN");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_VIN));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_VIN));
             }
             if ((Original_TruckType == null)) {
                 throw new global::System.ArgumentNullException("Original_TruckType");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_TruckType));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_TruckType));
             }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_TruckTypeNo));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(PBS_VehicleID));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_TruckTypeNo));
+            if ((Original_Rego == null)) {
+                throw new global::System.ArgumentNullException("Original_Rego");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Rego));
+            }
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(PBS_VehicleID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5268,8 +5279,8 @@ SELECT PBS_VehicleID, PBS_ID, VIN, TruckType, TruckTypeNo, 'tba' AS Rego FROM PB
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int PBS_ID, string VIN, string TruckType, int TruckTypeNo, int Original_PBS_VehicleID, int Original_PBS_ID, string Original_VIN, string Original_TruckType, int Original_TruckTypeNo) {
-            return this.Update(PBS_ID, VIN, TruckType, TruckTypeNo, Original_PBS_VehicleID, Original_PBS_ID, Original_VIN, Original_TruckType, Original_TruckTypeNo, Original_PBS_VehicleID);
+        public virtual int Update(int PBS_ID, string VIN, string TruckType, int TruckTypeNo, string Rego, int Original_PBS_VehicleID, int Original_PBS_ID, string Original_VIN, string Original_TruckType, int Original_TruckTypeNo, string Original_Rego) {
+            return this.Update(PBS_ID, VIN, TruckType, TruckTypeNo, Rego, Original_PBS_VehicleID, Original_PBS_ID, Original_VIN, Original_TruckType, Original_TruckTypeNo, Original_Rego, Original_PBS_VehicleID);
         }
     }
     

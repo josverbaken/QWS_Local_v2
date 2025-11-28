@@ -581,10 +581,8 @@ namespace QWS_Local
             {
                 if (e.ColumnIndex == dgvPBSConfig.Columns["Next"].Index && e.RowIndex >= 0)
                 {
-                    // Get the data from the clicked row (example)
-                    string rowData = dgvPBSConfig.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    MessageBox.Show($"Button clicked in row {e.RowIndex + 1}. Data: {rowData}");
-                    // Perform actions based on the clicked row
+                    // TODO Save
+                    dgvPBSConfigMatrix.Focus();
                 }
             }
             catch (Exception ex)
@@ -599,12 +597,77 @@ namespace QWS_Local
             {
                 if (e.ColumnIndex == dgvPBS_Vehicles.Columns["Rego2VIN"].Index && e.RowIndex >= 0)
                 {
-                    // Get the data from the clicked row (example)
-                    string rowData = dgvPBS_Vehicles.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    //MessageBox.Show($"Button clicked in row {e.RowIndex + 1}. Data: {rowData}");
-                    // Perform actions based on the clicked row
+                    string rowData = dgvPBS_Vehicles.Rows[e.RowIndex].Cells["Rego"].Value.ToString();
                     string myVIN = GetVIN(rowData);
                     dgvPBS_Vehicles.Rows[e.RowIndex].Cells[4].Value = myVIN; 
+                }
+                if (e.ColumnIndex == dgvPBS_Vehicles.Columns["Next3"].Index && e.RowIndex >= 0)
+                {
+                    // TODO save 
+                    dgvPBSConfig.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dgvPBS_Vehicles_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        {
+            try
+            {
+                int myPBSID = CurrentPBS().PBS_ID;  //Convert.ToInt32(txtPBS_ID.Text);
+                e.Row.Cells[0].Value = myPBSID; // "PBS_ID"
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void dgvPBS_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == dgvPBS.Columns["Next2"].Index && e.RowIndex >= 0)
+                {
+                    // TODO save 
+                    dgvPBS_Vehicles.Focus();
+                }
+            }        
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void dgvPBSConfigMatrix_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == dgvPBSConfigMatrix.Columns["Next1"].Index && e.RowIndex >= 0)
+                {
+                    // TODO save 
+                    dgvPBSConfigScheme.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dgvPBSConfigScheme_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == dgvPBSConfigScheme.Columns["Next4"].Index && e.RowIndex >= 0)
+                {
+                    // TODO save 
+                    btnSaveConfig.Focus();
                 }
             }
             catch (Exception ex)
