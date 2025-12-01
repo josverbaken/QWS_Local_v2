@@ -53,11 +53,11 @@ namespace QWS_Local
                     DialogResult dr = MessageBox.Show(strMsg, "VA not found", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dr == DialogResult.Yes)
                     {
-                        NewVA(myPBSVA);
+                        btnFindOwner.Focus();
                     }
                     else
                     {
-                        label1.Text = "***";
+                        txtVehicleApproval.Focus();
                     }
                 }
                 else
@@ -85,7 +85,6 @@ namespace QWS_Local
             if (dr == DialogResult.OK)
             {
                 MessageBox.Show(frmBusinessSearch.BusinessName);
-                label3.Text = "Click new row in grid below and add Version and Approval Date before saving.";
                 myCardCode = frmBusinessSearch.SAPCode;
                 myOperator = frmBusinessSearch.BusinessName;
                 txtCardCode.Text = frmBusinessSearch.SAPCode;
@@ -94,7 +93,6 @@ namespace QWS_Local
             }
             else
             {
-                label3.Text = "...";
                 return "not found";
             }
         }
@@ -104,11 +102,12 @@ namespace QWS_Local
             try
             {
                 int myPBSConfigID = CurrentPBSConfig().PBS_ConfigID; //Convert.ToInt32(txtPBS_ConfigID.Text);
-                e.Row.Cells[1].Value = myPBSConfigID; // "PBS_ConfigID"
-                e.Row.Cells[6].Value = "GML";
-                e.Row.Cells[7].Value = 0.20M;
-                e.Row.Cells[8].Value = "Ratio";
-                e.Row.Cells[9].Value = false; //"MassMgmtRqd"
+                e.Row.Cells[0].Value = 2;
+                e.Row.Cells[4].Value = "HML";
+                e.Row.Cells[5].Value = 0.20M;
+                e.Row.Cells[6].Value = "Ratio";
+                e.Row.Cells[7].Value = false; //"MassMgmtRqd"
+                e.Row.Cells[9].Value = myPBSConfigID; // "PBS_ConfigID"
             }
             catch (Exception ex)
             {
@@ -128,11 +127,6 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void NewVA(int PBSVA)
-        {
-            label1.Text = "Find SAP Busness Partner";              
         }
 
         private void dgvPBS_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
@@ -165,27 +159,32 @@ namespace QWS_Local
             taPBSConfig.Update(dsPBS.PBS_Config);
         }
 
-        private void btnSaveVA_Click(object sender, EventArgs e)
-        {
-            VehicleApprovalSave();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            PBSConfigSave();
-        }
 
         private void btnSaveConfig_Click(object sender, EventArgs e)
         {
-            bsPBSConfigScheme.EndEdit();
-            taPBSConfigScheme.Update(dsPBS.PBS_ConfigScheme);
-            this.Close();
+            try
+            {
+                bsPBSConfigScheme.EndEdit();
+                taPBSConfigScheme.Update(dsPBS.PBS_ConfigScheme);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void PBSConfigSchemeSave()
         {
-            bsPBSConfigScheme.EndEdit();
-            taPBSConfigScheme.Update(dsPBS.PBS_ConfigScheme);
+            try
+            {
+                bsPBSConfigScheme.EndEdit();
+                taPBSConfigScheme.Update(dsPBS.PBS_ConfigScheme);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void bsPBS_CurrentChanged(object sender, EventArgs e)
@@ -304,6 +303,11 @@ namespace QWS_Local
 
         private void bsPBSConfig_CurrentChanged(object sender, EventArgs e)
         {
+            PBSConfigMatrixMove();
+        }
+
+        private void PBSConfigMatrixMove()
+        {
             if (bsPBSConfig.Count > 0)
             {
                 int myPBS_ConfigID = CurrentPBSConfig().PBS_ConfigID;
@@ -315,7 +319,7 @@ namespace QWS_Local
 
         private void PBSManagement_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F3)
+            if (e.KeyCode == Keys.F3 && tabControl1.SelectedTab == tpMaintenance)
             {
                 VehicleApprovalFind();
             }
@@ -349,24 +353,6 @@ namespace QWS_Local
             }
         }
 
-        private void btnFindPBSConfigMatrix_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int myPBS_ConfigID = CurrentPBSConfig().PBS_ConfigID;
-                taPBSConfigMatrix.FillBy(dsPBS.PBS_ConfigMatrix, myPBS_ConfigID);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void btnSavePBSConfigMatrix_Click(object sender, EventArgs e)
-        {
-            PBSConfigMatrixSave();
-        }
-
         private void PBSConfigMatrixSave()
         {
             try
@@ -383,14 +369,10 @@ namespace QWS_Local
 
         private void dgvPBSConfigMatrix_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
+            // don't do this makes column visible!@#
             int myPBS_ConfigID = CurrentPBSConfig().PBS_ConfigID;
             e.Row.Cells[1].Value = myPBS_ConfigID.ToString();
         }
-
-        private void btnFindVIN_Click(object sender, EventArgs e)
-        {
-// do nothing
-}
 
         private string GetVIN(string Rego)
         {
@@ -422,18 +404,6 @@ namespace QWS_Local
             }
         }
 
-        private void btnAcceptVIN_Click(object sender, EventArgs e)
-        {
-            //CurrentPBSVehicle().VIN = txtFoundVIN.Text;
-            int iRow = dgvPBS_Vehicles.CurrentCellAddress.Y;
-            if (iRow > 0)
-            {
-                //deprecated dgvPBS_Vehicles.Rows[iRow].Cells[2].Value = txtFoundVIN.Text;
-                //dgvPBS_Vehicles.Rows[iRow].Cells[5].Value = txtRego4VIN.Text; // column Rego is Read Only!
-            }
-            bsPBSVehicles.EndEdit();
-        }
-
         private void btnRefreshPBSVehicles_Click(object sender, EventArgs e)
         {
             RefreshPBSVehicles();
@@ -452,30 +422,10 @@ namespace QWS_Local
             }
         }
 
-        private void btnNewVIN_Click(object sender, EventArgs e)
-        {
-            NewPBSVehicle();
-            Move2TruckType();
-        }
-
-        private void Move2TruckType()
-        {
-            try
-            {
-                int iRow = dgvPBS_Vehicles.RowCount;
-                dgvPBS_Vehicles.ClearSelection();
-                dgvPBS_Vehicles.CurrentCell = dgvPBS_Vehicles.Rows[iRow - 1].Cells[3];
-                //dgvPBS_Vehicles.CurrentCell.Selected = true; // same as above
-                // seems quite convoluted to actually select cell contents
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
 
         private void NewPBSVehicle()
         {
+            // no longer used because allowing create direct in datagridview
             try
             {
                 string myVIN = "tba";              
@@ -496,11 +446,6 @@ namespace QWS_Local
             }
         }
 
-        private void dgvPBS_Leave(object sender, EventArgs e)
-        {
-            dgvPBS.EndEdit();
-            VehicleApprovalSave();
-        }
 
         private void dgvPBSConfig_Leave(object sender, EventArgs e)
         {
@@ -555,12 +500,6 @@ namespace QWS_Local
             PBSFindBy(txtOwnerCode.Text, "xx", 0);
         }
 
-        private void dgvPBS_Vehicles_Leave(object sender, EventArgs e)
-        {
-            dgvPBS_Vehicles.EndEdit();
-            PBSVehiclesSave();
-        }
-
         private void PBSVehiclesSave()
         {
             try
@@ -581,7 +520,9 @@ namespace QWS_Local
             {
                 if (e.ColumnIndex == dgvPBSConfig.Columns["Next"].Index && e.RowIndex >= 0)
                 {
-                    // TODO Save
+                    dgvPBSConfig.EndEdit();
+                    PBSConfigSave();
+                    PBSConfigMatrixMove();
                     dgvPBSConfigMatrix.Focus();
                 }
             }
@@ -599,11 +540,12 @@ namespace QWS_Local
                 {
                     string rowData = dgvPBS_Vehicles.Rows[e.RowIndex].Cells["Rego"].Value.ToString();
                     string myVIN = GetVIN(rowData);
-                    dgvPBS_Vehicles.Rows[e.RowIndex].Cells[4].Value = myVIN; 
+                    dgvPBS_Vehicles.Rows[e.RowIndex].Cells[2].Value = myVIN; 
                 }
                 if (e.ColumnIndex == dgvPBS_Vehicles.Columns["Next3"].Index && e.RowIndex >= 0)
                 {
-                    // TODO save 
+                    dgvPBS_Vehicles.EndEdit();
+                    PBSVehiclesSave();
                     dgvPBSConfig.Focus();
                 }
             }
@@ -613,27 +555,14 @@ namespace QWS_Local
             }
         }
 
-        private void dgvPBS_Vehicles_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
-        {
-            try
-            {
-                int myPBSID = CurrentPBS().PBS_ID;  //Convert.ToInt32(txtPBS_ID.Text);
-                e.Row.Cells[0].Value = myPBSID; // "PBS_ID"
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-        }
-
         private void dgvPBS_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
                 if (e.ColumnIndex == dgvPBS.Columns["Next2"].Index && e.RowIndex >= 0)
                 {
-                    // TODO save 
+                    dgvPBS.EndEdit();
+                    VehicleApprovalSave();
                     dgvPBS_Vehicles.Focus();
                 }
             }        
@@ -650,7 +579,8 @@ namespace QWS_Local
             {
                 if (e.ColumnIndex == dgvPBSConfigMatrix.Columns["Next1"].Index && e.RowIndex >= 0)
                 {
-                    // TODO save 
+                    dgvPBSConfigMatrix.EndEdit();
+                    PBSConfigMatrixSave();
                     dgvPBSConfigScheme.Focus();
                 }
             }
@@ -666,6 +596,7 @@ namespace QWS_Local
             {
                 if (e.ColumnIndex == dgvPBSConfigScheme.Columns["Next4"].Index && e.RowIndex >= 0)
                 {
+                    dgvPBSConfigScheme.EndEdit();
                     // TODO save 
                     btnSaveConfig.Focus();
                 }
@@ -674,6 +605,52 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == dataGridView1.Columns["GoTo"].Index && e.RowIndex >= 0)
+                {
+                    string rowData = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    txtVehicleApproval.Text = rowData;
+                    VehicleApprovalFind();
+                    tabControl1.SelectedTab = tpMaintenance;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dgvPBS_Vehicles_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        {
+            try
+            {
+                int myPBS_ID = CurrentPBS().PBS_ID;
+                e.Row.Cells[6].Value = myPBS_ID;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dgvPBSConfigMatrix_DefaultValuesNeeded_1(object sender, DataGridViewRowEventArgs e)
+        {
+            // pbs config id index = 3
+            int myPBSConfigID = CurrentPBSConfig().PBS_ConfigID;
+            e.Row.Cells[3].Value = myPBSConfigID;
+        }
+
+        private void btnSaveAndNew_Click(object sender, EventArgs e)
+        {
+            // TODO Save All
+            dsPBS.Clear();
+            txtVehicleApproval.Text = "";
+            txtVehicleApproval.Focus();
         }
     }
 }

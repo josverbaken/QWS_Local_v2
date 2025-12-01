@@ -55,7 +55,6 @@ namespace QWS_Local {
             base.Tables.CollectionChanged += schemaChangedHandler;
             base.Relations.CollectionChanged += schemaChangedHandler;
             this.EndInit();
-            this.InitExpressions();
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -67,9 +66,6 @@ namespace QWS_Local {
                 global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
                 this.Tables.CollectionChanged += schemaChangedHandler1;
                 this.Relations.CollectionChanged += schemaChangedHandler1;
-                if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.ExcludeSchema)) {
-                    this.InitExpressions();
-                }
                 return;
             }
             string strSchema = ((string)(info.GetValue("XmlSchema", typeof(string))));
@@ -105,7 +101,6 @@ namespace QWS_Local {
             }
             else {
                 this.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                this.InitExpressions();
             }
             this.GetSerializationData(info, context);
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -217,7 +212,6 @@ namespace QWS_Local {
         public override global::System.Data.DataSet Clone() {
             dsPBS cln = ((dsPBS)(base.Clone()));
             cln.InitVars();
-            cln.InitExpressions();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
         }
@@ -346,7 +340,7 @@ namespace QWS_Local {
             base.Tables.Add(this.tablePBS);
             this.tablePBS_Config = new PBS_ConfigDataTable();
             base.Tables.Add(this.tablePBS_Config);
-            this.tablePBS_ConfigScheme = new PBS_ConfigSchemeDataTable(false);
+            this.tablePBS_ConfigScheme = new PBS_ConfigSchemeDataTable();
             base.Tables.Add(this.tablePBS_ConfigScheme);
             this.tablePBS_Vehicles = new PBS_VehiclesDataTable();
             base.Tables.Add(this.tablePBS_Vehicles);
@@ -461,12 +455,6 @@ namespace QWS_Local {
             }
             xs.Add(dsSchema);
             return type;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitExpressions() {
-            this.PBS_ConfigScheme.GVMTruckColumn.Expression = "SteerAxle + DriveAxle";
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1170,8 +1158,6 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnGCM;
             
-            private global::System.Data.DataColumn columnGVMTruck;
-            
             private global::System.Data.DataColumn columnDriveAxleLoad;
             
             private global::System.Data.DataColumn columnDriveAxleLoadUOM;
@@ -1184,19 +1170,10 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PBS_ConfigSchemeDataTable() : 
-                    this(false) {
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PBS_ConfigSchemeDataTable(bool initExpressions) {
+            public PBS_ConfigSchemeDataTable() {
                 this.TableName = "PBS_ConfigScheme";
                 this.BeginInit();
                 this.InitClass();
-                if ((initExpressions == true)) {
-                    this.InitExpressions();
-                }
                 this.EndInit();
             }
             
@@ -1261,14 +1238,6 @@ namespace QWS_Local {
             public global::System.Data.DataColumn GCMColumn {
                 get {
                     return this.columnGCM;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn GVMTruckColumn {
-                get {
-                    return this.columnGVMTruck;
                 }
             }
             
@@ -1349,30 +1318,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PBS_ConfigSchemeRow AddPBS_ConfigSchemeRow(PBS_ConfigRow parentPBS_ConfigRowByFK_PBS_ConfigScheme_PBS_Config, int PBS_Level, string SchemeCode, decimal GCM, decimal GVMTruck, decimal DriveAxleLoad, string DriveAxleLoadUOM, bool MassMgmtRqd, decimal SteerAxle, decimal DriveAxle) {
-                PBS_ConfigSchemeRow rowPBS_ConfigSchemeRow = ((PBS_ConfigSchemeRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        null,
-                        PBS_Level,
-                        SchemeCode,
-                        GCM,
-                        GVMTruck,
-                        DriveAxleLoad,
-                        DriveAxleLoadUOM,
-                        MassMgmtRqd,
-                        SteerAxle,
-                        DriveAxle};
-                if ((parentPBS_ConfigRowByFK_PBS_ConfigScheme_PBS_Config != null)) {
-                    columnValuesArray[1] = parentPBS_ConfigRowByFK_PBS_ConfigScheme_PBS_Config[0];
-                }
-                rowPBS_ConfigSchemeRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowPBS_ConfigSchemeRow);
-                return rowPBS_ConfigSchemeRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public PBS_ConfigSchemeRow AddPBS_ConfigSchemeRow(PBS_ConfigRow parentPBS_ConfigRowByFK_PBS_ConfigScheme_PBS_Config, int PBS_Level, string SchemeCode, decimal GCM, decimal DriveAxleLoad, string DriveAxleLoadUOM, bool MassMgmtRqd, decimal SteerAxle, decimal DriveAxle) {
                 PBS_ConfigSchemeRow rowPBS_ConfigSchemeRow = ((PBS_ConfigSchemeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -1381,7 +1326,6 @@ namespace QWS_Local {
                         PBS_Level,
                         SchemeCode,
                         GCM,
-                        null,
                         DriveAxleLoad,
                         DriveAxleLoadUOM,
                         MassMgmtRqd,
@@ -1424,7 +1368,6 @@ namespace QWS_Local {
                 this.columnPBS_Level = base.Columns["PBS_Level"];
                 this.columnSchemeCode = base.Columns["SchemeCode"];
                 this.columnGCM = base.Columns["GCM"];
-                this.columnGVMTruck = base.Columns["GVMTruck"];
                 this.columnDriveAxleLoad = base.Columns["DriveAxleLoad"];
                 this.columnDriveAxleLoadUOM = base.Columns["DriveAxleLoadUOM"];
                 this.columnMassMgmtRqd = base.Columns["MassMgmtRqd"];
@@ -1445,8 +1388,6 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnSchemeCode);
                 this.columnGCM = new global::System.Data.DataColumn("GCM", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGCM);
-                this.columnGVMTruck = new global::System.Data.DataColumn("GVMTruck", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnGVMTruck);
                 this.columnDriveAxleLoad = new global::System.Data.DataColumn("DriveAxleLoad", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDriveAxleLoad);
                 this.columnDriveAxleLoadUOM = new global::System.Data.DataColumn("DriveAxleLoadUOM", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1470,7 +1411,6 @@ namespace QWS_Local {
                 this.columnSchemeCode.AllowDBNull = false;
                 this.columnSchemeCode.MaxLength = 10;
                 this.columnGCM.AllowDBNull = false;
-                this.columnGVMTruck.ReadOnly = true;
                 this.columnDriveAxleLoad.AllowDBNull = false;
                 this.columnDriveAxleLoadUOM.AllowDBNull = false;
                 this.columnDriveAxleLoadUOM.MaxLength = 50;
@@ -1495,12 +1435,6 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(PBS_ConfigSchemeRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitExpressions() {
-                this.GVMTruckColumn.Expression = "SteerAxle + DriveAxle";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2900,22 +2834,6 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal GVMTruck {
-                get {
-                    try {
-                        return ((decimal)(this[this.tablePBS_ConfigScheme.GVMTruckColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'GVMTruck\' in table \'PBS_ConfigScheme\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePBS_ConfigScheme.GVMTruckColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal DriveAxleLoad {
                 get {
                     return ((decimal)(this[this.tablePBS_ConfigScheme.DriveAxleLoadColumn]));
@@ -2978,18 +2896,6 @@ namespace QWS_Local {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_PBS_ConfigScheme_PBS_Config"]);
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsGVMTruckNull() {
-                return this.IsNull(this.tablePBS_ConfigScheme.GVMTruckColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetGVMTruckNull() {
-                this[this.tablePBS_ConfigScheme.GVMTruckColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4458,7 +4364,6 @@ SELECT PBS_ConfigID, PBS_ID, TableNo, BridgeAssessment FROM PBS_Config WHERE (PB
             tableMapping.ColumnMappings.Add("PBS_Level", "PBS_Level");
             tableMapping.ColumnMappings.Add("SchemeCode", "SchemeCode");
             tableMapping.ColumnMappings.Add("GCM", "GCM");
-            tableMapping.ColumnMappings.Add("GVMTruck", "GVMTruck");
             tableMapping.ColumnMappings.Add("DriveAxleLoad", "DriveAxleLoad");
             tableMapping.ColumnMappings.Add("DriveAxleLoadUOM", "DriveAxleLoadUOM");
             tableMapping.ColumnMappings.Add("MassMgmtRqd", "MassMgmtRqd");
@@ -4467,15 +4372,13 @@ SELECT PBS_ConfigID, PBS_ID, TableNo, BridgeAssessment FROM PBS_Config WHERE (PB
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [PBS_ConfigScheme] WHERE (([PBS_ConfigSchemeID] = @Original_PBS_ConfigSchemeID) AND ([PBS_ConfigID] = @Original_PBS_ConfigID) AND ([PBS_Level] = @Original_PBS_Level) AND ([SchemeCode] = @Original_SchemeCode) AND ([GCM] = @Original_GCM) AND ((@IsNull_GVMTruck = 1 AND [GVMTruck] IS NULL) OR ([GVMTruck] = @Original_GVMTruck)) AND ([DriveAxleLoad] = @Original_DriveAxleLoad) AND ([DriveAxleLoadUOM] = @Original_DriveAxleLoadUOM) AND ([MassMgmtRqd] = @Original_MassMgmtRqd) AND ([SteerAxle] = @Original_SteerAxle) AND ([DriveAxle] = @Original_DriveAxle))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [PBS_ConfigScheme] WHERE (([PBS_ConfigSchemeID] = @Original_PBS_ConfigSchemeID) AND ([PBS_ConfigID] = @Original_PBS_ConfigID) AND ([PBS_Level] = @Original_PBS_Level) AND ([SchemeCode] = @Original_SchemeCode) AND ([GCM] = @Original_GCM) AND ([DriveAxleLoad] = @Original_DriveAxleLoad) AND ([DriveAxleLoadUOM] = @Original_DriveAxleLoadUOM) AND ([MassMgmtRqd] = @Original_MassMgmtRqd) AND ([SteerAxle] = @Original_SteerAxle) AND ([DriveAxle] = @Original_DriveAxle))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_ConfigSchemeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ConfigSchemeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_ConfigID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ConfigID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_Level", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_Level", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SchemeCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SchemeCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GCM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_GVMTruck", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GVMTruck", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GVMTruck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 19, 2, "GVMTruck", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DriveAxleLoad", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "DriveAxleLoad", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DriveAxleLoadUOM", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DriveAxleLoadUOM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MassMgmtRqd", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassMgmtRqd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -4484,7 +4387,7 @@ SELECT PBS_ConfigID, PBS_ID, TableNo, BridgeAssessment FROM PBS_Config WHERE (PB
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [PBS_ConfigScheme] ([PBS_ConfigID], [PBS_Level], [SchemeCode], [GCM], [DriveAxleLoad], [DriveAxleLoadUOM], [MassMgmtRqd], [SteerAxle], [DriveAxle]) VALUES (@PBS_ConfigID, @PBS_Level, @SchemeCode, @GCM, @DriveAxleLoad, @DriveAxleLoadUOM, @MassMgmtRqd, @SteerAxle, @DriveAxle);
-SELECT PBS_ConfigSchemeID, PBS_ConfigID, PBS_Level, SchemeCode, GCM, GVMTruck, DriveAxleLoad, DriveAxleLoadUOM, MassMgmtRqd, SteerAxle, DriveAxle FROM PBS_ConfigScheme WHERE (PBS_ConfigSchemeID = SCOPE_IDENTITY())";
+SELECT PBS_ConfigSchemeID, PBS_ConfigID, PBS_Level, SchemeCode, GCM, DriveAxleLoad, DriveAxleLoadUOM, MassMgmtRqd, SteerAxle, DriveAxle FROM PBS_ConfigScheme WHERE (PBS_ConfigSchemeID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ConfigID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ConfigID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_Level", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_Level", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4497,8 +4400,8 @@ SELECT PBS_ConfigSchemeID, PBS_ConfigID, PBS_Level, SchemeCode, GCM, GVMTruck, D
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DriveAxle", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "DriveAxle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [PBS_ConfigScheme] SET [PBS_ConfigID] = @PBS_ConfigID, [PBS_Level] = @PBS_Level, [SchemeCode] = @SchemeCode, [GCM] = @GCM, [DriveAxleLoad] = @DriveAxleLoad, [DriveAxleLoadUOM] = @DriveAxleLoadUOM, [MassMgmtRqd] = @MassMgmtRqd, [SteerAxle] = @SteerAxle, [DriveAxle] = @DriveAxle WHERE (([PBS_ConfigSchemeID] = @Original_PBS_ConfigSchemeID) AND ([PBS_ConfigID] = @Original_PBS_ConfigID) AND ([PBS_Level] = @Original_PBS_Level) AND ([SchemeCode] = @Original_SchemeCode) AND ([GCM] = @Original_GCM) AND ((@IsNull_GVMTruck = 1 AND [GVMTruck] IS NULL) OR ([GVMTruck] = @Original_GVMTruck)) AND ([DriveAxleLoad] = @Original_DriveAxleLoad) AND ([DriveAxleLoadUOM] = @Original_DriveAxleLoadUOM) AND ([MassMgmtRqd] = @Original_MassMgmtRqd) AND ([SteerAxle] = @Original_SteerAxle) AND ([DriveAxle] = @Original_DriveAxle));
-SELECT PBS_ConfigSchemeID, PBS_ConfigID, PBS_Level, SchemeCode, GCM, GVMTruck, DriveAxleLoad, DriveAxleLoadUOM, MassMgmtRqd, SteerAxle, DriveAxle FROM PBS_ConfigScheme WHERE (PBS_ConfigSchemeID = @PBS_ConfigSchemeID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [PBS_ConfigScheme] SET [PBS_ConfigID] = @PBS_ConfigID, [PBS_Level] = @PBS_Level, [SchemeCode] = @SchemeCode, [GCM] = @GCM, [DriveAxleLoad] = @DriveAxleLoad, [DriveAxleLoadUOM] = @DriveAxleLoadUOM, [MassMgmtRqd] = @MassMgmtRqd, [SteerAxle] = @SteerAxle, [DriveAxle] = @DriveAxle WHERE (([PBS_ConfigSchemeID] = @Original_PBS_ConfigSchemeID) AND ([PBS_ConfigID] = @Original_PBS_ConfigID) AND ([PBS_Level] = @Original_PBS_Level) AND ([SchemeCode] = @Original_SchemeCode) AND ([GCM] = @Original_GCM) AND ([DriveAxleLoad] = @Original_DriveAxleLoad) AND ([DriveAxleLoadUOM] = @Original_DriveAxleLoadUOM) AND ([MassMgmtRqd] = @Original_MassMgmtRqd) AND ([SteerAxle] = @Original_SteerAxle) AND ([DriveAxle] = @Original_DriveAxle));
+SELECT PBS_ConfigSchemeID, PBS_ConfigID, PBS_Level, SchemeCode, GCM, DriveAxleLoad, DriveAxleLoadUOM, MassMgmtRqd, SteerAxle, DriveAxle FROM PBS_ConfigScheme WHERE (PBS_ConfigSchemeID = @PBS_ConfigSchemeID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_ConfigID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_ConfigID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PBS_Level", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_Level", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4514,8 +4417,6 @@ SELECT PBS_ConfigSchemeID, PBS_ConfigID, PBS_Level, SchemeCode, GCM, GVMTruck, D
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PBS_Level", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PBS_Level", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SchemeCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SchemeCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GCM", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GCM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_GVMTruck", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GVMTruck", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GVMTruck", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 19, 2, "GVMTruck", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DriveAxleLoad", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "DriveAxleLoad", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DriveAxleLoadUOM", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DriveAxleLoadUOM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MassMgmtRqd", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MassMgmtRqd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -4537,9 +4438,8 @@ SELECT PBS_ConfigSchemeID, PBS_ConfigID, PBS_Level, SchemeCode, GCM, GVMTruck, D
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        PBS_ConfigSchemeID, PBS_ConfigID, PBS_Level, SchemeCode, GCM, GVMTr" +
-                "uck, DriveAxleLoad, DriveAxleLoadUOM, MassMgmtRqd, SteerAxle, DriveAxle\r\nFROM   " +
-                "         PBS_ConfigScheme";
+            this._commandCollection[0].CommandText = "SELECT PBS_ConfigSchemeID, PBS_ConfigID, PBS_Level, SchemeCode, GCM, DriveAxleLoa" +
+                "d, DriveAxleLoadUOM, MassMgmtRqd, SteerAxle, DriveAxle FROM PBS_ConfigScheme";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -4568,7 +4468,7 @@ SELECT PBS_ConfigSchemeID, PBS_ConfigID, PBS_Level, SchemeCode, GCM, GVMTruck, D
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual dsPBS.PBS_ConfigSchemeDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            dsPBS.PBS_ConfigSchemeDataTable dataTable = new dsPBS.PBS_ConfigSchemeDataTable(true);
+            dsPBS.PBS_ConfigSchemeDataTable dataTable = new dsPBS.PBS_ConfigSchemeDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4604,7 +4504,7 @@ SELECT PBS_ConfigSchemeID, PBS_ConfigID, PBS_Level, SchemeCode, GCM, GVMTruck, D
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            dsPBS.PBS_ConfigSchemeDataTable dataTable = new dsPBS.PBS_ConfigSchemeDataTable(true);
+            dsPBS.PBS_ConfigSchemeDataTable dataTable = new dsPBS.PBS_ConfigSchemeDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4642,7 +4542,7 @@ SELECT PBS_ConfigSchemeID, PBS_ConfigID, PBS_Level, SchemeCode, GCM, GVMTruck, D
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_PBS_ConfigSchemeID, int Original_PBS_ConfigID, int Original_PBS_Level, string Original_SchemeCode, decimal Original_GCM, global::System.Nullable<decimal> Original_GVMTruck, decimal Original_DriveAxleLoad, string Original_DriveAxleLoadUOM, bool Original_MassMgmtRqd, decimal Original_SteerAxle, decimal Original_DriveAxle) {
+        public virtual int Delete(int Original_PBS_ConfigSchemeID, int Original_PBS_ConfigID, int Original_PBS_Level, string Original_SchemeCode, decimal Original_GCM, decimal Original_DriveAxleLoad, string Original_DriveAxleLoadUOM, bool Original_MassMgmtRqd, decimal Original_SteerAxle, decimal Original_DriveAxle) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_PBS_ConfigSchemeID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_PBS_ConfigID));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_PBS_Level));
@@ -4653,24 +4553,16 @@ SELECT PBS_ConfigSchemeID, PBS_ConfigID, PBS_Level, SchemeCode, GCM, GVMTruck, D
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_SchemeCode));
             }
             this.Adapter.DeleteCommand.Parameters[4].Value = ((decimal)(Original_GCM));
-            if ((Original_GVMTruck.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_GVMTruck.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((decimal)(Original_DriveAxleLoad));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((decimal)(Original_DriveAxleLoad));
             if ((Original_DriveAxleLoadUOM == null)) {
                 throw new global::System.ArgumentNullException("Original_DriveAxleLoadUOM");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_DriveAxleLoadUOM));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_DriveAxleLoadUOM));
             }
-            this.Adapter.DeleteCommand.Parameters[9].Value = ((bool)(Original_MassMgmtRqd));
-            this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_SteerAxle));
-            this.Adapter.DeleteCommand.Parameters[11].Value = ((decimal)(Original_DriveAxle));
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((bool)(Original_MassMgmtRqd));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((decimal)(Original_SteerAxle));
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((decimal)(Original_DriveAxle));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4746,7 +4638,6 @@ SELECT PBS_ConfigSchemeID, PBS_ConfigID, PBS_Level, SchemeCode, GCM, GVMTruck, D
                     int Original_PBS_Level, 
                     string Original_SchemeCode, 
                     decimal Original_GCM, 
-                    global::System.Nullable<decimal> Original_GVMTruck, 
                     decimal Original_DriveAxleLoad, 
                     string Original_DriveAxleLoadUOM, 
                     bool Original_MassMgmtRqd, 
@@ -4782,25 +4673,17 @@ SELECT PBS_ConfigSchemeID, PBS_ConfigID, PBS_Level, SchemeCode, GCM, GVMTruck, D
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_SchemeCode));
             }
             this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(Original_GCM));
-            if ((Original_GVMTruck.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(Original_GVMTruck.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(Original_DriveAxleLoad));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Original_DriveAxleLoad));
             if ((Original_DriveAxleLoadUOM == null)) {
                 throw new global::System.ArgumentNullException("Original_DriveAxleLoadUOM");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_DriveAxleLoadUOM));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_DriveAxleLoadUOM));
             }
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((bool)(Original_MassMgmtRqd));
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(Original_SteerAxle));
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(Original_DriveAxle));
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(PBS_ConfigSchemeID));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((bool)(Original_MassMgmtRqd));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(Original_SteerAxle));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(Original_DriveAxle));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(PBS_ConfigSchemeID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4836,13 +4719,12 @@ SELECT PBS_ConfigSchemeID, PBS_ConfigID, PBS_Level, SchemeCode, GCM, GVMTruck, D
                     int Original_PBS_Level, 
                     string Original_SchemeCode, 
                     decimal Original_GCM, 
-                    global::System.Nullable<decimal> Original_GVMTruck, 
                     decimal Original_DriveAxleLoad, 
                     string Original_DriveAxleLoadUOM, 
                     bool Original_MassMgmtRqd, 
                     decimal Original_SteerAxle, 
                     decimal Original_DriveAxle) {
-            return this.Update(PBS_ConfigID, PBS_Level, SchemeCode, GCM, DriveAxleLoad, DriveAxleLoadUOM, MassMgmtRqd, SteerAxle, DriveAxle, Original_PBS_ConfigSchemeID, Original_PBS_ConfigID, Original_PBS_Level, Original_SchemeCode, Original_GCM, Original_GVMTruck, Original_DriveAxleLoad, Original_DriveAxleLoadUOM, Original_MassMgmtRqd, Original_SteerAxle, Original_DriveAxle, Original_PBS_ConfigSchemeID);
+            return this.Update(PBS_ConfigID, PBS_Level, SchemeCode, GCM, DriveAxleLoad, DriveAxleLoadUOM, MassMgmtRqd, SteerAxle, DriveAxle, Original_PBS_ConfigSchemeID, Original_PBS_ConfigID, Original_PBS_Level, Original_SchemeCode, Original_GCM, Original_DriveAxleLoad, Original_DriveAxleLoadUOM, Original_MassMgmtRqd, Original_SteerAxle, Original_DriveAxle, Original_PBS_ConfigSchemeID);
         }
     }
     
