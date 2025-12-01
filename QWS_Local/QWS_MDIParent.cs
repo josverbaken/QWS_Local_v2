@@ -516,6 +516,33 @@ namespace QWS_Local
                 frmTIQAudit.Show();
             }
         }
+
+        private void checkTruckDriverToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheckTruckDriver();
+        }
+
+        private void CheckTruckDriver()
+        {
+            bool formFound = false;
+            foreach (var item in this.MdiChildren)
+            {
+                if (item.Name == "CheckTruckDriver")
+                {
+                    formFound = true;
+                    item.BringToFront();
+                    break;
+                }
+            }
+            if (formFound == false)
+            {
+                CheckTruckDriver frmTruckDriver = new QWS_Local.CheckTruckDriver();
+                frmTruckDriver.MdiParent = this;
+                frmTruckDriver.WindowState = FormWindowState.Maximized;
+                frmTruckDriver.Show();
+            }
+
+        }
     }
     
 }

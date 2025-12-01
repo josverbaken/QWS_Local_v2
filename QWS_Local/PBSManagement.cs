@@ -647,10 +647,17 @@ namespace QWS_Local
 
         private void btnSaveAndNew_Click(object sender, EventArgs e)
         {
-            // TODO Save All
-            dsPBS.Clear();
-            txtVehicleApproval.Text = "";
-            txtVehicleApproval.Focus();
+            try
+            {
+                tableAdapterManager.UpdateAll(dsPBS);
+                dsPBS.Clear();
+                txtVehicleApproval.Text = "";
+                txtVehicleApproval.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Save and New");
+            }
         }
     }
 }

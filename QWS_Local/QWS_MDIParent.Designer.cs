@@ -50,6 +50,7 @@
             this.closeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.onlineHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.weightLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.tspSite = new System.Windows.Forms.ToolStripTextBox();
@@ -59,7 +60,7 @@
             this.bsOperator = new System.Windows.Forms.BindingSource(this.components);
             this.taOperator = new QWS_Local.dsAdminTableAdapters.OperatorTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsAdminTableAdapters.TableAdapterManager();
-            this.weightLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkTruckDriverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsOperator)).BeginInit();
@@ -234,6 +235,7 @@
             this.helloToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.onlineHelpToolStripMenuItem,
             this.weightLogToolStripMenuItem,
+            this.checkTruckDriverToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.helloToolStripMenuItem.Name = "helloToolStripMenuItem";
             this.helloToolStripMenuItem.Size = new System.Drawing.Size(53, 27);
@@ -242,16 +244,23 @@
             // onlineHelpToolStripMenuItem
             // 
             this.onlineHelpToolStripMenuItem.Name = "onlineHelpToolStripMenuItem";
-            this.onlineHelpToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.onlineHelpToolStripMenuItem.Size = new System.Drawing.Size(199, 24);
             this.onlineHelpToolStripMenuItem.Text = "Online Help";
             this.onlineHelpToolStripMenuItem.Visible = false;
             this.onlineHelpToolStripMenuItem.Click += new System.EventHandler(this.onlineHelpToolStripMenuItem_Click);
+            // 
+            // weightLogToolStripMenuItem
+            // 
+            this.weightLogToolStripMenuItem.Name = "weightLogToolStripMenuItem";
+            this.weightLogToolStripMenuItem.Size = new System.Drawing.Size(199, 24);
+            this.weightLogToolStripMenuItem.Text = "Weight Log";
+            this.weightLogToolStripMenuItem.Click += new System.EventHandler(this.weightLogToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(199, 24);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -307,12 +316,12 @@
             this.tableAdapterManager.RoleTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsAdminTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // weightLogToolStripMenuItem
+            // checkTruckDriverToolStripMenuItem
             // 
-            this.weightLogToolStripMenuItem.Name = "weightLogToolStripMenuItem";
-            this.weightLogToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.weightLogToolStripMenuItem.Text = "Weight Log";
-            this.weightLogToolStripMenuItem.Click += new System.EventHandler(this.weightLogToolStripMenuItem_Click);
+            this.checkTruckDriverToolStripMenuItem.Name = "checkTruckDriverToolStripMenuItem";
+            this.checkTruckDriverToolStripMenuItem.Size = new System.Drawing.Size(199, 24);
+            this.checkTruckDriverToolStripMenuItem.Text = "Check Truck Driver";
+            this.checkTruckDriverToolStripMenuItem.Click += new System.EventHandler(this.checkTruckDriverToolStripMenuItem_Click);
             // 
             // QWS_MDIParent
             // 
@@ -371,5 +380,6 @@
         private dsAdminTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem weightLogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkTruckDriverToolStripMenuItem;
     }
 }
