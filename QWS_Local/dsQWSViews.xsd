@@ -81,9 +81,12 @@ FROM DocketList t0</CommandText>
               <Mapping SourceColumn="Overload" DataSetColumn="Overload" />
               <Mapping SourceColumn="SiteID" DataSetColumn="SiteID" />
               <Mapping SourceColumn="ProcessStatus" DataSetColumn="ProcessStatus" />
+              <Mapping SourceColumn="Turnaround" DataSetColumn="Turnaround" />
+              <Mapping SourceColumn="Driver" DataSetColumn="Driver" />
+              <Mapping SourceColumn="DriverMobile" DataSetColumn="DriverMobile" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.DeliveryDocketsToday" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWS_NQ_Dev.dbo.DeliveryDocketsToday" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.DeliveryDocketsToday</CommandText>
@@ -269,11 +272,26 @@ FROM DocketList t0</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SiteID" msprop:Generator_UserColumnName="SiteID" msprop:Generator_ColumnPropNameInTable="SiteIDColumn" msprop:Generator_ColumnPropNameInRow="SiteID" msprop:Generator_ColumnVarNameInTable="columnSiteID" type="xs:int" />
-              <xs:element name="ProcessStatus" msdata:ReadOnly="true" msprop:Generator_UserColumnName="ProcessStatus" msprop:Generator_ColumnPropNameInTable="ProcessStatusColumn" msprop:Generator_ColumnPropNameInRow="ProcessStatus" msprop:Generator_ColumnVarNameInTable="columnProcessStatus" minOccurs="0">
+              <xs:element name="SiteID" msprop:Generator_ColumnPropNameInTable="SiteIDColumn" msprop:Generator_ColumnPropNameInRow="SiteID" msprop:Generator_UserColumnName="SiteID" msprop:Generator_ColumnVarNameInTable="columnSiteID" type="xs:int" />
+              <xs:element name="ProcessStatus" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="ProcessStatusColumn" msprop:Generator_ColumnPropNameInRow="ProcessStatus" msprop:Generator_UserColumnName="ProcessStatus" msprop:Generator_ColumnVarNameInTable="columnProcessStatus" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Turnaround" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Turnaround" msprop:Generator_ColumnPropNameInTable="TurnaroundColumn" msprop:Generator_ColumnPropNameInRow="Turnaround" msprop:Generator_ColumnVarNameInTable="columnTurnaround" type="xs:int" minOccurs="0" />
+              <xs:element name="Driver" msprop:Generator_UserColumnName="Driver" msprop:Generator_ColumnPropNameInTable="DriverColumn" msprop:Generator_ColumnPropNameInRow="Driver" msprop:Generator_ColumnVarNameInTable="columnDriver">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DriverMobile" msdata:ReadOnly="true" msprop:Generator_UserColumnName="DriverMobile" msprop:Generator_ColumnPropNameInTable="DriverMobileColumn" msprop:Generator_ColumnPropNameInRow="DriverMobile" msprop:Generator_ColumnVarNameInTable="columnDriverMobile" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

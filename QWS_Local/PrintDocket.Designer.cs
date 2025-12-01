@@ -56,7 +56,10 @@
             this.docNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProcessStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.docDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Turnaround = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.truckRegoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Driver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DriverMobile = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grossDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Overload = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cardNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -185,7 +188,10 @@
             this.docNumDataGridViewTextBoxColumn,
             this.ProcessStatus,
             this.docDateDataGridViewTextBoxColumn,
+            this.Turnaround,
             this.truckRegoDataGridViewTextBoxColumn,
+            this.Driver,
+            this.DriverMobile,
             this.grossDataGridViewTextBoxColumn,
             this.Overload,
             this.cardNameDataGridViewTextBoxColumn,
@@ -338,6 +344,13 @@
             this.docDateDataGridViewTextBoxColumn.Name = "docDateDataGridViewTextBoxColumn";
             this.docDateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // Turnaround
+            // 
+            this.Turnaround.DataPropertyName = "Turnaround";
+            this.Turnaround.HeaderText = "Turnaround";
+            this.Turnaround.Name = "Turnaround";
+            this.Turnaround.ReadOnly = true;
+            // 
             // truckRegoDataGridViewTextBoxColumn
             // 
             this.truckRegoDataGridViewTextBoxColumn.DataPropertyName = "TruckRego";
@@ -345,12 +358,27 @@
             this.truckRegoDataGridViewTextBoxColumn.Name = "truckRegoDataGridViewTextBoxColumn";
             this.truckRegoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // Driver
+            // 
+            this.Driver.DataPropertyName = "Driver";
+            this.Driver.HeaderText = "Driver";
+            this.Driver.Name = "Driver";
+            this.Driver.ReadOnly = true;
+            // 
+            // DriverMobile
+            // 
+            this.DriverMobile.DataPropertyName = "DriverMobile";
+            this.DriverMobile.HeaderText = "Driver Mobile";
+            this.DriverMobile.Name = "DriverMobile";
+            this.DriverMobile.ReadOnly = true;
+            // 
             // grossDataGridViewTextBoxColumn
             // 
             this.grossDataGridViewTextBoxColumn.DataPropertyName = "Gross";
             this.grossDataGridViewTextBoxColumn.HeaderText = "Gross";
             this.grossDataGridViewTextBoxColumn.Name = "grossDataGridViewTextBoxColumn";
             this.grossDataGridViewTextBoxColumn.ReadOnly = true;
+            this.grossDataGridViewTextBoxColumn.Width = 80;
             // 
             // Overload
             // 
@@ -358,6 +386,7 @@
             this.Overload.HeaderText = "Overload";
             this.Overload.Name = "Overload";
             this.Overload.ReadOnly = true;
+            this.Overload.Width = 80;
             // 
             // cardNameDataGridViewTextBoxColumn
             // 
@@ -369,7 +398,7 @@
             // deliveryAddressDataGridViewTextBoxColumn
             // 
             this.deliveryAddressDataGridViewTextBoxColumn.DataPropertyName = "DeliveryAddress";
-            this.deliveryAddressDataGridViewTextBoxColumn.HeaderText = "DeliveryAddress";
+            this.deliveryAddressDataGridViewTextBoxColumn.HeaderText = "Delivery Address";
             this.deliveryAddressDataGridViewTextBoxColumn.Name = "deliveryAddressDataGridViewTextBoxColumn";
             this.deliveryAddressDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -383,7 +412,7 @@
             // itemDescriptionDataGridViewTextBoxColumn
             // 
             this.itemDescriptionDataGridViewTextBoxColumn.DataPropertyName = "ItemDescription";
-            this.itemDescriptionDataGridViewTextBoxColumn.HeaderText = "MaterialDesc";
+            this.itemDescriptionDataGridViewTextBoxColumn.HeaderText = "Material Description";
             this.itemDescriptionDataGridViewTextBoxColumn.Name = "itemDescriptionDataGridViewTextBoxColumn";
             this.itemDescriptionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -404,21 +433,21 @@
             // overloadPointsDataGridViewTextBoxColumn
             // 
             this.overloadPointsDataGridViewTextBoxColumn.DataPropertyName = "OverloadPoints";
-            this.overloadPointsDataGridViewTextBoxColumn.HeaderText = "OverloadPoints";
+            this.overloadPointsDataGridViewTextBoxColumn.HeaderText = "Overload Points";
             this.overloadPointsDataGridViewTextBoxColumn.Name = "overloadPointsDataGridViewTextBoxColumn";
             this.overloadPointsDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // overloadDescDataGridViewTextBoxColumn
             // 
             this.overloadDescDataGridViewTextBoxColumn.DataPropertyName = "OverloadDesc";
-            this.overloadDescDataGridViewTextBoxColumn.HeaderText = "OverloadDesc";
+            this.overloadDescDataGridViewTextBoxColumn.HeaderText = "Overload Description";
             this.overloadDescDataGridViewTextBoxColumn.Name = "overloadDescDataGridViewTextBoxColumn";
             this.overloadDescDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // wBModeDataGridViewTextBoxColumn
             // 
             this.wBModeDataGridViewTextBoxColumn.DataPropertyName = "WBMode";
-            this.wBModeDataGridViewTextBoxColumn.HeaderText = "WBMode";
+            this.wBModeDataGridViewTextBoxColumn.HeaderText = "WB Mode";
             this.wBModeDataGridViewTextBoxColumn.Name = "wBModeDataGridViewTextBoxColumn";
             this.wBModeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -482,7 +511,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn docNumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProcessStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn docDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Turnaround;
         private System.Windows.Forms.DataGridViewTextBoxColumn truckRegoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Driver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DriverMobile;
         private System.Windows.Forms.DataGridViewTextBoxColumn grossDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Overload;
         private System.Windows.Forms.DataGridViewTextBoxColumn cardNameDataGridViewTextBoxColumn;

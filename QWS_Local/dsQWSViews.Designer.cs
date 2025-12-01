@@ -768,6 +768,12 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnProcessStatus;
             
+            private global::System.Data.DataColumn columnTurnaround;
+            
+            private global::System.Data.DataColumn columnDriver;
+            
+            private global::System.Data.DataColumn columnDriverMobile;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DocketListDataTable() {
@@ -963,6 +969,30 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TurnaroundColumn {
+                get {
+                    return this.columnTurnaround;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DriverColumn {
+                get {
+                    return this.columnDriver;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DriverMobileColumn {
+                get {
+                    return this.columnDriverMobile;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1018,7 +1048,10 @@ namespace QWS_Local {
                         string WBMode, 
                         string Overload, 
                         int SiteID, 
-                        string ProcessStatus) {
+                        string ProcessStatus, 
+                        int Turnaround, 
+                        string Driver, 
+                        string DriverMobile) {
                 DocketListRow rowDocketListRow = ((DocketListRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DocNum,
@@ -1040,7 +1073,10 @@ namespace QWS_Local {
                         WBMode,
                         Overload,
                         SiteID,
-                        ProcessStatus};
+                        ProcessStatus,
+                        Turnaround,
+                        Driver,
+                        DriverMobile};
                 rowDocketListRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDocketListRow);
                 return rowDocketListRow;
@@ -1090,6 +1126,9 @@ namespace QWS_Local {
                 this.columnOverload = base.Columns["Overload"];
                 this.columnSiteID = base.Columns["SiteID"];
                 this.columnProcessStatus = base.Columns["ProcessStatus"];
+                this.columnTurnaround = base.Columns["Turnaround"];
+                this.columnDriver = base.Columns["Driver"];
+                this.columnDriverMobile = base.Columns["DriverMobile"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1135,6 +1174,12 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnSiteID);
                 this.columnProcessStatus = new global::System.Data.DataColumn("ProcessStatus", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProcessStatus);
+                this.columnTurnaround = new global::System.Data.DataColumn("Turnaround", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTurnaround);
+                this.columnDriver = new global::System.Data.DataColumn("Driver", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDriver);
+                this.columnDriverMobile = new global::System.Data.DataColumn("DriverMobile", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDriverMobile);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnDocNum}, true));
                 this.columnDocNum.AllowDBNull = false;
@@ -1169,6 +1214,11 @@ namespace QWS_Local {
                 this.columnSiteID.AllowDBNull = false;
                 this.columnProcessStatus.ReadOnly = true;
                 this.columnProcessStatus.MaxLength = 1;
+                this.columnTurnaround.ReadOnly = true;
+                this.columnDriver.AllowDBNull = false;
+                this.columnDriver.MaxLength = 50;
+                this.columnDriverMobile.ReadOnly = true;
+                this.columnDriverMobile.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1687,6 +1737,49 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Turnaround {
+                get {
+                    try {
+                        return ((int)(this[this.tableDocketList.TurnaroundColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Turnaround\' in table \'DocketList\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDocketList.TurnaroundColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Driver {
+                get {
+                    return ((string)(this[this.tableDocketList.DriverColumn]));
+                }
+                set {
+                    this[this.tableDocketList.DriverColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string DriverMobile {
+                get {
+                    try {
+                        return ((string)(this[this.tableDocketList.DriverMobileColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DriverMobile\' in table \'DocketList\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDocketList.DriverMobileColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsOverloadPointsNull() {
                 return this.IsNull(this.tableDocketList.OverloadPointsColumn);
             }
@@ -1731,6 +1824,30 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetProcessStatusNull() {
                 this[this.tableDocketList.ProcessStatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTurnaroundNull() {
+                return this.IsNull(this.tableDocketList.TurnaroundColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTurnaroundNull() {
+                this[this.tableDocketList.TurnaroundColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDriverMobileNull() {
+                return this.IsNull(this.tableDocketList.DriverMobileColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDriverMobileNull() {
+                this[this.tableDocketList.DriverMobileColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2168,6 +2285,9 @@ namespace QWS_Local.dsQWSViewsTableAdapters {
             tableMapping.ColumnMappings.Add("Overload", "Overload");
             tableMapping.ColumnMappings.Add("SiteID", "SiteID");
             tableMapping.ColumnMappings.Add("ProcessStatus", "ProcessStatus");
+            tableMapping.ColumnMappings.Add("Turnaround", "Turnaround");
+            tableMapping.ColumnMappings.Add("Driver", "Driver");
+            tableMapping.ColumnMappings.Add("DriverMobile", "DriverMobile");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
