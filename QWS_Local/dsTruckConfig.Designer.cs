@@ -3498,6 +3498,14 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnTruckTypeID;
             
+            private global::System.Data.DataColumn columnGroupCode1;
+            
+            private global::System.Data.DataColumn columnPayload;
+            
+            private global::System.Data.DataColumn columnPBSTruckNo;
+            
+            private global::System.Data.DataColumn columnPBSTrailerNo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ConfiguredTruckGVMDataTable() {
@@ -3813,6 +3821,38 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn GroupCode1Column {
+                get {
+                    return this.columnGroupCode1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PayloadColumn {
+                get {
+                    return this.columnPayload;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PBSTruckNoColumn {
+                get {
+                    return this.columnPBSTruckNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PBSTrailerNoColumn {
+                get {
+                    return this.columnPBSTrailerNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3883,7 +3923,11 @@ namespace QWS_Local {
                         string RoadAccess, 
                         int MaxAxles, 
                         decimal MaxGVM, 
-                        int TruckTypeID) {
+                        int TruckTypeID, 
+                        int GroupCode1, 
+                        decimal Payload, 
+                        int PBSTruckNo, 
+                        int PBSTrailerNo) {
                 ConfiguredTruckGVMRow rowConfiguredTruckGVMRow = ((ConfiguredTruckGVMRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TruckConfigID,
@@ -3920,7 +3964,11 @@ namespace QWS_Local {
                         RoadAccess,
                         MaxAxles,
                         MaxGVM,
-                        TruckTypeID};
+                        TruckTypeID,
+                        GroupCode1,
+                        Payload,
+                        PBSTruckNo,
+                        PBSTrailerNo};
                 rowConfiguredTruckGVMRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowConfiguredTruckGVMRow);
                 return rowConfiguredTruckGVMRow;
@@ -3978,6 +4026,10 @@ namespace QWS_Local {
                 this.columnMaxAxles = base.Columns["MaxAxles"];
                 this.columnMaxGVM = base.Columns["MaxGVM"];
                 this.columnTruckTypeID = base.Columns["TruckTypeID"];
+                this.columnGroupCode1 = base.Columns["GroupCode1"];
+                this.columnPayload = base.Columns["Payload"];
+                this.columnPBSTruckNo = base.Columns["PBSTruckNo"];
+                this.columnPBSTrailerNo = base.Columns["PBSTrailerNo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4053,6 +4105,14 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnMaxGVM);
                 this.columnTruckTypeID = new global::System.Data.DataColumn("TruckTypeID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTruckTypeID);
+                this.columnGroupCode1 = new global::System.Data.DataColumn("GroupCode1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGroupCode1);
+                this.columnPayload = new global::System.Data.DataColumn("Payload", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPayload);
+                this.columnPBSTruckNo = new global::System.Data.DataColumn("PBSTruckNo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPBSTruckNo);
+                this.columnPBSTrailerNo = new global::System.Data.DataColumn("PBSTrailerNo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPBSTrailerNo);
                 this.columnTruckConfigID.ReadOnly = true;
                 this.columnRegoTk.ReadOnly = true;
                 this.columnRegoTk.MaxLength = 6;
@@ -4106,6 +4166,11 @@ namespace QWS_Local {
                 this.columnMaxAxles.ReadOnly = true;
                 this.columnMaxGVM.ReadOnly = true;
                 this.columnTruckTypeID.ReadOnly = true;
+                this.columnGroupCode1.ReadOnly = true;
+                this.columnGroupCode1.Caption = "GroupCode";
+                this.columnPayload.ReadOnly = true;
+                this.columnPBSTruckNo.ReadOnly = true;
+                this.columnPBSTrailerNo.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7234,6 +7299,70 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int GroupCode1 {
+                get {
+                    try {
+                        return ((int)(this[this.tableConfiguredTruckGVM.GroupCode1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GroupCode1\' in table \'ConfiguredTruckGVM\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableConfiguredTruckGVM.GroupCode1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Payload {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableConfiguredTruckGVM.PayloadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Payload\' in table \'ConfiguredTruckGVM\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableConfiguredTruckGVM.PayloadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int PBSTruckNo {
+                get {
+                    try {
+                        return ((int)(this[this.tableConfiguredTruckGVM.PBSTruckNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PBSTruckNo\' in table \'ConfiguredTruckGVM\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableConfiguredTruckGVM.PBSTruckNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int PBSTrailerNo {
+                get {
+                    try {
+                        return ((int)(this[this.tableConfiguredTruckGVM.PBSTrailerNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PBSTrailerNo\' in table \'ConfiguredTruckGVM\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableConfiguredTruckGVM.PBSTrailerNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsTruckConfigIDNull() {
                 return this.IsNull(this.tableConfiguredTruckGVM.TruckConfigIDColumn);
             }
@@ -7650,6 +7779,54 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTruckTypeIDNull() {
                 this[this.tableConfiguredTruckGVM.TruckTypeIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsGroupCode1Null() {
+                return this.IsNull(this.tableConfiguredTruckGVM.GroupCode1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetGroupCode1Null() {
+                this[this.tableConfiguredTruckGVM.GroupCode1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPayloadNull() {
+                return this.IsNull(this.tableConfiguredTruckGVM.PayloadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPayloadNull() {
+                this[this.tableConfiguredTruckGVM.PayloadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPBSTruckNoNull() {
+                return this.IsNull(this.tableConfiguredTruckGVM.PBSTruckNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPBSTruckNoNull() {
+                this[this.tableConfiguredTruckGVM.PBSTruckNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPBSTrailerNoNull() {
+                return this.IsNull(this.tableConfiguredTruckGVM.PBSTrailerNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPBSTrailerNoNull() {
+                this[this.tableConfiguredTruckGVM.PBSTrailerNoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -9082,7 +9259,6 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)";
             tableMapping.ColumnMappings.Add("Owner", "Owner");
             tableMapping.ColumnMappings.Add("CardCode", "CardCode");
             tableMapping.ColumnMappings.Add("CardType", "CardType");
-            tableMapping.ColumnMappings.Add("GroupCode", "GroupCode");
             tableMapping.ColumnMappings.Add("CardStatus", "CardStatus");
             tableMapping.ColumnMappings.Add("RegistrationExpiryDT", "RegistrationExpiryDT");
             tableMapping.ColumnMappings.Add("RegoCheck", "RegoCheck");
@@ -9108,6 +9284,10 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)";
             tableMapping.ColumnMappings.Add("MaxAxles", "MaxAxles");
             tableMapping.ColumnMappings.Add("MaxGVM", "MaxGVM");
             tableMapping.ColumnMappings.Add("TruckTypeID", "TruckTypeID");
+            tableMapping.ColumnMappings.Add("GroupCode", "GroupCode1");
+            tableMapping.ColumnMappings.Add("Payload", "Payload");
+            tableMapping.ColumnMappings.Add("PBSTruckNo", "PBSTruckNo");
+            tableMapping.ColumnMappings.Add("PBSTrailerNo", "PBSTrailerNo");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

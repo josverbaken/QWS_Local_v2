@@ -236,7 +236,7 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ConfiguredTruckGVMTableAdapter" GeneratorDataComponentClassName="ConfiguredTruckGVMTableAdapter" Name="ConfiguredTruckGVM" UserDataComponentName="ConfiguredTruckGVMTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.ConfiguredTruckGVM" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWS_NQ_Dev.dbo.ConfiguredTruckGVM" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.ConfiguredTruckGVM</CommandText>
@@ -259,7 +259,6 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)</CommandText>
               <Mapping SourceColumn="Owner" DataSetColumn="Owner" />
               <Mapping SourceColumn="CardCode" DataSetColumn="CardCode" />
               <Mapping SourceColumn="CardType" DataSetColumn="CardType" />
-              <Mapping SourceColumn="GroupCode" DataSetColumn="GroupCode" />
               <Mapping SourceColumn="CardStatus" DataSetColumn="CardStatus" />
               <Mapping SourceColumn="RegistrationExpiryDT" DataSetColumn="RegistrationExpiryDT" />
               <Mapping SourceColumn="RegoCheck" DataSetColumn="RegoCheck" />
@@ -285,6 +284,10 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)</CommandText>
               <Mapping SourceColumn="MaxAxles" DataSetColumn="MaxAxles" />
               <Mapping SourceColumn="MaxGVM" DataSetColumn="MaxGVM" />
               <Mapping SourceColumn="TruckTypeID" DataSetColumn="TruckTypeID" />
+              <Mapping SourceColumn="GroupCode" DataSetColumn="GroupCode1" />
+              <Mapping SourceColumn="Payload" DataSetColumn="Payload" />
+              <Mapping SourceColumn="PBSTruckNo" DataSetColumn="PBSTruckNo" />
+              <Mapping SourceColumn="PBSTrailerNo" DataSetColumn="PBSTrailerNo" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -778,10 +781,10 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ACCDelivery" msprop:Generator_UserColumnName="ACCDelivery" msprop:Generator_ColumnPropNameInTable="ACCDeliveryColumn" msprop:Generator_ColumnPropNameInRow="ACCDelivery" msprop:Generator_ColumnVarNameInTable="columnACCDelivery" type="xs:boolean" />
-              <xs:element name="ACCPickup" msprop:Generator_UserColumnName="ACCPickup" msprop:Generator_ColumnPropNameInTable="ACCPickupColumn" msprop:Generator_ColumnPropNameInRow="ACCPickup" msprop:Generator_ColumnVarNameInTable="columnACCPickup" type="xs:boolean" />
-              <xs:element name="OverrideMinCart" msprop:Generator_UserColumnName="OverrideMinCart" msprop:Generator_ColumnPropNameInTable="OverrideMinCartColumn" msprop:Generator_ColumnPropNameInRow="OverrideMinCart" msprop:Generator_ColumnVarNameInTable="columnOverrideMinCart" type="xs:boolean" />
-              <xs:element name="TareTk" msprop:Generator_ColumnPropNameInRow="TareTk" msprop:Generator_ColumnPropNameInTable="TareTkColumn" msprop:Generator_ColumnVarNameInTable="columnTareTk" msprop:Generator_UserColumnName="TareTk" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ACCDelivery" msprop:Generator_ColumnPropNameInTable="ACCDeliveryColumn" msprop:Generator_ColumnPropNameInRow="ACCDelivery" msprop:Generator_UserColumnName="ACCDelivery" msprop:Generator_ColumnVarNameInTable="columnACCDelivery" type="xs:boolean" />
+              <xs:element name="ACCPickup" msprop:Generator_ColumnPropNameInTable="ACCPickupColumn" msprop:Generator_ColumnPropNameInRow="ACCPickup" msprop:Generator_UserColumnName="ACCPickup" msprop:Generator_ColumnVarNameInTable="columnACCPickup" type="xs:boolean" />
+              <xs:element name="OverrideMinCart" msprop:Generator_ColumnPropNameInTable="OverrideMinCartColumn" msprop:Generator_ColumnPropNameInRow="OverrideMinCart" msprop:Generator_UserColumnName="OverrideMinCart" msprop:Generator_ColumnVarNameInTable="columnOverrideMinCart" type="xs:boolean" />
+              <xs:element name="TareTk" msprop:Generator_UserColumnName="TareTk" msprop:Generator_ColumnPropNameInTable="TareTkColumn" msprop:Generator_ColumnPropNameInRow="TareTk" msprop:Generator_ColumnVarNameInTable="columnTareTk" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -931,6 +934,10 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)</CommandText>
               <xs:element name="MaxAxles" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="MaxAxlesColumn" msprop:Generator_ColumnPropNameInRow="MaxAxles" msprop:Generator_UserColumnName="MaxAxles" msprop:Generator_ColumnVarNameInTable="columnMaxAxles" type="xs:int" minOccurs="0" />
               <xs:element name="MaxGVM" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="MaxGVMColumn" msprop:Generator_ColumnPropNameInRow="MaxGVM" msprop:Generator_UserColumnName="MaxGVM" msprop:Generator_ColumnVarNameInTable="columnMaxGVM" type="xs:decimal" minOccurs="0" />
               <xs:element name="TruckTypeID" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="TruckTypeIDColumn" msprop:Generator_ColumnPropNameInRow="TruckTypeID" msprop:Generator_UserColumnName="TruckTypeID" msprop:Generator_ColumnVarNameInTable="columnTruckTypeID" type="xs:int" minOccurs="0" />
+              <xs:element name="GroupCode1" msdata:ReadOnly="true" msdata:Caption="GroupCode" msprop:Generator_ColumnPropNameInRow="GroupCode1" msprop:Generator_ColumnPropNameInTable="GroupCode1Column" msprop:Generator_ColumnVarNameInTable="columnGroupCode1" msprop:Generator_UserColumnName="GroupCode1" type="xs:int" minOccurs="0" />
+              <xs:element name="Payload" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Payload" msprop:Generator_ColumnPropNameInTable="PayloadColumn" msprop:Generator_ColumnVarNameInTable="columnPayload" msprop:Generator_UserColumnName="Payload" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PBSTruckNo" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="PBSTruckNo" msprop:Generator_ColumnPropNameInTable="PBSTruckNoColumn" msprop:Generator_ColumnVarNameInTable="columnPBSTruckNo" msprop:Generator_UserColumnName="PBSTruckNo" type="xs:int" minOccurs="0" />
+              <xs:element name="PBSTrailerNo" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="PBSTrailerNo" msprop:Generator_ColumnPropNameInTable="PBSTrailerNoColumn" msprop:Generator_ColumnVarNameInTable="columnPBSTrailerNo" msprop:Generator_UserColumnName="PBSTrailerNo" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -939,7 +946,7 @@ WHERE        (1 = 1) AND (TruckTypeID = @TruckTypeID)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="Truck2Trailer" msdata:parent="TruckConfigTruck" msdata:child="TruckConfigTrailer" msdata:parentkey="TruckConfigID" msdata:childkey="TruckConfigID" msprop:Generator_UserParentTable="TruckConfigTruck" msprop:Generator_UserChildTable="TruckConfigTrailer" msprop:Generator_RelationVarName="relationTruck2Trailer" msprop:Generator_ChildPropName="GetTruckConfigTrailerRows" msprop:Generator_ParentPropName="TruckConfigTruckRow" msprop:Generator_UserRelationName="Truck2Trailer" />
+      <msdata:Relationship name="Truck2Trailer" msdata:parent="TruckConfigTruck" msdata:child="TruckConfigTrailer" msdata:parentkey="TruckConfigID" msdata:childkey="TruckConfigID" msprop:Generator_UserParentTable="TruckConfigTruck" msprop:Generator_UserChildTable="TruckConfigTrailer" msprop:Generator_RelationVarName="relationTruck2Trailer" msprop:Generator_ChildPropName="GetTruckConfigTrailerRows" msprop:Generator_UserRelationName="Truck2Trailer" msprop:Generator_ParentPropName="TruckConfigTruckRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
