@@ -593,6 +593,7 @@ namespace QWS_Local
             {
                 SetTIQPayload();
                 _TIQRow.AllocateDTTM = DateTime.Now;
+                _TIQRow.ReleaseDTTM = DateTime.Now;
                 _TIQRow.CartageCode = "";
                 switch (FormTIQType) // test ExBin or Delivery for Truck or Trailer Only Load
                 {

@@ -436,7 +436,6 @@ namespace QWS_Local
                     dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
                     dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
                     string myTruckOwner;
-                    DateTime fakeDTTM = new DateTime(2020, 1, 1, 6, 0, 0);
                     if (myConfigTruck.TruckOwner.Length > 50)
                     {
                         myTruckOwner = myConfigTruck.TruckOwner.Substring(0, 50);
@@ -448,9 +447,6 @@ namespace QWS_Local
                     _TIQRow.Operator = myWBO;//myUsername;
                     _TIQRow.DriverID = myTruckDriver.CntctCode;
                     _TIQRow.Driver = myTruckDriver.Person;
-                    _TIQRow.AllocateDTTM = DateTime.Now;
-                    _TIQRow.WeightDTTM = fakeDTTM;
-                    _TIQRow.ExitDTTM=fakeDTTM;
                     _TIQRow.Rego = myConfigTruck.RegoTk;
                     _TIQRow.RegoTr1 = myConfigTruck.RegoTr1;
                     _TIQRow.RegoTr2 = myConfigTruck.RegoTr2;
@@ -483,7 +479,6 @@ namespace QWS_Local
         {
             bsTIQ.EndEdit();
             bsTruckDriver.EndEdit();
-            DateTime fakeDTTM = new DateTime(2020, 1, 1, 6, 0, 0);
             dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
             dsQWSLocal2024.TruckDriverRow myTruckDriver = CurrentTruckDriver();
             if (myTruckDriver != null)
@@ -497,9 +492,6 @@ namespace QWS_Local
                 _TIQRow.Driver = "tba";
             }
             _TIQRow.Operator = myWBO;//myUsername;
-            _TIQRow.AllocateDTTM = DateTime.Now;
-            _TIQRow.WeightDTTM = fakeDTTM;
-            _TIQRow.ExitDTTM = fakeDTTM;
             _TIQRow.Rego = myConfigTruck.RegoTk;
             _TIQRow.RegoTr1 = myConfigTruck.RegoTr1;
             _TIQRow.RegoTr2 = myConfigTruck.RegoTr2;
@@ -798,12 +790,12 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@Gross", 0.0M);
                 cmd.Parameters.AddWithValue("@Nett", 0.0M);
                 cmd.Parameters.AddWithValue("@EntryDTTM", EntryDTTM);
-                cmd.Parameters.AddWithValue("@TruckConfigDTTM", DateTime.Now);
-                cmd.Parameters.AddWithValue("@AllocateDTTM", "20200101 07:00:00");
-                cmd.Parameters.AddWithValue("@ReleaseDTTM", EntryDTTM);
-                cmd.Parameters.AddWithValue("@WeightDTTM", EntryDTTM);
-                cmd.Parameters.AddWithValue("@AcceptanceDTTM", EntryDTTM);
-                cmd.Parameters.AddWithValue("@ExitDTTM", EntryDTTM);
+                cmd.Parameters.AddWithValue("@TruckConfigDTTM", DateTime.Today);
+                cmd.Parameters.AddWithValue("@AllocateDTTM", DateTime.Today);
+                cmd.Parameters.AddWithValue("@ReleaseDTTM", DateTime.Today);
+                cmd.Parameters.AddWithValue("@WeightDTTM", DateTime.Today);
+                cmd.Parameters.AddWithValue("@AcceptanceDTTM", DateTime.Today);
+                cmd.Parameters.AddWithValue("@ExitDTTM", DateTime.Today);
                 cmd.Parameters.AddWithValue("OverloadPoints", 0);
                 cmd.Parameters.AddWithValue("OverloadDesc", "");
                 cmd.Parameters.AddWithValue("Comment", "");
@@ -1011,6 +1003,7 @@ namespace QWS_Local
         {
             dsTruckConfig.ConfiguredTrucksRow myConfiguredTrucksRow = CurrentConfigTruck();
             _TIQRow.TruckConfig = myConfiguredTrucksRow.VehicleType.ToString(); // CurrentConfigTruck().VehicleType.ToString();
+            _TIQRow.TruckConfigDTTM = DateTime.Now;
             CheckACCType();
             UpdateTIQ(TIQType.EnterRego);
             CheckConfigOK2Proceed();

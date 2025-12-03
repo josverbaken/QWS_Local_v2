@@ -157,6 +157,7 @@ namespace QWS_Local
                     string Reason = frmTIQRemove.TIQRemoveReason;
                     int myTIQID = CurrentTIQ().TIQID;
                     TIQStatusAudit(myTIQID, "Z" ,9,false, 0.00M, Reason);
+                    CurrentTIQ().QueueStatus = "R";
                     CurrentTIQ().TIQOpen = false;
                     bsTIQ2.EndEdit();
                     taTIQ2.Update(dsTIQ2.TIQ);
@@ -364,6 +365,7 @@ namespace QWS_Local
                                     myTIQRow.Nett = myNett;
                                     myTIQRow.WeighbridgeID = frmWeighTruck.WBID;
                                     myTIQRow.WBConnected = frmWeighTruck.WBConnected;
+                                    myTIQRow.WeightDTTM = DateTime.Now;
                                     myTIQRow.QueueStatus = "E";
                                     bsTIQ2.EndEdit();
                                     taTIQ2.Update(dsTIQ2.TIQ);
@@ -1039,6 +1041,7 @@ namespace QWS_Local
                             if (drHold == DialogResult.Yes)
                             {
                                 blSave = true;
+                                CurrentTIQ().ReleaseDTTM = DateTime.Now;
                                 CurrentTIQ().QueueStatus = "Q";
                             }
                             break;
