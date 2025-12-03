@@ -18,6 +18,12 @@ namespace QWS_Local
         private int mySPLotNo;
         private bool myItemQA;
         private decimal myTareWeight;
+        private string myComment;
+
+        public string Comment
+        {
+            get { return myComment; }
+        }
 
         public int SPLotNo
         {
@@ -43,6 +49,7 @@ namespace QWS_Local
 
         private void btnOkay_Click(object sender, EventArgs e)
         {
+            myComment = txtComment.Text;
             myTareWeight = System.Convert.ToDecimal(txtTare.Text);
             decimal UnderloadAmount = myRow.Payload - myRow.Nett;
             if (myRow.Nett <= 0.0M )

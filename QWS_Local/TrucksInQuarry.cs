@@ -508,6 +508,7 @@ namespace QWS_Local
                     CurrentTIQ().Tare = myTareWeight;
                     CurrentTIQ().Nett = CurrentTIQ().Gross - myTareWeight;
                 }
+                CurrentTIQ().Comment = frmPostDocket.Comment;
                 return true;
             }
             return false;
@@ -974,14 +975,24 @@ namespace QWS_Local
         {
             try
             {
-                int iStatus = 0;               
+                string myComment = CurrentTIQ().Comment;
+                if (string.IsNullOrEmpty(myComment)) 
+                {
+                    myComment = Comment;
+                }
+                else
+                {
+                    myComment += Comment;
+                }
+                // TODO ensure Comment does not exceed 500
+                    int iStatus = 0;               
                 SqlConnection sqlConnection = new SqlConnection(myConnectionString);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "TIQRemove";
                 cmd.Parameters.AddWithValue("@TIQID", TIQID);
-                cmd.Parameters.AddWithValue("@Comment", Comment);
+                cmd.Parameters.AddWithValue("@Comment", myComment);
                 sqlConnection.Open();
                 iStatus = cmd.ExecuteNonQuery();
                 sqlConnection.Close();

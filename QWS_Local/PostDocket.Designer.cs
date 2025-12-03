@@ -59,6 +59,8 @@
             this.taSPLotNo = new QWS_Local.dsTIQ2TableAdapters.SPLotNoAssignTableAdapter();
             this.bsCustomer = new System.Windows.Forms.BindingSource(this.components);
             this.taCustomer = new QWS_Local.dsTIQ2TableAdapters.BusinessGetByCodeTableAdapter();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtComment = new System.Windows.Forms.TextBox();
             grossLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             nettLabel = new System.Windows.Forms.Label();
@@ -71,6 +73,7 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotNo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCustomer)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // grossLabel
@@ -223,7 +226,7 @@
             // 
             this.txtCOD.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCOD.ForeColor = System.Drawing.Color.Tomato;
-            this.txtCOD.Location = new System.Drawing.Point(25, 83);
+            this.txtCOD.Location = new System.Drawing.Point(25, 75);
             this.txtCOD.Name = "txtCOD";
             this.txtCOD.ReadOnly = true;
             this.txtCOD.Size = new System.Drawing.Size(453, 29);
@@ -233,7 +236,7 @@
             // 
             this.customerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "Customer", true));
             this.customerTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerTextBox.Location = new System.Drawing.Point(25, 48);
+            this.customerTextBox.Location = new System.Drawing.Point(25, 36);
             this.customerTextBox.Name = "customerTextBox";
             this.customerTextBox.ReadOnly = true;
             this.customerTextBox.Size = new System.Drawing.Size(453, 29);
@@ -297,7 +300,7 @@
             this.btnOkay.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnOkay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOkay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOkay.Location = new System.Drawing.Point(289, 579);
+            this.btnOkay.Location = new System.Drawing.Point(289, 652);
             this.btnOkay.Margin = new System.Windows.Forms.Padding(4);
             this.btnOkay.Name = "btnOkay";
             this.btnOkay.Size = new System.Drawing.Size(241, 49);
@@ -311,7 +314,7 @@
             this.btnCancel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(12, 579);
+            this.btnCancel.Location = new System.Drawing.Point(12, 652);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(241, 49);
@@ -353,11 +356,29 @@
             // 
             this.taCustomer.ClearBeforeFill = true;
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.txtComment);
+            this.groupBox4.Location = new System.Drawing.Point(13, 565);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(517, 75);
+            this.groupBox4.TabIndex = 65;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "4) Optional -WBO comment";
+            // 
+            // txtComment
+            // 
+            this.txtComment.Location = new System.Drawing.Point(24, 31);
+            this.txtComment.Name = "txtComment";
+            this.txtComment.Size = new System.Drawing.Size(453, 24);
+            this.txtComment.TabIndex = 0;
+            // 
             // PostDocket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 689);
+            this.ClientSize = new System.Drawing.Size(550, 739);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOkay);
             this.Controls.Add(this.groupBox3);
@@ -381,6 +402,8 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotNo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCustomer)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -412,5 +435,7 @@
         private System.Windows.Forms.TextBox txtCOD;
         private System.Windows.Forms.TextBox txtPayload;
         private System.Windows.Forms.TextBox txtUnderload;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox txtComment;
     }
 }
