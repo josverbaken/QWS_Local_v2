@@ -123,5 +123,24 @@ namespace QWS_Local
         {
             MessageBox.Show("Still to implement PrintDirect");
         }
+
+        private void rbFilter_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbFilter.Checked)
+            {
+                string RegoFilter = "TruckRego like '";
+                RegoFilter += txtRegoFilter.Text.Trim();
+                RegoFilter += "'";
+                bsDocketList.Filter = RegoFilter;
+            }
+        }
+
+        private void rbClear_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbClear.Checked)
+            {
+                bsDocketList.Filter = "";
+            }
+        }
     }
 }
