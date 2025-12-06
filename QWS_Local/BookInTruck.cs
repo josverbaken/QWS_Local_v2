@@ -174,7 +174,9 @@ namespace QWS_Local
                     MessageBox.Show("Unknown truck/configuration.\r\nParkup and get details.","Parkup and Clear Entry Point",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     EntryDTTM = DateTime.Now;
                     TIQID = NewTIQ(txtTruckRego.Text);
-                    MessageBox.Show("New TIQID = " + TIQID.ToString());
+                    //MessageBox.Show("New TIQID = " + TIQID.ToString());
+                    ((QWS_MDIParent)this.MdiParent).BringTIQ2Front(); // ? rqd
+                    this.Close();
                 }
             }
             catch (Exception ex)
