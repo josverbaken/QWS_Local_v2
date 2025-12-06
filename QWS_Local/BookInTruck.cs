@@ -138,7 +138,7 @@ namespace QWS_Local
                 if (iCount > 0) // Configured Truck found
                 {
                     EntryDTTM = DateTime.Now;
-                    if (IsBookedIn(Rego) == true) // && Resume == false)
+                    if (IsBookedIn(Rego) == true) 
                     {
                         if (Resume == false)
                         {
@@ -170,14 +170,11 @@ namespace QWS_Local
                 }
                 else
                 {
-                    DialogResult dr = MessageBox.Show("Configuration not found! Press Okay to go to vehicle search.", "Configuration not found.", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (dr == DialogResult.OK)
-                    {
-                        VehicleMaintenance vehicle = new VehicleMaintenance();
-                        vehicle.FindVehicleByCallingRego(Rego);
-                        vehicle.MdiParent = this.MdiParent;
-                        vehicle.Show();
-                    }
+                    // 20251206 JV create blank TIQ with Rego and parkup
+                    MessageBox.Show("Unknown truck/configuration.\r\nParkup and get details.","Parkup and Clear Entry Point",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    EntryDTTM = DateTime.Now;
+                    TIQID = NewTIQ(txtTruckRego.Text);
+                    MessageBox.Show("New TIQID = " + TIQID.ToString());
                 }
             }
             catch (Exception ex)
@@ -447,6 +444,7 @@ namespace QWS_Local
                     _TIQRow.Operator = myWBO;//myUsername;
                     _TIQRow.DriverID = myTruckDriver.CntctCode;
                     _TIQRow.Driver = myTruckDriver.Person;
+                    _TIQRow.DriverMobile = myTruckDriver.Mob;
                     _TIQRow.Rego = myConfigTruck.RegoTk;
                     _TIQRow.RegoTr1 = myConfigTruck.RegoTr1;
                     _TIQRow.RegoTr2 = myConfigTruck.RegoTr2;
@@ -817,6 +815,89 @@ namespace QWS_Local
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "NewTIQ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -9;
+            }
+        }
+
+        private int NewTIQ(string myRego)
+        {
+            try
+            {
+                int iTIQID = 0;
+                bool Okay2Proceed = true;
+                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "TIQAdd";
+                cmd.Parameters.AddWithValue("@ParentTIQID", 0);
+                cmd.Parameters.AddWithValue("@TIQOpen", true);
+                cmd.Parameters.AddWithValue("@SiteID", mySiteID);
+                cmd.Parameters.AddWithValue("@Operator", myWBO);
+                cmd.Parameters.AddWithValue("@Rego", myRego);
+                cmd.Parameters.AddWithValue("@RegoTr1", "tba");
+                cmd.Parameters.AddWithValue("@RegoTr2", "tba");
+                cmd.Parameters.AddWithValue("@RegoTr3", "tba");
+                cmd.Parameters.AddWithValue("@RegoTrailers", "tba");
+                cmd.Parameters.AddWithValue("@Tare", 0.0M);
+                cmd.Parameters.AddWithValue("@TareTk", 0.0M);            
+                cmd.Parameters.AddWithValue("@TruckConfig", "tba");
+                cmd.Parameters.AddWithValue("@TruckConfigID", 0); //myConfigTruck.TruckConfigID);
+                cmd.Parameters.AddWithValue("@AxleConfiguration", "tba");
+                cmd.Parameters.AddWithValue("@FeeCode", "tba");
+                cmd.Parameters.AddWithValue("@ConfigSource", "n/a");
+                cmd.Parameters.AddWithValue("@SchemeCode", "n/a");
+                cmd.Parameters.AddWithValue("@RoadAccess", "n/a");
+                cmd.Parameters.AddWithValue("@WeighbridgeID", 1);
+                cmd.Parameters.AddWithValue("@WBConnected", false);
+                cmd.Parameters.AddWithValue("@CustomerCode", "tba");
+                cmd.Parameters.AddWithValue("@Customer", "tba");
+                cmd.Parameters.AddWithValue("@SAPOrder", -9);
+                cmd.Parameters.AddWithValue("@DeliveryAddress", "tba");
+                cmd.Parameters.AddWithValue("@CustON", "tba");
+                cmd.Parameters.AddWithValue("@CartageCode", "tba");
+                cmd.Parameters.AddWithValue("@QueueStatus", "K");
+                cmd.Parameters.AddWithValue("@Material", "Enter Rego");
+                cmd.Parameters.AddWithValue("@MaterialDesc", "Lead Vehicle Rego Entered");
+                cmd.Parameters.AddWithValue("@StockpileLotNo", 0);
+                cmd.Parameters.AddWithValue("@TruckOwnerCode", "tba");
+                cmd.Parameters.AddWithValue("@TruckOwner", "tba");
+                cmd.Parameters.AddWithValue("@DriverID", 0);
+                cmd.Parameters.AddWithValue("@Driver", "tba");
+                cmd.Parameters.AddWithValue("@Payload", 0.0M);
+                cmd.Parameters.AddWithValue("@PayloadSplit", ""); // text 12.5/20.5
+                cmd.Parameters.AddWithValue("@GCM", 0.0M);
+                cmd.Parameters.AddWithValue("@GVMTruck", 0.0M);
+                cmd.Parameters.AddWithValue("@Gross", 0.0M);
+                cmd.Parameters.AddWithValue("@Nett", 0.0M);
+                cmd.Parameters.AddWithValue("@EntryDTTM", EntryDTTM);
+                cmd.Parameters.AddWithValue("@TruckConfigDTTM", DateTime.Today);
+                cmd.Parameters.AddWithValue("@AllocateDTTM", DateTime.Today);
+                cmd.Parameters.AddWithValue("@ReleaseDTTM", DateTime.Today);
+                cmd.Parameters.AddWithValue("@WeightDTTM", DateTime.Today);
+                cmd.Parameters.AddWithValue("@AcceptanceDTTM", DateTime.Today);
+                cmd.Parameters.AddWithValue("@ExitDTTM", DateTime.Today);
+                cmd.Parameters.AddWithValue("OverloadPoints", 0);
+                cmd.Parameters.AddWithValue("OverloadDesc", "");
+                cmd.Parameters.AddWithValue("Comment", "");
+                cmd.Parameters.AddWithValue("AgrNo", 0);
+                cmd.Parameters.AddWithValue("AgrLine", 0);
+                if (Okay2Proceed == true)
+                {
+                    sqlConnection.Open();
+                    iTIQID = System.Convert.ToInt32(cmd.ExecuteScalar());
+                    sqlConnection.Close();
+                    TIQGet(mySiteID, iTIQID);
+                    return iTIQID;
+                }
+                else
+                {
+                    return -9;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "NewTIQ Blank", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return -9;
             }
         }

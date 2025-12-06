@@ -1057,10 +1057,17 @@ namespace QWS_Local
                             }
                             break;
                         case "K":
-                            DialogResult dr1 = MessageBox.Show("Please continue booking in process.", "Parked Up.", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                            if (dr1 == DialogResult.Yes)
+                            if (CurrentTIQ().TruckConfigID == 0)
                             {
-                                ContinueInProgress();
+                                MessageBox.Show("Set up truck first then start again.\n\rDelete current entry.", "Parkup New Truck Trial", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                DialogResult dr1 = MessageBox.Show("Please continue booking in process.", "Parked Up.", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                                if (dr1 == DialogResult.Yes)
+                                {
+                                    ContinueInProgress();
+                                } 
                             }
                             break;
                         case "P":
