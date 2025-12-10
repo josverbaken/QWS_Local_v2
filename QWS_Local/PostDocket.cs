@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -141,7 +142,20 @@ namespace QWS_Local
             {
                 txtNett.BackColor = Color.PaleGreen;
             }
-                CheckCOD(myRow.CustomerCode);
+            // Show time in quarry
+            txtTurnaroundTime.Visible = false; // TODO on hold pending approval from Sarah
+            // Sarah suggests variable starting time, I think this might be confusing
+            // she says WBO needs time since last interaction to prompt contact if truck off grid too long
+            double TimeInQuarry = 0;
+            int iTIQ;
+            TimeSpan tsTimeInQuarry = DateTime.Now - myRow.EntryDTTM;
+            TimeInQuarry = tsTimeInQuarry.TotalMinutes;
+            iTIQ = Convert.ToUInt16(TimeInQuarry);
+            string strTIQ = "Time in quarry : ";
+            strTIQ += iTIQ.ToString();
+            strTIQ += " minutes.";
+            txtTurnaroundTime.Text = strTIQ;
+            CheckCOD(myRow.CustomerCode);
             if (myRow.Tare == 0.0M)
             {
                 txtTare.ReadOnly = false;

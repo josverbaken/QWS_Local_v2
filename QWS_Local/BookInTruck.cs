@@ -174,8 +174,7 @@ namespace QWS_Local
                     MessageBox.Show("Unknown truck/configuration.\r\nParkup and get details.","Parkup and Clear Entry Point",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     EntryDTTM = DateTime.Now;
                     TIQID = NewTIQ(txtTruckRego.Text);
-                    //MessageBox.Show("New TIQID = " + TIQID.ToString());
-                    ((QWS_MDIParent)this.MdiParent).BringTIQ2Front(); // ? rqd
+                    ((QWS_MDIParent)this.MdiParent).BringTIQ2Front();
                     this.Close();
                 }
             }
@@ -298,6 +297,7 @@ namespace QWS_Local
             }
             int myAxles = myConfigTruck.Axles;
             int myMaxAxles = myConfigTruck.MaxAxles;
+
             if (myMaxAxles > 0 && myAxles > myMaxAxles)
             {
                 OK2Proceed = false;
@@ -332,9 +332,9 @@ namespace QWS_Local
         {
             bool blOkay2Cart = true;
             bool blOK4ExBin = true;
-            bool blInduction = false;
             bool RetareDue = CheckRetareDue();
             bool blOkay2Proceed = false;
+            btnDelivery.Enabled = false;
             if (DriverID > 0) // driver pre-selected on prior iteration
             {
                 taTruckDriver1.FillByCardCode(dsQWSLocal2024.TruckDriver, CurrentConfigTruck().CardCode);
@@ -378,7 +378,7 @@ namespace QWS_Local
                 }
                 else
                 {
-                    blInduction = true;
+                    //blInduction = true;
                     txtInductionExp.BackColor = Color.PaleGreen;
                 }
                 if (blOkay2Cart) // i.e. license and induction ok
@@ -386,6 +386,13 @@ namespace QWS_Local
                     btnExBin.Enabled = true;
                     btnImported.Enabled = true;
                     // btnImportedPickUp.Enabled = true leave as is after truck selection
+                    if (myTruckDriverRow.Position == "Authorised Cartage Contractor" || myTruckDriverRow.Position.Contains("ACC") == true)
+                    {
+                        if (CurrentConfigTruck().ACCDelivery == true)
+                        {
+                            btnDelivery.Enabled = true;
+                        }
+                    }
                 }
                 else
                 {
@@ -400,17 +407,17 @@ namespace QWS_Local
                     btnImported.Enabled = false;
                     btnImportedPickUp.Enabled = false;
                 }
-                if (myTruckDriverRow.Position == "Authorised Cartage Contractor"|| myTruckDriverRow.Position.Contains("ACC") == true)
-                {
-                    if (chkACCDelivery.Checked == true && blInduction == true && btnDelivery.Enabled == true)
-                    {
-                        btnDelivery.Enabled = true;
-                    }
-                }
-                else
-                {
-                    btnDelivery.Enabled = false;
-                }
+                //if (myTruckDriverRow.Position == "Authorised Cartage Contractor"|| myTruckDriverRow.Position.Contains("ACC") == true)
+                //{
+                //    if (chkACCDelivery.Checked == true && blInduction == true && btnDelivery.Enabled == true)
+                //    {
+                //        btnDelivery.Enabled = true;
+                //    }
+                //}
+                //else
+                //{
+                //    btnDelivery.Enabled = false;
+                //}
                 if (RetareDue)
                 {
                     btnExBin.Enabled = false;
@@ -419,7 +426,6 @@ namespace QWS_Local
                     btnImportedPickUp.Enabled = false;
                 }
                 btnRetare.Enabled = true;
-                // UpdateTIQ 20250418, is done in UpdateTIQDriver
                 UpdateTIQDriver();
             }
         }
@@ -1087,7 +1093,7 @@ namespace QWS_Local
             dsTruckConfig.ConfiguredTrucksRow myConfiguredTrucksRow = CurrentConfigTruck();
             _TIQRow.TruckConfig = myConfiguredTrucksRow.VehicleType.ToString(); // CurrentConfigTruck().VehicleType.ToString();
             _TIQRow.TruckConfigDTTM = DateTime.Now;
-            CheckACCType();
+            //CheckACCType();
             UpdateTIQ(TIQType.EnterRego);
             CheckConfigOK2Proceed();
         }

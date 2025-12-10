@@ -597,7 +597,7 @@ namespace QWS_Local
                 if (e.ColumnIndex == dgvPBSConfigScheme.Columns["Next4"].Index && e.RowIndex >= 0)
                 {
                     dgvPBSConfigScheme.EndEdit();
-                    // TODO save 
+                    PBSConfigSchemeSave();
                     btnSaveConfig.Focus();
                 }
             }
