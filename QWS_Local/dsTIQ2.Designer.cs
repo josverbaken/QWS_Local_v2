@@ -884,6 +884,8 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnDriverMobile;
             
+            private global::System.Data.DataColumn columnWBOComment;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public TIQDataTable() {
@@ -1351,6 +1353,14 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn WBOCommentColumn {
+                get {
+                    return this.columnWBOComment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1439,7 +1449,8 @@ namespace QWS_Local {
                         int AgrNo, 
                         int AgrLine, 
                         bool WBConnected, 
-                        string DriverMobile) {
+                        string DriverMobile, 
+                        string WBOComment) {
                 TIQRow rowTIQRow = ((TIQRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1495,7 +1506,8 @@ namespace QWS_Local {
                         AgrNo,
                         AgrLine,
                         WBConnected,
-                        DriverMobile};
+                        DriverMobile,
+                        WBOComment};
                 rowTIQRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTIQRow);
                 return rowTIQRow;
@@ -1579,6 +1591,7 @@ namespace QWS_Local {
                 this.columnAgrLine = base.Columns["AgrLine"];
                 this.columnWBConnected = base.Columns["WBConnected"];
                 this.columnDriverMobile = base.Columns["DriverMobile"];
+                this.columnWBOComment = base.Columns["WBOComment"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1692,6 +1705,8 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnWBConnected);
                 this.columnDriverMobile = new global::System.Data.DataColumn("DriverMobile", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDriverMobile);
+                this.columnWBOComment = new global::System.Data.DataColumn("WBOComment", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWBOComment);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTIQID}, true));
                 this.columnTIQID.AutoIncrement = true;
@@ -1775,6 +1790,7 @@ namespace QWS_Local {
                 this.columnWBConnected.AllowDBNull = false;
                 this.columnDriverMobile.AllowDBNull = false;
                 this.columnDriverMobile.MaxLength = 15;
+                this.columnWBOComment.MaxLength = 500;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8247,6 +8263,22 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string WBOComment {
+                get {
+                    try {
+                        return ((string)(this[this.tableTIQ.WBOCommentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WBOComment\' in table \'TIQ\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTIQ.WBOCommentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsOverloadPointsNull() {
                 return this.IsNull(this.tableTIQ.OverloadPointsColumn);
             }
@@ -8279,6 +8311,18 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetCommentNull() {
                 this[this.tableTIQ.CommentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsWBOCommentNull() {
+                return this.IsNull(this.tableTIQ.WBOCommentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetWBOCommentNull() {
+                this[this.tableTIQ.WBOCommentColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -11410,6 +11454,7 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             tableMapping.ColumnMappings.Add("AgrLine", "AgrLine");
             tableMapping.ColumnMappings.Add("WBConnected", "WBConnected");
             tableMapping.ColumnMappings.Add("DriverMobile", "DriverMobile");
+            tableMapping.ColumnMappings.Add("WBOComment", "WBOComment");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
@@ -11466,6 +11511,7 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OverloadPoints", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "OverloadPoints", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OverloadDesc", global::System.Data.SqlDbType.VarChar, 25, global::System.Data.ParameterDirection.Input, 0, 0, "OverloadDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Comment", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WBOComment", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "WBOComment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AgrNo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "AgrNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AgrLine", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "AgrLine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -11516,6 +11562,7 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nett", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "Nett", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OverloadPoints", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "OverloadPoints", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OverloadDesc", global::System.Data.SqlDbType.VarChar, 25, global::System.Data.ParameterDirection.Input, 0, 0, "OverloadDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WBOComment", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "WBOComment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AgrNo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "AgrNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AgrLine", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "AgrLine", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -11714,6 +11761,7 @@ namespace QWS_Local.dsTIQ2TableAdapters {
                     global::System.Nullable<int> OverloadPoints, 
                     string OverloadDesc, 
                     string Comment, 
+                    string WBOComment, 
                     global::System.Nullable<int> AgrNo, 
                     global::System.Nullable<int> AgrLine) {
             if ((ParentTIQID.HasValue == true)) {
@@ -12016,17 +12064,23 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[50].Value = ((string)(Comment));
             }
-            if ((AgrNo.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[51].Value = ((int)(AgrNo.Value));
-            }
-            else {
+            if ((WBOComment == null)) {
                 this.Adapter.InsertCommand.Parameters[51].Value = global::System.DBNull.Value;
             }
-            if ((AgrLine.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[52].Value = ((int)(AgrLine.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[51].Value = ((string)(WBOComment));
+            }
+            if ((AgrNo.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[52].Value = ((int)(AgrNo.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[52].Value = global::System.DBNull.Value;
+            }
+            if ((AgrLine.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[53].Value = ((int)(AgrLine.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[53].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -12092,6 +12146,7 @@ namespace QWS_Local.dsTIQ2TableAdapters {
                     global::System.Nullable<decimal> Nett, 
                     global::System.Nullable<int> OverloadPoints, 
                     string OverloadDesc, 
+                    string WBOComment, 
                     global::System.Nullable<int> AgrNo, 
                     global::System.Nullable<int> AgrLine) {
             if ((TIQID.HasValue == true)) {
@@ -12352,17 +12407,23 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(OverloadDesc));
             }
-            if ((AgrNo.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((int)(AgrNo.Value));
-            }
-            else {
+            if ((WBOComment == null)) {
                 this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
             }
-            if ((AgrLine.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((int)(AgrLine.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(WBOComment));
+            }
+            if ((AgrNo.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((int)(AgrNo.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
+            }
+            if ((AgrLine.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((int)(AgrLine.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 

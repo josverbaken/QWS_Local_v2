@@ -508,7 +508,9 @@ namespace QWS_Local
                     CurrentTIQ().Tare = myTareWeight;
                     CurrentTIQ().Nett = CurrentTIQ().Gross - myTareWeight;
                 }
-                CurrentTIQ().Comment = frmPostDocket.Comment;
+                CurrentTIQ().WBOComment = frmPostDocket.Comment;
+                bsTIQ2.EndEdit();
+                taTIQ2.Update(dsTIQ2.TIQ);
                 return true;
             }
             return false;

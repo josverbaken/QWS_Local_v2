@@ -805,6 +805,7 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("OverloadPoints", 0);
                 cmd.Parameters.AddWithValue("OverloadDesc", "");
                 cmd.Parameters.AddWithValue("Comment", "");
+                cmd.Parameters.AddWithValue("WBOComment", "");
                 cmd.Parameters.AddWithValue("AgrNo", 0);
                 cmd.Parameters.AddWithValue("AgrLine", 0);
                 if (Okay2Proceed == true)
@@ -888,6 +889,7 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("OverloadPoints", 0);
                 cmd.Parameters.AddWithValue("OverloadDesc", "");
                 cmd.Parameters.AddWithValue("Comment", "");
+                cmd.Parameters.AddWithValue("WBOComment", "");
                 cmd.Parameters.AddWithValue("AgrNo", 0);
                 cmd.Parameters.AddWithValue("AgrLine", 0);
                 if (Okay2Proceed == true)
