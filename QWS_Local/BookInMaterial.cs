@@ -104,7 +104,7 @@ namespace QWS_Local
                     break;
                 case "TT":
                 case "TKs":
-                case "TRS":
+                case "TRs":
                     myCartageInt = 7;
                     break;
                 case "BD":
@@ -119,16 +119,43 @@ namespace QWS_Local
 
         private void BookInMaterial_Load(object sender, EventArgs e)
         {
+            gbCartageRate.Visible = false;
             LoadConfiguredTruckGVM(TruckConfigID);
-            if (FormTIQType == TIQType.ImportedPickUp)
+            switch (FormTIQType)
             {
-                CardCode = "AnyCustomer";
-            }
-            QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
-            if (FormTIQType == TIQType.ExBin)
-            {
-                SetExBinNoOrderCustomer();
-            }
+                case TIQType.ExBin:
+                    {
+                        SetExBinNoOrderCustomer();
+                        QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
+                    }
+                    break;
+                case TIQType.Imported:
+                    QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
+                    break;
+                case TIQType.ImportedPickUp:
+                    {
+                        CardCode = "AnyCustomer";
+                    }
+                    QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
+                    break;
+                case TIQType.Delivery:
+                    {
+                        switch (_TIQRow.TruckConfig)
+                        {
+                            case "TKs":
+                            case "TRs":
+                                gbCartageRate.Visible = true;
+                                break;
+                            default:
+                                gbCartageRate.Visible = false;
+                                QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
+                                break;
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }          
             FormLoaded = true;
             dgvQuarryOrders.ClearSelection();
             if (FormTIQType != TIQType.ExBin)
@@ -800,6 +827,7 @@ namespace QWS_Local
             BookInTruck frmBookInStep1 = new BookInTruck(Rego, TruckConfigID, DriverID, myParentTIQID,_TIQRow.TruckConfig, "Called after book in TKs", TrailerConfig);
             frmBookInStep1.MdiParent = this.MdiParent;
             frmBookInStep1.Show();
+            this.Close();
         }
 
         private void btnUpdatePayloadSplit_Click(object sender, EventArgs e)
@@ -830,6 +858,7 @@ namespace QWS_Local
         }
 
         private void QuarryOrdersLoad(string OrderType,  string CardCode, int CartageInt)
+            // OrderType Delivery etc, CardCode only for ex bin else ignored, 6 = Tandem 7 T&T
         {
             try
             {
@@ -960,6 +989,22 @@ namespace QWS_Local
             else
             {
                 return false;
+            }
+        }
+
+        private void rbTandem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbTandem.Checked)
+            {
+                QuarryOrdersLoad(FormTIQType.ToString(), CardCode, 6);
+            }
+        }
+
+        private void rbTnT_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbTnT.Checked)
+            {
+                QuarryOrdersLoad(FormTIQType.ToString(), CardCode, 7);
             }
         }
     }
