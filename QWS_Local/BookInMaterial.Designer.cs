@@ -81,6 +81,9 @@ namespace QWS_Local
             System.Windows.Forms.Label label13;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.gbCartageRate = new System.Windows.Forms.GroupBox();
+            this.rbTnT = new System.Windows.Forms.RadioButton();
+            this.rbTandem = new System.Windows.Forms.RadioButton();
             this.truckConfigTextBox = new System.Windows.Forms.TextBox();
             this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
@@ -215,9 +218,6 @@ namespace QWS_Local
             this.taQuarryOrders = new QWS_Local.dsBookInTableAdapters.QuarryOrdersTableAdapter();
             this.bsBlanketAgreement = new System.Windows.Forms.BindingSource(this.components);
             this.taBlanketAgreement = new QWS_Local.dsBookInTableAdapters.BlanketAgreementCheckTableAdapter();
-            this.rbTandem = new System.Windows.Forms.RadioButton();
-            this.rbTnT = new System.Windows.Forms.RadioButton();
-            this.gbCartageRate = new System.Windows.Forms.GroupBox();
             gCMLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
@@ -274,6 +274,7 @@ namespace QWS_Local
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.gbCartageRate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).BeginInit();
@@ -309,7 +310,6 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsBlanketAgreement)).BeginInit();
-            this.gbCartageRate.SuspendLayout();
             this.SuspendLayout();
             // 
             // gCMLabel
@@ -797,6 +797,41 @@ namespace QWS_Local
             this.splitContainer2.Size = new System.Drawing.Size(1427, 554);
             this.splitContainer2.SplitterDistance = 228;
             this.splitContainer2.TabIndex = 3;
+            // 
+            // gbCartageRate
+            // 
+            this.gbCartageRate.Controls.Add(this.rbTnT);
+            this.gbCartageRate.Controls.Add(this.rbTandem);
+            this.gbCartageRate.Location = new System.Drawing.Point(497, 128);
+            this.gbCartageRate.Name = "gbCartageRate";
+            this.gbCartageRate.Size = new System.Drawing.Size(303, 63);
+            this.gbCartageRate.TabIndex = 87;
+            this.gbCartageRate.TabStop = false;
+            this.gbCartageRate.Text = "Delivery Cartage Rate";
+            // 
+            // rbTnT
+            // 
+            this.rbTnT.AutoSize = true;
+            this.rbTnT.Location = new System.Drawing.Point(170, 26);
+            this.rbTnT.Name = "rbTnT";
+            this.rbTnT.Size = new System.Drawing.Size(133, 21);
+            this.rbTnT.TabIndex = 86;
+            this.rbTnT.TabStop = true;
+            this.rbTnT.Text = "Truck & Trailer (7)";
+            this.rbTnT.UseVisualStyleBackColor = true;
+            this.rbTnT.CheckedChanged += new System.EventHandler(this.rbTnT_CheckedChanged);
+            // 
+            // rbTandem
+            // 
+            this.rbTandem.AutoSize = true;
+            this.rbTandem.Location = new System.Drawing.Point(46, 26);
+            this.rbTandem.Name = "rbTandem";
+            this.rbTandem.Size = new System.Drawing.Size(100, 21);
+            this.rbTandem.TabIndex = 85;
+            this.rbTandem.TabStop = true;
+            this.rbTandem.Text = "Tandem (6)";
+            this.rbTandem.UseVisualStyleBackColor = true;
+            this.rbTandem.CheckedChanged += new System.EventHandler(this.rbTandem_CheckedChanged);
             // 
             // truckConfigTextBox
             // 
@@ -1558,7 +1593,7 @@ namespace QWS_Local
             this.tpDetails.Location = new System.Drawing.Point(4, 22);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(977, 267);
+            this.tpDetails.Size = new System.Drawing.Size(977, 270);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -2050,41 +2085,6 @@ namespace QWS_Local
             // 
             this.taBlanketAgreement.ClearBeforeFill = true;
             // 
-            // rbTandem
-            // 
-            this.rbTandem.AutoSize = true;
-            this.rbTandem.Location = new System.Drawing.Point(46, 26);
-            this.rbTandem.Name = "rbTandem";
-            this.rbTandem.Size = new System.Drawing.Size(100, 21);
-            this.rbTandem.TabIndex = 85;
-            this.rbTandem.TabStop = true;
-            this.rbTandem.Text = "Tandem (6)";
-            this.rbTandem.UseVisualStyleBackColor = true;
-            this.rbTandem.CheckedChanged += new System.EventHandler(this.rbTandem_CheckedChanged);
-            // 
-            // rbTnT
-            // 
-            this.rbTnT.AutoSize = true;
-            this.rbTnT.Location = new System.Drawing.Point(46, 53);
-            this.rbTnT.Name = "rbTnT";
-            this.rbTnT.Size = new System.Drawing.Size(133, 21);
-            this.rbTnT.TabIndex = 86;
-            this.rbTnT.TabStop = true;
-            this.rbTnT.Text = "Truck & Trailer (7)";
-            this.rbTnT.UseVisualStyleBackColor = true;
-            this.rbTnT.CheckedChanged += new System.EventHandler(this.rbTnT_CheckedChanged);
-            // 
-            // gbCartageRate
-            // 
-            this.gbCartageRate.Controls.Add(this.rbTnT);
-            this.gbCartageRate.Controls.Add(this.rbTandem);
-            this.gbCartageRate.Location = new System.Drawing.Point(777, 117);
-            this.gbCartageRate.Name = "gbCartageRate";
-            this.gbCartageRate.Size = new System.Drawing.Size(231, 100);
-            this.gbCartageRate.TabIndex = 87;
-            this.gbCartageRate.TabStop = false;
-            this.gbCartageRate.Text = "Delivery Cartage Rate";
-            // 
             // BookInMaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2104,6 +2104,8 @@ namespace QWS_Local
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.gbCartageRate.ResumeLayout(false);
+            this.gbCartageRate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsTIQ2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTruckGVM)).EndInit();
@@ -2145,8 +2147,6 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.nudPayload)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsBlanketAgreement)).EndInit();
-            this.gbCartageRate.ResumeLayout(false);
-            this.gbCartageRate.PerformLayout();
             this.ResumeLayout(false);
 
         }

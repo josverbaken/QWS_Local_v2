@@ -103,17 +103,18 @@ namespace QWS_Local
             InitializeComponent();
             txtTruckRego.Text = Rego;
             CallingMessage = Message;
-            // Retrieve Truck and Driver
+            // Retrieve Truck 
             FindTruckConfig(Rego, true); // Resume = true b/c split load
             SelectTruckConfig(TruckConfigID);
+            // Create new TIQ
+            TIQID = NewTIQ(TIQType.EnterRego, myParentTIQID, TrailerConfig, true);
+            _TIQRow = (dsTIQ2.TIQRow)dsTIQ2.TIQ.Rows[0]; // bind to dataset // 20250712
+            // Retrieve Driver 20251218 after creating new TIQ
             if (myDriverID > 0)
             {
                 GetTruckDriver(myDriverID);
             }
             UpdateOwnerGUI();
-            // Create new TIQ
-            TIQID = NewTIQ(TIQType.EnterRego, myParentTIQID, TrailerConfig, true);
-            _TIQRow = (dsTIQ2.TIQRow)dsTIQ2.TIQ.Rows[0]; // bind to dataset // 20250712
             //check rego and axle conditions
             CheckACCType();
             CheckConfigOK2Proceed();
@@ -337,12 +338,16 @@ namespace QWS_Local
             btnDelivery.Enabled = false;
             if (DriverID > 0) // driver pre-selected on prior iteration
             {
-                taTruckDriver1.FillByCardCode(dsQWSLocal2024.TruckDriver, CurrentConfigTruck().CardCode);
-                int index = bsTruckDriver.Find("CntctCode", DriverID);
-                if (index > 0)
-                {
-                    bsTruckDriver.Position = index;
-                }
+                //taTruckDriver1.FillByCardCode(dsQWSLocal2024.TruckDriver, CurrentConfigTruck().CardCode);
+                taTruckDriver1.FillByID(dsQWSLocal2024.TruckDriver,DriverID);
+                //int index = bsTruckDriver.Find("CntctCode", DriverID);
+                //if (index > 0)
+                //{
+                //    bsTruckDriver.Position = index;
+                //    bsTruckDriver.EndEdit();
+                //}
+                string myMobile = CurrentTruckDriver().Mob;
+                //MessageBox.Show(myMobile);
                 blOkay2Proceed = true;
             }
             else
