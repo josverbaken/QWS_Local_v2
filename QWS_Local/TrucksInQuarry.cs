@@ -154,13 +154,19 @@ namespace QWS_Local
                DialogResult dr = frmTIQRemove.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    string Reason = frmTIQRemove.TIQRemoveReason;
+                    string myReason = frmTIQRemove.RemoveReason;
+                    string myCode = frmTIQRemove.RemoveCode;
                     int myTIQID = CurrentTIQ().TIQID;
-                    TIQStatusAudit(myTIQID, "Z" ,9,false, 0.00M, Reason);
-                    CurrentTIQ().QueueStatus = "R";
+                    TIQStatusAudit(myTIQID, myCode ,9,false, 0.00M, myReason);
+                    CurrentTIQ().QueueStatus = myCode;
                     CurrentTIQ().TIQOpen = false;
                     bsTIQ2.EndEdit();
                     taTIQ2.Update(dsTIQ2.TIQ);
+                    // TODO if Code = R, Rebook call BookInTruck with ParentTIQ
+                    if (myCode == "R")
+                    {
+                        MessageBox.Show("TODO call BookInTruck with ParentTIQ");
+                    }
                 }
             }
             catch (Exception ex)
@@ -986,7 +992,10 @@ namespace QWS_Local
                 {
                     myComment += Comment;
                 }
-                // TODO ensure Comment does not exceed 500
+                if (myComment.Length > 500)
+                {
+                    myComment.Substring(0, 500);
+                }
                     int iStatus = 0;               
                 SqlConnection sqlConnection = new SqlConnection(myConnectionString);
                 SqlCommand cmd = new SqlCommand();

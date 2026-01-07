@@ -16,15 +16,39 @@ namespace QWS_Local
         {
             InitializeComponent();
         }
+        private string _RemoveReason;
+        private string _RemoveCode;
 
-        public string TIQRemoveReason;
+        public string RemoveReason
+        {
+            get { return _RemoveReason; }
+        }
+
+        public string RemoveCode
+        {
+            get { return _RemoveCode; }
+        }
+
+
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            TIQRemoveReason = txtReason.Text;
-            if (TIQRemoveReason.Length < 5 )
+            _RemoveCode = "Z";
+            RemoveAndClose();
+        }
+
+        private void btnRebook_Click(object sender, EventArgs e)
+        {
+            _RemoveCode = "R";
+            RemoveAndClose();
+        }
+
+        private void RemoveAndClose()
+        {
+            _RemoveReason = txtReason.Text;
+            if (_RemoveReason.Length < 5)
             {
-                MessageBox.Show("Please enter the reason for removal.","Reason not supplied.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Please enter the reason for removal.", "Reason not supplied.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {

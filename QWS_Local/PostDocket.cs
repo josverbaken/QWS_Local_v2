@@ -18,6 +18,7 @@ namespace QWS_Local
         private dsTIQ2.TIQRow myRow;
         private int mySPLotNo;
         private bool myItemQA;
+        private bool SplitLoad = false;
         private decimal myTareWeight;
         private string myComment;
 
@@ -53,6 +54,7 @@ namespace QWS_Local
             myComment = txtComment.Text;
             myTareWeight = System.Convert.ToDecimal(txtTare.Text);
             decimal UnderloadAmount = myRow.Payload - myRow.Nett;
+            // TODO calculate for TKs and TRs separately
             if (myRow.Nett <= 0.0M )
             {
                 MessageBox.Show("Unable to proceed NETT <= 0!","Zero Nett Weight.", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -78,7 +80,7 @@ namespace QWS_Local
                 }
             }
 
-            else if (UnderloadAmount > 1.0M)
+            else if (UnderloadAmount > 1.0M && SplitLoad == false)
             {
                 string msg = "Vehicle underloaded! Did the driver choose to collect more material?";
                 DialogResult dialogResult = MessageBox.Show(msg, "Underload Check", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -120,7 +122,6 @@ namespace QWS_Local
                 txtNett.BackColor = Color.LightSalmon;
             }
             decimal UnderloadAmount = myRow.Payload - myRow.Nett;
-            bool SplitLoad = false;
             switch (myRow.TruckConfig)
             {
                 case "TRs":

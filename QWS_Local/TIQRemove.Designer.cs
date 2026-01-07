@@ -30,6 +30,7 @@
         {
             this.txtReason = new System.Windows.Forms.TextBox();
             this.btnRemove = new System.Windows.Forms.Button();
+            this.btnRebook = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtReason
@@ -52,12 +53,24 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
+            // btnRebook
+            // 
+            this.btnRebook.Location = new System.Drawing.Point(281, 130);
+            this.btnRebook.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRebook.Name = "btnRebook";
+            this.btnRebook.Size = new System.Drawing.Size(248, 32);
+            this.btnRebook.TabIndex = 2;
+            this.btnRebook.Text = "Remove and Rebook";
+            this.btnRebook.UseVisualStyleBackColor = true;
+            this.btnRebook.Click += new System.EventHandler(this.btnRebook_Click);
+            // 
             // TIQRemove
             // 
             this.AcceptButton = this.btnRemove;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 180);
+            this.Controls.Add(this.btnRebook);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.txtReason);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -76,5 +89,6 @@
 
         private System.Windows.Forms.TextBox txtReason;
         private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Button btnRebook;
     }
 }
