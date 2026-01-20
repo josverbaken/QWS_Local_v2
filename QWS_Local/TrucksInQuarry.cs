@@ -892,6 +892,7 @@ namespace QWS_Local
                 docketsRow.CardCode = myTIQRow.CustomerCode;
                 docketsRow.CardName = myTIQRow.Customer;
                 docketsRow.PurchaseOrder = myTIQRow.CustON;
+                docketsRow.SAPOrderDocNum = myTIQRow.SAPOrder;
                 docketsRow.CntCode = myCntCode;
                 docketsRow.ContactName = myContactName;
                 docketsRow.ContactMobile = myContactMobile;
