@@ -863,7 +863,11 @@ namespace QWS_Local
                 dsTIQ2.WBDockets.Clear();
                 dsTIQ2.WBDocketLines.Clear();
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
-                // get Order
+                string RegB = myTIQRow.RegoTr2;
+                if (myTIQRow.RegoTr3.Length > 0)
+                {
+                    RegB = myTIQRow.RegoTr2;
+                }
                 string myContactName = "";
                 string myContactMobile = "";
                 int myCntCode = -9;
@@ -901,6 +905,8 @@ namespace QWS_Local
                 docketsRow.MapRef = "";
                 docketsRow.Distance = 0;
                 docketsRow.TruckRego = myTIQRow.Rego;
+                docketsRow.RegA = myTIQRow.RegoTr1;
+                docketsRow.RegB = RegB;
                 docketsRow.TruckOwnerCode = myTIQRow.TruckOwnerCode;
                 docketsRow.TruckOwner = myTIQRow.TruckOwner;
                 docketsRow.TruckConfig = "";

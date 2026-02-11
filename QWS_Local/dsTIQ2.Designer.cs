@@ -1992,6 +1992,10 @@ namespace QWS_Local {
             
             private global::System.Data.DataColumn columnSAPOrderDocNum;
             
+            private global::System.Data.DataColumn columnRegA;
+            
+            private global::System.Data.DataColumn columnRegB;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public WBDocketsDataTable() {
@@ -2299,6 +2303,22 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RegAColumn {
+                get {
+                    return this.columnRegA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RegBColumn {
+                get {
+                    return this.columnRegB;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2368,7 +2388,9 @@ namespace QWS_Local {
                         string EnteredBy, 
                         string Workstation, 
                         int TIQID, 
-                        int SAPOrderDocNum) {
+                        int SAPOrderDocNum, 
+                        string RegA, 
+                        string RegB) {
                 WBDocketsRow rowWBDocketsRow = ((WBDocketsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DocNum,
@@ -2404,7 +2426,9 @@ namespace QWS_Local {
                         EnteredBy,
                         Workstation,
                         TIQID,
-                        SAPOrderDocNum};
+                        SAPOrderDocNum,
+                        RegA,
+                        RegB};
                 rowWBDocketsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowWBDocketsRow);
                 return rowWBDocketsRow;
@@ -2468,6 +2492,8 @@ namespace QWS_Local {
                 this.columnWorkstation = base.Columns["Workstation"];
                 this.columnTIQID = base.Columns["TIQID"];
                 this.columnSAPOrderDocNum = base.Columns["SAPOrderDocNum"];
+                this.columnRegA = base.Columns["RegA"];
+                this.columnRegB = base.Columns["RegB"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2541,6 +2567,10 @@ namespace QWS_Local {
                 base.Columns.Add(this.columnTIQID);
                 this.columnSAPOrderDocNum = new global::System.Data.DataColumn("SAPOrderDocNum", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSAPOrderDocNum);
+                this.columnRegA = new global::System.Data.DataColumn("RegA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRegA);
+                this.columnRegB = new global::System.Data.DataColumn("RegB", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRegB);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnDocNum}, true));
                 this.columnDocNum.AllowDBNull = false;
@@ -2564,7 +2594,7 @@ namespace QWS_Local {
                 this.columnMapRef.MaxLength = 50;
                 this.columnDistance.AllowDBNull = false;
                 this.columnTruckRego.AllowDBNull = false;
-                this.columnTruckRego.MaxLength = 50;
+                this.columnTruckRego.MaxLength = 6;
                 this.columnTruckOwnerCode.AllowDBNull = false;
                 this.columnTruckOwnerCode.MaxLength = 15;
                 this.columnTruckOwner.AllowDBNull = false;
@@ -2590,6 +2620,8 @@ namespace QWS_Local {
                 this.columnCreatedDTTM.AllowDBNull = false;
                 this.columnEnteredBy.MaxLength = 50;
                 this.columnWorkstation.MaxLength = 50;
+                this.columnRegA.MaxLength = 6;
+                this.columnRegB.MaxLength = 6;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8761,6 +8793,38 @@ namespace QWS_Local {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string RegA {
+                get {
+                    try {
+                        return ((string)(this[this.tableWBDockets.RegAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RegA\' in table \'WBDockets\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWBDockets.RegAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string RegB {
+                get {
+                    try {
+                        return ((string)(this[this.tableWBDockets.RegBColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RegB\' in table \'WBDockets\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWBDockets.RegBColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsOverloadPointsNull() {
                 return this.IsNull(this.tableWBDockets.OverloadPointsColumn);
             }
@@ -8829,6 +8893,30 @@ namespace QWS_Local {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetSAPOrderDocNumNull() {
                 this[this.tableWBDockets.SAPOrderDocNumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRegANull() {
+                return this.IsNull(this.tableWBDockets.RegAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRegANull() {
+                this[this.tableWBDockets.RegAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRegBNull() {
+                return this.IsNull(this.tableWBDockets.RegBColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRegBNull() {
+                this[this.tableWBDockets.RegBColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12640,6 +12728,8 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             tableMapping.ColumnMappings.Add("Workstation", "Workstation");
             tableMapping.ColumnMappings.Add("TIQID", "TIQID");
             tableMapping.ColumnMappings.Add("SAPOrderDocNum", "SAPOrderDocNum");
+            tableMapping.ColumnMappings.Add("RegA", "RegA");
+            tableMapping.ColumnMappings.Add("RegB", "RegB");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -12651,21 +12741,23 @@ namespace QWS_Local.dsTIQ2TableAdapters {
                 "ContactName) AND ([ContactMobile] = @Original_ContactMobile) AND ([DeliveryDate]" +
                 " = @Original_DeliveryDate) AND ([DeliveryAddress] = @Original_DeliveryAddress) A" +
                 "ND ([MapRef] = @Original_MapRef) AND ([Distance] = @Original_Distance) AND ([Tru" +
-                "ckRego] = @Original_TruckRego) AND ([TruckOwnerCode] = @Original_TruckOwnerCode)" +
-                " AND ([TruckOwner] = @Original_TruckOwner) AND ([TruckConfig] = @Original_TruckC" +
-                "onfig) AND ([TruckConfigID] = @Original_TruckConfigID) AND ([TruckDriverID] = @O" +
-                "riginal_TruckDriverID) AND ([TruckDriver] = @Original_TruckDriver) AND ([GrossLe" +
-                "gal] = @Original_GrossLegal) AND ([Gross] = @Original_Gross) AND ([Tare] = @Orig" +
-                "inal_Tare) AND ([Nett] = @Original_Nett) AND ((@IsNull_OverloadPoints = 1 AND [O" +
-                "verloadPoints] IS NULL) OR ([OverloadPoints] = @Original_OverloadPoints)) AND ((" +
-                "@IsNull_OverloadDesc = 1 AND [OverloadDesc] IS NULL) OR ([OverloadDesc] = @Origi" +
-                "nal_OverloadDesc)) AND ([WBMode] = @Original_WBMode) AND ([SalesPersonCode] = @O" +
-                "riginal_SalesPersonCode) AND ([SalesPerson] = @Original_SalesPerson) AND ([Comme" +
-                "nts] = @Original_Comments) AND ([CreatedDTTM] = @Original_CreatedDTTM) AND ((@Is" +
-                "Null_EnteredBy = 1 AND [EnteredBy] IS NULL) OR ([EnteredBy] = @Original_EnteredB" +
-                "y)) AND ((@IsNull_Workstation = 1 AND [Workstation] IS NULL) OR ([Workstation] =" +
-                " @Original_Workstation)) AND ((@IsNull_TIQID = 1 AND [TIQID] IS NULL) OR ([TIQID" +
-                "] = @Original_TIQID)))";
+                "ckRego] = @Original_TruckRego) AND ((@IsNull_RegA = 1 AND [RegA] IS NULL) OR ([R" +
+                "egA] = @Original_RegA)) AND ((@IsNull_RegB = 1 AND [RegB] IS NULL) OR ([RegB] = " +
+                "@Original_RegB)) AND ([TruckOwnerCode] = @Original_TruckOwnerCode) AND ([TruckOw" +
+                "ner] = @Original_TruckOwner) AND ([TruckConfig] = @Original_TruckConfig) AND ([T" +
+                "ruckConfigID] = @Original_TruckConfigID) AND ([TruckDriverID] = @Original_TruckD" +
+                "riverID) AND ([TruckDriver] = @Original_TruckDriver) AND ([GrossLegal] = @Origin" +
+                "al_GrossLegal) AND ([Gross] = @Original_Gross) AND ([Tare] = @Original_Tare) AND" +
+                " ([Nett] = @Original_Nett) AND ((@IsNull_OverloadPoints = 1 AND [OverloadPoints]" +
+                " IS NULL) OR ([OverloadPoints] = @Original_OverloadPoints)) AND ((@IsNull_Overlo" +
+                "adDesc = 1 AND [OverloadDesc] IS NULL) OR ([OverloadDesc] = @Original_OverloadDe" +
+                "sc)) AND ([WBMode] = @Original_WBMode) AND ([SalesPersonCode] = @Original_SalesP" +
+                "ersonCode) AND ([SalesPerson] = @Original_SalesPerson) AND ([Comments] = @Origin" +
+                "al_Comments) AND ([CreatedDTTM] = @Original_CreatedDTTM) AND ((@IsNull_EnteredBy" +
+                " = 1 AND [EnteredBy] IS NULL) OR ([EnteredBy] = @Original_EnteredBy)) AND ((@IsN" +
+                "ull_Workstation = 1 AND [Workstation] IS NULL) OR ([Workstation] = @Original_Wor" +
+                "kstation)) AND ((@IsNull_TIQID = 1 AND [TIQID] IS NULL) OR ([TIQID] = @Original_" +
+                "TIQID)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DocNum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DocNum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DocDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DocDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -12682,6 +12774,10 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MapRef", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MapRef", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Distance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Distance", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TruckRego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckRego", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RegA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RegA", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RegB", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegB", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RegB", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegB", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TruckOwnerCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckOwnerCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TruckOwner", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckOwner", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TruckConfig", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckConfig", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -12709,8 +12805,8 @@ namespace QWS_Local.dsTIQ2TableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TIQID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TIQID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [wbdockets] ([DocNum], [DocDate], [CardCode], [CardName], [PurchaseOrder], [SAPOrderDocNum], [CntCode], [ContactName], [ContactMobile], [DeliveryDate], [DeliveryAddress], [MapRef], [Distance], [TruckRego], [TruckOwnerCode], [TruckOwner], [TruckConfig], [TruckConfigID], [TruckDriverID], [TruckDriver], [GrossLegal], [Gross], [Tare], [Nett], [OverloadPoints], [OverloadDesc], [WBMode], [SalesPersonCode], [SalesPerson], [Comments], [CreatedDTTM], [EnteredBy], [Workstation], [TIQID]) VALUES (@DocNum, @DocDate, @CardCode, @CardName, @PurchaseOrder, @SAPOrderDocNum, @CntCode, @ContactName, @ContactMobile, @DeliveryDate, @DeliveryAddress, @MapRef, @Distance, @TruckRego, @TruckOwnerCode, @TruckOwner, @TruckConfig, @TruckConfigID, @TruckDriverID, @TruckDriver, @GrossLegal, @Gross, @Tare, @Nett, @OverloadPoints, @OverloadDesc, @WBMode, @SalesPersonCode, @SalesPerson, @Comments, @CreatedDTTM, @EnteredBy, @Workstation, @TIQID);
-SELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, SAPOrderDocNum, CntCode, ContactName, ContactMobile, DeliveryDate, DeliveryAddress, MapRef, Distance, TruckRego, TruckOwnerCode, TruckOwner, TruckConfig, TruckConfigID, TruckDriverID, TruckDriver, GrossLegal, Gross, Tare, Nett, OverloadPoints, OverloadDesc, WBMode, SalesPersonCode, SalesPerson, Comments, CreatedDTTM, EnteredBy, Workstation, TIQID FROM WBDockets AS t0 WHERE (DocNum = @DocNum)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [wbdockets] ([DocNum], [DocDate], [CardCode], [CardName], [PurchaseOrder], [SAPOrderDocNum], [CntCode], [ContactName], [ContactMobile], [DeliveryDate], [DeliveryAddress], [MapRef], [Distance], [TruckRego], [RegA], [RegB], [TruckOwnerCode], [TruckOwner], [TruckConfig], [TruckConfigID], [TruckDriverID], [TruckDriver], [GrossLegal], [Gross], [Tare], [Nett], [OverloadPoints], [OverloadDesc], [WBMode], [SalesPersonCode], [SalesPerson], [Comments], [CreatedDTTM], [EnteredBy], [Workstation], [TIQID]) VALUES (@DocNum, @DocDate, @CardCode, @CardName, @PurchaseOrder, @SAPOrderDocNum, @CntCode, @ContactName, @ContactMobile, @DeliveryDate, @DeliveryAddress, @MapRef, @Distance, @TruckRego, @RegA, @RegB, @TruckOwnerCode, @TruckOwner, @TruckConfig, @TruckConfigID, @TruckDriverID, @TruckDriver, @GrossLegal, @Gross, @Tare, @Nett, @OverloadPoints, @OverloadDesc, @WBMode, @SalesPersonCode, @SalesPerson, @Comments, @CreatedDTTM, @EnteredBy, @Workstation, @TIQID);
+SELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, SAPOrderDocNum, CntCode, ContactName, ContactMobile, DeliveryDate, DeliveryAddress, MapRef, Distance, TruckRego, RegA, RegB, TruckOwnerCode, TruckOwner, TruckConfig, TruckConfigID, TruckDriverID, TruckDriver, GrossLegal, Gross, Tare, Nett, OverloadPoints, OverloadDesc, WBMode, SalesPersonCode, SalesPerson, Comments, CreatedDTTM, EnteredBy, Workstation, TIQID FROM WBDockets AS t0 WHERE (DocNum = @DocNum)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DocNum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DocNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DocDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DocDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12726,6 +12822,8 @@ SELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, SAPOrderDocNum, CntCo
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MapRef", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MapRef", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Distance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Distance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckRego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckRego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegA", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegB", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegB", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckOwnerCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckOwnerCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckOwner", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckOwner", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckConfig", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckConfig", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12753,41 +12851,44 @@ SELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, SAPOrderDocNum, CntCo
                 "m] = @SAPOrderDocNum, [CntCode] = @CntCode, [ContactName] = @ContactName, [Conta" +
                 "ctMobile] = @ContactMobile, [DeliveryDate] = @DeliveryDate, [DeliveryAddress] = " +
                 "@DeliveryAddress, [MapRef] = @MapRef, [Distance] = @Distance, [TruckRego] = @Tru" +
-                "ckRego, [TruckOwnerCode] = @TruckOwnerCode, [TruckOwner] = @TruckOwner, [TruckCo" +
-                "nfig] = @TruckConfig, [TruckConfigID] = @TruckConfigID, [TruckDriverID] = @Truck" +
-                "DriverID, [TruckDriver] = @TruckDriver, [GrossLegal] = @GrossLegal, [Gross] = @G" +
-                "ross, [Tare] = @Tare, [Nett] = @Nett, [OverloadPoints] = @OverloadPoints, [Overl" +
-                "oadDesc] = @OverloadDesc, [WBMode] = @WBMode, [SalesPersonCode] = @SalesPersonCo" +
-                "de, [SalesPerson] = @SalesPerson, [Comments] = @Comments, [CreatedDTTM] = @Creat" +
-                "edDTTM, [EnteredBy] = @EnteredBy, [Workstation] = @Workstation, [TIQID] = @TIQID" +
-                " WHERE (([DocNum] = @Original_DocNum) AND ([DocDate] = @Original_DocDate) AND ([" +
-                "CardCode] = @Original_CardCode) AND ([CardName] = @Original_CardName) AND ([Purc" +
-                "haseOrder] = @Original_PurchaseOrder) AND ((@IsNull_SAPOrderDocNum = 1 AND [SAPO" +
-                "rderDocNum] IS NULL) OR ([SAPOrderDocNum] = @Original_SAPOrderDocNum)) AND ([Cnt" +
-                "Code] = @Original_CntCode) AND ([ContactName] = @Original_ContactName) AND ([Con" +
-                "tactMobile] = @Original_ContactMobile) AND ([DeliveryDate] = @Original_DeliveryD" +
-                "ate) AND ([DeliveryAddress] = @Original_DeliveryAddress) AND ([MapRef] = @Origin" +
-                "al_MapRef) AND ([Distance] = @Original_Distance) AND ([TruckRego] = @Original_Tr" +
-                "uckRego) AND ([TruckOwnerCode] = @Original_TruckOwnerCode) AND ([TruckOwner] = @" +
-                "Original_TruckOwner) AND ([TruckConfig] = @Original_TruckConfig) AND ([TruckConf" +
-                "igID] = @Original_TruckConfigID) AND ([TruckDriverID] = @Original_TruckDriverID)" +
-                " AND ([TruckDriver] = @Original_TruckDriver) AND ([GrossLegal] = @Original_Gross" +
-                "Legal) AND ([Gross] = @Original_Gross) AND ([Tare] = @Original_Tare) AND ([Nett]" +
-                " = @Original_Nett) AND ((@IsNull_OverloadPoints = 1 AND [OverloadPoints] IS NULL" +
-                ") OR ([OverloadPoints] = @Original_OverloadPoints)) AND ((@IsNull_OverloadDesc =" +
-                " 1 AND [OverloadDesc] IS NULL) OR ([OverloadDesc] = @Original_OverloadDesc)) AND" +
-                " ([WBMode] = @Original_WBMode) AND ([SalesPersonCode] = @Original_SalesPersonCod" +
-                "e) AND ([SalesPerson] = @Original_SalesPerson) AND ([Comments] = @Original_Comme" +
-                "nts) AND ([CreatedDTTM] = @Original_CreatedDTTM) AND ((@IsNull_EnteredBy = 1 AND" +
-                " [EnteredBy] IS NULL) OR ([EnteredBy] = @Original_EnteredBy)) AND ((@IsNull_Work" +
-                "station = 1 AND [Workstation] IS NULL) OR ([Workstation] = @Original_Workstation" +
-                ")) AND ((@IsNull_TIQID = 1 AND [TIQID] IS NULL) OR ([TIQID] = @Original_TIQID)))" +
-                ";\r\nSELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, SAPOrderDocNum, Cn" +
-                "tCode, ContactName, ContactMobile, DeliveryDate, DeliveryAddress, MapRef, Distan" +
-                "ce, TruckRego, TruckOwnerCode, TruckOwner, TruckConfig, TruckConfigID, TruckDriv" +
-                "erID, TruckDriver, GrossLegal, Gross, Tare, Nett, OverloadPoints, OverloadDesc, " +
-                "WBMode, SalesPersonCode, SalesPerson, Comments, CreatedDTTM, EnteredBy, Workstat" +
-                "ion, TIQID FROM WBDockets AS t0 WHERE (DocNum = @DocNum)";
+                "ckRego, [RegA] = @RegA, [RegB] = @RegB, [TruckOwnerCode] = @TruckOwnerCode, [Tru" +
+                "ckOwner] = @TruckOwner, [TruckConfig] = @TruckConfig, [TruckConfigID] = @TruckCo" +
+                "nfigID, [TruckDriverID] = @TruckDriverID, [TruckDriver] = @TruckDriver, [GrossLe" +
+                "gal] = @GrossLegal, [Gross] = @Gross, [Tare] = @Tare, [Nett] = @Nett, [OverloadP" +
+                "oints] = @OverloadPoints, [OverloadDesc] = @OverloadDesc, [WBMode] = @WBMode, [S" +
+                "alesPersonCode] = @SalesPersonCode, [SalesPerson] = @SalesPerson, [Comments] = @" +
+                "Comments, [CreatedDTTM] = @CreatedDTTM, [EnteredBy] = @EnteredBy, [Workstation] " +
+                "= @Workstation, [TIQID] = @TIQID WHERE (([DocNum] = @Original_DocNum) AND ([DocD" +
+                "ate] = @Original_DocDate) AND ([CardCode] = @Original_CardCode) AND ([CardName] " +
+                "= @Original_CardName) AND ([PurchaseOrder] = @Original_PurchaseOrder) AND ((@IsN" +
+                "ull_SAPOrderDocNum = 1 AND [SAPOrderDocNum] IS NULL) OR ([SAPOrderDocNum] = @Ori" +
+                "ginal_SAPOrderDocNum)) AND ([CntCode] = @Original_CntCode) AND ([ContactName] = " +
+                "@Original_ContactName) AND ([ContactMobile] = @Original_ContactMobile) AND ([Del" +
+                "iveryDate] = @Original_DeliveryDate) AND ([DeliveryAddress] = @Original_Delivery" +
+                "Address) AND ([MapRef] = @Original_MapRef) AND ([Distance] = @Original_Distance)" +
+                " AND ([TruckRego] = @Original_TruckRego) AND ((@IsNull_RegA = 1 AND [RegA] IS NU" +
+                "LL) OR ([RegA] = @Original_RegA)) AND ((@IsNull_RegB = 1 AND [RegB] IS NULL) OR " +
+                "([RegB] = @Original_RegB)) AND ([TruckOwnerCode] = @Original_TruckOwnerCode) AND" +
+                " ([TruckOwner] = @Original_TruckOwner) AND ([TruckConfig] = @Original_TruckConfi" +
+                "g) AND ([TruckConfigID] = @Original_TruckConfigID) AND ([TruckDriverID] = @Origi" +
+                "nal_TruckDriverID) AND ([TruckDriver] = @Original_TruckDriver) AND ([GrossLegal]" +
+                " = @Original_GrossLegal) AND ([Gross] = @Original_Gross) AND ([Tare] = @Original" +
+                "_Tare) AND ([Nett] = @Original_Nett) AND ((@IsNull_OverloadPoints = 1 AND [Overl" +
+                "oadPoints] IS NULL) OR ([OverloadPoints] = @Original_OverloadPoints)) AND ((@IsN" +
+                "ull_OverloadDesc = 1 AND [OverloadDesc] IS NULL) OR ([OverloadDesc] = @Original_" +
+                "OverloadDesc)) AND ([WBMode] = @Original_WBMode) AND ([SalesPersonCode] = @Origi" +
+                "nal_SalesPersonCode) AND ([SalesPerson] = @Original_SalesPerson) AND ([Comments]" +
+                " = @Original_Comments) AND ([CreatedDTTM] = @Original_CreatedDTTM) AND ((@IsNull" +
+                "_EnteredBy = 1 AND [EnteredBy] IS NULL) OR ([EnteredBy] = @Original_EnteredBy)) " +
+                "AND ((@IsNull_Workstation = 1 AND [Workstation] IS NULL) OR ([Workstation] = @Or" +
+                "iginal_Workstation)) AND ((@IsNull_TIQID = 1 AND [TIQID] IS NULL) OR ([TIQID] = " +
+                "@Original_TIQID)));\r\nSELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, " +
+                "SAPOrderDocNum, CntCode, ContactName, ContactMobile, DeliveryDate, DeliveryAddre" +
+                "ss, MapRef, Distance, TruckRego, RegA, RegB, TruckOwnerCode, TruckOwner, TruckCo" +
+                "nfig, TruckConfigID, TruckDriverID, TruckDriver, GrossLegal, Gross, Tare, Nett, " +
+                "OverloadPoints, OverloadDesc, WBMode, SalesPersonCode, SalesPerson, Comments, Cr" +
+                "eatedDTTM, EnteredBy, Workstation, TIQID FROM WBDockets AS t0 WHERE (DocNum = @D" +
+                "ocNum)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DocNum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DocNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DocDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DocDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12803,6 +12904,8 @@ SELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, SAPOrderDocNum, CntCo
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MapRef", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MapRef", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Distance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Distance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckRego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckRego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegA", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegB", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegB", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckOwnerCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckOwnerCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckOwner", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckOwner", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckConfig", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckConfig", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12838,6 +12941,10 @@ SELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, SAPOrderDocNum, CntCo
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MapRef", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MapRef", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Distance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Distance", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TruckRego", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckRego", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RegA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RegA", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RegB", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegB", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RegB", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegB", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TruckOwnerCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckOwnerCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TruckOwner", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckOwner", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TruckConfig", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TruckConfig", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -12882,7 +12989,7 @@ SELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, SAPOrderDocNum, CntCo
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "select *\r\nfrom wbdockets t0\r\nwhere docnum = @DocNum";
+            this._commandCollection[1].CommandText = @"SELECT CardCode, CardName, CntCode, Comments, ContactMobile, ContactName, CreatedDTTM, DeliveryAddress, DeliveryDate, Distance, DocDate, DocNum, EnteredBy, Gross, GrossLegal, MapRef, Nett, OverloadDesc, OverloadPoints, PurchaseOrder, RegA, RegB, SAPOrderDocNum, SalesPerson, SalesPersonCode, TIQID, Tare, TruckConfig, TruckConfigID, TruckDriver, TruckDriverID, TruckOwner, TruckOwnerCode, TruckRego, WBMode, Workstation FROM WBDockets AS t0 WHERE (DocNum = @DocNum)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DocNum", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "DocNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -12985,6 +13092,8 @@ SELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, SAPOrderDocNum, CntCo
                     string Original_MapRef, 
                     int Original_Distance, 
                     string Original_TruckRego, 
+                    string Original_RegA, 
+                    string Original_RegB, 
                     string Original_TruckOwnerCode, 
                     string Original_TruckOwner, 
                     string Original_TruckConfig, 
@@ -13066,95 +13175,111 @@ SELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, SAPOrderDocNum, CntCo
             else {
                 this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_TruckRego));
             }
+            if ((Original_RegA == null)) {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_RegA));
+            }
+            if ((Original_RegB == null)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_RegB));
+            }
             if ((Original_TruckOwnerCode == null)) {
                 throw new global::System.ArgumentNullException("Original_TruckOwnerCode");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_TruckOwnerCode));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_TruckOwnerCode));
             }
             if ((Original_TruckOwner == null)) {
                 throw new global::System.ArgumentNullException("Original_TruckOwner");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_TruckOwner));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_TruckOwner));
             }
             if ((Original_TruckConfig == null)) {
                 throw new global::System.ArgumentNullException("Original_TruckConfig");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_TruckConfig));
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_TruckConfig));
             }
-            this.Adapter.DeleteCommand.Parameters[18].Value = ((int)(Original_TruckConfigID));
-            this.Adapter.DeleteCommand.Parameters[19].Value = ((int)(Original_TruckDriverID));
+            this.Adapter.DeleteCommand.Parameters[22].Value = ((int)(Original_TruckConfigID));
+            this.Adapter.DeleteCommand.Parameters[23].Value = ((int)(Original_TruckDriverID));
             if ((Original_TruckDriver == null)) {
                 throw new global::System.ArgumentNullException("Original_TruckDriver");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_TruckDriver));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((string)(Original_TruckDriver));
             }
-            this.Adapter.DeleteCommand.Parameters[21].Value = ((decimal)(Original_GrossLegal));
-            this.Adapter.DeleteCommand.Parameters[22].Value = ((decimal)(Original_Gross));
-            this.Adapter.DeleteCommand.Parameters[23].Value = ((decimal)(Original_Tare));
-            this.Adapter.DeleteCommand.Parameters[24].Value = ((decimal)(Original_Nett));
+            this.Adapter.DeleteCommand.Parameters[25].Value = ((decimal)(Original_GrossLegal));
+            this.Adapter.DeleteCommand.Parameters[26].Value = ((decimal)(Original_Gross));
+            this.Adapter.DeleteCommand.Parameters[27].Value = ((decimal)(Original_Tare));
+            this.Adapter.DeleteCommand.Parameters[28].Value = ((decimal)(Original_Nett));
             if ((Original_OverloadPoints.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((int)(Original_OverloadPoints.Value));
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((int)(Original_OverloadPoints.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             if ((Original_OverloadDesc == null)) {
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((string)(Original_OverloadDesc));
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((string)(Original_OverloadDesc));
             }
             if ((Original_WBMode == null)) {
                 throw new global::System.ArgumentNullException("Original_WBMode");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[29].Value = ((string)(Original_WBMode));
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((string)(Original_WBMode));
             }
-            this.Adapter.DeleteCommand.Parameters[30].Value = ((int)(Original_SalesPersonCode));
+            this.Adapter.DeleteCommand.Parameters[34].Value = ((int)(Original_SalesPersonCode));
             if ((Original_SalesPerson == null)) {
                 throw new global::System.ArgumentNullException("Original_SalesPerson");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[31].Value = ((string)(Original_SalesPerson));
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((string)(Original_SalesPerson));
             }
             if ((Original_Comments == null)) {
                 throw new global::System.ArgumentNullException("Original_Comments");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[32].Value = ((string)(Original_Comments));
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((string)(Original_Comments));
             }
-            this.Adapter.DeleteCommand.Parameters[33].Value = ((System.DateTime)(Original_CreatedDTTM));
+            this.Adapter.DeleteCommand.Parameters[37].Value = ((System.DateTime)(Original_CreatedDTTM));
             if ((Original_EnteredBy == null)) {
-                this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[35].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[35].Value = ((string)(Original_EnteredBy));
-            }
-            if ((Original_Workstation == null)) {
-                this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[37].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[37].Value = ((string)(Original_Workstation));
-            }
-            if ((Original_TIQID.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[38].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[39].Value = ((int)(Original_TIQID.Value));
-            }
-            else {
                 this.Adapter.DeleteCommand.Parameters[38].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[39].Value = ((string)(Original_EnteredBy));
+            }
+            if ((Original_Workstation == null)) {
+                this.Adapter.DeleteCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[41].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[41].Value = ((string)(Original_Workstation));
+            }
+            if ((Original_TIQID.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[42].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[43].Value = ((int)(Original_TIQID.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[42].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[43].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -13191,6 +13316,8 @@ SELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, SAPOrderDocNum, CntCo
                     string MapRef, 
                     int Distance, 
                     string TruckRego, 
+                    string RegA, 
+                    string RegB, 
                     string TruckOwnerCode, 
                     string TruckOwner, 
                     string TruckConfig, 
@@ -13270,85 +13397,97 @@ SELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, SAPOrderDocNum, CntCo
             else {
                 this.Adapter.InsertCommand.Parameters[13].Value = ((string)(TruckRego));
             }
+            if ((RegA == null)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(RegA));
+            }
+            if ((RegB == null)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(RegB));
+            }
             if ((TruckOwnerCode == null)) {
                 throw new global::System.ArgumentNullException("TruckOwnerCode");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(TruckOwnerCode));
+                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(TruckOwnerCode));
             }
             if ((TruckOwner == null)) {
                 throw new global::System.ArgumentNullException("TruckOwner");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(TruckOwner));
+                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(TruckOwner));
             }
             if ((TruckConfig == null)) {
                 throw new global::System.ArgumentNullException("TruckConfig");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(TruckConfig));
+                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(TruckConfig));
             }
-            this.Adapter.InsertCommand.Parameters[17].Value = ((int)(TruckConfigID));
-            this.Adapter.InsertCommand.Parameters[18].Value = ((int)(TruckDriverID));
+            this.Adapter.InsertCommand.Parameters[19].Value = ((int)(TruckConfigID));
+            this.Adapter.InsertCommand.Parameters[20].Value = ((int)(TruckDriverID));
             if ((TruckDriver == null)) {
                 throw new global::System.ArgumentNullException("TruckDriver");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(TruckDriver));
+                this.Adapter.InsertCommand.Parameters[21].Value = ((string)(TruckDriver));
             }
-            this.Adapter.InsertCommand.Parameters[20].Value = ((decimal)(GrossLegal));
-            this.Adapter.InsertCommand.Parameters[21].Value = ((decimal)(Gross));
-            this.Adapter.InsertCommand.Parameters[22].Value = ((decimal)(Tare));
-            this.Adapter.InsertCommand.Parameters[23].Value = ((decimal)(Nett));
+            this.Adapter.InsertCommand.Parameters[22].Value = ((decimal)(GrossLegal));
+            this.Adapter.InsertCommand.Parameters[23].Value = ((decimal)(Gross));
+            this.Adapter.InsertCommand.Parameters[24].Value = ((decimal)(Tare));
+            this.Adapter.InsertCommand.Parameters[25].Value = ((decimal)(Nett));
             if ((OverloadPoints.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[24].Value = ((int)(OverloadPoints.Value));
+                this.Adapter.InsertCommand.Parameters[26].Value = ((int)(OverloadPoints.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[24].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             if ((OverloadDesc == null)) {
-                this.Adapter.InsertCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[25].Value = ((string)(OverloadDesc));
+                this.Adapter.InsertCommand.Parameters[27].Value = ((string)(OverloadDesc));
             }
             if ((WBMode == null)) {
                 throw new global::System.ArgumentNullException("WBMode");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[26].Value = ((string)(WBMode));
+                this.Adapter.InsertCommand.Parameters[28].Value = ((string)(WBMode));
             }
-            this.Adapter.InsertCommand.Parameters[27].Value = ((int)(SalesPersonCode));
+            this.Adapter.InsertCommand.Parameters[29].Value = ((int)(SalesPersonCode));
             if ((SalesPerson == null)) {
                 throw new global::System.ArgumentNullException("SalesPerson");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[28].Value = ((string)(SalesPerson));
+                this.Adapter.InsertCommand.Parameters[30].Value = ((string)(SalesPerson));
             }
             if ((Comments == null)) {
                 throw new global::System.ArgumentNullException("Comments");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[29].Value = ((string)(Comments));
+                this.Adapter.InsertCommand.Parameters[31].Value = ((string)(Comments));
             }
-            this.Adapter.InsertCommand.Parameters[30].Value = ((System.DateTime)(CreatedDTTM));
+            this.Adapter.InsertCommand.Parameters[32].Value = ((System.DateTime)(CreatedDTTM));
             if ((EnteredBy == null)) {
-                this.Adapter.InsertCommand.Parameters[31].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[31].Value = ((string)(EnteredBy));
+                this.Adapter.InsertCommand.Parameters[33].Value = ((string)(EnteredBy));
             }
             if ((Workstation == null)) {
-                this.Adapter.InsertCommand.Parameters[32].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[32].Value = ((string)(Workstation));
+                this.Adapter.InsertCommand.Parameters[34].Value = ((string)(Workstation));
             }
             if ((TIQID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[33].Value = ((int)(TIQID.Value));
+                this.Adapter.InsertCommand.Parameters[35].Value = ((int)(TIQID.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[33].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[35].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -13385,6 +13524,8 @@ SELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, SAPOrderDocNum, CntCo
                     string MapRef, 
                     int Distance, 
                     string TruckRego, 
+                    string RegA, 
+                    string RegB, 
                     string TruckOwnerCode, 
                     string TruckOwner, 
                     string TruckConfig, 
@@ -13419,6 +13560,8 @@ SELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, SAPOrderDocNum, CntCo
                     string Original_MapRef, 
                     int Original_Distance, 
                     string Original_TruckRego, 
+                    string Original_RegA, 
+                    string Original_RegB, 
                     string Original_TruckOwnerCode, 
                     string Original_TruckOwner, 
                     string Original_TruckConfig, 
@@ -13498,236 +13641,264 @@ SELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, SAPOrderDocNum, CntCo
             else {
                 this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(TruckRego));
             }
+            if ((RegA == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(RegA));
+            }
+            if ((RegB == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(RegB));
+            }
             if ((TruckOwnerCode == null)) {
                 throw new global::System.ArgumentNullException("TruckOwnerCode");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(TruckOwnerCode));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(TruckOwnerCode));
             }
             if ((TruckOwner == null)) {
                 throw new global::System.ArgumentNullException("TruckOwner");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(TruckOwner));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(TruckOwner));
             }
             if ((TruckConfig == null)) {
                 throw new global::System.ArgumentNullException("TruckConfig");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(TruckConfig));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(TruckConfig));
             }
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(TruckConfigID));
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(TruckDriverID));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(TruckConfigID));
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(TruckDriverID));
             if ((TruckDriver == null)) {
                 throw new global::System.ArgumentNullException("TruckDriver");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(TruckDriver));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(TruckDriver));
             }
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(GrossLegal));
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(Gross));
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((decimal)(Tare));
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((decimal)(Nett));
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((decimal)(GrossLegal));
+            this.Adapter.UpdateCommand.Parameters[23].Value = ((decimal)(Gross));
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((decimal)(Tare));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((decimal)(Nett));
             if ((OverloadPoints.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(OverloadPoints.Value));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(OverloadPoints.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             if ((OverloadDesc == null)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(OverloadDesc));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(OverloadDesc));
             }
             if ((WBMode == null)) {
                 throw new global::System.ArgumentNullException("WBMode");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(WBMode));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(WBMode));
             }
-            this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(SalesPersonCode));
+            this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(SalesPersonCode));
             if ((SalesPerson == null)) {
                 throw new global::System.ArgumentNullException("SalesPerson");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(SalesPerson));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(SalesPerson));
             }
             if ((Comments == null)) {
                 throw new global::System.ArgumentNullException("Comments");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Comments));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Comments));
             }
-            this.Adapter.UpdateCommand.Parameters[30].Value = ((System.DateTime)(CreatedDTTM));
+            this.Adapter.UpdateCommand.Parameters[32].Value = ((System.DateTime)(CreatedDTTM));
             if ((EnteredBy == null)) {
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(EnteredBy));
-            }
-            if ((Workstation == null)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Workstation));
-            }
-            if ((TIQID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(TIQID.Value));
-            }
-            else {
                 this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(Original_DocNum));
-            this.Adapter.UpdateCommand.Parameters[35].Value = ((System.DateTime)(Original_DocDate));
+            else {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(EnteredBy));
+            }
+            if ((Workstation == null)) {
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Workstation));
+            }
+            if ((TIQID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(TIQID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(Original_DocNum));
+            this.Adapter.UpdateCommand.Parameters[37].Value = ((System.DateTime)(Original_DocDate));
             if ((Original_CardCode == null)) {
                 throw new global::System.ArgumentNullException("Original_CardCode");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_CardCode));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_CardCode));
             }
             if ((Original_CardName == null)) {
                 throw new global::System.ArgumentNullException("Original_CardName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_CardName));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_CardName));
             }
             if ((Original_PurchaseOrder == null)) {
                 throw new global::System.ArgumentNullException("Original_PurchaseOrder");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_PurchaseOrder));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_PurchaseOrder));
             }
             if ((Original_SAPOrderDocNum.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((int)(Original_SAPOrderDocNum.Value));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((int)(Original_SAPOrderDocNum.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[41].Value = ((int)(Original_CntCode));
+            this.Adapter.UpdateCommand.Parameters[43].Value = ((int)(Original_CntCode));
             if ((Original_ContactName == null)) {
                 throw new global::System.ArgumentNullException("Original_ContactName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_ContactName));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_ContactName));
             }
             if ((Original_ContactMobile == null)) {
                 throw new global::System.ArgumentNullException("Original_ContactMobile");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_ContactMobile));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(Original_ContactMobile));
             }
-            this.Adapter.UpdateCommand.Parameters[44].Value = ((System.DateTime)(Original_DeliveryDate));
+            this.Adapter.UpdateCommand.Parameters[46].Value = ((System.DateTime)(Original_DeliveryDate));
             if ((Original_DeliveryAddress == null)) {
                 throw new global::System.ArgumentNullException("Original_DeliveryAddress");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(Original_DeliveryAddress));
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(Original_DeliveryAddress));
             }
             if ((Original_MapRef == null)) {
                 throw new global::System.ArgumentNullException("Original_MapRef");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Original_MapRef));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_MapRef));
             }
-            this.Adapter.UpdateCommand.Parameters[47].Value = ((int)(Original_Distance));
+            this.Adapter.UpdateCommand.Parameters[49].Value = ((int)(Original_Distance));
             if ((Original_TruckRego == null)) {
                 throw new global::System.ArgumentNullException("Original_TruckRego");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_TruckRego));
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((string)(Original_TruckRego));
+            }
+            if ((Original_RegA == null)) {
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[52].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((string)(Original_RegA));
+            }
+            if ((Original_RegB == null)) {
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[54].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((string)(Original_RegB));
             }
             if ((Original_TruckOwnerCode == null)) {
                 throw new global::System.ArgumentNullException("Original_TruckOwnerCode");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((string)(Original_TruckOwnerCode));
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((string)(Original_TruckOwnerCode));
             }
             if ((Original_TruckOwner == null)) {
                 throw new global::System.ArgumentNullException("Original_TruckOwner");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((string)(Original_TruckOwner));
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((string)(Original_TruckOwner));
             }
             if ((Original_TruckConfig == null)) {
                 throw new global::System.ArgumentNullException("Original_TruckConfig");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((string)(Original_TruckConfig));
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((string)(Original_TruckConfig));
             }
-            this.Adapter.UpdateCommand.Parameters[52].Value = ((int)(Original_TruckConfigID));
-            this.Adapter.UpdateCommand.Parameters[53].Value = ((int)(Original_TruckDriverID));
+            this.Adapter.UpdateCommand.Parameters[58].Value = ((int)(Original_TruckConfigID));
+            this.Adapter.UpdateCommand.Parameters[59].Value = ((int)(Original_TruckDriverID));
             if ((Original_TruckDriver == null)) {
                 throw new global::System.ArgumentNullException("Original_TruckDriver");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((string)(Original_TruckDriver));
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((string)(Original_TruckDriver));
             }
-            this.Adapter.UpdateCommand.Parameters[55].Value = ((decimal)(Original_GrossLegal));
-            this.Adapter.UpdateCommand.Parameters[56].Value = ((decimal)(Original_Gross));
-            this.Adapter.UpdateCommand.Parameters[57].Value = ((decimal)(Original_Tare));
-            this.Adapter.UpdateCommand.Parameters[58].Value = ((decimal)(Original_Nett));
+            this.Adapter.UpdateCommand.Parameters[61].Value = ((decimal)(Original_GrossLegal));
+            this.Adapter.UpdateCommand.Parameters[62].Value = ((decimal)(Original_Gross));
+            this.Adapter.UpdateCommand.Parameters[63].Value = ((decimal)(Original_Tare));
+            this.Adapter.UpdateCommand.Parameters[64].Value = ((decimal)(Original_Nett));
             if ((Original_OverloadPoints.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[60].Value = ((int)(Original_OverloadPoints.Value));
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((int)(Original_OverloadPoints.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[60].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[66].Value = global::System.DBNull.Value;
             }
             if ((Original_OverloadDesc == null)) {
-                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[62].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[68].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((string)(Original_OverloadDesc));
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((string)(Original_OverloadDesc));
             }
             if ((Original_WBMode == null)) {
                 throw new global::System.ArgumentNullException("Original_WBMode");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[63].Value = ((string)(Original_WBMode));
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((string)(Original_WBMode));
             }
-            this.Adapter.UpdateCommand.Parameters[64].Value = ((int)(Original_SalesPersonCode));
+            this.Adapter.UpdateCommand.Parameters[70].Value = ((int)(Original_SalesPersonCode));
             if ((Original_SalesPerson == null)) {
                 throw new global::System.ArgumentNullException("Original_SalesPerson");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[65].Value = ((string)(Original_SalesPerson));
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((string)(Original_SalesPerson));
             }
             if ((Original_Comments == null)) {
                 throw new global::System.ArgumentNullException("Original_Comments");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[66].Value = ((string)(Original_Comments));
+                this.Adapter.UpdateCommand.Parameters[72].Value = ((string)(Original_Comments));
             }
-            this.Adapter.UpdateCommand.Parameters[67].Value = ((System.DateTime)(Original_CreatedDTTM));
+            this.Adapter.UpdateCommand.Parameters[73].Value = ((System.DateTime)(Original_CreatedDTTM));
             if ((Original_EnteredBy == null)) {
-                this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[69].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[74].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[75].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[69].Value = ((string)(Original_EnteredBy));
+                this.Adapter.UpdateCommand.Parameters[74].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[75].Value = ((string)(Original_EnteredBy));
             }
             if ((Original_Workstation == null)) {
-                this.Adapter.UpdateCommand.Parameters[70].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[71].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[76].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[77].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[70].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[71].Value = ((string)(Original_Workstation));
+                this.Adapter.UpdateCommand.Parameters[76].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[77].Value = ((string)(Original_Workstation));
             }
             if ((Original_TIQID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[72].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[73].Value = ((int)(Original_TIQID.Value));
+                this.Adapter.UpdateCommand.Parameters[78].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[79].Value = ((int)(Original_TIQID.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[72].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[73].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[78].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[79].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -13763,6 +13934,8 @@ SELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, SAPOrderDocNum, CntCo
                     string MapRef, 
                     int Distance, 
                     string TruckRego, 
+                    string RegA, 
+                    string RegB, 
                     string TruckOwnerCode, 
                     string TruckOwner, 
                     string TruckConfig, 
@@ -13797,6 +13970,8 @@ SELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, SAPOrderDocNum, CntCo
                     string Original_MapRef, 
                     int Original_Distance, 
                     string Original_TruckRego, 
+                    string Original_RegA, 
+                    string Original_RegB, 
                     string Original_TruckOwnerCode, 
                     string Original_TruckOwner, 
                     string Original_TruckConfig, 
@@ -13817,7 +13992,7 @@ SELECT DocNum, DocDate, CardCode, CardName, PurchaseOrder, SAPOrderDocNum, CntCo
                     string Original_EnteredBy, 
                     string Original_Workstation, 
                     global::System.Nullable<int> Original_TIQID) {
-            return this.Update(Original_DocNum, DocDate, CardCode, CardName, PurchaseOrder, SAPOrderDocNum, CntCode, ContactName, ContactMobile, DeliveryDate, DeliveryAddress, MapRef, Distance, TruckRego, TruckOwnerCode, TruckOwner, TruckConfig, TruckConfigID, TruckDriverID, TruckDriver, GrossLegal, Gross, Tare, Nett, OverloadPoints, OverloadDesc, WBMode, SalesPersonCode, SalesPerson, Comments, CreatedDTTM, EnteredBy, Workstation, TIQID, Original_DocNum, Original_DocDate, Original_CardCode, Original_CardName, Original_PurchaseOrder, Original_SAPOrderDocNum, Original_CntCode, Original_ContactName, Original_ContactMobile, Original_DeliveryDate, Original_DeliveryAddress, Original_MapRef, Original_Distance, Original_TruckRego, Original_TruckOwnerCode, Original_TruckOwner, Original_TruckConfig, Original_TruckConfigID, Original_TruckDriverID, Original_TruckDriver, Original_GrossLegal, Original_Gross, Original_Tare, Original_Nett, Original_OverloadPoints, Original_OverloadDesc, Original_WBMode, Original_SalesPersonCode, Original_SalesPerson, Original_Comments, Original_CreatedDTTM, Original_EnteredBy, Original_Workstation, Original_TIQID);
+            return this.Update(Original_DocNum, DocDate, CardCode, CardName, PurchaseOrder, SAPOrderDocNum, CntCode, ContactName, ContactMobile, DeliveryDate, DeliveryAddress, MapRef, Distance, TruckRego, RegA, RegB, TruckOwnerCode, TruckOwner, TruckConfig, TruckConfigID, TruckDriverID, TruckDriver, GrossLegal, Gross, Tare, Nett, OverloadPoints, OverloadDesc, WBMode, SalesPersonCode, SalesPerson, Comments, CreatedDTTM, EnteredBy, Workstation, TIQID, Original_DocNum, Original_DocDate, Original_CardCode, Original_CardName, Original_PurchaseOrder, Original_SAPOrderDocNum, Original_CntCode, Original_ContactName, Original_ContactMobile, Original_DeliveryDate, Original_DeliveryAddress, Original_MapRef, Original_Distance, Original_TruckRego, Original_RegA, Original_RegB, Original_TruckOwnerCode, Original_TruckOwner, Original_TruckConfig, Original_TruckConfigID, Original_TruckDriverID, Original_TruckDriver, Original_GrossLegal, Original_Gross, Original_Tare, Original_Nett, Original_OverloadPoints, Original_OverloadDesc, Original_WBMode, Original_SalesPersonCode, Original_SalesPerson, Original_Comments, Original_CreatedDTTM, Original_EnteredBy, Original_Workstation, Original_TIQID);
         }
     }
     
