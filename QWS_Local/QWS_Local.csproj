@@ -355,6 +355,12 @@
     <Compile Include="TrucksInQuarryAudit.Designer.cs">
       <DependentUpon>TrucksInQuarryAudit.cs</DependentUpon>
     </Compile>
+    <Compile Include="WBOConfirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WBOConfirmation.Designer.cs">
+      <DependentUpon>WBOConfirmation.cs</DependentUpon>
+    </Compile>
     <Compile Include="WeighbridgeRead.cs" />
     <Compile Include="NHVR_GVM.cs">
       <SubType>Form</SubType>
@@ -589,6 +595,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VehicleMaintenance.resx">
       <DependentUpon>VehicleMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WBOConfirmation.resx">
+      <DependentUpon>WBOConfirmation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WeighTruck.resx">
       <DependentUpon>WeighTruck.cs</DependentUpon>

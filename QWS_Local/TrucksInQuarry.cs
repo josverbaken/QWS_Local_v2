@@ -360,7 +360,13 @@ namespace QWS_Local
                                     decimal myNett = myTIQRow.Gross - myWeight;
                                     if (myNett < Properties.Settings.Default.MinimumMaterial)
                                     {
-                                        MessageBox.Show("Under loaded!");
+                                        DialogResult dr1 = MessageBox.Show("Under loaded!","Confirm Short Load Fee",MessageBoxButtons.YesNo,MessageBoxIcon.Stop);
+                                        if (dr1 == DialogResult.No)
+                                        {
+                                            // TODO write audit for both Yes and No
+                                            // TODO is this relevant for Imported materials??
+                                            break;
+                                        }
                                     }
 
                                     if (myTIQRow.Tare == 0.00M)

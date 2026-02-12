@@ -68,16 +68,26 @@ namespace QWS_Local
             else if (myRow.Nett < 8.0M)
             {
                 string msg1 = "Did the customer understand and accept that they will be charged a short load fee";
-                DialogResult dr1 = MessageBox.Show(msg1, "Confirm Short load Fee.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dr1 == DialogResult.Yes)
-                {
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
-                else
-                {
-                    PostDocketCancel();
-                }
+                //DialogResult dr1 = MessageBox.Show(msg1, "Confirm Short load Fee.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                // TODO slow down WBO perhaps generate random PIN
+                //if (dr1 == DialogResult.Yes)
+                //{
+                    WBOConfirmation frmWBOConfirmation = new WBOConfirmation(msg1);
+                    DialogResult dr2 = frmWBOConfirmation.ShowDialog();
+                    if (dr2 == DialogResult.OK)
+                    {
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        PostDocketCancel();
+                    }
+                //}
+                //else
+                //{
+                  //  PostDocketCancel();
+                //}
             }
 
             else if (UnderloadAmount > 1.0M && SplitLoad == false)
@@ -143,8 +153,23 @@ namespace QWS_Local
             {
                 txtNett.BackColor = Color.PaleGreen;
             }
-            // Show time in quarry
-            txtTurnaroundTime.Visible = false; // TODO on hold pending approval from Sarah
+
+            // TODO after loading is complete
+            //if (myRow.Nett < 8.0M)
+            //{
+            //    string msg1 = "Did the customer understand and accept that they will be charged a short load fee\r\nTo proceed, enter the PIN shown into the box below:";
+            //    DialogResult dr1 = MessageBox.Show(msg1, "Confirm Short load Fee.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //    // TODO slow down WBO perhaps generate random PIN
+            //    if (dr1 == DialogResult.Yes)
+            //    {
+            //        this.DialogResult = DialogResult.OK;
+            //        this.Close();
+            //    }
+            //}
+
+
+                // Show time in quarry
+                txtTurnaroundTime.Visible = false; // TODO on hold pending approval from Sarah
             // Sarah suggests variable starting time, I think this might be confusing
             // she says WBO needs time since last interaction to prompt contact if truck off grid too long
             double TimeInQuarry = 0;
