@@ -451,6 +451,9 @@ namespace QWS_Local
                                     MessageBox.Show("Weighing cancelled!");
                                 }
                                 break;
+                            case "C":
+                                MessageBox.Show("Please resolve AC status issue.", "Account Status Issue.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                break;
                             case "S":
                                 MessageBox.Show("Please process truck first!", "Split Load", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 break;
