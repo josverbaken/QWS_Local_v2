@@ -648,7 +648,7 @@ namespace QWS_Local
 
         private void GoToBookInMaterial()
         {
-            if (_TIQRow.TruckConfig == "TT")
+            if (_TIQRow.TruckConfig == "TT"|| _TIQRow.TruckConfig == "BD")
                 {
                     gbSplitLoad.Enabled = true;
                 }
@@ -1040,7 +1040,7 @@ namespace QWS_Local
             if (rbTnT.Checked == true)
             {
                 btnContinue.Enabled = true;
-                _TIQRow.TruckConfig = "TT";
+                //_TIQRow.TruckConfig = "TT"; // 20260216 leave as is TT or DB
                 _TIQRow.QueueStatus = "Q";
                 bsTIQ.EndEdit();
             }
@@ -1051,7 +1051,14 @@ namespace QWS_Local
             if (rbSplitLoad.Checked == true)
             {
                 btnContinue.Enabled = true;
-                _TIQRow.TruckConfig = "TKs";
+                if (_TIQRow.TruckConfig == "TT")
+                {
+                    _TIQRow.TruckConfig = "TKs";
+                }
+                else if (_TIQRow.TruckConfig == "BD")
+                {
+                    _TIQRow.TruckConfig = "BDa";
+                }
                 //IQRow.QueueStatus = "Q";
                 bsTIQ.EndEdit();
             }

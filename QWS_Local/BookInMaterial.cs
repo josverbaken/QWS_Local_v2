@@ -120,6 +120,7 @@ namespace QWS_Local
         private void BookInMaterial_Load(object sender, EventArgs e)
         {
             gbCartageRate.Visible = false;
+            btnBookIn.Enabled = false;
             LoadConfiguredTruckGVM(TruckConfigID);
             switch (FormTIQType)
             {
@@ -554,6 +555,7 @@ namespace QWS_Local
                 _TIQRow.GVMTruck = myTruckGVM.GVMTruck;
                 bsTIQ2.EndEdit();
                 tabControl2.SelectedTab = tpPayload;
+                btnBookIn.Enabled = true;
                 CalcPayload();
                 SetSplitLoadGUI(_TIQRow.TruckConfig);
             }
@@ -611,7 +613,19 @@ namespace QWS_Local
 
         private void btnBookIn_Click(object sender, EventArgs e)
         {
-            AddMaterial2TIQ();
+            CheckMaterial2BookIn();
+        }
+
+        private void CheckMaterial2BookIn()
+        {
+            if (_TIQRow.MaterialDesc == "tba")
+            {
+                MessageBox.Show("Please select material to load!", "Material tba", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                AddMaterial2TIQ();
+            }
         }
 
         private void AddMaterial2TIQ()
