@@ -285,7 +285,7 @@ namespace QWS_Local
                         //TrailerAxleConfig = CombinationAxleConfig.Substring(iBreak, CombinationAxleConfig.Length - iBreak); //keep R or A
                         TrailerAxleConfig = AxleConfig.Substring(iBreak, AxleConfig.Length - iBreak); //keep R or A
                         string Trailer = "";
-                        VehicleSearch frmVehicleSearch = new VehicleSearch(myVehicle.CardCode, TrailerAxleConfig, true);
+                        VehicleSearch frmVehicleSearch = new VehicleSearch(myVehicle.CardCode, TrailerAxleConfig, false); // true);
                         DialogResult dr = frmVehicleSearch.ShowDialog();
                         if (dr == DialogResult.OK)
                         {

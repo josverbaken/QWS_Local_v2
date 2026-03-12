@@ -81,7 +81,7 @@ namespace QWS_Local
                 }
             }
 
-            else if (UnderloadAmount > 1.0M && SplitLoad == false)
+            else if (UnderloadAmount > 1.0M && SplitLoad == false && myRow.QueueStatus == "Q")
             {
                 string msg = "Vehicle underloaded! Did the driver choose to collect more material?";
                 DialogResult dialogResult = MessageBox.Show(msg, "Underload Check", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

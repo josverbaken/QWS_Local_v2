@@ -64,6 +64,8 @@ namespace QWS_Local
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
             this.vehicleDataGridView = new System.Windows.Forms.DataGridView();
+            this.bsVehicleDetails2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
             this.tpDetails = new System.Windows.Forms.TabPage();
             this.createDTTMDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.activeCheckBox = new System.Windows.Forms.CheckBox();
@@ -83,14 +85,13 @@ namespace QWS_Local
             this.cardCodeTextBox = new System.Windows.Forms.TextBox();
             this.vINTextBox = new System.Windows.Forms.TextBox();
             this.regoTextBox = new System.Windows.Forms.TextBox();
-            this.bsVehicleDetails2 = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
             this.taVehicleDetails2 = new QWS_Local.dsQWSLocal2024TableAdapters.VehicleDetailsTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
             this.txtboxcolumnRego = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TruckOwner = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Schematic = new System.Windows.Forms.DataGridViewImageColumn();
             this.FeeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AxleConfiguration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             regoLabel = new System.Windows.Forms.Label();
             vINLabel = new System.Windows.Forms.Label();
             cardCodeLabel = new System.Windows.Forms.Label();
@@ -117,9 +118,9 @@ namespace QWS_Local
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDataGridView)).BeginInit();
-            this.tpDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
+            this.tpDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // regoLabel
@@ -466,7 +467,8 @@ namespace QWS_Local
             this.txtboxcolumnRego,
             this.TruckOwner,
             this.Schematic,
-            this.FeeCode});
+            this.FeeCode,
+            this.AxleConfiguration});
             this.vehicleDataGridView.DataSource = this.bsVehicleDetails2;
             this.vehicleDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.vehicleDataGridView.Location = new System.Drawing.Point(3, 3);
@@ -475,6 +477,16 @@ namespace QWS_Local
             this.vehicleDataGridView.RowTemplate.Height = 150;
             this.vehicleDataGridView.Size = new System.Drawing.Size(1050, 586);
             this.vehicleDataGridView.TabIndex = 0;
+            // 
+            // bsVehicleDetails2
+            // 
+            this.bsVehicleDetails2.DataMember = "VehicleDetails";
+            this.bsVehicleDetails2.DataSource = this.dsQWSLocal2024;
+            // 
+            // dsQWSLocal2024
+            // 
+            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
+            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tpDetails
             // 
@@ -514,10 +526,10 @@ namespace QWS_Local
             this.tpDetails.Controls.Add(this.vINTextBox);
             this.tpDetails.Controls.Add(regoLabel);
             this.tpDetails.Controls.Add(this.regoTextBox);
-            this.tpDetails.Location = new System.Drawing.Point(4, 27);
+            this.tpDetails.Location = new System.Drawing.Point(4, 22);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(1056, 592);
+            this.tpDetails.Size = new System.Drawing.Size(1056, 597);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -670,16 +682,6 @@ namespace QWS_Local
             this.regoTextBox.Size = new System.Drawing.Size(100, 24);
             this.regoTextBox.TabIndex = 1;
             // 
-            // bsVehicleDetails2
-            // 
-            this.bsVehicleDetails2.DataMember = "VehicleDetails";
-            this.bsVehicleDetails2.DataSource = this.dsQWSLocal2024;
-            // 
-            // dsQWSLocal2024
-            // 
-            this.dsQWSLocal2024.DataSetName = "dsQWSLocal2024";
-            this.dsQWSLocal2024.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // taVehicleDetails2
             // 
             this.taVehicleDetails2.ClearBeforeFill = true;
@@ -726,6 +728,13 @@ namespace QWS_Local
             this.FeeCode.Name = "FeeCode";
             this.FeeCode.ReadOnly = true;
             // 
+            // AxleConfiguration
+            // 
+            this.AxleConfiguration.DataPropertyName = "AxleConfiguration";
+            this.AxleConfiguration.HeaderText = "Axle Cfg";
+            this.AxleConfiguration.Name = "AxleConfiguration";
+            this.AxleConfiguration.ReadOnly = true;
+            // 
             // VehicleSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -750,10 +759,10 @@ namespace QWS_Local
             this.tabControl1.ResumeLayout(false);
             this.tpList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.vehicleDataGridView)).EndInit();
-            this.tpDetails.ResumeLayout(false);
-            this.tpDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehicleDetails2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
+            this.tpDetails.ResumeLayout(false);
+            this.tpDetails.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -803,5 +812,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn TruckOwner;
         private System.Windows.Forms.DataGridViewImageColumn Schematic;
         private System.Windows.Forms.DataGridViewTextBoxColumn FeeCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AxleConfiguration;
     }
 }
