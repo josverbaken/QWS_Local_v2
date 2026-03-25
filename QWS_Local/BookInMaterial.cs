@@ -654,7 +654,7 @@ namespace QWS_Local
                         }
                         else
                         {
-                            if (_TIQRow.QueueStatus != "C")
+                            if (_TIQRow.QueueStatus != "C") // "C" = Credit Hold
                             {
                                 _TIQRow.QueueStatus = "U";
                             }
@@ -733,6 +733,16 @@ namespace QWS_Local
                 DialogResult dr = MessageBox.Show("Move to details ?", "Choose Order", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dr == DialogResult.OK)
                 {
+                    if (CurrentQuarryOrder().OpenQty < 0)
+                    {
+                        MessageBox.Show("Open Qty is negative - cannot proceed!", "Oversupply Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        this.Close();
+                    }
+                    else if (CurrentTruckGVM().Payload > CurrentQuarryOrder().OpenQty)
+                    {
+                        txtOpenQty.BackColor = Color.Salmon;
+                        MessageBox.Show("This load will close SAP order\r\nPlease update SAP if more loads are required.", "SAP Order Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                     tabControl2.SelectedTab = tpOrderDetails;
                 }
             }

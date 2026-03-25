@@ -79,6 +79,7 @@ namespace QWS_Local
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label7;
             System.Windows.Forms.Label label13;
+            System.Windows.Forms.Label label15;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.gbCartageRate = new System.Windows.Forms.GroupBox();
@@ -218,6 +219,7 @@ namespace QWS_Local
             this.taQuarryOrders = new QWS_Local.dsBookInTableAdapters.QuarryOrdersTableAdapter();
             this.bsBlanketAgreement = new System.Windows.Forms.BindingSource(this.components);
             this.taBlanketAgreement = new QWS_Local.dsBookInTableAdapters.BlanketAgreementCheckTableAdapter();
+            this.txtPayload1 = new System.Windows.Forms.TextBox();
             gCMLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
@@ -267,6 +269,7 @@ namespace QWS_Local
             label6 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
+            label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -1103,6 +1106,8 @@ namespace QWS_Local
             // 
             // tpOrderDetails
             // 
+            this.tpOrderDetails.Controls.Add(label15);
+            this.tpOrderDetails.Controls.Add(this.txtPayload1);
             this.tpOrderDetails.Controls.Add(this.textBox14);
             this.tpOrderDetails.Controls.Add(label7);
             this.tpOrderDetails.Controls.Add(label6);
@@ -1139,9 +1144,9 @@ namespace QWS_Local
             this.tpOrderDetails.Controls.Add(this.docNumTextBox1);
             this.tpOrderDetails.Controls.Add(this.btnSetExBinOrder);
             this.tpOrderDetails.Controls.Add(this.btnRefreshOrders);
-            this.tpOrderDetails.Location = new System.Drawing.Point(4, 22);
+            this.tpOrderDetails.Location = new System.Drawing.Point(4, 25);
             this.tpOrderDetails.Name = "tpOrderDetails";
-            this.tpOrderDetails.Size = new System.Drawing.Size(1419, 296);
+            this.tpOrderDetails.Size = new System.Drawing.Size(1419, 293);
             this.tpOrderDetails.TabIndex = 3;
             this.tpOrderDetails.Text = "Order Details";
             this.tpOrderDetails.UseVisualStyleBackColor = true;
@@ -1346,10 +1351,10 @@ namespace QWS_Local
             this.tpExBinNoOrder.Controls.Add(this.btnSetItem);
             this.tpExBinNoOrder.Controls.Add(this.btnExBinItems);
             this.tpExBinNoOrder.Controls.Add(this.button1);
-            this.tpExBinNoOrder.Location = new System.Drawing.Point(4, 22);
+            this.tpExBinNoOrder.Location = new System.Drawing.Point(4, 25);
             this.tpExBinNoOrder.Name = "tpExBinNoOrder";
             this.tpExBinNoOrder.Padding = new System.Windows.Forms.Padding(3);
-            this.tpExBinNoOrder.Size = new System.Drawing.Size(1419, 296);
+            this.tpExBinNoOrder.Size = new System.Drawing.Size(1419, 293);
             this.tpExBinNoOrder.TabIndex = 1;
             this.tpExBinNoOrder.Text = "Ex-Bin No Order";
             this.tpExBinNoOrder.UseVisualStyleBackColor = true;
@@ -1593,7 +1598,7 @@ namespace QWS_Local
             this.tpDetails.Location = new System.Drawing.Point(4, 22);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(977, 270);
+            this.tpDetails.Size = new System.Drawing.Size(977, 267);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -2085,6 +2090,23 @@ namespace QWS_Local
             // 
             this.taBlanketAgreement.ClearBeforeFill = true;
             // 
+            // txtPayload1
+            // 
+            this.txtPayload1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "Payload", true));
+            this.txtPayload1.Location = new System.Drawing.Point(1068, 193);
+            this.txtPayload1.Name = "txtPayload1";
+            this.txtPayload1.Size = new System.Drawing.Size(100, 23);
+            this.txtPayload1.TabIndex = 104;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new System.Drawing.Point(995, 196);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(67, 17);
+            label15.TabIndex = 105;
+            label15.Text = "Payload :";
+            // 
             // BookInMaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2292,5 +2314,6 @@ namespace QWS_Local
         private System.Windows.Forms.GroupBox gbCartageRate;
         private System.Windows.Forms.RadioButton rbTnT;
         private System.Windows.Forms.RadioButton rbTandem;
+        private System.Windows.Forms.TextBox txtPayload1;
     }
 }

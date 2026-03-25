@@ -24,6 +24,7 @@ namespace QWS_Local
         private static string myWBO = "Barney.Rubble";
         private static int mySiteID;
         private static dsTIQ2.TIQRow _TIQRow;
+        //private static bool TruckConfigSet = false;
 
 
         private enum TIQType
@@ -122,7 +123,19 @@ namespace QWS_Local
 
         private void btnFindTruck_Click(object sender, EventArgs e)
         {
-            FindTruckConfig(txtTruckRego.Text.Trim(), false);
+            //if (TruckConfigSet == false)
+            //{
+                FindTruckConfig(txtTruckRego.Text.Trim(), false);
+            //}
+            //else
+            //{
+            //    DialogResult drTruckConfig = MessageBox.Show("Do you wish to change selected truck?", "Truck Config Change", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //    if (drTruckConfig == DialogResult.Yes)
+            //    {
+            //        TruckConfigSet = false;
+            //        FindTruckConfig(txtTruckRego.Text.Trim(), false);
+            //    }
+            //}
         }
 
         private void FindTruckConfig(string Rego, bool Resume)
@@ -1108,6 +1121,7 @@ namespace QWS_Local
             _TIQRow.TruckConfig = myConfiguredTrucksRow.VehicleType.ToString(); // CurrentConfigTruck().VehicleType.ToString();
             _TIQRow.TruckConfigDTTM = DateTime.Now;
             //CheckACCType();
+            //TruckConfigSet = true;
             UpdateTIQ(TIQType.EnterRego);
             CheckConfigOK2Proceed();
         }
