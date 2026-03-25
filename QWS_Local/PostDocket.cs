@@ -65,7 +65,7 @@ namespace QWS_Local
                 MessageBox.Show("Unable to proceed Tare = 0", "Zero Tare Weight.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 PostDocketCancel();
             }
-            else if (myRow.Nett < 8.0M)
+            else if (myRow.Nett < 8.0M && myRow.QueueStatus == "Q") // not G or E
             {
                 string msg1 = "Did the customer understand and accept that they will be charged a short load fee";
                 WBOConfirmation frmWBOConfirmation = new WBOConfirmation(msg1);
