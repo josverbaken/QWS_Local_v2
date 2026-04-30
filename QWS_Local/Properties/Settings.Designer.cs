@@ -168,5 +168,16 @@ namespace QWS_Local.Properties {
                 return ((bool)(this["EnableSMS"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ch-sql02;Initial Catalog=Verkada;Integrated Security=True;TrustServer" +
+            "Certificate=True")]
+        public string cnVerkada {
+            get {
+                return ((string)(this["cnVerkada"]));
+            }
+        }
     }
 }

@@ -319,6 +319,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsTIQ2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsVerkada.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsVerkada.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FeeCodeSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -354,6 +359,12 @@
     </Compile>
     <Compile Include="TrucksInQuarryAudit.Designer.cs">
       <DependentUpon>TrucksInQuarryAudit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VerkadaLPR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerkadaLPR.Designer.cs">
+      <DependentUpon>VerkadaLPR.cs</DependentUpon>
     </Compile>
     <Compile Include="WBOConfirmation.cs">
       <SubType>Form</SubType>
@@ -596,6 +607,9 @@
     <EmbeddedResource Include="VehicleMaintenance.resx">
       <DependentUpon>VehicleMaintenance.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VerkadaLPR.resx">
+      <DependentUpon>VerkadaLPR.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WBOConfirmation.resx">
       <DependentUpon>WBOConfirmation.cs</DependentUpon>
     </EmbeddedResource>
@@ -689,6 +703,17 @@
     </None>
     <None Include="dsTIQ2.xss">
       <DependentUpon>dsTIQ2.xsd</DependentUpon>
+    </None>
+    <None Include="dsVerkada.xsc">
+      <DependentUpon>dsVerkada.xsd</DependentUpon>
+    </None>
+    <None Include="dsVerkada.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsVerkada.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsVerkada.xss">
+      <DependentUpon>dsVerkada.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />

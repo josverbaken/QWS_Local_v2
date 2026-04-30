@@ -1263,6 +1263,12 @@ namespace QWS_Local
                 MessageBox.Show(msg);
             }
         }
-   
+
+        private void btnVehiclesOnSite_Click(object sender, EventArgs e)
+        {
+            VerkadaLPR verkadaLPR = new VerkadaLPR();
+            verkadaLPR.MdiParent = this.MdiParent;
+            verkadaLPR.Show();
+        }
     }
 }
