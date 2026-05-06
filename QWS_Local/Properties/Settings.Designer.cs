@@ -172,8 +172,8 @@ namespace QWS_Local.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ch-sql02;Initial Catalog=Verkada;Integrated Security=True;TrustServer" +
-            "Certificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ch-sq-dc02;Initial Catalog=VerkadaSQ;Integrated Security=True;TrustSe" +
+            "rverCertificate=True")]
         public string cnVerkada {
             get {
                 return ((string)(this["cnVerkada"]));

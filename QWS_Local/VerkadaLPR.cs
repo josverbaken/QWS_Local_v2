@@ -66,54 +66,6 @@ namespace QWS_Local
             }
     }
 
-        private void rbPrimary_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbPrimary.Checked)
-            {
-                bsLicensePlates.Filter = "LicensePlate like Rego";
-            }
-        }
-
-        private void rbMapped_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbMapped.Checked)
-            {
-                bsLicensePlates.Filter = "LicensePlate not like Rego";
-            }
-        }
-
-        private void rbAllLicensePlates_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbAllLicensePlates.Checked)
-            {
-                bsLicensePlates.Filter = "";
-            }
-        }
-
-        private void rbQuarry_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbQuarry.Checked)
-            {
-                bsVehicles.Filter = "VehicleType like 'Quarry'";
-            }
-        }
-
-        private void rbVehicles_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbVehicles.Checked)
-            {
-                bsVehicles.Filter = "VehicleType not like 'Quarry'";
-            }
-        }
-
-        private void rbAllVehicles_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbAllVehicles.Checked)
-            {
-                bsVehicles.Filter = "";
-            }
-        }
-
         private void rbAllPlates_CheckedChanged(object sender, EventArgs e)
         {
             if (rbAllPlates.Checked)
@@ -135,6 +87,156 @@ namespace QWS_Local
         private void rbQuarryToday_CheckedChanged(object sender, EventArgs e)
         {
             bsVehiclesOnSite.Filter = "VehicleType like 'Quarry'";
+        }
+
+        private void btnSaveVehicle_Click(object sender, EventArgs e)
+        {
+            VehicleSave();
+        }
+
+        private void VehicleSave()
+        {
+            try
+            {
+                taVehiclesLPR.Update(dsVerkada);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnFindVehicle_Click(object sender, EventArgs e)
+        {
+            VehicleFind();
+        }
+
+        private void VehicleFind()
+        {
+            try
+            {
+                string strRego = "%";
+                strRego += txtVehicleRego.Text;
+                strRego += "%";
+                taVehiclesLPR.FillBy(dsVerkada.Vehicles, strRego);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnRefreshVehicle_Click(object sender, EventArgs e)
+        {
+            taVehiclesLPR.Fill(dsVerkada.Vehicles);
+        }
+
+        private void btnLPFind_Click(object sender, EventArgs e)
+        {
+            LicensPlateFind();
+        }
+
+        private void LicensPlateFind()
+        {
+            try
+            {
+                string strLP = "%";
+                strLP += txtLicensePlate.Text;
+                strLP += "%";
+                taLicensePlates.FillBy(dsVerkada.LicensePlates, strLP);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnLPSave_Click(object sender, EventArgs e)
+        {
+            LicensePlateSave();
+        }
+
+        private void LicensePlateSave()
+        {
+            try
+            {
+                taLicensePlates.Update(dsVerkada);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnLPRefresh_Click(object sender, EventArgs e)
+        {
+            LicensePlateRefresh();
+        }
+
+        private void LicensePlateRefresh()
+        {
+            try
+            {
+                taLicensePlates.Fill(dsVerkada.LicensePlates);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnDiscardsFind_Click(object sender, EventArgs e)
+        {
+            DiscardsFind();
+        }
+
+        private void DiscardsFind()
+        {
+            try
+            {
+                string strLPR2Find = "%";
+                strLPR2Find += txtDiscards.Text;
+                strLPR2Find += "%";
+                talPR2Discard.FillBy(dsVerkada.LPR2Discard, strLPR2Find);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnDiscardsSave_Click(object sender, EventArgs e)
+        {
+            DiscardsSave();
+        }
+
+        private void DiscardsSave()
+        {
+            try
+            {
+                talPR2Discard.Update(dsVerkada);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnDiscardsRefresh_Click(object sender, EventArgs e)
+        {
+            DiscardsRefresh();
+        }
+
+        private void DiscardsRefresh()
+        {
+            try
+            {
+                talPR2Discard.Fill(dsVerkada.LPR2Discard);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show (ex.Message);
+            }
         }
     }
 }

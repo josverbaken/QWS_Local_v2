@@ -2232,11 +2232,16 @@ SELECT Rego, Owner, CardCode, VehicleType FROM Vehicles WHERE (Rego = @Rego)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        Vehicles.*\r\nFROM            Vehicles";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        Vehicles.*\r\nFROM            Vehicles\r\nwhere Rego like @Rego";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rego", global::System.Data.SqlDbType.VarChar, 6, global::System.Data.ParameterDirection.Input, 0, 0, "Rego", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2258,6 +2263,42 @@ SELECT Rego, Owner, CardCode, VehicleType FROM Vehicles WHERE (Rego = @Rego)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual dsVerkada.VehiclesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            dsVerkada.VehiclesDataTable dataTable = new dsVerkada.VehiclesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(dsVerkada.VehiclesDataTable dataTable, string Rego) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Rego == null)) {
+                throw new global::System.ArgumentNullException("Rego");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Rego));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dsVerkada.VehiclesDataTable GetDataBy(string Rego) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Rego == null)) {
+                throw new global::System.ArgumentNullException("Rego");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Rego));
+            }
             dsVerkada.VehiclesDataTable dataTable = new dsVerkada.VehiclesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -2621,11 +2662,17 @@ SELECT Rego, Owner, CardCode, VehicleType FROM Vehicles WHERE (Rego = @Rego)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        LicensePlate, Rego\r\nFROM            LicensePlates";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        LicensePlate, Rego\r\nFROM            LicensePlates\r\nwhere licensepla" +
+                "te like @licenseplate";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@licenseplate", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "LicensePlate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2647,6 +2694,42 @@ SELECT Rego, Owner, CardCode, VehicleType FROM Vehicles WHERE (Rego = @Rego)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual dsVerkada.LicensePlatesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            dsVerkada.LicensePlatesDataTable dataTable = new dsVerkada.LicensePlatesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(dsVerkada.LicensePlatesDataTable dataTable, string licenseplate) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((licenseplate == null)) {
+                throw new global::System.ArgumentNullException("licenseplate");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(licenseplate));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dsVerkada.LicensePlatesDataTable GetDataBy(string licenseplate) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((licenseplate == null)) {
+                throw new global::System.ArgumentNullException("licenseplate");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(licenseplate));
+            }
             dsVerkada.LicensePlatesDataTable dataTable = new dsVerkada.LicensePlatesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -2963,11 +3046,17 @@ SELECT Rego, Owner, CardCode, VehicleType FROM Vehicles WHERE (Rego = @Rego)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        LicensePlate, Comment\r\nFROM            LPR2Discard";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        LicensePlate, Comment\r\nFROM            LPR2Discard\r\nwhere LicensePl" +
+                "ate like @LicensePlate";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LicensePlate", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "LicensePlate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2989,6 +3078,42 @@ SELECT Rego, Owner, CardCode, VehicleType FROM Vehicles WHERE (Rego = @Rego)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual dsVerkada.LPR2DiscardDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            dsVerkada.LPR2DiscardDataTable dataTable = new dsVerkada.LPR2DiscardDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(dsVerkada.LPR2DiscardDataTable dataTable, string LicensePlate) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((LicensePlate == null)) {
+                throw new global::System.ArgumentNullException("LicensePlate");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(LicensePlate));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dsVerkada.LPR2DiscardDataTable GetDataBy(string LicensePlate) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((LicensePlate == null)) {
+                throw new global::System.ArgumentNullException("LicensePlate");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(LicensePlate));
+            }
             dsVerkada.LPR2DiscardDataTable dataTable = new dsVerkada.LPR2DiscardDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

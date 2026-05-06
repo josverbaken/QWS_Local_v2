@@ -51,6 +51,8 @@ namespace QWS_Local
 
         private void btnOkay_Click(object sender, EventArgs e)
         {
+            decimal myMinimumMaterial = 8.0M;
+            myMinimumMaterial = Properties.Settings.Default.MinimumMaterial;
             myComment = txtComment.Text;
             myTareWeight = System.Convert.ToDecimal(txtTare.Text);
             decimal UnderloadAmount = myRow.Payload - myRow.Nett;
@@ -65,7 +67,7 @@ namespace QWS_Local
                 MessageBox.Show("Unable to proceed Tare = 0", "Zero Tare Weight.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 PostDocketCancel();
             }
-            else if (myRow.Nett < 8.0M && myRow.QueueStatus == "Q") // not G or E
+            else if (myRow.Nett < myMinimumMaterial && myRow.QueueStatus == "Q") // not G or E
             {
                 string msg1 = "Did the customer understand and accept that they will be charged a short load fee";
                 WBOConfirmation frmWBOConfirmation = new WBOConfirmation(msg1);
