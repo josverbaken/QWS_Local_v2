@@ -173,7 +173,7 @@ namespace QWS_Local
                 gbACC.Enabled = true;
                 if (myVehicle.IsLeadVehicle == true)
                 {
-                    chkOverrideMinCart.Enabled = true;                    
+                    //chkOverrideMinCart.Enabled = true;   //20260507                 
                 }
             }
             else

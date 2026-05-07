@@ -510,6 +510,7 @@ namespace QWS_Local
             this.chkOverrideMinCart.TabIndex = 2;
             this.chkOverrideMinCart.Text = "Override Min Cart";
             this.chkOverrideMinCart.UseVisualStyleBackColor = true;
+            this.chkOverrideMinCart.Visible = false;
             // 
             // chkACCPickup
             // 

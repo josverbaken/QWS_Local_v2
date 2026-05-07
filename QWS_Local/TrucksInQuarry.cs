@@ -25,7 +25,7 @@ namespace QWS_Local
         private string ComputerName;
         private string Domain;
         private string myConnectionString;
-        private bool blOverRideShortLoad;
+        private bool blOverRideShortLoad; // ensure not charged for Imported
         //private bool IsDelivery;
         
         public TrucksInQuarry()
@@ -53,7 +53,8 @@ namespace QWS_Local
             int iRows = this.taAxleConfiguration.Fill(this.dsQWSLocal2024.AxleConfiguration);
             iRows += 1;
             blOverRideShortLoad = false;
-            RefreshQueue();
+
+        RefreshQueue();
         }
 
   
@@ -422,17 +423,20 @@ namespace QWS_Local
                                         myTIQRow.ExitDTTM = DateTime.Now;
                                         bsTIQ2.EndEdit();
                                         taTIQ2.Update(dsTIQ2.TIQ);
-                                        if (ConfirmPostDocket())
+                                        if (CheckLoad())
                                         {
-                                            if (myTruckConfig == "TKs" || myTruckConfig == "BDa")
+                                            if (ConfirmPostDocket())
                                             {
-                                                int myPosition = bsTIQ2.Find("ParentTIQID", myTIQID);
-                                                if (myPosition >= 0)
+                                                if (myTruckConfig == "TKs" || myTruckConfig == "BDa")
                                                 {
-                                                    ReleaseSplit(myTruckRego, myWeight);
+                                                    int myPosition = bsTIQ2.Find("ParentTIQID", myTIQID);
+                                                    if (myPosition >= 0)
+                                                    {
+                                                        ReleaseSplit(myTruckRego, myWeight);
+                                                    }
                                                 }
+                                                PostDocket();
                                             }
-                                            PostDocket();
                                         }
                                     }
                                 }
@@ -496,6 +500,23 @@ namespace QWS_Local
             BookInTruck frmBookInStep1 = new BookInTruck(Rego, TruckConfigID, DriverID, ParentTIQID ,"TruckConfig", msg, TrailerConfig );
             frmBookInStep1.MdiParent = this.MdiParent;
             frmBookInStep1.Show();
+        }
+
+        private bool CheckLoad()
+        {
+            dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+
+            if (myTIQRow.Nett < Properties.Settings.Default.MinimumMaterial && myTIQRow.QueueStatus == "Q") // not G or E
+            {
+                string msg1 = "Did the customer understand and accept that they will be charged a short load fee";
+                WBOConfirmation frmWBOConfirmation = new WBOConfirmation(msg1);
+                DialogResult dr2 = frmWBOConfirmation.ShowDialog();
+                if (dr2 == DialogResult.OK)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private bool ConfirmPostDocket()
@@ -575,10 +596,6 @@ namespace QWS_Local
                                     break;
                                 case "Freight":
                                     DocketLineAdd(myOrderLine.ItemCode, myOrderLine.Dscription, false, 99, myOrderLine.SWW, 0, myOrderLine.DocEntry, myOrderLine.LineNum);
-                                    if (blOverRideShortLoad == false)
-                                    {
-                                        blOverRideShortLoad = CheckOverRideMinCart(myTIQRow.Rego);
-                                    }
                                     break;
                                 case "Other":
                                     // surcharge maybe
@@ -969,6 +986,7 @@ namespace QWS_Local
                 {
                     if (SWW == "Freight" && CurrentTIQ().Nett < Properties.Settings.Default.MinimumCart)
                     {
+                        // TODO modify according to payload
                         linesRow.Quantity = Properties.Settings.Default.MinimumCart;
                     }
                     else

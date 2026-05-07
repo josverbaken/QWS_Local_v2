@@ -40,6 +40,7 @@ namespace QWS_Local
             {
                 int iOffset = 10;
                 // TODO nudOffset.Value cast decimal to int
+                // TODO remember DTP might be out of sync if page open for a long time
                 taVehiclesOnSite.FillBy(dsVerkada.VehiclesOnSite,dateTimePicker1.Value,iOffset);
             }
             catch (Exception ex)
