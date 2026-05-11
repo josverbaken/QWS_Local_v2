@@ -521,8 +521,13 @@ namespace QWS_Local
                 {
                     return true;
                 }
+                else
+                {
+                    MessageBox.Show("Short load fee not accepted, load cancelled!");
+                    return false;
+                }
             }
-            return false;
+            return true;
         }
 
         private bool ConfirmPostDocket()
