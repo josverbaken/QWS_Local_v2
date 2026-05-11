@@ -48,8 +48,9 @@ namespace QWS_Local
             System.Windows.Forms.Label materialLabel;
             System.Windows.Forms.Label schemeCodeLabel;
             System.Windows.Forms.Label label1;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.btnSyncPicture = new System.Windows.Forms.Button();
             this.btnPrintDocket = new System.Windows.Forms.Button();
             this.btnTINRemove = new System.Windows.Forms.Button();
             this.btnWeigh = new System.Windows.Forms.Button();
@@ -117,7 +118,6 @@ namespace QWS_Local
             this.tableAdapterManager = new QWS_Local.dsBookInTableAdapters.TableAdapterManager();
             this.bsQuarryOrders = new System.Windows.Forms.BindingSource(this.components);
             this.taQuarryOrders = new QWS_Local.dsBookInTableAdapters.QuarryOrdersTableAdapter();
-            this.btnVehiclesOnSite = new System.Windows.Forms.Button();
             entryDTTMLabel = new System.Windows.Forms.Label();
             sAPOrderLabel = new System.Windows.Forms.Label();
             roadAccessLabel = new System.Windows.Forms.Label();
@@ -329,7 +329,7 @@ namespace QWS_Local
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
             this.splitContainer2.Panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.splitContainer2.Panel1.Controls.Add(this.btnVehiclesOnSite);
+            this.splitContainer2.Panel1.Controls.Add(this.btnSyncPicture);
             this.splitContainer2.Panel1.Controls.Add(this.btnPrintDocket);
             this.splitContainer2.Panel1.Controls.Add(this.btnTINRemove);
             this.splitContainer2.Panel1.Controls.Add(this.btnWeigh);
@@ -345,6 +345,20 @@ namespace QWS_Local
             this.splitContainer2.Size = new System.Drawing.Size(1364, 661);
             this.splitContainer2.SplitterDistance = 279;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // btnSyncPicture
+            // 
+            this.btnSyncPicture.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSyncPicture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSyncPicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSyncPicture.Location = new System.Drawing.Point(469, 58);
+            this.btnSyncPicture.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSyncPicture.Name = "btnSyncPicture";
+            this.btnSyncPicture.Size = new System.Drawing.Size(92, 30);
+            this.btnSyncPicture.TabIndex = 66;
+            this.btnSyncPicture.Text = "Sync Picture";
+            this.btnSyncPicture.UseVisualStyleBackColor = false;
+            this.btnSyncPicture.Click += new System.EventHandler(this.btnSyncPicture_Click);
             // 
             // btnPrintDocket
             // 
@@ -510,9 +524,9 @@ namespace QWS_Local
             // releaseDTTMDataGridViewTextBoxColumn
             // 
             this.releaseDTTMDataGridViewTextBoxColumn.DataPropertyName = "ReleaseDTTM";
-            dataGridViewCellStyle1.Format = "HH:mm";
-            dataGridViewCellStyle1.NullValue = null;
-            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "HH:mm";
+            dataGridViewCellStyle2.NullValue = null;
+            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.releaseDTTMDataGridViewTextBoxColumn.HeaderText = "Time";
             this.releaseDTTMDataGridViewTextBoxColumn.Name = "releaseDTTMDataGridViewTextBoxColumn";
             this.releaseDTTMDataGridViewTextBoxColumn.ReadOnly = true;
@@ -983,20 +997,6 @@ namespace QWS_Local
             // 
             this.taQuarryOrders.ClearBeforeFill = true;
             // 
-            // btnVehiclesOnSite
-            // 
-            this.btnVehiclesOnSite.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnVehiclesOnSite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVehiclesOnSite.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVehiclesOnSite.Location = new System.Drawing.Point(901, 159);
-            this.btnVehiclesOnSite.Margin = new System.Windows.Forms.Padding(4);
-            this.btnVehiclesOnSite.Name = "btnVehiclesOnSite";
-            this.btnVehiclesOnSite.Size = new System.Drawing.Size(210, 49);
-            this.btnVehiclesOnSite.TabIndex = 65;
-            this.btnVehiclesOnSite.Text = "Vehicles On Site";
-            this.btnVehiclesOnSite.UseVisualStyleBackColor = false;
-            this.btnVehiclesOnSite.Click += new System.EventHandler(this.btnVehiclesOnSite_Click);
-            // 
             // TrucksInQuarry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1104,6 +1104,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn materialDescDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PayloadSplit;
         private System.Windows.Forms.DataGridViewTextBoxColumn WBO;
-        private System.Windows.Forms.Button btnVehiclesOnSite;
+        private System.Windows.Forms.Button btnSyncPicture;
     }
 }

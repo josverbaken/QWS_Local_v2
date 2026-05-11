@@ -19,29 +19,29 @@ namespace QWS_Local
 
         private void VerkadaLPR_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dsVerkada.LPR2Discard' table. You can move, or remove it, as needed.
-            this.talPR2Discard.Fill(this.dsVerkada.LPR2Discard);
-            // TODO: This line of code loads data into the 'dsVerkada.LicensePlates' table. You can move, or remove it, as needed.
-            this.taLicensePlates.Fill(this.dsVerkada.LicensePlates);
-            // TODO: This line of code loads data into the 'dsVerkada.Vehicles' table. You can move, or remove it, as needed.
-            this.taVehiclesLPR.Fill(this.dsVerkada.Vehicles);
-            // TODO: This line of code loads data into the 'dsVerkada.VehiclesOnSite' table. You can move, or remove it, as needed.
-            this.taVehiclesOnSite.Fill(this.dsVerkada.VehiclesOnSite);
+            //this.taVehiclesLPR.Fill(this.dsVerkada.Vehicles);
+            //this.talPR2Discard.Fill(this.dsVerkada.LPR2Discard);
+            //this.taLicensePlates.Fill(this.dsVerkada.LicensePlates);
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            GetVehiclesOnSite();
+            GetVehiclesOnSite(false); // now
         }
 
-        private void GetVehiclesOnSite()
+        private void GetVehiclesOnSite(bool dtp)
         {
             try
             {
                 int iOffset = 10;
+                DateTime EntryDTTM = DateTime.Now;
                 // TODO nudOffset.Value cast decimal to int
-                // TODO remember DTP might be out of sync if page open for a long time
-                taVehiclesOnSite.FillBy(dsVerkada.VehiclesOnSite,dateTimePicker1.Value,iOffset);
+                if (dtp == true)
+                {
+                    EntryDTTM = dateTimePicker1.Value;
+                }
+                taVehiclesOnSite.FillBy(dsVerkada.VehiclesOnSite, EntryDTTM, iOffset);
+
             }
             catch (Exception ex)
             {
@@ -238,6 +238,17 @@ namespace QWS_Local
             {
                 MessageBox.Show (ex.Message);
             }
+        }
+
+        private void btnManualExit_Click(object sender, EventArgs e)
+        {
+            // TODO
+            MessageBox.Show("To bring up form to record exit time");
+        }
+
+        private void btnRefreshDTP_Click(object sender, EventArgs e)
+        {
+            GetVehiclesOnSite(true);
         }
     }
 }

@@ -543,6 +543,32 @@ namespace QWS_Local
             }
 
         }
+
+        private void verkadaLPRToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VerkadaLPR();
+        }
+
+        private void VerkadaLPR()
+        {
+            bool formFound = false;
+            foreach (var item in this.MdiChildren)
+            {
+                if (item.Name == "VerkadaLPR")
+                {
+                    formFound = true;
+                    item.BringToFront();
+                    break;
+                }
+            }
+            if (formFound == false)
+            {
+                VerkadaLPR frmVerkadaLPR = new VerkadaLPR();
+                frmVerkadaLPR.MdiParent = this;
+                frmVerkadaLPR.WindowState = FormWindowState.Maximized;
+                frmVerkadaLPR.Show();
+            }
+        }
     }
     
 }

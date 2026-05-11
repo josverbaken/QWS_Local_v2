@@ -33,7 +33,7 @@
       <Value Profile="(Default)">139</Value>
     </Setting>
     <Setting Name="ClearTIQDelay" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">10</Value>
+      <Value Profile="(Default)">15</Value>
     </Setting>
     <Setting Name="MinimumMaterial" Type="System.Decimal" Scope="Application">
       <Value Profile="(Default)">8.0</Value>

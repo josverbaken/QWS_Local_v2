@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.IdentityModel.Abstractions;
+using QWS_Local;
+using QWS_Local.dsQWSLocal2024TableAdapters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +14,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Interop;
-using Microsoft.Data.SqlClient;
-using Microsoft.IdentityModel.Abstractions;
-using QWS_Local.dsQWSLocal2024TableAdapters;
 using static QWS_Local.dsTIQ2;
 
 namespace QWS_Local
@@ -186,22 +187,27 @@ namespace QWS_Local
             {
                 if (bsTIQ2.Count > 0)
                 {
-                    string AxleConfig = CurrentTIQ().AxleConfiguration;
-                    SyncAxleConfig(AxleConfig);
-                    txtRego.Text = CurrentTIQ().Rego;
-                    // also load associated picture from bsAxleConfig
-                    if (bsAxleConfiguration.Count > 0)
-                    {
-                        DataRow myRow = ((DataRowView)bsAxleConfiguration.Current).Row;
-                        dsQWSLocal2024.AxleConfigurationRow myAxleConfigRow = (dsQWSLocal2024.AxleConfigurationRow)myRow;
-                        MemoryStream ms = new MemoryStream((byte[])myAxleConfigRow.Schematic);
-                        pictureBox1.Image = new Bitmap(ms);
-                    }
+                    SyncPictureBox();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void SyncPictureBox()
+        {
+            string AxleConfig = CurrentTIQ().AxleConfiguration;
+            SyncAxleConfig(AxleConfig);
+            txtRego.Text = CurrentTIQ().Rego;
+            // also load associated picture from bsAxleConfig
+            if (bsAxleConfiguration.Count > 0)
+            {
+                DataRow myRow = ((DataRowView)bsAxleConfiguration.Current).Row;
+                dsQWSLocal2024.AxleConfigurationRow myAxleConfigRow = (dsQWSLocal2024.AxleConfigurationRow)myRow;
+                MemoryStream ms = new MemoryStream((byte[])myAxleConfigRow.Schematic);
+                pictureBox1.Image = new Bitmap(ms);
             }
         }
 
@@ -984,10 +990,18 @@ namespace QWS_Local
                 }
                 else
                 {
-                    if (SWW == "Freight" && CurrentTIQ().Nett < Properties.Settings.Default.MinimumCart)
+                    decimal myMinimumCart = Properties.Settings.Default.MinimumCart;
+                    if (SWW == "Freight" && CurrentTIQ().Nett < myMinimumCart)
                     {
-                        // TODO modify according to payload
-                        linesRow.Quantity = Properties.Settings.Default.MinimumCart;
+                        decimal myPayload = docketsRow.GrossLegal - docketsRow.Tare;
+                        if (myPayload < myMinimumCart)
+                        {
+                            linesRow.Quantity = myPayload;
+                        }
+                        else
+                        {
+                            linesRow.Quantity = myMinimumCart;
+                        }
                     }
                     else
                     {
@@ -1287,6 +1301,11 @@ namespace QWS_Local
             VerkadaLPR verkadaLPR = new VerkadaLPR();
             verkadaLPR.MdiParent = this.MdiParent;
             verkadaLPR.Show();
+        }
+
+        private void btnSyncPicture_Click(object sender, EventArgs e)
+        {
+            SyncPictureBox();
         }
     }
 }
