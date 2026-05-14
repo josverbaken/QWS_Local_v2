@@ -35,6 +35,7 @@
             System.Windows.Forms.Label custONLabel;
             System.Windows.Forms.Label label1;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTurnaroundTime = new System.Windows.Forms.TextBox();
             this.txtUnderload = new System.Windows.Forms.TextBox();
             this.txtPayload = new System.Windows.Forms.TextBox();
             this.bsTIQ2 = new System.Windows.Forms.BindingSource(this.components);
@@ -61,7 +62,6 @@
             this.taCustomer = new QWS_Local.dsTIQ2TableAdapters.BusinessGetByCodeTableAdapter();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtComment = new System.Windows.Forms.TextBox();
-            this.txtTurnaroundTime = new System.Windows.Forms.TextBox();
             grossLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             nettLabel = new System.Windows.Forms.Label();
@@ -142,6 +142,14 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "1) Check Truck Details";
+            // 
+            // txtTurnaroundTime
+            // 
+            this.txtTurnaroundTime.Location = new System.Drawing.Point(25, 124);
+            this.txtTurnaroundTime.Name = "txtTurnaroundTime";
+            this.txtTurnaroundTime.ReadOnly = true;
+            this.txtTurnaroundTime.Size = new System.Drawing.Size(216, 24);
+            this.txtTurnaroundTime.TabIndex = 13;
             // 
             // txtUnderload
             // 
@@ -375,19 +383,12 @@
             this.txtComment.Size = new System.Drawing.Size(453, 24);
             this.txtComment.TabIndex = 0;
             // 
-            // txtTurnaroundTime
-            // 
-            this.txtTurnaroundTime.Location = new System.Drawing.Point(25, 124);
-            this.txtTurnaroundTime.Name = "txtTurnaroundTime";
-            this.txtTurnaroundTime.ReadOnly = true;
-            this.txtTurnaroundTime.Size = new System.Drawing.Size(216, 24);
-            this.txtTurnaroundTime.TabIndex = 13;
-            // 
             // PostDocket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(550, 739);
+            this.ControlBox = false;
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOkay);

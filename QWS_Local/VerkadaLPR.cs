@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,9 +21,7 @@ namespace QWS_Local
 
         private void VerkadaLPR_Load(object sender, EventArgs e)
         {
-            //this.taVehiclesLPR.Fill(this.dsVerkada.Vehicles);
-            //this.talPR2Discard.Fill(this.dsVerkada.LPR2Discard);
-            //this.taLicensePlates.Fill(this.dsVerkada.LicensePlates);
+            lblUTCOffset.Text = "UTC Offset = " + GetUTCOffset().ToString();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -33,9 +33,8 @@ namespace QWS_Local
         {
             try
             {
-                int iOffset = 10;
+                int iOffset = GetUTCOffset();
                 DateTime EntryDTTM = DateTime.Now;
-                // TODO nudOffset.Value cast decimal to int
                 if (dtp == true)
                 {
                     EntryDTTM = dateTimePicker1.Value;
@@ -250,5 +249,41 @@ namespace QWS_Local
         {
             GetVehiclesOnSite(true);
         }
-    }
+
+        private int GetUTCOffset()
+        {
+            try
+            {
+                DateTimeOffset now = DateTimeOffset.Now;
+                TimeSpan offset = now.Offset;
+                int UTCOffset = System.Convert.ToInt32(offset.TotalHours);
+                return UTCOffset;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return 10;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            CheckLANIP();
+        }
+
+
+    
+        public void CheckLANIP()
+        {
+            string hostName = Dns.GetHostName(); // Get local machine name
+            var host = Dns.GetHostEntry(hostName);
+
+            // Filter for IPv4 addresses
+            var localIP = host.AddressList
+                .FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork);
+            MessageBox.Show($"Local IPv4 Address: {localIP}");
+        }
+    
+
+}
 }

@@ -19,7 +19,6 @@ namespace QWS_Local
         private int mySPLotNo;
         private bool myItemQA;
         private bool SplitLoad = false;
-        private decimal myTareWeight;
         private string myComment;
 
         public string Comment
@@ -30,11 +29,6 @@ namespace QWS_Local
         public int SPLotNo
         {
             get { return mySPLotNo; }
-        }
-
-        public decimal TareWeight
-        {
-            get { return myTareWeight; }
         }
 
         public PostDocket()
@@ -51,60 +45,11 @@ namespace QWS_Local
 
         private void btnOkay_Click(object sender, EventArgs e)
         {
-            decimal myMinimumMaterial = 8.0M;
-            myMinimumMaterial = Properties.Settings.Default.MinimumMaterial;
             myComment = txtComment.Text;
-            myTareWeight = System.Convert.ToDecimal(txtTare.Text);
-            decimal UnderloadAmount = myRow.Payload - myRow.Nett;
-            // TODO calculate for TKs and TRs separately
-            if (myRow.Nett <= 0.0M )
-            {
-                MessageBox.Show("Unable to proceed NETT <= 0!","Zero Nett Weight.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                PostDocketCancel();
-            }
-            else if (myTareWeight == 0.0M)
-            {
-                MessageBox.Show("Unable to proceed Tare = 0", "Zero Tare Weight.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                PostDocketCancel();
-            }
-            //else if (myRow.Nett < myMinimumMaterial && myRow.QueueStatus == "Q") // not G or E
-            //{
-            //    string msg1 = "Did the customer understand and accept that they will be charged a short load fee";
-            //    WBOConfirmation frmWBOConfirmation = new WBOConfirmation(msg1);
-            //    DialogResult dr2 = frmWBOConfirmation.ShowDialog();
-            //    if (dr2 == DialogResult.OK)
-            //    {
-            //        this.DialogResult = DialogResult.OK;
-            //        this.Close();
-            //    }
-            //    else
-            //    {
-            //        PostDocketCancel();
-            //    }
-            //}
-            else if (UnderloadAmount > 1.0M && SplitLoad == false && myRow.QueueStatus == "Q")
-            {
-                string msg = "Vehicle underloaded! Did the driver choose to collect more material?";
-                DialogResult dialogResult = MessageBox.Show(msg, "Underload Check", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    PostDocketCancel();
-                }
-                else
-                {
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
-            }
-            else
-            {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
-
-    
-
+        
         private void PostDocketCancel()
         {
             this.DialogResult = DialogResult.Cancel;

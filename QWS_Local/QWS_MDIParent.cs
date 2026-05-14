@@ -20,11 +20,6 @@ namespace QWS_Local
         private string myConnectionString = "";
         private TrucksInQuarry frmTIQ;
 
-        //public string ConnectionString
-        //{
-        //    get { return myConnectionString; }
-        //}
-
         public int SiteID
         {
             get { return mySiteID; }
@@ -52,7 +47,6 @@ namespace QWS_Local
         {
             get { return myLoginStatus; }
         }
-
 
         public QWS_MDIParent()
         {
@@ -568,6 +562,11 @@ namespace QWS_Local
                 frmVerkadaLPR.WindowState = FormWindowState.Maximized;
                 frmVerkadaLPR.Show();
             }
+        }
+
+        private void licensePlatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VerkadaLPR();
         }
     }
     

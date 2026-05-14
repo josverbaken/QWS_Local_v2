@@ -512,7 +512,34 @@ namespace QWS_Local
         {
             dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
 
-            if (myTIQRow.Nett < Properties.Settings.Default.MinimumMaterial && myTIQRow.QueueStatus == "Q") // not G or E
+            myTareWeight = myTIQRow.Tare; //System.Convert.ToDecimal(txtTare.Text);
+            decimal UnderloadAmount = myTIQRow.Payload - myTIQRow.Nett;
+            decimal myMinimumMaterial = Properties.Settings.Default.MinimumMaterial;
+            bool SplitLoad = false;
+            switch (myTIQRow.TruckConfig)
+            {
+                case "TRs":
+                    SplitLoad = true;
+                    break;
+                case "TKs":
+                    SplitLoad = true;
+                    break;
+                default:
+                    SplitLoad = false;
+                    break;
+            }
+            // TODO calculate for TKs and TRs separately
+            if (myTIQRow.Nett <= 0.0M)
+            {
+                MessageBox.Show("Unable to proceed NETT <= 0!", "Zero Nett Weight.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (myTareWeight == 0.0M)
+            {
+                MessageBox.Show("Unable to proceed Tare = 0", "Zero Tare Weight.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (myTIQRow.Nett < myMinimumMaterial && myTIQRow.QueueStatus == "Q") // not G or E
             {
                 string msg1 = "Did the customer understand and accept that they will be charged a short load fee";
                 WBOConfirmation frmWBOConfirmation = new WBOConfirmation(msg1);
@@ -527,6 +554,15 @@ namespace QWS_Local
                     return false;
                 }
             }
+            else if (UnderloadAmount > 1.0M && SplitLoad == false && myTIQRow.QueueStatus == "Q")
+            {
+                string msg = "Vehicle underloaded! Did the driver choose to collect more material?";
+                DialogResult dialogResult = MessageBox.Show(msg, "Underload Check", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    return false;
+                }
+            }
             return true;
         }
 
@@ -537,14 +573,12 @@ namespace QWS_Local
             DialogResult dr = frmPostDocket.ShowDialog();
             if (dr == DialogResult.OK )
             {
-                //MessageBox.Show(frmPostDocket.SPLotNo.ToString());
                 mySPLotNo = frmPostDocket.SPLotNo;
                 // note that SP Lots are closed by USP
-                myTareWeight = frmPostDocket.TareWeight;
                 if (CurrentTIQ().Tare == 0.0M)
                 {
-                    CurrentTIQ().Tare = myTareWeight;
-                    CurrentTIQ().Nett = CurrentTIQ().Gross - myTareWeight;
+                    MessageBox.Show("Tare = Zero!\r\nUnable to proceed.");
+                    return false;
                 }
                 CurrentTIQ().WBOComment = frmPostDocket.Comment;
                 bsTIQ2.EndEdit();
@@ -979,7 +1013,7 @@ namespace QWS_Local
                 linesRow.DocNum = docketsRow.DocNum;
                 linesRow.BaseEntry = BaseEntry;
                 linesRow.DocketLine = lineNum;
-                linesRow.WarehouseCode = "7";
+                linesRow.WarehouseCode = mySiteID.ToString(); // "7"; //TODO make site specific
                 linesRow.ItemCode = ItemCode;
                 linesRow.ItemDescription = ItemDescription;
                 linesRow.ItemQA = ItemQA;

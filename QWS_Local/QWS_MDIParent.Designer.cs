@@ -37,6 +37,7 @@
             this.feeCodesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nHVRGVMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.operatorRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verkadaLPRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuitemMaintainVehicles = new System.Windows.Forms.ToolStripMenuItem();
             this.vehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pBSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,7 +62,7 @@
             this.bsOperator = new System.Windows.Forms.BindingSource(this.components);
             this.taOperator = new QWS_Local.dsAdminTableAdapters.OperatorTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsAdminTableAdapters.TableAdapterManager();
-            this.verkadaLPRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.licensePlatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsOperator)).BeginInit();
@@ -145,6 +146,13 @@
             this.operatorRolesToolStripMenuItem.Text = "Operator Roles";
             this.operatorRolesToolStripMenuItem.Click += new System.EventHandler(this.operatorRolesToolStripMenuItem_Click);
             // 
+            // verkadaLPRToolStripMenuItem
+            // 
+            this.verkadaLPRToolStripMenuItem.Name = "verkadaLPRToolStripMenuItem";
+            this.verkadaLPRToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.verkadaLPRToolStripMenuItem.Text = "Verkada LPR";
+            this.verkadaLPRToolStripMenuItem.Click += new System.EventHandler(this.verkadaLPRToolStripMenuItem_Click);
+            // 
             // menuitemMaintainVehicles
             // 
             this.menuitemMaintainVehicles.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -198,7 +206,8 @@
             // 
             this.salesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deliveryOrdersToolStripMenuItem1,
-            this.customersToolStripMenuItem});
+            this.customersToolStripMenuItem,
+            this.licensePlatesToolStripMenuItem});
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
             this.salesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.salesToolStripMenuItem.Text = "Sales";
@@ -206,14 +215,14 @@
             // deliveryOrdersToolStripMenuItem1
             // 
             this.deliveryOrdersToolStripMenuItem1.Name = "deliveryOrdersToolStripMenuItem1";
-            this.deliveryOrdersToolStripMenuItem1.Size = new System.Drawing.Size(147, 24);
+            this.deliveryOrdersToolStripMenuItem1.Size = new System.Drawing.Size(180, 24);
             this.deliveryOrdersToolStripMenuItem1.Text = "Orders";
             this.deliveryOrdersToolStripMenuItem1.Click += new System.EventHandler(this.deliveryOrdersToolStripMenuItem1_Click);
             // 
             // customersToolStripMenuItem
             // 
             this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
-            this.customersToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
+            this.customersToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.customersToolStripMenuItem.Text = "Customers";
             this.customersToolStripMenuItem.Click += new System.EventHandler(this.customersToolStripMenuItem_Click);
             // 
@@ -325,12 +334,12 @@
             this.tableAdapterManager.RoleTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsAdminTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // verkadaLPRToolStripMenuItem
+            // licensePlatesToolStripMenuItem
             // 
-            this.verkadaLPRToolStripMenuItem.Name = "verkadaLPRToolStripMenuItem";
-            this.verkadaLPRToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
-            this.verkadaLPRToolStripMenuItem.Text = "Verkada LPR";
-            this.verkadaLPRToolStripMenuItem.Click += new System.EventHandler(this.verkadaLPRToolStripMenuItem_Click);
+            this.licensePlatesToolStripMenuItem.Name = "licensePlatesToolStripMenuItem";
+            this.licensePlatesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.licensePlatesToolStripMenuItem.Text = "License Plates";
+            this.licensePlatesToolStripMenuItem.Click += new System.EventHandler(this.licensePlatesToolStripMenuItem_Click);
             // 
             // QWS_MDIParent
             // 
@@ -391,5 +400,6 @@
         private System.Windows.Forms.ToolStripMenuItem weightLogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkTruckDriverToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verkadaLPRToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem licensePlatesToolStripMenuItem;
     }
 }

@@ -66,6 +66,8 @@
             this.bslPR2Discard = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnRefreshDTP = new System.Windows.Forms.Button();
+            this.btnManualExit = new System.Windows.Forms.Button();
             this.rbQuarryToday = new System.Windows.Forms.RadioButton();
             this.rbAllOnSite = new System.Windows.Forms.RadioButton();
             this.rbQuarryOnSite = new System.Windows.Forms.RadioButton();
@@ -74,7 +76,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.nudOffset = new System.Windows.Forms.NumericUpDown();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dgvVehiclesOnSite = new System.Windows.Forms.DataGridView();
             this.entryDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,8 +89,8 @@
             this.taVehiclesLPR = new QWS_Local.dsVerkadaTableAdapters.taVehiclesLPR();
             this.taLicensePlates = new QWS_Local.dsVerkadaTableAdapters.LicensePlatesTableAdapter();
             this.talPR2Discard = new QWS_Local.dsVerkadaTableAdapters.LPR2DiscardTableAdapter();
-            this.btnManualExit = new System.Windows.Forms.Button();
-            this.btnRefreshDTP = new System.Windows.Forms.Button();
+            this.lblUTCOffset = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -118,7 +119,6 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudOffset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehiclesOnSite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehiclesOnSite)).BeginInit();
             this.SuspendLayout();
@@ -501,6 +501,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.button4);
+            this.splitContainer1.Panel1.Controls.Add(this.lblUTCOffset);
             this.splitContainer1.Panel1.Controls.Add(this.btnRefreshDTP);
             this.splitContainer1.Panel1.Controls.Add(this.btnManualExit);
             this.splitContainer1.Panel1.Controls.Add(this.rbQuarryToday);
@@ -511,7 +513,6 @@
             this.splitContainer1.Panel1.Controls.Add(this.button2);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.btnRefresh);
-            this.splitContainer1.Panel1.Controls.Add(this.nudOffset);
             this.splitContainer1.Panel1.Controls.Add(this.dateTimePicker1);
             // 
             // splitContainer1.Panel2
@@ -521,6 +522,28 @@
             this.splitContainer1.SplitterDistance = 254;
             this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // btnRefreshDTP
+            // 
+            this.btnRefreshDTP.Location = new System.Drawing.Point(27, 122);
+            this.btnRefreshDTP.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRefreshDTP.Name = "btnRefreshDTP";
+            this.btnRefreshDTP.Size = new System.Drawing.Size(201, 44);
+            this.btnRefreshDTP.TabIndex = 12;
+            this.btnRefreshDTP.Text = "Refresh (dtp)";
+            this.btnRefreshDTP.UseVisualStyleBackColor = true;
+            this.btnRefreshDTP.Click += new System.EventHandler(this.btnRefreshDTP_Click);
+            // 
+            // btnManualExit
+            // 
+            this.btnManualExit.Location = new System.Drawing.Point(27, 382);
+            this.btnManualExit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnManualExit.Name = "btnManualExit";
+            this.btnManualExit.Size = new System.Drawing.Size(201, 44);
+            this.btnManualExit.TabIndex = 11;
+            this.btnManualExit.Text = "Manual Exit";
+            this.btnManualExit.UseVisualStyleBackColor = true;
+            this.btnManualExit.Click += new System.EventHandler(this.btnManualExit_Click);
             // 
             // rbQuarryToday
             // 
@@ -614,29 +637,6 @@
             this.btnRefresh.Text = "Refresh (now)";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // nudOffset
-            // 
-            this.nudOffset.Location = new System.Drawing.Point(27, 90);
-            this.nudOffset.Margin = new System.Windows.Forms.Padding(4);
-            this.nudOffset.Maximum = new decimal(new int[] {
-            11,
-            0,
-            0,
-            0});
-            this.nudOffset.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.nudOffset.Name = "nudOffset";
-            this.nudOffset.Size = new System.Drawing.Size(180, 24);
-            this.nudOffset.TabIndex = 1;
-            this.nudOffset.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
             // 
             // dateTimePicker1
             // 
@@ -738,27 +738,24 @@
             // 
             this.talPR2Discard.ClearBeforeFill = true;
             // 
-            // btnManualExit
+            // lblUTCOffset
             // 
-            this.btnManualExit.Location = new System.Drawing.Point(27, 382);
-            this.btnManualExit.Margin = new System.Windows.Forms.Padding(4);
-            this.btnManualExit.Name = "btnManualExit";
-            this.btnManualExit.Size = new System.Drawing.Size(201, 44);
-            this.btnManualExit.TabIndex = 11;
-            this.btnManualExit.Text = "Manual Exit";
-            this.btnManualExit.UseVisualStyleBackColor = true;
-            this.btnManualExit.Click += new System.EventHandler(this.btnManualExit_Click);
+            this.lblUTCOffset.AutoSize = true;
+            this.lblUTCOffset.Location = new System.Drawing.Point(27, 90);
+            this.lblUTCOffset.Name = "lblUTCOffset";
+            this.lblUTCOffset.Size = new System.Drawing.Size(46, 18);
+            this.lblUTCOffset.TabIndex = 13;
+            this.lblUTCOffset.Text = "label1";
             // 
-            // btnRefreshDTP
+            // button4
             // 
-            this.btnRefreshDTP.Location = new System.Drawing.Point(27, 122);
-            this.btnRefreshDTP.Margin = new System.Windows.Forms.Padding(4);
-            this.btnRefreshDTP.Name = "btnRefreshDTP";
-            this.btnRefreshDTP.Size = new System.Drawing.Size(201, 44);
-            this.btnRefreshDTP.TabIndex = 12;
-            this.btnRefreshDTP.Text = "Refresh (dtp)";
-            this.btnRefreshDTP.UseVisualStyleBackColor = true;
-            this.btnRefreshDTP.Click += new System.EventHandler(this.btnRefreshDTP_Click);
+            this.button4.Location = new System.Drawing.Point(65, 634);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // VerkadaLPR
             // 
@@ -803,7 +800,6 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nudOffset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehiclesOnSite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehiclesOnSite)).EndInit();
             this.ResumeLayout(false);
@@ -822,7 +818,6 @@
         private dsVerkada dsVerkada;
         private dsVerkadaTableAdapters.taVehiclesOnSite taVehiclesOnSite;
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.NumericUpDown nudOffset;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.BindingSource bsVehiclesOnSite;
         private System.Windows.Forms.DataGridViewTextBoxColumn entryDTTMDataGridViewTextBoxColumn;
@@ -872,5 +867,7 @@
         private System.Windows.Forms.TextBox txtDiscards;
         private System.Windows.Forms.Button btnManualExit;
         private System.Windows.Forms.Button btnRefreshDTP;
+        private System.Windows.Forms.Label lblUTCOffset;
+        private System.Windows.Forms.Button button4;
     }
 }
