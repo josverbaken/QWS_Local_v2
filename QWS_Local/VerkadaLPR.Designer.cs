@@ -29,7 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label entryDTTMLabel;
+            System.Windows.Forms.Label licensePlateLabel;
+            System.Windows.Forms.Label vehicleOwnerLabel;
+            System.Windows.Forms.Label visitStatusLabel;
+            System.Windows.Forms.Label vehicleTypeLabel;
+            System.Windows.Forms.Label label1;
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -64,8 +70,10 @@
             this.licensePlateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bslPR2Discard = new System.Windows.Forms.BindingSource(this.components);
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tpSeenLPR = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.button4 = new System.Windows.Forms.Button();
+            this.lblUTCOffset = new System.Windows.Forms.Label();
             this.btnRefreshDTP = new System.Windows.Forms.Button();
             this.btnManualExit = new System.Windows.Forms.Button();
             this.rbQuarryToday = new System.Windows.Forms.RadioButton();
@@ -89,8 +97,21 @@
             this.taVehiclesLPR = new QWS_Local.dsVerkadaTableAdapters.taVehiclesLPR();
             this.taLicensePlates = new QWS_Local.dsVerkadaTableAdapters.LicensePlatesTableAdapter();
             this.talPR2Discard = new QWS_Local.dsVerkadaTableAdapters.LPR2DiscardTableAdapter();
-            this.lblUTCOffset = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.tpManualExit = new System.Windows.Forms.TabPage();
+            this.dtpManualDepartureDTTM = new System.Windows.Forms.DateTimePicker();
+            this.btnSaveManualExit = new System.Windows.Forms.Button();
+            this.tableAdapterManager = new QWS_Local.dsVerkadaTableAdapters.TableAdapterManager();
+            this.entryDTTMTextBox = new System.Windows.Forms.TextBox();
+            this.licensePlateTextBox = new System.Windows.Forms.TextBox();
+            this.vehicleOwnerTextBox = new System.Windows.Forms.TextBox();
+            this.visitStatusTextBox = new System.Windows.Forms.TextBox();
+            this.vehicleTypeTextBox = new System.Windows.Forms.TextBox();
+            entryDTTMLabel = new System.Windows.Forms.Label();
+            licensePlateLabel = new System.Windows.Forms.Label();
+            vehicleOwnerLabel = new System.Windows.Forms.Label();
+            visitStatusLabel = new System.Windows.Forms.Label();
+            vehicleTypeLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -114,21 +135,23 @@
             this.splitContainer4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bslPR2Discard)).BeginInit();
-            this.tabPage4.SuspendLayout();
+            this.tpSeenLPR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehiclesOnSite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehiclesOnSite)).BeginInit();
+            this.tpManualExit.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.tpSeenLPR);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tpManualExit);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
@@ -480,17 +503,17 @@
             this.bslPR2Discard.DataMember = "LPR2Discard";
             this.bslPR2Discard.DataSource = this.dsVerkada;
             // 
-            // tabPage4
+            // tpSeenLPR
             // 
-            this.tabPage4.Controls.Add(this.splitContainer1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 27);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage4.Size = new System.Drawing.Size(1052, 768);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Seen LPR";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tpSeenLPR.Controls.Add(this.splitContainer1);
+            this.tpSeenLPR.Location = new System.Drawing.Point(4, 27);
+            this.tpSeenLPR.Margin = new System.Windows.Forms.Padding(4);
+            this.tpSeenLPR.Name = "tpSeenLPR";
+            this.tpSeenLPR.Padding = new System.Windows.Forms.Padding(4);
+            this.tpSeenLPR.Size = new System.Drawing.Size(1052, 768);
+            this.tpSeenLPR.TabIndex = 3;
+            this.tpSeenLPR.Text = "Seen LPR";
+            this.tpSeenLPR.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
             // 
@@ -523,9 +546,28 @@
             this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 0;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(153, 721);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // lblUTCOffset
+            // 
+            this.lblUTCOffset.AutoSize = true;
+            this.lblUTCOffset.Location = new System.Drawing.Point(27, 473);
+            this.lblUTCOffset.Name = "lblUTCOffset";
+            this.lblUTCOffset.Size = new System.Drawing.Size(46, 18);
+            this.lblUTCOffset.TabIndex = 13;
+            this.lblUTCOffset.Text = "label1";
+            // 
             // btnRefreshDTP
             // 
-            this.btnRefreshDTP.Location = new System.Drawing.Point(27, 122);
+            this.btnRefreshDTP.Location = new System.Drawing.Point(27, 505);
             this.btnRefreshDTP.Margin = new System.Windows.Forms.Padding(4);
             this.btnRefreshDTP.Name = "btnRefreshDTP";
             this.btnRefreshDTP.Size = new System.Drawing.Size(201, 44);
@@ -548,7 +590,7 @@
             // rbQuarryToday
             // 
             this.rbQuarryToday.AutoSize = true;
-            this.rbQuarryToday.Location = new System.Drawing.Point(50, 494);
+            this.rbQuarryToday.Location = new System.Drawing.Point(44, 98);
             this.rbQuarryToday.Margin = new System.Windows.Forms.Padding(4);
             this.rbQuarryToday.Name = "rbQuarryToday";
             this.rbQuarryToday.Size = new System.Drawing.Size(121, 22);
@@ -561,7 +603,7 @@
             // rbAllOnSite
             // 
             this.rbAllOnSite.AutoSize = true;
-            this.rbAllOnSite.Location = new System.Drawing.Point(50, 464);
+            this.rbAllOnSite.Location = new System.Drawing.Point(44, 68);
             this.rbAllOnSite.Margin = new System.Windows.Forms.Padding(4);
             this.rbAllOnSite.Name = "rbAllOnSite";
             this.rbAllOnSite.Size = new System.Drawing.Size(94, 22);
@@ -574,7 +616,7 @@
             // rbQuarryOnSite
             // 
             this.rbQuarryOnSite.AutoSize = true;
-            this.rbQuarryOnSite.Location = new System.Drawing.Point(47, 524);
+            this.rbQuarryOnSite.Location = new System.Drawing.Point(41, 128);
             this.rbQuarryOnSite.Margin = new System.Windows.Forms.Padding(4);
             this.rbQuarryOnSite.Name = "rbQuarryOnSite";
             this.rbQuarryOnSite.Size = new System.Drawing.Size(124, 22);
@@ -587,7 +629,7 @@
             // rbAllPlates
             // 
             this.rbAllPlates.AutoSize = true;
-            this.rbAllPlates.Location = new System.Drawing.Point(50, 434);
+            this.rbAllPlates.Location = new System.Drawing.Point(44, 38);
             this.rbAllPlates.Margin = new System.Windows.Forms.Padding(4);
             this.rbAllPlates.Name = "rbAllPlates";
             this.rbAllPlates.Size = new System.Drawing.Size(41, 22);
@@ -642,7 +684,7 @@
             // 
             this.dateTimePicker1.CustomFormat = "dd-MMM HH:mm";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(27, 58);
+            this.dateTimePicker1.Location = new System.Drawing.Point(27, 441);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(178, 24);
@@ -674,8 +716,8 @@
             // entryDTTMDataGridViewTextBoxColumn
             // 
             this.entryDTTMDataGridViewTextBoxColumn.DataPropertyName = "EntryDTTM";
-            dataGridViewCellStyle2.Format = "HH:mm";
-            this.entryDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Format = "HH:mm";
+            this.entryDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.entryDTTMDataGridViewTextBoxColumn.HeaderText = "EntryDTTM";
             this.entryDTTMDataGridViewTextBoxColumn.Name = "entryDTTMDataGridViewTextBoxColumn";
             this.entryDTTMDataGridViewTextBoxColumn.ReadOnly = true;
@@ -738,24 +780,148 @@
             // 
             this.talPR2Discard.ClearBeforeFill = true;
             // 
-            // lblUTCOffset
+            // tpManualExit
             // 
-            this.lblUTCOffset.AutoSize = true;
-            this.lblUTCOffset.Location = new System.Drawing.Point(27, 90);
-            this.lblUTCOffset.Name = "lblUTCOffset";
-            this.lblUTCOffset.Size = new System.Drawing.Size(46, 18);
-            this.lblUTCOffset.TabIndex = 13;
-            this.lblUTCOffset.Text = "label1";
+            this.tpManualExit.Controls.Add(label1);
+            this.tpManualExit.Controls.Add(vehicleTypeLabel);
+            this.tpManualExit.Controls.Add(this.vehicleTypeTextBox);
+            this.tpManualExit.Controls.Add(visitStatusLabel);
+            this.tpManualExit.Controls.Add(this.visitStatusTextBox);
+            this.tpManualExit.Controls.Add(vehicleOwnerLabel);
+            this.tpManualExit.Controls.Add(this.vehicleOwnerTextBox);
+            this.tpManualExit.Controls.Add(licensePlateLabel);
+            this.tpManualExit.Controls.Add(this.licensePlateTextBox);
+            this.tpManualExit.Controls.Add(entryDTTMLabel);
+            this.tpManualExit.Controls.Add(this.entryDTTMTextBox);
+            this.tpManualExit.Controls.Add(this.btnSaveManualExit);
+            this.tpManualExit.Controls.Add(this.dtpManualDepartureDTTM);
+            this.tpManualExit.Location = new System.Drawing.Point(4, 27);
+            this.tpManualExit.Name = "tpManualExit";
+            this.tpManualExit.Size = new System.Drawing.Size(1052, 768);
+            this.tpManualExit.TabIndex = 4;
+            this.tpManualExit.Text = "Manual Exit";
+            this.tpManualExit.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // dtpManualDepartureDTTM
             // 
-            this.button4.Location = new System.Drawing.Point(65, 634);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.dtpManualDepartureDTTM.CustomFormat = "ddd MMM yyyy HH:mm";
+            this.dtpManualDepartureDTTM.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpManualDepartureDTTM.Location = new System.Drawing.Point(294, 247);
+            this.dtpManualDepartureDTTM.Name = "dtpManualDepartureDTTM";
+            this.dtpManualDepartureDTTM.Size = new System.Drawing.Size(200, 24);
+            this.dtpManualDepartureDTTM.TabIndex = 0;
+            // 
+            // btnSaveManualExit
+            // 
+            this.btnSaveManualExit.Location = new System.Drawing.Point(294, 299);
+            this.btnSaveManualExit.Name = "btnSaveManualExit";
+            this.btnSaveManualExit.Size = new System.Drawing.Size(299, 46);
+            this.btnSaveManualExit.TabIndex = 1;
+            this.btnSaveManualExit.Text = "Process Departure";
+            this.btnSaveManualExit.UseVisualStyleBackColor = true;
+            this.btnSaveManualExit.Click += new System.EventHandler(this.btnSaveManualExit_Click);
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.LicensePlatesTableAdapter = this.taLicensePlates;
+            this.tableAdapterManager.LPR2DiscardTableAdapter = this.talPR2Discard;
+            this.tableAdapterManager.taVehiclesLPR = this.taVehiclesLPR;
+            this.tableAdapterManager.UpdateOrder = QWS_Local.dsVerkadaTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // entryDTTMLabel
+            // 
+            entryDTTMLabel.AutoSize = true;
+            entryDTTMLabel.Location = new System.Drawing.Point(196, 130);
+            entryDTTMLabel.Name = "entryDTTMLabel";
+            entryDTTMLabel.Size = new System.Drawing.Size(92, 18);
+            entryDTTMLabel.TabIndex = 2;
+            entryDTTMLabel.Text = "Entry DTTM:";
+            // 
+            // entryDTTMTextBox
+            // 
+            this.entryDTTMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehiclesOnSite, "EntryDTTM", true));
+            this.entryDTTMTextBox.Location = new System.Drawing.Point(294, 127);
+            this.entryDTTMTextBox.Name = "entryDTTMTextBox";
+            this.entryDTTMTextBox.Size = new System.Drawing.Size(299, 24);
+            this.entryDTTMTextBox.TabIndex = 3;
+            // 
+            // licensePlateLabel
+            // 
+            licensePlateLabel.AutoSize = true;
+            licensePlateLabel.Location = new System.Drawing.Point(188, 100);
+            licensePlateLabel.Name = "licensePlateLabel";
+            licensePlateLabel.Size = new System.Drawing.Size(100, 18);
+            licensePlateLabel.TabIndex = 4;
+            licensePlateLabel.Text = "License Plate:";
+            // 
+            // licensePlateTextBox
+            // 
+            this.licensePlateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehiclesOnSite, "LicensePlate", true));
+            this.licensePlateTextBox.Location = new System.Drawing.Point(294, 97);
+            this.licensePlateTextBox.Name = "licensePlateTextBox";
+            this.licensePlateTextBox.Size = new System.Drawing.Size(100, 24);
+            this.licensePlateTextBox.TabIndex = 5;
+            // 
+            // vehicleOwnerLabel
+            // 
+            vehicleOwnerLabel.AutoSize = true;
+            vehicleOwnerLabel.Location = new System.Drawing.Point(181, 160);
+            vehicleOwnerLabel.Name = "vehicleOwnerLabel";
+            vehicleOwnerLabel.Size = new System.Drawing.Size(107, 18);
+            vehicleOwnerLabel.TabIndex = 6;
+            vehicleOwnerLabel.Text = "Vehicle Owner:";
+            // 
+            // vehicleOwnerTextBox
+            // 
+            this.vehicleOwnerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehiclesOnSite, "VehicleOwner", true));
+            this.vehicleOwnerTextBox.Location = new System.Drawing.Point(294, 157);
+            this.vehicleOwnerTextBox.Name = "vehicleOwnerTextBox";
+            this.vehicleOwnerTextBox.Size = new System.Drawing.Size(299, 24);
+            this.vehicleOwnerTextBox.TabIndex = 7;
+            // 
+            // visitStatusLabel
+            // 
+            visitStatusLabel.AutoSize = true;
+            visitStatusLabel.Location = new System.Drawing.Point(203, 190);
+            visitStatusLabel.Name = "visitStatusLabel";
+            visitStatusLabel.Size = new System.Drawing.Size(85, 18);
+            visitStatusLabel.TabIndex = 8;
+            visitStatusLabel.Text = "Visit Status:";
+            // 
+            // visitStatusTextBox
+            // 
+            this.visitStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehiclesOnSite, "VisitStatus", true));
+            this.visitStatusTextBox.Location = new System.Drawing.Point(294, 187);
+            this.visitStatusTextBox.Name = "visitStatusTextBox";
+            this.visitStatusTextBox.Size = new System.Drawing.Size(299, 24);
+            this.visitStatusTextBox.TabIndex = 9;
+            // 
+            // vehicleTypeLabel
+            // 
+            vehicleTypeLabel.AutoSize = true;
+            vehicleTypeLabel.Location = new System.Drawing.Point(193, 220);
+            vehicleTypeLabel.Name = "vehicleTypeLabel";
+            vehicleTypeLabel.Size = new System.Drawing.Size(95, 18);
+            vehicleTypeLabel.TabIndex = 10;
+            vehicleTypeLabel.Text = "Vehicle Type:";
+            // 
+            // vehicleTypeTextBox
+            // 
+            this.vehicleTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehiclesOnSite, "VehicleType", true));
+            this.vehicleTypeTextBox.Location = new System.Drawing.Point(294, 217);
+            this.vehicleTypeTextBox.Name = "vehicleTypeTextBox";
+            this.vehicleTypeTextBox.Size = new System.Drawing.Size(299, 24);
+            this.vehicleTypeTextBox.TabIndex = 11;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(115, 252);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(173, 18);
+            label1.TabIndex = 12;
+            label1.Text = "Departure Date and Time";
             // 
             // VerkadaLPR
             // 
@@ -794,7 +960,7 @@
             this.splitContainer4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bslPR2Discard)).EndInit();
-            this.tabPage4.ResumeLayout(false);
+            this.tpSeenLPR.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -802,6 +968,8 @@
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehiclesOnSite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehiclesOnSite)).EndInit();
+            this.tpManualExit.ResumeLayout(false);
+            this.tpManualExit.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -812,7 +980,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tpSeenLPR;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView dgvVehiclesOnSite;
         private dsVerkada dsVerkada;
@@ -869,5 +1037,14 @@
         private System.Windows.Forms.Button btnRefreshDTP;
         private System.Windows.Forms.Label lblUTCOffset;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TabPage tpManualExit;
+        private System.Windows.Forms.Button btnSaveManualExit;
+        private System.Windows.Forms.DateTimePicker dtpManualDepartureDTTM;
+        private System.Windows.Forms.TextBox vehicleTypeTextBox;
+        private System.Windows.Forms.TextBox visitStatusTextBox;
+        private System.Windows.Forms.TextBox vehicleOwnerTextBox;
+        private System.Windows.Forms.TextBox licensePlateTextBox;
+        private System.Windows.Forms.TextBox entryDTTMTextBox;
+        private dsVerkadaTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }

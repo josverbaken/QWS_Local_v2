@@ -48,7 +48,7 @@ namespace QWS_Local
             System.Windows.Forms.Label materialLabel;
             System.Windows.Forms.Label schemeCodeLabel;
             System.Windows.Forms.Label label1;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.btnSyncPicture = new System.Windows.Forms.Button();
             this.btnPrintDocket = new System.Windows.Forms.Button();
@@ -118,6 +118,16 @@ namespace QWS_Local
             this.tableAdapterManager = new QWS_Local.dsBookInTableAdapters.TableAdapterManager();
             this.bsQuarryOrders = new System.Windows.Forms.BindingSource(this.components);
             this.taQuarryOrders = new QWS_Local.dsBookInTableAdapters.QuarryOrdersTableAdapter();
+            this.btnRefreshLPR = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dsVerkada = new QWS_Local.dsVerkada();
+            this.bsVehiclesOnSite = new System.Windows.Forms.BindingSource(this.components);
+            this.taVehiclesOnSite = new QWS_Local.dsVerkadaTableAdapters.taVehiclesOnSite();
+            this.button1 = new System.Windows.Forms.Button();
+            this.licensePlateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleOwnerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.visitStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             entryDTTMLabel = new System.Windows.Forms.Label();
             sAPOrderLabel = new System.Windows.Forms.Label();
             roadAccessLabel = new System.Windows.Forms.Label();
@@ -154,6 +164,9 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dsBookIn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsQuarryOrderLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsQuarryOrders)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsVerkada)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVehiclesOnSite)).BeginInit();
             this.SuspendLayout();
             // 
             // entryDTTMLabel
@@ -329,6 +342,9 @@ namespace QWS_Local
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
             this.splitContainer2.Panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.splitContainer2.Panel1.Controls.Add(this.button1);
+            this.splitContainer2.Panel1.Controls.Add(this.dataGridView2);
+            this.splitContainer2.Panel1.Controls.Add(this.btnRefreshLPR);
             this.splitContainer2.Panel1.Controls.Add(this.btnSyncPicture);
             this.splitContainer2.Panel1.Controls.Add(this.btnPrintDocket);
             this.splitContainer2.Panel1.Controls.Add(this.btnTINRemove);
@@ -524,9 +540,9 @@ namespace QWS_Local
             // releaseDTTMDataGridViewTextBoxColumn
             // 
             this.releaseDTTMDataGridViewTextBoxColumn.DataPropertyName = "ReleaseDTTM";
-            dataGridViewCellStyle2.Format = "HH:mm";
-            dataGridViewCellStyle2.NullValue = null;
-            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Format = "HH:mm";
+            dataGridViewCellStyle5.NullValue = null;
+            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.releaseDTTMDataGridViewTextBoxColumn.HeaderText = "Time";
             this.releaseDTTMDataGridViewTextBoxColumn.Name = "releaseDTTMDataGridViewTextBoxColumn";
             this.releaseDTTMDataGridViewTextBoxColumn.ReadOnly = true;
@@ -997,6 +1013,98 @@ namespace QWS_Local
             // 
             this.taQuarryOrders.ClearBeforeFill = true;
             // 
+            // btnRefreshLPR
+            // 
+            this.btnRefreshLPR.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnRefreshLPR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefreshLPR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefreshLPR.Location = new System.Drawing.Point(614, 178);
+            this.btnRefreshLPR.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRefreshLPR.Name = "btnRefreshLPR";
+            this.btnRefreshLPR.Size = new System.Drawing.Size(92, 30);
+            this.btnRefreshLPR.TabIndex = 67;
+            this.btnRefreshLPR.Text = "Refresh LPR";
+            this.btnRefreshLPR.UseVisualStyleBackColor = false;
+            this.btnRefreshLPR.Click += new System.EventHandler(this.btnRefreshLPR_Click);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.licensePlateDataGridViewTextBoxColumn,
+            this.vehicleOwnerDataGridViewTextBoxColumn,
+            this.Duration,
+            this.visitStatusDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.bsVehiclesOnSite;
+            this.dataGridView2.Location = new System.Drawing.Point(713, 17);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.Size = new System.Drawing.Size(620, 191);
+            this.dataGridView2.TabIndex = 68;
+            // 
+            // dsVerkada
+            // 
+            this.dsVerkada.DataSetName = "dsVerkada";
+            this.dsVerkada.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bsVehiclesOnSite
+            // 
+            this.bsVehiclesOnSite.DataMember = "VehiclesOnSite";
+            this.bsVehiclesOnSite.DataSource = this.dsVerkada;
+            // 
+            // taVehiclesOnSite
+            // 
+            this.taVehiclesOnSite.ClearBeforeFill = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(614, 140);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 30);
+            this.button1.TabIndex = 69;
+            this.button1.Text = "All LPR";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // licensePlateDataGridViewTextBoxColumn
+            // 
+            this.licensePlateDataGridViewTextBoxColumn.DataPropertyName = "LicensePlate";
+            this.licensePlateDataGridViewTextBoxColumn.HeaderText = "Rego";
+            this.licensePlateDataGridViewTextBoxColumn.Name = "licensePlateDataGridViewTextBoxColumn";
+            this.licensePlateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.licensePlateDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // vehicleOwnerDataGridViewTextBoxColumn
+            // 
+            this.vehicleOwnerDataGridViewTextBoxColumn.DataPropertyName = "VehicleOwner";
+            this.vehicleOwnerDataGridViewTextBoxColumn.HeaderText = "Owner";
+            this.vehicleOwnerDataGridViewTextBoxColumn.Name = "vehicleOwnerDataGridViewTextBoxColumn";
+            this.vehicleOwnerDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vehicleOwnerDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // Duration
+            // 
+            this.Duration.DataPropertyName = "Duration";
+            this.Duration.HeaderText = "Duration";
+            this.Duration.Name = "Duration";
+            this.Duration.ReadOnly = true;
+            this.Duration.Width = 80;
+            // 
+            // visitStatusDataGridViewTextBoxColumn
+            // 
+            this.visitStatusDataGridViewTextBoxColumn.DataPropertyName = "VisitStatus";
+            this.visitStatusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.visitStatusDataGridViewTextBoxColumn.Name = "visitStatusDataGridViewTextBoxColumn";
+            this.visitStatusDataGridViewTextBoxColumn.ReadOnly = true;
+            this.visitStatusDataGridViewTextBoxColumn.Width = 150;
+            // 
             // TrucksInQuarry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1031,6 +1139,9 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dsBookIn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsQuarryOrderLines)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsQuarryOrders)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsVerkada)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVehiclesOnSite)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1105,5 +1216,15 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn PayloadSplit;
         private System.Windows.Forms.DataGridViewTextBoxColumn WBO;
         private System.Windows.Forms.Button btnSyncPicture;
+        private System.Windows.Forms.Button btnRefreshLPR;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private dsVerkada dsVerkada;
+        private System.Windows.Forms.BindingSource bsVehiclesOnSite;
+        private dsVerkadaTableAdapters.taVehiclesOnSite taVehiclesOnSite;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn licensePlateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleOwnerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Duration;
+        private System.Windows.Forms.DataGridViewTextBoxColumn visitStatusDataGridViewTextBoxColumn;
     }
 }

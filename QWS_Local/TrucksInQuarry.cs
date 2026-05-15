@@ -1346,5 +1346,29 @@ namespace QWS_Local
         {
             SyncPictureBox();
         }
+
+        private void btnRefreshLPR_Click(object sender, EventArgs e)
+        {
+            RefreshQuarryLPR();
+        }
+
+        private void RefreshQuarryLPR()
+        {
+            try
+            {
+                int UTCOffset = 10;
+                this.taVehiclesOnSite.FillBy(dsVerkada.VehiclesOnSite, DateTime.Now, UTCOffset);
+                bsVehiclesOnSite.Filter = "VehicleType like 'Quarry' and VisitStatus like 'On Site'";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            bsVehiclesOnSite.Filter = "";
+        }
     }
 }

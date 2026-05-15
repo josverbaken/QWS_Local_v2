@@ -60,6 +60,9 @@ namespace QWS_Local
             string msg = ""; // "QWS Local - ";
             string SiteLabel = string.Empty;
 
+            licensePlatesToolStripMenuItem.Visible = false;
+            licensePlatesToolStripMenuItem.Enabled = false;
+
             //menuItemHome.ShortcutKeys = Keys.Home; // fails on compile and also if try to set in properties GUI
             //menuitemMenu.ShortcutKeys = Keys.F10; // this is controlled by Windows!@#
 
@@ -136,6 +139,11 @@ namespace QWS_Local
                         CheckIfAdmin(row.OperatorID);
                         tspUserName.Text = "WBO = " + myUserName;
                         tspSignInOut.Visible = false;
+                        if (CheckRole(row.OperatorID,8))
+                        {
+                            licensePlatesToolStripMenuItem.Visible = true;
+                            licensePlatesToolStripMenuItem.Enabled=true;
+                        }
                     }
                     else // Generic
                     {
@@ -177,6 +185,11 @@ namespace QWS_Local
                         else
                         {
                             myUserName = gRow.FirstName;
+                        }
+                        if (CheckRole(gRow.OperatorID, 8))
+                        {
+                            licensePlatesToolStripMenuItem.Visible = true;
+                            licensePlatesToolStripMenuItem.Enabled = true;
                         }
                         tspUserName.Text = "WBO = " + myUserName;
                         tspSignInOut.Visible = true;
@@ -230,6 +243,28 @@ namespace QWS_Local
                     adminToolStripMenuItem.Visible = false;
                 }
             }
+        }
+
+        private bool CheckRole(int myOperatorID, int RoleID)
+        {
+            string CommandText = "select count(*) from OperatorRoles where OperatorID = ";
+            CommandText += myOperatorID + " and RoleID = ";
+            CommandText += RoleID.ToString();
+            SqlConnection sqlConnection = new SqlConnection();
+            myConnectionString = Properties.Settings.Default.cnQWSLocal;
+            sqlConnection = new SqlConnection(myConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = sqlConnection;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = CommandText;
+            cmd.Connection.Open();
+            int iCount = (int)Convert.ToInt64(cmd.ExecuteScalar());
+            cmd.Connection.Close();
+            if (iCount > 0)
+            {
+                return true;
+            }
+            return false;            
         }
 
         private void bookInTruckStep1ToolStripMenuItem_Click(object sender, EventArgs e)

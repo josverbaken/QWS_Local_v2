@@ -131,6 +131,34 @@ namespace QWS_Local
             taVehiclesLPR.Fill(dsVerkada.Vehicles);
         }
 
+        private dsVerkada.LicensePlatesRow CurrentLPR()
+        {
+            if (bsLicensePlates.Count > 0)
+            {
+                DataRow myRow = ((DataRowView)bsLicensePlates.Current).Row;
+                dsVerkada.LicensePlatesRow myLPRRow = (dsVerkada.LicensePlatesRow)myRow;
+                return myLPRRow;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private dsVerkada.VehiclesOnSiteRow CurrentLPRVehicle()
+        {
+            if (bsVehiclesOnSite.Count > 0)
+            {
+                DataRow myRow = ((DataRowView)bsVehiclesOnSite.Current).Row;
+                dsVerkada.VehiclesOnSiteRow myLPRVehicleRow = (dsVerkada.VehiclesOnSiteRow)myRow;
+                return myLPRVehicleRow;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         private void btnLPFind_Click(object sender, EventArgs e)
         {
             LicensPlateFind();
@@ -241,8 +269,7 @@ namespace QWS_Local
 
         private void btnManualExit_Click(object sender, EventArgs e)
         {
-            // TODO
-            MessageBox.Show("To bring up form to record exit time");
+            ManualExit();
         }
 
         private void btnRefreshDTP_Click(object sender, EventArgs e)
@@ -284,6 +311,63 @@ namespace QWS_Local
             MessageBox.Show($"Local IPv4 Address: {localIP}");
         }
     
+        public void ManualExit()
+        {
+            try
+            {
+                dsVerkada.VehiclesOnSiteRow vehiclesOnSiteRow = CurrentLPRVehicle();
+                if (vehiclesOnSiteRow.VisitStatus == "Departed" )
+                {
+                    MessageBox.Show("Already departed!","Check status",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    dtpManualDepartureDTTM.Value = vehiclesOnSiteRow.EntryDTTM;
+                    tabControl1.SelectedTab = tpManualExit;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ManualExit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-}
+        private void btnSaveManualExit_Click(object sender, EventArgs e)
+        {
+            SaveManualExit();
+        }
+
+        private void SaveManualExit()
+        {
+            try
+            {
+                dsVerkada.VehiclesOnSiteRow vehiclesOnSiteRow = CurrentLPRVehicle();
+                string msg = string.Empty;
+                if (vehiclesOnSiteRow.Duration < 20)
+                {
+                    msg = "Confirm departure, has only been on site " + vehiclesOnSiteRow.Duration.ToString();
+                }
+                if (msg.Length > 0) 
+                {
+                    msg += "\r\n";
+                }
+                msg += "TODO save most likely using stored procedure";
+                MessageBox.Show(msg);
+                if (dtpManualDepartureDTTM.Value <= vehiclesOnSiteRow.EntryDTTM)
+                {
+                    msg = "Can't leave before Entry DTTM!@#";
+                    MessageBox.Show(msg);
+                }
+                else
+                {
+                    GetVehiclesOnSite(false);
+                    tabControl1.SelectedTab = tpSeenLPR;
+                }                    
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+    }
 }
