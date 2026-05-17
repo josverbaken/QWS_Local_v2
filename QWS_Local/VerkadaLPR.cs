@@ -9,6 +9,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 
 namespace QWS_Local
 {
@@ -342,6 +343,10 @@ namespace QWS_Local
             try
             {
                 dsVerkada.VehiclesOnSiteRow vehiclesOnSiteRow = CurrentLPRVehicle();
+                string LicensePlate = vehiclesOnSiteRow.LicensePlate;
+                DateTime exitDTTM = dtpManualDepartureDTTM.Value.ToUniversalTime();
+                long posixSeconds = new DateTimeOffset(exitDTTM).ToUnixTimeSeconds();
+                int exitPOSIX = (int) posixSeconds;
                 string msg = string.Empty;
                 if (vehiclesOnSiteRow.Duration < 20)
                 {
@@ -360,6 +365,19 @@ namespace QWS_Local
                 }
                 else
                 {
+                    SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnVerkada);
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = sqlConnection;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "SeenLPR";
+                    cmd.Parameters.AddWithValue("@Camera_ID","Manual");
+                    cmd.Parameters.AddWithValue("@License_Plate", LicensePlate);
+                    cmd.Parameters.AddWithValue("@POSIX_Timestamp", exitPOSIX);
+                    cmd.Parameters.AddWithValue("@Lane", "Exit");
+                    sqlConnection.Open();
+                    cmd.ExecuteNonQuery();
+                    sqlConnection.Close();
+
                     GetVehiclesOnSite(false);
                     tabControl1.SelectedTab = tpSeenLPR;
                 }                    
