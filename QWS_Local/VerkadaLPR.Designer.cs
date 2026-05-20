@@ -29,47 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label entryDTTMLabel;
             System.Windows.Forms.Label licensePlateLabel;
             System.Windows.Forms.Label vehicleOwnerLabel;
             System.Windows.Forms.Label visitStatusLabel;
             System.Windows.Forms.Label vehicleTypeLabel;
             System.Windows.Forms.Label label1;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.btnSaveVehicle = new System.Windows.Forms.Button();
-            this.btnRefreshVehicle = new System.Windows.Forms.Button();
-            this.btnFindVehicle = new System.Windows.Forms.Button();
-            this.txtVehicleRego = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.regoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ownerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cardCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehicleTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsVehicles = new System.Windows.Forms.BindingSource(this.components);
-            this.dsVerkada = new QWS_Local.dsVerkada();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.btnLPSave = new System.Windows.Forms.Button();
-            this.btnLPRefresh = new System.Windows.Forms.Button();
-            this.btnLPFind = new System.Windows.Forms.Button();
-            this.txtLicensePlate = new System.Windows.Forms.TextBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.licensePlateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.regoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsLicensePlates = new System.Windows.Forms.BindingSource(this.components);
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.btnDiscardsSave = new System.Windows.Forms.Button();
-            this.btnDiscardsRefresh = new System.Windows.Forms.Button();
-            this.btnDiscardsFind = new System.Windows.Forms.Button();
-            this.txtDiscards = new System.Windows.Forms.TextBox();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.licensePlateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bslPR2Discard = new System.Windows.Forms.BindingSource(this.components);
             this.tpSeenLPR = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.button4 = new System.Windows.Forms.Button();
@@ -82,7 +49,7 @@
             this.rbAllPlates = new System.Windows.Forms.RadioButton();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnNewVehicle = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dgvVehiclesOnSite = new System.Windows.Forms.DataGridView();
@@ -93,19 +60,52 @@
             this.VehicleOwner = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VehicleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsVehiclesOnSite = new System.Windows.Forms.BindingSource(this.components);
+            this.dsVerkada = new QWS_Local.dsVerkada();
+            this.tpVehicles = new System.Windows.Forms.TabPage();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.btnSaveVehicle = new System.Windows.Forms.Button();
+            this.btnRefreshVehicle = new System.Windows.Forms.Button();
+            this.btnFindVehicle = new System.Windows.Forms.Button();
+            this.txtVehicleRego = new System.Windows.Forms.TextBox();
+            this.dgvVehicles = new System.Windows.Forms.DataGridView();
+            this.regoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ownerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsVehicles = new System.Windows.Forms.BindingSource(this.components);
+            this.tpLicensesPlates = new System.Windows.Forms.TabPage();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.btnLPSave = new System.Windows.Forms.Button();
+            this.btnLPRefresh = new System.Windows.Forms.Button();
+            this.btnLPFind = new System.Windows.Forms.Button();
+            this.txtLicensePlate = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.licensePlateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.regoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsLicensePlates = new System.Windows.Forms.BindingSource(this.components);
+            this.tpDiscards = new System.Windows.Forms.TabPage();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.btnDiscardsSave = new System.Windows.Forms.Button();
+            this.btnDiscardsRefresh = new System.Windows.Forms.Button();
+            this.btnDiscardsFind = new System.Windows.Forms.Button();
+            this.txtDiscards = new System.Windows.Forms.TextBox();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.licensePlateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bslPR2Discard = new System.Windows.Forms.BindingSource(this.components);
+            this.tpManualExit = new System.Windows.Forms.TabPage();
+            this.vehicleTypeTextBox = new System.Windows.Forms.TextBox();
+            this.visitStatusTextBox = new System.Windows.Forms.TextBox();
+            this.vehicleOwnerTextBox = new System.Windows.Forms.TextBox();
+            this.licensePlateTextBox = new System.Windows.Forms.TextBox();
+            this.entryDTTMTextBox = new System.Windows.Forms.TextBox();
+            this.btnSaveManualExit = new System.Windows.Forms.Button();
+            this.dtpManualDepartureDTTM = new System.Windows.Forms.DateTimePicker();
             this.taVehiclesOnSite = new QWS_Local.dsVerkadaTableAdapters.taVehiclesOnSite();
             this.taVehiclesLPR = new QWS_Local.dsVerkadaTableAdapters.taVehiclesLPR();
             this.taLicensePlates = new QWS_Local.dsVerkadaTableAdapters.LicensePlatesTableAdapter();
             this.talPR2Discard = new QWS_Local.dsVerkadaTableAdapters.LPR2DiscardTableAdapter();
-            this.tpManualExit = new System.Windows.Forms.TabPage();
-            this.dtpManualDepartureDTTM = new System.Windows.Forms.DateTimePicker();
-            this.btnSaveManualExit = new System.Windows.Forms.Button();
             this.tableAdapterManager = new QWS_Local.dsVerkadaTableAdapters.TableAdapterManager();
-            this.entryDTTMTextBox = new System.Windows.Forms.TextBox();
-            this.licensePlateTextBox = new System.Windows.Forms.TextBox();
-            this.vehicleOwnerTextBox = new System.Windows.Forms.TextBox();
-            this.visitStatusTextBox = new System.Windows.Forms.TextBox();
-            this.vehicleTypeTextBox = new System.Windows.Forms.TextBox();
             entryDTTMLabel = new System.Windows.Forms.Label();
             licensePlateLabel = new System.Windows.Forms.Label();
             vehicleOwnerLabel = new System.Windows.Forms.Label();
@@ -113,28 +113,6 @@
             vehicleTypeLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsVehicles)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsVerkada)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
-            this.splitContainer3.Panel1.SuspendLayout();
-            this.splitContainer3.Panel2.SuspendLayout();
-            this.splitContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsLicensePlates)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
-            this.splitContainer4.Panel1.SuspendLayout();
-            this.splitContainer4.Panel2.SuspendLayout();
-            this.splitContainer4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bslPR2Discard)).BeginInit();
             this.tpSeenLPR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -142,15 +120,91 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehiclesOnSite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehiclesOnSite)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsVerkada)).BeginInit();
+            this.tpVehicles.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVehicles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVehicles)).BeginInit();
+            this.tpLicensesPlates.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsLicensePlates)).BeginInit();
+            this.tpDiscards.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bslPR2Discard)).BeginInit();
             this.tpManualExit.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // entryDTTMLabel
+            // 
+            entryDTTMLabel.AutoSize = true;
+            entryDTTMLabel.Location = new System.Drawing.Point(196, 130);
+            entryDTTMLabel.Name = "entryDTTMLabel";
+            entryDTTMLabel.Size = new System.Drawing.Size(92, 18);
+            entryDTTMLabel.TabIndex = 2;
+            entryDTTMLabel.Text = "Entry DTTM:";
+            // 
+            // licensePlateLabel
+            // 
+            licensePlateLabel.AutoSize = true;
+            licensePlateLabel.Location = new System.Drawing.Point(188, 100);
+            licensePlateLabel.Name = "licensePlateLabel";
+            licensePlateLabel.Size = new System.Drawing.Size(100, 18);
+            licensePlateLabel.TabIndex = 4;
+            licensePlateLabel.Text = "License Plate:";
+            // 
+            // vehicleOwnerLabel
+            // 
+            vehicleOwnerLabel.AutoSize = true;
+            vehicleOwnerLabel.Location = new System.Drawing.Point(181, 160);
+            vehicleOwnerLabel.Name = "vehicleOwnerLabel";
+            vehicleOwnerLabel.Size = new System.Drawing.Size(107, 18);
+            vehicleOwnerLabel.TabIndex = 6;
+            vehicleOwnerLabel.Text = "Vehicle Owner:";
+            // 
+            // visitStatusLabel
+            // 
+            visitStatusLabel.AutoSize = true;
+            visitStatusLabel.Location = new System.Drawing.Point(203, 190);
+            visitStatusLabel.Name = "visitStatusLabel";
+            visitStatusLabel.Size = new System.Drawing.Size(85, 18);
+            visitStatusLabel.TabIndex = 8;
+            visitStatusLabel.Text = "Visit Status:";
+            // 
+            // vehicleTypeLabel
+            // 
+            vehicleTypeLabel.AutoSize = true;
+            vehicleTypeLabel.Location = new System.Drawing.Point(193, 220);
+            vehicleTypeLabel.Name = "vehicleTypeLabel";
+            vehicleTypeLabel.Size = new System.Drawing.Size(95, 18);
+            vehicleTypeLabel.TabIndex = 10;
+            vehicleTypeLabel.Text = "Vehicle Type:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(115, 252);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(173, 18);
+            label1.TabIndex = 12;
+            label1.Text = "Departure Date and Time";
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tpSeenLPR);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tpVehicles);
+            this.tabControl1.Controls.Add(this.tpLicensesPlates);
+            this.tabControl1.Controls.Add(this.tpDiscards);
             this.tabControl1.Controls.Add(this.tpManualExit);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -159,349 +213,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1060, 799);
             this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.splitContainer2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 27);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1052, 768);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Vehicles";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(4, 4);
-            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4);
-            this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.btnSaveVehicle);
-            this.splitContainer2.Panel1.Controls.Add(this.btnRefreshVehicle);
-            this.splitContainer2.Panel1.Controls.Add(this.btnFindVehicle);
-            this.splitContainer2.Panel1.Controls.Add(this.txtVehicleRego);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer2.Size = new System.Drawing.Size(1044, 760);
-            this.splitContainer2.SplitterDistance = 234;
-            this.splitContainer2.SplitterWidth = 6;
-            this.splitContainer2.TabIndex = 0;
-            // 
-            // btnSaveVehicle
-            // 
-            this.btnSaveVehicle.Location = new System.Drawing.Point(69, 193);
-            this.btnSaveVehicle.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSaveVehicle.Name = "btnSaveVehicle";
-            this.btnSaveVehicle.Size = new System.Drawing.Size(112, 32);
-            this.btnSaveVehicle.TabIndex = 3;
-            this.btnSaveVehicle.Text = "Save";
-            this.btnSaveVehicle.UseVisualStyleBackColor = true;
-            this.btnSaveVehicle.Click += new System.EventHandler(this.btnSaveVehicle_Click);
-            // 
-            // btnRefreshVehicle
-            // 
-            this.btnRefreshVehicle.Location = new System.Drawing.Point(69, 250);
-            this.btnRefreshVehicle.Margin = new System.Windows.Forms.Padding(4);
-            this.btnRefreshVehicle.Name = "btnRefreshVehicle";
-            this.btnRefreshVehicle.Size = new System.Drawing.Size(112, 32);
-            this.btnRefreshVehicle.TabIndex = 2;
-            this.btnRefreshVehicle.Text = "Refresh";
-            this.btnRefreshVehicle.UseVisualStyleBackColor = true;
-            this.btnRefreshVehicle.Click += new System.EventHandler(this.btnRefreshVehicle_Click);
-            // 
-            // btnFindVehicle
-            // 
-            this.btnFindVehicle.Location = new System.Drawing.Point(69, 136);
-            this.btnFindVehicle.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFindVehicle.Name = "btnFindVehicle";
-            this.btnFindVehicle.Size = new System.Drawing.Size(112, 32);
-            this.btnFindVehicle.TabIndex = 1;
-            this.btnFindVehicle.Text = "Find";
-            this.btnFindVehicle.UseVisualStyleBackColor = true;
-            this.btnFindVehicle.Click += new System.EventHandler(this.btnFindVehicle_Click);
-            // 
-            // txtVehicleRego
-            // 
-            this.txtVehicleRego.Location = new System.Drawing.Point(69, 75);
-            this.txtVehicleRego.Margin = new System.Windows.Forms.Padding(4);
-            this.txtVehicleRego.Name = "txtVehicleRego";
-            this.txtVehicleRego.Size = new System.Drawing.Size(112, 24);
-            this.txtVehicleRego.TabIndex = 0;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.regoDataGridViewTextBoxColumn,
-            this.ownerDataGridViewTextBoxColumn,
-            this.cardCodeDataGridViewTextBoxColumn,
-            this.vehicleTypeDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.bsVehicles;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(804, 760);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // regoDataGridViewTextBoxColumn
-            // 
-            this.regoDataGridViewTextBoxColumn.DataPropertyName = "Rego";
-            this.regoDataGridViewTextBoxColumn.HeaderText = "Rego";
-            this.regoDataGridViewTextBoxColumn.Name = "regoDataGridViewTextBoxColumn";
-            // 
-            // ownerDataGridViewTextBoxColumn
-            // 
-            this.ownerDataGridViewTextBoxColumn.DataPropertyName = "Owner";
-            this.ownerDataGridViewTextBoxColumn.HeaderText = "Owner";
-            this.ownerDataGridViewTextBoxColumn.Name = "ownerDataGridViewTextBoxColumn";
-            this.ownerDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // cardCodeDataGridViewTextBoxColumn
-            // 
-            this.cardCodeDataGridViewTextBoxColumn.DataPropertyName = "CardCode";
-            this.cardCodeDataGridViewTextBoxColumn.HeaderText = "CardCode";
-            this.cardCodeDataGridViewTextBoxColumn.Name = "cardCodeDataGridViewTextBoxColumn";
-            // 
-            // vehicleTypeDataGridViewTextBoxColumn
-            // 
-            this.vehicleTypeDataGridViewTextBoxColumn.DataPropertyName = "VehicleType";
-            this.vehicleTypeDataGridViewTextBoxColumn.HeaderText = "VehicleType";
-            this.vehicleTypeDataGridViewTextBoxColumn.Name = "vehicleTypeDataGridViewTextBoxColumn";
-            this.vehicleTypeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // bsVehicles
-            // 
-            this.bsVehicles.DataMember = "Vehicles";
-            this.bsVehicles.DataSource = this.dsVerkada;
-            // 
-            // dsVerkada
-            // 
-            this.dsVerkada.DataSetName = "dsVerkada";
-            this.dsVerkada.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.splitContainer3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 27);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1052, 768);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "License Plates";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer3
-            // 
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(4, 4);
-            this.splitContainer3.Margin = new System.Windows.Forms.Padding(4);
-            this.splitContainer3.Name = "splitContainer3";
-            // 
-            // splitContainer3.Panel1
-            // 
-            this.splitContainer3.Panel1.Controls.Add(this.btnLPSave);
-            this.splitContainer3.Panel1.Controls.Add(this.btnLPRefresh);
-            this.splitContainer3.Panel1.Controls.Add(this.btnLPFind);
-            this.splitContainer3.Panel1.Controls.Add(this.txtLicensePlate);
-            // 
-            // splitContainer3.Panel2
-            // 
-            this.splitContainer3.Panel2.Controls.Add(this.dataGridView2);
-            this.splitContainer3.Size = new System.Drawing.Size(1044, 760);
-            this.splitContainer3.SplitterDistance = 347;
-            this.splitContainer3.SplitterWidth = 6;
-            this.splitContainer3.TabIndex = 0;
-            // 
-            // btnLPSave
-            // 
-            this.btnLPSave.Location = new System.Drawing.Point(50, 184);
-            this.btnLPSave.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLPSave.Name = "btnLPSave";
-            this.btnLPSave.Size = new System.Drawing.Size(112, 32);
-            this.btnLPSave.TabIndex = 7;
-            this.btnLPSave.Text = "Save";
-            this.btnLPSave.UseVisualStyleBackColor = true;
-            this.btnLPSave.Click += new System.EventHandler(this.btnLPSave_Click);
-            // 
-            // btnLPRefresh
-            // 
-            this.btnLPRefresh.Location = new System.Drawing.Point(50, 241);
-            this.btnLPRefresh.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLPRefresh.Name = "btnLPRefresh";
-            this.btnLPRefresh.Size = new System.Drawing.Size(112, 32);
-            this.btnLPRefresh.TabIndex = 6;
-            this.btnLPRefresh.Text = "Refresh";
-            this.btnLPRefresh.UseVisualStyleBackColor = true;
-            this.btnLPRefresh.Click += new System.EventHandler(this.btnLPRefresh_Click);
-            // 
-            // btnLPFind
-            // 
-            this.btnLPFind.Location = new System.Drawing.Point(50, 127);
-            this.btnLPFind.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLPFind.Name = "btnLPFind";
-            this.btnLPFind.Size = new System.Drawing.Size(112, 32);
-            this.btnLPFind.TabIndex = 5;
-            this.btnLPFind.Text = "Find";
-            this.btnLPFind.UseVisualStyleBackColor = true;
-            this.btnLPFind.Click += new System.EventHandler(this.btnLPFind_Click);
-            // 
-            // txtLicensePlate
-            // 
-            this.txtLicensePlate.Location = new System.Drawing.Point(50, 66);
-            this.txtLicensePlate.Margin = new System.Windows.Forms.Padding(4);
-            this.txtLicensePlate.Name = "txtLicensePlate";
-            this.txtLicensePlate.Size = new System.Drawing.Size(112, 24);
-            this.txtLicensePlate.TabIndex = 4;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.licensePlateDataGridViewTextBoxColumn,
-            this.regoDataGridViewTextBoxColumn1});
-            this.dataGridView2.DataSource = this.bsLicensePlates;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(691, 760);
-            this.dataGridView2.TabIndex = 0;
-            // 
-            // licensePlateDataGridViewTextBoxColumn
-            // 
-            this.licensePlateDataGridViewTextBoxColumn.DataPropertyName = "LicensePlate";
-            this.licensePlateDataGridViewTextBoxColumn.HeaderText = "LicensePlate";
-            this.licensePlateDataGridViewTextBoxColumn.Name = "licensePlateDataGridViewTextBoxColumn";
-            // 
-            // regoDataGridViewTextBoxColumn1
-            // 
-            this.regoDataGridViewTextBoxColumn1.DataPropertyName = "Rego";
-            this.regoDataGridViewTextBoxColumn1.HeaderText = "Rego";
-            this.regoDataGridViewTextBoxColumn1.Name = "regoDataGridViewTextBoxColumn1";
-            // 
-            // bsLicensePlates
-            // 
-            this.bsLicensePlates.DataMember = "LicensePlates";
-            this.bsLicensePlates.DataSource = this.dsVerkada;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.splitContainer4);
-            this.tabPage3.Location = new System.Drawing.Point(4, 27);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Size = new System.Drawing.Size(1052, 768);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Discards";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer4
-            // 
-            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer4.Location = new System.Drawing.Point(4, 4);
-            this.splitContainer4.Margin = new System.Windows.Forms.Padding(4);
-            this.splitContainer4.Name = "splitContainer4";
-            // 
-            // splitContainer4.Panel1
-            // 
-            this.splitContainer4.Panel1.Controls.Add(this.btnDiscardsSave);
-            this.splitContainer4.Panel1.Controls.Add(this.btnDiscardsRefresh);
-            this.splitContainer4.Panel1.Controls.Add(this.btnDiscardsFind);
-            this.splitContainer4.Panel1.Controls.Add(this.txtDiscards);
-            // 
-            // splitContainer4.Panel2
-            // 
-            this.splitContainer4.Panel2.Controls.Add(this.dataGridView3);
-            this.splitContainer4.Size = new System.Drawing.Size(1044, 760);
-            this.splitContainer4.SplitterDistance = 347;
-            this.splitContainer4.SplitterWidth = 6;
-            this.splitContainer4.TabIndex = 0;
-            // 
-            // btnDiscardsSave
-            // 
-            this.btnDiscardsSave.Location = new System.Drawing.Point(70, 170);
-            this.btnDiscardsSave.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDiscardsSave.Name = "btnDiscardsSave";
-            this.btnDiscardsSave.Size = new System.Drawing.Size(112, 32);
-            this.btnDiscardsSave.TabIndex = 11;
-            this.btnDiscardsSave.Text = "Save";
-            this.btnDiscardsSave.UseVisualStyleBackColor = true;
-            this.btnDiscardsSave.Click += new System.EventHandler(this.btnDiscardsSave_Click);
-            // 
-            // btnDiscardsRefresh
-            // 
-            this.btnDiscardsRefresh.Location = new System.Drawing.Point(70, 227);
-            this.btnDiscardsRefresh.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDiscardsRefresh.Name = "btnDiscardsRefresh";
-            this.btnDiscardsRefresh.Size = new System.Drawing.Size(112, 32);
-            this.btnDiscardsRefresh.TabIndex = 10;
-            this.btnDiscardsRefresh.Text = "Refresh";
-            this.btnDiscardsRefresh.UseVisualStyleBackColor = true;
-            this.btnDiscardsRefresh.Click += new System.EventHandler(this.btnDiscardsRefresh_Click);
-            // 
-            // btnDiscardsFind
-            // 
-            this.btnDiscardsFind.Location = new System.Drawing.Point(70, 113);
-            this.btnDiscardsFind.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDiscardsFind.Name = "btnDiscardsFind";
-            this.btnDiscardsFind.Size = new System.Drawing.Size(112, 32);
-            this.btnDiscardsFind.TabIndex = 9;
-            this.btnDiscardsFind.Text = "Find";
-            this.btnDiscardsFind.UseVisualStyleBackColor = true;
-            this.btnDiscardsFind.Click += new System.EventHandler(this.btnDiscardsFind_Click);
-            // 
-            // txtDiscards
-            // 
-            this.txtDiscards.Location = new System.Drawing.Point(70, 52);
-            this.txtDiscards.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDiscards.Name = "txtDiscards";
-            this.txtDiscards.Size = new System.Drawing.Size(112, 24);
-            this.txtDiscards.TabIndex = 8;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.AutoGenerateColumns = false;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.licensePlateDataGridViewTextBoxColumn1,
-            this.commentDataGridViewTextBoxColumn});
-            this.dataGridView3.DataSource = this.bslPR2Discard;
-            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(691, 760);
-            this.dataGridView3.TabIndex = 0;
-            // 
-            // licensePlateDataGridViewTextBoxColumn1
-            // 
-            this.licensePlateDataGridViewTextBoxColumn1.DataPropertyName = "LicensePlate";
-            this.licensePlateDataGridViewTextBoxColumn1.HeaderText = "LicensePlate";
-            this.licensePlateDataGridViewTextBoxColumn1.Name = "licensePlateDataGridViewTextBoxColumn1";
-            // 
-            // commentDataGridViewTextBoxColumn
-            // 
-            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
-            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
-            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
-            this.commentDataGridViewTextBoxColumn.Width = 400;
-            // 
-            // bslPR2Discard
-            // 
-            this.bslPR2Discard.DataMember = "LPR2Discard";
-            this.bslPR2Discard.DataSource = this.dsVerkada;
             // 
             // tpSeenLPR
             // 
@@ -534,7 +245,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.rbAllPlates);
             this.splitContainer1.Panel1.Controls.Add(this.button3);
             this.splitContainer1.Panel1.Controls.Add(this.button2);
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
+            this.splitContainer1.Panel1.Controls.Add(this.btnNewVehicle);
             this.splitContainer1.Panel1.Controls.Add(this.btnRefresh);
             this.splitContainer1.Panel1.Controls.Add(this.dateTimePicker1);
             // 
@@ -659,15 +370,16 @@
             this.button2.Text = "Map License Plate";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnNewVehicle
             // 
-            this.button1.Location = new System.Drawing.Point(27, 226);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(201, 44);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "New Vehicle";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnNewVehicle.Location = new System.Drawing.Point(27, 226);
+            this.btnNewVehicle.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNewVehicle.Name = "btnNewVehicle";
+            this.btnNewVehicle.Size = new System.Drawing.Size(201, 44);
+            this.btnNewVehicle.TabIndex = 3;
+            this.btnNewVehicle.Text = "New Vehicle";
+            this.btnNewVehicle.UseVisualStyleBackColor = true;
+            this.btnNewVehicle.Click += new System.EventHandler(this.btnNewVehicle_Click);
             // 
             // btnRefresh
             // 
@@ -716,8 +428,8 @@
             // entryDTTMDataGridViewTextBoxColumn
             // 
             this.entryDTTMDataGridViewTextBoxColumn.DataPropertyName = "EntryDTTM";
-            dataGridViewCellStyle1.Format = "HH:mm";
-            this.entryDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Format = "HH:mm";
+            this.entryDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.entryDTTMDataGridViewTextBoxColumn.HeaderText = "EntryDTTM";
             this.entryDTTMDataGridViewTextBoxColumn.Name = "entryDTTMDataGridViewTextBoxColumn";
             this.entryDTTMDataGridViewTextBoxColumn.ReadOnly = true;
@@ -764,21 +476,348 @@
             this.bsVehiclesOnSite.DataMember = "VehiclesOnSite";
             this.bsVehiclesOnSite.DataSource = this.dsVerkada;
             // 
-            // taVehiclesOnSite
+            // dsVerkada
             // 
-            this.taVehiclesOnSite.ClearBeforeFill = true;
+            this.dsVerkada.DataSetName = "dsVerkada";
+            this.dsVerkada.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // taVehiclesLPR
+            // tpVehicles
             // 
-            this.taVehiclesLPR.ClearBeforeFill = true;
+            this.tpVehicles.Controls.Add(this.splitContainer2);
+            this.tpVehicles.Location = new System.Drawing.Point(4, 27);
+            this.tpVehicles.Margin = new System.Windows.Forms.Padding(4);
+            this.tpVehicles.Name = "tpVehicles";
+            this.tpVehicles.Padding = new System.Windows.Forms.Padding(4);
+            this.tpVehicles.Size = new System.Drawing.Size(1052, 768);
+            this.tpVehicles.TabIndex = 0;
+            this.tpVehicles.Text = "Vehicles";
+            this.tpVehicles.UseVisualStyleBackColor = true;
             // 
-            // taLicensePlates
+            // splitContainer2
             // 
-            this.taLicensePlates.ClearBeforeFill = true;
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(4, 4);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4);
+            this.splitContainer2.Name = "splitContainer2";
             // 
-            // talPR2Discard
+            // splitContainer2.Panel1
             // 
-            this.talPR2Discard.ClearBeforeFill = true;
+            this.splitContainer2.Panel1.Controls.Add(this.btnSaveVehicle);
+            this.splitContainer2.Panel1.Controls.Add(this.btnRefreshVehicle);
+            this.splitContainer2.Panel1.Controls.Add(this.btnFindVehicle);
+            this.splitContainer2.Panel1.Controls.Add(this.txtVehicleRego);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.dgvVehicles);
+            this.splitContainer2.Size = new System.Drawing.Size(1044, 760);
+            this.splitContainer2.SplitterDistance = 234;
+            this.splitContainer2.SplitterWidth = 6;
+            this.splitContainer2.TabIndex = 0;
+            // 
+            // btnSaveVehicle
+            // 
+            this.btnSaveVehicle.Location = new System.Drawing.Point(69, 240);
+            this.btnSaveVehicle.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSaveVehicle.Name = "btnSaveVehicle";
+            this.btnSaveVehicle.Size = new System.Drawing.Size(112, 32);
+            this.btnSaveVehicle.TabIndex = 3;
+            this.btnSaveVehicle.Text = "Save";
+            this.btnSaveVehicle.UseVisualStyleBackColor = true;
+            this.btnSaveVehicle.Click += new System.EventHandler(this.btnSaveVehicle_Click);
+            // 
+            // btnRefreshVehicle
+            // 
+            this.btnRefreshVehicle.Location = new System.Drawing.Point(69, 189);
+            this.btnRefreshVehicle.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRefreshVehicle.Name = "btnRefreshVehicle";
+            this.btnRefreshVehicle.Size = new System.Drawing.Size(112, 32);
+            this.btnRefreshVehicle.TabIndex = 2;
+            this.btnRefreshVehicle.Text = "Refresh";
+            this.btnRefreshVehicle.UseVisualStyleBackColor = true;
+            this.btnRefreshVehicle.Click += new System.EventHandler(this.btnRefreshVehicle_Click);
+            // 
+            // btnFindVehicle
+            // 
+            this.btnFindVehicle.Location = new System.Drawing.Point(69, 136);
+            this.btnFindVehicle.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFindVehicle.Name = "btnFindVehicle";
+            this.btnFindVehicle.Size = new System.Drawing.Size(112, 32);
+            this.btnFindVehicle.TabIndex = 1;
+            this.btnFindVehicle.Text = "Find";
+            this.btnFindVehicle.UseVisualStyleBackColor = true;
+            this.btnFindVehicle.Click += new System.EventHandler(this.btnFindVehicle_Click);
+            // 
+            // txtVehicleRego
+            // 
+            this.txtVehicleRego.Location = new System.Drawing.Point(69, 75);
+            this.txtVehicleRego.Margin = new System.Windows.Forms.Padding(4);
+            this.txtVehicleRego.Name = "txtVehicleRego";
+            this.txtVehicleRego.Size = new System.Drawing.Size(112, 24);
+            this.txtVehicleRego.TabIndex = 0;
+            // 
+            // dgvVehicles
+            // 
+            this.dgvVehicles.AutoGenerateColumns = false;
+            this.dgvVehicles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVehicles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.regoDataGridViewTextBoxColumn,
+            this.ownerDataGridViewTextBoxColumn,
+            this.cardCodeDataGridViewTextBoxColumn,
+            this.vehicleTypeDataGridViewTextBoxColumn});
+            this.dgvVehicles.DataSource = this.bsVehicles;
+            this.dgvVehicles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvVehicles.Location = new System.Drawing.Point(0, 0);
+            this.dgvVehicles.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvVehicles.Name = "dgvVehicles";
+            this.dgvVehicles.Size = new System.Drawing.Size(804, 760);
+            this.dgvVehicles.TabIndex = 0;
+            // 
+            // regoDataGridViewTextBoxColumn
+            // 
+            this.regoDataGridViewTextBoxColumn.DataPropertyName = "Rego";
+            this.regoDataGridViewTextBoxColumn.HeaderText = "Rego";
+            this.regoDataGridViewTextBoxColumn.Name = "regoDataGridViewTextBoxColumn";
+            // 
+            // ownerDataGridViewTextBoxColumn
+            // 
+            this.ownerDataGridViewTextBoxColumn.DataPropertyName = "Owner";
+            this.ownerDataGridViewTextBoxColumn.HeaderText = "Owner";
+            this.ownerDataGridViewTextBoxColumn.Name = "ownerDataGridViewTextBoxColumn";
+            this.ownerDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // cardCodeDataGridViewTextBoxColumn
+            // 
+            this.cardCodeDataGridViewTextBoxColumn.DataPropertyName = "CardCode";
+            this.cardCodeDataGridViewTextBoxColumn.HeaderText = "CardCode";
+            this.cardCodeDataGridViewTextBoxColumn.Name = "cardCodeDataGridViewTextBoxColumn";
+            // 
+            // vehicleTypeDataGridViewTextBoxColumn
+            // 
+            this.vehicleTypeDataGridViewTextBoxColumn.DataPropertyName = "VehicleType";
+            this.vehicleTypeDataGridViewTextBoxColumn.HeaderText = "VehicleType";
+            this.vehicleTypeDataGridViewTextBoxColumn.Name = "vehicleTypeDataGridViewTextBoxColumn";
+            this.vehicleTypeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // bsVehicles
+            // 
+            this.bsVehicles.DataMember = "Vehicles";
+            this.bsVehicles.DataSource = this.dsVerkada;
+            // 
+            // tpLicensesPlates
+            // 
+            this.tpLicensesPlates.Controls.Add(this.splitContainer3);
+            this.tpLicensesPlates.Location = new System.Drawing.Point(4, 27);
+            this.tpLicensesPlates.Margin = new System.Windows.Forms.Padding(4);
+            this.tpLicensesPlates.Name = "tpLicensesPlates";
+            this.tpLicensesPlates.Padding = new System.Windows.Forms.Padding(4);
+            this.tpLicensesPlates.Size = new System.Drawing.Size(1052, 768);
+            this.tpLicensesPlates.TabIndex = 1;
+            this.tpLicensesPlates.Text = "License Plates";
+            this.tpLicensesPlates.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(4, 4);
+            this.splitContainer3.Margin = new System.Windows.Forms.Padding(4);
+            this.splitContainer3.Name = "splitContainer3";
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.btnLPSave);
+            this.splitContainer3.Panel1.Controls.Add(this.btnLPRefresh);
+            this.splitContainer3.Panel1.Controls.Add(this.btnLPFind);
+            this.splitContainer3.Panel1.Controls.Add(this.txtLicensePlate);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.dataGridView2);
+            this.splitContainer3.Size = new System.Drawing.Size(1044, 760);
+            this.splitContainer3.SplitterDistance = 347;
+            this.splitContainer3.SplitterWidth = 6;
+            this.splitContainer3.TabIndex = 0;
+            // 
+            // btnLPSave
+            // 
+            this.btnLPSave.Location = new System.Drawing.Point(50, 184);
+            this.btnLPSave.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLPSave.Name = "btnLPSave";
+            this.btnLPSave.Size = new System.Drawing.Size(112, 32);
+            this.btnLPSave.TabIndex = 7;
+            this.btnLPSave.Text = "Save";
+            this.btnLPSave.UseVisualStyleBackColor = true;
+            this.btnLPSave.Click += new System.EventHandler(this.btnLPSave_Click);
+            // 
+            // btnLPRefresh
+            // 
+            this.btnLPRefresh.Location = new System.Drawing.Point(50, 241);
+            this.btnLPRefresh.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLPRefresh.Name = "btnLPRefresh";
+            this.btnLPRefresh.Size = new System.Drawing.Size(112, 32);
+            this.btnLPRefresh.TabIndex = 6;
+            this.btnLPRefresh.Text = "Refresh";
+            this.btnLPRefresh.UseVisualStyleBackColor = true;
+            this.btnLPRefresh.Click += new System.EventHandler(this.btnLPRefresh_Click);
+            // 
+            // btnLPFind
+            // 
+            this.btnLPFind.Location = new System.Drawing.Point(50, 127);
+            this.btnLPFind.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLPFind.Name = "btnLPFind";
+            this.btnLPFind.Size = new System.Drawing.Size(112, 32);
+            this.btnLPFind.TabIndex = 5;
+            this.btnLPFind.Text = "Find";
+            this.btnLPFind.UseVisualStyleBackColor = true;
+            this.btnLPFind.Click += new System.EventHandler(this.btnLPFind_Click);
+            // 
+            // txtLicensePlate
+            // 
+            this.txtLicensePlate.Location = new System.Drawing.Point(50, 66);
+            this.txtLicensePlate.Margin = new System.Windows.Forms.Padding(4);
+            this.txtLicensePlate.Name = "txtLicensePlate";
+            this.txtLicensePlate.Size = new System.Drawing.Size(112, 24);
+            this.txtLicensePlate.TabIndex = 4;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.licensePlateDataGridViewTextBoxColumn,
+            this.regoDataGridViewTextBoxColumn1});
+            this.dataGridView2.DataSource = this.bsLicensePlates;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(691, 760);
+            this.dataGridView2.TabIndex = 0;
+            // 
+            // licensePlateDataGridViewTextBoxColumn
+            // 
+            this.licensePlateDataGridViewTextBoxColumn.DataPropertyName = "LicensePlate";
+            this.licensePlateDataGridViewTextBoxColumn.HeaderText = "LicensePlate";
+            this.licensePlateDataGridViewTextBoxColumn.Name = "licensePlateDataGridViewTextBoxColumn";
+            // 
+            // regoDataGridViewTextBoxColumn1
+            // 
+            this.regoDataGridViewTextBoxColumn1.DataPropertyName = "Rego";
+            this.regoDataGridViewTextBoxColumn1.HeaderText = "Rego";
+            this.regoDataGridViewTextBoxColumn1.Name = "regoDataGridViewTextBoxColumn1";
+            // 
+            // bsLicensePlates
+            // 
+            this.bsLicensePlates.DataMember = "LicensePlates";
+            this.bsLicensePlates.DataSource = this.dsVerkada;
+            // 
+            // tpDiscards
+            // 
+            this.tpDiscards.Controls.Add(this.splitContainer4);
+            this.tpDiscards.Location = new System.Drawing.Point(4, 27);
+            this.tpDiscards.Margin = new System.Windows.Forms.Padding(4);
+            this.tpDiscards.Name = "tpDiscards";
+            this.tpDiscards.Padding = new System.Windows.Forms.Padding(4);
+            this.tpDiscards.Size = new System.Drawing.Size(1052, 768);
+            this.tpDiscards.TabIndex = 2;
+            this.tpDiscards.Text = "Discards";
+            this.tpDiscards.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer4
+            // 
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.Location = new System.Drawing.Point(4, 4);
+            this.splitContainer4.Margin = new System.Windows.Forms.Padding(4);
+            this.splitContainer4.Name = "splitContainer4";
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.Controls.Add(this.btnDiscardsSave);
+            this.splitContainer4.Panel1.Controls.Add(this.btnDiscardsRefresh);
+            this.splitContainer4.Panel1.Controls.Add(this.btnDiscardsFind);
+            this.splitContainer4.Panel1.Controls.Add(this.txtDiscards);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.dataGridView3);
+            this.splitContainer4.Size = new System.Drawing.Size(1044, 760);
+            this.splitContainer4.SplitterDistance = 347;
+            this.splitContainer4.SplitterWidth = 6;
+            this.splitContainer4.TabIndex = 0;
+            // 
+            // btnDiscardsSave
+            // 
+            this.btnDiscardsSave.Location = new System.Drawing.Point(70, 170);
+            this.btnDiscardsSave.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDiscardsSave.Name = "btnDiscardsSave";
+            this.btnDiscardsSave.Size = new System.Drawing.Size(112, 32);
+            this.btnDiscardsSave.TabIndex = 11;
+            this.btnDiscardsSave.Text = "Save";
+            this.btnDiscardsSave.UseVisualStyleBackColor = true;
+            this.btnDiscardsSave.Click += new System.EventHandler(this.btnDiscardsSave_Click);
+            // 
+            // btnDiscardsRefresh
+            // 
+            this.btnDiscardsRefresh.Location = new System.Drawing.Point(70, 227);
+            this.btnDiscardsRefresh.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDiscardsRefresh.Name = "btnDiscardsRefresh";
+            this.btnDiscardsRefresh.Size = new System.Drawing.Size(112, 32);
+            this.btnDiscardsRefresh.TabIndex = 10;
+            this.btnDiscardsRefresh.Text = "Refresh";
+            this.btnDiscardsRefresh.UseVisualStyleBackColor = true;
+            this.btnDiscardsRefresh.Click += new System.EventHandler(this.btnDiscardsRefresh_Click);
+            // 
+            // btnDiscardsFind
+            // 
+            this.btnDiscardsFind.Location = new System.Drawing.Point(70, 113);
+            this.btnDiscardsFind.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDiscardsFind.Name = "btnDiscardsFind";
+            this.btnDiscardsFind.Size = new System.Drawing.Size(112, 32);
+            this.btnDiscardsFind.TabIndex = 9;
+            this.btnDiscardsFind.Text = "Find";
+            this.btnDiscardsFind.UseVisualStyleBackColor = true;
+            this.btnDiscardsFind.Click += new System.EventHandler(this.btnDiscardsFind_Click);
+            // 
+            // txtDiscards
+            // 
+            this.txtDiscards.Location = new System.Drawing.Point(70, 52);
+            this.txtDiscards.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDiscards.Name = "txtDiscards";
+            this.txtDiscards.Size = new System.Drawing.Size(112, 24);
+            this.txtDiscards.TabIndex = 8;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AutoGenerateColumns = false;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.licensePlateDataGridViewTextBoxColumn1,
+            this.commentDataGridViewTextBoxColumn});
+            this.dataGridView3.DataSource = this.bslPR2Discard;
+            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView3.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(691, 760);
+            this.dataGridView3.TabIndex = 0;
+            // 
+            // licensePlateDataGridViewTextBoxColumn1
+            // 
+            this.licensePlateDataGridViewTextBoxColumn1.DataPropertyName = "LicensePlate";
+            this.licensePlateDataGridViewTextBoxColumn1.HeaderText = "LicensePlate";
+            this.licensePlateDataGridViewTextBoxColumn1.Name = "licensePlateDataGridViewTextBoxColumn1";
+            // 
+            // commentDataGridViewTextBoxColumn
+            // 
+            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
+            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
+            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
+            this.commentDataGridViewTextBoxColumn.Width = 400;
+            // 
+            // bslPR2Discard
+            // 
+            this.bslPR2Discard.DataMember = "LPR2Discard";
+            this.bslPR2Discard.DataSource = this.dsVerkada;
             // 
             // tpManualExit
             // 
@@ -802,14 +841,45 @@
             this.tpManualExit.Text = "Manual Exit";
             this.tpManualExit.UseVisualStyleBackColor = true;
             // 
-            // dtpManualDepartureDTTM
+            // vehicleTypeTextBox
             // 
-            this.dtpManualDepartureDTTM.CustomFormat = "ddd MMM yyyy HH:mm";
-            this.dtpManualDepartureDTTM.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpManualDepartureDTTM.Location = new System.Drawing.Point(294, 247);
-            this.dtpManualDepartureDTTM.Name = "dtpManualDepartureDTTM";
-            this.dtpManualDepartureDTTM.Size = new System.Drawing.Size(200, 24);
-            this.dtpManualDepartureDTTM.TabIndex = 0;
+            this.vehicleTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehiclesOnSite, "VehicleType", true));
+            this.vehicleTypeTextBox.Location = new System.Drawing.Point(294, 217);
+            this.vehicleTypeTextBox.Name = "vehicleTypeTextBox";
+            this.vehicleTypeTextBox.Size = new System.Drawing.Size(299, 24);
+            this.vehicleTypeTextBox.TabIndex = 11;
+            // 
+            // visitStatusTextBox
+            // 
+            this.visitStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehiclesOnSite, "VisitStatus", true));
+            this.visitStatusTextBox.Location = new System.Drawing.Point(294, 187);
+            this.visitStatusTextBox.Name = "visitStatusTextBox";
+            this.visitStatusTextBox.Size = new System.Drawing.Size(299, 24);
+            this.visitStatusTextBox.TabIndex = 9;
+            // 
+            // vehicleOwnerTextBox
+            // 
+            this.vehicleOwnerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehiclesOnSite, "VehicleOwner", true));
+            this.vehicleOwnerTextBox.Location = new System.Drawing.Point(294, 157);
+            this.vehicleOwnerTextBox.Name = "vehicleOwnerTextBox";
+            this.vehicleOwnerTextBox.Size = new System.Drawing.Size(299, 24);
+            this.vehicleOwnerTextBox.TabIndex = 7;
+            // 
+            // licensePlateTextBox
+            // 
+            this.licensePlateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehiclesOnSite, "LicensePlate", true));
+            this.licensePlateTextBox.Location = new System.Drawing.Point(294, 97);
+            this.licensePlateTextBox.Name = "licensePlateTextBox";
+            this.licensePlateTextBox.Size = new System.Drawing.Size(100, 24);
+            this.licensePlateTextBox.TabIndex = 5;
+            // 
+            // entryDTTMTextBox
+            // 
+            this.entryDTTMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehiclesOnSite, "EntryDTTM", true));
+            this.entryDTTMTextBox.Location = new System.Drawing.Point(294, 127);
+            this.entryDTTMTextBox.Name = "entryDTTMTextBox";
+            this.entryDTTMTextBox.Size = new System.Drawing.Size(299, 24);
+            this.entryDTTMTextBox.TabIndex = 3;
             // 
             // btnSaveManualExit
             // 
@@ -821,6 +891,31 @@
             this.btnSaveManualExit.UseVisualStyleBackColor = true;
             this.btnSaveManualExit.Click += new System.EventHandler(this.btnSaveManualExit_Click);
             // 
+            // dtpManualDepartureDTTM
+            // 
+            this.dtpManualDepartureDTTM.CustomFormat = "ddd MMM yyyy HH:mm";
+            this.dtpManualDepartureDTTM.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpManualDepartureDTTM.Location = new System.Drawing.Point(294, 247);
+            this.dtpManualDepartureDTTM.Name = "dtpManualDepartureDTTM";
+            this.dtpManualDepartureDTTM.Size = new System.Drawing.Size(200, 24);
+            this.dtpManualDepartureDTTM.TabIndex = 0;
+            // 
+            // taVehiclesOnSite
+            // 
+            this.taVehiclesOnSite.ClearBeforeFill = true;
+            // 
+            // taVehiclesLPR
+            // 
+            this.taVehiclesLPR.ClearBeforeFill = true;
+            // 
+            // taLicensePlates
+            // 
+            this.taLicensePlates.ClearBeforeFill = true;
+            // 
+            // talPR2Discard
+            // 
+            this.talPR2Discard.ClearBeforeFill = true;
+            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
@@ -828,100 +923,6 @@
             this.tableAdapterManager.LPR2DiscardTableAdapter = this.talPR2Discard;
             this.tableAdapterManager.taVehiclesLPR = this.taVehiclesLPR;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsVerkadaTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // entryDTTMLabel
-            // 
-            entryDTTMLabel.AutoSize = true;
-            entryDTTMLabel.Location = new System.Drawing.Point(196, 130);
-            entryDTTMLabel.Name = "entryDTTMLabel";
-            entryDTTMLabel.Size = new System.Drawing.Size(92, 18);
-            entryDTTMLabel.TabIndex = 2;
-            entryDTTMLabel.Text = "Entry DTTM:";
-            // 
-            // entryDTTMTextBox
-            // 
-            this.entryDTTMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehiclesOnSite, "EntryDTTM", true));
-            this.entryDTTMTextBox.Location = new System.Drawing.Point(294, 127);
-            this.entryDTTMTextBox.Name = "entryDTTMTextBox";
-            this.entryDTTMTextBox.Size = new System.Drawing.Size(299, 24);
-            this.entryDTTMTextBox.TabIndex = 3;
-            // 
-            // licensePlateLabel
-            // 
-            licensePlateLabel.AutoSize = true;
-            licensePlateLabel.Location = new System.Drawing.Point(188, 100);
-            licensePlateLabel.Name = "licensePlateLabel";
-            licensePlateLabel.Size = new System.Drawing.Size(100, 18);
-            licensePlateLabel.TabIndex = 4;
-            licensePlateLabel.Text = "License Plate:";
-            // 
-            // licensePlateTextBox
-            // 
-            this.licensePlateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehiclesOnSite, "LicensePlate", true));
-            this.licensePlateTextBox.Location = new System.Drawing.Point(294, 97);
-            this.licensePlateTextBox.Name = "licensePlateTextBox";
-            this.licensePlateTextBox.Size = new System.Drawing.Size(100, 24);
-            this.licensePlateTextBox.TabIndex = 5;
-            // 
-            // vehicleOwnerLabel
-            // 
-            vehicleOwnerLabel.AutoSize = true;
-            vehicleOwnerLabel.Location = new System.Drawing.Point(181, 160);
-            vehicleOwnerLabel.Name = "vehicleOwnerLabel";
-            vehicleOwnerLabel.Size = new System.Drawing.Size(107, 18);
-            vehicleOwnerLabel.TabIndex = 6;
-            vehicleOwnerLabel.Text = "Vehicle Owner:";
-            // 
-            // vehicleOwnerTextBox
-            // 
-            this.vehicleOwnerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehiclesOnSite, "VehicleOwner", true));
-            this.vehicleOwnerTextBox.Location = new System.Drawing.Point(294, 157);
-            this.vehicleOwnerTextBox.Name = "vehicleOwnerTextBox";
-            this.vehicleOwnerTextBox.Size = new System.Drawing.Size(299, 24);
-            this.vehicleOwnerTextBox.TabIndex = 7;
-            // 
-            // visitStatusLabel
-            // 
-            visitStatusLabel.AutoSize = true;
-            visitStatusLabel.Location = new System.Drawing.Point(203, 190);
-            visitStatusLabel.Name = "visitStatusLabel";
-            visitStatusLabel.Size = new System.Drawing.Size(85, 18);
-            visitStatusLabel.TabIndex = 8;
-            visitStatusLabel.Text = "Visit Status:";
-            // 
-            // visitStatusTextBox
-            // 
-            this.visitStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehiclesOnSite, "VisitStatus", true));
-            this.visitStatusTextBox.Location = new System.Drawing.Point(294, 187);
-            this.visitStatusTextBox.Name = "visitStatusTextBox";
-            this.visitStatusTextBox.Size = new System.Drawing.Size(299, 24);
-            this.visitStatusTextBox.TabIndex = 9;
-            // 
-            // vehicleTypeLabel
-            // 
-            vehicleTypeLabel.AutoSize = true;
-            vehicleTypeLabel.Location = new System.Drawing.Point(193, 220);
-            vehicleTypeLabel.Name = "vehicleTypeLabel";
-            vehicleTypeLabel.Size = new System.Drawing.Size(95, 18);
-            vehicleTypeLabel.TabIndex = 10;
-            vehicleTypeLabel.Text = "Vehicle Type:";
-            // 
-            // vehicleTypeTextBox
-            // 
-            this.vehicleTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVehiclesOnSite, "VehicleType", true));
-            this.vehicleTypeTextBox.Location = new System.Drawing.Point(294, 217);
-            this.vehicleTypeTextBox.Name = "vehicleTypeTextBox";
-            this.vehicleTypeTextBox.Size = new System.Drawing.Size(299, 24);
-            this.vehicleTypeTextBox.TabIndex = 11;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(115, 252);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(173, 18);
-            label1.TabIndex = 12;
-            label1.Text = "Departure Date and Time";
             // 
             // VerkadaLPR
             // 
@@ -935,31 +936,6 @@
             this.Text = "VerkadaLPR";
             this.Load += new System.EventHandler(this.VerkadaLPR_Load);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel1.PerformLayout();
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsVehicles)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsVerkada)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.splitContainer3.Panel1.ResumeLayout(false);
-            this.splitContainer3.Panel1.PerformLayout();
-            this.splitContainer3.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
-            this.splitContainer3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsLicensePlates)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.splitContainer4.Panel1.ResumeLayout(false);
-            this.splitContainer4.Panel1.PerformLayout();
-            this.splitContainer4.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
-            this.splitContainer4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bslPR2Discard)).EndInit();
             this.tpSeenLPR.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -968,6 +944,31 @@
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehiclesOnSite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsVehiclesOnSite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsVerkada)).EndInit();
+            this.tpVehicles.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel1.PerformLayout();
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVehicles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVehicles)).EndInit();
+            this.tpLicensesPlates.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel1.PerformLayout();
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsLicensePlates)).EndInit();
+            this.tpDiscards.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel1.PerformLayout();
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bslPR2Discard)).EndInit();
             this.tpManualExit.ResumeLayout(false);
             this.tpManualExit.PerformLayout();
             this.ResumeLayout(false);
@@ -977,9 +978,9 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tpVehicles;
+        private System.Windows.Forms.TabPage tpLicensesPlates;
+        private System.Windows.Forms.TabPage tpDiscards;
         private System.Windows.Forms.TabPage tpSeenLPR;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView dgvVehiclesOnSite;
@@ -995,7 +996,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn VehicleOwner;
         private System.Windows.Forms.DataGridViewTextBoxColumn VehicleType;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvVehicles;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.SplitContainer splitContainer4;
         private System.Windows.Forms.BindingSource bsVehicles;
@@ -1016,7 +1017,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNewVehicle;
         private System.Windows.Forms.RadioButton rbAllOnSite;
         private System.Windows.Forms.RadioButton rbQuarryOnSite;
         private System.Windows.Forms.RadioButton rbAllPlates;

@@ -21,6 +21,7 @@ namespace QWS_Local
         {
             //tabControl1.TabPages.Remove(tpBaseItem);
             tabControl1.SelectedTab = tpDataEntry;
+            this.reportViewer2.RefreshReport();
         }
 
         private void FindLotsByItemCode()
@@ -396,6 +397,24 @@ namespace QWS_Local
                 }
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SPLotStatusRefresh();
+        }
+
+        private void SPLotStatusRefresh()
+        {
+            try
+            {
+                this.taSPLotStatus.Fill(this.dsTIQ2.SPLotNoStatus);
+                reportViewer2.RefreshReport();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

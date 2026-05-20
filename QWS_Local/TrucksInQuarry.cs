@@ -27,7 +27,6 @@ namespace QWS_Local
         private string Domain;
         private string myConnectionString;
         private bool blOverRideShortLoad; // ensure not charged for Imported
-        //private bool IsDelivery;
         
         public TrucksInQuarry()
         {
@@ -54,8 +53,13 @@ namespace QWS_Local
             int iRows = this.taAxleConfiguration.Fill(this.dsQWSLocal2024.AxleConfiguration);
             iRows += 1;
             blOverRideShortLoad = false;
-
-        RefreshQueue();
+            if (mySiteID != 2)
+            {
+                dgvVehiclesOnSite.Visible=false;
+                btnAllLPR.Visible=false;
+                btnRefreshLPR.Visible=false;
+            }
+            RefreshQueue();
         }
 
   
@@ -431,7 +435,7 @@ namespace QWS_Local
                                         taTIQ2.Update(dsTIQ2.TIQ);
                                         if (CheckLoad())
                                         {
-                                            if (ConfirmPostDocket())
+                                            if (ConfirmPostDocket()) // presents PostDocket form for WBO confirmation
                                             {
                                                 if (myTruckConfig == "TKs" || myTruckConfig == "BDa")
                                                 {
@@ -515,6 +519,7 @@ namespace QWS_Local
             myTareWeight = myTIQRow.Tare; //System.Convert.ToDecimal(txtTare.Text);
             decimal UnderloadAmount = myTIQRow.Payload - myTIQRow.Nett;
             decimal myMinimumMaterial = Properties.Settings.Default.MinimumMaterial;
+            decimal myMinimumCart = Properties.Settings.Default.MinimumCart;
             bool SplitLoad = false;
             switch (myTIQRow.TruckConfig)
             {
@@ -539,9 +544,24 @@ namespace QWS_Local
                 MessageBox.Show("Unable to proceed Tare = 0", "Zero Tare Weight.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+            else if (myTIQRow.Nett < myMinimumCart && myTIQRow.QueueStatus == "Q")
+            {
+                string msg1 = "Did the customer understand and accept that they will be charged minimum cartage?";
+                WBOConfirmation frmWBOConfirmation = new WBOConfirmation(msg1);
+                DialogResult dr2 = frmWBOConfirmation.ShowDialog();
+                if (dr2 == DialogResult.OK)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Minimum Cartage not accepted, load cancelled!");
+                    return false;
+                }
+            }
             else if (myTIQRow.Nett < myMinimumMaterial && myTIQRow.QueueStatus == "Q") // not G or E
             {
-                string msg1 = "Did the customer understand and accept that they will be charged a short load fee";
+                string msg1 = "Did the customer understand and accept that they will be charged a short load fee?";
                 WBOConfirmation frmWBOConfirmation = new WBOConfirmation(msg1);
                 DialogResult dr2 = frmWBOConfirmation.ShowDialog();
                 if (dr2 == DialogResult.OK)
@@ -630,6 +650,7 @@ namespace QWS_Local
                             {
                                 iLineNumMax = myOrderLine.LineNum;
                             }
+                            blOverRideShortLoad = false; // ensure it is set for every load
                             switch (myOrderLine.SWW)
                             {
                                 case "Items":

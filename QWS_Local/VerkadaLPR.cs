@@ -99,6 +99,7 @@ namespace QWS_Local
         {
             try
             {
+                bsVehicles.EndEdit();
                 taVehiclesLPR.Update(dsVerkada);
             }
             catch (Exception ex)
@@ -116,10 +117,12 @@ namespace QWS_Local
         {
             try
             {
-                string strRego = "%";
-                strRego += txtVehicleRego.Text;
-                strRego += "%";
-                taVehiclesLPR.FillBy(dsVerkada.Vehicles, strRego);
+                //string strRego = "%";
+                // Find Exact 20260518 ? why, not at dataset designer level
+                string strRego = txtVehicleRego.Text;
+                //strRego += "%";
+                int iCount = taVehiclesLPR.FillBy(dsVerkada.Vehicles, strRego);
+                iCount += 1;
             }
             catch (Exception ex)
             {
@@ -386,6 +389,50 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnNewVehicle_Click(object sender, EventArgs e)
+        {
+            if (bsVehiclesOnSite.Count > 0)
+            { 
+            dsVerkada.VehiclesOnSiteRow vehiclesOnSiteRow = CurrentLPRVehicle();
+            string LicensePlate = vehiclesOnSiteRow.LicensePlate;
+
+                if (vehiclesOnSiteRow.VehicleOwner.Length == 0)
+                {
+                    string msg = "Please note that Quarry vehicles will appear once entered into QWS.";
+                    msg += "\r\nPress OK to enter vehicles for Employees, Conundrum, Contractors etc";
+                    msg += "\r\nPress Cancel for Quarry Heavy Vehicles";
+                    DialogResult dr = MessageBox.Show(msg, "Add New Vehicle", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    if (dr == DialogResult.OK)
+                    {
+                        txtVehicleRego.Text = vehiclesOnSiteRow.LicensePlate.ToString();
+                        tabControl1.SelectedTab = tpVehicles;
+                        //dgvVehicles.CurrentCell = dgvVehicles[0, 1]; // row does not exist yet
+                        //DataTable dt = (DataTable)dgvVehicles.DataSource;
+                        //dsVerkada.Vehicles vehicles = 
+                        //DataRow newRow = dt.NewRow();
+                        //newRow["Rego"] = LicensePlate;
+                        //newRow["Owner"] = "tba";
+                        //newRow["CardCode"] = "x";
+                        //newRow["VehicleType"] = "<Contractor,Employee>";
+                        //dt.Rows.Add(newRow); // The DataGridView updates itself
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vehicle already on file!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vehicles not loaded yet.");
+            }
+        }
+
+        private void dgvVehicles_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        {
+
         }
     }
 }

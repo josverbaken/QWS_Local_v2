@@ -582,6 +582,7 @@
       <DependentUpon>SPLotMaintenance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SPLotNoAudit.rdlc" />
+    <EmbeddedResource Include="SPLotStatus.rdlc" />
     <EmbeddedResource Include="TareTruck.resx">
       <DependentUpon>TareTruck.cs</DependentUpon>
     </EmbeddedResource>

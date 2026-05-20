@@ -40,7 +40,8 @@
             System.Windows.Forms.Label createdDTTMLabel;
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label allocationDTTMLabel;
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpSPLots = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -82,6 +83,7 @@
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.tpDataEntry = new System.Windows.Forms.TabPage();
             this.gbManualAllocation = new System.Windows.Forms.GroupBox();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.btnManualAllocationSave = new System.Windows.Forms.Button();
             this.commentTextBox = new System.Windows.Forms.TextBox();
             this.reversalCheckBox = new System.Windows.Forms.CheckBox();
@@ -90,6 +92,7 @@
             this.sPLotNoTextBox = new System.Windows.Forms.TextBox();
             this.docketNumTextBox = new System.Windows.Forms.TextBox();
             this.gbDeliveryDocket = new System.Windows.Forms.GroupBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.txtDocNum2Check = new System.Windows.Forms.TextBox();
             this.btnAddAllocation = new System.Windows.Forms.Button();
@@ -103,6 +106,10 @@
             this.btnSaveBaseItemMapping = new System.Windows.Forms.Button();
             this.btnBaseItemMapping = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.tpSPLotStatus = new System.Windows.Forms.TabPage();
+            this.splitContainer7 = new System.Windows.Forms.SplitContainer();
+            this.button2 = new System.Windows.Forms.Button();
+            this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.bsStockpileBOM = new System.Windows.Forms.BindingSource(this.components);
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.allocationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -133,8 +140,9 @@
             this.taStockpileManualAllocation = new QWS_Local.dsTIQ2TableAdapters.StockpileManualAllocationTableAdapter();
             this.taSPLotItemsMap = new QWS_Local.dsTIQ2TableAdapters.SPLotItemsMapTableAdapter();
             this.taSPLotCheckDocket = new QWS_Local.dsTIQ2TableAdapters.SPLotCheckDocketTableAdapter();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.bsSPLotStatus = new System.Windows.Forms.BindingSource(this.components);
+            this.taSPLotStatus = new QWS_Local.dsTIQ2TableAdapters.SPLotNoStatusTableAdapter();
+            this.SPLotNoStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             itemCodeLabel = new System.Windows.Forms.Label();
             sPLotNoLabel = new System.Windows.Forms.Label();
             docketNumLabel = new System.Windows.Forms.Label();
@@ -185,6 +193,11 @@
             this.splitContainer5.Panel2.SuspendLayout();
             this.splitContainer5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tpSPLotStatus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).BeginInit();
+            this.splitContainer7.Panel1.SuspendLayout();
+            this.splitContainer7.Panel2.SuspendLayout();
+            this.splitContainer7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsStockpileBOM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsStockpileLotAllocation)).BeginInit();
@@ -193,6 +206,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotCheckDocket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotItemsMap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SPLotNoAuditBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsSPLotStatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SPLotNoStatusBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // itemCodeLabel
@@ -296,6 +311,7 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.tpSPLotStatus);
             this.tabControl1.Controls.Add(this.tpSPLots);
             this.tabControl1.Controls.Add(this.tpDockets);
             this.tabControl1.Controls.Add(this.tpManual);
@@ -339,7 +355,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1124, 767);
+            this.splitContainer1.Size = new System.Drawing.Size(1124, 772);
             this.splitContainer1.SplitterDistance = 284;
             this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 0;
@@ -414,8 +430,8 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer2.Panel2.Controls.Add(this.btnSave);
-            this.splitContainer2.Size = new System.Drawing.Size(834, 767);
-            this.splitContainer2.SplitterDistance = 383;
+            this.splitContainer2.Size = new System.Drawing.Size(834, 772);
+            this.splitContainer2.SplitterDistance = 385;
             this.splitContainer2.SplitterWidth = 6;
             this.splitContainer2.TabIndex = 1;
             // 
@@ -435,7 +451,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(834, 383);
+            this.dataGridView1.Size = new System.Drawing.Size(834, 385);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_DefaultValuesNeeded);
             // 
@@ -525,7 +541,7 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.reportViewer1);
-            this.splitContainer3.Size = new System.Drawing.Size(1124, 767);
+            this.splitContainer3.Size = new System.Drawing.Size(1124, 772);
             this.splitContainer3.SplitterDistance = 194;
             this.splitContainer3.SplitterWidth = 6;
             this.splitContainer3.TabIndex = 0;
@@ -591,15 +607,15 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource3.Name = "DataSet1";
-            reportDataSource3.Value = this.bsSPLotNoAudit;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
+            reportDataSource2.Name = "DataSet1";
+            reportDataSource2.Value = this.bsSPLotNoAudit;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "QWS_Local.SPLotNoAudit.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Margin = new System.Windows.Forms.Padding(4);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(924, 767);
+            this.reportViewer1.Size = new System.Drawing.Size(924, 772);
             this.reportViewer1.TabIndex = 0;
             // 
             // tpManual
@@ -627,7 +643,7 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.tabManualDocktAllocation);
-            this.splitContainer4.Size = new System.Drawing.Size(1132, 775);
+            this.splitContainer4.Size = new System.Drawing.Size(1132, 780);
             this.splitContainer4.SplitterDistance = 25;
             this.splitContainer4.SplitterWidth = 6;
             this.splitContainer4.TabIndex = 0;
@@ -640,7 +656,7 @@
             this.tabManualDocktAllocation.Location = new System.Drawing.Point(0, 0);
             this.tabManualDocktAllocation.Name = "tabManualDocktAllocation";
             this.tabManualDocktAllocation.SelectedIndex = 0;
-            this.tabManualDocktAllocation.Size = new System.Drawing.Size(1101, 775);
+            this.tabManualDocktAllocation.Size = new System.Drawing.Size(1101, 780);
             this.tabManualDocktAllocation.TabIndex = 1;
             this.tabManualDocktAllocation.SelectedIndexChanged += new System.EventHandler(this.tabManualDocktAllocation_SelectedIndexChanged);
             // 
@@ -650,7 +666,7 @@
             this.tpList.Location = new System.Drawing.Point(4, 27);
             this.tpList.Name = "tpList";
             this.tpList.Padding = new System.Windows.Forms.Padding(3);
-            this.tpList.Size = new System.Drawing.Size(1093, 744);
+            this.tpList.Size = new System.Drawing.Size(1093, 749);
             this.tpList.TabIndex = 0;
             this.tpList.Text = "List";
             this.tpList.UseVisualStyleBackColor = true;
@@ -669,7 +685,7 @@
             // splitContainer6.Panel2
             // 
             this.splitContainer6.Panel2.Controls.Add(this.dataGridView3);
-            this.splitContainer6.Size = new System.Drawing.Size(1087, 738);
+            this.splitContainer6.Size = new System.Drawing.Size(1087, 743);
             this.splitContainer6.SplitterDistance = 198;
             this.splitContainer6.TabIndex = 1;
             // 
@@ -778,7 +794,7 @@
             this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.Size = new System.Drawing.Size(885, 738);
+            this.dataGridView3.Size = new System.Drawing.Size(885, 743);
             this.dataGridView3.TabIndex = 0;
             // 
             // tpDataEntry
@@ -789,7 +805,7 @@
             this.tpDataEntry.Location = new System.Drawing.Point(4, 27);
             this.tpDataEntry.Name = "tpDataEntry";
             this.tpDataEntry.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDataEntry.Size = new System.Drawing.Size(1093, 744);
+            this.tpDataEntry.Size = new System.Drawing.Size(1093, 749);
             this.tpDataEntry.TabIndex = 1;
             this.tpDataEntry.Text = "Data Entry";
             this.tpDataEntry.UseVisualStyleBackColor = true;
@@ -816,6 +832,18 @@
             this.gbManualAllocation.TabIndex = 29;
             this.gbManualAllocation.TabStop = false;
             this.gbManualAllocation.Text = "Manual Allocation";
+            // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsStockpileManualAllocation, "AllocationDTTM", true));
+            this.maskedTextBox2.Location = new System.Drawing.Point(139, 87);
+            this.maskedTextBox2.Mask = "00/00/0000";
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.ReadOnly = true;
+            this.maskedTextBox2.Size = new System.Drawing.Size(104, 24);
+            this.maskedTextBox2.TabIndex = 31;
+            this.maskedTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
             // 
             // btnManualAllocationSave
             // 
@@ -905,6 +933,17 @@
             this.gbDeliveryDocket.TabStop = false;
             this.gbDeliveryDocket.Text = "Delivery Docket";
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsSPLotCheckDocket, "CreatedDTTM", true));
+            this.maskedTextBox1.Location = new System.Drawing.Point(127, 121);
+            this.maskedTextBox1.Mask = "00/00/0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(100, 24);
+            this.maskedTextBox1.TabIndex = 30;
+            this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(44, 71);
@@ -993,7 +1032,7 @@
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.dataGridView2);
-            this.splitContainer5.Size = new System.Drawing.Size(1132, 775);
+            this.splitContainer5.Size = new System.Drawing.Size(1132, 780);
             this.splitContainer5.SplitterDistance = 377;
             this.splitContainer5.TabIndex = 0;
             // 
@@ -1044,8 +1083,59 @@
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(751, 775);
+            this.dataGridView2.Size = new System.Drawing.Size(751, 780);
             this.dataGridView2.TabIndex = 1;
+            // 
+            // tpSPLotStatus
+            // 
+            this.tpSPLotStatus.Controls.Add(this.splitContainer7);
+            this.tpSPLotStatus.Location = new System.Drawing.Point(4, 27);
+            this.tpSPLotStatus.Name = "tpSPLotStatus";
+            this.tpSPLotStatus.Padding = new System.Windows.Forms.Padding(3);
+            this.tpSPLotStatus.Size = new System.Drawing.Size(1132, 775);
+            this.tpSPLotStatus.TabIndex = 4;
+            this.tpSPLotStatus.Text = "Stockpile Lot Status Report";
+            this.tpSPLotStatus.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer7
+            // 
+            this.splitContainer7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer7.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer7.Name = "splitContainer7";
+            // 
+            // splitContainer7.Panel1
+            // 
+            this.splitContainer7.Panel1.Controls.Add(this.button2);
+            // 
+            // splitContainer7.Panel2
+            // 
+            this.splitContainer7.Panel2.Controls.Add(this.reportViewer2);
+            this.splitContainer7.Size = new System.Drawing.Size(1126, 769);
+            this.splitContainer7.SplitterDistance = 97;
+            this.splitContainer7.TabIndex = 0;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(5, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(76, 78);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Refresh";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // reportViewer2
+            // 
+            this.reportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.bsSPLotStatus;
+            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer2.LocalReport.ReportEmbeddedResource = "QWS_Local.SPLotStatus.rdlc";
+            this.reportViewer2.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer2.Name = "reportViewer2";
+            this.reportViewer2.ServerReport.BearerToken = null;
+            this.reportViewer2.Size = new System.Drawing.Size(1025, 769);
+            this.reportViewer2.TabIndex = 0;
             // 
             // bsStockpileBOM
             // 
@@ -1235,28 +1325,19 @@
             // 
             this.taSPLotCheckDocket.ClearBeforeFill = true;
             // 
-            // maskedTextBox1
+            // bsSPLotStatus
             // 
-            this.maskedTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsSPLotCheckDocket, "CreatedDTTM", true));
-            this.maskedTextBox1.Location = new System.Drawing.Point(127, 121);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 24);
-            this.maskedTextBox1.TabIndex = 30;
-            this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            this.bsSPLotStatus.DataMember = "SPLotNoStatus";
+            this.bsSPLotStatus.DataSource = this.dsTIQ2;
             // 
-            // maskedTextBox2
+            // taSPLotStatus
             // 
-            this.maskedTextBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsStockpileManualAllocation, "AllocationDTTM", true));
-            this.maskedTextBox2.Location = new System.Drawing.Point(139, 87);
-            this.maskedTextBox2.Mask = "00/00/0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.ReadOnly = true;
-            this.maskedTextBox2.Size = new System.Drawing.Size(104, 24);
-            this.maskedTextBox2.TabIndex = 31;
-            this.maskedTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
+            this.taSPLotStatus.ClearBeforeFill = true;
+            // 
+            // SPLotNoStatusBindingSource
+            // 
+            this.SPLotNoStatusBindingSource.DataMember = "SPLotNoStatus";
+            this.SPLotNoStatusBindingSource.DataSource = this.dsTIQ2;
             // 
             // SPLotMaintenance
             // 
@@ -1315,6 +1396,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
             this.splitContainer5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tpSPLotStatus.ResumeLayout(false);
+            this.splitContainer7.Panel1.ResumeLayout(false);
+            this.splitContainer7.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).EndInit();
+            this.splitContainer7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bsStockpileBOM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsStockpileLotAllocation)).EndInit();
@@ -1323,6 +1409,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotCheckDocket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotItemsMap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SPLotNoAuditBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsSPLotStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SPLotNoStatusBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1423,5 +1511,12 @@
         private System.Windows.Forms.SplitContainer splitContainer6;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.TabPage tpSPLotStatus;
+        private System.Windows.Forms.SplitContainer splitContainer7;
+        private System.Windows.Forms.Button button2;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer2;
+        private System.Windows.Forms.BindingSource bsSPLotStatus;
+        private dsTIQ2TableAdapters.SPLotNoStatusTableAdapter taSPLotStatus;
+        private System.Windows.Forms.BindingSource SPLotNoStatusBindingSource;
     }
 }
