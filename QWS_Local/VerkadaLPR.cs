@@ -359,8 +359,8 @@ namespace QWS_Local
                 {
                     msg += "\r\n";
                 }
-                msg += "TODO save most likely using stored procedure";
-                MessageBox.Show(msg);
+                //msg += "TODO save most likely using stored procedure";
+                //MessageBox.Show(msg);
                 if (dtpManualDepartureDTTM.Value <= vehiclesOnSiteRow.EntryDTTM)
                 {
                     msg = "Can't leave before Entry DTTM!@#";

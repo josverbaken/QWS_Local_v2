@@ -521,6 +521,11 @@ namespace QWS_Local
             decimal myMinimumMaterial = Properties.Settings.Default.MinimumMaterial;
             decimal myMinimumCart = Properties.Settings.Default.MinimumCart;
             bool SplitLoad = false;
+            bool Delivery = false;
+            if (myTIQRow.CartageCode.Length > 3)
+            {
+                Delivery = true;
+            }
             switch (myTIQRow.TruckConfig)
             {
                 case "TRs":
@@ -544,7 +549,7 @@ namespace QWS_Local
                 MessageBox.Show("Unable to proceed Tare = 0", "Zero Tare Weight.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (myTIQRow.Nett < myMinimumCart && myTIQRow.QueueStatus == "Q")
+            else if (myTIQRow.Nett < myMinimumCart && myTIQRow.QueueStatus == "Q" && Delivery == true)
             {
                 string msg1 = "Did the customer understand and accept that they will be charged minimum cartage?";
                 WBOConfirmation frmWBOConfirmation = new WBOConfirmation(msg1);
@@ -1389,7 +1394,7 @@ namespace QWS_Local
 
         private void button1_Click(object sender, EventArgs e)
         {
-            bsVehiclesOnSite.Filter = "";
+            bsVehiclesOnSite.Filter = "VehicleType like 'Quarry'";
         }
     }
 }
