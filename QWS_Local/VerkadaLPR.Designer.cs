@@ -35,7 +35,7 @@
             System.Windows.Forms.Label visitStatusLabel;
             System.Windows.Forms.Label vehicleTypeLabel;
             System.Windows.Forms.Label label1;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpSeenLPR = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -47,8 +47,8 @@
             this.rbAllOnSite = new System.Windows.Forms.RadioButton();
             this.rbQuarryOnSite = new System.Windows.Forms.RadioButton();
             this.rbAllPlates = new System.Windows.Forms.RadioButton();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDiscardLP = new System.Windows.Forms.Button();
+            this.btnMapLicensePlate = new System.Windows.Forms.Button();
             this.btnNewVehicle = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -243,8 +243,8 @@
             this.splitContainer1.Panel1.Controls.Add(this.rbAllOnSite);
             this.splitContainer1.Panel1.Controls.Add(this.rbQuarryOnSite);
             this.splitContainer1.Panel1.Controls.Add(this.rbAllPlates);
-            this.splitContainer1.Panel1.Controls.Add(this.button3);
-            this.splitContainer1.Panel1.Controls.Add(this.button2);
+            this.splitContainer1.Panel1.Controls.Add(this.btnDiscardLP);
+            this.splitContainer1.Panel1.Controls.Add(this.btnMapLicensePlate);
             this.splitContainer1.Panel1.Controls.Add(this.btnNewVehicle);
             this.splitContainer1.Panel1.Controls.Add(this.btnRefresh);
             this.splitContainer1.Panel1.Controls.Add(this.dateTimePicker1);
@@ -350,25 +350,27 @@
             this.rbAllPlates.UseVisualStyleBackColor = true;
             this.rbAllPlates.CheckedChanged += new System.EventHandler(this.rbAllPlates_CheckedChanged);
             // 
-            // button3
+            // btnDiscardLP
             // 
-            this.button3.Location = new System.Drawing.Point(27, 330);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(201, 44);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Discard License Plate";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDiscardLP.Location = new System.Drawing.Point(27, 330);
+            this.btnDiscardLP.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDiscardLP.Name = "btnDiscardLP";
+            this.btnDiscardLP.Size = new System.Drawing.Size(201, 44);
+            this.btnDiscardLP.TabIndex = 5;
+            this.btnDiscardLP.Text = "Discard License Plate";
+            this.btnDiscardLP.UseVisualStyleBackColor = true;
+            this.btnDiscardLP.Click += new System.EventHandler(this.btnDiscardLP_Click);
             // 
-            // button2
+            // btnMapLicensePlate
             // 
-            this.button2.Location = new System.Drawing.Point(27, 278);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(201, 44);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Map License Plate";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnMapLicensePlate.Location = new System.Drawing.Point(27, 278);
+            this.btnMapLicensePlate.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMapLicensePlate.Name = "btnMapLicensePlate";
+            this.btnMapLicensePlate.Size = new System.Drawing.Size(201, 44);
+            this.btnMapLicensePlate.TabIndex = 4;
+            this.btnMapLicensePlate.Text = "Map License Plate";
+            this.btnMapLicensePlate.UseVisualStyleBackColor = true;
+            this.btnMapLicensePlate.Click += new System.EventHandler(this.btnMapLicensePlate_Click);
             // 
             // btnNewVehicle
             // 
@@ -428,8 +430,8 @@
             // entryDTTMDataGridViewTextBoxColumn
             // 
             this.entryDTTMDataGridViewTextBoxColumn.DataPropertyName = "EntryDTTM";
-            dataGridViewCellStyle5.Format = "HH:mm";
-            this.entryDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Format = "HH:mm";
+            this.entryDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.entryDTTMDataGridViewTextBoxColumn.HeaderText = "EntryDTTM";
             this.entryDTTMDataGridViewTextBoxColumn.Name = "entryDTTMDataGridViewTextBoxColumn";
             this.entryDTTMDataGridViewTextBoxColumn.ReadOnly = true;
@@ -1015,8 +1017,8 @@
         private dsVerkadaTableAdapters.LPR2DiscardTableAdapter talPR2Discard;
         private System.Windows.Forms.DataGridViewTextBoxColumn licensePlateDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDiscardLP;
+        private System.Windows.Forms.Button btnMapLicensePlate;
         private System.Windows.Forms.Button btnNewVehicle;
         private System.Windows.Forms.RadioButton rbAllOnSite;
         private System.Windows.Forms.RadioButton rbQuarryOnSite;

@@ -430,9 +430,56 @@ namespace QWS_Local
             }
         }
 
-        private void dgvVehicles_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+        private void btnDiscardLP_Click(object sender, EventArgs e)
         {
+            DiscardLicensePlate();
+        }
 
+        private void DiscardLicensePlate()
+        {
+            try
+            {
+                dsVerkada.VehiclesOnSiteRow vehiclesOnSiteRow = CurrentLPRVehicle();
+                if (vehiclesOnSiteRow.VehicleOwner.Length > 0)
+                {
+                    MessageBox.Show("Already allocated", "Check before Discarding", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    txtDiscards.Text = vehiclesOnSiteRow.LicensePlate;
+                    tabControl1.SelectedTab = tpDiscards;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "DiscardLicensePlate", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnMapLicensePlate_Click(object sender, EventArgs e)
+        {
+            MapLicensePlate();
+        }
+
+        private void MapLicensePlate()
+        {
+            try
+            {
+                dsVerkada.VehiclesOnSiteRow vehiclesOnSiteRow = CurrentLPRVehicle();
+                if (vehiclesOnSiteRow.VehicleOwner.Length > 0)
+                {
+                    MessageBox.Show("Already allocated", "Check before mapping!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    txtLicensePlate.Text = vehiclesOnSiteRow.LicensePlate;
+                    tabControl1.SelectedTab = tpLicensesPlates;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "MapLicensePlate", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
