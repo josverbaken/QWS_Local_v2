@@ -522,7 +522,8 @@ namespace QWS_Local
             decimal myMinimumCart = Properties.Settings.Default.MinimumCart;
             bool SplitLoad = false;
             bool Delivery = false;
-            if (myTIQRow.CartageCode.Length > 3)
+            bool LoadOkay = true;
+            if (myTIQRow.CartageCode == "Delivery")
             {
                 Delivery = true;
             }
@@ -542,53 +543,60 @@ namespace QWS_Local
             if (myTIQRow.Nett <= 0.0M)
             {
                 MessageBox.Show("Unable to proceed NETT <= 0!", "Zero Nett Weight.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                LoadOkay = false;
             }
             else if (myTareWeight == 0.0M)
             {
                 MessageBox.Show("Unable to proceed Tare = 0", "Zero Tare Weight.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                LoadOkay = false;
             }
-            else if (myTIQRow.Nett < myMinimumCart && myTIQRow.QueueStatus == "Q" && Delivery == true)
+            else // only proceed if above 2 tests are okay
             {
-                string msg1 = "Did the customer understand and accept that they will be charged minimum cartage?";
-                WBOConfirmation frmWBOConfirmation = new WBOConfirmation(msg1);
-                DialogResult dr2 = frmWBOConfirmation.ShowDialog();
-                if (dr2 == DialogResult.OK)
+                if (UnderloadAmount > 1.0M && SplitLoad == false && myTIQRow.QueueStatus == "Q" && LoadOkay != false)
                 {
-                    return true;
+                    string msg = "Vehicle underloaded! Did the driver choose to collect more material?";
+                    DialogResult dialogResult = MessageBox.Show(msg, "Underload Check", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        LoadOkay = false; // cancel and wait for truck to return to weighbridge
+                    }
+                    else
+                    {
+                        LoadOkay = true;
+                    }
                 }
-                else
+                if (myTIQRow.Nett < myMinimumCart && myTIQRow.QueueStatus == "Q" && Delivery == true && LoadOkay != false)
                 {
-                    MessageBox.Show("Minimum Cartage not accepted, load cancelled!");
-                    return false;
+                    string msg1 = "Did the customer understand and accept that they will be charged minimum cartage?";
+                    WBOConfirmation frmWBOConfirmation = new WBOConfirmation(msg1);
+                    DialogResult dr2 = frmWBOConfirmation.ShowDialog();
+                    if (dr2 == DialogResult.OK)
+                    {
+                        LoadOkay = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Minimum Cartage not accepted, load cancelled!");
+                        LoadOkay = false;
+                    }
+                }
+                if (myTIQRow.Nett < myMinimumMaterial && myTIQRow.QueueStatus == "Q" && LoadOkay != false) // not G or E
+                {
+                    string msg1 = "Did the customer understand and accept that they will be charged a short load fee?";
+                    WBOConfirmation frmWBOConfirmation = new WBOConfirmation(msg1);
+                    DialogResult dr2 = frmWBOConfirmation.ShowDialog();
+                    if (dr2 == DialogResult.OK)
+                    {
+                        LoadOkay = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Short load fee not accepted, load cancelled!");
+                        LoadOkay = false;
+                    }
                 }
             }
-            else if (myTIQRow.Nett < myMinimumMaterial && myTIQRow.QueueStatus == "Q") // not G or E
-            {
-                string msg1 = "Did the customer understand and accept that they will be charged a short load fee?";
-                WBOConfirmation frmWBOConfirmation = new WBOConfirmation(msg1);
-                DialogResult dr2 = frmWBOConfirmation.ShowDialog();
-                if (dr2 == DialogResult.OK)
-                {
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show("Short load fee not accepted, load cancelled!");
-                    return false;
-                }
-            }
-            else if (UnderloadAmount > 1.0M && SplitLoad == false && myTIQRow.QueueStatus == "Q")
-            {
-                string msg = "Vehicle underloaded! Did the driver choose to collect more material?";
-                DialogResult dialogResult = MessageBox.Show(msg, "Underload Check", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    return false;
-                }
-            }
-            return true;
+            return LoadOkay;
         }
 
         private bool ConfirmPostDocket()

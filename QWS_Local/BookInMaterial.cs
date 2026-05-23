@@ -659,6 +659,7 @@ namespace QWS_Local
                                 _TIQRow.QueueStatus = "U";
                             }
                         }
+                        _TIQRow.CartageCode = "Ex-Bin";
                         break;
                     case TIQType.Delivery:
                         switch (_TIQRow.TruckConfig)
@@ -671,6 +672,7 @@ namespace QWS_Local
                                 }
                                 break;
                         }
+                        _TIQRow.CartageCode = "Delivery";
                         break;
                 }
 
@@ -800,6 +802,7 @@ namespace QWS_Local
                         _TIQRow.CustomerCode = txtCardCode.Text;
                         _TIQRow.Customer = txtCustomer.Text;
                         _TIQRow.CustON = txtCustON.Text;
+                        _TIQRow.CartageCode = "Ex-Bin";
                         _TIQRow.DeliveryAddress = "Ex-Bin";
                         _TIQRow.Material = itemRow.ItemCode;
                         _TIQRow.MaterialDesc = itemRow.ItemName;
