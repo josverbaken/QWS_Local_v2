@@ -58,6 +58,7 @@ namespace QWS_Local
                 dgvVehiclesOnSite.Visible=false;
                 btnAllLPR.Visible=false;
                 btnRefreshLPR.Visible=false;
+                RefreshQuarryLPR();
             }
             RefreshQueue();
         }
@@ -92,6 +93,10 @@ namespace QWS_Local
                     int SiteID = parent.SiteID;
                     this.taTIQ2.Fill(dsTIQ2.TIQ, SiteID);
                     ClearTIQ();
+                    if (SiteID == 2)
+                    {
+                        RefreshQuarryLPR();
+                    }
                 }
             }
             catch (Exception ex)
