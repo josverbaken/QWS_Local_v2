@@ -53,13 +53,17 @@ namespace QWS_Local
             int iRows = this.taAxleConfiguration.Fill(this.dsQWSLocal2024.AxleConfiguration);
             iRows += 1;
             blOverRideShortLoad = false;
-            if (mySiteID != 2)
-            {
-                dgvVehiclesOnSite.Visible=false;
-                btnAllLPR.Visible=false;
-                btnRefreshLPR.Visible=false;
-                RefreshQuarryLPR();
-            }
+            //if (mySiteID != 2) // TODO uncomment before deploying
+            //{
+            //    dgvVehiclesOnSite.Visible=false;
+            //    btnAllLPR.Visible=false;
+            //    btnRefreshLPR.Visible=false;
+            //}
+            //else
+            //{
+            //    RefreshQuarryLPR();
+            //}
+            RefreshQuarryLPR();
             RefreshQueue();
         }
 
@@ -119,12 +123,36 @@ namespace QWS_Local
             }
             else
             {
+                // TODO maybe pass into LicensePlate from Verkada
+                if (dgvVehiclesOnSite.SelectedRows.Count ==1)
+                {
+                    dsVerkada.VehiclesOnSiteRow vehiclesOnSiteRow = CurrentLPRVehicle();
+                    string LicensePlate = vehiclesOnSiteRow.LicensePlate;
+                    string msg = "Maybe pass LicensePlate to Book In Truck form.";
+                    msg += "\r\nVerkada LicensePlate = ";
+                    msg += LicensePlate;
+                    MessageBox.Show(msg);
+                }
                 BookInTruck frmBookIn = new BookInTruck();
                 frmBookIn.MdiParent = this.MdiParent;
                 frmBookIn.Show();
             }
         }
-             
+
+        private dsVerkada.VehiclesOnSiteRow CurrentLPRVehicle()
+        {
+            if (bsVehiclesOnSite.Count > 0)
+            {
+                DataRow myRow = ((DataRowView)bsVehiclesOnSite.Current).Row;
+                dsVerkada.VehiclesOnSiteRow myLPRVehicleRow = (dsVerkada.VehiclesOnSiteRow)myRow;
+                return myLPRVehicleRow;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         private dsTIQ2.TIQRow CurrentTIQ()
         {
             if ( bsTIQ2.Count > 0)
@@ -1141,7 +1169,6 @@ namespace QWS_Local
             }
             else
             {
-
                 ButtonUpdate(); // button labelled Update (F4)
             }
         }
@@ -1187,6 +1214,7 @@ namespace QWS_Local
                         case "K":
                             if (CurrentTIQ().TruckConfigID == 0)
                             {
+                                // TODO possibly pass TIQID
                                 MessageBox.Show("Set up truck first then start again.\n\rDelete current entry.", "Parkup New Truck Trial", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
@@ -1398,6 +1426,7 @@ namespace QWS_Local
                 int UTCOffset = 10;
                 this.taVehiclesOnSite.FillBy(dsVerkada.VehiclesOnSite, DateTime.Now, UTCOffset);
                 bsVehiclesOnSite.Filter = "VehicleType like 'Quarry' and VisitStatus like 'On Site'";
+                dgvVehiclesOnSite.ClearSelection();
             }
             catch (Exception ex)
             {

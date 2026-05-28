@@ -5,6 +5,9 @@ using System.Data;
 using System.Deployment.Application;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,7 +16,9 @@ namespace QWS_Local
 {
     partial class AboutQWSLocal : Form
     {
-        
+        private static string NetworkAddress = string.Empty;
+        private static string NetworkSubnet = string.Empty;
+
         public AboutQWSLocal()
         {
             InitializeComponent();
@@ -124,6 +129,24 @@ namespace QWS_Local
                     string deployedVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
                     label2.Text = "Version : " + deployedVersion;
                 }
+                GetNetworkInfo();
+                // AssemblyInfo.cs
+                //[assembly: AssemblyVersion("0.5.1.0")] // this is what shows in label2 above
+                //[assembly: AssemblyFileVersion("0.5.1.5")]
+
+                //// Get the version of the currently executing app
+                //Version version = Assembly.GetExecutingAssembly().GetName().Version;
+                //string displayVersion = version.ToString();
+                //label5.Text = displayVersion;
+
+                //// Get specific attributes like Title or Description
+                //var assembly = Assembly.GetExecutingAssembly();
+                //var titleAttribute = (AssemblyTitleAttribute)Attribute.GetCustomAttribute(assembly, typeof(AssemblyTitleAttribute));
+                //string title = titleAttribute?.Title;
+                //label6.Text = title;
+
+
+
                 string msg = "\r\n\r\nSite : ";
                 string SiteLabel = string.Empty;
                 var parent = this.MdiParent as QWS_MDIParent;
@@ -146,6 +169,8 @@ namespace QWS_Local
                 string MachineName = Environment.MachineName;
                 msg += "\r\n\r\nUsername: " + DomainName + "\\" + Username;
                 msg += "\r\n\r\nComputer: " + MachineName;
+                msg += "\r\n\r\nNetwork IP: " + NetworkAddress;
+                msg += "\r\n\r\nNetwork Subnet: " + NetworkSubnet;
                 textBoxDescription.Text += msg;
                 if (Username.Contains(".") == false) 
                 {
@@ -166,6 +191,95 @@ namespace QWS_Local
                     }
         }
 
-   
+        private void GetNetworkInfo()
+        {
+            try
+            {
+                NetworkAddress = GetEthernetIpAddress();
+                NetworkSubnet = "192.168.15.0/24"; //TODO
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public static string GetEthernetIpAddress()
+        {
+            string strReturn = "tba";
+            var ethernetInterface = NetworkInterface.GetAllNetworkInterfaces()
+                .FirstOrDefault(ni => ni.NetworkInterfaceType == NetworkInterfaceType.Ethernet
+                                   && ni.OperationalStatus == OperationalStatus.Up);
+
+            if (ethernetInterface != null)
+            {
+                var ipProps = ethernetInterface.GetIPProperties();
+                var ipv4Address = ipProps.UnicastAddresses
+                    .FirstOrDefault(ua => ua.Address.AddressFamily == AddressFamily.InterNetwork);
+
+                if (ipv4Address != null)
+                {
+                    strReturn = ipv4Address.Address.ToString();
+                }
+            }
+            return strReturn;
+        }
+
+        public struct CidrSubnet
+        {
+            private readonly byte[] _networkAddressBytes;
+            private readonly byte[] _subnetMaskBytes;
+
+            public CidrSubnet(string cidrNotation)
+            {
+                var parts = cidrNotation.Split('/');
+                if (parts.Length != 2)
+                    throw new ArgumentException("Invalid CIDR notation format.");
+
+                var ipAddress = IPAddress.Parse(parts[0]);
+                int prefixLength = int.Parse(parts[1]);
+
+                _networkAddressBytes = ipAddress.GetAddressBytes();
+                _subnetMaskBytes = GetSubnetMaskBytes(prefixLength, _networkAddressBytes.Length);
+            }
+
+            private static byte[] GetSubnetMaskBytes(int prefixLength, int addressLength)
+            {
+                var maskBytes = new byte[addressLength];
+                for (var i = 0; i < addressLength; i++)
+                {
+                    if (prefixLength >= 8)
+                    {
+                        maskBytes[i] = 255;
+                        prefixLength -= 8;
+                    }
+                    else
+                    {
+                        maskBytes[i] = (byte)(255 << (8 - prefixLength));
+                        prefixLength = 0;
+                    }
+                }
+                return maskBytes;
+            }
+
+            public bool Contains(string targetIpAddress)
+            {
+                var targetBytes = IPAddress.Parse(targetIpAddress).GetAddressBytes();
+                if (targetBytes.Length != _networkAddressBytes.Length) return false;
+
+                for (var i = 0; i < targetBytes.Length; i++)
+                {
+                    // Apply bitwise AND with the subnet mask to isolate the network portion
+                    if ((targetBytes[i] & _subnetMaskBytes[i]) != (_networkAddressBytes[i] & _subnetMaskBytes[i]))
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+
+
+
     }
 }
