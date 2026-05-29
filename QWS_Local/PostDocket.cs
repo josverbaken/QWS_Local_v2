@@ -20,6 +20,7 @@ namespace QWS_Local
         private bool myItemQA;
         private bool SplitLoad = false;
         private string myComment;
+        private bool DriverAccepted = false;
 
         public string Comment
         {
@@ -45,9 +46,16 @@ namespace QWS_Local
 
         private void btnOkay_Click(object sender, EventArgs e)
         {
-            myComment = txtComment.Text;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            if (DriverAccepted == true)
+            {
+                myComment = txtComment.Text;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Unable to proceed.","Driver has NOT accepted!",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
         
         private void PostDocketCancel()
@@ -184,5 +192,45 @@ namespace QWS_Local
             PostDocketCancel();
         }
 
+        private void rbDriverConfirmation_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbDriverConfirmation.Checked == true)
+            {
+                DriverConfirmation();
+            }
+            else
+            {
+                rbDriverConfirmation.Checked = false;
+                DriverAccepted=false;
+            }
+        }
+
+        private void DriverConfirmation()
+        {
+            if (rbDriverConfirmation.Checked)
+            {
+                string msg1 = "";
+                decimal Gross = myRow.Gross;
+                decimal Tare = myRow.Tare;
+                decimal Nett = myRow.Nett;
+                msg1 += "Gross: " + Gross.ToString();
+                //msg1 += " Tare: " + Tare.ToString();
+                msg1 += "\r\n Nett: " + Nett.ToString();
+                msg1 += "\r\nDid the driver accept the displayed weights?";
+                WBOConfirmation frmWBOConfirmation = new WBOConfirmation(msg1);
+                DialogResult dr2 = frmWBOConfirmation.ShowDialog();
+                if(dr2 == DialogResult.OK)
+                {
+                    DriverAccepted = true;
+                    btnOkay.Enabled = true;
+                }
+                else
+                {
+                    DriverAccepted=false;
+                    rbDriverConfirmation.Checked=false;
+                    btnOkay.Enabled = false;
+                }
+            }
+        }
     }
 }

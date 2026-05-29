@@ -298,6 +298,7 @@ namespace QWS_Local
   
         private void CheckConfigOK2Proceed()
         {
+            string msg = "Unable to proceed: ";
             btnGetDriver.Enabled = false;
             bool OK2Proceed = false;
             dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck();
@@ -307,7 +308,8 @@ namespace QWS_Local
             }
             else
             {
-                MessageBox.Show("Rego expired - unable to proceed!");
+                msg += "Rego Expired\r\n\r\nPlease use NHVR Checker  App";
+                MessageBox.Show(msg,"Registration Expired", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             int myAxles = myConfigTruck.Axles;
             int myMaxAxles = myConfigTruck.MaxAxles;
@@ -315,7 +317,8 @@ namespace QWS_Local
             if (myMaxAxles > 0 && myAxles > myMaxAxles)
             {
                 OK2Proceed = false;
-                MessageBox.Show("Unable to proceed, due to Fee Code axle restriction!");
+                msg += "Fee Code Issue\r\n\r\nPlease use NHVR Checker  App";
+                MessageBox.Show(msg, "Fee Code axle restriction!", MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
             if (OK2Proceed)
             {
