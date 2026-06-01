@@ -49,6 +49,7 @@ namespace QWS_Local
             mySiteID = parent.SiteID;
             ComputerName = parent.ComputerName;
             Domain = parent.DomainName;
+            bool blTestMode = parent.TestMode;
             this.KeyPreview = true;
             myConnectionString = Properties.Settings.Default.cnQWSLocal;
             int iRows = this.taAxleConfiguration.Fill(this.dsQWSLocal2024.AxleConfiguration);
@@ -119,15 +120,25 @@ namespace QWS_Local
             }
             else
             {
-                // TODO maybe pass into LicensePlate from Verkada
-                if (dgvVehiclesOnSite.SelectedRows.Count ==1)
+                if (mySiteID == 2) // first site to use Verkada LPR
                 {
-                    dsVerkada.VehiclesOnSiteRow vehiclesOnSiteRow = CurrentLPRVehicle();
-                    string LicensePlate = vehiclesOnSiteRow.LicensePlate;
-                    string msg = "Maybe pass LicensePlate to Book In Truck form.";
-                    msg += "\r\nVerkada LicensePlate = ";
-                    msg += LicensePlate;
-                    MessageBox.Show(msg);
+                    if (bsVehiclesOnSite.Count > 0)
+                    {
+                        if (dgvVehiclesOnSite.SelectedRows.Count == 1)
+                        {
+                            dsVerkada.VehiclesOnSiteRow vehiclesOnSiteRow = CurrentLPRVehicle();
+                            string LicensePlate = vehiclesOnSiteRow.LicensePlate;
+                            string msg = "Maybe pass LicensePlate to Book In Truck form.";
+                            msg += "\r\nVerkada LicensePlate = ";
+                            msg += LicensePlate;
+                            MessageBox.Show(msg);
+                            // call BookInTruck(LicensePlate)
+                        }
+                        else
+                        {
+                            //MessageBox.Show("Please select a truck first!","Vehicles On Site",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
                 }
                 BookInTruck frmBookIn = new BookInTruck();
                 frmBookIn.MdiParent = this.MdiParent;
@@ -1446,6 +1457,9 @@ namespace QWS_Local
                 this.taVehiclesOnSite.FillBy(dsVerkada.VehiclesOnSite, DateTime.Now, UTCOffset);
                 bsVehiclesOnSite.Filter = "VehicleType like 'Quarry' and VisitStatus like 'On Site'";
                 dgvVehiclesOnSite.ClearSelection();
+                string msg = "LPR Count = ";
+                msg += bsVehiclesOnSite.Count.ToString();
+                lblLPRCount.Text = msg;
             }
             catch (Exception ex)
             {
@@ -1456,6 +1470,9 @@ namespace QWS_Local
         private void button1_Click(object sender, EventArgs e)
         {
             bsVehiclesOnSite.Filter = "VehicleType like 'Quarry'";
+            string msg = "LPR Count = ";
+            msg += bsVehiclesOnSite.Count.ToString();
+            lblLPRCount.Text = msg;
         }
     }
 }

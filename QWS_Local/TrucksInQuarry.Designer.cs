@@ -48,7 +48,7 @@ namespace QWS_Local
             System.Windows.Forms.Label materialLabel;
             System.Windows.Forms.Label schemeCodeLabel;
             System.Windows.Forms.Label label1;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.btnAllLPR = new System.Windows.Forms.Button();
             this.dgvVehiclesOnSite = new System.Windows.Forms.DataGridView();
@@ -128,6 +128,7 @@ namespace QWS_Local
             this.bsQuarryOrders = new System.Windows.Forms.BindingSource(this.components);
             this.taQuarryOrders = new QWS_Local.dsBookInTableAdapters.QuarryOrdersTableAdapter();
             this.taVehiclesOnSite = new QWS_Local.dsVerkadaTableAdapters.taVehiclesOnSite();
+            this.lblLPRCount = new System.Windows.Forms.Label();
             entryDTTMLabel = new System.Windows.Forms.Label();
             sAPOrderLabel = new System.Windows.Forms.Label();
             roadAccessLabel = new System.Windows.Forms.Label();
@@ -342,6 +343,7 @@ namespace QWS_Local
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
             this.splitContainer2.Panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.splitContainer2.Panel1.Controls.Add(this.lblLPRCount);
             this.splitContainer2.Panel1.Controls.Add(this.btnAllLPR);
             this.splitContainer2.Panel1.Controls.Add(this.dgvVehiclesOnSite);
             this.splitContainer2.Panel1.Controls.Add(this.btnRefreshLPR);
@@ -628,9 +630,9 @@ namespace QWS_Local
             // releaseDTTMDataGridViewTextBoxColumn
             // 
             this.releaseDTTMDataGridViewTextBoxColumn.DataPropertyName = "ReleaseDTTM";
-            dataGridViewCellStyle1.Format = "HH:mm";
-            dataGridViewCellStyle1.NullValue = null;
-            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "HH:mm";
+            dataGridViewCellStyle2.NullValue = null;
+            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.releaseDTTMDataGridViewTextBoxColumn.HeaderText = "Time";
             this.releaseDTTMDataGridViewTextBoxColumn.Name = "releaseDTTMDataGridViewTextBoxColumn";
             this.releaseDTTMDataGridViewTextBoxColumn.ReadOnly = true;
@@ -1105,6 +1107,14 @@ namespace QWS_Local
             // 
             this.taVehiclesOnSite.ClearBeforeFill = true;
             // 
+            // lblLPRCount
+            // 
+            this.lblLPRCount.AutoSize = true;
+            this.lblLPRCount.Location = new System.Drawing.Point(614, 107);
+            this.lblLPRCount.Name = "lblLPRCount";
+            this.lblLPRCount.Size = new System.Drawing.Size(0, 20);
+            this.lblLPRCount.TabIndex = 70;
+            // 
             // TrucksInQuarry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1226,5 +1236,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn vehicleOwnerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Duration;
         private System.Windows.Forms.DataGridViewTextBoxColumn visitStatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label lblLPRCount;
     }
 }

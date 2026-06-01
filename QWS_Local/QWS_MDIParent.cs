@@ -30,6 +30,11 @@ namespace QWS_Local
             get { return myUserName; }
         }
 
+        public bool TestMode
+        {
+            get { return myTestMode; }
+        }
+
         private string myDomainName;
         public string DomainName
         {

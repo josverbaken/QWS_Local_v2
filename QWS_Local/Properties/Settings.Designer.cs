@@ -151,17 +151,6 @@ namespace QWS_Local.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ch-sql02;Initial Catalog=QWS_NQ_Dev;Integrated Security=True;TrustSer" +
-            "verCertificate=True")]
-        public string cnQWSLocal {
-            get {
-                return ((string)(this["cnQWSLocal"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool EnableSMS {
             get {
@@ -177,6 +166,17 @@ namespace QWS_Local.Properties {
         public string cnVerkada {
             get {
                 return ((string)(this["cnVerkada"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ch-sql02;Initial Catalog=QWS_NQ_Dev;Integrated Security=True;TrustSer" +
+            "verCertificate=True")]
+        public string cnQWSLocal {
+            get {
+                return ((string)(this["cnQWSLocal"]));
             }
         }
     }
