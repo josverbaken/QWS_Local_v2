@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -38,7 +32,7 @@ namespace QWS_Local
         private void ItemSearch_Load(object sender, EventArgs e)
         {
             string SiteCode = "0" + mySiteID.ToString();
-            this.taItem.ExBinnoOrder(this.dsQWSViews.Item,SiteCode);
+            this.taItem.ExBinnoOrder(this.dsQWSViews.Item, SiteCode);
             this.bsItem.Filter = "Active like 'Y'";
             if (blExBinNoOrder)
             {
@@ -52,7 +46,7 @@ namespace QWS_Local
             {
                 // show active items only = default
                 this.bsItem.Filter = "Active like 'Y'";
-            }          
+            }
             if (blExBinNoOrder)
             {
                 this.bsItem.Filter += " and ExBinNoOrder = 'Y'";
@@ -82,7 +76,7 @@ namespace QWS_Local
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.DialogResult= DialogResult.Cancel;
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 

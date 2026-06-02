@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -144,10 +138,10 @@ namespace QWS_Local
                         CheckIfAdmin(row.OperatorID);
                         tspUserName.Text = "WBO = " + myUserName;
                         tspSignInOut.Visible = false;
-                        if (CheckRole(row.OperatorID,8))
+                        if (CheckRole(row.OperatorID, 8))
                         {
                             licensePlatesToolStripMenuItem.Visible = true;
-                            licensePlatesToolStripMenuItem.Enabled=true;
+                            licensePlatesToolStripMenuItem.Enabled = true;
                         }
                     }
                     else // Generic
@@ -269,7 +263,7 @@ namespace QWS_Local
             {
                 return true;
             }
-            return false;            
+            return false;
         }
 
         private void bookInTruckStep1ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -521,7 +515,7 @@ namespace QWS_Local
         private void CheckCustomer()
         {
             string msg = "SAP BP Search - Check Sync";
-            BusinessSearch businessSearch = new BusinessSearch(false,msg);
+            BusinessSearch businessSearch = new BusinessSearch(false, msg);
             businessSearch.ShowDialog();
         }
 
@@ -609,5 +603,5 @@ namespace QWS_Local
             VerkadaLPR();
         }
     }
-    
+
 }

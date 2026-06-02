@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static QWS_Local.dsBookIn;
 
@@ -42,7 +37,7 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        public BookInMaterial(dsTIQ2.TIQRow TIQRow , string myTIQType, bool myIsPrefCust , dsQWSLocal2024.TruckDriverRow driverRow)
+        public BookInMaterial(dsTIQ2.TIQRow TIQRow, string myTIQType, bool myIsPrefCust, dsQWSLocal2024.TruckDriverRow driverRow)
         {
             try
             {
@@ -64,8 +59,8 @@ namespace QWS_Local
                 int ImportedGrpCode = Properties.Settings.Default.ImportedGrpCode;
                 int ImportedPickUpGrpCode = Properties.Settings.Default.ImportedPickUpGrpCode;
                 string ImportGrpCod = ImportedGrpCode.ToString();
-                string ImportPUGrpCod = ImportedPickUpGrpCode.ToString();   
-                switch (myTIQType) 
+                string ImportPUGrpCod = ImportedPickUpGrpCode.ToString();
+                switch (myTIQType)
                 {
                     case "Delivery":
                         this.Text = "Book In Delivery";
@@ -84,7 +79,7 @@ namespace QWS_Local
                         FormTIQType = TIQType.ImportedPickUp;
                         break;
                     default:
-                    
+
                         break;
                 }
             }
@@ -156,7 +151,7 @@ namespace QWS_Local
                     break;
                 default:
                     break;
-            }          
+            }
             FormLoaded = true;
             dgvQuarryOrders.ClearSelection();
             if (FormTIQType != TIQType.ExBin)
@@ -201,7 +196,7 @@ namespace QWS_Local
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"CurrentTruckGVM",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "CurrentTruckGVM", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }
@@ -427,7 +422,7 @@ namespace QWS_Local
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 if (iRow == 1)
                 {
-                    ((QWS_MDIParent)this.MdiParent).BringTIQ2Front();                   
+                    ((QWS_MDIParent)this.MdiParent).BringTIQ2Front();
                 }
                 this.Close();
             }
@@ -496,11 +491,11 @@ namespace QWS_Local
                 {
                     _TIQRow.QueueStatus = "C";
                 }
-                if (myOrderRow.CartageCode.Length > 0 )
+                if (myOrderRow.CartageCode.Length > 0)
                 {
-                    _TIQRow.CartageCode = myOrderRow.CartageCode; 
+                    _TIQRow.CartageCode = myOrderRow.CartageCode;
                 }
-                this.Validate();            
+                this.Validate();
                 bsTIQ2.EndEdit();
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 iRow += 1;
@@ -607,7 +602,7 @@ namespace QWS_Local
                     txtPayloadSplit.Visible = true;
                     nudPayloadTk.Visible = true;
                     nudPayloadTr.Visible = true;
-                    break;            
+                    break;
             }
         }
 
@@ -685,7 +680,7 @@ namespace QWS_Local
                 {
                     string msg = "This payload may trigger short load fee";
                     // TODO put this into a configuration database
-                    MessageBox.Show(msg,"Short Load Fee Warning.", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    MessageBox.Show(msg, "Short Load Fee Warning.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 bsTIQ2.EndEdit();
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
@@ -698,7 +693,7 @@ namespace QWS_Local
                     else if (_TIQRow.TruckConfig == "Bda")
                     {
                         // TODO handle split load for B-double
-                        MessageBox.Show("","Split B-double",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        MessageBox.Show("", "Split B-double", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         GoBack2BookIn(_TIQRow.Rego, _TIQRow.TruckConfigID, _TIQRow.DriverID, _TIQRow.TIQID, "BDb");
                     }
                     else
@@ -727,7 +722,7 @@ namespace QWS_Local
             }
             bsTIQ2.EndEdit();
         }
-    
+
         private void dgvQuarryOrders_SelectionChanged(object sender, EventArgs e)
         {
             if (bsQuarryOrders.Count > 0 && FormLoaded == true && dgvQuarryOrders.SelectedRows.Count == 1)
@@ -760,13 +755,13 @@ namespace QWS_Local
             try
             {
                 bool ItemOK = true;
-            if (bsItem.Count > 0)
-            {
+                if (bsItem.Count > 0)
+                {
                     // Check blanket agreement
                     int myAgrNo = 0;
                     int myAgrLine = 0;
-                dsBookIn.BlanketAgreementCheckRow myBlanketRow = (dsBookIn.BlanketAgreementCheckRow)CheckBlanketAgreement(txtCardCode.Text, txtExBinItem.Text);
-                if (myBlanketRow != null) 
+                    dsBookIn.BlanketAgreementCheckRow myBlanketRow = (dsBookIn.BlanketAgreementCheckRow)CheckBlanketAgreement(txtCardCode.Text, txtExBinItem.Text);
+                    if (myBlanketRow != null)
                     {
                         switch (myBlanketRow.AgrStatus)
                         {
@@ -788,14 +783,14 @@ namespace QWS_Local
                                 break;
                         }
                     }
-                DataRow myRow = ((DataRowView)bsItem.Current).Row;
-                if (IsPORequired == true && txtCustON.TextLength == 0)
-                {
-                    //PO Required cannot proceed
-                    MessageBox.Show("Customer PO is required \r\nplease enter.","PO Required",MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    ItemOK = false;
-                }
-                if (myRow != null && ItemOK == true)
+                    DataRow myRow = ((DataRowView)bsItem.Current).Row;
+                    if (IsPORequired == true && txtCustON.TextLength == 0)
+                    {
+                        //PO Required cannot proceed
+                        MessageBox.Show("Customer PO is required \r\nplease enter.", "PO Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        ItemOK = false;
+                    }
+                    if (myRow != null && ItemOK == true)
                     {
                         dsBookIn.ItemRow itemRow = (dsBookIn.ItemRow)myRow;
                         _TIQRow.SAPOrder = 0;
@@ -807,7 +802,7 @@ namespace QWS_Local
                         _TIQRow.Material = itemRow.ItemCode;
                         _TIQRow.MaterialDesc = itemRow.ItemName;
                         _TIQRow.AgrNo = myAgrNo;
-                        _TIQRow.AgrLine = myAgrLine;   
+                        _TIQRow.AgrLine = myAgrLine;
                         if (ACStatus != "A")
                         {
                             _TIQRow.QueueStatus = "C";
@@ -837,7 +832,7 @@ namespace QWS_Local
             {
                 txtCardCode.Text = frmBusinessSearch.SAPCode;
                 txtCustomer.Text = frmBusinessSearch.BusinessName;
-                txtACStatus.Text = frmBusinessSearch.ACStatus;  
+                txtACStatus.Text = frmBusinessSearch.ACStatus;
                 CheckPORequired(txtCustomer.Text);
             }
             else
@@ -851,7 +846,7 @@ namespace QWS_Local
         private void GoBack2BookIn(string Rego, int TruckConfigID, int DriverID, int myParentTIQID, string TrailerConfig)
         {
             // call to book in trailer for split load
-            BookInTruck frmBookInStep1 = new BookInTruck(Rego, TruckConfigID, DriverID, myParentTIQID,_TIQRow.TruckConfig, "Called after book in TKs", TrailerConfig);
+            BookInTruck frmBookInStep1 = new BookInTruck(Rego, TruckConfigID, DriverID, myParentTIQID, _TIQRow.TruckConfig, "Called after book in TKs", TrailerConfig);
             frmBookInStep1.MdiParent = this.MdiParent;
             frmBookInStep1.Show();
             this.Close();
@@ -863,7 +858,7 @@ namespace QWS_Local
         }
 
         private void PayloadSplitRefreshGUI()
-        {            
+        {
             decimal myPayloadTk = nudPayloadTk.Value;
             decimal myPayloadTr = nudPayloadTr.Value;
             decimal myPayload = myPayloadTk + myPayloadTr;
@@ -878,23 +873,23 @@ namespace QWS_Local
                 CalcPayload();
             }
         }
-   
+
         private void btnQuarryOrdersLoad_Click(object sender, EventArgs e)
         {
             QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
         }
 
-        private void QuarryOrdersLoad(string OrderType,  string CardCode, int CartageInt)
-            // OrderType Delivery etc, CardCode only for ex bin else ignored, 6 = Tandem 7 T&T
+        private void QuarryOrdersLoad(string OrderType, string CardCode, int CartageInt)
+        // OrderType Delivery etc, CardCode only for ex bin else ignored, 6 = Tandem 7 T&T
         {
             try
             {
-                int iRow = this.taQuarryOrders.Fill(this.dsBookIn.QuarryOrders, OrderType,CardCode, CartageInt,mySiteID);
+                int iRow = this.taQuarryOrders.Fill(this.dsBookIn.QuarryOrders, OrderType, CardCode, CartageInt, mySiteID);
                 iRow += 1;
             }
             catch (System.Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show(ex.Message,"Orders Load Error!");
+                System.Windows.Forms.MessageBox.Show(ex.Message, "Orders Load Error!");
             }
         }
 
@@ -958,13 +953,13 @@ namespace QWS_Local
         {
             try
             {
-                int iCount = this.taBlanketAgreement.Fill(this.dsBookIn.BlanketAgreementCheck,CardCode, ItemCode);
+                int iCount = this.taBlanketAgreement.Fill(this.dsBookIn.BlanketAgreementCheck, CardCode, ItemCode);
                 if (iCount == 1)
                 {
-                    BlanketAgreementCheckRow myRow = (BlanketAgreementCheckRow) dsBookIn.BlanketAgreementCheck.Rows[0];
+                    BlanketAgreementCheckRow myRow = (BlanketAgreementCheckRow)dsBookIn.BlanketAgreementCheck.Rows[0];
                     return myRow;
                 }
-                else if (iCount > 1) 
+                else if (iCount > 1)
                 {
                     MessageBox.Show("Multiple Blanket Agreements - cannot proceed!");
                 }

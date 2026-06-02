@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -116,7 +110,7 @@ namespace QWS_Local
             }
             else
             {
-                MessageBox.Show("Warning card status = " + businessRow.AccountStatus,"Account Status",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Warning card status = " + businessRow.AccountStatus, "Account Status", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return true;
             }
         }
@@ -134,7 +128,7 @@ namespace QWS_Local
             this.Close();
         }
 
-   
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             SearchByCode();
@@ -156,9 +150,9 @@ namespace QWS_Local
             {
                 this.DialogResult = DialogResult.Cancel;
             }
-                this.Close();
+            this.Close();
         }
-   
+
         private void btnInfo_Click(object sender, EventArgs e)
         {
             ShowDetailsTab();

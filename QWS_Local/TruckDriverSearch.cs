@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QWS_Local
-    {
+{
     public partial class TruckDriverSearch : Form
     {
         public TruckDriverSearch()
@@ -20,7 +14,7 @@ namespace QWS_Local
         public TruckDriverSearch(string SAPCode)
         {
             InitializeComponent();
-            this.taTruckDriver2024.FillByCardCode(this.dsQWSLocal2024.TruckDriver,SAPCode);
+            this.taTruckDriver2024.FillByCardCode(this.dsQWSLocal2024.TruckDriver, SAPCode);
         }
 
         private string myDriver;
@@ -46,7 +40,7 @@ namespace QWS_Local
         {
             bsTruckDriver2024.Sort = "Active DESC, Person ASC";
         }
-     
+
         private void btnSelectDriver_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 1)
@@ -64,7 +58,7 @@ namespace QWS_Local
         {
             string msg = "";
             DataRow dataRow = ((DataRowView)bsTruckDriver2024.Current).Row;
-           QWS_Local.dsQWSLocal2024.TruckDriverRow truckDriverRow = (QWS_Local.dsQWSLocal2024.TruckDriverRow)dataRow;
+            QWS_Local.dsQWSLocal2024.TruckDriverRow truckDriverRow = (QWS_Local.dsQWSLocal2024.TruckDriverRow)dataRow;
             myTruckDriver = truckDriverRow;
             myDriver = truckDriverRow.Person;
             myDriverID = truckDriverRow.CntctCode;
@@ -83,19 +77,19 @@ namespace QWS_Local
         {
             this.taTruckDriver2024.FillByCardCode(this.dsQWSLocal2024.TruckDriver, SAPCode);
         }
-    
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
-    
-         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+
+        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dataGridView1.ClearSelection();
         }
 
-          private void bsTruckDriver2024_CurrentChanged(object sender, EventArgs e)
+        private void bsTruckDriver2024_CurrentChanged(object sender, EventArgs e)
         {
             if (bsTruckDriver2024.Count > 0)
             {

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -27,7 +20,7 @@ namespace QWS_Local
 
         private void PBSVehicles_Load(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -62,8 +55,8 @@ namespace QWS_Local
         {
             try
             {
-                int myPBS_ID = Convert.ToInt32( txtPBS_ID.Text);
-                this.taPBS_Vehicles.FillBy(this.dsPBS.PBS_Vehicles,myPBS_ID);
+                int myPBS_ID = Convert.ToInt32(txtPBS_ID.Text);
+                this.taPBS_Vehicles.FillBy(this.dsPBS.PBS_Vehicles, myPBS_ID);
             }
             catch (Exception ex)
             {

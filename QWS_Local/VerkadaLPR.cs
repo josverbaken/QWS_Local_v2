@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Data.SqlClient;
 
 namespace QWS_Local
 {
@@ -65,7 +60,7 @@ namespace QWS_Local
                     e.FormattingApplied = true;
                 }
             }
-    }
+        }
 
         private void rbAllPlates_CheckedChanged(object sender, EventArgs e)
         {
@@ -267,7 +262,7 @@ namespace QWS_Local
             }
             catch (Exception ex)
             {
-                MessageBox.Show (ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -303,7 +298,7 @@ namespace QWS_Local
         }
 
 
-    
+
         public void CheckLANIP()
         {
             string hostName = Dns.GetHostName(); // Get local machine name
@@ -314,15 +309,15 @@ namespace QWS_Local
                 .FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork);
             MessageBox.Show($"Local IPv4 Address: {localIP}");
         }
-    
+
         public void ManualExit()
         {
             try
             {
                 dsVerkada.VehiclesOnSiteRow vehiclesOnSiteRow = CurrentLPRVehicle();
-                if (vehiclesOnSiteRow.VisitStatus == "Departed" )
+                if (vehiclesOnSiteRow.VisitStatus == "Departed")
                 {
-                    MessageBox.Show("Already departed!","Check status",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Already departed!", "Check status", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
                 {
@@ -349,13 +344,13 @@ namespace QWS_Local
                 string LicensePlate = vehiclesOnSiteRow.LicensePlate;
                 DateTime exitDTTM = dtpManualDepartureDTTM.Value.ToUniversalTime();
                 long posixSeconds = new DateTimeOffset(exitDTTM).ToUnixTimeSeconds();
-                int exitPOSIX = (int) posixSeconds;
+                int exitPOSIX = (int)posixSeconds;
                 string msg = string.Empty;
                 if (vehiclesOnSiteRow.Duration < 20)
                 {
                     msg = "Confirm departure, has only been on site " + vehiclesOnSiteRow.Duration.ToString();
                 }
-                if (msg.Length > 0) 
+                if (msg.Length > 0)
                 {
                     msg += "\r\n";
                 }
@@ -373,7 +368,7 @@ namespace QWS_Local
                     cmd.Connection = sqlConnection;
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "SeenLPR";
-                    cmd.Parameters.AddWithValue("@Camera_ID","Manual");
+                    cmd.Parameters.AddWithValue("@Camera_ID", "Manual");
                     cmd.Parameters.AddWithValue("@License_Plate", LicensePlate);
                     cmd.Parameters.AddWithValue("@POSIX_Timestamp", exitPOSIX);
                     cmd.Parameters.AddWithValue("@Lane", "Exit");
@@ -383,7 +378,7 @@ namespace QWS_Local
 
                     GetVehiclesOnSite(false);
                     tabControl1.SelectedTab = tpSeenLPR;
-                }                    
+                }
             }
             catch (Exception ex)
             {
@@ -394,9 +389,9 @@ namespace QWS_Local
         private void btnNewVehicle_Click(object sender, EventArgs e)
         {
             if (bsVehiclesOnSite.Count > 0)
-            { 
-            dsVerkada.VehiclesOnSiteRow vehiclesOnSiteRow = CurrentLPRVehicle();
-            string LicensePlate = vehiclesOnSiteRow.LicensePlate;
+            {
+                dsVerkada.VehiclesOnSiteRow vehiclesOnSiteRow = CurrentLPRVehicle();
+                string LicensePlate = vehiclesOnSiteRow.LicensePlate;
 
                 if (vehiclesOnSiteRow.VehicleOwner.Length == 0)
                 {

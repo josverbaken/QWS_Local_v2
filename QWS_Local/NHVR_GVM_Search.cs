@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -29,7 +23,7 @@ namespace QWS_Local
             MassAccreditationLabel = MassAccreditation;
         }
 
-        public  int NHVRID
+        public int NHVRID
         {
             get { return myNHVRID; }
         }
@@ -80,7 +74,7 @@ namespace QWS_Local
             if (CurrentNHVR().MassMgmtRqd == true && MassAccreditationLabel.Length < 4)
             {
                 string msg = "Unable to select as Mass Management Accreditation not recorded against truck!";
-                MessageBox.Show(msg,"Accreditation Not Record!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(msg, "Accreditation Not Record!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -92,7 +86,7 @@ namespace QWS_Local
             this.Close();
         }
 
-       
+
         private dsQWSLocal2024.NHVRRow CurrentNHVR()
         {
             DataRow myDR = ((DataRowView)bsNHVR.Current).Row;

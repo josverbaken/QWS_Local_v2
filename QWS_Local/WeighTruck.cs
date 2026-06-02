@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -46,7 +41,7 @@ namespace QWS_Local
         }
         private void btnAccept_Click(object sender, EventArgs e)
         {
-             if (ParseWeight() == true && myWeight > 0.0M)
+            if (ParseWeight() == true && myWeight > 0.0M)
             {
                 if (rbManual.Checked)
                 {
@@ -68,7 +63,7 @@ namespace QWS_Local
                 {
                     myWBID = 3;
                 }
-                    this.DialogResult = DialogResult.OK;
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
@@ -87,7 +82,7 @@ namespace QWS_Local
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return false;   
+                return false;
             }
         }
 
@@ -113,7 +108,7 @@ namespace QWS_Local
                     {
                         rbManual.Checked = true;
                     }
-                        break;
+                    break;
                 case 2:
                     // handle when site requires it
                     // currently NQ x3 WB and SQ x1 WB
@@ -132,7 +127,7 @@ namespace QWS_Local
             txtInstruction.Text = Instruction;
         }
 
-         private void rbAuto_CheckedChanged(object sender, EventArgs e)
+        private void rbAuto_CheckedChanged(object sender, EventArgs e)
         {
             SetWeighButtons();
         }
@@ -166,7 +161,7 @@ namespace QWS_Local
                 {
                     if (configRow.WeighbridgeID == 1)
                     {
-                        if(configRow.Connected == true)
+                        if (configRow.Connected == true)
                         {
                             rbAuto.Checked = true;
                         }
@@ -175,7 +170,7 @@ namespace QWS_Local
                             rbManual.Checked = true;
                         }
                     }
-               
+
                 }
             }
             else if (rbWB2.Checked == true)
@@ -199,7 +194,7 @@ namespace QWS_Local
             {
                 foreach (dsTIQ2.WBConfig4SiteRow configRow in dsTIQ2.WBConfig4Site)
                 {
-                    if (configRow.WeighbridgeID == 3 )
+                    if (configRow.WeighbridgeID == 3)
                     {
                         if (configRow.Connected == true)
                         {
@@ -218,8 +213,8 @@ namespace QWS_Local
         {
             // ignore warning for the time being, a bit of a double dip !@#
             // 20250922 use discard to resolve _ = // need more research on this
-             //CaptureSingleWeightAsync();
-             CaptureSingleWeightSync();
+            //CaptureSingleWeightAsync();
+            CaptureSingleWeightSync();
         }
 
         private void CaptureSingleWeightSync()
@@ -300,7 +295,7 @@ namespace QWS_Local
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             // Get new weight for selected WB, check if WB is selected if n > 1
-          CaptureSingleWeight();
+            CaptureSingleWeight();
         }
 
         private void btnMonitor_Click(object sender, EventArgs e)

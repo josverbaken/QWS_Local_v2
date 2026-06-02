@@ -1,21 +1,10 @@
 ﻿using Microsoft.Data.SqlClient;
-using Microsoft.IdentityModel.Abstractions;
-using QWS_Local;
-using QWS_Local.dsQWSLocal2024TableAdapters;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Interop;
-using static QWS_Local.dsTIQ2;
 
 namespace QWS_Local
 {
@@ -28,7 +17,7 @@ namespace QWS_Local
         private string Domain;
         private string myConnectionString;
         private bool blOverRideShortLoad; // ensure not charged for Imported
-        
+
         public TrucksInQuarry()
         {
             InitializeComponent();
@@ -61,13 +50,13 @@ namespace QWS_Local
                 btnAllLPR.Visible = false;
                 btnRefreshLPR.Visible = false;
             }
-            else 
-            { 
+            else
+            {
                 RefreshQuarryLPR();
             }
             RefreshQueue();
         }
-  
+
         public void ClearTIQ()
         {
             dataGridView1.ClearSelection();
@@ -87,7 +76,7 @@ namespace QWS_Local
                 var parent = this.MdiParent as QWS_MDIParent;
                 if (parent.LoginStatus == "O")
                 {
-                    MessageBox.Show("Please login!","TIQ F5");
+                    MessageBox.Show("Please login!", "TIQ F5");
                 }
                 else
                 {
@@ -107,8 +96,8 @@ namespace QWS_Local
         }
 
         private void btnAddTIQ_Click(object sender, EventArgs e)
-        {            
-                BookInTruck();            
+        {
+            BookInTruck();
         }
 
         private void BookInTruck()
@@ -116,7 +105,7 @@ namespace QWS_Local
             var parent = this.MdiParent as QWS_MDIParent;
             if (parent.LoginStatus == "O")
             {
-                MessageBox.Show("Please login!","TIQ BookIn");
+                MessageBox.Show("Please login!", "TIQ BookIn");
             }
             else
             {
@@ -162,7 +151,7 @@ namespace QWS_Local
 
         private dsTIQ2.TIQRow CurrentTIQ()
         {
-            if ( bsTIQ2.Count > 0)
+            if (bsTIQ2.Count > 0)
             {
                 DataRow myRow = ((DataRowView)bsTIQ2.Current).Row;
                 dsTIQ2.TIQRow myTIQRow = (dsTIQ2.TIQRow)myRow;
@@ -174,9 +163,9 @@ namespace QWS_Local
             }
         }
 
-           private void SyncAxleConfig(string AxleConfig)
+        private void SyncAxleConfig(string AxleConfig)
         {
-           bsAxleConfiguration.Position = bsAxleConfiguration.Find("AxleConfiguration", AxleConfig);
+            bsAxleConfiguration.Position = bsAxleConfiguration.Find("AxleConfiguration", AxleConfig);
         }
 
         private void btnTINRemove_Click(object sender, EventArgs e)
@@ -184,7 +173,7 @@ namespace QWS_Local
             var parent = this.MdiParent as QWS_MDIParent;
             if (parent.LoginStatus == "O")
             {
-                MessageBox.Show("Please login!","TIQ Remove F12");
+                MessageBox.Show("Please login!", "TIQ Remove F12");
             }
             else
             {
@@ -194,16 +183,16 @@ namespace QWS_Local
 
         private void TINRemove()
         {
-            try 
-            { 
-               TIQRemove frmTIQRemove = new TIQRemove();
-               DialogResult dr = frmTIQRemove.ShowDialog();
+            try
+            {
+                TIQRemove frmTIQRemove = new TIQRemove();
+                DialogResult dr = frmTIQRemove.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
                     string myReason = frmTIQRemove.RemoveReason;
                     string myCode = frmTIQRemove.RemoveCode;
                     int myTIQID = CurrentTIQ().TIQID;
-                    TIQStatusAudit(myTIQID, myCode ,9,false, 0.00M, myReason);
+                    TIQStatusAudit(myTIQID, myCode, 9, false, 0.00M, myReason);
                     CurrentTIQ().QueueStatus = myCode;
                     CurrentTIQ().TIQOpen = false;
                     bsTIQ2.EndEdit();
@@ -256,8 +245,8 @@ namespace QWS_Local
         }
 
         private void btnWeigh_Click(object sender, EventArgs e)
-        {            
-            GoToWeighTruck();            
+        {
+            GoToWeighTruck();
         }
 
         private void GoToWeighTruck()
@@ -265,7 +254,7 @@ namespace QWS_Local
             var parent = this.MdiParent as QWS_MDIParent;
             if (parent.LoginStatus == "O")
             {
-                MessageBox.Show("Please login!","TIQ Weigh F9");
+                MessageBox.Show("Please login!", "TIQ Weigh F9");
             }
             else
             {
@@ -406,7 +395,7 @@ namespace QWS_Local
                                     MessageBox.Show("Weighing cancelled!");
                                 }
                                 break;
-                            case "G": 
+                            case "G":
                                 // process Imported load after Gross has been collected
                                 // weight should be close to recorded Tare but may reflect retained material
                                 frmWeighTruck = new WeighTruck("Collect weight with whole truck on weighbridge.", mySiteID);
@@ -421,7 +410,7 @@ namespace QWS_Local
                                     int myParentTIQID = myTIQRow.TIQID;
                                     string myTruckConfig = myTIQRow.TruckConfig;
                                     decimal myNett = myTIQRow.Gross - myWeight;
-                                    if(myNett > 0)
+                                    if (myNett > 0)
                                     {
                                         if (myTIQRow.Tare == 0.00M)
                                         {
@@ -456,7 +445,7 @@ namespace QWS_Local
                                         msg += ", nett weight < 0.0t";
                                         msg += "\r\nGross = " + myWeight.ToString();
                                         msg += "\r\nNett = " + myNett.ToString();
-                                        MessageBox.Show(msg,"Nett Weight Issue",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                                        MessageBox.Show(msg, "Nett Weight Issue", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                     }
                                 }
                                 break;
@@ -563,14 +552,14 @@ namespace QWS_Local
                 }
             }
         }
-       
+
 
         private void GoBack2BookIn(string Rego, int TruckConfigID, int DriverID, int ParentTIQID, string TrailerConfig, string Caller)
         {
             //called after retare successful or Import with retare due
             string msg = "Called after ";
             msg += Caller;
-            BookInTruck frmBookInStep1 = new BookInTruck(Rego, TruckConfigID, DriverID, ParentTIQID ,"TruckConfig", msg, TrailerConfig );
+            BookInTruck frmBookInStep1 = new BookInTruck(Rego, TruckConfigID, DriverID, ParentTIQID, "TruckConfig", msg, TrailerConfig);
             frmBookInStep1.MdiParent = this.MdiParent;
             frmBookInStep1.Show();
         }
@@ -665,9 +654,9 @@ namespace QWS_Local
         private bool ConfirmPostDocket()
         {
             bool ItemQA = GetItemQA(CurrentTIQ().Material);
-            PostDocket frmPostDocket = new PostDocket(CurrentTIQ(),ItemQA);
+            PostDocket frmPostDocket = new PostDocket(CurrentTIQ(), ItemQA);
             DialogResult dr = frmPostDocket.ShowDialog();
-            if (dr == DialogResult.OK )
+            if (dr == DialogResult.OK)
             {
                 mySPLotNo = frmPostDocket.SPLotNo;
                 // note that SP Lots are closed by USP
@@ -750,7 +739,7 @@ namespace QWS_Local
                     else
                     {
                         // ExBin No Order
-                        DocketLineAdd(myTIQRow.Material, myTIQRow.MaterialDesc, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myTIQRow.Material), "Items", mySPLotNo, myOrderBaseEntry,0);
+                        DocketLineAdd(myTIQRow.Material, myTIQRow.MaterialDesc, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myTIQRow.Material), "Items", mySPLotNo, myOrderBaseEntry, 0);
                     }
                     if (myTIQRow.Nett < Properties.Settings.Default.MinimumMaterial && blOverRideShortLoad == false)
                     {
@@ -766,7 +755,7 @@ namespace QWS_Local
                     //}
                     RemoveFromTIQ(myTIQID, "Docket posted successfully.");
                     RefreshQueue();
-             
+
                 }
                 else
                 {
@@ -815,7 +804,7 @@ namespace QWS_Local
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "GetOrderDocEntry", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "GetOrderDocEntry", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return -9;
             }
         }
@@ -836,7 +825,7 @@ namespace QWS_Local
                 sqlConnection.Close();
                 if (DocketExists > 0)
                 {
-                    MessageBox.Show("Cannot proceed as Docket already exists: " + DocketExists.ToString(),"CheckDocketExists",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Cannot proceed as Docket already exists: " + DocketExists.ToString(), "CheckDocketExists", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 return DocketExists;
             }
@@ -890,7 +879,7 @@ namespace QWS_Local
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "GetItemQA Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "GetItemQA Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -981,7 +970,7 @@ namespace QWS_Local
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "LockTIQ ERROR!",MessageBoxButtons.OK);
+                MessageBox.Show(ex.Message, "LockTIQ ERROR!", MessageBoxButtons.OK);
                 return false;
             }
 
@@ -1035,7 +1024,7 @@ namespace QWS_Local
                 {
                     int iRows = taQuarryOrders.FillBy(dsBookIn.QuarryOrders, myTIQRow.SAPOrder);
                     if (iRows > 0)
-                    { 
+                    {
                         dsBookIn.QuarryOrdersRow myOrderRow = (dsBookIn.QuarryOrdersRow)dsBookIn.QuarryOrders.Rows[0];
                         myContactName = myOrderRow.ContactName;
                         myContactMobile = myOrderRow.ContactMobile;
@@ -1087,7 +1076,7 @@ namespace QWS_Local
                 docketsRow.TIQID = myTIQRow.TIQID;
                 dsTIQ2.WBDockets.AddWBDocketsRow(docketsRow);
                 bsWBDockets.EndEdit();
-                taWBDockets.Update(dsTIQ2.WBDockets); 
+                taWBDockets.Update(dsTIQ2.WBDockets);
             }
             catch (Exception ex)
             {
@@ -1120,7 +1109,7 @@ namespace QWS_Local
                 linesRow.AgrNo = CurrentTIQ().AgrNo;
                 linesRow.AgrLine = CurrentTIQ().AgrLine;
                 string UOM = ItemCode.Substring(ItemCode.Length - 1, 1);
-                if (UOM=="1")
+                if (UOM == "1")
                 {
                     linesRow.Quantity = 1.0M;
                 }
@@ -1146,7 +1135,7 @@ namespace QWS_Local
                 }
                 linesRow.CreatedDTTM = DateTime.Now;
                 dsTIQ2.WBDocketLines.AddWBDocketLinesRow(linesRow);
-                bsWBDocketLines.EndEdit();  
+                bsWBDocketLines.EndEdit();
             }
             catch (Exception ex)
             {
@@ -1159,7 +1148,7 @@ namespace QWS_Local
             try
             {
                 string myComment = CurrentTIQ().Comment;
-                if (string.IsNullOrEmpty(myComment)) 
+                if (string.IsNullOrEmpty(myComment))
                 {
                     myComment = Comment;
                 }
@@ -1171,7 +1160,7 @@ namespace QWS_Local
                 {
                     myComment.Substring(0, 500);
                 }
-                    int iStatus = 0;               
+                int iStatus = 0;
                 SqlConnection sqlConnection = new SqlConnection(myConnectionString);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
@@ -1195,7 +1184,7 @@ namespace QWS_Local
             var parent = this.MdiParent as QWS_MDIParent;
             if (parent.LoginStatus == "O")
             {
-                MessageBox.Show("Please login!","TIQ Release Hold");
+                MessageBox.Show("Please login!", "TIQ Release Hold");
             }
             else
             {
@@ -1253,7 +1242,7 @@ namespace QWS_Local
                                 if (dr1 == DialogResult.Yes)
                                 {
                                     ContinueInProgress();
-                                } 
+                                }
                             }
                             break;
                         case "P":
@@ -1264,7 +1253,7 @@ namespace QWS_Local
                             }
                             break;
                         case "C":
-                            DialogResult drC = MessageBox.Show("Please resolve account issue, then press Retry to refresh","Account Status Issue",MessageBoxButtons.RetryCancel, MessageBoxIcon.Question);
+                            DialogResult drC = MessageBox.Show("Please resolve account issue, then press Retry to refresh", "Account Status Issue", MessageBoxButtons.RetryCancel, MessageBoxIcon.Question);
                             if (drC == DialogResult.Retry)
                             {
                                 CheckAccountStatus(CurrentTIQ().CustomerCode);
@@ -1289,7 +1278,7 @@ namespace QWS_Local
 
         private bool CheckConfirmCustomer()
         {
-            ConfirmCustomer frmConfirmCustomer = new ConfirmCustomer(CurrentTIQ().Rego,CurrentTIQ().DriverID, CurrentTIQ().CustomerCode, CurrentTIQ().Customer);
+            ConfirmCustomer frmConfirmCustomer = new ConfirmCustomer(CurrentTIQ().Rego, CurrentTIQ().DriverID, CurrentTIQ().CustomerCode, CurrentTIQ().Customer);
             DialogResult dr = frmConfirmCustomer.ShowDialog();
             if (dr == DialogResult.OK)
             {
@@ -1308,7 +1297,7 @@ namespace QWS_Local
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "CheckOverRideMinCart";
-                cmd.Parameters.AddWithValue("@Rego",Rego);
+                cmd.Parameters.AddWithValue("@Rego", Rego);
                 sqlConnection.Open();
                 blOverRide = System.Convert.ToBoolean(cmd.ExecuteScalar());
                 sqlConnection.Close();
@@ -1339,7 +1328,7 @@ namespace QWS_Local
         private void TrucksInQuarry_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
-            {     
+            {
                 case Keys.F2:
                     BookInTruck();
                     break;

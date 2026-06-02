@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -36,7 +30,7 @@ namespace QWS_Local
         public AxleConfigurationSearch(string Axleconfiguration)
         {
             InitializeComponent();
-            myAxleConfiguration=Axleconfiguration;
+            myAxleConfiguration = Axleconfiguration;
         }
 
         public AxleConfigurationSearch(bool IsLeadVehicle, int Axles, string Coupling)
@@ -78,7 +72,7 @@ namespace QWS_Local
                     }
 
                 }
-                this.bsAxleConfig.Filter = myFilter;             
+                this.bsAxleConfig.Filter = myFilter;
             }
             catch (Exception ex)
             {
@@ -133,8 +127,8 @@ namespace QWS_Local
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.DialogResult= DialogResult.Cancel;
-            this.Close();  
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }

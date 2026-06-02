@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -79,12 +74,12 @@ namespace QWS_Local
             txtTruckRego.Text = _TIQRow.Rego;
 
             if (_TIQRow.Rego.Length > 0)
-            { 
+            {
                 FindTruckConfig(_TIQRow.Rego.Trim(), Resume); // somehow short rego gets padded out in TIQ
                 SelectTruckConfig(_TIQRow.TruckConfigID); // ensures correct combination is selected
                 if (_TIQRow.DriverID > 0)
                 {
-                GetTruckDriver(_TIQRow.DriverID);
+                    GetTruckDriver(_TIQRow.DriverID);
                 }
                 if (btnGetDriver.Enabled == false)
                 {
@@ -125,7 +120,7 @@ namespace QWS_Local
         {
             //if (TruckConfigSet == false)
             //{
-                FindTruckConfig(txtTruckRego.Text.Trim(), false);
+            FindTruckConfig(txtTruckRego.Text.Trim(), false);
             //}
             //else
             //{
@@ -152,7 +147,7 @@ namespace QWS_Local
                 if (iCount > 0) // Configured Truck found
                 {
                     EntryDTTM = DateTime.Now;
-                    if (IsBookedIn(Rego) == true) 
+                    if (IsBookedIn(Rego) == true)
                     {
                         if (Resume == false)
                         {
@@ -180,12 +175,12 @@ namespace QWS_Local
                             dgvConfiguredTrucks.ClearSelection();
                             DGVLoaded = true;
                         }
-                    }                    
+                    }
                 }
                 else
                 {
                     // 20251206 JV create blank TIQ with Rego and parkup
-                    MessageBox.Show("Unknown truck/configuration.\r\nParkup and get details.","Parkup and Clear Entry Point",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Unknown truck/configuration.\r\nParkup and get details.", "Parkup and Clear Entry Point", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     EntryDTTM = DateTime.Now;
                     TIQID = NewTIQ(txtTruckRego.Text);
                     ((QWS_MDIParent)this.MdiParent).BringTIQ2Front();
@@ -217,18 +212,18 @@ namespace QWS_Local
                     chkACCPickUp.Checked = false;
                     break;
                 case 123:
-                    chkACCDelivery.Checked=false;
+                    chkACCDelivery.Checked = false;
                     chkACCPickUp.Checked = true;
                     break;
                 case 124:
                     chkACCDelivery.Checked = true;
-                    chkACCPickUp.Checked=true;
+                    chkACCPickUp.Checked = true;
                     break;
                 default:
-                    chkACCDelivery.Checked=false;
-                    chkACCPickUp .Checked = false;
+                    chkACCDelivery.Checked = false;
+                    chkACCPickUp.Checked = false;
                     break;
-            }       
+            }
             btnHold.Enabled = true;
         }
 
@@ -237,10 +232,10 @@ namespace QWS_Local
             try
             {
                 int index = bsConfiguredTrucks.Find("TruckConfigID", TruckConfigID);
-            if (index >= 0)
-            {
-                bsConfiguredTrucks.Position = index;
-            }
+                if (index >= 0)
+                {
+                    bsConfiguredTrucks.Position = index;
+                }
             }
             catch (Exception ex)
             {
@@ -290,12 +285,12 @@ namespace QWS_Local
                 MessageBox.Show(CallingMessage, "Follow on book in.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-   
+
         private void btnGetDriver_Click(object sender, EventArgs e)
         {
             GetTruckDriver(0);
         }
-  
+
         private void CheckConfigOK2Proceed()
         {
             string msg = "Unable to proceed: ";
@@ -309,7 +304,7 @@ namespace QWS_Local
             else
             {
                 msg += "Rego Expired\r\n\r\nPlease use NHVR Checker  App";
-                MessageBox.Show(msg,"Registration Expired", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(msg, "Registration Expired", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             int myAxles = myConfigTruck.Axles;
             int myMaxAxles = myConfigTruck.MaxAxles;
@@ -318,7 +313,7 @@ namespace QWS_Local
             {
                 OK2Proceed = false;
                 msg += "Fee Code Issue\r\n\r\nPlease use NHVR Checker  App";
-                MessageBox.Show(msg, "Fee Code axle restriction!", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show(msg, "Fee Code axle restriction!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             if (OK2Proceed)
             {
@@ -355,7 +350,7 @@ namespace QWS_Local
             if (DriverID > 0) // driver pre-selected on prior iteration
             {
                 //taTruckDriver1.FillByCardCode(dsQWSLocal2024.TruckDriver, CurrentConfigTruck().CardCode);
-                taTruckDriver1.FillByID(dsQWSLocal2024.TruckDriver,DriverID);
+                taTruckDriver1.FillByID(dsQWSLocal2024.TruckDriver, DriverID);
                 //int index = bsTruckDriver.Find("CntctCode", DriverID);
                 //if (index > 0)
                 //{
@@ -468,7 +463,7 @@ namespace QWS_Local
                     }
                     else
                     {
-                        myTruckOwner  =myConfigTruck.TruckOwner;
+                        myTruckOwner = myConfigTruck.TruckOwner;
                     }
                     _TIQRow.Operator = myWBO;//myUsername;
                     _TIQRow.DriverID = myTruckDriver.CntctCode;
@@ -664,15 +659,15 @@ namespace QWS_Local
 
         private void GoToBookInMaterial()
         {
-            if (_TIQRow.TruckConfig == "TT"|| _TIQRow.TruckConfig == "BD")
-                {
-                    gbSplitLoad.Enabled = true;
-                }
-                else
-                {
-                    gbSplitLoad.Enabled = false;
-                    BookInMaterial();
-                }
+            if (_TIQRow.TruckConfig == "TT" || _TIQRow.TruckConfig == "BD")
+            {
+                gbSplitLoad.Enabled = true;
+            }
+            else
+            {
+                gbSplitLoad.Enabled = false;
+                BookInMaterial();
+            }
         }
 
         private void BookInMaterial()
@@ -689,7 +684,7 @@ namespace QWS_Local
                 else
                 {
                     OK2Continue = false;
-                    MessageBox.Show("Cannot proeed!","BookInMaterial Get Customer Error",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Cannot proeed!", "BookInMaterial Get Customer Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             if (OK2Continue == true)
@@ -699,7 +694,7 @@ namespace QWS_Local
                 frmExBin.MdiParent = this.MdiParent;
                 frmExBin.Show();
             }
-            this.Close();            
+            this.Close();
         }
 
         private void btnDelivery_Click(object sender, EventArgs e)
@@ -735,7 +730,7 @@ namespace QWS_Local
                 {
                     myTruckConfigID = 0;
                 }
-                    string myQStatus = "P";
+                string myQStatus = "P";
                 if (myTIQType == TIQType.ParkUp)
                 {
                     myQStatus = "K";
@@ -787,7 +782,7 @@ namespace QWS_Local
                     cmd.Parameters.AddWithValue("@Tare", 0.0M);
                     cmd.Parameters.AddWithValue("@TareTk", 0.0M);
                 }
-                cmd.Parameters.AddWithValue("@TruckConfig", TruckOrTrailerConfig); 
+                cmd.Parameters.AddWithValue("@TruckConfig", TruckOrTrailerConfig);
                 cmd.Parameters.AddWithValue("@TruckConfigID", myTruckConfigID); //myConfigTruck.TruckConfigID);
                 cmd.Parameters.AddWithValue("@AxleConfiguration", myConfigTruck.AxleConfiguration);
                 cmd.Parameters.AddWithValue("@FeeCode", myConfigTruck.FeeCode);
@@ -835,7 +830,7 @@ namespace QWS_Local
                     iTIQID = System.Convert.ToInt32(cmd.ExecuteScalar());
                     sqlConnection.Close();
                     TIQGet(mySiteID, iTIQID);
-                    return iTIQID;  
+                    return iTIQID;
                 }
                 else
                 {
@@ -870,7 +865,7 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@RegoTr3", "tba");
                 cmd.Parameters.AddWithValue("@RegoTrailers", "tba");
                 cmd.Parameters.AddWithValue("@Tare", 0.0M);
-                cmd.Parameters.AddWithValue("@TareTk", 0.0M);            
+                cmd.Parameters.AddWithValue("@TareTk", 0.0M);
                 cmd.Parameters.AddWithValue("@TruckConfig", "tba");
                 cmd.Parameters.AddWithValue("@TruckConfigID", 0); //myConfigTruck.TruckConfigID);
                 cmd.Parameters.AddWithValue("@AxleConfiguration", "tba");
@@ -947,7 +942,7 @@ namespace QWS_Local
                 {
                     MessageBox.Show("Error retrieving new TIQ!");
                 }
-                    return iRow;
+                return iRow;
             }
             catch (Exception ex)
             {
@@ -971,7 +966,7 @@ namespace QWS_Local
                 sqlConnection.Open();
                 int iTrucks = System.Convert.ToInt32(cmd.ExecuteScalar());
                 sqlConnection.Close();
-                if (iTrucks > 0) 
+                if (iTrucks > 0)
                 {
                     return true;
                 }
@@ -983,12 +978,12 @@ namespace QWS_Local
                 return false;
             }
         }
-    private void btnImported_Click(object sender, EventArgs e)
+        private void btnImported_Click(object sender, EventArgs e)
         {
             BookInTIQType = TIQType.Imported;
             GoToBookInMaterial();
         }
-    
+
         private void btnHold_Click(object sender, EventArgs e)
         {
             PutOnHold();
@@ -1008,7 +1003,7 @@ namespace QWS_Local
                 {
                     UpdateTIQ(TIQType.ParkUp); //, CurrentConfigTruck().VehicleType);
                 }
-                MessageBox.Show(msg,"Put on hold.",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show(msg, "Put on hold.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             catch (Exception ex)
@@ -1029,7 +1024,7 @@ namespace QWS_Local
                 FindTruckConfig(txtTruckRego.Text, false);
             }
         }
-    
+
         private void ProceedAfterRegoSelection()
         {
             UpdateTIQ(TIQType.EnterRego); //, CurrentConfigTruck().VehicleType);
@@ -1038,16 +1033,16 @@ namespace QWS_Local
 
         private void btnImportedPickUp_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not yet implemented.","Imported Pickup Message",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Not yet implemented.", "Imported Pickup Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             BookInTIQType = TIQType.ImportedPickUp;
-                GoToBookInMaterial();
+            GoToBookInMaterial();
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             if (DGVLoaded == true) // && bsTIQ.Count == 0) // TIQ created on initialise when called with trailer config and parent tiq
             {
-                        ProceedAfterRegoSelection();
+                ProceedAfterRegoSelection();
             }
         }
 
@@ -1112,7 +1107,7 @@ namespace QWS_Local
             int ProcessID = System.Diagnostics.Process.GetCurrentProcess().Id;
             MessageBox.Show("Process ID = " + ProcessID.ToString());
         }
-       
+
         private void btnSetTruckConfig_Click(object sender, EventArgs e)
         {
             SetTruckConfig();

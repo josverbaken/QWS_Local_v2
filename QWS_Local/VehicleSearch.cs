@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -39,10 +33,10 @@ namespace QWS_Local
         public VehicleSearch(string CardCode, string AxleConfig, bool Exact)
         {
             InitializeComponent();
-            Search4Vehicle(CardCode,true);
+            Search4Vehicle(CardCode, true);
             this.txtSearch1.Text = CardCode;
             this.rbCardCode.Checked = true;
-            FilterByAxleConfig(AxleConfig,Exact);
+            FilterByAxleConfig(AxleConfig, Exact);
         }
 
         public VehicleSearch(string strSearch, bool IsCardCode)
@@ -99,11 +93,11 @@ namespace QWS_Local
             }
         }
 
- 
+
         private void FilterByAxleConfig(string AxleConfig, bool Exact)
         {
-            rbClear.Checked=true; //to ensure desired filter 
-            if (Exact == true) 
+            rbClear.Checked = true; //to ensure desired filter 
+            if (Exact == true)
             {
                 this.bsVehicleDetails2.Filter = "AxleConfiguration like '" + AxleConfig + "'";
             }
@@ -122,7 +116,7 @@ namespace QWS_Local
         {
             this.bsVehicleDetails2.Filter = "";
             rbTrailers.Checked = false;
-            
+
         }
 
         private void rbTrucks_CheckedChanged(object sender, EventArgs e)
@@ -143,7 +137,7 @@ namespace QWS_Local
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            SearchVehicleBy();                
+            SearchVehicleBy();
         }
 
         private void SearchVehicleBy()

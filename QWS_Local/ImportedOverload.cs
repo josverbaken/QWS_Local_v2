@@ -1,14 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Text;
 using System.Globalization;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -45,16 +36,16 @@ namespace QWS_Local
         }
 
         public string OverloadDesc
-        { 
-            get 
-            { 
-                return myOverloadDesc; 
-            } 
-        }  
-
-            private void ImportedOverload_Load(object sender, EventArgs e)
         {
-            SetSanctionsText(); 
+            get
+            {
+                return myOverloadDesc;
+            }
+        }
+
+        private void ImportedOverload_Load(object sender, EventArgs e)
+        {
+            SetSanctionsText();
             GetImportedOverloads(DriverID);
             txtDriver.Text = Driver;
             txtGross.Text = Gross.ToString();
@@ -73,9 +64,9 @@ namespace QWS_Local
             try
             {
                 myOverloadPoints = System.Convert.ToInt16(txtPointsDocket.Text);
-            myOverloadDesc = txtOverloadCategory.Text;  
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+                myOverloadDesc = txtOverloadCategory.Text;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -152,11 +143,11 @@ namespace QWS_Local
                 myOverloadPoints = OverloadPoints;
                 myOverloadDesc = txtOverloadCategory.Text;
                 AccumulatedPoints(myOverloadPoints);
-                }
+            }
             catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void AccumulatedPoints(int OverloadPoints)
@@ -169,14 +160,14 @@ namespace QWS_Local
                 int SanctionThisWeek = Properties.Settings.Default.SanctionThisWeek;
                 string msgSanction = "";
                 taImportedOverloads.Fill(dsTIQ2.ImportedOverloadsByDriver, DriverID);
-                    foreach (dsTIQ2.ImportedOverloadsByDriverRow row in dsTIQ2.ImportedOverloadsByDriver)
+                foreach (dsTIQ2.ImportedOverloadsByDriverRow row in dsTIQ2.ImportedOverloadsByDriver)
+                {
+                    DocketPointsToday += row.OverloadPoints;
+                    if (row.Tday == DateTime.Now.Day)
                     {
                         DocketPointsToday += row.OverloadPoints;
-                        if (row.Tday == DateTime.Now.Day)
-                        {
-                            DocketPointsToday += row.OverloadPoints;   
-                        }
                     }
+                }
                 if (DocketPointsToday > SanctionToday)
                 {
                     msgSanction = "Daily points exceeded,";
@@ -190,7 +181,7 @@ namespace QWS_Local
                     msgSanction += " sanction for remainder of today and tomorrow,ensure Sanction Date is entered into SAP.";
                     MessageBox.Show(msgSanction, "Accumulated Points Sanction", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-                txtPointsToday.Text = DocketPointsToday.ToString(); 
+                txtPointsToday.Text = DocketPointsToday.ToString();
                 txtPointsThisWeek.Text = DocketPointsThisWeek.ToString();
             }
             catch (Exception ex)

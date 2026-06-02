@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -52,15 +45,15 @@ namespace QWS_Local
         // check if B-Double
         private void rbTnT_CheckedChanged(object sender, EventArgs e)
         {
-            if(rbTnT.Checked)
+            if (rbTnT.Checked)
             {
                 if (AxleConfig.Contains("R") == true)
                 {
-                    formLoadType = LoadType.TT; 
+                    formLoadType = LoadType.TT;
                 }
                 else
                 {
-                    formLoadType= LoadType.BD;
+                    formLoadType = LoadType.BD;
                 }
             }
         }
@@ -97,8 +90,8 @@ namespace QWS_Local
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.DialogResult=DialogResult.Cancel;  
-            this.Close();   
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
 
         private void btnSelect_Click(object sender, EventArgs e)

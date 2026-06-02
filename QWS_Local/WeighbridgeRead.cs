@@ -1,20 +1,18 @@
 ﻿using System;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net.Sockets;
-using System.Threading;
 using System.Windows.Forms;
-using System.Runtime.CompilerServices;
 
 
 namespace QWS_Local
 {
     class WeighbridgeRead
     {
-        private  int iLoopDelay = 200;
-        private  decimal decWeight = System.Convert.ToDecimal(0.00);
-        private  Boolean blContinue = true;
-        private  decimal CurrentWeight = 222.22M;
+        private int iLoopDelay = 200;
+        private decimal decWeight = System.Convert.ToDecimal(0.00);
+        private Boolean blContinue = true;
+        private decimal CurrentWeight = 222.22M;
 
         public decimal getCurrentWeight()
         {
@@ -37,13 +35,13 @@ namespace QWS_Local
         }
 
 
-        public async  void ReadWeighbridge(string WB)
+        public async void ReadWeighbridge(string WB)
         {
             blContinue = true;
             CurrentWeight = 11.11M;
             while (blContinue)
             {
-                await ReadOnce( iLoopDelay, WB);
+                await ReadOnce(iLoopDelay, WB);
             }
         }
 
@@ -57,7 +55,7 @@ namespace QWS_Local
             string strDecode = "";
             string strStatus = "x";
             TcpClient tcpClient = new TcpClient();
-           
+
             await Task.Delay(myDelay);
             if (WB == "NQWB1")
             {
@@ -65,7 +63,7 @@ namespace QWS_Local
             }
             else if (WB == "NQWB2")
             {
-                 tcpClient.Connect("192.168.61.34", 1900); // Systec at NQ
+                tcpClient.Connect("192.168.61.34", 1900); // Systec at NQ
             }
             else if (WB == "NQWB3")
             {
@@ -74,7 +72,7 @@ namespace QWS_Local
             }
             else if (WB == "SQWB1")
             {
-                 tcpClient.Connect("192.168.2.49", 2223); // Rinstrum at SQ
+                tcpClient.Connect("192.168.2.49", 2223); // Rinstrum at SQ
             }
             else
             {
@@ -104,8 +102,8 @@ namespace QWS_Local
                     {
                         string newString;
                         newString = BuildString(bytes);
-                        strDecode = newString.Substring(0, 8); 
-                        strStatus= newString.Substring(8, 1);
+                        strDecode = newString.Substring(0, 8);
+                        strStatus = newString.Substring(8, 1);
                         decWeight = System.Convert.ToDecimal(strDecode);
                         CurrentWeight = decWeight;
                         if (strStatus == "G")
@@ -127,14 +125,14 @@ namespace QWS_Local
                 }
                 if (WB == "NQWB2")
                 {
-                //decode - start with hardcoded for NQ Ultra
+                    //decode - start with hardcoded for NQ Ultra
                     strDecode = returndata.Substring(5, 7);
                     strStatus = returndata.Substring(0, 2);
                     decWeight = System.Convert.ToDecimal(strDecode);
                     CurrentWeight = decWeight;
                     if (strStatus == "S ") // note trailing space
                     {
-                    strStatus = "GOOD";
+                        strStatus = "GOOD";
                     }
                     else if (strStatus == "SD")
                     {

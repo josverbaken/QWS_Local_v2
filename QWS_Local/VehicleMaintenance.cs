@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static QWS_Local.dsQWSLocal2024;
 
 namespace QWS_Local
 {
@@ -44,7 +37,7 @@ namespace QWS_Local
             {
                 if (txtSAPCode.TextLength == 0)
                 {
-                    MessageBox.Show("Please select an owner.", "VehicleSave Error.",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please select an owner.", "VehicleSave Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtOwner.SelectAll();
                     txtOwner.Focus();
                 }
@@ -81,7 +74,7 @@ namespace QWS_Local
         {
             try
             {
-                if (txtRego.Text.Length > 6) 
+                if (txtRego.Text.Length > 6)
                 {
                     MessageBox.Show("Rego is too long!");
                 }
@@ -191,7 +184,7 @@ namespace QWS_Local
         {
             try
             {
-                int iCount =  this.taFeeCodes.FillByID(this.dsQWSLocal2024.VehicleRegFeeCodes,FeeCodeID);
+                int iCount = this.taFeeCodes.FillByID(this.dsQWSLocal2024.VehicleRegFeeCodes, FeeCodeID);
                 if (iCount != 1)
                 {
                     MessageBox.Show("Fee Code Error");
@@ -209,7 +202,7 @@ namespace QWS_Local
         {
             try
             {
-                int iCount = this.taAxleConfig.FillByAxleConfig(dsQWSLocal2024.AxleConfiguration,AxleConfig);
+                int iCount = this.taAxleConfig.FillByAxleConfig(dsQWSLocal2024.AxleConfiguration, AxleConfig);
                 if (iCount != 1)
                 {
                     MessageBox.Show("Axle config error");
@@ -226,8 +219,8 @@ namespace QWS_Local
             try
             {
                 DataRow myFeeCode = ((DataRowView)bsFeeCodes.Current).Row;
-            dsQWSLocal2024.VehicleRegFeeCodesRow vehicleRegFeeCodesRow = (dsQWSLocal2024.VehicleRegFeeCodesRow)myFeeCode;
-            return vehicleRegFeeCodesRow;
+                dsQWSLocal2024.VehicleRegFeeCodesRow vehicleRegFeeCodesRow = (dsQWSLocal2024.VehicleRegFeeCodesRow)myFeeCode;
+                return vehicleRegFeeCodesRow;
             }
             catch (Exception ex)
             {
@@ -239,8 +232,8 @@ namespace QWS_Local
         private void CheckExpiryDT()
         {
             if (CurrentVehicle().RegistrationExpiryDT < DateTime.Now)
-            {               
-               lblExpiryDT.BackColor = Color.Salmon;
+            {
+                lblExpiryDT.BackColor = Color.Salmon;
             }
             else
             {
@@ -287,14 +280,14 @@ namespace QWS_Local
             try
             {
                 BusinessSearch businessSearch = new BusinessSearch(txtOwner.Text);
-                DialogResult dr =  businessSearch.ShowDialog();
+                DialogResult dr = businessSearch.ShowDialog();
                 if (dr == DialogResult.OK)
-                { 
+                {
                     CurrentVehicle().CardCode = businessSearch.SAPCode;
                     CurrentVehicle().Owner = businessSearch.BusinessName;
                     bsVehicle.EndEdit();
                     txtVIN.Focus();
-                }          
+                }
                 else
                 {
                     txtVIN.Focus();
@@ -302,7 +295,7 @@ namespace QWS_Local
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Business Search Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Business Search Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -340,7 +333,7 @@ namespace QWS_Local
             FindVehicleByRego();
         }
 
-         private void txtRegoSelectAll()
+        private void txtRegoSelectAll()
         {
             this.txtRego.SelectAll();
         }
@@ -359,11 +352,11 @@ namespace QWS_Local
         {
             txtRegoSelectAll();
         }
-    
+
         private void SetFeeCode()
-        { 
+        {
             int iCount = -1;
-            iCount = taFeeCodes.FillByBoth(dsQWSLocal2024.VehicleRegFeeCodes, txtFeeCode.Text,txtJurisdiction.Text);
+            iCount = taFeeCodes.FillByBoth(dsQWSLocal2024.VehicleRegFeeCodes, txtFeeCode.Text, txtJurisdiction.Text);
             if (iCount != 1)
             {
                 MessageBox.Show("exact fee code not found");
@@ -397,13 +390,13 @@ namespace QWS_Local
             }
             else
             {
-                MessageBox.Show("Cancelled","Fee Code Search",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-            }   
+                MessageBox.Show("Cancelled", "Fee Code Search", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void AddVehicleRequest(string newRego)
         {
-            if ( newRego.Length > 6)
+            if (newRego.Length > 6)
             {
                 MessageBox.Show("Please enter registration number (max 6 characters)", "New vehicle Rego error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -458,10 +451,10 @@ namespace QWS_Local
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"AddVehicle Error.",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "AddVehicle Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        } 
-  
+        }
+
         private void btnSetPrefCustomer_Click(object sender, EventArgs e)
         {
             PrefCustomerSearch();
@@ -480,7 +473,7 @@ namespace QWS_Local
                 vehiclePrefCustomersRow.Active = true;
                 vehiclePrefCustomersRow.Comment = "";
                 vehiclePrefCustomersRow.Rank = 0;
-                dsQWSLocal2024.VehiclePrefCustomers.AddVehiclePrefCustomersRow(vehiclePrefCustomersRow);                
+                dsQWSLocal2024.VehiclePrefCustomers.AddVehiclePrefCustomersRow(vehiclePrefCustomersRow);
             }
             catch (Exception ex)
             {
@@ -547,7 +540,7 @@ namespace QWS_Local
                     dsQWSLocal2024.VehicleRow myVehicleRow = dsQWSLocal2024.Vehicle[0];
                     DialogResult dr = MessageBox.Show("Are you sure you want to delete this vehicle and associated configurations?", "Confirm Delete " + myVehicleRow.Rego, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dr == DialogResult.Yes)
-                    {                  
+                    {
                         myVehicleRow.Delete();
                         bsVehicle.EndEdit();
                         taVehicle.Update(dsQWSLocal2024.Vehicle);
@@ -557,7 +550,7 @@ namespace QWS_Local
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "DeleteVehicle Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "DeleteVehicle Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

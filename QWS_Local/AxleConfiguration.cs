@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -24,7 +18,7 @@ namespace QWS_Local
             this.bsAxleConfig.Sort = "AxleConfiguration";
         }
 
-              private void tspUpdate_Click(object sender, EventArgs e)
+        private void tspUpdate_Click(object sender, EventArgs e)
         {
             try
             {
@@ -60,7 +54,7 @@ namespace QWS_Local
                     // need a byte array for database
                     FileStream fs = File.OpenRead(strPath);
                     Byte[] myPicture = new byte[fs.Length];
-                    fs.Read(myPicture, 0, (int) fs.Length);
+                    fs.Read(myPicture, 0, (int)fs.Length);
                     axleconfigRow.Schematic = myPicture;
                 }
             }
@@ -89,7 +83,7 @@ namespace QWS_Local
         {
             string searchPattern = "AxleConfiguration like '";
             searchPattern += tspSearchPattern.Text;
-            searchPattern += "%'"; 
+            searchPattern += "%'";
             this.bsAxleConfig.Filter = searchPattern;
         }
     }

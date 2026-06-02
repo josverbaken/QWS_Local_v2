@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -70,14 +63,14 @@ namespace QWS_Local
             {
                 NHVRFilter += " and " + SteerAxleFilter;
             }
-            if(MassMgmtFilter.Length > 0)
+            if (MassMgmtFilter.Length > 0)
             {
-                NHVRFilter+= " and " + MassMgmtFilter;
+                NHVRFilter += " and " + MassMgmtFilter;
             }
             bsNHVR2.Filter = NHVRFilter;
         }
 
-            private void btnApply_Click(object sender, EventArgs e)
+        private void btnApply_Click(object sender, EventArgs e)
         {
             ApplyNHVRFilter();
         }

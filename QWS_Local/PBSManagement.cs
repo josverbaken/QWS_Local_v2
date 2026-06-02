@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 
 namespace QWS_Local
@@ -33,7 +27,7 @@ namespace QWS_Local
         {
             this.KeyPreview = true; // enable Function keys
         }
-  
+
         private void button3_Click(object sender, EventArgs e)
         {
             VehicleApprovalFind();
@@ -132,8 +126,8 @@ namespace QWS_Local
         private void dgvPBS_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
             try
-            { 
-            int myPBSVA = Convert.ToInt32(txtVehicleApproval.Text);
+            {
+                int myPBSVA = Convert.ToInt32(txtVehicleApproval.Text);
                 //e.Row.Cells["Vehicle Approval"].Value = myPBSVA;
                 // investigate why not recognising column names?
                 // 20250325 handled elsewhere by using index of column (dgv not dataset)
@@ -192,7 +186,7 @@ namespace QWS_Local
             try
             {
                 dsPBS.PBS_ConfigScheme.Clear();
-                if (CurrentPBS()  != null)
+                if (CurrentPBS() != null)
                 {
                     taPBSConfig.FillByPBSID(dsPBS.PBS_Config, CurrentPBS().PBS_ID);
                     taPBSVehicles.FillBy(dsPBS.PBS_Vehicles, CurrentPBS().PBS_ID);
@@ -219,7 +213,7 @@ namespace QWS_Local
                     else
                     {
                         return null;
-                    }    
+                    }
                 }
                 else
                 {
@@ -384,7 +378,7 @@ namespace QWS_Local
                     return "not found";
                 }
                 else
-                { 
+                {
                     SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = sqlConnection;
@@ -428,7 +422,7 @@ namespace QWS_Local
             // no longer used because allowing create direct in datagridview
             try
             {
-                string myVIN = "tba";              
+                string myVIN = "tba";
                 string myRego = "tba";
                 DataRow dr = dsPBS.PBS_Vehicles.NewRow();
                 dsPBS.PBS_VehiclesRow myVehicle = (dsPBS.PBS_VehiclesRow)dr;
@@ -460,12 +454,12 @@ namespace QWS_Local
 
         private void VAFindAll()
         {
-            taPBS_Search.Fill(dsPBS.PBS_Search,"%","%",0);
+            taPBS_Search.Fill(dsPBS.PBS_Search, "%", "%", 0);
         }
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            PBSFindBy("xx",txtRego.Text,0);
+            PBSFindBy("xx", txtRego.Text, 0);
         }
 
         private void PBSFindBy(string CardCode, string Rego, int VA)
@@ -492,7 +486,7 @@ namespace QWS_Local
 
         private void btnFindByVA_Click(object sender, EventArgs e)
         {
-            PBSFindBy("xx","xx",System.Convert.ToInt32(txtVA.Text));
+            PBSFindBy("xx", "xx", System.Convert.ToInt32(txtVA.Text));
         }
 
         private void btnFindByCardCode_Click(object sender, EventArgs e)
@@ -540,7 +534,7 @@ namespace QWS_Local
                 {
                     string rowData = dgvPBS_Vehicles.Rows[e.RowIndex].Cells["Rego"].Value.ToString();
                     string myVIN = GetVIN(rowData);
-                    dgvPBS_Vehicles.Rows[e.RowIndex].Cells[2].Value = myVIN; 
+                    dgvPBS_Vehicles.Rows[e.RowIndex].Cells[2].Value = myVIN;
                 }
                 if (e.ColumnIndex == dgvPBS_Vehicles.Columns["Next3"].Index && e.RowIndex >= 0)
                 {
@@ -565,7 +559,7 @@ namespace QWS_Local
                     VehicleApprovalSave();
                     dgvPBS_Vehicles.Focus();
                 }
-            }        
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -103,16 +96,16 @@ namespace QWS_Local
         private void rbToday_CheckedChanged(object sender, EventArgs e)
         {
             if (rbToday.Checked)
-            { 
-            string myFilter = "";
-            if (DeliveryModeFilter.Length > 0)
             {
-                myFilter = DeliveryModeFilter + " and  DeliveryDate <= '" + DateTime.Today + "'";
-            }
-            else
-            {
-                myFilter = "DeliveryDate <= '" + DateTime.Today + "'";
-            }
+                string myFilter = "";
+                if (DeliveryModeFilter.Length > 0)
+                {
+                    myFilter = DeliveryModeFilter + " and  DeliveryDate <= '" + DateTime.Today + "'";
+                }
+                else
+                {
+                    myFilter = "DeliveryDate <= '" + DateTime.Today + "'";
+                }
                 bsQuarryOrders.Filter = myFilter;
             }
         }
@@ -130,7 +123,7 @@ namespace QWS_Local
                 {
                     myFilter = "DeliveryDate > '" + DateTime.Today + "'";
                 }
-                    bsQuarryOrders.Filter = myFilter;
+                bsQuarryOrders.Filter = myFilter;
             }
         }
 
@@ -147,7 +140,7 @@ namespace QWS_Local
                 bsQuarryOrders.Filter = myFilter;
             }
         }
-   
+
         private void GetQuarryOrders()
         {
             try
@@ -164,7 +157,7 @@ namespace QWS_Local
         private void GetExBinOrders()
         {
             try
-            {      
+            {
                 myOrderType = OrderType.ExBin;
                 taQuarryOrders.Fill(dsBookIn.QuarryOrders, "ExBin", "AnyCustomer", 0, mySiteID);
             }
@@ -226,8 +219,8 @@ namespace QWS_Local
         private void btnImportedOrders_Click(object sender, EventArgs e)
         {
             bsQuarryOrders.Filter = "";
-            rbClearDate.Checked=true;
-            rbClear.Checked = true; 
+            rbClearDate.Checked = true;
+            rbClear.Checked = true;
             GetImportedOrders();
         }
 

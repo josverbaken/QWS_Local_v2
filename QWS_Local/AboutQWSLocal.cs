@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Deployment.Application;
-using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Reflection;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -172,12 +168,12 @@ namespace QWS_Local
                 msg += "\r\n\r\nNetwork IP: " + NetworkAddress;
                 msg += "\r\n\r\nNetwork Subnet: " + NetworkSubnet;
                 textBoxDescription.Text += msg;
-                if (Username.Contains(".") == false) 
+                if (Username.Contains(".") == false)
                 {
                     Username += ".";
                 }
-                int iCount = this.taOperator.FillBy(this.dsAdmin.Operator,Username);
-                if ( iCount ==1)
+                int iCount = this.taOperator.FillBy(this.dsAdmin.Operator, Username);
+                if (iCount == 1)
                 {
                     DataRow myRow = ((DataRowView)bsOperator.Current).Row;
                     dsAdmin.OperatorRow myOperatorRow = (dsAdmin.OperatorRow)myRow;
@@ -188,7 +184,7 @@ namespace QWS_Local
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                    }
+            }
         }
 
         private void GetNetworkInfo()

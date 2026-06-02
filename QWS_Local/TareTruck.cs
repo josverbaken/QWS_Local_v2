@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Data.SqlClient;
 
 namespace QWS_Local
 {
@@ -80,7 +74,7 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@TareTk", TareTk);
                 cmd.Parameters.AddWithValue("@Tare", Tare);
                 sqlConnection.Open();
-                iStatus = cmd.ExecuteNonQuery();    
+                iStatus = cmd.ExecuteNonQuery();
                 sqlConnection.Close();
                 return true;
             }
@@ -102,7 +96,7 @@ namespace QWS_Local
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "TIQRemove";
                 cmd.Parameters.AddWithValue("@TIQID", TIQID);
-                cmd.Parameters.AddWithValue("@Comment",Comment);
+                cmd.Parameters.AddWithValue("@Comment", Comment);
                 sqlConnection.Open();
                 iStatus = cmd.ExecuteNonQuery();
                 sqlConnection.Close();

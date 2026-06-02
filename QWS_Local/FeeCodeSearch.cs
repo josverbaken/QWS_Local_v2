@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -28,7 +22,7 @@ namespace QWS_Local
         {
             DataRow myDR = ((DataRowView)bsFeeCodes.Current).Row;
             dsQWSLocal2024.VehicleRegFeeCodesRow feeCodesRow = (dsQWSLocal2024.VehicleRegFeeCodesRow)myDR;
-            return feeCodesRow;           
+            return feeCodesRow;
         }
 
         private void SetFeeCode()
@@ -55,7 +49,7 @@ namespace QWS_Local
         {
             SetFeeCode();
         }
-   
+
         private void ClearFilters()
         {
             rbFeeCode.Checked = false;
@@ -65,15 +59,15 @@ namespace QWS_Local
 
         private void rbFeeCode_CheckedChanged(object sender, EventArgs e)
         {
-           if (rbFeeCode.Checked == true)
+            if (rbFeeCode.Checked == true)
             {
                 string strFilter = "FeeCode like '%" + this.feeCodeTextBox.Text + "%'";
                 bsFeeCodes.Filter = strFilter;
             }
         }
 
- 
-       private void rbCoupling_CheckedChanged(object sender, EventArgs e)
+
+        private void rbCoupling_CheckedChanged(object sender, EventArgs e)
         {
             if (rbCoupling.Checked == true)
             {

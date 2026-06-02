@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -98,9 +92,9 @@ namespace QWS_Local
         {
             try
             {
-                    DataRow myDR = ((DataRowView)bsStockpileLotAllocation.Current).Row;
-                    dsTIQ2.StockpileLotAllocationRow stockpileRow = (dsTIQ2.StockpileLotAllocationRow)myDR;
-                    return stockpileRow;
+                DataRow myDR = ((DataRowView)bsStockpileLotAllocation.Current).Row;
+                dsTIQ2.StockpileLotAllocationRow stockpileRow = (dsTIQ2.StockpileLotAllocationRow)myDR;
+                return stockpileRow;
             }
             catch (Exception ex)
             {
@@ -153,14 +147,14 @@ namespace QWS_Local
         {
             if (txtManualItemCode.Text.Length > 0)
             {
-                this.taStockpileManualAllocation.FillByItemCode(this.dsTIQ2.StockpileManualAllocation,txtManualItemCode.Text);
+                this.taStockpileManualAllocation.FillByItemCode(this.dsTIQ2.StockpileManualAllocation, txtManualItemCode.Text);
             }
             else
             {
                 this.taStockpileManualAllocation.Fill(this.dsTIQ2.StockpileManualAllocation);
             }
         }
-      
+
         private void btnFindBaseItemCode_Click(object sender, EventArgs e)
         {
             FindBaseItemCode(); // to display for MCO
@@ -215,16 +209,16 @@ namespace QWS_Local
 
         private void rbLotNoFilter_CheckedChanged(object sender, EventArgs e)
         {
-            if ( rbLotNoFilter.Checked == true)
+            if (rbLotNoFilter.Checked == true)
             {
-                if (Int32.TryParse(txtLotNo.Text,out Int32 numValue))
+                if (Int32.TryParse(txtLotNo.Text, out Int32 numValue))
                 {
                     bsStockpileManualAllocation.Filter = "SPLotNo = '" + txtLotNo.Text + "'";
                 }
                 else
                 {
                     MessageBox.Show("Cannot convert " + txtLotNo.Text + " to an integer!");
-                }                
+                }
             }
         }
 
@@ -275,13 +269,13 @@ namespace QWS_Local
         }
 
         private void btnAddAllocation_Click_1(object sender, EventArgs e)
-        {            
+        {
             AddAllocation();
         }
 
         private void AddAllocation()
         {
-            dsTIQ2.SPLotCheckDocketRow docketRow =(dsTIQ2.SPLotCheckDocketRow)dsTIQ2.SPLotCheckDocket.Rows[0];
+            dsTIQ2.SPLotCheckDocketRow docketRow = (dsTIQ2.SPLotCheckDocketRow)dsTIQ2.SPLotCheckDocket.Rows[0];
             if (docketRow.ItemQA == false)
             {
                 MessageBox.Show("Item not QA!");
@@ -327,8 +321,8 @@ namespace QWS_Local
             try
             {
                 int DocNum2Check = -99;
-            DocNum2Check = System.Convert.ToInt32(txtDocNum2Check.Text);
-            CheckDocNumAllocation(DocNum2Check);
+                DocNum2Check = System.Convert.ToInt32(txtDocNum2Check.Text);
+                CheckDocNumAllocation(DocNum2Check);
             }
             catch (Exception ex)
             {
@@ -339,9 +333,9 @@ namespace QWS_Local
         private void CheckDocNumAllocation(int DocNum)
         {
             int iRows = taSPLotCheckDocket.Fill(dsTIQ2.SPLotCheckDocket, DocNum);
-            if(iRows ==1)
-                    {
-                int jRows = taStockpileManualAllocation.FillByItemDocNum(dsTIQ2.StockpileManualAllocation,DocNum);
+            if (iRows == 1)
+            {
+                int jRows = taStockpileManualAllocation.FillByItemDocNum(dsTIQ2.StockpileManualAllocation, DocNum);
                 if (jRows == 0)
                 {
                     // not yet allocated
@@ -371,7 +365,7 @@ namespace QWS_Local
 
         private void tabManualDocktAllocation_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(tabManualDocktAllocation.SelectedTab == tpDataEntry)
+            if (tabManualDocktAllocation.SelectedTab == tpDataEntry)
             {
                 dsTIQ2.StockpileManualAllocation.Clear();
             }
@@ -383,7 +377,7 @@ namespace QWS_Local
             if (bsStockpileManualAllocation.Count == 1)
             {
                 dsTIQ2.StockpileManualAllocationRow allocationRow = dsTIQ2.StockpileManualAllocation[0];
-                if (allocationRow.Comment =="tba")
+                if (allocationRow.Comment == "tba")
                 {
                     MessageBox.Show("Please enter reason for manual allocation.");
                 }

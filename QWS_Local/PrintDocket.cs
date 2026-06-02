@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -38,7 +32,7 @@ namespace QWS_Local
             try
             {
                 dsQWS.DocketList.Clear();
-                int iRows = this.taDocketList.FillBy(this.dsQWS.DocketList,DocDate,mySiteID);
+                int iRows = this.taDocketList.FillBy(this.dsQWS.DocketList, DocDate, mySiteID);
                 textBox2.Text = iRows.ToString();
                 dgvDocketList.ClearSelection();
             }
@@ -64,7 +58,7 @@ namespace QWS_Local
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "GetDeliveryDocket ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "GetDeliveryDocket ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -78,17 +72,17 @@ namespace QWS_Local
             try
             {
                 int myDocNum;
-            if (bsDocketList.Count > 0)
-            {
-                myDocNum = CurrentDocketList().DocNum;
-                GetDeliveryDocket(myDocNum);
-                txtDocketNo.Text = myDocNum.ToString();
-                tabControl1.SelectedTab = tpDocket;
-            }
-            else
-            {
-                MessageBox.Show("No dockets found!\r\nPlease try a different date.");
-            }
+                if (bsDocketList.Count > 0)
+                {
+                    myDocNum = CurrentDocketList().DocNum;
+                    GetDeliveryDocket(myDocNum);
+                    txtDocketNo.Text = myDocNum.ToString();
+                    tabControl1.SelectedTab = tpDocket;
+                }
+                else
+                {
+                    MessageBox.Show("No dockets found!\r\nPlease try a different date.");
+                }
 
             }
             catch (Exception ex)

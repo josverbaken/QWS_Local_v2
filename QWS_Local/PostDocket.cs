@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -40,7 +32,7 @@ namespace QWS_Local
         public PostDocket(dsTIQ2.TIQRow row, bool ItemQA)
         {
             InitializeComponent();
-            myRow = row;    
+            myRow = row;
             myItemQA = ItemQA;
         }
 
@@ -54,10 +46,10 @@ namespace QWS_Local
             }
             else
             {
-                MessageBox.Show("Unable to proceed.","Driver has NOT accepted!",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Unable to proceed.", "Driver has NOT accepted!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-        
+
         private void PostDocketCancel()
         {
             this.DialogResult = DialogResult.Cancel;
@@ -80,10 +72,10 @@ namespace QWS_Local
             switch (myRow.TruckConfig)
             {
                 case "TRs":
-                        SplitLoad=true;
+                    SplitLoad = true;
                     break;
                 case "TKs":
-                    SplitLoad = true;   
+                    SplitLoad = true;
                     break;
                 default:
                     SplitLoad = false;
@@ -116,7 +108,7 @@ namespace QWS_Local
             if (myRow.Tare == 0.0M)
             {
                 txtTare.ReadOnly = false;
-                MessageBox.Show("Tare = zero! \r\nPlease enter Tare Weight.","Zero Tare ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Tare = zero! \r\nPlease enter Tare Weight.", "Zero Tare ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 
@@ -175,9 +167,9 @@ namespace QWS_Local
                     if (row.TonnesRemaining <= 0)
                     {
                         string strMsg = "Stockpile Lot No: " + row.SPLotNo.ToString() + " closed!";
-                        MessageBox.Show(strMsg, "Lot closed",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                        MessageBox.Show(strMsg, "Lot closed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
-                    msg = "Lot No: " + row.SPLotNo.ToString() +  " .. Remaining tonnes: " + row.TonnesRemaining.ToString();
+                    msg = "Lot No: " + row.SPLotNo.ToString() + " .. Remaining tonnes: " + row.TonnesRemaining.ToString();
                 }
                 txtInfo.Text = msg;
             }
@@ -201,7 +193,7 @@ namespace QWS_Local
             else
             {
                 rbDriverConfirmation.Checked = false;
-                DriverAccepted=false;
+                DriverAccepted = false;
             }
         }
 
@@ -219,15 +211,15 @@ namespace QWS_Local
                 msg1 += "\r\nDid the driver accept the displayed weights?";
                 WBOConfirmation frmWBOConfirmation = new WBOConfirmation(msg1);
                 DialogResult dr2 = frmWBOConfirmation.ShowDialog();
-                if(dr2 == DialogResult.OK)
+                if (dr2 == DialogResult.OK)
                 {
                     DriverAccepted = true;
                     btnOkay.Enabled = true;
                 }
                 else
                 {
-                    DriverAccepted=false;
-                    rbDriverConfirmation.Checked=false;
+                    DriverAccepted = false;
+                    rbDriverConfirmation.Checked = false;
                     btnOkay.Enabled = false;
                 }
             }
