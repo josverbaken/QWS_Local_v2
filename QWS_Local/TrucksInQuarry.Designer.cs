@@ -128,7 +128,7 @@ namespace QWS_Local
             this.bsQuarryOrders = new System.Windows.Forms.BindingSource(this.components);
             this.taQuarryOrders = new QWS_Local.dsBookInTableAdapters.QuarryOrdersTableAdapter();
             this.taVehiclesOnSite = new QWS_Local.dsVerkadaTableAdapters.taVehiclesOnSite();
-            this.lblLPRCount = new System.Windows.Forms.Label();
+            this.txtLPRCount = new System.Windows.Forms.TextBox();
             entryDTTMLabel = new System.Windows.Forms.Label();
             sAPOrderLabel = new System.Windows.Forms.Label();
             roadAccessLabel = new System.Windows.Forms.Label();
@@ -343,7 +343,7 @@ namespace QWS_Local
             // 
             this.splitContainer2.Panel1.AutoScroll = true;
             this.splitContainer2.Panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.splitContainer2.Panel1.Controls.Add(this.lblLPRCount);
+            this.splitContainer2.Panel1.Controls.Add(this.txtLPRCount);
             this.splitContainer2.Panel1.Controls.Add(this.btnAllLPR);
             this.splitContainer2.Panel1.Controls.Add(this.dgvVehiclesOnSite);
             this.splitContainer2.Panel1.Controls.Add(this.btnRefreshLPR);
@@ -1107,13 +1107,17 @@ namespace QWS_Local
             // 
             this.taVehiclesOnSite.ClearBeforeFill = true;
             // 
-            // lblLPRCount
+            // txtLPRCount
             // 
-            this.lblLPRCount.AutoSize = true;
-            this.lblLPRCount.Location = new System.Drawing.Point(614, 107);
-            this.lblLPRCount.Name = "lblLPRCount";
-            this.lblLPRCount.Size = new System.Drawing.Size(0, 20);
-            this.lblLPRCount.TabIndex = 70;
+            this.txtLPRCount.BackColor = System.Drawing.SystemColors.Control;
+            this.txtLPRCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLPRCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLPRCount.Location = new System.Drawing.Point(506, 119);
+            this.txtLPRCount.Name = "txtLPRCount";
+            this.txtLPRCount.ReadOnly = true;
+            this.txtLPRCount.Size = new System.Drawing.Size(200, 14);
+            this.txtLPRCount.TabIndex = 71;
+            this.txtLPRCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // TrucksInQuarry
             // 
@@ -1236,6 +1240,6 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn vehicleOwnerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Duration;
         private System.Windows.Forms.DataGridViewTextBoxColumn visitStatusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label lblLPRCount;
+        private System.Windows.Forms.TextBox txtLPRCount;
     }
 }

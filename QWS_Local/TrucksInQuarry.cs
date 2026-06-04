@@ -120,18 +120,29 @@ namespace QWS_Local
                             string msg = "Maybe pass LicensePlate to Book In Truck form.";
                             msg += "\r\nVerkada LicensePlate = ";
                             msg += LicensePlate;
-                            MessageBox.Show(msg);
-                            // call BookInTruck(LicensePlate)
+                            //MessageBox.Show(msg);
+                            BookInTruck frmBookIn = new BookInTruck(LicensePlate);
+                            frmBookIn.MdiParent = this.MdiParent;
+                            frmBookIn.Show();
                         }
                         else
                         {
-                            //MessageBox.Show("Please select a truck first!","Vehicles On Site",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            DialogResult dialogResult = MessageBox.Show("Press Yes to bypass LPR\r\nPress No try try again","Vehicles On Site",MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                            if(dialogResult == DialogResult.Yes)
+                            {
+                                BookInTruck frmBookIn = new BookInTruck();
+                                frmBookIn.MdiParent = this.MdiParent;
+                                frmBookIn.Show();
+                            }
                         }
                     }
                 }
-                BookInTruck frmBookIn = new BookInTruck();
-                frmBookIn.MdiParent = this.MdiParent;
-                frmBookIn.Show();
+                else
+                {
+                    BookInTruck frmBookIn = new BookInTruck();
+                    frmBookIn.MdiParent = this.MdiParent;
+                    frmBookIn.Show();
+                }
             }
         }
 
@@ -1448,7 +1459,7 @@ namespace QWS_Local
                 dgvVehiclesOnSite.ClearSelection();
                 string msg = "LPR Count = ";
                 msg += bsVehiclesOnSite.Count.ToString();
-                lblLPRCount.Text = msg;
+                txtLPRCount.Text = msg;
             }
             catch (Exception ex)
             {
@@ -1461,7 +1472,7 @@ namespace QWS_Local
             bsVehiclesOnSite.Filter = "VehicleType like 'Quarry'";
             string msg = "LPR Count = ";
             msg += bsVehiclesOnSite.Count.ToString();
-            lblLPRCount.Text = msg;
+            txtLPRCount.Text = msg;
         }
     }
 }

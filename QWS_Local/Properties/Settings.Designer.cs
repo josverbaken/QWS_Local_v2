@@ -142,7 +142,7 @@ namespace QWS_Local.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("070-200-1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("020-200-1")]
         public string ShortLoadFee {
             get {
                 return ((string)(this["ShortLoadFee"]));
@@ -172,7 +172,7 @@ namespace QWS_Local.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ch-sql02;Initial Catalog=QWS_NQ_Dev;Integrated Security=True;TrustSer" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ch-sql02;Initial Catalog=QWS_SQ_Dev;Integrated Security=True;TrustSer" +
             "verCertificate=True")]
         public string cnQWSLocal {
             get {
