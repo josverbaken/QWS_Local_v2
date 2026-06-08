@@ -56,8 +56,8 @@ namespace QWS_Local
                 ACStatus = GetAccountStatus(CardCode);
                 mySiteID = TIQRow.SiteID;
                 IsPrefCust = myIsPrefCust;
-                int ImportedGrpCode = Properties.Settings.Default.ImportedGrpCode;
-                int ImportedPickUpGrpCode = Properties.Settings.Default.ImportedPickUpGrpCode;
+                int ImportedGrpCode = QWSConfig.ImportedGrpCode;//Properties.Settings.Default.ImportedGrpCode;
+                int ImportedPickUpGrpCode = QWSConfig.ImportedPickUpGrpCode; //Properties.Settings.Default.ImportedPickUpGrpCode;
                 string ImportGrpCod = ImportedGrpCode.ToString();
                 string ImportPUGrpCod = ImportedPickUpGrpCode.ToString();
                 switch (myTIQType)

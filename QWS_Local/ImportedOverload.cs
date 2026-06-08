@@ -118,7 +118,7 @@ namespace QWS_Local
                 if (OverloadPercent >= 1.2M)
                 {
                     msgSanction = "Immediate Sanction Applies. tip off must be supervised, manager contacted, driver advised of immediate sanction and initiation of IRF";
-                    OverloadPoints = Properties.Settings.Default.OverloadSevere;
+                    OverloadPoints = QWSConfig.OverloadSevere;//Properties.Settings.Default.OverloadSevere;
                     txtOverloadCategory.Text = "Overload Severe";
                     MessageBox.Show(msgSanction, "Overload Category = SEVERE!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
@@ -130,12 +130,12 @@ namespace QWS_Local
                 // Higher of 0.5t or 5%
                 else if (OverloadPercent >= 1.05M && (Gross - GVM) > TonnesCriterion)
                 {
-                    OverloadPoints = Properties.Settings.Default.OverloadSubstantial;
+                    OverloadPoints = QWSConfig.OverloadSubstantial;//Properties.Settings.Default.OverloadSubstantial;
                     txtOverloadCategory.Text = "Overload Substantial";
                 }
                 else
                 {
-                    OverloadPoints = Properties.Settings.Default.OverloadMinor;
+                    OverloadPoints = QWSConfig.OverloadMinor;//Properties.Settings.Default.OverloadMinor;
                     txtOverloadCategory.Text = "Overload Minor";
 
                 }

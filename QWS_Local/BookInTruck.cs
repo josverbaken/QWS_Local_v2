@@ -346,7 +346,7 @@ namespace QWS_Local
         private bool CheckRetareDue()
         {
             // 20241023 also check if Tare = Zero
-            double TareInterval = Properties.Settings.Default.RetareInterval;
+            double TareInterval = QWSConfig.RetareInterval; //Properties.Settings.Default.RetareInterval;
             dsTruckConfig.ConfiguredTrucksRow myConfigTruck = CurrentConfigTruck(); // zero rows on resume 20250828
             DateTime RetareDT = myConfigTruck.TareDT.AddDays(TareInterval);
             Decimal TareTruck = myConfigTruck.Tare;

@@ -194,7 +194,7 @@ namespace QWS_Local
             {
                 string strError = ex.Message;
                 strError += " !";
-                bsFeeCodes.Position = bsFeeCodes.Find("FeeCodeID", Properties.Settings.Default.defaultFeeCodeID);
+                bsFeeCodes.Position = bsFeeCodes.Find("FeeCodeID", QWSConfig.DefaultFeeCode);//Properties.Settings.Default.defaultFeeCodeID);
             }
         }
 
@@ -210,7 +210,7 @@ namespace QWS_Local
             }
             catch (Exception)
             {
-                bsAxleConfig.Position = bsAxleConfig.Find("AxleConfiguration", Properties.Settings.Default.defaultAxleConfig);
+                bsAxleConfig.Position = bsAxleConfig.Find("AxleConfiguration", QWSConfig.DefaultAxleConfig);//Properties.Settings.Default.defaultAxleConfig);
             }
         }
 

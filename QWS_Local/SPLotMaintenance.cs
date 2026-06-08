@@ -239,7 +239,11 @@ namespace QWS_Local
         {
             try
             {
-                taStockpileLotAllocation.Fill(dsTIQ2.StockpileLotAllocation);
+                int iRows = taStockpileLotAllocation.Fill(dsTIQ2.StockpileLotAllocation);
+                if (iRows == 0)
+                {
+                    txtBaseItemCode.Text = txtItemCode.Text; //TODO check mapping
+                }
             }
             catch (Exception ex)
             {

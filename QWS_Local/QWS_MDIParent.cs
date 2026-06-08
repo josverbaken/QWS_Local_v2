@@ -62,6 +62,12 @@ namespace QWS_Local
             licensePlatesToolStripMenuItem.Visible = false;
             licensePlatesToolStripMenuItem.Enabled = false;
 
+            string strQWS = string.Empty;
+            strQWS = "QWSConfig.cnVerkada = ";
+            strQWS += QWSConfig.cnVerkada;
+            strQWS += "\r\nShortLoadFee =" + QWSConfig.ShortLoadFee;
+            MessageBox.Show(strQWS,"Testing static class QWSConfig",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
             //menuItemHome.ShortcutKeys = Keys.Home; // fails on compile and also if try to set in properties GUI
             //menuitemMenu.ShortcutKeys = Keys.F10; // this is controlled by Windows!@#
 

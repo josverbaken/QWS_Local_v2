@@ -402,6 +402,7 @@
     <Compile Include="PBSVehicles.Designer.cs">
       <DependentUpon>PBSVehicles.cs</DependentUpon>
     </Compile>
+    <Compile Include="QWSConfig.cs" />
     <Compile Include="TrucksInQuarryAudit.cs">
       <SubType>Form</SubType>
     </Compile>

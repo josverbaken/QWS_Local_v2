@@ -581,8 +581,8 @@ namespace QWS_Local
 
             myTareWeight = myTIQRow.Tare; //System.Convert.ToDecimal(txtTare.Text);
             decimal UnderloadAmount = myTIQRow.Payload - myTIQRow.Nett;
-            decimal myMinimumMaterial = Properties.Settings.Default.MinimumMaterial;
-            decimal myMinimumCart = Properties.Settings.Default.MinimumCart;
+            decimal myMinimumMaterial = QWSConfig.MinimumMaterial;//Properties.Settings.Default.MinimumMaterial;
+            decimal myMinimumCart = QWSConfig.MinimumCart;//Properties.Settings.Default.MinimumCart;
             bool SplitLoad = false;
             bool Delivery = false;
             bool LoadOkay = true;
