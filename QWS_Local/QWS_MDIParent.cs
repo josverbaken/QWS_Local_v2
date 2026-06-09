@@ -68,28 +68,18 @@ namespace QWS_Local
             {
                 mySiteID = frmQWSLogin.SiteID;
                 myTestMode = frmQWSLogin.TestMode;
+                myConnectionString = frmQWSLogin.cnQWSLocal;
             }
             else
             {
-                msg = "Unable to continue!@#";
-                MessageBox.Show(msg);
+                msg = "Unable to continue!";
+                MessageBox.Show(msg, "Login to QWS failed.",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                this.Close();
             }
                 //menuItemHome.ShortcutKeys = Keys.Home; // fails on compile and also if try to set in properties GUI
                 //menuitemMenu.ShortcutKeys = Keys.F10; // this is controlled by Windows!@#
 
-                myConnectionString = QWSConfig.cnQWSLocal;
-            //if (myConnectionString.Contains("QWS_NQ") == true)
-            //{
-            //    mySiteID = 7;
-            //}
-            //if (myConnectionString.Contains("QWS_SQ") == true)
-            //{
-            //    mySiteID = 2;
-            //}
-            //if (myConnectionString.Contains("_Dev") == true)
-            //{
-            //    myTestMode = true;
-            //}
+                //myConnectionString = QWSConfig.cnQWSLocal;            
 
             if (mySiteID == 7 && myTestMode == false)
             {
