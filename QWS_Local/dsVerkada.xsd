@@ -2,9 +2,10 @@
 <xs:schema id="dsVerkada" targetNamespace="http://tempuri.org/dsVerkada.xsd" xmlns:mstns="http://tempuri.org/dsVerkada.xsd" xmlns="http://tempuri.org/dsVerkada.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="cnVerkada" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="cnVerkada (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.QWS_Local.Properties.Settings.GlobalReference.Default.cnVerkada" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="VerkadaSQConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="VerkadaSQConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.QWS_Local.Properties.Settings.GlobalReference.Default.VerkadaSQConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taVehiclesLPR" GeneratorDataComponentClassName="taVehiclesLPR" Name="Vehicles" UserDataComponentName="taVehiclesLPR">
@@ -81,7 +82,7 @@ where Rego like @Rego</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="LicensePlatesTableAdapter" GeneratorDataComponentClassName="LicensePlatesTableAdapter" Name="LicensePlates" UserDataComponentName="LicensePlatesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="cnVerkada (Settings)" DbObjectName="Verkada.dbo.LicensePlates" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="cnVerkada (Settings)" DbObjectName="VerkadaSQ.dbo.LicensePlates" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [LicensePlates] WHERE (([LicensePlate] = @Original_LicensePlate) AND ([Rego] = @Original_Rego))</CommandText>
@@ -246,31 +247,31 @@ where LicensePlate like @LicensePlate</CommandText>
   <xs:element name="dsVerkada" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsVerkada" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsVerkada">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Vehicles" msprop:Generator_RowClassName="VehiclesRow" msprop:Generator_RowEvHandlerName="VehiclesRowChangeEventHandler" msprop:Generator_RowDeletedName="VehiclesRowDeleted" msprop:Generator_RowDeletingName="VehiclesRowDeleting" msprop:Generator_RowEvArgName="VehiclesRowChangeEvent" msprop:Generator_TablePropName="Vehicles" msprop:Generator_RowChangedName="VehiclesRowChanged" msprop:Generator_UserTableName="Vehicles" msprop:Generator_RowChangingName="VehiclesRowChanging" msprop:Generator_TableClassName="VehiclesDataTable" msprop:Generator_TableVarName="tableVehicles">
+        <xs:element name="Vehicles" msprop:Generator_RowEvHandlerName="VehiclesRowChangeEventHandler" msprop:Generator_RowDeletedName="VehiclesRowDeleted" msprop:Generator_RowDeletingName="VehiclesRowDeleting" msprop:Generator_RowEvArgName="VehiclesRowChangeEvent" msprop:Generator_TablePropName="Vehicles" msprop:Generator_RowChangedName="VehiclesRowChanged" msprop:Generator_UserTableName="Vehicles" msprop:Generator_RowChangingName="VehiclesRowChanging" msprop:Generator_RowClassName="VehiclesRow" msprop:Generator_TableClassName="VehiclesDataTable" msprop:Generator_TableVarName="tableVehicles">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Rego" msprop:Generator_UserColumnName="Rego" msprop:Generator_ColumnPropNameInTable="RegoColumn" msprop:Generator_ColumnPropNameInRow="Rego" msprop:Generator_ColumnVarNameInTable="columnRego">
+              <xs:element name="Rego" msprop:Generator_ColumnPropNameInTable="RegoColumn" msprop:Generator_ColumnPropNameInRow="Rego" msprop:Generator_UserColumnName="Rego" msprop:Generator_ColumnVarNameInTable="columnRego">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="6" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Owner" msprop:Generator_UserColumnName="Owner" msprop:Generator_ColumnPropNameInTable="OwnerColumn" msprop:Generator_ColumnPropNameInRow="Owner" msprop:Generator_ColumnVarNameInTable="columnOwner">
+              <xs:element name="Owner" msprop:Generator_ColumnPropNameInTable="OwnerColumn" msprop:Generator_ColumnPropNameInRow="Owner" msprop:Generator_UserColumnName="Owner" msprop:Generator_ColumnVarNameInTable="columnOwner">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CardCode" msprop:Generator_UserColumnName="CardCode" msprop:Generator_ColumnPropNameInTable="CardCodeColumn" msprop:Generator_ColumnPropNameInRow="CardCode" msprop:Generator_ColumnVarNameInTable="columnCardCode">
+              <xs:element name="CardCode" msprop:Generator_ColumnPropNameInTable="CardCodeColumn" msprop:Generator_ColumnPropNameInRow="CardCode" msprop:Generator_UserColumnName="CardCode" msprop:Generator_ColumnVarNameInTable="columnCardCode">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="15" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="VehicleType" msprop:Generator_UserColumnName="VehicleType" msprop:Generator_ColumnPropNameInTable="VehicleTypeColumn" msprop:Generator_ColumnPropNameInRow="VehicleType" msprop:Generator_ColumnVarNameInTable="columnVehicleType">
+              <xs:element name="VehicleType" msprop:Generator_ColumnPropNameInTable="VehicleTypeColumn" msprop:Generator_ColumnPropNameInRow="VehicleType" msprop:Generator_UserColumnName="VehicleType" msprop:Generator_ColumnVarNameInTable="columnVehicleType">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -280,17 +281,17 @@ where LicensePlate like @LicensePlate</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="LicensePlates" msprop:Generator_RowClassName="LicensePlatesRow" msprop:Generator_RowEvHandlerName="LicensePlatesRowChangeEventHandler" msprop:Generator_RowDeletedName="LicensePlatesRowDeleted" msprop:Generator_RowDeletingName="LicensePlatesRowDeleting" msprop:Generator_RowEvArgName="LicensePlatesRowChangeEvent" msprop:Generator_TablePropName="LicensePlates" msprop:Generator_RowChangedName="LicensePlatesRowChanged" msprop:Generator_UserTableName="LicensePlates" msprop:Generator_RowChangingName="LicensePlatesRowChanging" msprop:Generator_TableClassName="LicensePlatesDataTable" msprop:Generator_TableVarName="tableLicensePlates">
+        <xs:element name="LicensePlates" msprop:Generator_RowEvHandlerName="LicensePlatesRowChangeEventHandler" msprop:Generator_RowDeletedName="LicensePlatesRowDeleted" msprop:Generator_RowDeletingName="LicensePlatesRowDeleting" msprop:Generator_RowEvArgName="LicensePlatesRowChangeEvent" msprop:Generator_TablePropName="LicensePlates" msprop:Generator_RowChangedName="LicensePlatesRowChanged" msprop:Generator_UserTableName="LicensePlates" msprop:Generator_RowChangingName="LicensePlatesRowChanging" msprop:Generator_RowClassName="LicensePlatesRow" msprop:Generator_TableClassName="LicensePlatesDataTable" msprop:Generator_TableVarName="tableLicensePlates">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="LicensePlate" msprop:Generator_UserColumnName="LicensePlate" msprop:Generator_ColumnPropNameInTable="LicensePlateColumn" msprop:Generator_ColumnPropNameInRow="LicensePlate" msprop:Generator_ColumnVarNameInTable="columnLicensePlate">
+              <xs:element name="LicensePlate" msprop:Generator_ColumnPropNameInTable="LicensePlateColumn" msprop:Generator_ColumnPropNameInRow="LicensePlate" msprop:Generator_UserColumnName="LicensePlate" msprop:Generator_ColumnVarNameInTable="columnLicensePlate">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Rego" msprop:Generator_UserColumnName="Rego" msprop:Generator_ColumnPropNameInTable="RegoColumn" msprop:Generator_ColumnPropNameInRow="Rego" msprop:Generator_ColumnVarNameInTable="columnRego">
+              <xs:element name="Rego" msprop:Generator_ColumnPropNameInTable="RegoColumn" msprop:Generator_ColumnPropNameInRow="Rego" msprop:Generator_UserColumnName="Rego" msprop:Generator_ColumnVarNameInTable="columnRego">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="6" />
@@ -300,17 +301,17 @@ where LicensePlate like @LicensePlate</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="LPR2Discard" msprop:Generator_RowClassName="LPR2DiscardRow" msprop:Generator_RowEvHandlerName="LPR2DiscardRowChangeEventHandler" msprop:Generator_RowDeletedName="LPR2DiscardRowDeleted" msprop:Generator_RowDeletingName="LPR2DiscardRowDeleting" msprop:Generator_RowEvArgName="LPR2DiscardRowChangeEvent" msprop:Generator_TablePropName="LPR2Discard" msprop:Generator_RowChangedName="LPR2DiscardRowChanged" msprop:Generator_UserTableName="LPR2Discard" msprop:Generator_RowChangingName="LPR2DiscardRowChanging" msprop:Generator_TableClassName="LPR2DiscardDataTable" msprop:Generator_TableVarName="tableLPR2Discard">
+        <xs:element name="LPR2Discard" msprop:Generator_RowEvHandlerName="LPR2DiscardRowChangeEventHandler" msprop:Generator_RowDeletedName="LPR2DiscardRowDeleted" msprop:Generator_RowDeletingName="LPR2DiscardRowDeleting" msprop:Generator_RowEvArgName="LPR2DiscardRowChangeEvent" msprop:Generator_TablePropName="LPR2Discard" msprop:Generator_RowChangedName="LPR2DiscardRowChanged" msprop:Generator_UserTableName="LPR2Discard" msprop:Generator_RowChangingName="LPR2DiscardRowChanging" msprop:Generator_RowClassName="LPR2DiscardRow" msprop:Generator_TableClassName="LPR2DiscardDataTable" msprop:Generator_TableVarName="tableLPR2Discard">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="LicensePlate" msprop:Generator_UserColumnName="LicensePlate" msprop:Generator_ColumnPropNameInTable="LicensePlateColumn" msprop:Generator_ColumnPropNameInRow="LicensePlate" msprop:Generator_ColumnVarNameInTable="columnLicensePlate">
+              <xs:element name="LicensePlate" msprop:Generator_ColumnPropNameInTable="LicensePlateColumn" msprop:Generator_ColumnPropNameInRow="LicensePlate" msprop:Generator_UserColumnName="LicensePlate" msprop:Generator_ColumnVarNameInTable="columnLicensePlate">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Comment" msprop:Generator_UserColumnName="Comment" msprop:Generator_ColumnPropNameInTable="CommentColumn" msprop:Generator_ColumnPropNameInRow="Comment" msprop:Generator_ColumnVarNameInTable="columnComment">
+              <xs:element name="Comment" msprop:Generator_ColumnPropNameInTable="CommentColumn" msprop:Generator_ColumnPropNameInRow="Comment" msprop:Generator_UserColumnName="Comment" msprop:Generator_ColumnVarNameInTable="columnComment">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />
@@ -320,40 +321,40 @@ where LicensePlate like @LicensePlate</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="VehiclesOnSite" msprop:Generator_RowClassName="VehiclesOnSiteRow" msprop:Generator_RowEvHandlerName="VehiclesOnSiteRowChangeEventHandler" msprop:Generator_RowDeletedName="VehiclesOnSiteRowDeleted" msprop:Generator_RowDeletingName="VehiclesOnSiteRowDeleting" msprop:Generator_RowEvArgName="VehiclesOnSiteRowChangeEvent" msprop:Generator_TablePropName="VehiclesOnSite" msprop:Generator_RowChangedName="VehiclesOnSiteRowChanged" msprop:Generator_UserTableName="VehiclesOnSite" msprop:Generator_RowChangingName="VehiclesOnSiteRowChanging" msprop:Generator_TableClassName="VehiclesOnSiteDataTable" msprop:Generator_TableVarName="tableVehiclesOnSite">
+        <xs:element name="VehiclesOnSite" msprop:Generator_RowEvHandlerName="VehiclesOnSiteRowChangeEventHandler" msprop:Generator_RowDeletedName="VehiclesOnSiteRowDeleted" msprop:Generator_RowDeletingName="VehiclesOnSiteRowDeleting" msprop:Generator_RowEvArgName="VehiclesOnSiteRowChangeEvent" msprop:Generator_TablePropName="VehiclesOnSite" msprop:Generator_RowChangedName="VehiclesOnSiteRowChanged" msprop:Generator_UserTableName="VehiclesOnSite" msprop:Generator_RowChangingName="VehiclesOnSiteRowChanging" msprop:Generator_RowClassName="VehiclesOnSiteRow" msprop:Generator_TableClassName="VehiclesOnSiteDataTable" msprop:Generator_TableVarName="tableVehiclesOnSite">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="EntryDTTM" msdata:ReadOnly="true" msprop:Generator_UserColumnName="EntryDTTM" msprop:Generator_ColumnPropNameInTable="EntryDTTMColumn" msprop:Generator_ColumnPropNameInRow="EntryDTTM" msprop:Generator_ColumnVarNameInTable="columnEntryDTTM" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="LicensePlate" msdata:ReadOnly="true" msprop:Generator_UserColumnName="LicensePlate" msprop:Generator_ColumnPropNameInTable="LicensePlateColumn" msprop:Generator_ColumnPropNameInRow="LicensePlate" msprop:Generator_ColumnVarNameInTable="columnLicensePlate" minOccurs="0">
+              <xs:element name="EntryDTTM" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="EntryDTTMColumn" msprop:Generator_ColumnPropNameInRow="EntryDTTM" msprop:Generator_UserColumnName="EntryDTTM" msprop:Generator_ColumnVarNameInTable="columnEntryDTTM" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LicensePlate" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="LicensePlateColumn" msprop:Generator_ColumnPropNameInRow="LicensePlate" msprop:Generator_UserColumnName="LicensePlate" msprop:Generator_ColumnVarNameInTable="columnLicensePlate" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="RegoValid" msdata:ReadOnly="true" msprop:Generator_UserColumnName="RegoValid" msprop:Generator_ColumnPropNameInTable="RegoValidColumn" msprop:Generator_ColumnPropNameInRow="RegoValid" msprop:Generator_ColumnVarNameInTable="columnRegoValid" minOccurs="0">
+              <xs:element name="RegoValid" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="RegoValidColumn" msprop:Generator_ColumnPropNameInRow="RegoValid" msprop:Generator_UserColumnName="RegoValid" msprop:Generator_ColumnVarNameInTable="columnRegoValid" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Duration" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Duration" msprop:Generator_ColumnPropNameInTable="DurationColumn" msprop:Generator_ColumnPropNameInRow="Duration" msprop:Generator_ColumnVarNameInTable="columnDuration" type="xs:int" minOccurs="0" />
-              <xs:element name="VisitStatus" msdata:ReadOnly="true" msprop:Generator_UserColumnName="VisitStatus" msprop:Generator_ColumnPropNameInTable="VisitStatusColumn" msprop:Generator_ColumnPropNameInRow="VisitStatus" msprop:Generator_ColumnVarNameInTable="columnVisitStatus" minOccurs="0">
+              <xs:element name="Duration" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="DurationColumn" msprop:Generator_ColumnPropNameInRow="Duration" msprop:Generator_UserColumnName="Duration" msprop:Generator_ColumnVarNameInTable="columnDuration" type="xs:int" minOccurs="0" />
+              <xs:element name="VisitStatus" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="VisitStatusColumn" msprop:Generator_ColumnPropNameInRow="VisitStatus" msprop:Generator_UserColumnName="VisitStatus" msprop:Generator_ColumnVarNameInTable="columnVisitStatus" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="VehicleOwner" msdata:ReadOnly="true" msprop:Generator_UserColumnName="VehicleOwner" msprop:Generator_ColumnPropNameInTable="VehicleOwnerColumn" msprop:Generator_ColumnPropNameInRow="VehicleOwner" msprop:Generator_ColumnVarNameInTable="columnVehicleOwner" minOccurs="0">
+              <xs:element name="VehicleOwner" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="VehicleOwnerColumn" msprop:Generator_ColumnPropNameInRow="VehicleOwner" msprop:Generator_UserColumnName="VehicleOwner" msprop:Generator_ColumnVarNameInTable="columnVehicleOwner" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="VehicleType" msdata:ReadOnly="true" msprop:Generator_UserColumnName="VehicleType" msprop:Generator_ColumnPropNameInTable="VehicleTypeColumn" msprop:Generator_ColumnPropNameInRow="VehicleType" msprop:Generator_ColumnVarNameInTable="columnVehicleType" minOccurs="0">
+              <xs:element name="VehicleType" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="VehicleTypeColumn" msprop:Generator_ColumnPropNameInRow="VehicleType" msprop:Generator_UserColumnName="VehicleType" msprop:Generator_ColumnVarNameInTable="columnVehicleType" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />

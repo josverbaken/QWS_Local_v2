@@ -752,10 +752,10 @@ namespace QWS_Local
                         // ExBin No Order
                         DocketLineAdd(myTIQRow.Material, myTIQRow.MaterialDesc, GetItemQA(myTIQRow.Material), GetItmsGrpCod(myTIQRow.Material), "Items", mySPLotNo, myOrderBaseEntry, 0);
                     }
-                    if (myTIQRow.Nett < Properties.Settings.Default.MinimumMaterial && blOverRideShortLoad == false)
+                    if (myTIQRow.Nett < QWSConfig.MinimumMaterial && blOverRideShortLoad == false)
                     {
                         iLineNumMax += 1; // don't duplicate LineNum from Order
-                        string ShortLoadFee = Properties.Settings.Default.ShortLoadFee;
+                        string ShortLoadFee = QWSConfig.ShortLoadFee;
                         DocketLineAdd(ShortLoadFee, "Short Load Fee", GetItemQA(ShortLoadFee), GetItmsGrpCod(ShortLoadFee), "Other", 0, 0, iLineNumMax);
                     }
                     taWBDocketLines.Update(dsTIQ2.WBDocketLines);
@@ -1126,7 +1126,7 @@ namespace QWS_Local
                 }
                 else
                 {
-                    decimal myMinimumCart = Properties.Settings.Default.MinimumCart;
+                    decimal myMinimumCart = QWSConfig.MinimumCart;
                     if (SWW == "Freight" && CurrentTIQ().Nett < myMinimumCart)
                     {
                         decimal myPayload = docketsRow.GrossLegal - docketsRow.Tare;
@@ -1365,7 +1365,7 @@ namespace QWS_Local
         {
             if (dataGridView1.SelectedRows.Count == 1)
             {
-                int DelaySeconds = Properties.Settings.Default.ClearTIQDelay * 1000;
+                int DelaySeconds = QWSConfig.ClearTIQDelay * 1000;
                 ClearTIQDelayed(DelaySeconds);
             }
         }

@@ -26,22 +26,22 @@ namespace QWS_Local.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ch-sq-dc02;Initial Catalog=VerkadaSQ;Integrated Security=True;TrustSe" +
-            "rverCertificate=True")]
-        public string cnVerkada {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ch-sql02;Initial Catalog=QWS_SQ_Dev;Integrated Security=True;TrustSer" +
+            "verCertificate=True")]
+        public string cnQWSLocal {
             get {
-                return ((string)(this["cnVerkada"]));
+                return ((string)(this["cnQWSLocal"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ch-sql02;Initial Catalog=QWS_SQ_Dev;Integrated Security=True;TrustSer" +
-            "verCertificate=True")]
-        public string cnQWSLocal {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ch-sq-dc02;Initial Catalog=VerkadaSQ;Integrated Security=True;TrustSe" +
+            "rverCertificate=True")]
+        public string cnVerkada {
             get {
-                return ((string)(this["cnQWSLocal"]));
+                return ((string)(this["cnVerkada"]));
             }
         }
     }

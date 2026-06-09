@@ -56,34 +56,40 @@ namespace QWS_Local
         {
             bool OK2Continue = true;
 
-            string msg = ""; // "QWS Local - ";
+            string msg = string.Empty;
             string SiteLabel = string.Empty;
 
             licensePlatesToolStripMenuItem.Visible = false;
             licensePlatesToolStripMenuItem.Enabled = false;
 
-            string strQWS = string.Empty;
-            strQWS = "QWSConfig.cnVerkada = ";
-            strQWS += QWSConfig.cnVerkada;
-            strQWS += "\r\nShortLoadFee =" + QWSConfig.ShortLoadFee;
-            MessageBox.Show(strQWS,"Testing static class QWSConfig",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            QWSLogin frmQWSLogin = new QWSLogin();
+            DialogResult dr = frmQWSLogin.ShowDialog();
+            if(dr == DialogResult.OK)
+            {
+                mySiteID = frmQWSLogin.SiteID;
+                myTestMode = frmQWSLogin.TestMode;
+            }
+            else
+            {
+                msg = "Unable to continue!@#";
+                MessageBox.Show(msg);
+            }
+                //menuItemHome.ShortcutKeys = Keys.Home; // fails on compile and also if try to set in properties GUI
+                //menuitemMenu.ShortcutKeys = Keys.F10; // this is controlled by Windows!@#
 
-            //menuItemHome.ShortcutKeys = Keys.Home; // fails on compile and also if try to set in properties GUI
-            //menuitemMenu.ShortcutKeys = Keys.F10; // this is controlled by Windows!@#
-
-            myConnectionString = Properties.Settings.Default.cnQWSLocal;
-            if (myConnectionString.Contains("QWS_NQ") == true)
-            {
-                mySiteID = 7;
-            }
-            if (myConnectionString.Contains("QWS_SQ") == true)
-            {
-                mySiteID = 2;
-            }
-            if (myConnectionString.Contains("_Dev") == true)
-            {
-                myTestMode = true;
-            }
+                myConnectionString = QWSConfig.cnQWSLocal;
+            //if (myConnectionString.Contains("QWS_NQ") == true)
+            //{
+            //    mySiteID = 7;
+            //}
+            //if (myConnectionString.Contains("QWS_SQ") == true)
+            //{
+            //    mySiteID = 2;
+            //}
+            //if (myConnectionString.Contains("_Dev") == true)
+            //{
+            //    myTestMode = true;
+            //}
 
             if (mySiteID == 7 && myTestMode == false)
             {
@@ -229,7 +235,7 @@ namespace QWS_Local
             {
                 SqlConnection sqlConnection = new SqlConnection();
 
-                myConnectionString = Properties.Settings.Default.cnQWSLocal;
+                myConnectionString = QWSConfig.cnQWSLocal;
 
 
                 sqlConnection = new SqlConnection(myConnectionString);
@@ -256,7 +262,7 @@ namespace QWS_Local
             CommandText += myOperatorID + " and RoleID = ";
             CommandText += RoleID.ToString();
             SqlConnection sqlConnection = new SqlConnection();
-            myConnectionString = Properties.Settings.Default.cnQWSLocal;
+            myConnectionString = QWSConfig.cnQWSLocal;
             sqlConnection = new SqlConnection(myConnectionString);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = sqlConnection;

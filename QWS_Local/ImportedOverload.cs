@@ -156,8 +156,8 @@ namespace QWS_Local
             {
                 int DocketPointsToday = OverloadPoints;
                 int DocketPointsThisWeek = OverloadPoints;
-                int SanctionToday = Properties.Settings.Default.SanctionToday;
-                int SanctionThisWeek = Properties.Settings.Default.SanctionThisWeek;
+                int SanctionToday = QWSConfig.SanctionToday;//Properties.Settings.Default.SanctionToday;
+                int SanctionThisWeek = QWSConfig.SanctionThisWeek;//Properties.Settings.Default.SanctionThisWeek;
                 string msgSanction = "";
                 taImportedOverloads.Fill(dsTIQ2.ImportedOverloadsByDriver, DriverID);
                 foreach (dsTIQ2.ImportedOverloadsByDriverRow row in dsTIQ2.ImportedOverloadsByDriver)

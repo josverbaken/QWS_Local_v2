@@ -363,7 +363,7 @@ namespace QWS_Local
                 }
                 else
                 {
-                    SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnVerkada);
+                    SqlConnection sqlConnection = new SqlConnection(QWSConfig.cnVerkada);
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = sqlConnection;
                     cmd.CommandType = CommandType.StoredProcedure;

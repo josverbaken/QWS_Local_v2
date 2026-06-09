@@ -8,8 +8,8 @@ namespace QWS_Local
 {
     public static class QWSConfig
     {
-        private static string _cnVerkada = "Data Source=ch-sql02;Initial Catalog=QWS_SQ_Dev;Integrated Security=true;TrustedServerCertificate=true;";
-
+        private static string _cnVerkada = "Data Source=ch-sq-dc02;Initial Catalog=VerkadaSQ;Integrated Security=true;TrustServerCertificate=true;";
+        private static string _cnQWSLocal = "Data Source=ch-sql02;Initial Catalog=QWS_SQ_Dev;Integrated Security=true;TrustServerCertificate=true;";
         public static int DefaultFeeCode { get; private set; } = 0;
         public static string DefaultAxleConfig { get; private set; } = "tba";
         public static int RetareInterval { get; private set; } = 180;
@@ -25,6 +25,13 @@ namespace QWS_Local
         public static decimal MinimumCart { get; private set; } = 12.0M;
         public static string ShortLoadFee { get; private set; } = "020-020-1";
         public static bool EnableSMS { get; private set; } = true;
+        public static string cnQWSLocal
+        { get
+            {
+                return _cnQWSLocal;
+            }
+
+        }
         public static string cnVerkada 
         { get
             {

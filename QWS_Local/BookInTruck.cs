@@ -776,7 +776,7 @@ namespace QWS_Local
                     myDriverID = myTruckDriver.CntctCode;
                     myDriver = myTruckDriver.Person;
                 }
-                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlConnection sqlConnection = new SqlConnection(QWSConfig.cnQWSLocal);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -872,7 +872,7 @@ namespace QWS_Local
             {
                 int iTIQID = 0;
                 bool Okay2Proceed = true;
-                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlConnection sqlConnection = new SqlConnection(QWSConfig.cnQWSLocal);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -978,7 +978,7 @@ namespace QWS_Local
             try
             {
                 //var parent = this.MdiParent as QWS_MDIParent;
-                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlConnection sqlConnection = new SqlConnection(QWSConfig.cnQWSLocal);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;
