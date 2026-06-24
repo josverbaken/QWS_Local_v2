@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -11,7 +12,7 @@ namespace QWS_Local
         private string myUserName = "";
         private int mySiteID = 99;
         private bool myTestMode = false;
-        private string myConnectionString = "";
+        //private string myConnectionString = "";
         private TrucksInQuarry frmTIQ;
 
         public int SiteID
@@ -68,7 +69,14 @@ namespace QWS_Local
             {
                 mySiteID = frmQWSLogin.SiteID;
                 myTestMode = frmQWSLogin.TestMode;
-                myConnectionString = frmQWSLogin.cnQWSLocal;
+                //myConnectionString = frmQWSLogin.cnQWSLocal;
+                QWSConfig.cnQWSLocal = frmQWSLogin.cnQWSLocal;
+                string cn_prior = QWSConfig.cnQWSLocal;
+                //QWSConfig.cnQWSLocal = myConnectionString;
+                string cnMsg = "Prior : " + cn_prior + "\r\nUpdated :" + QWSConfig.cnQWSLocal;
+                //MessageBox.Show(cnMsg);
+                //IterateQWSConfig();
+                ReadQWSConfig();
             }
             else
             {
@@ -125,10 +133,93 @@ namespace QWS_Local
             }
         }
 
+        private void ReadQWSConfig()
+        {
+            try
+            {
+                // how to change connection string in settings, can't because it is Application
+
+                dsAdminTableAdapters.taQWSConfig taQWSConfig = new dsAdminTableAdapters.taQWSConfig();
+                taQWSConfig.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                //dsAdmin.QWSConfigDataTable myQWSConfig = new dsAdmin.QWSConfigDataTable();
+                int iCount = taQWSConfig.Fill(dsAdmin.QWSConfig);
+                string myMsg = string.Empty;
+                if (iCount > 0)
+                {
+                    // Iterate through static class QWSConfig
+
+                    // 1. Get the Type object of the static class
+                    Type type = typeof(QWSConfig);
+
+                    // 2. Fetch all public static properties
+                    PropertyInfo[] properties = type.GetProperties(BindingFlags.Public | BindingFlags.Static);
+
+                    // 3. Loop through each property
+                    string msg = "QWSConfig Properties List";
+                    int pCount = 0;
+                    foreach (PropertyInfo property in properties)
+                    {
+                        pCount += 1;
+                        string name = property.Name;
+
+                        // Pass null to GetValue() because static properties do not belong to an instance
+                        object value = property.GetValue(null);
+                        msg += "\r\nCount = " + pCount.ToString() + ", name = " + name + " value = " + value.ToString();
+
+                        // 1. Search for a specific value in a column named "EmployeeID"
+                        int rowIndex = bsQWSConfig.Find("ConfigItem", property.Name);
+
+                        // 2. If found, set the BindingSource Position to that row
+                        if (rowIndex > -1)
+                        {
+                            bsQWSConfig.Position = rowIndex;
+                            DataRow myRow = ((DataRowView)bsQWSConfig.Current).Row;
+                            dsAdmin.QWSConfigRow configRow = (dsAdmin.QWSConfigRow)myRow;
+                            msg += " : " + configRow.ConfigValue.ToString();
+                            string myCast = configRow.DataType.ToString();
+                            switch (configRow.DataType)
+                            {
+                                case "int": property.SetValue(name, System.Convert.ToInt32(configRow.ConfigValue), null);
+                                    //int myValue = System.Convert.ToInt32(configRow.ConfigValue);
+                                    //property.SetValue(name, System.Convert.ToInt32(configRow.ConfigValue), null);
+                                    break;
+                                case "string":
+                                    property.SetValue(name, configRow.ConfigValue, null);
+                                    break;
+                                case "decimal": property.SetValue(name, System.Convert.ToDecimal(configRow.ConfigValue), null);
+                                    break;
+                                case "bool": property.SetValue(name, System.Convert.ToBoolean(configRow.ConfigValue), null);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            msg += " : not found";
+                        }
+                    }
+                    msg += "\r\nEnd of listing.";
+                    //MessageBox.Show(msg);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ReadQWSConfig Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void GetUsername(string ComputerUsername)
         {
             try
             {
+                //dsAdminTableAdapters.taQWSConfig taQWSConfig = new dsAdminTableAdapters.taQWSConfig();
+                //taQWSConfig.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                //dsAdmin.QWSConfigDataTable myQWSConfig = new dsAdmin.QWSConfigDataTable();
+                dsAdminTableAdapters.taOperator taOperator = new dsAdminTableAdapters.taOperator();
+                taOperator.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                //dsAdmin.OperatorDataTable myOperator = new dsAdmin.OperatorDataTable();
                 int iCount = taOperator.FillBy(dsAdmin.Operator, ComputerUsername);
                 if (iCount == 1)
                 {
@@ -174,6 +265,8 @@ namespace QWS_Local
                     menuitemMenu.Enabled = true;
                     menuitemQuality.Enabled = true;
                     myUserName = frmGenericLogin.UserName;
+                    dsAdminTableAdapters.taOperator taOperator = new dsAdminTableAdapters.taOperator();
+                    taOperator.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                     int gCount = taOperator.FillBy(dsAdmin.Operator, myUserName);
                     if (gCount == 1)
                     {
@@ -224,11 +317,7 @@ namespace QWS_Local
             else
             {
                 SqlConnection sqlConnection = new SqlConnection();
-
-                myConnectionString = QWSConfig.cnQWSLocal;
-
-
-                sqlConnection = new SqlConnection(myConnectionString);
+                sqlConnection = new SqlConnection(QWSConfig.cnQWSLocal);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
 
@@ -252,8 +341,7 @@ namespace QWS_Local
             CommandText += myOperatorID + " and RoleID = ";
             CommandText += RoleID.ToString();
             SqlConnection sqlConnection = new SqlConnection();
-            myConnectionString = QWSConfig.cnQWSLocal;
-            sqlConnection = new SqlConnection(myConnectionString);
+            sqlConnection = new SqlConnection(QWSConfig.cnQWSLocal);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = sqlConnection;
             cmd.CommandType = CommandType.Text;

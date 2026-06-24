@@ -47,6 +47,7 @@
             this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deliveryOrdersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.licensePlatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,12 +61,13 @@
             this.tspSignInOut = new System.Windows.Forms.ToolStripMenuItem();
             this.dsAdmin = new QWS_Local.dsAdmin();
             this.bsOperator = new System.Windows.Forms.BindingSource(this.components);
-            this.taOperator = new QWS_Local.dsAdminTableAdapters.OperatorTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsAdminTableAdapters.TableAdapterManager();
-            this.licensePlatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bsQWSConfig = new System.Windows.Forms.BindingSource(this.components);
+            this.taQWSConfig = new QWS_Local.dsAdminTableAdapters.taQWSConfig();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsOperator)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsQWSConfig)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -115,7 +117,7 @@
             this.operatorRolesToolStripMenuItem,
             this.verkadaLPRToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.adminToolStripMenuItem.Text = "Admin";
             // 
             // axleConfigurationToolStripMenuItem1
@@ -160,7 +162,7 @@
             this.pBSToolStripMenuItem,
             this.trucktrailerConfigToolStripMenuItem});
             this.menuitemMaintainVehicles.Name = "menuitemMaintainVehicles";
-            this.menuitemMaintainVehicles.Size = new System.Drawing.Size(180, 24);
+            this.menuitemMaintainVehicles.Size = new System.Drawing.Size(136, 24);
             this.menuitemMaintainVehicles.Text = "Maintain";
             // 
             // vehiclesToolStripMenuItem
@@ -192,7 +194,7 @@
             this.menuitemQuality.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lotNumbersToolStripMenuItem});
             this.menuitemQuality.Name = "menuitemQuality";
-            this.menuitemQuality.Size = new System.Drawing.Size(180, 24);
+            this.menuitemQuality.Size = new System.Drawing.Size(136, 24);
             this.menuitemQuality.Text = "Quality";
             // 
             // lotNumbersToolStripMenuItem
@@ -209,22 +211,29 @@
             this.customersToolStripMenuItem,
             this.licensePlatesToolStripMenuItem});
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.salesToolStripMenuItem.Text = "Sales";
             // 
             // deliveryOrdersToolStripMenuItem1
             // 
             this.deliveryOrdersToolStripMenuItem1.Name = "deliveryOrdersToolStripMenuItem1";
-            this.deliveryOrdersToolStripMenuItem1.Size = new System.Drawing.Size(180, 24);
+            this.deliveryOrdersToolStripMenuItem1.Size = new System.Drawing.Size(169, 24);
             this.deliveryOrdersToolStripMenuItem1.Text = "Orders";
             this.deliveryOrdersToolStripMenuItem1.Click += new System.EventHandler(this.deliveryOrdersToolStripMenuItem1_Click);
             // 
             // customersToolStripMenuItem
             // 
             this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
-            this.customersToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.customersToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
             this.customersToolStripMenuItem.Text = "Customers";
             this.customersToolStripMenuItem.Click += new System.EventHandler(this.customersToolStripMenuItem_Click);
+            // 
+            // licensePlatesToolStripMenuItem
+            // 
+            this.licensePlatesToolStripMenuItem.Name = "licensePlatesToolStripMenuItem";
+            this.licensePlatesToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
+            this.licensePlatesToolStripMenuItem.Text = "License Plates";
+            this.licensePlatesToolStripMenuItem.Click += new System.EventHandler(this.licensePlatesToolStripMenuItem_Click);
             // 
             // windowsToolStripMenuItem
             // 
@@ -320,26 +329,20 @@
             this.bsOperator.DataMember = "Operator";
             this.bsOperator.DataSource = this.dsAdmin;
             // 
-            // taOperator
-            // 
-            this.taOperator.ClearBeforeFill = true;
-            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.FunctionsTableAdapter = null;
-            this.tableAdapterManager.OperatorRolesTableAdapter = null;
-            this.tableAdapterManager.OperatorTableAdapter = this.taOperator;
-            this.tableAdapterManager.RoleFunctionsTableAdapter = null;
-            this.tableAdapterManager.RoleTableAdapter = null;
+            this.tableAdapterManager.taQWSConfig = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsAdminTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // licensePlatesToolStripMenuItem
+            // bsQWSConfig
             // 
-            this.licensePlatesToolStripMenuItem.Name = "licensePlatesToolStripMenuItem";
-            this.licensePlatesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.licensePlatesToolStripMenuItem.Text = "License Plates";
-            this.licensePlatesToolStripMenuItem.Click += new System.EventHandler(this.licensePlatesToolStripMenuItem_Click);
+            this.bsQWSConfig.DataMember = "QWSConfig";
+            this.bsQWSConfig.DataSource = this.dsAdmin;
+            // 
+            // taQWSConfig
+            // 
+            this.taQWSConfig.ClearBeforeFill = true;
             // 
             // QWS_MDIParent
             // 
@@ -360,6 +363,7 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsOperator)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsQWSConfig)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -394,12 +398,13 @@
         private System.Windows.Forms.ToolStripMenuItem tspSignInOut;
         private dsAdmin dsAdmin;
         private System.Windows.Forms.BindingSource bsOperator;
-        private dsAdminTableAdapters.OperatorTableAdapter taOperator;
         private dsAdminTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem weightLogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkTruckDriverToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verkadaLPRToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem licensePlatesToolStripMenuItem;
+        private System.Windows.Forms.BindingSource bsQWSConfig;
+        private dsAdminTableAdapters.taQWSConfig taQWSConfig;
     }
 }

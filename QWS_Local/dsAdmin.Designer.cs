@@ -36,6 +36,8 @@ namespace QWS_Local {
         
         private RoleFunctionsDataTable tableRoleFunctions;
         
+        private QWSConfigDataTable tableQWSConfig;
+        
         private global::System.Data.DataRelation relationFK_OperatorRoles_Operator;
         
         private global::System.Data.DataRelation relationFK_OperatorRoles_Role;
@@ -89,6 +91,9 @@ namespace QWS_Local {
                 }
                 if ((ds.Tables["RoleFunctions"] != null)) {
                     base.Tables.Add(new RoleFunctionsDataTable(ds.Tables["RoleFunctions"]));
+                }
+                if ((ds.Tables["QWSConfig"] != null)) {
+                    base.Tables.Add(new QWSConfigDataTable(ds.Tables["QWSConfig"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -165,6 +170,16 @@ namespace QWS_Local {
         public RoleFunctionsDataTable RoleFunctions {
             get {
                 return this.tableRoleFunctions;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public QWSConfigDataTable QWSConfig {
+            get {
+                return this.tableQWSConfig;
             }
         }
         
@@ -253,6 +268,9 @@ namespace QWS_Local {
                 if ((ds.Tables["RoleFunctions"] != null)) {
                     base.Tables.Add(new RoleFunctionsDataTable(ds.Tables["RoleFunctions"]));
                 }
+                if ((ds.Tables["QWSConfig"] != null)) {
+                    base.Tables.Add(new QWSConfigDataTable(ds.Tables["QWSConfig"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -322,6 +340,12 @@ namespace QWS_Local {
                     this.tableRoleFunctions.InitVars();
                 }
             }
+            this.tableQWSConfig = ((QWSConfigDataTable)(base.Tables["QWSConfig"]));
+            if ((initTable == true)) {
+                if ((this.tableQWSConfig != null)) {
+                    this.tableQWSConfig.InitVars();
+                }
+            }
             this.relationFK_OperatorRoles_Operator = this.Relations["FK_OperatorRoles_Operator"];
             this.relationFK_OperatorRoles_Role = this.Relations["FK_OperatorRoles_Role"];
             this.relationFK_RoleFunctions_Function = this.Relations["FK_RoleFunctions_Function"];
@@ -348,6 +372,8 @@ namespace QWS_Local {
             base.Tables.Add(this.tableOperatorRoles);
             this.tableRoleFunctions = new RoleFunctionsDataTable();
             base.Tables.Add(this.tableRoleFunctions);
+            this.tableQWSConfig = new QWSConfigDataTable();
+            base.Tables.Add(this.tableQWSConfig);
             this.relationFK_OperatorRoles_Operator = new global::System.Data.DataRelation("FK_OperatorRoles_Operator", new global::System.Data.DataColumn[] {
                         this.tableOperator.OperatorIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableOperatorRoles.OperatorIDColumn}, false);
@@ -399,6 +425,12 @@ namespace QWS_Local {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeRoleFunctions() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeQWSConfig() {
             return false;
         }
         
@@ -474,6 +506,9 @@ namespace QWS_Local {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void RoleFunctionsRowChangeEventHandler(object sender, RoleFunctionsRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void QWSConfigRowChangeEventHandler(object sender, QWSConfigRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2292,6 +2327,332 @@ namespace QWS_Local {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class QWSConfigDataTable : global::System.Data.TypedTableBase<QWSConfigRow> {
+            
+            private global::System.Data.DataColumn columnID;
+            
+            private global::System.Data.DataColumn columnConfigItem;
+            
+            private global::System.Data.DataColumn columnConfigValue;
+            
+            private global::System.Data.DataColumn columnConfigGroup;
+            
+            private global::System.Data.DataColumn columnDataType;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public QWSConfigDataTable() {
+                this.TableName = "QWSConfig";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal QWSConfigDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected QWSConfigDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn IDColumn {
+                get {
+                    return this.columnID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ConfigItemColumn {
+                get {
+                    return this.columnConfigItem;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ConfigValueColumn {
+                get {
+                    return this.columnConfigValue;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ConfigGroupColumn {
+                get {
+                    return this.columnConfigGroup;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DataTypeColumn {
+                get {
+                    return this.columnDataType;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public QWSConfigRow this[int index] {
+                get {
+                    return ((QWSConfigRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event QWSConfigRowChangeEventHandler QWSConfigRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event QWSConfigRowChangeEventHandler QWSConfigRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event QWSConfigRowChangeEventHandler QWSConfigRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event QWSConfigRowChangeEventHandler QWSConfigRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddQWSConfigRow(QWSConfigRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public QWSConfigRow AddQWSConfigRow(string ConfigItem, string ConfigValue, string ConfigGroup, string DataType) {
+                QWSConfigRow rowQWSConfigRow = ((QWSConfigRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        ConfigItem,
+                        ConfigValue,
+                        ConfigGroup,
+                        DataType};
+                rowQWSConfigRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowQWSConfigRow);
+                return rowQWSConfigRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public QWSConfigRow FindByID(int ID) {
+                return ((QWSConfigRow)(this.Rows.Find(new object[] {
+                            ID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                QWSConfigDataTable cln = ((QWSConfigDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new QWSConfigDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnID = base.Columns["ID"];
+                this.columnConfigItem = base.Columns["ConfigItem"];
+                this.columnConfigValue = base.Columns["ConfigValue"];
+                this.columnConfigGroup = base.Columns["ConfigGroup"];
+                this.columnDataType = base.Columns["DataType"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
+                this.columnConfigItem = new global::System.Data.DataColumn("ConfigItem", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConfigItem);
+                this.columnConfigValue = new global::System.Data.DataColumn("ConfigValue", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConfigValue);
+                this.columnConfigGroup = new global::System.Data.DataColumn("ConfigGroup", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConfigGroup);
+                this.columnDataType = new global::System.Data.DataColumn("DataType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataType);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID}, true));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = -1;
+                this.columnID.AutoIncrementStep = -1;
+                this.columnID.AllowDBNull = false;
+                this.columnID.ReadOnly = true;
+                this.columnID.Unique = true;
+                this.columnConfigItem.AllowDBNull = false;
+                this.columnConfigItem.MaxLength = 255;
+                this.columnConfigValue.AllowDBNull = false;
+                this.columnConfigValue.MaxLength = 2147483647;
+                this.columnConfigGroup.AllowDBNull = false;
+                this.columnConfigGroup.MaxLength = 255;
+                this.columnDataType.AllowDBNull = false;
+                this.columnDataType.MaxLength = 255;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public QWSConfigRow NewQWSConfigRow() {
+                return ((QWSConfigRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new QWSConfigRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(QWSConfigRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.QWSConfigRowChanged != null)) {
+                    this.QWSConfigRowChanged(this, new QWSConfigRowChangeEvent(((QWSConfigRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.QWSConfigRowChanging != null)) {
+                    this.QWSConfigRowChanging(this, new QWSConfigRowChangeEvent(((QWSConfigRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.QWSConfigRowDeleted != null)) {
+                    this.QWSConfigRowDeleted(this, new QWSConfigRowChangeEvent(((QWSConfigRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.QWSConfigRowDeleting != null)) {
+                    this.QWSConfigRowDeleting(this, new QWSConfigRowChangeEvent(((QWSConfigRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveQWSConfigRow(QWSConfigRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsAdmin ds = new dsAdmin();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "QWSConfigDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class OperatorRolesDetailedRow : global::System.Data.DataRow {
@@ -2712,6 +3073,76 @@ namespace QWS_Local {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class QWSConfigRow : global::System.Data.DataRow {
+            
+            private QWSConfigDataTable tableQWSConfig;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal QWSConfigRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableQWSConfig = ((QWSConfigDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ID {
+                get {
+                    return ((int)(this[this.tableQWSConfig.IDColumn]));
+                }
+                set {
+                    this[this.tableQWSConfig.IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ConfigItem {
+                get {
+                    return ((string)(this[this.tableQWSConfig.ConfigItemColumn]));
+                }
+                set {
+                    this[this.tableQWSConfig.ConfigItemColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ConfigValue {
+                get {
+                    return ((string)(this[this.tableQWSConfig.ConfigValueColumn]));
+                }
+                set {
+                    this[this.tableQWSConfig.ConfigValueColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ConfigGroup {
+                get {
+                    return ((string)(this[this.tableQWSConfig.ConfigGroupColumn]));
+                }
+                set {
+                    this[this.tableQWSConfig.ConfigGroupColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string DataType {
+                get {
+                    return ((string)(this[this.tableQWSConfig.DataTypeColumn]));
+                }
+                set {
+                    this[this.tableQWSConfig.DataTypeColumn] = value;
+                }
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2914,6 +3345,40 @@ namespace QWS_Local {
                 }
             }
         }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class QWSConfigRowChangeEvent : global::System.EventArgs {
+            
+            private QWSConfigRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public QWSConfigRowChangeEvent(QWSConfigRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public QWSConfigRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
     }
 }
 namespace QWS_Local.dsAdminTableAdapters {
@@ -2928,7 +3393,7 @@ namespace QWS_Local.dsAdminTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class OperatorRolesDetailedTableAdapter : global::System.ComponentModel.Component {
+    public partial class taOperatorRolesDetailed : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -2942,7 +3407,7 @@ namespace QWS_Local.dsAdminTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public OperatorRolesDetailedTableAdapter() {
+        public taOperatorRolesDetailed() {
             this.ClearBeforeFill = true;
         }
         
@@ -3113,7 +3578,7 @@ namespace QWS_Local.dsAdminTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class OperatorTableAdapter : global::System.ComponentModel.Component {
+    public partial class taOperator : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -3127,7 +3592,7 @@ namespace QWS_Local.dsAdminTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public OperatorTableAdapter() {
+        public taOperator() {
             this.ClearBeforeFill = true;
         }
         
@@ -3557,7 +4022,7 @@ SELECT OperatorID, FirstName, LastName, Domain, Generic, Active, PIN FROM Operat
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class RoleTableAdapter : global::System.ComponentModel.Component {
+    public partial class taRole : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -3571,7 +4036,7 @@ SELECT OperatorID, FirstName, LastName, Domain, Generic, Active, PIN FROM Operat
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public RoleTableAdapter() {
+        public taRole() {
             this.ClearBeforeFill = true;
         }
         
@@ -3905,7 +4370,7 @@ SELECT OperatorID, FirstName, LastName, Domain, Generic, Active, PIN FROM Operat
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class FunctionsTableAdapter : global::System.ComponentModel.Component {
+    public partial class taFunctions : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -3919,7 +4384,7 @@ SELECT OperatorID, FirstName, LastName, Domain, Generic, Active, PIN FROM Operat
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public FunctionsTableAdapter() {
+        public taFunctions() {
             this.ClearBeforeFill = true;
         }
         
@@ -4252,7 +4717,7 @@ SELECT FunctionID, WBOFunction, Description FROM Functions AS t0 WHERE (Function
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class OperatorRolesTableAdapter : global::System.ComponentModel.Component {
+    public partial class taOperatorRoles : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -4266,7 +4731,7 @@ SELECT FunctionID, WBOFunction, Description FROM Functions AS t0 WHERE (Function
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public OperatorRolesTableAdapter() {
+        public taOperatorRoles() {
             this.ClearBeforeFill = true;
         }
         
@@ -4552,7 +5017,7 @@ SELECT OperatorID, RoleID FROM OperatorRoles AS t0 WHERE (OperatorID = @Operator
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class RoleFunctionsTableAdapter : global::System.ComponentModel.Component {
+    public partial class taRoleFunctions : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -4566,7 +5031,7 @@ SELECT OperatorID, RoleID FROM OperatorRoles AS t0 WHERE (OperatorID = @Operator
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public RoleFunctionsTableAdapter() {
+        public taRoleFunctions() {
             this.ClearBeforeFill = true;
         }
         
@@ -4844,6 +5309,400 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class taQWSConfig : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public taQWSConfig() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "QWSConfig";
+            tableMapping.ColumnMappings.Add("ID", "ID");
+            tableMapping.ColumnMappings.Add("ConfigItem", "ConfigItem");
+            tableMapping.ColumnMappings.Add("ConfigValue", "ConfigValue");
+            tableMapping.ColumnMappings.Add("ConfigGroup", "ConfigGroup");
+            tableMapping.ColumnMappings.Add("DataType", "DataType");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [QWSConfig] WHERE (([ID] = @Original_ID) AND ([ConfigItem] = @Origina" +
+                "l_ConfigItem) AND ([ConfigGroup] = @Original_ConfigGroup) AND ([DataType] = @Ori" +
+                "ginal_DataType))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ConfigItem", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ConfigItem", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ConfigGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ConfigGroup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DataType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [QWSConfig] ([ConfigItem], [ConfigValue], [ConfigGroup], [DataType]) " +
+                "VALUES (@ConfigItem, @ConfigValue, @ConfigGroup, @DataType);\r\nSELECT ID, ConfigI" +
+                "tem, ConfigValue, ConfigGroup, DataType FROM QWSConfig WHERE (ID = SCOPE_IDENTIT" +
+                "Y())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ConfigItem", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ConfigItem", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ConfigValue", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ConfigValue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ConfigGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ConfigGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DataType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [QWSConfig] SET [ConfigItem] = @ConfigItem, [ConfigValue] = @ConfigValue, [ConfigGroup] = @ConfigGroup, [DataType] = @DataType WHERE (([ID] = @Original_ID) AND ([ConfigItem] = @Original_ConfigItem) AND ([ConfigGroup] = @Original_ConfigGroup) AND ([DataType] = @Original_DataType));
+SELECT ID, ConfigItem, ConfigValue, ConfigGroup, DataType FROM QWSConfig WHERE (ID = @ID)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ConfigItem", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ConfigItem", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ConfigValue", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ConfigValue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ConfigGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ConfigGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DataType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ConfigItem", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ConfigItem", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ConfigGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ConfigGroup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DataType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::QWS_Local.Properties.Settings.Default.cnQWSLocal;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT        ID, ConfigItem, ConfigValue, ConfigGroup, DataType\r\nFROM           " +
+                " QWSConfig";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(dsAdmin.QWSConfigDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual dsAdmin.QWSConfigDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            dsAdmin.QWSConfigDataTable dataTable = new dsAdmin.QWSConfigDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dsAdmin.QWSConfigDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(dsAdmin dataSet) {
+            return this.Adapter.Update(dataSet, "QWSConfig");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_ID, string Original_ConfigItem, string Original_ConfigGroup, string Original_DataType) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
+            if ((Original_ConfigItem == null)) {
+                throw new global::System.ArgumentNullException("Original_ConfigItem");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_ConfigItem));
+            }
+            if ((Original_ConfigGroup == null)) {
+                throw new global::System.ArgumentNullException("Original_ConfigGroup");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_ConfigGroup));
+            }
+            if ((Original_DataType == null)) {
+                throw new global::System.ArgumentNullException("Original_DataType");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_DataType));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string ConfigItem, string ConfigValue, string ConfigGroup, string DataType) {
+            if ((ConfigItem == null)) {
+                throw new global::System.ArgumentNullException("ConfigItem");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(ConfigItem));
+            }
+            if ((ConfigValue == null)) {
+                throw new global::System.ArgumentNullException("ConfigValue");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(ConfigValue));
+            }
+            if ((ConfigGroup == null)) {
+                throw new global::System.ArgumentNullException("ConfigGroup");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(ConfigGroup));
+            }
+            if ((DataType == null)) {
+                throw new global::System.ArgumentNullException("DataType");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(DataType));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string ConfigItem, string ConfigValue, string ConfigGroup, string DataType, int Original_ID, string Original_ConfigItem, string Original_ConfigGroup, string Original_DataType, int ID) {
+            if ((ConfigItem == null)) {
+                throw new global::System.ArgumentNullException("ConfigItem");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(ConfigItem));
+            }
+            if ((ConfigValue == null)) {
+                throw new global::System.ArgumentNullException("ConfigValue");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(ConfigValue));
+            }
+            if ((ConfigGroup == null)) {
+                throw new global::System.ArgumentNullException("ConfigGroup");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(ConfigGroup));
+            }
+            if ((DataType == null)) {
+                throw new global::System.ArgumentNullException("DataType");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(DataType));
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ID));
+            if ((Original_ConfigItem == null)) {
+                throw new global::System.ArgumentNullException("Original_ConfigItem");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_ConfigItem));
+            }
+            if ((Original_ConfigGroup == null)) {
+                throw new global::System.ArgumentNullException("Original_ConfigGroup");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_ConfigGroup));
+            }
+            if ((Original_DataType == null)) {
+                throw new global::System.ArgumentNullException("Original_DataType");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_DataType));
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(ID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string ConfigItem, string ConfigValue, string ConfigGroup, string DataType, int Original_ID, string Original_ConfigItem, string Original_ConfigGroup, string Original_DataType) {
+            return this.Update(ConfigItem, ConfigValue, ConfigGroup, DataType, Original_ID, Original_ConfigItem, Original_ConfigGroup, Original_DataType, Original_ID);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4855,15 +5714,17 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
         
         private UpdateOrderOption _updateOrder;
         
-        private OperatorTableAdapter _operatorTableAdapter;
+        private taOperator _taOperator;
         
-        private RoleTableAdapter _roleTableAdapter;
+        private taRole _taRole;
         
-        private FunctionsTableAdapter _functionsTableAdapter;
+        private taFunctions _taFunctions;
         
-        private OperatorRolesTableAdapter _operatorRolesTableAdapter;
+        private taOperatorRoles _taOperatorRoles;
         
-        private RoleFunctionsTableAdapter _roleFunctionsTableAdapter;
+        private taRoleFunctions _taRoleFunctions;
+        
+        private taQWSConfig _taQWSConfig;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -4885,12 +5746,12 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public OperatorTableAdapter OperatorTableAdapter {
+        public taOperator taOperator {
             get {
-                return this._operatorTableAdapter;
+                return this._taOperator;
             }
             set {
-                this._operatorTableAdapter = value;
+                this._taOperator = value;
             }
         }
         
@@ -4899,12 +5760,12 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public RoleTableAdapter RoleTableAdapter {
+        public taRole taRole {
             get {
-                return this._roleTableAdapter;
+                return this._taRole;
             }
             set {
-                this._roleTableAdapter = value;
+                this._taRole = value;
             }
         }
         
@@ -4913,12 +5774,12 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public FunctionsTableAdapter FunctionsTableAdapter {
+        public taFunctions taFunctions {
             get {
-                return this._functionsTableAdapter;
+                return this._taFunctions;
             }
             set {
-                this._functionsTableAdapter = value;
+                this._taFunctions = value;
             }
         }
         
@@ -4927,12 +5788,12 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public OperatorRolesTableAdapter OperatorRolesTableAdapter {
+        public taOperatorRoles taOperatorRoles {
             get {
-                return this._operatorRolesTableAdapter;
+                return this._taOperatorRoles;
             }
             set {
-                this._operatorRolesTableAdapter = value;
+                this._taOperatorRoles = value;
             }
         }
         
@@ -4941,12 +5802,26 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public RoleFunctionsTableAdapter RoleFunctionsTableAdapter {
+        public taRoleFunctions taRoleFunctions {
             get {
-                return this._roleFunctionsTableAdapter;
+                return this._taRoleFunctions;
             }
             set {
-                this._roleFunctionsTableAdapter = value;
+                this._taRoleFunctions = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public taQWSConfig taQWSConfig {
+            get {
+                return this._taQWSConfig;
+            }
+            set {
+                this._taQWSConfig = value;
             }
         }
         
@@ -4969,25 +5844,29 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._operatorTableAdapter != null) 
-                            && (this._operatorTableAdapter.Connection != null))) {
-                    return this._operatorTableAdapter.Connection;
+                if (((this._taOperator != null) 
+                            && (this._taOperator.Connection != null))) {
+                    return this._taOperator.Connection;
                 }
-                if (((this._roleTableAdapter != null) 
-                            && (this._roleTableAdapter.Connection != null))) {
-                    return this._roleTableAdapter.Connection;
+                if (((this._taRole != null) 
+                            && (this._taRole.Connection != null))) {
+                    return this._taRole.Connection;
                 }
-                if (((this._functionsTableAdapter != null) 
-                            && (this._functionsTableAdapter.Connection != null))) {
-                    return this._functionsTableAdapter.Connection;
+                if (((this._taFunctions != null) 
+                            && (this._taFunctions.Connection != null))) {
+                    return this._taFunctions.Connection;
                 }
-                if (((this._operatorRolesTableAdapter != null) 
-                            && (this._operatorRolesTableAdapter.Connection != null))) {
-                    return this._operatorRolesTableAdapter.Connection;
+                if (((this._taOperatorRoles != null) 
+                            && (this._taOperatorRoles.Connection != null))) {
+                    return this._taOperatorRoles.Connection;
                 }
-                if (((this._roleFunctionsTableAdapter != null) 
-                            && (this._roleFunctionsTableAdapter.Connection != null))) {
-                    return this._roleFunctionsTableAdapter.Connection;
+                if (((this._taRoleFunctions != null) 
+                            && (this._taRoleFunctions.Connection != null))) {
+                    return this._taRoleFunctions.Connection;
+                }
+                if (((this._taQWSConfig != null) 
+                            && (this._taQWSConfig.Connection != null))) {
+                    return this._taQWSConfig.Connection;
                 }
                 return null;
             }
@@ -5002,19 +5881,22 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._operatorTableAdapter != null)) {
+                if ((this._taOperator != null)) {
                     count = (count + 1);
                 }
-                if ((this._roleTableAdapter != null)) {
+                if ((this._taRole != null)) {
                     count = (count + 1);
                 }
-                if ((this._functionsTableAdapter != null)) {
+                if ((this._taFunctions != null)) {
                     count = (count + 1);
                 }
-                if ((this._operatorRolesTableAdapter != null)) {
+                if ((this._taOperatorRoles != null)) {
                     count = (count + 1);
                 }
-                if ((this._roleFunctionsTableAdapter != null)) {
+                if ((this._taRoleFunctions != null)) {
+                    count = (count + 1);
+                }
+                if ((this._taQWSConfig != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -5028,48 +5910,57 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateUpdatedRows(dsAdmin dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._operatorTableAdapter != null)) {
+            if ((this._taOperator != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Operator.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._operatorTableAdapter.Update(updatedRows));
+                    result = (result + this._taOperator.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._roleTableAdapter != null)) {
+            if ((this._taRole != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Role.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._roleTableAdapter.Update(updatedRows));
+                    result = (result + this._taRole.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._functionsTableAdapter != null)) {
+            if ((this._taFunctions != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Functions.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._functionsTableAdapter.Update(updatedRows));
+                    result = (result + this._taFunctions.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._operatorRolesTableAdapter != null)) {
+            if ((this._taOperatorRoles != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.OperatorRoles.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._operatorRolesTableAdapter.Update(updatedRows));
+                    result = (result + this._taOperatorRoles.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._roleFunctionsTableAdapter != null)) {
+            if ((this._taRoleFunctions != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.RoleFunctions.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._roleFunctionsTableAdapter.Update(updatedRows));
+                    result = (result + this._taRoleFunctions.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._taQWSConfig != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.QWSConfig.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._taQWSConfig.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -5083,43 +5974,51 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateInsertedRows(dsAdmin dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._operatorTableAdapter != null)) {
+            if ((this._taOperator != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Operator.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._operatorTableAdapter.Update(addedRows));
+                    result = (result + this._taOperator.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._roleTableAdapter != null)) {
+            if ((this._taRole != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Role.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._roleTableAdapter.Update(addedRows));
+                    result = (result + this._taRole.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._functionsTableAdapter != null)) {
+            if ((this._taFunctions != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Functions.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._functionsTableAdapter.Update(addedRows));
+                    result = (result + this._taFunctions.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._operatorRolesTableAdapter != null)) {
+            if ((this._taOperatorRoles != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.OperatorRoles.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._operatorRolesTableAdapter.Update(addedRows));
+                    result = (result + this._taOperatorRoles.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._roleFunctionsTableAdapter != null)) {
+            if ((this._taRoleFunctions != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.RoleFunctions.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._roleFunctionsTableAdapter.Update(addedRows));
+                    result = (result + this._taRoleFunctions.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._taQWSConfig != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.QWSConfig.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._taQWSConfig.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -5133,43 +6032,51 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(dsAdmin dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._roleFunctionsTableAdapter != null)) {
+            if ((this._taQWSConfig != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.QWSConfig.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._taQWSConfig.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._taRoleFunctions != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.RoleFunctions.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._roleFunctionsTableAdapter.Update(deletedRows));
+                    result = (result + this._taRoleFunctions.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._operatorRolesTableAdapter != null)) {
+            if ((this._taOperatorRoles != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.OperatorRoles.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._operatorRolesTableAdapter.Update(deletedRows));
+                    result = (result + this._taOperatorRoles.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._functionsTableAdapter != null)) {
+            if ((this._taFunctions != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Functions.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._functionsTableAdapter.Update(deletedRows));
+                    result = (result + this._taFunctions.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._roleTableAdapter != null)) {
+            if ((this._taRole != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Role.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._roleTableAdapter.Update(deletedRows));
+                    result = (result + this._taRole.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._operatorTableAdapter != null)) {
+            if ((this._taOperator != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Operator.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._operatorTableAdapter.Update(deletedRows));
+                    result = (result + this._taOperator.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -5212,28 +6119,33 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._operatorTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._operatorTableAdapter.Connection) == false))) {
+            if (((this._taOperator != null) 
+                        && (this.MatchTableAdapterConnection(this._taOperator.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._roleTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._roleTableAdapter.Connection) == false))) {
+            if (((this._taRole != null) 
+                        && (this.MatchTableAdapterConnection(this._taRole.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._functionsTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._functionsTableAdapter.Connection) == false))) {
+            if (((this._taFunctions != null) 
+                        && (this.MatchTableAdapterConnection(this._taFunctions.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._operatorRolesTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._operatorRolesTableAdapter.Connection) == false))) {
+            if (((this._taOperatorRoles != null) 
+                        && (this.MatchTableAdapterConnection(this._taOperatorRoles.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._roleFunctionsTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._roleFunctionsTableAdapter.Connection) == false))) {
+            if (((this._taRoleFunctions != null) 
+                        && (this.MatchTableAdapterConnection(this._taRoleFunctions.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._taQWSConfig != null) 
+                        && (this.MatchTableAdapterConnection(this._taQWSConfig.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -5269,49 +6181,58 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._operatorTableAdapter != null)) {
-                    revertConnections.Add(this._operatorTableAdapter, this._operatorTableAdapter.Connection);
-                    this._operatorTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._operatorTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._operatorTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._operatorTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._operatorTableAdapter.Adapter);
+                if ((this._taOperator != null)) {
+                    revertConnections.Add(this._taOperator, this._taOperator.Connection);
+                    this._taOperator.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._taOperator.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._taOperator.Adapter.AcceptChangesDuringUpdate) {
+                        this._taOperator.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._taOperator.Adapter);
                     }
                 }
-                if ((this._roleTableAdapter != null)) {
-                    revertConnections.Add(this._roleTableAdapter, this._roleTableAdapter.Connection);
-                    this._roleTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._roleTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._roleTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._roleTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._roleTableAdapter.Adapter);
+                if ((this._taRole != null)) {
+                    revertConnections.Add(this._taRole, this._taRole.Connection);
+                    this._taRole.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._taRole.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._taRole.Adapter.AcceptChangesDuringUpdate) {
+                        this._taRole.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._taRole.Adapter);
                     }
                 }
-                if ((this._functionsTableAdapter != null)) {
-                    revertConnections.Add(this._functionsTableAdapter, this._functionsTableAdapter.Connection);
-                    this._functionsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._functionsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._functionsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._functionsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._functionsTableAdapter.Adapter);
+                if ((this._taFunctions != null)) {
+                    revertConnections.Add(this._taFunctions, this._taFunctions.Connection);
+                    this._taFunctions.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._taFunctions.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._taFunctions.Adapter.AcceptChangesDuringUpdate) {
+                        this._taFunctions.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._taFunctions.Adapter);
                     }
                 }
-                if ((this._operatorRolesTableAdapter != null)) {
-                    revertConnections.Add(this._operatorRolesTableAdapter, this._operatorRolesTableAdapter.Connection);
-                    this._operatorRolesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._operatorRolesTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._operatorRolesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._operatorRolesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._operatorRolesTableAdapter.Adapter);
+                if ((this._taOperatorRoles != null)) {
+                    revertConnections.Add(this._taOperatorRoles, this._taOperatorRoles.Connection);
+                    this._taOperatorRoles.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._taOperatorRoles.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._taOperatorRoles.Adapter.AcceptChangesDuringUpdate) {
+                        this._taOperatorRoles.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._taOperatorRoles.Adapter);
                     }
                 }
-                if ((this._roleFunctionsTableAdapter != null)) {
-                    revertConnections.Add(this._roleFunctionsTableAdapter, this._roleFunctionsTableAdapter.Connection);
-                    this._roleFunctionsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._roleFunctionsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._roleFunctionsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._roleFunctionsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._roleFunctionsTableAdapter.Adapter);
+                if ((this._taRoleFunctions != null)) {
+                    revertConnections.Add(this._taRoleFunctions, this._taRoleFunctions.Connection);
+                    this._taRoleFunctions.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._taRoleFunctions.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._taRoleFunctions.Adapter.AcceptChangesDuringUpdate) {
+                        this._taRoleFunctions.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._taRoleFunctions.Adapter);
+                    }
+                }
+                if ((this._taQWSConfig != null)) {
+                    revertConnections.Add(this._taQWSConfig, this._taQWSConfig.Connection);
+                    this._taQWSConfig.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._taQWSConfig.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._taQWSConfig.Adapter.AcceptChangesDuringUpdate) {
+                        this._taQWSConfig.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._taQWSConfig.Adapter);
                     }
                 }
                 // 
@@ -5372,25 +6293,29 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._operatorTableAdapter != null)) {
-                    this._operatorTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._operatorTableAdapter]));
-                    this._operatorTableAdapter.Transaction = null;
+                if ((this._taOperator != null)) {
+                    this._taOperator.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._taOperator]));
+                    this._taOperator.Transaction = null;
                 }
-                if ((this._roleTableAdapter != null)) {
-                    this._roleTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._roleTableAdapter]));
-                    this._roleTableAdapter.Transaction = null;
+                if ((this._taRole != null)) {
+                    this._taRole.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._taRole]));
+                    this._taRole.Transaction = null;
                 }
-                if ((this._functionsTableAdapter != null)) {
-                    this._functionsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._functionsTableAdapter]));
-                    this._functionsTableAdapter.Transaction = null;
+                if ((this._taFunctions != null)) {
+                    this._taFunctions.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._taFunctions]));
+                    this._taFunctions.Transaction = null;
                 }
-                if ((this._operatorRolesTableAdapter != null)) {
-                    this._operatorRolesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._operatorRolesTableAdapter]));
-                    this._operatorRolesTableAdapter.Transaction = null;
+                if ((this._taOperatorRoles != null)) {
+                    this._taOperatorRoles.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._taOperatorRoles]));
+                    this._taOperatorRoles.Transaction = null;
                 }
-                if ((this._roleFunctionsTableAdapter != null)) {
-                    this._roleFunctionsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._roleFunctionsTableAdapter]));
-                    this._roleFunctionsTableAdapter.Transaction = null;
+                if ((this._taRoleFunctions != null)) {
+                    this._taRoleFunctions.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._taRoleFunctions]));
+                    this._taRoleFunctions.Transaction = null;
+                }
+                if ((this._taQWSConfig != null)) {
+                    this._taQWSConfig.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._taQWSConfig]));
+                    this._taQWSConfig.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

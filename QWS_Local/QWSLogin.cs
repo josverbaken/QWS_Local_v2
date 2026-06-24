@@ -69,26 +69,28 @@ namespace QWS_Local
             if (rbNQ.Checked && rbTest.Checked)
             { // NQ Test:
                 dataSource += "ch-sql02";
-                initialCatalog += "Initial Catalog=QWS_NQ_Dev";
+                initialCatalog += "QWS_NQ_Dev";
                 _SiteID = 7;
                 _TestMode = true;
             }
             if (rbSQ.Checked && rbProd.Checked)
             { // SQ Live:
                 dataSource += "ch-sq-dc02";
-                initialCatalog += "Initial Catalog=QWS_SQ";
+                initialCatalog += "QWS_SQ";
                 _SiteID = 2;
                 _TestMode = false;
             }
             if (rbSQ.Checked &&  rbTest.Checked)
             { // SQ Test:
                 dataSource += "ch-sql02";
-                initialCatalog += "Initial Catalog=QWS_SQ_Dev";
+                initialCatalog += "QWS_SQ_Dev";
                 _SiteID = 2;
                 _TestMode = true;
             }
-            _cnQWSLocal = dataSource + ";"+ initialCatalog +";"+ "Integrated Security=true;TrustSeverCertificate=true;";
+            _cnQWSLocal = dataSource + ";"+ initialCatalog +";"+ "Integrated Security=True;TrustServerCertificate=True";
         }
+
+        //Data Source=ch-sql02;Initial Catalog=QWS_NQ_Dev;Integrated Security=True;TrustServerCertificate=True
 
         private void rbNQ_CheckedChanged(object sender, EventArgs e)
         {

@@ -7,7 +7,7 @@
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="cnQWSLocal" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="cnQWSLocal (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.QWS_Local.Properties.Settings.GlobalReference.Default.cnQWSLocal" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="OperatorRolesDetailedTableAdapter" GeneratorDataComponentClassName="OperatorRolesDetailedTableAdapter" Name="OperatorRolesDetailed" UserDataComponentName="OperatorRolesDetailedTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taOperatorRolesDetailed" GeneratorDataComponentClassName="taOperatorRolesDetailed" Name="OperatorRolesDetailed" UserDataComponentName="taOperatorRolesDetailed">
             <MainSource>
               <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.OperatorRolesDetailed" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
@@ -30,7 +30,7 @@
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="OperatorTableAdapter" GeneratorDataComponentClassName="OperatorTableAdapter" Name="Operator" UserDataComponentName="OperatorTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taOperator" GeneratorDataComponentClassName="taOperator" Name="Operator" UserDataComponentName="taOperator">
             <MainSource>
               <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.Operator" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
@@ -115,7 +115,7 @@ SELECT OperatorID, FirstName, LastName, Domain, Generic, Active, PIN FROM Operat
               </DbSource>
             </Sources>
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RoleTableAdapter" GeneratorDataComponentClassName="RoleTableAdapter" Name="Role" UserDataComponentName="RoleTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taRole" GeneratorDataComponentClassName="taRole" Name="Role" UserDataComponentName="taRole">
             <MainSource>
               <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.Role" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
@@ -168,7 +168,7 @@ SELECT RoleID, Role, Description FROM Role AS t0 WHERE (RoleID = @RoleID)</Comma
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FunctionsTableAdapter" GeneratorDataComponentClassName="FunctionsTableAdapter" Name="Functions" UserDataComponentName="FunctionsTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taFunctions" GeneratorDataComponentClassName="taFunctions" Name="Functions" UserDataComponentName="taFunctions">
             <MainSource>
               <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.Functions" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
@@ -220,7 +220,7 @@ SELECT FunctionID, WBOFunction, Description FROM Functions AS t0 WHERE (Function
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="OperatorRolesTableAdapter" GeneratorDataComponentClassName="OperatorRolesTableAdapter" Name="OperatorRoles" UserDataComponentName="OperatorRolesTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taOperatorRoles" GeneratorDataComponentClassName="taOperatorRoles" Name="OperatorRoles" UserDataComponentName="taOperatorRoles">
             <MainSource>
               <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.OperatorRoles" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
@@ -269,7 +269,7 @@ SELECT OperatorID, RoleID FROM OperatorRoles AS t0 WHERE (OperatorID = @Operator
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RoleFunctionsTableAdapter" GeneratorDataComponentClassName="RoleFunctionsTableAdapter" Name="RoleFunctions" UserDataComponentName="RoleFunctionsTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taRoleFunctions" GeneratorDataComponentClassName="taRoleFunctions" Name="RoleFunctions" UserDataComponentName="taRoleFunctions">
             <MainSource>
               <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.RoleFunctions" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
@@ -315,6 +315,67 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
             <Mappings>
               <Mapping SourceColumn="RoleID" DataSetColumn="RoleID" />
               <Mapping SourceColumn="FunctionID" DataSetColumn="FunctionID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taQWSConfig" GeneratorDataComponentClassName="taQWSConfig" Name="QWSConfig" UserDataComponentName="taQWSConfig">
+            <MainSource>
+              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWS_SQ_Dev.dbo.QWSConfig" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [QWSConfig] WHERE (([ID] = @Original_ID) AND ([ConfigItem] = @Original_ConfigItem) AND ([ConfigGroup] = @Original_ConfigGroup) AND ([DataType] = @Original_DataType))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ConfigItem" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ConfigItem" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ConfigGroup" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ConfigGroup" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_DataType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DataType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [QWSConfig] ([ConfigItem], [ConfigValue], [ConfigGroup], [DataType]) VALUES (@ConfigItem, @ConfigValue, @ConfigGroup, @DataType);
+SELECT ID, ConfigItem, ConfigValue, ConfigGroup, DataType FROM QWSConfig WHERE (ID = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ConfigItem" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ConfigItem" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ConfigValue" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ConfigValue" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ConfigGroup" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ConfigGroup" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@DataType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DataType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ID, ConfigItem, ConfigValue, ConfigGroup, DataType
+FROM            QWSConfig</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [QWSConfig] SET [ConfigItem] = @ConfigItem, [ConfigValue] = @ConfigValue, [ConfigGroup] = @ConfigGroup, [DataType] = @DataType WHERE (([ID] = @Original_ID) AND ([ConfigItem] = @Original_ConfigItem) AND ([ConfigGroup] = @Original_ConfigGroup) AND ([DataType] = @Original_DataType));
+SELECT ID, ConfigItem, ConfigValue, ConfigGroup, DataType FROM QWSConfig WHERE (ID = @ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ConfigItem" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ConfigItem" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ConfigValue" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ConfigValue" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ConfigGroup" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ConfigGroup" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@DataType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DataType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ConfigItem" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ConfigItem" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ConfigGroup" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ConfigGroup" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_DataType" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DataType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="ID" DataSourceName="QWS_SQ_Dev.dbo.QWSConfig" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="ConfigItem" DataSetColumn="ConfigItem" />
+              <Mapping SourceColumn="ConfigValue" DataSetColumn="ConfigValue" />
+              <Mapping SourceColumn="ConfigGroup" DataSetColumn="ConfigGroup" />
+              <Mapping SourceColumn="DataType" DataSetColumn="DataType" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -380,21 +441,21 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
               </xs:element>
               <xs:element name="Generic" msprop:Generator_ColumnPropNameInTable="GenericColumn" msprop:Generator_ColumnPropNameInRow="Generic" msprop:Generator_UserColumnName="Generic" msprop:Generator_ColumnVarNameInTable="columnGeneric" type="xs:boolean" />
               <xs:element name="Active" msprop:Generator_ColumnPropNameInTable="ActiveColumn" msprop:Generator_ColumnPropNameInRow="Active" msprop:Generator_UserColumnName="Active" msprop:Generator_ColumnVarNameInTable="columnActive" type="xs:boolean" />
-              <xs:element name="FirstName" msprop:Generator_UserColumnName="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnVarNameInTable="columnFirstName">
+              <xs:element name="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_UserColumnName="FirstName" msprop:Generator_ColumnVarNameInTable="columnFirstName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="LastName" msprop:Generator_UserColumnName="LastName" msprop:Generator_ColumnPropNameInTable="LastNameColumn" msprop:Generator_ColumnPropNameInRow="LastName" msprop:Generator_ColumnVarNameInTable="columnLastName">
+              <xs:element name="LastName" msprop:Generator_ColumnPropNameInTable="LastNameColumn" msprop:Generator_ColumnPropNameInRow="LastName" msprop:Generator_UserColumnName="LastName" msprop:Generator_ColumnVarNameInTable="columnLastName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PIN" msprop:Generator_UserColumnName="PIN" msprop:Generator_ColumnPropNameInTable="PINColumn" msprop:Generator_ColumnPropNameInRow="PIN" msprop:Generator_ColumnVarNameInTable="columnPIN" type="xs:int" />
+              <xs:element name="PIN" msprop:Generator_ColumnPropNameInTable="PINColumn" msprop:Generator_ColumnPropNameInRow="PIN" msprop:Generator_UserColumnName="PIN" msprop:Generator_ColumnVarNameInTable="columnPIN" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -456,6 +517,41 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="QWSConfig" msprop:Generator_RowClassName="QWSConfigRow" msprop:Generator_RowEvHandlerName="QWSConfigRowChangeEventHandler" msprop:Generator_RowDeletedName="QWSConfigRowDeleted" msprop:Generator_RowDeletingName="QWSConfigRowDeleting" msprop:Generator_RowEvArgName="QWSConfigRowChangeEvent" msprop:Generator_TablePropName="QWSConfig" msprop:Generator_RowChangedName="QWSConfigRowChanged" msprop:Generator_UserTableName="QWSConfig" msprop:Generator_RowChangingName="QWSConfigRowChanging" msprop:Generator_TableClassName="QWSConfigDataTable" msprop:Generator_TableVarName="tableQWSConfig">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" type="xs:int" />
+              <xs:element name="ConfigItem" msprop:Generator_UserColumnName="ConfigItem" msprop:Generator_ColumnPropNameInTable="ConfigItemColumn" msprop:Generator_ColumnPropNameInRow="ConfigItem" msprop:Generator_ColumnVarNameInTable="columnConfigItem">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ConfigValue" msprop:Generator_UserColumnName="ConfigValue" msprop:Generator_ColumnPropNameInTable="ConfigValueColumn" msprop:Generator_ColumnPropNameInRow="ConfigValue" msprop:Generator_ColumnVarNameInTable="columnConfigValue">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ConfigGroup" msprop:Generator_UserColumnName="ConfigGroup" msprop:Generator_ColumnPropNameInTable="ConfigGroupColumn" msprop:Generator_ColumnPropNameInRow="ConfigGroup" msprop:Generator_ColumnVarNameInTable="columnConfigGroup">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DataType" msprop:Generator_UserColumnName="DataType" msprop:Generator_ColumnPropNameInTable="DataTypeColumn" msprop:Generator_ColumnPropNameInRow="DataType" msprop:Generator_ColumnVarNameInTable="columnDataType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -479,6 +575,10 @@ SELECT RoleID, FunctionID FROM RoleFunctions AS t0 WHERE (FunctionID = @Function
       <xs:selector xpath=".//mstns:RoleFunctions" />
       <xs:field xpath="mstns:RoleID" />
       <xs:field xpath="mstns:FunctionID" />
+    </xs:unique>
+    <xs:unique name="QWSConfig_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:QWSConfig" />
+      <xs:field xpath="mstns:ID" />
     </xs:unique>
   </xs:element>
   <xs:annotation>

@@ -38,9 +38,9 @@
             this.bsOperatorRolesDetailed = new System.Windows.Forms.BindingSource(this.components);
             this.dsAdmin = new QWS_Local.dsAdmin();
             this.bsOperator = new System.Windows.Forms.BindingSource(this.components);
-            this.taOperator = new QWS_Local.dsAdminTableAdapters.OperatorTableAdapter();
+            this.taOperator = new QWS_Local.dsAdminTableAdapters.taOperator();
             this.tableAdapterManager = new QWS_Local.dsAdminTableAdapters.TableAdapterManager();
-            this.taOperatorRolesDetailed = new QWS_Local.dsAdminTableAdapters.OperatorRolesDetailedTableAdapter();
+            this.taOperatorRolesDetailed = new QWS_Local.dsAdminTableAdapters.taOperatorRolesDetailed();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -141,11 +141,11 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.FunctionsTableAdapter = null;
-            this.tableAdapterManager.OperatorRolesTableAdapter = null;
-            this.tableAdapterManager.OperatorTableAdapter = this.taOperator;
-            this.tableAdapterManager.RoleFunctionsTableAdapter = null;
-            this.tableAdapterManager.RoleTableAdapter = null;
+            this.tableAdapterManager.taFunctions = null;
+            this.tableAdapterManager.taOperatorRoles = null;
+            this.tableAdapterManager.taOperator = this.taOperator;
+            this.tableAdapterManager.taRoleFunctions = null;
+            this.tableAdapterManager.taRole = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsAdminTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // taOperatorRolesDetailed
@@ -226,10 +226,10 @@
         #endregion
         private dsAdmin dsAdmin;
         private System.Windows.Forms.BindingSource bsOperator;
-        private dsAdminTableAdapters.OperatorTableAdapter taOperator;
+        private dsAdminTableAdapters.taOperator taOperator;
         private dsAdminTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingSource bsOperatorRolesDetailed;
-        private dsAdminTableAdapters.OperatorRolesDetailedTableAdapter taOperatorRolesDetailed;
+        private dsAdminTableAdapters.taOperatorRolesDetailed taOperatorRolesDetailed;
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.PictureBox logoPictureBox;
         private System.Windows.Forms.DataGridView dataGridView1;
