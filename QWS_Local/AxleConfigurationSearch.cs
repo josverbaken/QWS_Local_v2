@@ -54,6 +54,8 @@ namespace QWS_Local
             try
             {
                 string myFilter = "";
+                dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter taAxleConfig = new dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
+                taAxleConfig.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 this.taAxleConfig.FillByView(this.dsQWSLocal2024.AxleConfiguration);
                 if (myAxleConfiguration.Length > 0)
                 {
@@ -112,6 +114,8 @@ namespace QWS_Local
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
+            dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter taAxleConfig = new dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
+            taAxleConfig.Connection.ConnectionString = QWSConfig.cnQWSLocal;
             this.taAxleConfig.Fill(this.dsQWSLocal2024.AxleConfiguration);
         }
 

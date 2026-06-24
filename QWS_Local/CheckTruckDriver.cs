@@ -12,6 +12,8 @@ namespace QWS_Local
 
         private void btnFind_Click(object sender, EventArgs e)
         {
+            dsTIQ2TableAdapters.CheckTruckDriverTableAdapter taCheckTruckDriver = new dsTIQ2TableAdapters.CheckTruckDriverTableAdapter();
+            taCheckTruckDriver.Connection.ConnectionString = QWSConfig.cnQWSLocal;
             taCheckTruckDriver.Fill(dsTIQ2.CheckTruckDriver, txtRego.Text);
         }
 

@@ -179,6 +179,8 @@ namespace QWS_Local
 
         private void LoadConfiguredTruckGVM(int myTruckConfigID)
         {
+            dsTruckConfigTableAdapters.ConfiguredTruckGVMTableAdapter taConfiguredTruckGVM = new dsTruckConfigTableAdapters.ConfiguredTruckGVMTableAdapter();
+            taConfiguredTruckGVM.Connection.ConnectionString = QWSConfig.cnQWSLocal;
             taConfiguredTruckGVM.Fill(dsTruckConfig.ConfiguredTruckGVM, "", myTruckConfigID);
         }
 
@@ -883,7 +885,9 @@ namespace QWS_Local
         // OrderType Delivery etc, CardCode only for ex bin else ignored, 6 = Tandem 7 T&T
         {
             try
-            {
+            {                
+                dsBookInTableAdapters.QuarryOrdersTableAdapter taQuarryOrders = new dsBookInTableAdapters.QuarryOrdersTableAdapter();
+                taQuarryOrders.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 int iRow = this.taQuarryOrders.Fill(this.dsBookIn.QuarryOrders, OrderType, CardCode, CartageInt, mySiteID);
                 iRow += 1;
             }
@@ -953,6 +957,8 @@ namespace QWS_Local
         {
             try
             {
+                dsBookInTableAdapters.BlanketAgreementCheckTableAdapter taBlanketAgreement = new dsBookInTableAdapters.BlanketAgreementCheckTableAdapter();
+                taBlanketAgreement.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 int iCount = this.taBlanketAgreement.Fill(this.dsBookIn.BlanketAgreementCheck, CardCode, ItemCode);
                 if (iCount == 1)
                 {

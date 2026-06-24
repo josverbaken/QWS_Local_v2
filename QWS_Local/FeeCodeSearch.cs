@@ -41,6 +41,8 @@ namespace QWS_Local
 
         private void FeeCodeSearch_Load(object sender, EventArgs e)
         {
+            dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter taFeeCodes = new dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter();
+            taFeeCodes.Connection.ConnectionString = QWSConfig.cnQWSLocal;
             int iRows = this.taFeeCodes.Fill(this.dsQWSLocal2024.VehicleRegFeeCodes);
             iRows += 2;
         }
@@ -81,6 +83,7 @@ namespace QWS_Local
             this.Validate();
             this.bsFeeCodes.EndEdit();
             this.tamQWSLocal2024.UpdateAll(this.dsQWSLocal2024);
+            // TODO check connection
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

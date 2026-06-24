@@ -146,6 +146,8 @@ namespace QWS_Local
             try
             {
                 myOrderType = OrderType.Delivery;
+                dsBookInTableAdapters.QuarryOrdersTableAdapter taQuarryOrders = new dsBookInTableAdapters.QuarryOrdersTableAdapter();
+                taQuarryOrders.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taQuarryOrders.Fill(dsBookIn.QuarryOrders, "Delivery", "xxx", 0, mySiteID);
             }
             catch (Exception ex)
@@ -159,6 +161,8 @@ namespace QWS_Local
             try
             {
                 myOrderType = OrderType.ExBin;
+                dsBookInTableAdapters.QuarryOrdersTableAdapter taQuarryOrders = new dsBookInTableAdapters.QuarryOrdersTableAdapter();
+                taQuarryOrders.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taQuarryOrders.Fill(dsBookIn.QuarryOrders, "ExBin", "AnyCustomer", 0, mySiteID);
             }
             catch (Exception ex)
@@ -172,6 +176,8 @@ namespace QWS_Local
             try
             {
                 myOrderType = OrderType.Imported;
+                dsBookInTableAdapters.QuarryOrdersTableAdapter taQuarryOrders = new dsBookInTableAdapters.QuarryOrdersTableAdapter();
+                taQuarryOrders.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taQuarryOrders.Fill(dsBookIn.QuarryOrders, "Imported", "AnyCustomer", 0, mySiteID);
             }
             catch (Exception ex)
@@ -185,6 +191,8 @@ namespace QWS_Local
             try
             {
                 myOrderType = OrderType.Imported;
+                dsBookInTableAdapters.QuarryOrdersTableAdapter taQuarryOrders = new dsBookInTableAdapters.QuarryOrdersTableAdapter();
+                taQuarryOrders.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taQuarryOrders.Fill(dsBookIn.QuarryOrders, "ImportedPickUp", "AnyCustomer", 0, mySiteID);
             }
             catch (Exception ex)

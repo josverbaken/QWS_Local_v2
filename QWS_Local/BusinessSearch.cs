@@ -67,6 +67,8 @@ namespace QWS_Local
         {
             try
             {
+                dsQWSLocal2024TableAdapters.BusinessTableAdapter taBusiness = new dsQWSLocal2024TableAdapters.BusinessTableAdapter();
+                taBusiness.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 int iCount = this.taBusiness.FillByNameOrCode(this.dsQWSLocal2024.Business, txtSearch.Text);
                 if (SearchCustomerOnly == true)
                 {

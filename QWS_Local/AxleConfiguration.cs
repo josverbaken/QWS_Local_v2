@@ -14,6 +14,8 @@ namespace QWS_Local
 
         private void Axle_Configuration_Load(object sender, EventArgs e)
         {
+            dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter taAxleConfig =new dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
+            taAxleConfig.Connection.ConnectionString = QWSConfig.cnQWSLocal;
             this.taAxleConfig.Fill(this.dsQWSLocal2024.AxleConfiguration);
             this.bsAxleConfig.Sort = "AxleConfiguration";
         }

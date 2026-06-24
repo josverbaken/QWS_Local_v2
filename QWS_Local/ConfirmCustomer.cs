@@ -53,6 +53,8 @@ namespace QWS_Local
 
         private void ConfirmCustomer_Load(object sender, EventArgs e)
         {
+            dsQWSLocal2024TableAdapters.PersonTableAdapter taPerson = new dsQWSLocal2024TableAdapters.PersonTableAdapter();
+            taPerson.Connection.ConnectionString = QWSConfig.cnQWSLocal;
             int iRows = this.taPerson.FillByCardCode(this.dsQWSLocal2024.Person, CardCode);
             if (iRows == 0)
             {
@@ -63,6 +65,8 @@ namespace QWS_Local
                 bsPerson.Filter = "Person like 'xcvbn'"; // don't want to display first record
                 txtPerson.Text = "* multiple found *";
             }
+            dsQWSLocal2024TableAdapters.TruckDriverTableAdapter taDriver = new dsQWSLocal2024TableAdapters.TruckDriverTableAdapter();
+            taDriver.Connection.ConnectionString= QWSConfig.cnQWSLocal;
             this.taDriver.FillByID(this.dsQWSLocal2024.TruckDriver, DriverID);
             txtRego.Text = Rego;
             txtCustomer.Text = Customer;

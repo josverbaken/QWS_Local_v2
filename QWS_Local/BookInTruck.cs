@@ -165,6 +165,8 @@ namespace QWS_Local
                 btnRetare.BackColor = SystemColors.Control;
                 dsQWSLocal2024.TruckDriver.Clear();
                 dsTruckConfig.ConfiguredTrucks.Clear();
+                dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter taConfiguredTrucks = new dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
+                taConfiguredTrucks.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 int iCount = taConfiguredTrucks.FillByRego(dsTruckConfig.ConfiguredTrucks, Rego);
                 if (iCount > 0) // Configured Truck found
                 {

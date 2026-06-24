@@ -172,12 +172,16 @@ namespace QWS_Local
                 {
                     Username += ".";
                 }
+                dsAdminTableAdapters.taOperator taOperator = new dsAdminTableAdapters.taOperator();
+                taOperator.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 int iCount = this.taOperator.FillBy(this.dsAdmin.Operator, Username);
                 if (iCount == 1)
                 {
                     DataRow myRow = ((DataRowView)bsOperator.Current).Row;
                     dsAdmin.OperatorRow myOperatorRow = (dsAdmin.OperatorRow)myRow;
                     int OperatorID = myOperatorRow.OperatorID;
+                    dsAdminTableAdapters.taOperatorRolesDetailed taOperatorRolesDetailed = new dsAdminTableAdapters.taOperatorRolesDetailed();
+                    taOperatorRolesDetailed.Connection.ConnectionString=QWSConfig.cnQWSLocal;
                     taOperatorRolesDetailed.Fill(dsAdmin.OperatorRolesDetailed, OperatorID);
                 }
             }
