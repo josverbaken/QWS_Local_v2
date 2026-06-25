@@ -117,6 +117,8 @@ namespace QWS_Local
             try
             {
                 txtCOD.Visible = false;
+                dsTIQ2TableAdapters.BusinessGetByCodeTableAdapter taCustomer = new dsTIQ2TableAdapters.BusinessGetByCodeTableAdapter();
+                taCustomer.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 int iRows = taCustomer.FillByCardCode(dsTIQ2.BusinessGetByCode, CardCode);
                 if (iRows == 1)
                 {
@@ -155,7 +157,9 @@ namespace QWS_Local
             try
             {
                 string msg = "";
-                this.taSPLotNo.Fill(this.dsTIQ2.SPLotNoAssign, myRow.Material, System.Convert.ToInt32(myRow.Nett));
+                dsTIQ2TableAdapters.SPLotNoAssignTableAdapter taSPLotNo = new dsTIQ2TableAdapters.SPLotNoAssignTableAdapter();
+                taSPLotNo.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                taSPLotNo.Fill(this.dsTIQ2.SPLotNoAssign, myRow.Material, System.Convert.ToInt32(myRow.Nett));
                 dsTIQ2.SPLotNoAssignRow row = CurrentSPLotNo();
                 mySPLotNo = row.SPLotNo;
                 if (row.LotStatus == 'M'.ToString())

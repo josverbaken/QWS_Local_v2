@@ -49,13 +49,17 @@ namespace QWS_Local
 
         private void LoadAxleConfiguration(string AxleConfig)
         {
-            this.taAxleConfiguration.FillByAxleConfig(this.dsQWSLocal2024.AxleConfiguration, AxleConfig);
+            dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter taAxleConfiguration = new dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
+            taAxleConfiguration.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+            taAxleConfiguration.FillByAxleConfig(this.dsQWSLocal2024.AxleConfiguration, AxleConfig);
         }
 
 
         private void LoadByAxleConfig(string AxleConfig)
         {
-            this.taNHVR.FillByAxleConfig(this.dsQWSLocal2024.NHVR, AxleConfig);
+            dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter taAxleConfiguration = new dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
+            taAxleConfiguration.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+            taNHVR.FillByAxleConfig(this.dsQWSLocal2024.NHVR, AxleConfig);
         }
 
         private void btnSelect_Click(object sender, EventArgs e)

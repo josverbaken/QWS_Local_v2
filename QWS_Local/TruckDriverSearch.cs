@@ -14,7 +14,9 @@ namespace QWS_Local
         public TruckDriverSearch(string SAPCode)
         {
             InitializeComponent();
-            this.taTruckDriver2024.FillByCardCode(this.dsQWSLocal2024.TruckDriver, SAPCode);
+            dsQWSLocal2024TableAdapters.TruckDriverTableAdapter taTruckDriver2024 = new dsQWSLocal2024TableAdapters.TruckDriverTableAdapter();
+            taTruckDriver2024.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+            taTruckDriver2024.FillByCardCode(this.dsQWSLocal2024.TruckDriver, SAPCode);
         }
 
         private string myDriver;

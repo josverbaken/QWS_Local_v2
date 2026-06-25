@@ -30,7 +30,9 @@ namespace QWS_Local
         {
             try
             {
-                this.taPrefCustomers2.FillBy(this.dsQWSLocal2024.VehiclePrefCustomers, myRego);
+                dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter taPrefCustomer2 = new dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter();
+                taPrefCustomer2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                taPrefCustomers2.FillBy(this.dsQWSLocal2024.VehiclePrefCustomers, myRego);
             }
             catch (System.Exception ex)
             {

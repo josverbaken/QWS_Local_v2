@@ -16,8 +16,8 @@ namespace QWS_Local
         {
             dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter taAxleConfig =new dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
             taAxleConfig.Connection.ConnectionString = QWSConfig.cnQWSLocal;
-            this.taAxleConfig.Fill(this.dsQWSLocal2024.AxleConfiguration);
-            this.bsAxleConfig.Sort = "AxleConfiguration";
+            taAxleConfig.Fill(this.dsQWSLocal2024.AxleConfiguration);
+            bsAxleConfig.Sort = "AxleConfiguration";
         }
 
         private void tspUpdate_Click(object sender, EventArgs e)
@@ -25,8 +25,8 @@ namespace QWS_Local
             try
             {
                 this.Validate();
-                this.bsAxleConfig.EndEdit();
-                this.taAxleConfig.Update(this.dsQWSLocal2024.AxleConfiguration);
+                bsAxleConfig.EndEdit();
+                taAxleConfig.Update(this.dsQWSLocal2024.AxleConfiguration);
             }
             catch (Exception ex)
             {
@@ -68,12 +68,12 @@ namespace QWS_Local
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            this.bsAxleConfig.Filter = "VehicleType like 'cmb'";
+            bsAxleConfig.Filter = "VehicleType like 'cmb'";
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            this.bsAxleConfig.Filter = "";
+            bsAxleConfig.Filter = "";
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)

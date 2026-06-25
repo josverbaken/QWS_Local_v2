@@ -24,6 +24,8 @@ namespace QWS_Local
         {
             try
             {
+                dsTruckConfigTableAdapters.ConfiguredTruckGVMTableAdapter taConfiguredTruckGVM = new dsTruckConfigTableAdapters.ConfiguredTruckGVMTableAdapter();
+                taConfiguredTruckGVM.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taConfiguredTruckGVM.Fill(dsTruckConfig.ConfiguredTruckGVM, "", TruckConfigID);
                 // leave Rego as "" to get just by TruckConfigID
             }
@@ -39,8 +41,13 @@ namespace QWS_Local
             {
                 dsTruckConfig.ConfiguredTrucks.Clear();
                 dsTruckConfig.ConfiguredTruckGVM.Clear();
-                int iVehicleConfig = this.taConfiguredTrucks.FillByRego(this.dsTruckConfig.ConfiguredTrucks, Rego);
-                int iVehicle = this.taVehicle2.FillBy(dsQWSLocal2024.Vehicle, Rego);
+                dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter taConfiguredTrucks = new dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
+                taConfiguredTrucks.Connection.ConnectionString=QWSConfig.cnQWSLocal;
+                int iVehicleConfig = taConfiguredTrucks.FillByRego(dsTruckConfig.ConfiguredTrucks, Rego);
+
+                dsQWSLocal2024TableAdapters.VehicleTableAdapter taVehicle2 = new dsQWSLocal2024TableAdapters.VehicleTableAdapter();
+                taVehicle2.Connection.ConnectionString=QWSConfig.cnQWSLocal;
+                int iVehicle = taVehicle2.FillBy(dsQWSLocal2024.Vehicle, Rego);
                 if (iVehicle == 0)
                 {
                     DialogResult dr2 = MessageBox.Show("Vehicle not on record. Do you want to add it?", "Vehicle not found!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

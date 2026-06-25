@@ -84,7 +84,9 @@ namespace QWS_Local
         {
             try
             {
-                this.taImportedOverloads.Fill(dsTIQ2.ImportedOverloadsByDriver, DriverID);
+                dsTIQ2TableAdapters.ImportedOverloadsByDriverTableAdapter taImportedOverloads = new dsTIQ2TableAdapters.ImportedOverloadsByDriverTableAdapter();
+                taImportedOverloads.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                taImportedOverloads.Fill(dsTIQ2.ImportedOverloadsByDriver, DriverID);
             }
             catch (System.Exception ex)
             {
@@ -159,6 +161,8 @@ namespace QWS_Local
                 int SanctionToday = QWSConfig.SanctionToday;//Properties.Settings.Default.SanctionToday;
                 int SanctionThisWeek = QWSConfig.SanctionThisWeek;//Properties.Settings.Default.SanctionThisWeek;
                 string msgSanction = "";
+                dsTIQ2TableAdapters.ImportedOverloadsByDriverTableAdapter taImportedOverloads = new dsTIQ2TableAdapters.ImportedOverloadsByDriverTableAdapter();
+                taImportedOverloads.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taImportedOverloads.Fill(dsTIQ2.ImportedOverloadsByDriver, DriverID);
                 foreach (dsTIQ2.ImportedOverloadsByDriverRow row in dsTIQ2.ImportedOverloadsByDriver)
                 {

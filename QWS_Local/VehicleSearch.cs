@@ -53,7 +53,9 @@ namespace QWS_Local
             {
                 if (IsCardCode)
                 {
-                    int iRow = this.taVehicleDetails2.FillByCardCode(this.dsQWSLocal2024.VehicleDetails, strSearch);
+                    dsQWSLocal2024TableAdapters.VehicleDetailsTableAdapter taVehicleDetails2 = new dsQWSLocal2024TableAdapters.VehicleDetailsTableAdapter();
+                    taVehicleDetails2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                    int iRow = taVehicleDetails2.FillByCardCode(dsQWSLocal2024.VehicleDetails, strSearch);
 
                     //this.bsVehicleDetails.Filter = "IsLeadVehicle = 1";
                     // ToConsider pass in as a parameter from calling form
@@ -73,7 +75,9 @@ namespace QWS_Local
                 }
                 else
                 {
-                    this.taVehicleDetails2.FillBy(this.dsQWSLocal2024.VehicleDetails, strSearch);
+                    dsQWSLocal2024TableAdapters.VehicleDetailsTableAdapter taVehicleDetails2 = new dsQWSLocal2024TableAdapters.VehicleDetailsTableAdapter();
+                    taVehicleDetails2.Connection.ConnectionString= QWSConfig.cnQWSLocal;
+                    taVehicleDetails2.FillBy(dsQWSLocal2024.VehicleDetails, strSearch);
                 }
             }
             catch (Exception ex)

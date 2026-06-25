@@ -39,6 +39,8 @@ namespace QWS_Local
             {
                 dsPBS.Clear();
                 int myPBSVA = Convert.ToInt32(txtVehicleApproval.Text);
+                dsPBSTableAdapters.PBSTableAdapter taPBS = new dsPBSTableAdapters.PBSTableAdapter();
+                taPBS.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 int iRows = taPBS.FillByVA(dsPBS.PBS, myPBSVA);
                 if (iRows == 0)
                 {
@@ -188,7 +190,12 @@ namespace QWS_Local
                 dsPBS.PBS_ConfigScheme.Clear();
                 if (CurrentPBS() != null)
                 {
+                    dsPBSTableAdapters.PBS_ConfigTableAdapter taPBSConfig = new dsPBSTableAdapters.PBS_ConfigTableAdapter();
+                    taPBSConfig.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                     taPBSConfig.FillByPBSID(dsPBS.PBS_Config, CurrentPBS().PBS_ID);
+
+                    dsPBSTableAdapters.PBS_VehiclesTableAdapter taPBSVehicles = new dsPBSTableAdapters.PBS_VehiclesTableAdapter();
+                    taPBSVehicles.Connection.ConnectionString=QWSConfig.cnQWSLocal;
                     taPBSVehicles.FillBy(dsPBS.PBS_Vehicles, CurrentPBS().PBS_ID);
                 }
             }
@@ -305,7 +312,12 @@ namespace QWS_Local
             if (bsPBSConfig.Count > 0)
             {
                 int myPBS_ConfigID = CurrentPBSConfig().PBS_ConfigID;
+                dsPBSTableAdapters.PBS_ConfigSchemeTableAdapter taPBSConfigScheme = new dsPBSTableAdapters.PBS_ConfigSchemeTableAdapter();
+                taPBSConfigScheme.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taPBSConfigScheme.FillBy(dsPBS.PBS_ConfigScheme, myPBS_ConfigID);
+
+                dsPBSTableAdapters.PBS_ConfigMatrixTableAdapter taPBSConfigMatrix = new dsPBSTableAdapters.PBS_ConfigMatrixTableAdapter();
+                taPBSConfigMatrix.Connection.ConnectionString=QWSConfig.cnQWSLocal;
                 int iRows = taPBSConfigMatrix.FillBy(dsPBS.PBS_ConfigMatrix, myPBS_ConfigID);
                 iRows += 1;
             }
@@ -324,6 +336,8 @@ namespace QWS_Local
             try
             {
                 int myPBS_ID = CurrentPBS().PBS_ID;
+                dsPBSTableAdapters.PBS_VehiclesTableAdapter taPBSVehicles = new dsPBSTableAdapters.PBS_VehiclesTableAdapter();
+                taPBSVehicles.Connection.ConnectionString= QWSConfig.cnQWSLocal;
                 taPBSVehicles.FillBy(dsPBS.PBS_Vehicles, myPBS_ID);
             }
             catch (Exception ex)
@@ -408,6 +422,8 @@ namespace QWS_Local
             try
             {
                 int myPBS_ID = CurrentPBS().PBS_ID;
+                dsPBSTableAdapters.PBS_VehiclesTableAdapter taPBSVehicles = new dsPBSTableAdapters.PBS_VehiclesTableAdapter();
+                taPBSVehicles.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taPBSVehicles.FillBy(dsPBS.PBS_Vehicles, myPBS_ID);
             }
             catch (Exception ex)
@@ -454,6 +470,8 @@ namespace QWS_Local
 
         private void VAFindAll()
         {
+            dsPBSTableAdapters.PBS_SearchTableAdapter taPBS_Search = new dsPBSTableAdapters.PBS_SearchTableAdapter();
+            taPBS_Search.Connection.ConnectionString = QWSConfig.cnQWSLocal;
             taPBS_Search.Fill(dsPBS.PBS_Search, "%", "%", 0);
         }
 
@@ -464,6 +482,8 @@ namespace QWS_Local
 
         private void PBSFindBy(string CardCode, string Rego, int VA)
         {
+            dsPBSTableAdapters.PBS_SearchTableAdapter taPBS_Search = new dsPBSTableAdapters.PBS_SearchTableAdapter();
+            taPBS_Search.Connection.ConnectionString = QWSConfig.cnQWSLocal;
             taPBS_Search.Fill(dsPBS.PBS_Search, CardCode, Rego, VA);
         }
 

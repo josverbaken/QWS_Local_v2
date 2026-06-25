@@ -174,7 +174,7 @@ namespace QWS_Local
                 }
                 dsAdminTableAdapters.taOperator taOperator = new dsAdminTableAdapters.taOperator();
                 taOperator.Connection.ConnectionString = QWSConfig.cnQWSLocal;
-                int iCount = this.taOperator.FillBy(this.dsAdmin.Operator, Username);
+                int iCount = taOperator.FillBy(this.dsAdmin.Operator, Username);
                 if (iCount == 1)
                 {
                     DataRow myRow = ((DataRowView)bsOperator.Current).Row;

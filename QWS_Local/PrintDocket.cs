@@ -32,7 +32,9 @@ namespace QWS_Local
             try
             {
                 dsQWS.DocketList.Clear();
-                int iRows = this.taDocketList.FillBy(this.dsQWS.DocketList, DocDate, mySiteID);
+                dsQWSViewsTableAdapters.DocketListTableAdapter taDocketList = new dsQWSViewsTableAdapters.DocketListTableAdapter();
+                taDocketList.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                int iRows = taDocketList.FillBy(this.dsQWS.DocketList, DocDate, mySiteID);
                 textBox2.Text = iRows.ToString();
                 dgvDocketList.ClearSelection();
             }
@@ -52,6 +54,8 @@ namespace QWS_Local
             try
             {
                 dsDocketReport.Clear();
+                dsDocketReportTableAdapters.DeliveryDocketTableAdapter taDeliveryDocket = new dsDocketReportTableAdapters.DeliveryDocketTableAdapter();
+                taDeliveryDocket.Connection.ConnectionString=QWSConfig.cnQWSLocal;
                 int iRows = taDeliveryDocket.Fill(dsDocketReport.DeliveryDocket, DocNum);
                 textBox1.Text = iRows.ToString();
                 reportViewer1.RefreshReport();

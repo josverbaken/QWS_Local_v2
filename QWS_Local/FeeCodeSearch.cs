@@ -43,7 +43,7 @@ namespace QWS_Local
         {
             dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter taFeeCodes = new dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter();
             taFeeCodes.Connection.ConnectionString = QWSConfig.cnQWSLocal;
-            int iRows = this.taFeeCodes.Fill(this.dsQWSLocal2024.VehicleRegFeeCodes);
+            int iRows = taFeeCodes.Fill(this.dsQWSLocal2024.VehicleRegFeeCodes);
             iRows += 2;
         }
 

@@ -56,7 +56,7 @@ namespace QWS_Local
                 string myFilter = "";
                 dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter taAxleConfig = new dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
                 taAxleConfig.Connection.ConnectionString = QWSConfig.cnQWSLocal;
-                this.taAxleConfig.FillByView(this.dsQWSLocal2024.AxleConfiguration);
+                taAxleConfig.FillByView(this.dsQWSLocal2024.AxleConfiguration);
                 if (myAxleConfiguration.Length > 0)
                 {
                     myFilter = "AxleConfiguration like '" + myAxleConfiguration + "%'";
@@ -116,7 +116,7 @@ namespace QWS_Local
         {
             dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter taAxleConfig = new dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
             taAxleConfig.Connection.ConnectionString = QWSConfig.cnQWSLocal;
-            this.taAxleConfig.Fill(this.dsQWSLocal2024.AxleConfiguration);
+            taAxleConfig.Fill(this.dsQWSLocal2024.AxleConfiguration);
         }
 
         private void btnClear_Click(object sender, EventArgs e)

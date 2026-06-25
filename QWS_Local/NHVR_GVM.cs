@@ -17,14 +17,16 @@ namespace QWS_Local
 
         private void NHVR_GVM_Load(object sender, EventArgs e)
         {
-            this.taNHVR2.Fill(this.dsQWSLocal2024.NHVR);
+            dsQWSLocal2024TableAdapters.NHVRTableAdapter taNHVR2 = new dsQWSLocal2024TableAdapters.NHVRTableAdapter();
+            taNHVR2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+            taNHVR2.Fill(this.dsQWSLocal2024.NHVR);
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             this.Validate();
             this.bsNHVR2.EndEdit();
-            this.taNHVR2.Update(this.dsQWSLocal2024.NHVR);
+            taNHVR2.Update(dsQWSLocal2024.NHVR);
         }
 
         private void rbClear_CheckedChanged(object sender, EventArgs e)

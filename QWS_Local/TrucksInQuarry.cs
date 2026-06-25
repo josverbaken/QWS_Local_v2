@@ -40,8 +40,9 @@ namespace QWS_Local
             Domain = parent.DomainName;
             bool blTestMode = parent.TestMode;
             this.KeyPreview = true;
-            myConnectionString = Properties.Settings.Default.cnQWSLocal;
-            int iRows = this.taAxleConfiguration.Fill(this.dsQWSLocal2024.AxleConfiguration);
+            dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter taAxleConfiguration = new dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
+            taAxleConfiguration.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+            int iRows = taAxleConfiguration.Fill(dsQWSLocal2024.AxleConfiguration);
             iRows += 1;
             blOverRideShortLoad = false;
             if (mySiteID != 2)
@@ -81,7 +82,9 @@ namespace QWS_Local
                 else
                 {
                     int SiteID = parent.SiteID;
-                    this.taTIQ2.Fill(dsTIQ2.TIQ, SiteID);
+                    dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
+                    taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                    taTIQ2.Fill(dsTIQ2.TIQ, SiteID);
                     ClearTIQ();
                     if (SiteID == 2)
                     {
@@ -718,6 +721,8 @@ namespace QWS_Local
                     myOrderBaseEntry = GetOrderDocEntry(myTIQRow.SAPOrder);
                     if (myOrderBaseEntry > 0) // i.e. SAP Order
                     {
+                        dsBookInTableAdapters.QuarryOrderLinesTableAdapter taQuarryOrderLines = new dsBookInTableAdapters.QuarryOrderLinesTableAdapter();
+                        taQuarryOrderLines.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                         iRows = taQuarryOrderLines.FillByDocEntry(dsBookIn.QuarryOrderLines, myOrderBaseEntry);
                         for (int i = 0; i < iRows; i++) // Order LineNum is also zero based
                         {
@@ -1033,6 +1038,8 @@ namespace QWS_Local
                 int myORDRDocNum = myTIQRow.SAPOrder;
                 if (myORDRDocNum > 0)
                 {
+                    dsBookInTableAdapters.QuarryOrdersTableAdapter taQuarryOrders = new dsBookInTableAdapters.QuarryOrdersTableAdapter();
+                    taQuarryOrders.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                     int iRows = taQuarryOrders.FillBy(dsBookIn.QuarryOrders, myTIQRow.SAPOrder);
                     if (iRows > 0)
                     {
@@ -1454,7 +1461,9 @@ namespace QWS_Local
             try
             {
                 int UTCOffset = 10;
-                this.taVehiclesOnSite.FillBy(dsVerkada.VehiclesOnSite, DateTime.Now, UTCOffset);
+                dsVerkadaTableAdapters.taVehiclesOnSite taVehiclesOnSite = new dsVerkadaTableAdapters.taVehiclesOnSite();
+                taVehiclesOnSite.Connection.ConnectionString = QWSConfig.cnVerkada;
+                taVehiclesOnSite.FillBy(dsVerkada.VehiclesOnSite, DateTime.Now, UTCOffset);
                 bsVehiclesOnSite.Filter = "VehicleType like 'Quarry' and VisitStatus like 'On Site'";
                 dgvVehiclesOnSite.ClearSelection();
                 string msg = "LPR Count = ";

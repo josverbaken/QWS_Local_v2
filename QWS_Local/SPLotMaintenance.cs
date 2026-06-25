@@ -55,11 +55,15 @@ namespace QWS_Local
                 {
                     int SPLotNo;
                     SPLotNo = System.Convert.ToInt32(txtSPLotNo.Text);
-                    this.taSPLotNoAudit.Fill(this.dsTIQ2.SPLotNoAudit, txtItem2Report.Text, SPLotNo);
+                    dsTIQ2TableAdapters.SPLotNoAuditTableAdapter taSPLotNoAudit = new dsTIQ2TableAdapters.SPLotNoAuditTableAdapter();
+                    taSPLotNoAudit.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                    taSPLotNoAudit.Fill(this.dsTIQ2.SPLotNoAudit, txtItem2Report.Text, SPLotNo);
                 }
                 else
                 {
-                    this.taSPLotNoAudit.FillByItemCode(this.dsTIQ2.SPLotNoAudit, txtItem2Report.Text);
+                    dsTIQ2TableAdapters.SPLotNoAuditTableAdapter taSPLotNoAudit = new dsTIQ2TableAdapters.SPLotNoAuditTableAdapter();
+                    taSPLotNoAudit.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                    taSPLotNoAudit.FillByItemCode(this.dsTIQ2.SPLotNoAudit, txtItem2Report.Text);
                 }
                 reportViewer1.RefreshReport();
             }
@@ -147,11 +151,15 @@ namespace QWS_Local
         {
             if (txtManualItemCode.Text.Length > 0)
             {
-                this.taStockpileManualAllocation.FillByItemCode(this.dsTIQ2.StockpileManualAllocation, txtManualItemCode.Text);
+                dsTIQ2TableAdapters.StockpileManualAllocationTableAdapter taStockpileManualAllocation = new dsTIQ2TableAdapters.StockpileManualAllocationTableAdapter();
+                taStockpileManualAllocation.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                taStockpileManualAllocation.FillByItemCode(this.dsTIQ2.StockpileManualAllocation, txtManualItemCode.Text);
             }
             else
             {
-                this.taStockpileManualAllocation.Fill(this.dsTIQ2.StockpileManualAllocation);
+                dsTIQ2TableAdapters.StockpileManualAllocationTableAdapter taStockpileManualAllocation = new dsTIQ2TableAdapters.StockpileManualAllocationTableAdapter();
+                taStockpileManualAllocation.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                taStockpileManualAllocation.Fill(this.dsTIQ2.StockpileManualAllocation);
             }
         }
 
@@ -165,8 +173,9 @@ namespace QWS_Local
         {
             try
             {
+                dsTIQ2TableAdapters.StockpileBOMTableAdapter taStockpileBOM = new dsTIQ2TableAdapters.StockpileBOMTableAdapter();
+                taStockpileBOM.Connection.ConnectionString=QWSConfig.cnQWSLocal;
                 taStockpileBOM.FillByItemCode(dsTIQ2.StockpileBOM, txtItemCode.Text);
-
             }
             catch (Exception ex)
             {
@@ -199,6 +208,8 @@ namespace QWS_Local
         {
             try
             {
+                dsTIQ2TableAdapters.StockpileLotAllocationTableAdapter taStockpileLotAllocation = new dsTIQ2TableAdapters.StockpileLotAllocationTableAdapter();
+                taStockpileLotAllocation.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taStockpileLotAllocation.FillByItemCode(dsTIQ2.StockpileLotAllocation, BaseItemCode);
             }
             catch (Exception ex)
@@ -239,6 +250,8 @@ namespace QWS_Local
         {
             try
             {
+                dsTIQ2TableAdapters.StockpileLotAllocationTableAdapter taStockpileLotAllocation = new dsTIQ2TableAdapters.StockpileLotAllocationTableAdapter();
+                taStockpileLotAllocation.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 int iRows = taStockpileLotAllocation.Fill(dsTIQ2.StockpileLotAllocation);
                 if (iRows == 0)
                 {
@@ -253,6 +266,8 @@ namespace QWS_Local
 
         private void btnBaseItemMapping_Click(object sender, EventArgs e)
         {
+            dsTIQ2TableAdapters.SPLotItemsMapTableAdapter taSPLotItemsMap = new dsTIQ2TableAdapters.SPLotItemsMapTableAdapter();
+            taSPLotItemsMap.Connection.ConnectionString=QWSConfig.cnQWSLocal;
             taSPLotItemsMap.Fill(dsTIQ2.SPLotItemsMap);
         }
 
@@ -336,9 +351,13 @@ namespace QWS_Local
 
         private void CheckDocNumAllocation(int DocNum)
         {
+            dsTIQ2TableAdapters.SPLotCheckDocketTableAdapter taSPLotCheckDocket = new dsTIQ2TableAdapters.SPLotCheckDocketTableAdapter();
+            taSPLotCheckDocket.Connection.ConnectionString = QWSConfig.cnQWSLocal;
             int iRows = taSPLotCheckDocket.Fill(dsTIQ2.SPLotCheckDocket, DocNum);
             if (iRows == 1)
             {
+                dsTIQ2TableAdapters.StockpileManualAllocationTableAdapter taStockpileManualAllocation = new dsTIQ2TableAdapters.StockpileManualAllocationTableAdapter();
+                taStockpileManualAllocation.Connection.ConnectionString=QWSConfig.cnQWSLocal;
                 int jRows = taStockpileManualAllocation.FillByItemDocNum(dsTIQ2.StockpileManualAllocation, DocNum);
                 if (jRows == 0)
                 {
@@ -406,7 +425,9 @@ namespace QWS_Local
         {
             try
             {
-                this.taSPLotStatus.Fill(this.dsTIQ2.SPLotNoStatus);
+                dsTIQ2TableAdapters.SPLotNoStatusTableAdapter taSPLotStatus = new dsTIQ2TableAdapters.SPLotNoStatusTableAdapter();
+                taSPLotStatus.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                taSPLotStatus.Fill(this.dsTIQ2.SPLotNoStatus);
                 reportViewer2.RefreshReport();
             }
             catch (Exception ex)

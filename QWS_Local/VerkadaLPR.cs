@@ -35,8 +35,9 @@ namespace QWS_Local
                 {
                     EntryDTTM = dateTimePicker1.Value;
                 }
+                dsVerkadaTableAdapters.taVehiclesOnSite taVehiclesOnSite = new dsVerkadaTableAdapters.taVehiclesOnSite();
+                taVehiclesOnSite.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taVehiclesOnSite.FillBy(dsVerkada.VehiclesOnSite, EntryDTTM, iOffset);
-
             }
             catch (Exception ex)
             {
@@ -116,6 +117,8 @@ namespace QWS_Local
                 // Find Exact 20260518 ? why, not at dataset designer level
                 string strRego = txtVehicleRego.Text;
                 //strRego += "%";
+                dsVerkadaTableAdapters.taVehiclesLPR taVehiclesLPR = new dsVerkadaTableAdapters.taVehiclesLPR();
+                taVehiclesLPR.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 int iCount = taVehiclesLPR.FillBy(dsVerkada.Vehicles, strRego);
                 iCount += 1;
             }
@@ -127,6 +130,8 @@ namespace QWS_Local
 
         private void btnRefreshVehicle_Click(object sender, EventArgs e)
         {
+            dsVerkadaTableAdapters.taVehiclesLPR taVehiclesLPR = new dsVerkadaTableAdapters.taVehiclesLPR();
+            taVehiclesLPR.Connection.ConnectionString = QWSConfig.cnQWSLocal;
             taVehiclesLPR.Fill(dsVerkada.Vehicles);
         }
 
@@ -170,6 +175,8 @@ namespace QWS_Local
                 string strLP = "%";
                 strLP += txtLicensePlate.Text;
                 strLP += "%";
+                dsVerkadaTableAdapters.LicensePlatesTableAdapter taLicensePlates = new dsVerkadaTableAdapters.LicensePlatesTableAdapter();
+                taLicensePlates.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taLicensePlates.FillBy(dsVerkada.LicensePlates, strLP);
             }
             catch (Exception ex)
@@ -204,6 +211,8 @@ namespace QWS_Local
         {
             try
             {
+                dsVerkadaTableAdapters.LicensePlatesTableAdapter taLicensePlates = new dsVerkadaTableAdapters.LicensePlatesTableAdapter();
+                taLicensePlates.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taLicensePlates.Fill(dsVerkada.LicensePlates);
             }
             catch (Exception ex)
@@ -224,6 +233,8 @@ namespace QWS_Local
                 string strLPR2Find = "%";
                 strLPR2Find += txtDiscards.Text;
                 strLPR2Find += "%";
+                dsVerkadaTableAdapters.LPR2DiscardTableAdapter taLPR2Discard = new dsVerkadaTableAdapters.LPR2DiscardTableAdapter();
+                taLPR2Discard.Connection.ConnectionString=QWSConfig.cnQWSLocal;
                 talPR2Discard.FillBy(dsVerkada.LPR2Discard, strLPR2Find);
             }
             catch (Exception ex)
@@ -258,6 +269,8 @@ namespace QWS_Local
         {
             try
             {
+                dsVerkadaTableAdapters.LPR2DiscardTableAdapter taLPR2Discard = new dsVerkadaTableAdapters.LPR2DiscardTableAdapter();
+                taLPR2Discard.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 talPR2Discard.Fill(dsVerkada.LPR2Discard);
             }
             catch (Exception ex)

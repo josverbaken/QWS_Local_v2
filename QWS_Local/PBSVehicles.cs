@@ -29,7 +29,9 @@ namespace QWS_Local
             try
             {
                 int myVA = Convert.ToInt32(txtVA.Text);
-                this.taPBS.FillByVA(dsPBS.PBS, myVA);
+                dsPBSTableAdapters.PBSTableAdapter taPBS = new dsPBSTableAdapters.PBSTableAdapter();
+                taPBS.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                taPBS.FillByVA(dsPBS.PBS, myVA);
             }
             catch (Exception ex)
             {
@@ -56,7 +58,9 @@ namespace QWS_Local
             try
             {
                 int myPBS_ID = Convert.ToInt32(txtPBS_ID.Text);
-                this.taPBS_Vehicles.FillBy(this.dsPBS.PBS_Vehicles, myPBS_ID);
+                dsPBSTableAdapters.PBS_VehiclesTableAdapter taPBS_Vehicles = new dsPBSTableAdapters.PBS_VehiclesTableAdapter();
+                taPBS_Vehicles.Connection.ConnectionString=QWSConfig.cnQWSLocal;
+                taPBS_Vehicles.FillBy(this.dsPBS.PBS_Vehicles, myPBS_ID);
             }
             catch (Exception ex)
             {

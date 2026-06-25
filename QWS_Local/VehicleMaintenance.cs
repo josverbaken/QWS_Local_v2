@@ -92,7 +92,9 @@ namespace QWS_Local
                         _SAPCode = CurrentVehicle().CardCode;
                         _Owner = CurrentVehicle().Owner;
                     }
-                    int iRows = this.taVehicle.FillByRego(dsQWSLocal2024.Vehicle, strSearch);
+                    dsQWSLocal2024TableAdapters.VehicleTableAdapter taVehicle = new dsQWSLocal2024TableAdapters.VehicleTableAdapter();
+                    taVehicle.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                    int iRows = taVehicle.FillByRego(dsQWSLocal2024.Vehicle, strSearch);
                     switch (iRows)
                     {
                         case 0:
@@ -130,7 +132,9 @@ namespace QWS_Local
                 DialogResult dr1 = vehicleSearch.ShowDialog();
                 if (dr1 == DialogResult.OK)
                 {
-                    int iRows = this.taVehicle.FillBy(dsQWSLocal2024.Vehicle, vehicleSearch.Rego);
+                    dsQWSLocal2024TableAdapters.VehicleTableAdapter taVehicle = new dsQWSLocal2024TableAdapters.VehicleTableAdapter();
+                    taVehicle.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                    int iRows = taVehicle.FillBy(dsQWSLocal2024.Vehicle, vehicleSearch.Rego);
                     if (iRows == 1)
                     {
                         VehicleFound();
@@ -184,7 +188,9 @@ namespace QWS_Local
         {
             try
             {
-                int iCount = this.taFeeCodes.FillByID(this.dsQWSLocal2024.VehicleRegFeeCodes, FeeCodeID);
+                dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter taFeeCodes = new dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter();
+                taFeeCodes.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                int iCount = taFeeCodes.FillByID(dsQWSLocal2024.VehicleRegFeeCodes, FeeCodeID);
                 if (iCount != 1)
                 {
                     MessageBox.Show("Fee Code Error");
@@ -202,7 +208,9 @@ namespace QWS_Local
         {
             try
             {
-                int iCount = this.taAxleConfig.FillByAxleConfig(dsQWSLocal2024.AxleConfiguration, AxleConfig);
+                dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter taAxleConfig = new dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
+                taAxleConfig.Connection.ConnectionString= QWSConfig.cnQWSLocal;
+                int iCount = taAxleConfig.FillByAxleConfig(dsQWSLocal2024.AxleConfiguration, AxleConfig);
                 if (iCount != 1)
                 {
                     MessageBox.Show("Axle config error");
@@ -270,7 +278,9 @@ namespace QWS_Local
                 txtAxleConfig.Text = myAxleConfig;
                 CurrentVehicle().AxleConfiguration = myAxleConfig;
                 //CurrentVehicle().IsLeadVehicle = true; // 20250701 already set when chose Fee Code
-                this.taAxleConfig.FillByAxleConfig(dsQWSLocal2024.AxleConfiguration, myAxleConfig); // WHY - for the picture!
+                dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter taAxleConfig = new dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
+                taAxleConfig.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                taAxleConfig.FillByAxleConfig(dsQWSLocal2024.AxleConfiguration, myAxleConfig); // WHY - for the picture!
                 VehicleSaveBlock();
             }
         }
@@ -356,6 +366,8 @@ namespace QWS_Local
         private void SetFeeCode()
         {
             int iCount = -1;
+            dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter taFeeCodes = new dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter();
+            taFeeCodes.Connection.ConnectionString = QWSConfig.cnQWSLocal;
             iCount = taFeeCodes.FillByBoth(dsQWSLocal2024.VehicleRegFeeCodes, txtFeeCode.Text, txtJurisdiction.Text);
             if (iCount != 1)
             {
@@ -384,7 +396,9 @@ namespace QWS_Local
                 CurrentVehicle().FeeCodeID = feeCodeSearch._FeeCodeRow.FeeCodeID;
                 CurrentVehicle().IsLeadVehicle = feeCodeSearch._FeeCodeRow.IsLeadVehicle;
 
-                this.taFeeCodes.FillByBoth(this.dsQWSLocal2024.VehicleRegFeeCodes, feeCodeSearch._FeeCodeRow.FeeCode, feeCodeSearch._FeeCodeRow.Jurisdiction);
+                dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter taFeeCodes = new dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter();
+                taFeeCodes.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                taFeeCodes.FillByBoth(dsQWSLocal2024.VehicleRegFeeCodes, feeCodeSearch._FeeCodeRow.FeeCode, feeCodeSearch._FeeCodeRow.Jurisdiction);
 
                 this.dtpRegoExpiry.Focus();
             }
@@ -402,7 +416,9 @@ namespace QWS_Local
             }
             else
             {
-                int iCount = this.taVehicle.FillBy(dsQWSLocal2024.Vehicle, newRego);
+                dsQWSLocal2024TableAdapters.VehicleTableAdapter taVehicle = new dsQWSLocal2024TableAdapters.VehicleTableAdapter();
+                taVehicle.Connection.ConnectionString=QWSConfig.cnQWSLocal;
+                int iCount = taVehicle.FillBy(dsQWSLocal2024.Vehicle, newRego);
                 if (iCount == 0)
                 {
                     AddVehicle(newRego.ToUpper());
@@ -504,6 +520,8 @@ namespace QWS_Local
             dsQWSLocal2024.VehicleRow myVehicle = CurrentVehicle();
             if (myVehicle.IsLeadVehicle == true)
             {
+                dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter taPreCustomers = new dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter();
+                taPrefCustomers.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taPrefCustomers.FillBy(dsQWSLocal2024.VehiclePrefCustomers, CurrentVehicle().Rego);
                 bsPrefCustomers.Sort = "IsDefault DESC, PrefCustomer ASC";
                 //tabControl1.TabPages.Add(tpPrefCust);

@@ -88,6 +88,8 @@ namespace QWS_Local
 
         private void WeighTruck_Load(object sender, EventArgs e)
         {
+            dsTIQ2TableAdapters.WBConfig4SiteTableAdapter taWBConfig4Site = new dsTIQ2TableAdapters.WBConfig4SiteTableAdapter();
+            taWBConfig4Site.Connection.ConnectionString = QWSConfig.cnQWSLocal;
             int iWBCount = taWBConfig4Site.Fill(dsTIQ2.WBConfig4Site, mySiteID);
 
             switch (iWBCount)

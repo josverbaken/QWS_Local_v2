@@ -19,6 +19,8 @@ namespace QWS_Local
         {
             try
             {
+                dsTIQ2TableAdapters.CheckWeightLogTableAdapter taWeightLog = new dsTIQ2TableAdapters.CheckWeightLogTableAdapter();
+                taWeightLog.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taWeightLog.Fill(dsTIQ2.CheckWeightLog, myRego, dtpAudit.Value);
             }
             catch (Exception ex)

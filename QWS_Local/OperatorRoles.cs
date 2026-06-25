@@ -15,11 +15,25 @@ namespace QWS_Local
 
         private void OperatorRoles_Load(object sender, EventArgs e)
         {
-            this.taRoleFunctions.Fill(this.dsAdmin.RoleFunctions);
-            this.operatorRolesTableAdapter.Fill(this.dsAdmin.OperatorRoles);
-            this.taFunctions.Fill(this.dsAdmin.Functions);
-            this.taRole.Fill(this.dsAdmin.Role);
-            this.taOperator.Fill(this.dsAdmin.Operator);
+            dsAdminTableAdapters.taRoleFunctions taRoleFunctions = new dsAdminTableAdapters.taRoleFunctions();
+            taRoleFunctions.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+            taRoleFunctions.Fill(dsAdmin.RoleFunctions);
+
+            dsAdminTableAdapters.taOperatorRoles taOperatorRoles = new dsAdminTableAdapters.taOperatorRoles();
+            taOperatorRoles.Connection.ConnectionString=QWSConfig.cnQWSLocal;
+            operatorRolesTableAdapter.Fill(dsAdmin.OperatorRoles);
+
+            dsAdminTableAdapters.taFunctions taFunctions = new dsAdminTableAdapters.taFunctions();
+            taFunctions.Connection.ConnectionString =(QWSConfig.cnQWSLocal);
+            taFunctions.Fill(dsAdmin.Functions);
+
+            dsAdminTableAdapters.taRole taRole = new dsAdminTableAdapters.taRole();
+            taRole.Connection.ConnectionString =( QWSConfig.cnQWSLocal);
+            taRole.Fill(dsAdmin.Role);
+
+            dsAdminTableAdapters.taOperator taOperator = new dsAdminTableAdapters.taOperator();
+            taOperator.Connection.ConnectionString=( QWSConfig.cnQWSLocal);
+            taOperator.Fill(dsAdmin.Operator);
         }
 
         dsAdmin.OperatorRow CurrentOperator()
@@ -57,6 +71,8 @@ namespace QWS_Local
         {
             try
             {
+                dsAdminTableAdapters.taOperatorRolesDetailed taOperatorRolesDetailed = new dsAdminTableAdapters.taOperatorRolesDetailed();
+                taOperatorRolesDetailed.Connection.ConnectionString=QWSConfig.cnQWSLocal;
                 int iRows = taOperatorRolesDetailed.Fill(dsAdmin.OperatorRolesDetailed, OperatorID);
                 iRows += 1;
                 this.reportViewer1.RefreshReport();

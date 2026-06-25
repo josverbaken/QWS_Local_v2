@@ -14,7 +14,9 @@ namespace QWS_Local
         {
             try
             {
-                this.taFeeCodes.Fill(this.dsQWSLocal2024.VehicleRegFeeCodes);
+                dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter taFeeCodes = new dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter();
+                taFeeCodes.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                taFeeCodes.Fill(dsQWSLocal2024.VehicleRegFeeCodes);
             }
             catch (Exception ex)
             {
@@ -26,8 +28,8 @@ namespace QWS_Local
         private void toolStripButton1_Click_1(object sender, EventArgs e)
         {
             this.Validate();
-            this.bsFeeCodes.EndEdit();
-            this.taFeeCodes.Update(this.dsQWSLocal2024.VehicleRegFeeCodes);
+            bsFeeCodes.EndEdit();
+            taFeeCodes.Update(dsQWSLocal2024.VehicleRegFeeCodes);
         }
     }
 }
