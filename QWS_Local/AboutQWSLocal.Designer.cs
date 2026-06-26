@@ -47,6 +47,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnConfig = new System.Windows.Forms.Button();
             this.btnSyncConnectionString = new System.Windows.Forms.Button();
+            this.btnReadConfig = new System.Windows.Forms.Button();
             roleLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -203,7 +204,7 @@
             // 
             // btnSyncConnectionString
             // 
-            this.btnSyncConnectionString.Location = new System.Drawing.Point(582, 171);
+            this.btnSyncConnectionString.Location = new System.Drawing.Point(878, 171);
             this.btnSyncConnectionString.Name = "btnSyncConnectionString";
             this.btnSyncConnectionString.Size = new System.Drawing.Size(194, 40);
             this.btnSyncConnectionString.TabIndex = 37;
@@ -211,11 +212,22 @@
             this.btnSyncConnectionString.UseVisualStyleBackColor = true;
             this.btnSyncConnectionString.Click += new System.EventHandler(this.btnSyncConnectionString_Click);
             // 
+            // btnReadConfig
+            // 
+            this.btnReadConfig.Location = new System.Drawing.Point(582, 171);
+            this.btnReadConfig.Name = "btnReadConfig";
+            this.btnReadConfig.Size = new System.Drawing.Size(194, 40);
+            this.btnReadConfig.TabIndex = 38;
+            this.btnReadConfig.Text = "Read QWSConfig";
+            this.btnReadConfig.UseVisualStyleBackColor = true;
+            this.btnReadConfig.Click += new System.EventHandler(this.btnReadConfig_Click);
+            // 
             // AboutQWSLocal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1133, 559);
+            this.Controls.Add(this.btnReadConfig);
             this.Controls.Add(this.btnSyncConnectionString);
             this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.label4);
@@ -266,5 +278,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn wBOFunctionDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnConfig;
         private System.Windows.Forms.Button btnSyncConnectionString;
+        private System.Windows.Forms.Button btnReadConfig;
     }
 }

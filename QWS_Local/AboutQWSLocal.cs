@@ -1,5 +1,6 @@
 ﻿using QWS_Local.dsAdminTableAdapters;
 using System;
+using System.Configuration;
 using System.Data;
 using System.Deployment.Application;
 using System.Linq;
@@ -8,6 +9,9 @@ using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Reflection;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace QWS_Local
 {
@@ -15,6 +19,7 @@ namespace QWS_Local
     {
         private static string NetworkAddress = string.Empty;
         private static string NetworkSubnet = string.Empty;
+        Configuration config;
 
         public AboutQWSLocal()
         {
@@ -319,6 +324,75 @@ namespace QWS_Local
             try
             {
                 MessageBox.Show("Hello\r\nTrying to sync Connection String\r\n:-)");
+                AppSetting appSetting = new AppSetting();
+                string myConnectionString = QWSConfig.cnQWSLocal;
+                appSetting.SaveConnectionString("QWS_Local.Properties.Settings.cnQWSLocal", myConnectionString);
+                appSetting.SaveConnectionString("QWS_Local.Properties.Settings.cnVerkada", myConnectionString);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public class AppSetting
+        {
+            Configuration config;
+
+            public AppSetting()
+            {
+                // Assuming you want to change the "MyConnectionString" connection string
+                // configurationmanager connection string in c#
+                config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            }
+
+            // Get connection string from App.Config file
+            public string GetConnectionString(string key)
+            {
+                try
+                {
+                    return config.ConnectionStrings.ConnectionStrings[key].ConnectionString;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message,"GetConnectionString Error");
+                    return "Not found!";
+                }
+            }
+
+            // Save connection string to App.config file
+            public void SaveConnectionString(string key, string value)
+            {
+                // change connection string at runtime c#
+                config.ConnectionStrings.ConnectionStrings[key].ConnectionString = value;
+                config.ConnectionStrings.ConnectionStrings[key].ProviderName = "System.Data.SqlClient";
+                // Save the configuration
+                // connection string c# runtime
+                config.Save(ConfigurationSaveMode.Modified);
+            }
+        }
+
+        private void btnReadConfig_Click(object sender, EventArgs e)
+        {
+            ReadConnectionString();
+        }
+
+        private void ReadConnectionString()
+        {
+            try
+            {
+                MessageBox.Show("Current value of Connection Strings : ");
+                AppSetting appSetting = new AppSetting();
+                string myConnectionString = appSetting.GetConnectionString("QWS_Local.Properties.Settings.cnQWSLocal");
+                if (myConnectionString != null)
+                {
+                    MessageBox.Show(myConnectionString);
+                }
+                myConnectionString = appSetting.GetConnectionString("QWS_Local.Properties.Settings.cnVerkada");
+                if (myConnectionString != null)
+                {
+                    MessageBox.Show(myConnectionString);
+                }
             }
             catch (Exception ex)
             {
