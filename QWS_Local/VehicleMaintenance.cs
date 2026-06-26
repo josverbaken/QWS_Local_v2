@@ -45,7 +45,9 @@ namespace QWS_Local
                 {
                     this.Validate();
                     this.bsVehicle.EndEdit();
-                    this.taVehicle.Update(dsQWSLocal2024.Vehicle);
+                    dsQWSLocal2024TableAdapters.VehicleTableAdapter taVehicle = new dsQWSLocal2024TableAdapters.VehicleTableAdapter();
+                    taVehicle.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                    taVehicle.Update(dsQWSLocal2024.Vehicle);
                 }
             }
             catch (Exception ex)
@@ -462,6 +464,8 @@ namespace QWS_Local
                 SynchFeeCode(0); // 0 = unspecified, see database
                 // actually save to database
                 bsVehicle.EndEdit();
+                dsQWSLocal2024TableAdapters.VehicleTableAdapter taVehicle = new dsQWSLocal2024TableAdapters.VehicleTableAdapter();
+                taVehicle.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taVehicle.Update(dsQWSLocal2024.Vehicle);
                 txtRego.Focus();
             }
@@ -502,6 +506,8 @@ namespace QWS_Local
             try
             {
                 bsPrefCustomers.EndEdit();
+                dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter taPrefCustomers = new dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter();
+                taPrefCustomers.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taPrefCustomers.Update(dsQWSLocal2024.VehiclePrefCustomers);
             }
             catch (Exception ex)
@@ -561,6 +567,8 @@ namespace QWS_Local
                     {
                         myVehicleRow.Delete();
                         bsVehicle.EndEdit();
+                        dsQWSLocal2024TableAdapters.VehicleTableAdapter taVehicle = new dsQWSLocal2024TableAdapters.VehicleTableAdapter();
+                        taVehicle.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                         taVehicle.Update(dsQWSLocal2024.Vehicle);
                         dsQWSLocal2024.Clear();
                     }
@@ -636,7 +644,8 @@ namespace QWS_Local
         {
             try
             {
-                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                //SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlConnection sqlConnection = new SqlConnection(QWSConfig.cnQWSLocal);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;

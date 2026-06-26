@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QWS_Local.dsAdminTableAdapters;
+using System;
 using System.Data;
 using System.Deployment.Application;
 using System.Linq;
@@ -279,7 +280,50 @@ namespace QWS_Local
             }
         }
 
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            string strMsg = "app.config cnQWSLocal = ";
+            strMsg += Properties.Settings.Default.cnQWSLocal.ToString();
 
+            // Iterate through static class QWSConfig
 
+            // 1. Get the Type object of the static class
+            Type type = typeof(QWSConfig);
+
+            // 2. Fetch all public static properties
+            PropertyInfo[] properties = type.GetProperties(BindingFlags.Public | BindingFlags.Static);
+
+            // 3. Loop through each property
+            strMsg += "\r\nStatic Class QWSConfig : ";
+            int pCount = 0;
+            foreach (PropertyInfo property in properties)
+            {
+                pCount += 1;
+                string name = property.Name;
+
+                // Pass null to GetValue() because static properties do not belong to an instance
+                object value = property.GetValue(null);
+                strMsg += "\r\nCount = " + pCount.ToString() + ", name = " + name + " value = " + value.ToString();
+            }
+            strMsg += "\r\nEnd of listing.";
+            MessageBox.Show(strMsg);    
+        }
+
+        private void btnSyncConnectionString_Click(object sender, EventArgs e)
+        {
+            SyncConnectionString();
+        }
+
+        private void SyncConnectionString()
+        {
+            try
+            {
+                MessageBox.Show("Hello\r\nTrying to sync Connection String\r\n:-)");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

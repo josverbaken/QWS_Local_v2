@@ -45,6 +45,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnConfig = new System.Windows.Forms.Button();
+            this.btnSyncConnectionString = new System.Windows.Forms.Button();
             roleLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -142,10 +144,11 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.taFunctions = null;
-            this.tableAdapterManager.taOperatorRoles = null;
             this.tableAdapterManager.taOperator = this.taOperator;
-            this.tableAdapterManager.taRoleFunctions = null;
+            this.tableAdapterManager.taOperatorRoles = null;
+            this.tableAdapterManager.taQWSConfig = null;
             this.tableAdapterManager.taRole = null;
+            this.tableAdapterManager.taRoleFunctions = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsAdminTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // taOperatorRolesDetailed
@@ -188,11 +191,33 @@
             this.label4.TabIndex = 35;
             this.label4.Text = "label4";
             // 
+            // btnConfig
+            // 
+            this.btnConfig.Location = new System.Drawing.Point(365, 171);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Size = new System.Drawing.Size(194, 40);
+            this.btnConfig.TabIndex = 36;
+            this.btnConfig.Text = "QWSConfig";
+            this.btnConfig.UseVisualStyleBackColor = true;
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
+            // 
+            // btnSyncConnectionString
+            // 
+            this.btnSyncConnectionString.Location = new System.Drawing.Point(582, 171);
+            this.btnSyncConnectionString.Name = "btnSyncConnectionString";
+            this.btnSyncConnectionString.Size = new System.Drawing.Size(194, 40);
+            this.btnSyncConnectionString.TabIndex = 37;
+            this.btnSyncConnectionString.Text = "QWSConfig Sync";
+            this.btnSyncConnectionString.UseVisualStyleBackColor = true;
+            this.btnSyncConnectionString.Click += new System.EventHandler(this.btnSyncConnectionString_Click);
+            // 
             // AboutQWSLocal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1133, 559);
+            this.Controls.Add(this.btnSyncConnectionString);
+            this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -239,5 +264,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn roleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn wBOFunctionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnConfig;
+        private System.Windows.Forms.Button btnSyncConnectionString;
     }
 }

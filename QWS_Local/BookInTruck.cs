@@ -506,6 +506,8 @@ namespace QWS_Local
                     _TIQRow.TruckOwner = myTruckOwner;
                     _TIQRow.AgrNo = 0;
                     _TIQRow.AgrLine = 0;
+                    dsTIQ2TableAdapters.TIQTableAdapter taTIQ = new dsTIQ2TableAdapters.TIQTableAdapter();
+                    taTIQ.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                     int iRow = taTIQ.Update(dsTIQ2.TIQ);
                     iRow += 1;
                 }
@@ -606,6 +608,8 @@ namespace QWS_Local
                     break;
             }
             //bsTIQ.EndEdit();
+            dsTIQ2TableAdapters.TIQTableAdapter taTIQ = new dsTIQ2TableAdapters.TIQTableAdapter();
+            taTIQ.Connection.ConnectionString = QWSConfig.cnQWSLocal;
             int iRow = taTIQ.Update(dsTIQ2.TIQ);
             iRow += 1;
         }

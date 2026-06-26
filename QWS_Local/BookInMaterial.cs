@@ -421,6 +421,8 @@ namespace QWS_Local
                 _TIQRow.QueueStatus = "Q";
                 this.Validate();
                 bsTIQ2.EndEdit();
+                dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
+                taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 if (iRow == 1)
                 {
