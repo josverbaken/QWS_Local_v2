@@ -14,6 +14,9 @@ namespace QWS_Local
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            // 20260701 start here so that I can update app.config before calling a form with datasets
+            //Application.Run(new QWSLogin()); 
+            // OOPs application shuts down when I clode QWSLogin !@#
             Application.Run(new QWS_MDIParent());
         }
     }

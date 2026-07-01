@@ -287,11 +287,10 @@ namespace QWS_Local
 
         private void btnConfig_Click(object sender, EventArgs e)
         {
-            string strMsg = "app.config cnQWSLocal = ";
+            string strMsg = "Properties.Settings.Default.cnQWSLocal = ";
             strMsg += Properties.Settings.Default.cnQWSLocal.ToString();
 
             // Iterate through static class QWSConfig
-
             // 1. Get the Type object of the static class
             Type type = typeof(QWSConfig);
 
@@ -327,6 +326,7 @@ namespace QWS_Local
                 AppSetting appSetting = new AppSetting();
                 string myConnectionString = QWSConfig.cnQWSLocal;
                 appSetting.SaveConnectionString("QWS_Local.Properties.Settings.cnQWSLocal", myConnectionString);
+                myConnectionString = QWSConfig.cnVerkada;
                 appSetting.SaveConnectionString("QWS_Local.Properties.Settings.cnVerkada", myConnectionString);
             }
             catch (Exception ex)
@@ -369,6 +369,8 @@ namespace QWS_Local
                 // Save the configuration
                 // connection string c# runtime
                 config.Save(ConfigurationSaveMode.Modified);
+                // Force the ConfigurationManager to reload the updated section
+                ConfigurationManager.RefreshSection("connectionStrings");
             }
         }
 
@@ -381,18 +383,21 @@ namespace QWS_Local
         {
             try
             {
-                MessageBox.Show("Current value of Connection Strings : ");
+                string msg = "Current value of Connection Strings : ";
                 AppSetting appSetting = new AppSetting();
                 string myConnectionString = appSetting.GetConnectionString("QWS_Local.Properties.Settings.cnQWSLocal");
                 if (myConnectionString != null)
                 {
-                    MessageBox.Show(myConnectionString);
+                    msg += "\r\ncnQWSLocal : ";
+                    msg += myConnectionString;
                 }
                 myConnectionString = appSetting.GetConnectionString("QWS_Local.Properties.Settings.cnVerkada");
                 if (myConnectionString != null)
                 {
-                    MessageBox.Show(myConnectionString);
+                    msg += "\r\ncnVerkada : ";
+                    msg += myConnectionString;
                 }
+                MessageBox.Show(msg);
             }
             catch (Exception ex)
             {

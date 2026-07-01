@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -12,7 +13,6 @@ namespace QWS_Local
         private string myUserName = "";
         private int mySiteID = 99;
         private bool myTestMode = false;
-        //private string myConnectionString = "";
         private TrucksInQuarry frmTIQ;
 
         public int SiteID
@@ -53,7 +53,7 @@ namespace QWS_Local
             InitializeComponent();
         }
 
-        private void QWS_MDIParent_Load(object sender, EventArgs e)
+         private void QWS_MDIParent_Load(object sender, EventArgs e)
         {
             bool OK2Continue = true;
 
@@ -65,29 +65,28 @@ namespace QWS_Local
 
             QWSLogin frmQWSLogin = new QWSLogin();
             DialogResult dr = frmQWSLogin.ShowDialog();
-            if(dr == DialogResult.OK)
+            if (dr == DialogResult.OK)
             {
                 mySiteID = frmQWSLogin.SiteID;
                 myTestMode = frmQWSLogin.TestMode;
-                //myConnectionString = frmQWSLogin.cnQWSLocal;
                 QWSConfig.cnQWSLocal = frmQWSLogin.cnQWSLocal;
-                string cn_prior = QWSConfig.cnQWSLocal;
-                //QWSConfig.cnQWSLocal = myConnectionString;
-                string cnMsg = "Prior : " + cn_prior + "\r\nUpdated :" + QWSConfig.cnQWSLocal;
-                //MessageBox.Show(cnMsg);
-                //IterateQWSConfig();
-                ReadQWSConfig();
+                // 20260701 no point in SyncConnectionString as it is not referenced
+                //if (ReadQWSConfig())
+                //{
+                //    SyncConnectionString();
+                //    MessageBox.Show("Check app.config","Post SyncConnectionString");
+                //}
+                OK2Continue = ReadQWSConfig();
             }
             else
             {
                 msg = "Unable to continue!";
-                MessageBox.Show(msg, "Login to QWS failed.",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                MessageBox.Show(msg, "Login to QWS failed.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 this.Close();
             }
-                //menuItemHome.ShortcutKeys = Keys.Home; // fails on compile and also if try to set in properties GUI
-                //menuitemMenu.ShortcutKeys = Keys.F10; // this is controlled by Windows!@#
 
-                //myConnectionString = QWSConfig.cnQWSLocal;            
+            //menuItemHome.ShortcutKeys = Keys.Home; // fails on compile and also if try to set in properties GUI
+            //menuitemMenu.ShortcutKeys = Keys.F10; // this is controlled by Windows!@#
 
             if (mySiteID == 7 && myTestMode == false)
             {
@@ -133,15 +132,12 @@ namespace QWS_Local
             }
         }
 
-        private void ReadQWSConfig()
+        private bool ReadQWSConfig()
         {
             try
             {
-                // how to change connection string in settings, can't because it is Application
-
                 dsAdminTableAdapters.taQWSConfig taQWSConfig = new dsAdminTableAdapters.taQWSConfig();
                 taQWSConfig.Connection.ConnectionString = QWSConfig.cnQWSLocal;
-                //dsAdmin.QWSConfigDataTable myQWSConfig = new dsAdmin.QWSConfigDataTable();
                 int iCount = taQWSConfig.Fill(dsAdmin.QWSConfig);
                 string myMsg = string.Empty;
                 if (iCount > 0)
@@ -179,16 +175,17 @@ namespace QWS_Local
                             string myCast = configRow.DataType.ToString();
                             switch (configRow.DataType)
                             {
-                                case "int": property.SetValue(name, System.Convert.ToInt32(configRow.ConfigValue), null);
-                                    //int myValue = System.Convert.ToInt32(configRow.ConfigValue);
-                                    //property.SetValue(name, System.Convert.ToInt32(configRow.ConfigValue), null);
+                                case "int":
+                                    property.SetValue(name, System.Convert.ToInt32(configRow.ConfigValue), null);
                                     break;
                                 case "string":
                                     property.SetValue(name, configRow.ConfigValue, null);
                                     break;
-                                case "decimal": property.SetValue(name, System.Convert.ToDecimal(configRow.ConfigValue), null);
+                                case "decimal":
+                                    property.SetValue(name, System.Convert.ToDecimal(configRow.ConfigValue), null);
                                     break;
-                                case "bool": property.SetValue(name, System.Convert.ToBoolean(configRow.ConfigValue), null);
+                                case "bool":
+                                    property.SetValue(name, System.Convert.ToBoolean(configRow.ConfigValue), null);
                                     break;
                                 default:
                                     break;
@@ -202,11 +199,12 @@ namespace QWS_Local
                     msg += "\r\nEnd of listing.";
                     //MessageBox.Show(msg);
                 }
-
+                return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ReadQWSConfig Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
 
@@ -214,12 +212,8 @@ namespace QWS_Local
         {
             try
             {
-                //dsAdminTableAdapters.taQWSConfig taQWSConfig = new dsAdminTableAdapters.taQWSConfig();
-                //taQWSConfig.Connection.ConnectionString = QWSConfig.cnQWSLocal;
-                //dsAdmin.QWSConfigDataTable myQWSConfig = new dsAdmin.QWSConfigDataTable();
                 dsAdminTableAdapters.taOperator taOperator = new dsAdminTableAdapters.taOperator();
                 taOperator.Connection.ConnectionString = QWSConfig.cnQWSLocal;
-                //dsAdmin.OperatorDataTable myOperator = new dsAdmin.OperatorDataTable();
                 int iCount = taOperator.FillBy(dsAdmin.Operator, ComputerUsername);
                 if (iCount == 1)
                 {
@@ -304,7 +298,7 @@ namespace QWS_Local
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "GenericUserLogin");
             }
         }
 
@@ -432,8 +426,7 @@ namespace QWS_Local
         {
             AboutQWSLocal frmAbout = new AboutQWSLocal();
             frmAbout.MdiParent = this;
-            //frmAbout.WindowState = FormWindowState.Normal;
-            //frmAbout.Size = new Size(500, 350);
+            frmAbout.WindowState = FormWindowState.Maximized;
             frmAbout.Show();
         }
 
@@ -572,6 +565,8 @@ namespace QWS_Local
         {
             this.Validate();
             this.bsOperator.EndEdit();
+            dsAdminTableAdapters.taQWSConfig taQWSConfig = new dsAdminTableAdapters.taQWSConfig();
+            taQWSConfig.Connection.ConnectionString = QWSConfig.cnQWSLocal;
             this.tableAdapterManager.UpdateAll(this.dsAdmin);
 
         }
@@ -692,6 +687,46 @@ namespace QWS_Local
         {
             VerkadaLPR();
         }
-    }
 
+        private void SyncConnectionString()
+        {
+            try
+            {
+                AppSetting appSetting = new AppSetting();
+                string myConnectionString = QWSConfig.cnQWSLocal;
+                appSetting.SaveConnectionString("QWS_Local.Properties.Settings.cnQWSLocal", myConnectionString);
+                myConnectionString = QWSConfig.cnVerkada;
+                appSetting.SaveConnectionString("QWS_Local.Properties.Settings.cnVerkada", myConnectionString);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "SyncConnectionString Error");
+            }
+        }
+
+        public class AppSetting
+        {
+            Configuration config;
+
+            public AppSetting()
+            {
+                // Assuming you want to change the "MyConnectionString" connection string
+                // configurationmanager connection string in c#
+                config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            }
+
+            // Save connection string to App.config file
+            public void SaveConnectionString(string key, string value)
+            {
+                // Change connection string at runtime c#
+                config.ConnectionStrings.ConnectionStrings[key].ConnectionString = value;
+                config.ConnectionStrings.ConnectionStrings[key].ProviderName = "System.Data.SqlClient"; //TODO ? Microsoft.Data.SQLClient
+                // Save the configuration connection string c# runtime
+                config.Save(ConfigurationSaveMode.Modified);
+                // Force the ConfigurationManager to reload the updated section
+                ConfigurationManager.RefreshSection("connectionStrings");
+            }
+
+        }
+    }
 }

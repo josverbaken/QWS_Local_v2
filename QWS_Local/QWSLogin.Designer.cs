@@ -29,23 +29,24 @@
         private void InitializeComponent()
         {
             this.gbSite = new System.Windows.Forms.GroupBox();
+            this.rbClear = new System.Windows.Forms.RadioButton();
             this.rbSQ = new System.Windows.Forms.RadioButton();
             this.rbNQ = new System.Windows.Forms.RadioButton();
             this.gbEnvironment = new System.Windows.Forms.GroupBox();
             this.rbTest = new System.Windows.Forms.RadioButton();
             this.rbProd = new System.Windows.Forms.RadioButton();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.rbClear = new System.Windows.Forms.RadioButton();
             this.gbSite.SuspendLayout();
             this.gbEnvironment.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbSite
             // 
+            this.gbSite.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.gbSite.Controls.Add(this.rbClear);
             this.gbSite.Controls.Add(this.rbSQ);
             this.gbSite.Controls.Add(this.rbNQ);
-            this.gbSite.Location = new System.Drawing.Point(138, 39);
+            this.gbSite.Location = new System.Drawing.Point(51, 44);
             this.gbSite.Margin = new System.Windows.Forms.Padding(4);
             this.gbSite.Name = "gbSite";
             this.gbSite.Padding = new System.Windows.Forms.Padding(4);
@@ -53,6 +54,19 @@
             this.gbSite.TabIndex = 0;
             this.gbSite.TabStop = false;
             this.gbSite.Text = "Site";
+            // 
+            // rbClear
+            // 
+            this.rbClear.AutoSize = true;
+            this.rbClear.Location = new System.Drawing.Point(30, 109);
+            this.rbClear.Margin = new System.Windows.Forms.Padding(4);
+            this.rbClear.Name = "rbClear";
+            this.rbClear.Size = new System.Drawing.Size(61, 22);
+            this.rbClear.TabIndex = 2;
+            this.rbClear.TabStop = true;
+            this.rbClear.Text = "Clear";
+            this.rbClear.UseVisualStyleBackColor = true;
+            this.rbClear.CheckedChanged += new System.EventHandler(this.rbClear_CheckedChanged);
             // 
             // rbSQ
             // 
@@ -92,11 +106,11 @@
             // 
             this.gbEnvironment.Controls.Add(this.rbTest);
             this.gbEnvironment.Controls.Add(this.rbProd);
-            this.gbEnvironment.Location = new System.Drawing.Point(138, 205);
+            this.gbEnvironment.Location = new System.Drawing.Point(51, 210);
             this.gbEnvironment.Margin = new System.Windows.Forms.Padding(4);
             this.gbEnvironment.Name = "gbEnvironment";
             this.gbEnvironment.Padding = new System.Windows.Forms.Padding(4);
-            this.gbEnvironment.Size = new System.Drawing.Size(300, 138);
+            this.gbEnvironment.Size = new System.Drawing.Size(300, 76);
             this.gbEnvironment.TabIndex = 1;
             this.gbEnvironment.TabStop = false;
             this.gbEnvironment.Text = "Environment";
@@ -104,7 +118,7 @@
             // rbTest
             // 
             this.rbTest.AutoSize = true;
-            this.rbTest.Location = new System.Drawing.Point(30, 76);
+            this.rbTest.Location = new System.Drawing.Point(175, 28);
             this.rbTest.Margin = new System.Windows.Forms.Padding(4);
             this.rbTest.Name = "rbTest";
             this.rbTest.Size = new System.Drawing.Size(55, 22);
@@ -127,33 +141,20 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(138, 353);
+            this.btnLogin.Location = new System.Drawing.Point(51, 294);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(300, 32);
+            this.btnLogin.Size = new System.Drawing.Size(300, 71);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // rbClear
-            // 
-            this.rbClear.AutoSize = true;
-            this.rbClear.Location = new System.Drawing.Point(30, 109);
-            this.rbClear.Margin = new System.Windows.Forms.Padding(4);
-            this.rbClear.Name = "rbClear";
-            this.rbClear.Size = new System.Drawing.Size(61, 22);
-            this.rbClear.TabIndex = 2;
-            this.rbClear.TabStop = true;
-            this.rbClear.Text = "Clear";
-            this.rbClear.UseVisualStyleBackColor = true;
-            this.rbClear.CheckedChanged += new System.EventHandler(this.rbClear_CheckedChanged);
-            // 
             // QWSLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 457);
+            this.ClientSize = new System.Drawing.Size(403, 427);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.gbEnvironment);
             this.Controls.Add(this.gbSite);

@@ -204,6 +204,7 @@
             // 
             // btnSyncConnectionString
             // 
+            this.btnSyncConnectionString.Enabled = false;
             this.btnSyncConnectionString.Location = new System.Drawing.Point(878, 171);
             this.btnSyncConnectionString.Name = "btnSyncConnectionString";
             this.btnSyncConnectionString.Size = new System.Drawing.Size(194, 40);

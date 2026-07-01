@@ -64,21 +64,6 @@ namespace QWS_Local
             InitializeComponent();
             CallingMessage = string.Empty; //"Book In using License Plate Capture";
             txtTruckRego.Text = Rego;
-            // Retrieve Truck // 20260604 maybe NOT, let's keep it simple for the moment
-            //FindTruckConfig(Rego, false); // Resume = true b/c split load
-            //SelectTruckConfig(TruckConfigID);
-            // Create new TIQ
-            //TIQID = NewTIQ(TIQType.EnterRego, myParentTIQID, TrailerConfig, true);
-            //_TIQRow = (dsTIQ2.TIQRow)dsTIQ2.TIQ.Rows[0]; // bind to dataset // 20250712
-            // Retrieve Driver 20251218 after creating new TIQ
-            //if (myDriverID > 0)
-            //{
-            //    GetTruckDriver(myDriverID);
-            //}
-            //UpdateOwnerGUI();
-            ////check rego and axle conditions
-            //CheckACCType();
-            //CheckConfigOK2Proceed();
         }
 
         // Resume in progress TIQ

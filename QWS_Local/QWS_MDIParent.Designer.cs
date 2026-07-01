@@ -332,7 +332,13 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.taFunctions = null;
+            this.tableAdapterManager.taOperator = null;
+            this.tableAdapterManager.taOperatorRoles = null;
             this.tableAdapterManager.taQWSConfig = null;
+            this.tableAdapterManager.taRole = null;
+            this.tableAdapterManager.taRoleFunctions = null;
             this.tableAdapterManager.UpdateOrder = QWS_Local.dsAdminTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // bsQWSConfig

@@ -96,7 +96,7 @@ namespace QWS_Local
         {
             if (rbNQ.Checked)
             {
-                rbNQ.BackColor = Color.LightBlue;
+                rbNQ.BackColor = Color.LightSkyBlue;
                 rbSQ.BackColor = SystemColors.Control;
             }
         }
