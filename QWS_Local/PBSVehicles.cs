@@ -44,7 +44,9 @@ namespace QWS_Local
             try
             {
                 bsPBS_Vehicles.EndEdit();
-                this.taPBS_Vehicles.Update(this.dsPBS.PBS_Vehicles);
+                dsPBSTableAdapters.PBS_VehiclesTableAdapter taPBSVehicles = new dsPBSTableAdapters.PBS_VehiclesTableAdapter();
+                taPBSVehicles.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                taPBS_Vehicles.Update(this.dsPBS.PBS_Vehicles);
             }
             catch (Exception ex)
             {

@@ -96,6 +96,8 @@ namespace QWS_Local
             try
             {
                 bsVehicles.EndEdit();
+                dsVerkadaTableAdapters.taVehiclesLPR taVehiclesLPR =new dsVerkadaTableAdapters.taVehiclesLPR();
+                taVehiclesLPR.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taVehiclesLPR.Update(dsVerkada);
             }
             catch (Exception ex)
@@ -194,6 +196,8 @@ namespace QWS_Local
         {
             try
             {
+                dsVerkadaTableAdapters.LicensePlatesTableAdapter taLicensePlates = new dsVerkadaTableAdapters.LicensePlatesTableAdapter();
+                taLicensePlates.Connection.ConnectionString=QWSConfig.cnQWSLocal;
                 taLicensePlates.Update(dsVerkada);
             }
             catch (Exception ex)
@@ -252,6 +256,8 @@ namespace QWS_Local
         {
             try
             {
+                dsVerkadaTableAdapters.LPR2DiscardTableAdapter taLPR2Discard = new dsVerkadaTableAdapters.LPR2DiscardTableAdapter();
+                taLPR2Discard.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 talPR2Discard.Update(dsVerkada);
             }
             catch (Exception ex)

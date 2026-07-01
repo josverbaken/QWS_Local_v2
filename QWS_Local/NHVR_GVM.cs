@@ -26,6 +26,8 @@ namespace QWS_Local
         {
             this.Validate();
             this.bsNHVR2.EndEdit();
+            dsQWSLocal2024TableAdapters.NHVRTableAdapter taNHVR2 = new dsQWSLocal2024TableAdapters.NHVRTableAdapter();
+            taNHVR2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
             taNHVR2.Update(dsQWSLocal2024.NHVR);
         }
 

@@ -29,6 +29,8 @@ namespace QWS_Local
         {
             this.Validate();
             bsFeeCodes.EndEdit();
+            dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter taFeeCodes = new dsQWSLocal2024TableAdapters.VehicleRegFeeCodesTableAdapter();
+            taFeeCodes.Connection.ConnectionString=QWSConfig.cnQWSLocal;
             taFeeCodes.Update(dsQWSLocal2024.VehicleRegFeeCodes);
         }
     }

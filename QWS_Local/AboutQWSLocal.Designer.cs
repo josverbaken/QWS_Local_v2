@@ -211,16 +211,19 @@
             this.btnSyncConnectionString.TabIndex = 37;
             this.btnSyncConnectionString.Text = "QWSConfig Sync";
             this.btnSyncConnectionString.UseVisualStyleBackColor = true;
+            this.btnSyncConnectionString.Visible = false;
             this.btnSyncConnectionString.Click += new System.EventHandler(this.btnSyncConnectionString_Click);
             // 
             // btnReadConfig
             // 
+            this.btnReadConfig.Enabled = false;
             this.btnReadConfig.Location = new System.Drawing.Point(582, 171);
             this.btnReadConfig.Name = "btnReadConfig";
             this.btnReadConfig.Size = new System.Drawing.Size(194, 40);
             this.btnReadConfig.TabIndex = 38;
             this.btnReadConfig.Text = "Read QWSConfig";
             this.btnReadConfig.UseVisualStyleBackColor = true;
+            this.btnReadConfig.Visible = false;
             this.btnReadConfig.Click += new System.EventHandler(this.btnReadConfig_Click);
             // 
             // AboutQWSLocal

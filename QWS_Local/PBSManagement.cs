@@ -146,12 +146,16 @@ namespace QWS_Local
         private void VehicleApprovalSave()
         {
             bsPBS.EndEdit();
+            dsPBSTableAdapters.PBSTableAdapter taPBS = new dsPBSTableAdapters.PBSTableAdapter();
+            taPBS.Connection.ConnectionString = QWSConfig.cnQWSLocal;
             taPBS.Update(dsPBS.PBS);
         }
 
         private void PBSConfigSave()
         {
             bsPBSConfig.EndEdit();
+            dsPBSTableAdapters.PBS_ConfigTableAdapter taPBSConfig = new dsPBSTableAdapters.PBS_ConfigTableAdapter();
+            taPBSConfig.Connection.ConnectionString= QWSConfig.cnQWSLocal;
             taPBSConfig.Update(dsPBS.PBS_Config);
         }
 
@@ -161,6 +165,8 @@ namespace QWS_Local
             try
             {
                 bsPBSConfigScheme.EndEdit();
+                dsPBSTableAdapters.PBS_ConfigSchemeTableAdapter taPBSConfigScheme = new dsPBSTableAdapters.PBS_ConfigSchemeTableAdapter();
+                taPBSConfigScheme.Connection.ConnectionString =(QWSConfig.cnQWSLocal);
                 taPBSConfigScheme.Update(dsPBS.PBS_ConfigScheme);
                 this.Close();
             }
@@ -175,6 +181,8 @@ namespace QWS_Local
             try
             {
                 bsPBSConfigScheme.EndEdit();
+                dsPBSTableAdapters.PBS_ConfigSchemeTableAdapter taPBSConfigScheme = new dsPBSTableAdapters.PBS_ConfigSchemeTableAdapter();
+                taPBSConfigScheme.Connection.ConnectionString = (QWSConfig.cnQWSLocal);
                 taPBSConfigScheme.Update(dsPBS.PBS_ConfigScheme);
             }
             catch (Exception ex)
@@ -352,6 +360,8 @@ namespace QWS_Local
             try
             {
                 bsPBSVehicles.EndEdit();
+                dsPBSTableAdapters.PBS_VehiclesTableAdapter taPBSVehicles = new dsPBSTableAdapters.PBS_VehiclesTableAdapter();
+                taPBSVehicles.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taPBSVehicles.Update(dsPBS.PBS_Vehicles);
                 RefreshPBSVehicles();
             }
@@ -366,6 +376,8 @@ namespace QWS_Local
             try
             {
                 bsPBSConfigMatrix.EndEdit();
+                dsPBSTableAdapters.PBS_ConfigMatrixTableAdapter taPBSConfigMatrix = new dsPBSTableAdapters.PBS_ConfigMatrixTableAdapter();
+                taPBSConfigMatrix.Connection.ConnectionString=QWSConfig.cnQWSLocal;
                 int iRows = taPBSConfigMatrix.Update(dsPBS.PBS_ConfigMatrix);
                 iRows += 1;
             }
@@ -519,6 +531,8 @@ namespace QWS_Local
             try
             {
                 bsPBSVehicles.EndEdit();
+                dsPBSTableAdapters.PBS_VehiclesTableAdapter taPBSVehicles = new dsPBSTableAdapters.PBS_VehiclesTableAdapter();
+                taPBSVehicles.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taPBSVehicles.Update(dsPBS.PBS_Vehicles);
                 RefreshPBSVehicles();
             }

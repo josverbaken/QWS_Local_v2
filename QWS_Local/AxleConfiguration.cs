@@ -26,6 +26,8 @@ namespace QWS_Local
             {
                 this.Validate();
                 bsAxleConfig.EndEdit();
+                dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter taAxleConfig = new dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
+                taAxleConfig.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taAxleConfig.Update(this.dsQWSLocal2024.AxleConfiguration);
             }
             catch (Exception ex)

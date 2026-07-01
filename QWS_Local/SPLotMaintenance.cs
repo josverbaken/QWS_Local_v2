@@ -83,6 +83,8 @@ namespace QWS_Local
             try
             {
                 bsStockpileLotAllocation.EndEdit();
+                dsTIQ2TableAdapters.StockpileLotAllocationTableAdapter taStockpileLotAllocation = new dsTIQ2TableAdapters.StockpileLotAllocationTableAdapter();
+                taStockpileLotAllocation.Connection.ConnectionString=QWSConfig.cnQWSLocal;
                 int iCount = taStockpileLotAllocation.Update(dsTIQ2.StockpileLotAllocation);
                 iCount += 1;
             }
@@ -133,6 +135,8 @@ namespace QWS_Local
             try
             {
                 bsStockpileManualAllocation.EndEdit();
+                dsTIQ2TableAdapters.StockpileManualAllocationTableAdapter taStockpileManualAllocation = new dsTIQ2TableAdapters.StockpileManualAllocationTableAdapter();
+                taStockpileManualAllocation.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 int iCount = taStockpileManualAllocation.Update(dsTIQ2.StockpileManualAllocation);
                 iCount += 1;
             }

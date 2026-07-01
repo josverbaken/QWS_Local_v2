@@ -211,8 +211,8 @@ namespace QWS_Local
                     CurrentTIQ().QueueStatus = myCode;
                     CurrentTIQ().TIQOpen = false;
                     bsTIQ2.EndEdit();
-                    //dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
-                    //taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                    dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
+                    taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                     taTIQ2.Update(dsTIQ2.TIQ);
                     // TODO if Code = R, Rebook call BookInTruck with ParentTIQ
                     if (myCode == "R")
@@ -294,8 +294,8 @@ namespace QWS_Local
                                     {
                                         myTIQRow.QueueStatus = "Q";
                                         bsTIQ2.EndEdit();
-                                        //dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
-                                        //taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                                        dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
+                                        taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                                         taTIQ2.Update(dsTIQ2.TIQ);
                                         RefreshQueue();
                                         //GoToWeighTruck(); // refactor - need to select same TIQID
@@ -334,8 +334,8 @@ namespace QWS_Local
                                         myTIQRow.WeighbridgeID = frmWeighTruck.WBID;
                                         myTIQRow.WBConnected = frmWeighTruck.WBConnected;
                                         bsTIQ2.EndEdit();
-                                        //dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
-                                        //taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                                        dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
+                                        taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                                         taTIQ2.Update(dsTIQ2.TIQ);
                                         myTare = frmWeighTruck.Weight;
                                     }
@@ -349,8 +349,8 @@ namespace QWS_Local
                                             myTIQRow.WeighbridgeID = frmTare.WBID;
                                             myTIQRow.WBConnected = frmTare.WBConnected;
                                             bsTIQ2.EndEdit();
-                                            //dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
-                                            //taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                                            dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
+                                            taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                                             taTIQ2.Update(dsTIQ2.TIQ);
                                             myTare = frmTare.Weight;
                                         }
@@ -409,8 +409,8 @@ namespace QWS_Local
                                         myTIQRow.WeighbridgeID = frmWeighTruck.WBID;
                                         myTIQRow.WBConnected = frmWeighTruck.WBConnected;
                                         bsTIQ2.EndEdit();
-                                        //dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
-                                        //taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                                        dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
+                                        taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                                         taTIQ2.Update(dsTIQ2.TIQ);
                                     }
                                 }
@@ -452,8 +452,8 @@ namespace QWS_Local
                                         if (ConfirmPostDocket())
                                         {
                                             bsTIQ2.EndEdit();
-                                            //dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
-                                            //taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                                            dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
+                                            taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                                             taTIQ2.Update(dsTIQ2.TIQ);
                                             PostDocket();
                                             if (RetareDue == true)
@@ -512,8 +512,8 @@ namespace QWS_Local
                                         myTIQRow.WeightDTTM = DateTime.Now;
                                         myTIQRow.ExitDTTM = DateTime.Now;
                                         bsTIQ2.EndEdit();
-                                        //dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
-                                        //taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                                        dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
+                                        taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                                         taTIQ2.Update(dsTIQ2.TIQ);
                                         if (CheckLoad())
                                         {
@@ -566,8 +566,8 @@ namespace QWS_Local
                                     myTIQRow.WBConnected = myWBConnected;
                                     myTIQRow.QueueStatus = "Q";
                                     bsTIQ2.EndEdit();
-                                    //dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
-                                    //taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                                    dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
+                                    taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                                     taTIQ2.Update(dsTIQ2.TIQ);
                                 }
                                 break;
@@ -698,8 +698,8 @@ namespace QWS_Local
                 }
                 CurrentTIQ().WBOComment = frmPostDocket.Comment;
                 bsTIQ2.EndEdit();
-                //dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
-                //taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
+                taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taTIQ2.Update(dsTIQ2.TIQ);
                 return true;
             }
@@ -782,8 +782,8 @@ namespace QWS_Local
                         string ShortLoadFee = QWSConfig.ShortLoadFee;
                         DocketLineAdd(ShortLoadFee, "Short Load Fee", GetItemQA(ShortLoadFee), GetItmsGrpCod(ShortLoadFee), "Other", 0, 0, iLineNumMax);
                     }
-                    //dsTIQ2TableAdapters.WBDocketLinesTableAdapter taWBDocketLines = new dsTIQ2TableAdapters.WBDocketLinesTableAdapter();
-                    //taWBDocketLines.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                    dsTIQ2TableAdapters.WBDocketLinesTableAdapter taWBDocketLines = new dsTIQ2TableAdapters.WBDocketLinesTableAdapter();
+                    taWBDocketLines.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                     taWBDocketLines.Update(dsTIQ2.WBDocketLines);
                     // 20250828 Not using SMTP2GO, may use a different process later.
                     //if (Properties.Settings.Default.EnableSMS == true && IsDelivery == true)
@@ -1115,8 +1115,8 @@ namespace QWS_Local
                 docketsRow.TIQID = myTIQRow.TIQID;
                 dsTIQ2.WBDockets.AddWBDocketsRow(docketsRow);
                 bsWBDockets.EndEdit();
-                //dsTIQ2TableAdapters.WBDocketsTableAdapter taWBDockets = new dsTIQ2TableAdapters.WBDocketsTableAdapter();
-                //taWBDockets.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                dsTIQ2TableAdapters.WBDocketsTableAdapter taWBDockets = new dsTIQ2TableAdapters.WBDocketsTableAdapter();
+                taWBDockets.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taWBDockets.Update(dsTIQ2.WBDockets);
             }
             catch (Exception ex)
@@ -1306,8 +1306,8 @@ namespace QWS_Local
                     if (blSave == true)
                     {
                         bsTIQ2.EndEdit();
-                        //dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
-                        //taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                        dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
+                        taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                         taTIQ2.Update(dsTIQ2.TIQ);
                         RefreshQueue();
                     }
@@ -1454,8 +1454,8 @@ namespace QWS_Local
                     CurrentTIQ().QueueStatus = "Q";
                 }
                 bsTIQ2.EndEdit();
-                //dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
-                //taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
+                taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taTIQ2.Update(dsTIQ2.TIQ);
             }
             else

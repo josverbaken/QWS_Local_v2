@@ -88,6 +88,8 @@ namespace QWS_Local
         {
             try
             {
+                dsAdminTableAdapters.taOperator taOperator = new dsAdminTableAdapters.taOperator();
+                taOperator.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taOperator.Update(dsAdmin.Operator);
             }
             catch (Exception ex)
@@ -98,10 +100,11 @@ namespace QWS_Local
 
         private void btnSaveRole_Click(object sender, EventArgs e)
         {
-            taRole.Update(dsAdmin.Role);
             try
             {
-
+                dsAdminTableAdapters.taRole taRole = new dsAdminTableAdapters.taRole();
+                taRole.Connection.ConnectionString =(QWSConfig.cnQWSLocal);
+                taRole.Update(dsAdmin.Role);
             }
             catch (Exception ex)
             {
@@ -113,6 +116,8 @@ namespace QWS_Local
         {
             try
             {
+                dsAdminTableAdapters.taFunctions taFunctions = new dsAdminTableAdapters.taFunctions();
+                taFunctions.Connection.ConnectionString =( QWSConfig.cnQWSLocal);
                 taFunctions.Update(dsAdmin.Functions);
             }
             catch (Exception ex)
@@ -125,6 +130,8 @@ namespace QWS_Local
         {
             try
             {
+                dsAdminTableAdapters.taOperatorRoles taOperators = new dsAdminTableAdapters.taOperatorRoles();
+                taOperators.Connection.ConnectionString =QWSConfig.cnQWSLocal;
                 operatorRolesTableAdapter.Update(dsAdmin.OperatorRoles);
             }
             catch (Exception ex)
@@ -137,6 +144,8 @@ namespace QWS_Local
         {
             try
             {
+                dsAdminTableAdapters.taRoleFunctions taRoleFunctions = new dsAdminTableAdapters.taRoleFunctions();
+                taRoleFunctions.Connection.ConnectionString =(QWSConfig.cnQWSLocal);
                 taRoleFunctions.Update(dsAdmin.RoleFunctions);
             }
             catch (Exception ex)
