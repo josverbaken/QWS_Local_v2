@@ -48,8 +48,9 @@ namespace QWS_Local
             System.Windows.Forms.Label materialLabel;
             System.Windows.Forms.Label schemeCodeLabel;
             System.Windows.Forms.Label label1;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.txtLPRCount = new System.Windows.Forms.TextBox();
             this.btnAllLPR = new System.Windows.Forms.Button();
             this.dgvVehiclesOnSite = new System.Windows.Forms.DataGridView();
             this.licensePlateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -128,7 +129,6 @@ namespace QWS_Local
             this.bsQuarryOrders = new System.Windows.Forms.BindingSource(this.components);
             this.taQuarryOrders = new QWS_Local.dsBookInTableAdapters.QuarryOrdersTableAdapter();
             this.taVehiclesOnSite = new QWS_Local.dsVerkadaTableAdapters.taVehiclesOnSite();
-            this.txtLPRCount = new System.Windows.Forms.TextBox();
             entryDTTMLabel = new System.Windows.Forms.Label();
             sAPOrderLabel = new System.Windows.Forms.Label();
             roadAccessLabel = new System.Windows.Forms.Label();
@@ -363,6 +363,18 @@ namespace QWS_Local
             this.splitContainer2.Size = new System.Drawing.Size(1364, 661);
             this.splitContainer2.SplitterDistance = 279;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // txtLPRCount
+            // 
+            this.txtLPRCount.BackColor = System.Drawing.SystemColors.Control;
+            this.txtLPRCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLPRCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLPRCount.Location = new System.Drawing.Point(506, 119);
+            this.txtLPRCount.Name = "txtLPRCount";
+            this.txtLPRCount.ReadOnly = true;
+            this.txtLPRCount.Size = new System.Drawing.Size(200, 14);
+            this.txtLPRCount.TabIndex = 71;
+            this.txtLPRCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnAllLPR
             // 
@@ -630,9 +642,9 @@ namespace QWS_Local
             // releaseDTTMDataGridViewTextBoxColumn
             // 
             this.releaseDTTMDataGridViewTextBoxColumn.DataPropertyName = "ReleaseDTTM";
-            dataGridViewCellStyle2.Format = "HH:mm";
-            dataGridViewCellStyle2.NullValue = null;
-            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Format = "HH:mm";
+            dataGridViewCellStyle1.NullValue = null;
+            this.releaseDTTMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.releaseDTTMDataGridViewTextBoxColumn.HeaderText = "Time";
             this.releaseDTTMDataGridViewTextBoxColumn.Name = "releaseDTTMDataGridViewTextBoxColumn";
             this.releaseDTTMDataGridViewTextBoxColumn.ReadOnly = true;
@@ -1106,18 +1118,6 @@ namespace QWS_Local
             // taVehiclesOnSite
             // 
             this.taVehiclesOnSite.ClearBeforeFill = true;
-            // 
-            // txtLPRCount
-            // 
-            this.txtLPRCount.BackColor = System.Drawing.SystemColors.Control;
-            this.txtLPRCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtLPRCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLPRCount.Location = new System.Drawing.Point(506, 119);
-            this.txtLPRCount.Name = "txtLPRCount";
-            this.txtLPRCount.ReadOnly = true;
-            this.txtLPRCount.Size = new System.Drawing.Size(200, 14);
-            this.txtLPRCount.TabIndex = 71;
-            this.txtLPRCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // TrucksInQuarry
             // 

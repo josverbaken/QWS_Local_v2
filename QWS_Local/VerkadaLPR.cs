@@ -36,7 +36,7 @@ namespace QWS_Local
                     EntryDTTM = dateTimePicker1.Value;
                 }
                 dsVerkadaTableAdapters.taVehiclesOnSite taVehiclesOnSite = new dsVerkadaTableAdapters.taVehiclesOnSite();
-                taVehiclesOnSite.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                taVehiclesOnSite.Connection.ConnectionString = QWSConfig.cnVerkada;
                 taVehiclesOnSite.FillBy(dsVerkada.VehiclesOnSite, EntryDTTM, iOffset);
             }
             catch (Exception ex)
