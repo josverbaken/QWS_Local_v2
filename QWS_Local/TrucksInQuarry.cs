@@ -140,6 +140,12 @@ namespace QWS_Local
                             }
                         }
                     }
+                    else // allow book in if LPR not working ? may need to log
+                    {
+                        BookInTruck frmBookIn = new BookInTruck();
+                        frmBookIn.MdiParent = this.MdiParent;
+                        frmBookIn.Show();
+                    }
                 }
                 else
                 {

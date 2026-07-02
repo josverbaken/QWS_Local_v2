@@ -601,6 +601,8 @@ namespace QWS_Local
 
         private bool SetExBinCustomer()
         {
+            dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter taPrefCustomers2 = new dsQWSLocal2024TableAdapters.VehiclePrefCustomersTableAdapter();
+            taPrefCustomers2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
             int iCust = taPrefCustomers2.FillBy(dsQWSLocal2024.VehiclePrefCustomers, CurrentConfigTruck().RegoTk);
             if (iCust > 0)
             {
@@ -946,6 +948,8 @@ namespace QWS_Local
             try
             {
                 dsTIQ2.Clear();
+                dsTIQ2TableAdapters.TIQTableAdapter taTIQ = new dsTIQ2TableAdapters.TIQTableAdapter();
+                taTIQ.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 int iRow = taTIQ.FillBy(dsTIQ2.TIQ, mySiteID, myTIQID); // 1 row only!
                 if (iRow == 1)
                 {
