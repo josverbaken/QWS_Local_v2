@@ -40,9 +40,16 @@ namespace QWS_Local
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            SetConfiguration();
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            if (rbClear.Checked)
+            {
+                MessageBox.Show("Please choose a Site.", "Site Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                SetConfiguration();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         private void QWSLogin_Load(object sender, EventArgs e)
@@ -51,43 +58,43 @@ namespace QWS_Local
             rbNQ.Checked = false;
             rbSQ.Checked = false;
             rbProd.Checked = true;
-            rbTest.Checked = false;
+            rbTest.Checked = false;            
         }
 
         private void SetConfiguration()
         {
-            string dataSource = "Data Source=";
-            string initialCatalog = "Initial Catalog=";
+                string dataSource = "Data Source=";
+                string initialCatalog = "Initial Catalog=";
 
-            if (rbNQ.Checked && rbProd.Checked)
-            { // NQ live:
-                dataSource += "ch-nq-dc02";
-                initialCatalog += "QWS_NQ";
-                _SiteID = 7;
-                _TestMode = false;
-            }
-            if (rbNQ.Checked && rbTest.Checked)
-            { // NQ Test:
-                dataSource += "ch-sql02";
-                initialCatalog += "QWS_NQ_Dev";
-                _SiteID = 7;
-                _TestMode = true;
-            }
-            if (rbSQ.Checked && rbProd.Checked)
-            { // SQ Live:
-                dataSource += "ch-sq-dc02";
-                initialCatalog += "QWS_SQ";
-                _SiteID = 2;
-                _TestMode = false;
-            }
-            if (rbSQ.Checked &&  rbTest.Checked)
-            { // SQ Test:
-                dataSource += "ch-sql02";
-                initialCatalog += "QWS_SQ_Dev";
-                _SiteID = 2;
-                _TestMode = true;
-            }
-            _cnQWSLocal = dataSource + ";"+ initialCatalog +";"+ "Integrated Security=True;TrustServerCertificate=True";
+                if (rbNQ.Checked && rbProd.Checked)
+                { // NQ live:
+                    dataSource += "ch-nq-dc02";
+                    initialCatalog += "QWS_NQ";
+                    _SiteID = 7;
+                    _TestMode = false;
+                }
+                if (rbNQ.Checked && rbTest.Checked)
+                { // NQ Test:
+                    dataSource += "ch-sql02";
+                    initialCatalog += "QWS_NQ_Dev";
+                    _SiteID = 7;
+                    _TestMode = true;
+                }
+                if (rbSQ.Checked && rbProd.Checked)
+                { // SQ Live:
+                    dataSource += "ch-sq-dc02";
+                    initialCatalog += "QWS_SQ";
+                    _SiteID = 2;
+                    _TestMode = false;
+                }
+                if (rbSQ.Checked && rbTest.Checked)
+                { // SQ Test:
+                    dataSource += "ch-sql02";
+                    initialCatalog += "QWS_SQ_Dev";
+                    _SiteID = 2;
+                    _TestMode = true;
+                }
+                _cnQWSLocal = dataSource + ";" + initialCatalog + ";" + "Integrated Security=True;TrustServerCertificate=True";
         }
 
         //Data Source=ch-sql02;Initial Catalog=QWS_NQ_Dev;Integrated Security=True;TrustServerCertificate=True
@@ -116,6 +123,22 @@ namespace QWS_Local
             {
                 rbNQ.BackColor = SystemColors.Control;
                 rbSQ.BackColor = SystemColors.Control;
+            }
+        }
+
+        private void rbProd_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbProd.Checked)
+            {
+                rbProd.BackColor = Color.LightYellow;
+            }
+        }
+
+        private void rbTest_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbTest.Checked)
+            {
+                rbProd.BackColor = SystemColors.Control;
             }
         }
     }

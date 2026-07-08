@@ -20,8 +20,8 @@ namespace QWS_Local
             taRoleFunctions.Fill(dsAdmin.RoleFunctions);
 
             dsAdminTableAdapters.taOperatorRoles taOperatorRoles = new dsAdminTableAdapters.taOperatorRoles();
-            taOperatorRoles.Connection.ConnectionString=QWSConfig.cnQWSLocal;
-            operatorRolesTableAdapter.Fill(dsAdmin.OperatorRoles);
+            taOperatorRoles.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+            taOperatorRoles.Fill(dsAdmin.OperatorRoles);
 
             dsAdminTableAdapters.taFunctions taFunctions = new dsAdminTableAdapters.taFunctions();
             taFunctions.Connection.ConnectionString =(QWSConfig.cnQWSLocal);
@@ -88,6 +88,7 @@ namespace QWS_Local
         {
             try
             {
+                bsOperator.EndEdit();
                 dsAdminTableAdapters.taOperator taOperator = new dsAdminTableAdapters.taOperator();
                 taOperator.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taOperator.Update(dsAdmin.Operator);
@@ -102,6 +103,7 @@ namespace QWS_Local
         {
             try
             {
+                bsRole.EndEdit();
                 dsAdminTableAdapters.taRole taRole = new dsAdminTableAdapters.taRole();
                 taRole.Connection.ConnectionString =(QWSConfig.cnQWSLocal);
                 taRole.Update(dsAdmin.Role);
@@ -116,6 +118,7 @@ namespace QWS_Local
         {
             try
             {
+                bsFunctions.EndEdit();
                 dsAdminTableAdapters.taFunctions taFunctions = new dsAdminTableAdapters.taFunctions();
                 taFunctions.Connection.ConnectionString =( QWSConfig.cnQWSLocal);
                 taFunctions.Update(dsAdmin.Functions);
@@ -130,9 +133,11 @@ namespace QWS_Local
         {
             try
             {
+                bsOperatorRoles1.EndEdit();
                 dsAdminTableAdapters.taOperatorRoles taOperators = new dsAdminTableAdapters.taOperatorRoles();
                 taOperators.Connection.ConnectionString =QWSConfig.cnQWSLocal;
-                operatorRolesTableAdapter.Update(dsAdmin.OperatorRoles);
+                int iCount = operatorRolesTableAdapter.Update(dsAdmin.OperatorRoles);
+                iCount += 1;
             }
             catch (Exception ex)
             {
@@ -144,6 +149,7 @@ namespace QWS_Local
         {
             try
             {
+                bsRoleFunctions.EndEdit();
                 dsAdminTableAdapters.taRoleFunctions taRoleFunctions = new dsAdminTableAdapters.taRoleFunctions();
                 taRoleFunctions.Connection.ConnectionString =(QWSConfig.cnQWSLocal);
                 taRoleFunctions.Update(dsAdmin.RoleFunctions);
@@ -170,6 +176,26 @@ namespace QWS_Local
                 throw;
             }
         }
+
+        private void btnRefreshOperatorRoles_Click(object sender, EventArgs e)
+        {
+            OperatorRolesLoad();
+        }
+
+        private void OperatorRolesLoad()
+        {
+            try
+            {
+                dsAdminTableAdapters.taOperatorRoles taOperatorRoles = new dsAdminTableAdapters.taOperatorRoles();
+                taOperatorRoles.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                taOperatorRoles.Fill(dsAdmin.OperatorRoles);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "OperatorRolesLoad");
+            }
+        }
+
     }
 
 }

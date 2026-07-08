@@ -71,11 +71,6 @@ namespace QWS_Local
                 myTestMode = frmQWSLogin.TestMode;
                 QWSConfig.cnQWSLocal = frmQWSLogin.cnQWSLocal;
                 // 20260701 no point in SyncConnectionString as it is not referenced
-                //if (ReadQWSConfig())
-                //{
-                //    SyncConnectionString();
-                //    MessageBox.Show("Check app.config","Post SyncConnectionString");
-                //}
                 OK2Continue = ReadQWSConfig();
             }
             else
@@ -686,22 +681,6 @@ namespace QWS_Local
         private void licensePlatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VerkadaLPR();
-        }
-
-        private void SyncConnectionString()
-        {
-            try
-            {
-                AppSetting appSetting = new AppSetting();
-                string myConnectionString = QWSConfig.cnQWSLocal;
-                appSetting.SaveConnectionString("QWS_Local.Properties.Settings.cnQWSLocal", myConnectionString);
-                myConnectionString = QWSConfig.cnVerkada;
-                appSetting.SaveConnectionString("QWS_Local.Properties.Settings.cnVerkada", myConnectionString);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "SyncConnectionString Error");
-            }
         }
 
         public class AppSetting

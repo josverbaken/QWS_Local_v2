@@ -53,6 +53,13 @@
             this.tpOperator = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.operatorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Domain = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genericDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.PIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bsOperator = new System.Windows.Forms.BindingSource(this.components);
             this.btnSaveOperator = new System.Windows.Forms.Button();
             this.tpList = new System.Windows.Forms.TabPage();
@@ -80,13 +87,7 @@
             this.taFunctions = new QWS_Local.dsAdminTableAdapters.taFunctions();
             this.operatorRolesTableAdapter = new QWS_Local.dsAdminTableAdapters.taOperatorRoles();
             this.taRoleFunctions = new QWS_Local.dsAdminTableAdapters.taRoleFunctions();
-            this.operatorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Domain = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genericDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.PIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnRefreshOperatorRoles = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bsOperatorRolesDetailed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -371,6 +372,50 @@
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView2_DefaultValuesNeeded);
             // 
+            // operatorIDDataGridViewTextBoxColumn
+            // 
+            this.operatorIDDataGridViewTextBoxColumn.DataPropertyName = "OperatorID";
+            this.operatorIDDataGridViewTextBoxColumn.HeaderText = "OperatorID";
+            this.operatorIDDataGridViewTextBoxColumn.Name = "operatorIDDataGridViewTextBoxColumn";
+            this.operatorIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Domain
+            // 
+            this.Domain.DataPropertyName = "Domain";
+            this.Domain.HeaderText = "Domain";
+            this.Domain.Name = "Domain";
+            this.Domain.Visible = false;
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "FirstName";
+            this.FirstName.Name = "FirstName";
+            // 
+            // LastName
+            // 
+            this.LastName.DataPropertyName = "LastName";
+            this.LastName.HeaderText = "LastName";
+            this.LastName.Name = "LastName";
+            // 
+            // genericDataGridViewCheckBoxColumn
+            // 
+            this.genericDataGridViewCheckBoxColumn.DataPropertyName = "Generic";
+            this.genericDataGridViewCheckBoxColumn.HeaderText = "Generic";
+            this.genericDataGridViewCheckBoxColumn.Name = "genericDataGridViewCheckBoxColumn";
+            // 
+            // PIN
+            // 
+            this.PIN.DataPropertyName = "PIN";
+            this.PIN.HeaderText = "PIN";
+            this.PIN.Name = "PIN";
+            // 
+            // activeDataGridViewCheckBoxColumn
+            // 
+            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
+            this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
+            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
+            // 
             // bsOperator
             // 
             this.bsOperator.DataMember = "Operator";
@@ -469,6 +514,7 @@
             // 
             // tpOperatorConfig
             // 
+            this.tpOperatorConfig.Controls.Add(this.btnRefreshOperatorRoles);
             this.tpOperatorConfig.Controls.Add(this.btnSaveRoleFunctions);
             this.tpOperatorConfig.Controls.Add(this.btnSaveOperatorRoles);
             this.tpOperatorConfig.Controls.Add(this.dataGridView6);
@@ -591,49 +637,16 @@
             // 
             this.taRoleFunctions.ClearBeforeFill = true;
             // 
-            // operatorIDDataGridViewTextBoxColumn
+            // btnRefreshOperatorRoles
             // 
-            this.operatorIDDataGridViewTextBoxColumn.DataPropertyName = "OperatorID";
-            this.operatorIDDataGridViewTextBoxColumn.HeaderText = "OperatorID";
-            this.operatorIDDataGridViewTextBoxColumn.Name = "operatorIDDataGridViewTextBoxColumn";
-            this.operatorIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Domain
-            // 
-            this.Domain.DataPropertyName = "Domain";
-            this.Domain.HeaderText = "Domain";
-            this.Domain.Name = "Domain";
-            this.Domain.Visible = false;
-            // 
-            // FirstName
-            // 
-            this.FirstName.DataPropertyName = "FirstName";
-            this.FirstName.HeaderText = "FirstName";
-            this.FirstName.Name = "FirstName";
-            // 
-            // LastName
-            // 
-            this.LastName.DataPropertyName = "LastName";
-            this.LastName.HeaderText = "LastName";
-            this.LastName.Name = "LastName";
-            // 
-            // genericDataGridViewCheckBoxColumn
-            // 
-            this.genericDataGridViewCheckBoxColumn.DataPropertyName = "Generic";
-            this.genericDataGridViewCheckBoxColumn.HeaderText = "Generic";
-            this.genericDataGridViewCheckBoxColumn.Name = "genericDataGridViewCheckBoxColumn";
-            // 
-            // PIN
-            // 
-            this.PIN.DataPropertyName = "PIN";
-            this.PIN.HeaderText = "PIN";
-            this.PIN.Name = "PIN";
-            // 
-            // activeDataGridViewCheckBoxColumn
-            // 
-            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
-            this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
-            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
+            this.btnRefreshOperatorRoles.Location = new System.Drawing.Point(365, 105);
+            this.btnRefreshOperatorRoles.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRefreshOperatorRoles.Name = "btnRefreshOperatorRoles";
+            this.btnRefreshOperatorRoles.Size = new System.Drawing.Size(112, 32);
+            this.btnRefreshOperatorRoles.TabIndex = 6;
+            this.btnRefreshOperatorRoles.Text = "Refresh";
+            this.btnRefreshOperatorRoles.UseVisualStyleBackColor = true;
+            this.btnRefreshOperatorRoles.Click += new System.EventHandler(this.btnRefreshOperatorRoles_Click);
             // 
             // OperatorRoles
             // 
@@ -741,5 +754,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn genericDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PIN;
         private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.Button btnRefreshOperatorRoles;
     }
 }

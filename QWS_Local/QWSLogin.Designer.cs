@@ -126,18 +126,23 @@
             this.rbTest.TabStop = true;
             this.rbTest.Text = "Test";
             this.rbTest.UseVisualStyleBackColor = true;
+            this.rbTest.CheckedChanged += new System.EventHandler(this.rbTest_CheckedChanged);
             // 
             // rbProd
             // 
+            this.rbProd.Appearance = System.Windows.Forms.Appearance.Button;
             this.rbProd.AutoSize = true;
+            this.rbProd.BackColor = System.Drawing.Color.LightSalmon;
             this.rbProd.Location = new System.Drawing.Point(30, 28);
             this.rbProd.Margin = new System.Windows.Forms.Padding(4);
+            this.rbProd.MinimumSize = new System.Drawing.Size(120, 0);
             this.rbProd.Name = "rbProd";
-            this.rbProd.Size = new System.Drawing.Size(52, 22);
+            this.rbProd.Size = new System.Drawing.Size(120, 28);
             this.rbProd.TabIndex = 0;
             this.rbProd.TabStop = true;
             this.rbProd.Text = "Live";
-            this.rbProd.UseVisualStyleBackColor = true;
+            this.rbProd.UseVisualStyleBackColor = false;
+            this.rbProd.CheckedChanged += new System.EventHandler(this.rbProd_CheckedChanged);
             // 
             // btnLogin
             // 
