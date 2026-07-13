@@ -75,11 +75,7 @@ namespace QWS_Local
             txtInfo.Text = msg;
         }
 
-        private void Search4Driver(string SAPCode) //drivers by BP code
-        {
-            this.taTruckDriver2024.FillByCardCode(this.dsQWSLocal2024.TruckDriver, SAPCode);
-        }
-
+  
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;

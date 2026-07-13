@@ -97,7 +97,7 @@ namespace QWS_Local
             {
                 bsVehicles.EndEdit();
                 dsVerkadaTableAdapters.taVehiclesLPR taVehiclesLPR =new dsVerkadaTableAdapters.taVehiclesLPR();
-                taVehiclesLPR.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                taVehiclesLPR.Connection.ConnectionString = QWSConfig.cnVerkada;
                 taVehiclesLPR.Update(dsVerkada);
             }
             catch (Exception ex)
@@ -120,7 +120,7 @@ namespace QWS_Local
                 string strRego = txtVehicleRego.Text;
                 //strRego += "%";
                 dsVerkadaTableAdapters.taVehiclesLPR taVehiclesLPR = new dsVerkadaTableAdapters.taVehiclesLPR();
-                taVehiclesLPR.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                taVehiclesLPR.Connection.ConnectionString = QWSConfig.cnVerkada;
                 int iCount = taVehiclesLPR.FillBy(dsVerkada.Vehicles, strRego);
                 iCount += 1;
             }
@@ -133,7 +133,7 @@ namespace QWS_Local
         private void btnRefreshVehicle_Click(object sender, EventArgs e)
         {
             dsVerkadaTableAdapters.taVehiclesLPR taVehiclesLPR = new dsVerkadaTableAdapters.taVehiclesLPR();
-            taVehiclesLPR.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+            taVehiclesLPR.Connection.ConnectionString = QWSConfig.cnVerkada;
             taVehiclesLPR.Fill(dsVerkada.Vehicles);
         }
 
@@ -178,7 +178,7 @@ namespace QWS_Local
                 strLP += txtLicensePlate.Text;
                 strLP += "%";
                 dsVerkadaTableAdapters.LicensePlatesTableAdapter taLicensePlates = new dsVerkadaTableAdapters.LicensePlatesTableAdapter();
-                taLicensePlates.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                taLicensePlates.Connection.ConnectionString = QWSConfig.cnVerkada;
                 taLicensePlates.FillBy(dsVerkada.LicensePlates, strLP);
             }
             catch (Exception ex)
@@ -197,7 +197,7 @@ namespace QWS_Local
             try
             {
                 dsVerkadaTableAdapters.LicensePlatesTableAdapter taLicensePlates = new dsVerkadaTableAdapters.LicensePlatesTableAdapter();
-                taLicensePlates.Connection.ConnectionString=QWSConfig.cnQWSLocal;
+                taLicensePlates.Connection.ConnectionString = QWSConfig.cnVerkada;
                 taLicensePlates.Update(dsVerkada);
             }
             catch (Exception ex)
@@ -216,7 +216,7 @@ namespace QWS_Local
             try
             {
                 dsVerkadaTableAdapters.LicensePlatesTableAdapter taLicensePlates = new dsVerkadaTableAdapters.LicensePlatesTableAdapter();
-                taLicensePlates.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                taLicensePlates.Connection.ConnectionString = QWSConfig.cnVerkada;
                 taLicensePlates.Fill(dsVerkada.LicensePlates);
             }
             catch (Exception ex)
@@ -238,7 +238,7 @@ namespace QWS_Local
                 strLPR2Find += txtDiscards.Text;
                 strLPR2Find += "%";
                 dsVerkadaTableAdapters.LPR2DiscardTableAdapter taLPR2Discard = new dsVerkadaTableAdapters.LPR2DiscardTableAdapter();
-                taLPR2Discard.Connection.ConnectionString=QWSConfig.cnQWSLocal;
+                taLPR2Discard.Connection.ConnectionString = QWSConfig.cnVerkada;
                 talPR2Discard.FillBy(dsVerkada.LPR2Discard, strLPR2Find);
             }
             catch (Exception ex)
@@ -257,7 +257,7 @@ namespace QWS_Local
             try
             {
                 dsVerkadaTableAdapters.LPR2DiscardTableAdapter taLPR2Discard = new dsVerkadaTableAdapters.LPR2DiscardTableAdapter();
-                taLPR2Discard.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                taLPR2Discard.Connection.ConnectionString = QWSConfig.cnVerkada;
                 talPR2Discard.Update(dsVerkada);
             }
             catch (Exception ex)
@@ -276,7 +276,7 @@ namespace QWS_Local
             try
             {
                 dsVerkadaTableAdapters.LPR2DiscardTableAdapter taLPR2Discard = new dsVerkadaTableAdapters.LPR2DiscardTableAdapter();
-                taLPR2Discard.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                taLPR2Discard.Connection.ConnectionString = QWSConfig.cnVerkada;
                 talPR2Discard.Fill(dsVerkada.LPR2Discard);
             }
             catch (Exception ex)

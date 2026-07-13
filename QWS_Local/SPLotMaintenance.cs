@@ -17,31 +17,7 @@ namespace QWS_Local
             tabControl1.SelectedTab = tpSPLotStatus;
             SPLotStatusRefresh();
         }
-
-        private void FindLotsByItemCode()
-        {
-            try
-            {
-                taStockpileLotAllocation.FillByItemCode(dsTIQ2.StockpileLotAllocation, CurrentItemsMap().ItemCode);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void ShowBOM4ItemCode(string ItemCode)
-        {
-            try
-            {
-                taStockpileBOM.FillByItemCode(dsTIQ2.StockpileBOM, ItemCode);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
+         
         private void btnGetReportData_Click(object sender, EventArgs e)
         {
             GetReportData(true);
