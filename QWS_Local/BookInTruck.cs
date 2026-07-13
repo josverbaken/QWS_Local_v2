@@ -358,7 +358,8 @@ namespace QWS_Local
             btnDelivery.Enabled = false;
             if (DriverID > 0) // driver pre-selected on prior iteration
             {
-                //taTruckDriver1.FillByCardCode(dsQWSLocal2024.TruckDriver, CurrentConfigTruck().CardCode);
+                dsQWSLocal2024TableAdapters.TruckDriverTableAdapter taTruckDriver1 = new dsQWSLocal2024TableAdapters.TruckDriverTableAdapter();
+                taTruckDriver1.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taTruckDriver1.FillByID(dsQWSLocal2024.TruckDriver, DriverID);
                 //int index = bsTruckDriver.Find("CntctCode", DriverID);
                 //if (index > 0)

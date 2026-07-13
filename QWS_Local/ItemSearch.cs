@@ -32,7 +32,9 @@ namespace QWS_Local
         private void ItemSearch_Load(object sender, EventArgs e)
         {
             string SiteCode = "0" + mySiteID.ToString();
-            this.taItem.ExBinnoOrder(this.dsQWSViews.Item, SiteCode);
+            dsQWSViewsTableAdapters.ItemTableAdapter taItem = new dsQWSViewsTableAdapters.ItemTableAdapter();
+            taItem.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+            taItem.ExBinnoOrder(this.dsQWSViews.Item, SiteCode);
             this.bsItem.Filter = "Active like 'Y'";
             if (blExBinNoOrder)
             {

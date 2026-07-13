@@ -501,6 +501,8 @@ namespace QWS_Local
                 }
                 this.Validate();
                 bsTIQ2.EndEdit();
+                dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
+                taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 iRow += 1;
                 tabControl2.SelectedTab = tpTruckconfig;
@@ -687,6 +689,8 @@ namespace QWS_Local
                     MessageBox.Show(msg, "Short Load Fee Warning.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 bsTIQ2.EndEdit();
+                dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
+                taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 int iRow = taTIQ2.Update(dsTIQ2.TIQ);
                 if (iRow == 1) // test if split load
                 {
@@ -890,7 +894,7 @@ namespace QWS_Local
             {                
                 dsBookInTableAdapters.QuarryOrdersTableAdapter taQuarryOrders = new dsBookInTableAdapters.QuarryOrdersTableAdapter();
                 taQuarryOrders.Connection.ConnectionString = QWSConfig.cnQWSLocal;
-                int iRow = this.taQuarryOrders.Fill(this.dsBookIn.QuarryOrders, OrderType, CardCode, CartageInt, mySiteID);
+                int iRow = taQuarryOrders.Fill(this.dsBookIn.QuarryOrders, OrderType, CardCode, CartageInt, mySiteID);
                 iRow += 1;
             }
             catch (System.Exception ex)
@@ -961,7 +965,7 @@ namespace QWS_Local
             {
                 dsBookInTableAdapters.BlanketAgreementCheckTableAdapter taBlanketAgreement = new dsBookInTableAdapters.BlanketAgreementCheckTableAdapter();
                 taBlanketAgreement.Connection.ConnectionString = QWSConfig.cnQWSLocal;
-                int iCount = this.taBlanketAgreement.Fill(this.dsBookIn.BlanketAgreementCheck, CardCode, ItemCode);
+                int iCount = taBlanketAgreement.Fill(this.dsBookIn.BlanketAgreementCheck, CardCode, ItemCode);
                 if (iCount == 1)
                 {
                     BlanketAgreementCheckRow myRow = (BlanketAgreementCheckRow)dsBookIn.BlanketAgreementCheck.Rows[0];
