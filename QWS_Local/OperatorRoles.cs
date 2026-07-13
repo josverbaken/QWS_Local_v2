@@ -136,7 +136,7 @@ namespace QWS_Local
                 bsOperatorRoles1.EndEdit();
                 dsAdminTableAdapters.taOperatorRoles taOperators = new dsAdminTableAdapters.taOperatorRoles();
                 taOperators.Connection.ConnectionString =QWSConfig.cnQWSLocal;
-                int iCount = operatorRolesTableAdapter.Update(dsAdmin.OperatorRoles);
+                int iCount = taOperators.Update(dsAdmin.OperatorRoles);
                 iCount += 1;
             }
             catch (Exception ex)
