@@ -57,8 +57,8 @@ namespace QWS_Local
 
         private void LoadByAxleConfig(string AxleConfig)
         {
-            dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter taAxleConfiguration = new dsQWSLocal2024TableAdapters.AxleConfigurationTableAdapter();
-            taAxleConfiguration.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+            dsQWSLocal2024TableAdapters.NHVRTableAdapter taNHVR = new dsQWSLocal2024TableAdapters.NHVRTableAdapter();
+            taNHVR.Connection.ConnectionString = QWSConfig.cnQWSLocal;
             taNHVR.FillByAxleConfig(this.dsQWSLocal2024.NHVR, AxleConfig);
         }
 

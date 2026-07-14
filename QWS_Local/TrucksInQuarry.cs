@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Interop;
 
 namespace QWS_Local
 {
@@ -220,10 +221,18 @@ namespace QWS_Local
                     dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
                     taTIQ2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                     taTIQ2.Update(dsTIQ2.TIQ);
-                    // TODO if Code = R, Rebook call BookInTruck with ParentTIQ
-                    if (myCode == "R")
+                    switch (myCode)
                     {
-                        MessageBox.Show("TODO call BookInTruck with ParentTIQ");
+                        case "R":
+                            BookInTruck frmBookIn = new BookInTruck(myTIQID);
+                            frmBookIn.MdiParent = this.MdiParent;
+                            frmBookIn.Show();
+                            break;
+                        case "Z":
+                            // remove silently
+                            break;
+                        default:
+                            break;
                     }
                 }
             }
@@ -1146,7 +1155,7 @@ namespace QWS_Local
                 linesRow.DocNum = docketsRow.DocNum;
                 linesRow.BaseEntry = BaseEntry;
                 linesRow.DocketLine = lineNum;
-                linesRow.WarehouseCode = mySiteID.ToString(); // "7"; //TODO make site specific
+                linesRow.WarehouseCode = mySiteID.ToString();
                 linesRow.ItemCode = ItemCode;
                 linesRow.ItemDescription = ItemDescription;
                 linesRow.ItemQA = ItemQA;
@@ -1282,6 +1291,10 @@ namespace QWS_Local
                             {
                                 // TODO possibly pass TIQID
                                 MessageBox.Show("Set up truck first then start again.\n\rDelete current entry.", "Parkup New Truck Trial", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                BookInTruck frmBookIn = new BookInTruck(CurrentTIQ().Rego);
+                                frmBookIn.MdiParent = this.MdiParent;
+                                frmBookIn.Show();
+                                break;
                             }
                             else
                             {

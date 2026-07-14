@@ -18,6 +18,7 @@ namespace QWS_Local
         private string myUserName;
         private static string myWBO = "Barney.Rubble";
         private static int mySiteID;
+        private static int myParentTIQID = 0;
         private static dsTIQ2.TIQRow _TIQRow;
         //private static bool TruckConfigSet = false;
 
@@ -59,6 +60,12 @@ namespace QWS_Local
             CallingMessage = "";
         }
 
+        public BookInTruck(int TIQID) // link to TIQ that was removed
+        {
+            InitializeComponent();
+            CallingMessage = "Enter correct details after cancelling prior entry.";
+            myParentTIQID = TIQID;
+        }
         public BookInTruck(string Rego)
         {
             InitializeComponent();
@@ -125,19 +132,7 @@ namespace QWS_Local
 
         private void btnFindTruck_Click(object sender, EventArgs e)
         {
-            //if (TruckConfigSet == false)
-            //{
             FindTruckConfig(txtTruckRego.Text.Trim(), false);
-            //}
-            //else
-            //{
-            //    DialogResult drTruckConfig = MessageBox.Show("Do you wish to change selected truck?", "Truck Config Change", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //    if (drTruckConfig == DialogResult.Yes)
-            //    {
-            //        TruckConfigSet = false;
-            //        FindTruckConfig(txtTruckRego.Text.Trim(), false);
-            //    }
-            //}
         }
 
         private void FindTruckConfig(string Rego, bool Resume)
@@ -180,7 +175,7 @@ namespace QWS_Local
                         if (Resume == false)
                         {
                             UpdateOwnerGUI();
-                            TIQID = NewTIQ(TIQType.EnterRego, 0, "tba", false);
+                            TIQID = NewTIQ(TIQType.EnterRego, myParentTIQID, "tba", false);
                             dgvConfiguredTrucks.ClearSelection();
                             DGVLoaded = true;
                         }
@@ -292,7 +287,7 @@ namespace QWS_Local
             if (CallingMessage.Length > 0)
             {
                 MessageBox.Show(CallingMessage, "Follow on book in.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            }    
         }
 
         private void btnGetDriver_Click(object sender, EventArgs e)
