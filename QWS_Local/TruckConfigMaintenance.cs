@@ -181,7 +181,7 @@ namespace QWS_Local
             try
             {
                 int iTruckConfigID = 0;
-                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlConnection sqlConnection = new SqlConnection(QWSConfig.cnQWSLocal);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -208,7 +208,7 @@ namespace QWS_Local
         {
             try
             {
-                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlConnection sqlConnection = new SqlConnection(QWSConfig.cnQWSLocal);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -231,7 +231,7 @@ namespace QWS_Local
         {
             try
             {
-                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlConnection sqlConnection = new SqlConnection(QWSConfig.cnQWSLocal);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -469,7 +469,7 @@ namespace QWS_Local
         {
             try
             {
-                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlConnection sqlConnection = new SqlConnection(QWSConfig.cnQWSLocal);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -489,7 +489,7 @@ namespace QWS_Local
         {
             try
             {
-                SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                SqlConnection sqlConnection = new SqlConnection(QWSConfig.cnQWSLocal);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;

@@ -405,7 +405,7 @@ namespace QWS_Local
                 }
                 else
                 {
-                    SqlConnection sqlConnection = new SqlConnection(Properties.Settings.Default.cnQWSLocal);
+                    SqlConnection sqlConnection = new SqlConnection(QWSConfig.cnQWSLocal);
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = sqlConnection;
                     cmd.CommandType = CommandType.StoredProcedure;
