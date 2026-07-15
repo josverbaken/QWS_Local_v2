@@ -55,7 +55,7 @@ namespace QWS_Local
         {
             dsQWSLocal2024TableAdapters.PersonTableAdapter taPerson = new dsQWSLocal2024TableAdapters.PersonTableAdapter();
             taPerson.Connection.ConnectionString = QWSConfig.cnQWSLocal;
-            int iRows = this.taPerson.FillByCardCode(this.dsQWSLocal2024.Person, CardCode);
+            int iRows = taPerson.FillByCardCode(dsQWSLocal2024.Person, CardCode);
             if (iRows == 0)
             {
                 MessageBox.Show("No contact persons on files for selected customer!");
@@ -67,7 +67,7 @@ namespace QWS_Local
             }
             dsQWSLocal2024TableAdapters.TruckDriverTableAdapter taDriver = new dsQWSLocal2024TableAdapters.TruckDriverTableAdapter();
             taDriver.Connection.ConnectionString= QWSConfig.cnQWSLocal;
-            this.taDriver.FillByID(this.dsQWSLocal2024.TruckDriver, DriverID);
+            taDriver.FillByID(dsQWSLocal2024.TruckDriver, DriverID);
             txtRego.Text = Rego;
             txtCustomer.Text = Customer;
             txtCardCode.Text = CardCode;

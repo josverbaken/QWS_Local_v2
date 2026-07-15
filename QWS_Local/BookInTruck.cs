@@ -78,6 +78,7 @@ namespace QWS_Local
         {
             InitializeComponent();
 
+            TIQID = TIQRow.TIQID; // 20260715 to handle parked up truck
             dgvConfiguredTrucks.DefaultCellStyle.SelectionBackColor = Color.LightSalmon; //.LightBlue;
             dgvConfiguredTrucks.DefaultCellStyle.SelectionForeColor = Color.Black;
 

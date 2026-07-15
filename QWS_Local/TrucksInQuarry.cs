@@ -1290,8 +1290,11 @@ namespace QWS_Local
                             if (CurrentTIQ().TruckConfigID == 0)
                             {
                                 // TODO possibly pass TIQID
-                                MessageBox.Show("Set up truck first then start again.\n\rDelete current entry.", "Parkup New Truck Trial", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                BookInTruck frmBookIn = new BookInTruck(CurrentTIQ().Rego);
+                                //MessageBox.Show("Set up truck first then start again.\n\rDelete current entry.", "Parkup New Truck Trial", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                //BookInTruck frmBookIn = new BookInTruck(CurrentTIQ().Rego);
+                                //BookInTruck frmBookIn = new BookInTruck(CurrentTIQ().TIQID);
+                                dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
+                                BookInTruck frmBookIn = new BookInTruck(myTIQRow, true);
                                 frmBookIn.MdiParent = this.MdiParent;
                                 frmBookIn.Show();
                                 break;
