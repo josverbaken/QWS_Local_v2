@@ -78,14 +78,6 @@ namespace QWS_Local
             }
         }
 
-        private void vehicleRegFeeCodesBindingSource1BindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.bsFeeCodes.EndEdit();
-            this.tamQWSLocal2024.UpdateAll(dsQWSLocal2024);
-            // TODO check connection
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;

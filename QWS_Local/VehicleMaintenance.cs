@@ -241,7 +241,8 @@ namespace QWS_Local
 
         private void CheckExpiryDT()
         {
-            if (CurrentVehicle().RegistrationExpiryDT < DateTime.Now)
+            DateTime expiryDT = CurrentVehicle().RegistrationExpiryDT.Date;
+            if (expiryDT < DateTime.Today) // 20260715
             {
                 lblExpiryDT.BackColor = Color.Salmon;
             }

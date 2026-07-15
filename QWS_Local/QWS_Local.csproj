@@ -327,6 +327,9 @@
     <Compile Include="DeliveryOrders.Designer.cs">
       <DependentUpon>DeliveryOrders.cs</DependentUpon>
     </Compile>
+    <Compile Include="dsAdmin.cs">
+      <DependentUpon>dsAdmin.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsAdmin.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
