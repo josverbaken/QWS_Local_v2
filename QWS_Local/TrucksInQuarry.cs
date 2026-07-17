@@ -1059,7 +1059,6 @@ namespace QWS_Local
         {
             try
             {
-
                 dsTIQ2.WBDockets.Clear();
                 dsTIQ2.WBDocketLines.Clear();
                 dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
@@ -1350,30 +1349,6 @@ namespace QWS_Local
                 return true;
             }
             return false;
-        }
-
-        private bool CheckOverRideMinCart(string Rego)
-        {
-            try
-            {
-                bool blOverRide;
-                SqlConnection sqlConnection = new SqlConnection(myConnectionString);
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = sqlConnection;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "CheckOverRideMinCart";
-                cmd.Parameters.AddWithValue("@Rego", Rego);
-                sqlConnection.Open();
-                blOverRide = System.Convert.ToBoolean(cmd.ExecuteScalar());
-                sqlConnection.Close();
-                return blOverRide;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return false;
-            }
         }
 
         private void ContinueInProgress()
