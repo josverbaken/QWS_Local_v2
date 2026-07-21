@@ -51,13 +51,14 @@ namespace QWS_Local
                 dsQWSLocal2024.TruckDriver.ImportRow(driverRow);
                 _DriverRow = driverRow;
                 TruckConfigID = TIQRow.TruckConfigID;
+                // TODO maybe test if ConfiguredTruckGVM is available
                 CardCode = TIQRow.CustomerCode;
                 CustomerName = TIQRow.Customer;
                 ACStatus = GetAccountStatus(CardCode);
                 mySiteID = TIQRow.SiteID;
                 IsPrefCust = myIsPrefCust;
-                int ImportedGrpCode = QWSConfig.ImportedGrpCode;//Properties.Settings.Default.ImportedGrpCode;
-                int ImportedPickUpGrpCode = QWSConfig.ImportedPickUpGrpCode; //Properties.Settings.Default.ImportedPickUpGrpCode;
+                int ImportedGrpCode = QWSConfig.ImportedGrpCode;
+                int ImportedPickUpGrpCode = QWSConfig.ImportedPickUpGrpCode;
                 string ImportGrpCod = ImportedGrpCode.ToString();
                 string ImportPUGrpCod = ImportedPickUpGrpCode.ToString();
                 switch (myTIQType)
@@ -114,59 +115,76 @@ namespace QWS_Local
 
         private void BookInMaterial_Load(object sender, EventArgs e)
         {
+            try
+            {
             gbCartageRate.Visible = false;
             btnBookIn.Enabled = false;
-            LoadConfiguredTruckGVM(TruckConfigID);
-            switch (FormTIQType)
+            bool TruckConfigLoaded = LoadConfiguredTruckGVM(TruckConfigID);
+            if (TruckConfigLoaded == false)
             {
-                case TIQType.ExBin:
-                    {
-                        SetExBinNoOrderCustomer();
-                        QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
-                    }
-                    break;
-                case TIQType.Imported:
-                    QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
-                    break;
-                case TIQType.ImportedPickUp:
-                    {
-                        CardCode = "AnyCustomer";
-                    }
-                    QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
-                    break;
-                case TIQType.Delivery:
-                    {
-                        switch (_TIQRow.TruckConfig)
-                        {
-                            case "TKs":
-                            case "TRs":
-                                gbCartageRate.Visible = true;
-                                break;
-                            default:
-                                gbCartageRate.Visible = false;
-                                QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
-                                break;
-                        }
-                    }
-                    break;
-                default:
-                    break;
-            }
-            FormLoaded = true;
-            dgvQuarryOrders.ClearSelection();
-            if (FormTIQType != TIQType.ExBin)
-            {
-                //tpExBinNoOrder.Hide(); // known not to work, must remove
-                tabControl2.TabPages.Remove(tpExBinNoOrder);
-            }
-            if (CurrentTruckGVM().MaxGVM > 0.0M)
-            {
-                this.txtMaxGVM.BackColor = Color.PaleGreen;
+                //MessageBox.Show("Unable to load truck config","Truck Config Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //this.Close(); can't do whilst creating
+                throw new Exception("Unable to load truck config");
             }
             else
             {
-                this.txtMaxGVM.BackColor = SystemColors.Control;
+                switch (FormTIQType)
+                {
+                    case TIQType.ExBin:
+                        {
+                            SetExBinNoOrderCustomer();
+                            QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
+                        }
+                        break;
+                    case TIQType.Imported:
+                        QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
+                        break;
+                    case TIQType.ImportedPickUp:
+                        {
+                            CardCode = "AnyCustomer";
+                        }
+                        QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
+                        break;
+                    case TIQType.Delivery:
+                        {
+                            switch (_TIQRow.TruckConfig)
+                            {
+                                case "TKs":
+                                case "TRs":
+                                    gbCartageRate.Visible = true;
+                                    break;
+                                default:
+                                    gbCartageRate.Visible = false;
+                                    QuarryOrdersLoad(FormTIQType.ToString(), CardCode, GetCartageInt());
+                                    break;
+                            }
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                FormLoaded = true;
+                dgvQuarryOrders.ClearSelection();
+                if (FormTIQType != TIQType.ExBin)
+                {
+                    //tpExBinNoOrder.Hide(); // known not to work, must remove
+                    tabControl2.TabPages.Remove(tpExBinNoOrder);
+                }
+                if (CurrentTruckGVM().MaxGVM > 0.0M)
+                {
+                    this.txtMaxGVM.BackColor = Color.PaleGreen;
+                }
+                else
+                {
+                    this.txtMaxGVM.BackColor = SystemColors.Control;
+                }
             }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void SetExBinNoOrderCustomer()
@@ -177,11 +195,19 @@ namespace QWS_Local
             IsPORequired = CheckPORequired(CardCode);
         }
 
-        private void LoadConfiguredTruckGVM(int myTruckConfigID)
+        private bool LoadConfiguredTruckGVM(int myTruckConfigID)
         {
             dsTruckConfigTableAdapters.ConfiguredTruckGVMTableAdapter taConfiguredTruckGVM = new dsTruckConfigTableAdapters.ConfiguredTruckGVMTableAdapter();
             taConfiguredTruckGVM.Connection.ConnectionString = QWSConfig.cnQWSLocal;
-            taConfiguredTruckGVM.Fill(dsTruckConfig.ConfiguredTruckGVM, "", myTruckConfigID);
+            int iCount = taConfiguredTruckGVM.Fill(dsTruckConfig.ConfiguredTruckGVM, "", myTruckConfigID);
+            if(iCount == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private dsTruckConfig.ConfiguredTruckGVMRow CurrentTruckGVM()
@@ -269,11 +295,12 @@ namespace QWS_Local
                         btnUpdatePayloadSplit.Enabled = false;
                         break;
                     case "BDa": // TODO fix logic
-                        myPayloadTk = myTruckConfigGVM.GVMTruck - myTruckConfigGVM.TareTk;
-                        myPayloadTr = myPayload - myPayloadTk;
+                        myPayloadTk = 0.0M; // myTruckConfigGVM.GVMTruck - myTruckConfigGVM.Tare; 
+                        //myTruckConfigGVM.TareTk; is zero
+                        //myPayloadTr = myPayload - myPayloadTk;
                         nudPayloadTk.Value = myPayloadTk;
                         nudPayloadTk.Enabled = true;
-                        nudPayloadTr.Value = myPayloadTr;
+                        //nudPayloadTr.Value = myPayloadTr;
                         nudPayloadTr.Enabled = false;
                         txtPayloadSplit.Text = myPayloadTk.ToString();
                         //+ " / " + myPayloadTr.ToString();
@@ -281,11 +308,11 @@ namespace QWS_Local
                         btnUpdatePayloadSplit.Enabled = true;
                         break;
                     case "BDb": // TODO fix logic
-                        myPayloadTk = myTruckConfigGVM.GVMTruck - myTruckConfigGVM.TareTk;
+                        myPayloadTk = 0.0M;// myTruckConfigGVM.GVMTruck - myTruckConfigGVM.TareTk;
                         myPayloadTr = myPayload - myPayloadTk;
-                        nudPayloadTk.Value = myPayloadTk;
+                        nudPayloadTk.Value = 0.0M; //TODO calculate from BDa myPayloadTk;
                         nudPayloadTk.Enabled = false;
-                        nudPayloadTr.Value = myPayloadTr;
+                        nudPayloadTr.Value = 0.0M; // myPayloadTr;
                         nudPayloadTr.Enabled = true;
                         txtPayloadSplit.Text = myPayloadTr.ToString();
                         //txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString();
@@ -870,9 +897,10 @@ namespace QWS_Local
             decimal myPayloadTk = nudPayloadTk.Value;
             decimal myPayloadTr = nudPayloadTr.Value;
             decimal myPayload = myPayloadTk + myPayloadTr;
+            // this works for TT
+            // for BDouble maybe start with A trailer = 50%
             if (myPayload <= nudPayload.Value)
             {
-                //txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString() + " (" + myPayload.ToString() + ")";
                 txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString();
             }
             else

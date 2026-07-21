@@ -9,7 +9,6 @@ namespace QWS_Local
     public static class QWSConfig
     {
         private static string _cnVerkada = "Data Source=ch-sq-dc02;Initial Catalog=VerkadaSQ;Integrated Security=true;TrustServerCertificate=true;";
-        // cnQWSLocal required throughout program; be sure to update on program load based on QWSLogin form
         private static string _cnQWSLocal = "Data Source=tba;Initial Catalog=tba;Integrated Security=true;TrustServerCertificate=true;";
         public static int DefaultFeeCode { get; set; } = 99;
         public static string DefaultAxleConfig { get; set; } = "tba";
@@ -24,6 +23,7 @@ namespace QWS_Local
         public static int ClearTIQDelay { get; set; } = 99;
         public static decimal MinimumMaterial { get; set; } = 99.0M;
         public static decimal MinimumCart { get; set; } = 99.0M;
+        public static decimal MinimumTopUp { get; set; } = 600.0M;
         public static string ShortLoadFee { get; set; } = "tba";
         public static bool EnableSMS { get; set; } = true;
         public static string cnQWSLocal

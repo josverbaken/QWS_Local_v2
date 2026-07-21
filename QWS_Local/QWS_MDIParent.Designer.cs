@@ -38,6 +38,7 @@
             this.nHVRGVMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.operatorRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verkadaLPRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.qWSConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuitemMaintainVehicles = new System.Windows.Forms.ToolStripMenuItem();
             this.vehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pBSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,6 +65,7 @@
             this.tableAdapterManager = new QWS_Local.dsAdminTableAdapters.TableAdapterManager();
             this.bsQWSConfig = new System.Windows.Forms.BindingSource(this.components);
             this.taQWSConfig = new QWS_Local.dsAdminTableAdapters.taQWSConfig();
+            this.handwrittenDocketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsOperator)).BeginInit();
@@ -115,45 +117,54 @@
             this.feeCodesToolStripMenuItem,
             this.nHVRGVMToolStripMenuItem,
             this.operatorRolesToolStripMenuItem,
-            this.verkadaLPRToolStripMenuItem});
+            this.verkadaLPRToolStripMenuItem,
+            this.qWSConfigurationToolStripMenuItem,
+            this.handwrittenDocketToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.adminToolStripMenuItem.Text = "Admin";
             // 
             // axleConfigurationToolStripMenuItem1
             // 
             this.axleConfigurationToolStripMenuItem1.Name = "axleConfigurationToolStripMenuItem1";
-            this.axleConfigurationToolStripMenuItem1.Size = new System.Drawing.Size(202, 24);
+            this.axleConfigurationToolStripMenuItem1.Size = new System.Drawing.Size(211, 24);
             this.axleConfigurationToolStripMenuItem1.Text = "Axle Configuration";
             this.axleConfigurationToolStripMenuItem1.Click += new System.EventHandler(this.axleConfigurationToolStripMenuItem1_Click);
             // 
             // feeCodesToolStripMenuItem
             // 
             this.feeCodesToolStripMenuItem.Name = "feeCodesToolStripMenuItem";
-            this.feeCodesToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.feeCodesToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
             this.feeCodesToolStripMenuItem.Text = "Fee Codes";
             this.feeCodesToolStripMenuItem.Click += new System.EventHandler(this.feeCodesToolStripMenuItem_Click);
             // 
             // nHVRGVMToolStripMenuItem
             // 
             this.nHVRGVMToolStripMenuItem.Name = "nHVRGVMToolStripMenuItem";
-            this.nHVRGVMToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.nHVRGVMToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
             this.nHVRGVMToolStripMenuItem.Text = "NHVR GVM";
             this.nHVRGVMToolStripMenuItem.Click += new System.EventHandler(this.nHVRGVMToolStripMenuItem_Click_1);
             // 
             // operatorRolesToolStripMenuItem
             // 
             this.operatorRolesToolStripMenuItem.Name = "operatorRolesToolStripMenuItem";
-            this.operatorRolesToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.operatorRolesToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
             this.operatorRolesToolStripMenuItem.Text = "Operator Roles";
             this.operatorRolesToolStripMenuItem.Click += new System.EventHandler(this.operatorRolesToolStripMenuItem_Click);
             // 
             // verkadaLPRToolStripMenuItem
             // 
             this.verkadaLPRToolStripMenuItem.Name = "verkadaLPRToolStripMenuItem";
-            this.verkadaLPRToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.verkadaLPRToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
             this.verkadaLPRToolStripMenuItem.Text = "Verkada LPR";
             this.verkadaLPRToolStripMenuItem.Click += new System.EventHandler(this.verkadaLPRToolStripMenuItem_Click);
+            // 
+            // qWSConfigurationToolStripMenuItem
+            // 
+            this.qWSConfigurationToolStripMenuItem.Name = "qWSConfigurationToolStripMenuItem";
+            this.qWSConfigurationToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
+            this.qWSConfigurationToolStripMenuItem.Text = "QWS Configuration";
+            this.qWSConfigurationToolStripMenuItem.Click += new System.EventHandler(this.qWSConfigurationToolStripMenuItem_Click_1);
             // 
             // menuitemMaintainVehicles
             // 
@@ -162,7 +173,7 @@
             this.pBSToolStripMenuItem,
             this.trucktrailerConfigToolStripMenuItem});
             this.menuitemMaintainVehicles.Name = "menuitemMaintainVehicles";
-            this.menuitemMaintainVehicles.Size = new System.Drawing.Size(136, 24);
+            this.menuitemMaintainVehicles.Size = new System.Drawing.Size(180, 24);
             this.menuitemMaintainVehicles.Text = "Maintain";
             // 
             // vehiclesToolStripMenuItem
@@ -194,7 +205,7 @@
             this.menuitemQuality.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lotNumbersToolStripMenuItem});
             this.menuitemQuality.Name = "menuitemQuality";
-            this.menuitemQuality.Size = new System.Drawing.Size(136, 24);
+            this.menuitemQuality.Size = new System.Drawing.Size(180, 24);
             this.menuitemQuality.Text = "Quality";
             // 
             // lotNumbersToolStripMenuItem
@@ -211,7 +222,7 @@
             this.customersToolStripMenuItem,
             this.licensePlatesToolStripMenuItem});
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.salesToolStripMenuItem.Text = "Sales";
             // 
             // deliveryOrdersToolStripMenuItem1
@@ -350,6 +361,13 @@
             // 
             this.taQWSConfig.ClearBeforeFill = true;
             // 
+            // handwrittenDocketToolStripMenuItem
+            // 
+            this.handwrittenDocketToolStripMenuItem.Name = "handwrittenDocketToolStripMenuItem";
+            this.handwrittenDocketToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
+            this.handwrittenDocketToolStripMenuItem.Text = "Handwritten Docket";
+            this.handwrittenDocketToolStripMenuItem.Click += new System.EventHandler(this.handwrittenDocketToolStripMenuItem_Click);
+            // 
             // QWS_MDIParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -412,5 +430,7 @@
         private System.Windows.Forms.ToolStripMenuItem licensePlatesToolStripMenuItem;
         private System.Windows.Forms.BindingSource bsQWSConfig;
         private dsAdminTableAdapters.taQWSConfig taQWSConfig;
+        private System.Windows.Forms.ToolStripMenuItem qWSConfigurationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem handwrittenDocketToolStripMenuItem;
     }
 }

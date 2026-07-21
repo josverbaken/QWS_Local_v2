@@ -387,6 +387,12 @@
     <Compile Include="GenericLogin.Designer.cs">
       <DependentUpon>GenericLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="HandwrittenDocket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HandwrittenDocket.Designer.cs">
+      <DependentUpon>HandwrittenDocket.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImportedOverload.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -398,6 +404,12 @@
     </Compile>
     <Compile Include="ItemSearch.Designer.cs">
       <DependentUpon>ItemSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QWSConfigAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QWSConfigAdmin.Designer.cs">
+      <DependentUpon>QWSConfigAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="QWSLogin.cs">
       <SubType>Form</SubType>
@@ -585,11 +597,17 @@
     <EmbeddedResource Include="GenericLogin.resx">
       <DependentUpon>GenericLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HandwrittenDocket.resx">
+      <DependentUpon>HandwrittenDocket.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ImportedOverload.resx">
       <DependentUpon>ImportedOverload.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ItemSearch.resx">
       <DependentUpon>ItemSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QWSConfigAdmin.resx">
+      <DependentUpon>QWSConfigAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QWSLogin.resx">
       <DependentUpon>QWSLogin.cs</DependentUpon>

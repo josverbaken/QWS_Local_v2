@@ -707,5 +707,21 @@ namespace QWS_Local
             }
 
         }
+
+        private void qWSConfigurationToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            QWSConfigAdmin frmQWSConfigAdmin = new QWSConfigAdmin();
+            frmQWSConfigAdmin.MdiParent = this;
+            frmQWSConfigAdmin.WindowState = FormWindowState.Maximized;
+            frmQWSConfigAdmin.Show();
+        }
+
+        private void handwrittenDocketToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HandwrittenDocket frmHandwrittenDocket = new HandwrittenDocket();
+            frmHandwrittenDocket.MdiParent = this;
+            frmHandwrittenDocket.WindowState = FormWindowState.Maximized;
+            frmHandwrittenDocket.Show();
+        }
     }
 }
