@@ -2,8 +2,10 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using static QWS_Local.dsBookIn;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace QWS_Local
 {
@@ -28,6 +30,20 @@ namespace QWS_Local
             Imported,
             ImportedPickUp,
             Delivery
+        }
+
+        private enum TruckConfigType
+        {
+            TK,
+            TKs,
+            TRs,
+            ST,
+            BD,
+            BDa,
+            BDb,
+            AD,
+            ADa,
+            ADb
         }
 
         private TIQType FormTIQType;
@@ -200,7 +216,7 @@ namespace QWS_Local
             dsTruckConfigTableAdapters.ConfiguredTruckGVMTableAdapter taConfiguredTruckGVM = new dsTruckConfigTableAdapters.ConfiguredTruckGVMTableAdapter();
             taConfiguredTruckGVM.Connection.ConnectionString = QWSConfig.cnQWSLocal;
             int iCount = taConfiguredTruckGVM.Fill(dsTruckConfig.ConfiguredTruckGVM, "", myTruckConfigID);
-            if(iCount == 1)
+            if(iCount >= 1)
             {
                 return true;
             }
@@ -294,29 +310,22 @@ namespace QWS_Local
                         txtPayloadSplit.Text = "";//myPayload.ToString();
                         btnUpdatePayloadSplit.Enabled = false;
                         break;
-                    case "BDa": // TODO fix logic
-                        myPayloadTk = 0.0M; // myTruckConfigGVM.GVMTruck - myTruckConfigGVM.Tare; 
-                        //myTruckConfigGVM.TareTk; is zero
-                        //myPayloadTr = myPayload - myPayloadTk;
+                    case "BDa": 
+                        myPayloadTk = 0.0M; 
                         nudPayloadTk.Value = myPayloadTk;
                         nudPayloadTk.Enabled = true;
-                        //nudPayloadTr.Value = myPayloadTr;
                         nudPayloadTr.Enabled = false;
                         txtPayloadSplit.Text = myPayloadTk.ToString();
-                        //+ " / " + myPayloadTr.ToString();
-                        //+ " (" + myPayload.ToString() + ")";
                         btnUpdatePayloadSplit.Enabled = true;
                         break;
-                    case "BDb": // TODO fix logic
-                        myPayloadTk = 0.0M;// myTruckConfigGVM.GVMTruck - myTruckConfigGVM.TareTk;
+                    case "BDb": 
+                        myPayloadTk = 0.0M;
                         myPayloadTr = myPayload - myPayloadTk;
                         nudPayloadTk.Value = 0.0M; //TODO calculate from BDa myPayloadTk;
                         nudPayloadTk.Enabled = false;
-                        nudPayloadTr.Value = 0.0M; // myPayloadTr;
+                        nudPayloadTr.Value = 0.0M; 
                         nudPayloadTr.Enabled = true;
                         txtPayloadSplit.Text = myPayloadTr.ToString();
-                        //txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString();
-                        //+ " (" + myPayload.ToString() + ")";
                         btnUpdatePayloadSplit.Enabled = true;
                         break;
 
@@ -325,10 +334,10 @@ namespace QWS_Local
                         nudPayloadTk.Enabled = true;
                         //nudPayloadTr.Value = myPayloadTr;
                         nudPayloadTr.Enabled = false;
-                        txtPayloadSplit.Text = ""; // myPayload.ToString();
+                        txtPayloadSplit.Text = "";
                         btnUpdatePayloadSplit.Enabled = false;
                         break;
-                    case "ADa": // 
+                    case "ADa":
                         myPayloadTk = myTruckConfigGVM.GVMTruck - myTruckConfigGVM.TareTk;
                         myPayloadTr = myPayload - myPayloadTk;
                         nudPayloadTk.Value = myPayloadTk;
@@ -336,8 +345,6 @@ namespace QWS_Local
                         nudPayloadTr.Value = myPayloadTr;
                         nudPayloadTr.Enabled = false;
                         txtPayloadSplit.Text = myPayloadTk.ToString();
-                        //+ " / " + myPayloadTr.ToString();
-                        //+ " (" + myPayload.ToString() + ")";
                         btnUpdatePayloadSplit.Enabled = true;
                         break;
                     case "ADb": // TODO fix logic
@@ -348,8 +355,6 @@ namespace QWS_Local
                         nudPayloadTr.Value = myPayloadTr;
                         nudPayloadTr.Enabled = true;
                         txtPayloadSplit.Text = myPayloadTr.ToString();
-                        //txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString();
-                        //+ " (" + myPayload.ToString() + ")";
                         btnUpdatePayloadSplit.Enabled = true;
                         break;
 
@@ -360,26 +365,6 @@ namespace QWS_Local
                         btnUpdatePayloadSplit.Enabled = false;
                         break;
                 }
-                //if (myTruckConfigGVM.Compartments > 1 && myTruckConfigGVM.AxleConfiguration.IndexOf("R") > 0)
-                ////if (CurrentTruckGVM().GCM != CurrentTruckGVM().GVMTruck)
-                //{
-                //    myPayloadTk = myTruckConfigGVM.GVMTruck - myTruckConfigGVM  .TareTk;
-                //    myPayloadTr = myPayload - myPayloadTk;
-                //    nudPayloadTk.Value = myPayloadTk;
-                //    nudPayloadTk.Enabled = true;
-                //    nudPayloadTr.Value = myPayloadTr;
-                //    nudPayloadTr.Enabled = true;
-                //    txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString();
-                //    //+ " (" + myPayload.ToString() + ")";
-                //    btnUpdatePayloadSplit.Enabled = true;
-                //}
-                //else
-                //{
-                //    txtPayloadSplit.Text = string.Empty; // value to write to TIQ determined later
-                //    nudPayloadTk.Enabled = false;
-                //    nudPayloadTr.Enabled = false;
-                //    btnUpdatePayloadSplit.Enabled = false;
-                //}
                 bsTIQ2.EndEdit();
             }
             catch (Exception ex)
@@ -712,7 +697,6 @@ namespace QWS_Local
                 if (nudPayload.Value < 9.0M)
                 {
                     string msg = "This payload may trigger short load fee";
-                    // TODO put this into a configuration database
                     MessageBox.Show(msg, "Short Load Fee Warning.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 bsTIQ2.EndEdit();
@@ -725,11 +709,13 @@ namespace QWS_Local
                     {
                         GoBack2BookIn(_TIQRow.Rego, _TIQRow.TruckConfigID, _TIQRow.DriverID, _TIQRow.TIQID, "TRs");
                     }
-                    else if (_TIQRow.TruckConfig == "Bda")
+                    else if (_TIQRow.TruckConfig == TruckConfigType.BDa.ToString())
                     {
-                        // TODO handle split load for B-double
-                        MessageBox.Show("", "Split B-double", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         GoBack2BookIn(_TIQRow.Rego, _TIQRow.TruckConfigID, _TIQRow.DriverID, _TIQRow.TIQID, "BDb");
+                    }
+                    else if (_TIQRow.TruckConfig == TruckConfigType.ADa.ToString())
+                    {
+                        GoBack2BookIn(_TIQRow.Rego, _TIQRow.TruckConfigID, _TIQRow.DriverID, _TIQRow.TIQID, "ADb");
                     }
                     else
                     {
@@ -898,7 +884,6 @@ namespace QWS_Local
             decimal myPayloadTr = nudPayloadTr.Value;
             decimal myPayload = myPayloadTk + myPayloadTr;
             // this works for TT
-            // for BDouble maybe start with A trailer = 50%
             if (myPayload <= nudPayload.Value)
             {
                 txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString();
@@ -961,7 +946,7 @@ namespace QWS_Local
 
             myPayloadTk = myTruckConfigGVM.GVMTruck - myTruckConfigGVM.TareTk;
             myPayloadTr = myPayload - myPayloadTk;
-
+            string myAxleConfig = myTruckConfigGVM.AxleConfiguration;
 
             switch (TKTR)
             {
@@ -971,6 +956,15 @@ namespace QWS_Local
                         nudPayloadTk.Value = myPayloadTk;
                         MessageBox.Show("Sorry - can only reduce payload!");
                     }
+                    else
+                    {
+                        if (WildcardMatch(myAxleConfig, "*A*A*")) // catches both A and B-double
+                        {
+                            // Match is true
+                            MessageBox.Show("AxleConfiguration = " + myAxleConfig);
+                            txtPayloadSplit.Text = nudPayloadTk.Value.ToString();
+                        }
+                    }
                     break;
                 case "TR":
                     if (nudPayloadTr.Value > myPayloadTr)
@@ -978,11 +972,31 @@ namespace QWS_Local
                         nudPayloadTr.Value = myPayloadTr;
                         MessageBox.Show("Sorry - can only reduce payload!");
                     }
+                    else
+                    {
+                        if (WildcardMatch(myAxleConfig, "*A*A*")) // catches both A and B-double
+                        {
+                            // Match is true
+                            MessageBox.Show("AxleConfiguration = " + myAxleConfig);
+                            txtPayloadSplit.Text = nudPayloadTr.Value.ToString();
+                        }
+                    }
                     break;
             }
         }
 
-        private void btnCheckBlanket_Click(object sender, EventArgs e)
+    public static bool WildcardMatch(string text, string pattern)
+        {
+            // Turn the pattern into a safe regex pattern
+            string regexPattern = "^" + Regex.Escape(pattern)
+                .Replace(@"\*", ".*")
+                .Replace(@"\?", ".") + "$";
+
+            return Regex.IsMatch(text, regexPattern, RegexOptions.IgnoreCase);
+        }
+
+
+    private void btnCheckBlanket_Click(object sender, EventArgs e)
         {
             CheckBlanketAgreement(txtCardCode.Text, txtExBinItem.Text);
         }
