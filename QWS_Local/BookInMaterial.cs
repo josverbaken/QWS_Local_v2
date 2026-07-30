@@ -23,6 +23,10 @@ namespace QWS_Local
         private static dsQWSLocal2024.TruckDriverRow _DriverRow;
         private static dsTIQ2.TIQRow _TIQRow;
         private int mySiteID;
+        private static decimal myPayload = 0.0M;
+        private static decimal myPayloadTk = 0.0M;
+        private static decimal myPayloadTr = 0.0M;
+
 
         private enum TIQType // N.B. these match variables in SQL usp QuarryOrders
         {
@@ -249,33 +253,29 @@ namespace QWS_Local
         {
             try
             {
-                decimal myPayload = 0.0M;
-                decimal myPayloadTk = 0.0M;
-                decimal myPayloadTr = 0.0M;
-                decimal PayloadLimit;
+                txtGetPayload.Visible = false;
                 dsTruckConfig.ConfiguredTruckGVMRow myTruckConfigGVM = CurrentTruckGVM();
+                // Handle Fee codes that reduce GCM
                 if (myTruckConfigGVM.GCM > myTruckConfigGVM.MaxGVM && myTruckConfigGVM.MaxGVM > 0)
                 {
-                    PayloadLimit = myTruckConfigGVM.MaxGVM - myTruckConfigGVM.Tare;
+                    myPayload = myTruckConfigGVM.MaxGVM - myTruckConfigGVM.Tare;
                 }
                 else
                 {
-                    PayloadLimit = myTruckConfigGVM.GCM - myTruckConfigGVM.Tare;
+                    myPayload = myTruckConfigGVM.GCM - myTruckConfigGVM.Tare;
                 }
-
-                myPayload = PayloadLimit;
                 nudPayload.Value = myPayload;
                 switch (_TIQRow.TruckConfig)
                 {
                     case "TT":
                         myPayloadTk = myTruckConfigGVM.GVMTruck - myTruckConfigGVM.TareTk;
                         myPayloadTr = myPayload - myPayloadTk;
+                        // TODO ensure that Tk + Tr does not exceed myPayload
                         nudPayloadTk.Value = myPayloadTk;
                         nudPayloadTk.Enabled = true;
                         nudPayloadTr.Value = myPayloadTr;
                         nudPayloadTr.Enabled = true;
                         txtPayloadSplit.Text = myPayloadTk.ToString() + " / " + myPayloadTr.ToString();
-                        //+ " (" + myPayload.ToString() + ")";
                         btnUpdatePayloadSplit.Enabled = true;
                         break;
                     case "TKs":
@@ -303,30 +303,35 @@ namespace QWS_Local
                         btnUpdatePayloadSplit.Enabled = true;
                         break;
                     case "BD":
-                        nudPayloadTk.Value = myPayload;
+                        nudPayloadTk.Value = 0.0M;
                         nudPayloadTk.Enabled = true;
-                        //nudPayloadTr.Value = myPayloadTr;
-                        nudPayloadTr.Enabled = false;
-                        txtPayloadSplit.Text = "";//myPayload.ToString();
+                        nudPayloadTr.Enabled = true;
+                        txtGetPayload.Visible = true;
+                        txtGetPayload.Text = "Get A and B trailer payloads from driver.";
+                        txtPayloadSplit.Text = "";
                         btnUpdatePayloadSplit.Enabled = false;
                         break;
                     case "BDa": 
-                        myPayloadTk = 0.0M; 
-                        nudPayloadTk.Value = myPayloadTk;
+                        myPayloadTk = 0.0M;
+                        nudPayloadTk.Value = 0.0M; ;
                         nudPayloadTk.Enabled = true;
                         nudPayloadTr.Enabled = false;
+                        txtGetPayload.Visible = true;
+                        txtGetPayload.Text = "Get A trailer payload from driver.";
                         txtPayloadSplit.Text = myPayloadTk.ToString();
-                        btnUpdatePayloadSplit.Enabled = true;
+                        btnUpdatePayloadSplit.Enabled = false;
                         break;
                     case "BDb": 
                         myPayloadTk = 0.0M;
-                        myPayloadTr = myPayload - myPayloadTk;
-                        nudPayloadTk.Value = 0.0M; //TODO calculate from BDa myPayloadTk;
+                        myPayloadTr = 0.0M;
+                        nudPayloadTk.Value = 0.0M;
                         nudPayloadTk.Enabled = false;
                         nudPayloadTr.Value = 0.0M; 
                         nudPayloadTr.Enabled = true;
+                        txtGetPayload.Visible = true;
+                        txtGetPayload.Text = "Get B trailer payload from driver.";
                         txtPayloadSplit.Text = myPayloadTr.ToString();
-                        btnUpdatePayloadSplit.Enabled = true;
+                        btnUpdatePayloadSplit.Enabled = false;
                         break;
 
                     case "AD": // ADa, ADb treat like TT because dolly i.e 12A3RD3A3
@@ -928,30 +933,13 @@ namespace QWS_Local
 
         private void SplitPayloadNUDLimit(string TKTR)
         {
-            decimal myPayload = 0.0M;
-            decimal myPayloadTk = 0.0M;
-            decimal myPayloadTr = 0.0M;
-            decimal PayloadLimit;
             dsTruckConfig.ConfiguredTruckGVMRow myTruckConfigGVM = CurrentTruckGVM();
-            if (myTruckConfigGVM.GCM > myTruckConfigGVM.MaxGVM && myTruckConfigGVM.MaxGVM > 0)
-            {
-                PayloadLimit = myTruckConfigGVM.MaxGVM - myTruckConfigGVM.Tare;
-            }
-            else
-            {
-                PayloadLimit = myTruckConfigGVM.GCM - myTruckConfigGVM.Tare;
-            }
-
-            myPayload = PayloadLimit;
-
-            myPayloadTk = myTruckConfigGVM.GVMTruck - myTruckConfigGVM.TareTk;
-            myPayloadTr = myPayload - myPayloadTk;
             string myAxleConfig = myTruckConfigGVM.AxleConfiguration;
 
             switch (TKTR)
             {
                 case "TK":
-                    if (nudPayloadTk.Value > myPayloadTk)
+                    if (nudPayloadTk.Value > myPayloadTk && myPayloadTk > 0.0M)
                     {
                         nudPayloadTk.Value = myPayloadTk;
                         MessageBox.Show("Sorry - can only reduce payload!");
@@ -960,14 +948,12 @@ namespace QWS_Local
                     {
                         if (WildcardMatch(myAxleConfig, "*A*A*")) // catches both A and B-double
                         {
-                            // Match is true
-                            MessageBox.Show("AxleConfiguration = " + myAxleConfig);
                             txtPayloadSplit.Text = nudPayloadTk.Value.ToString();
                         }
                     }
                     break;
                 case "TR":
-                    if (nudPayloadTr.Value > myPayloadTr)
+                    if (nudPayloadTr.Value > myPayloadTr && myPayloadTr > 0.0M)
                     {
                         nudPayloadTr.Value = myPayloadTr;
                         MessageBox.Show("Sorry - can only reduce payload!");
@@ -976,9 +962,8 @@ namespace QWS_Local
                     {
                         if (WildcardMatch(myAxleConfig, "*A*A*")) // catches both A and B-double
                         {
-                            // Match is true
-                            MessageBox.Show("AxleConfiguration = " + myAxleConfig);
                             txtPayloadSplit.Text = nudPayloadTr.Value.ToString();
+                            // TODO how to ensure A plus B does not exceed Payload, don't have A, maybe just ensure at weighbridge
                         }
                     }
                     break;
