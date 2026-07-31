@@ -197,6 +197,7 @@ namespace QWS_Local
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.btnBookIn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtGetPayload = new System.Windows.Forms.TextBox();
             this.txtMaxGVM = new System.Windows.Forms.TextBox();
             this.btnUpdatePayloadSplit = new System.Windows.Forms.Button();
             this.txtPayloadSplit = new System.Windows.Forms.TextBox();
@@ -220,7 +221,7 @@ namespace QWS_Local
             this.taQuarryOrders = new QWS_Local.dsBookInTableAdapters.QuarryOrdersTableAdapter();
             this.bsBlanketAgreement = new System.Windows.Forms.BindingSource(this.components);
             this.taBlanketAgreement = new QWS_Local.dsBookInTableAdapters.BlanketAgreementCheckTableAdapter();
-            this.txtGetPayload = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
             gCMLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
@@ -1616,7 +1617,7 @@ namespace QWS_Local
             this.tpDetails.Location = new System.Drawing.Point(4, 22);
             this.tpDetails.Name = "tpDetails";
             this.tpDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDetails.Size = new System.Drawing.Size(977, 267);
+            this.tpDetails.Size = new System.Drawing.Size(977, 270);
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
@@ -1901,6 +1902,7 @@ namespace QWS_Local
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.textBox15);
             this.groupBox3.Controls.Add(this.txtGetPayload);
             this.groupBox3.Controls.Add(this.txtMaxGVM);
             this.groupBox3.Controls.Add(this.btnUpdatePayloadSplit);
@@ -1925,6 +1927,16 @@ namespace QWS_Local
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Truck Details";
             // 
+            // txtGetPayload
+            // 
+            this.txtGetPayload.Location = new System.Drawing.Point(433, 43);
+            this.txtGetPayload.Multiline = true;
+            this.txtGetPayload.Name = "txtGetPayload";
+            this.txtGetPayload.ReadOnly = true;
+            this.txtGetPayload.Size = new System.Drawing.Size(175, 77);
+            this.txtGetPayload.TabIndex = 117;
+            this.txtGetPayload.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // txtMaxGVM
             // 
             this.txtMaxGVM.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsConfiguredTruckGVM, "MaxGVM", true));
@@ -1936,7 +1948,7 @@ namespace QWS_Local
             // 
             // btnUpdatePayloadSplit
             // 
-            this.btnUpdatePayloadSplit.Location = new System.Drawing.Point(19, 123);
+            this.btnUpdatePayloadSplit.Location = new System.Drawing.Point(7, 93);
             this.btnUpdatePayloadSplit.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdatePayloadSplit.Name = "btnUpdatePayloadSplit";
             this.btnUpdatePayloadSplit.Size = new System.Drawing.Size(102, 28);
@@ -1948,9 +1960,10 @@ namespace QWS_Local
             // 
             // txtPayloadSplit
             // 
-            this.txtPayloadSplit.Location = new System.Drawing.Point(201, 126);
+            this.txtPayloadSplit.Location = new System.Drawing.Point(232, 126);
             this.txtPayloadSplit.Name = "txtPayloadSplit";
-            this.txtPayloadSplit.Size = new System.Drawing.Size(155, 23);
+            this.txtPayloadSplit.ReadOnly = true;
+            this.txtPayloadSplit.Size = new System.Drawing.Size(124, 23);
             this.txtPayloadSplit.TabIndex = 74;
             this.txtPayloadSplit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -2110,15 +2123,15 @@ namespace QWS_Local
             // 
             this.taBlanketAgreement.ClearBeforeFill = true;
             // 
-            // txtGetPayload
+            // textBox15
             // 
-            this.txtGetPayload.Location = new System.Drawing.Point(433, 43);
-            this.txtGetPayload.Multiline = true;
-            this.txtGetPayload.Name = "txtGetPayload";
-            this.txtGetPayload.ReadOnly = true;
-            this.txtGetPayload.Size = new System.Drawing.Size(175, 77);
-            this.txtGetPayload.TabIndex = 117;
-            this.txtGetPayload.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox15.Location = new System.Drawing.Point(106, 126);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.ReadOnly = true;
+            this.textBox15.Size = new System.Drawing.Size(120, 23);
+            this.textBox15.TabIndex = 118;
+            this.textBox15.Text = "Loader Display :";
+            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // BookInMaterial
             // 
@@ -2329,5 +2342,6 @@ namespace QWS_Local
         private System.Windows.Forms.RadioButton rbTandem;
         private System.Windows.Forms.TextBox txtPayload1;
         private System.Windows.Forms.TextBox txtGetPayload;
+        private System.Windows.Forms.TextBox textBox15;
     }
 }

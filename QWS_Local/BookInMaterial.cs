@@ -253,6 +253,8 @@ namespace QWS_Local
         {
             try
             {
+                nudPayloadTk.BackColor = Color.White;
+                nudPayloadTr.BackColor = Color.White;
                 txtGetPayload.Visible = false;
                 dsTruckConfig.ConfiguredTruckGVMRow myTruckConfigGVM = CurrentTruckGVM();
                 // Handle Fee codes that reduce GCM
@@ -305,6 +307,7 @@ namespace QWS_Local
                     case "BD":
                         nudPayloadTk.Value = 0.0M;
                         nudPayloadTk.Enabled = true;
+                        nudPayloadTk.BackColor = Color.AliceBlue;
                         nudPayloadTr.Enabled = true;
                         txtGetPayload.Visible = true;
                         txtGetPayload.Text = "Get A and B trailer payloads from driver.";
@@ -315,6 +318,7 @@ namespace QWS_Local
                         myPayloadTk = 0.0M;
                         nudPayloadTk.Value = 0.0M; ;
                         nudPayloadTk.Enabled = true;
+                        nudPayloadTk.BackColor = Color.AliceBlue;
                         nudPayloadTr.Enabled = false;
                         txtGetPayload.Visible = true;
                         txtGetPayload.Text = "Get A trailer payload from driver.";
@@ -328,6 +332,7 @@ namespace QWS_Local
                         nudPayloadTk.Enabled = false;
                         nudPayloadTr.Value = 0.0M; 
                         nudPayloadTr.Enabled = true;
+                        nudPayloadTr.BackColor = Color.AliceBlue;
                         txtGetPayload.Visible = true;
                         txtGetPayload.Text = "Get B trailer payload from driver.";
                         txtPayloadSplit.Text = myPayloadTr.ToString();
@@ -591,6 +596,8 @@ namespace QWS_Local
                     nudPayloadTr.Visible = false;
                     break;
                 case "BD":
+                case "BDa":
+                case "BDb":
                     txtGVMTruck.Visible = false;
                     txtTareTruck.Visible = false;
                     txtPayloadSplit.Visible = false;

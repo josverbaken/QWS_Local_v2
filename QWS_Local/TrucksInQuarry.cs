@@ -628,10 +628,11 @@ namespace QWS_Local
             switch (myTIQRow.TruckConfig)
             {
                 case "TRs":
-                    SplitLoad = true;
-                    break;
                 case "TKs":
-                    SplitLoad = true;
+                case "BDa":
+                case "BDb":
+                    UnderloadAmount = 0.0M;
+                    SplitLoad = true; 
                     break;
                 default:
                     SplitLoad = false;
