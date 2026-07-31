@@ -70,7 +70,6 @@ namespace QWS_Local
                 mySiteID = frmQWSLogin.SiteID;
                 myTestMode = frmQWSLogin.TestMode;
                 QWSConfig.cnQWSLocal = frmQWSLogin.cnQWSLocal;
-                // 20260701 no point in SyncConnectionString as it is not referenced
                 OK2Continue = ReadQWSConfig();
             }
             else
@@ -683,30 +682,31 @@ namespace QWS_Local
             VerkadaLPR();
         }
 
-        public class AppSetting
-        {
-            Configuration config;
+        // deprecated because only read on load
+        //public class AppSetting
+        //{
+        //    Configuration config;
 
-            public AppSetting()
-            {
-                // Assuming you want to change the "MyConnectionString" connection string
-                // configurationmanager connection string in c#
-                config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            }
+        //    public AppSetting()
+        //    {
+        //        // Assuming you want to change the "MyConnectionString" connection string
+        //        // configurationmanager connection string in c#
+        //        config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+        //    }
 
-            // Save connection string to App.config file
-            public void SaveConnectionString(string key, string value)
-            {
-                // Change connection string at runtime c#
-                config.ConnectionStrings.ConnectionStrings[key].ConnectionString = value;
-                config.ConnectionStrings.ConnectionStrings[key].ProviderName = "System.Data.SqlClient"; //TODO ? Microsoft.Data.SQLClient
-                // Save the configuration connection string c# runtime
-                config.Save(ConfigurationSaveMode.Modified);
-                // Force the ConfigurationManager to reload the updated section
-                ConfigurationManager.RefreshSection("connectionStrings");
-            }
+        //    // Save connection string to App.config file
+        //    public void SaveConnectionString(string key, string value)
+        //    {
+        //        // Change connection string at runtime c#
+        //        config.ConnectionStrings.ConnectionStrings[key].ConnectionString = value;
+        //        config.ConnectionStrings.ConnectionStrings[key].ProviderName = "System.Data.SqlClient"; //TODO ? Microsoft.Data.SQLClient
+        //        // Save the configuration connection string c# runtime
+        //        config.Save(ConfigurationSaveMode.Modified);
+        //        // Force the ConfigurationManager to reload the updated section
+        //        ConfigurationManager.RefreshSection("connectionStrings");
+        //    }
 
-        }
+        //}
 
         private void qWSConfigurationToolStripMenuItem_Click_1(object sender, EventArgs e)
         {

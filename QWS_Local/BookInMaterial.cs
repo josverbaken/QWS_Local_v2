@@ -595,8 +595,8 @@ namespace QWS_Local
                     txtTareTruck.Visible = false;
                     txtPayloadSplit.Visible = false;
                     txtPayloadSplit.Visible = true;
-                    nudPayloadTk.Visible = false;
-                    nudPayloadTr.Visible = false;
+                    nudPayloadTk.Visible = true;
+                    nudPayloadTr.Visible = true;
                     break;
                 case "TT":
                     txtGVMTruck.Visible = true;
@@ -946,7 +946,15 @@ namespace QWS_Local
                     }
                     else
                     {
-                        if (WildcardMatch(myAxleConfig, "*A*A*")) // catches both A and B-double
+                        if (WildcardMatch(myAxleConfig, "*A*A*") && _TIQRow.TruckConfig == "BD") // catches both A and B-double
+                        {
+                            txtPayloadSplit.Text = nudPayloadTk.Value.ToString() + " / " + nudPayloadTr.Value.ToString();
+                        }
+                        else if (_TIQRow.TruckConfig == "TT" )
+                        {
+                            txtPayloadSplit.Text = nudPayloadTk.Value.ToString() + " / " + nudPayloadTr.Value.ToString();
+                        }
+                        else // TKs or TRs or BDa or BDb
                         {
                             txtPayloadSplit.Text = nudPayloadTk.Value.ToString();
                         }
@@ -960,10 +968,18 @@ namespace QWS_Local
                     }
                     else
                     {
-                        if (WildcardMatch(myAxleConfig, "*A*A*")) // catches both A and B-double
+                        if (WildcardMatch(myAxleConfig, "*A*A*") && _TIQRow.TruckConfig == "BD") // catches both A and B-double
+                        {
+                            txtPayloadSplit.Text = nudPayloadTk.Value.ToString() + " / " + nudPayloadTr.Value.ToString();
+                            //TODO how to ensure A plus B does not exceed Payload, don't have A, maybe just ensure at weighbridge
+                        }
+                        else if (_TIQRow.TruckConfig == "TT" )
+                        {
+                            txtPayloadSplit.Text = nudPayloadTk.Value.ToString() + " / " + nudPayloadTr.Value.ToString();
+                        }
+                        else
                         {
                             txtPayloadSplit.Text = nudPayloadTr.Value.ToString();
-                            // TODO how to ensure A plus B does not exceed Payload, don't have A, maybe just ensure at weighbridge
                         }
                     }
                     break;
