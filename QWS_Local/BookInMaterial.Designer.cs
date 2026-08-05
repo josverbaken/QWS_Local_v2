@@ -37,8 +37,6 @@ namespace QWS_Local
             System.Windows.Forms.Label mobLabel;
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label4;
-            System.Windows.Forms.Label lblTRs;
-            System.Windows.Forms.Label lblTKs;
             System.Windows.Forms.Label docNumLabel1;
             System.Windows.Forms.Label deliveryDateLabel1;
             System.Windows.Forms.Label customerLabel1;
@@ -197,6 +195,7 @@ namespace QWS_Local
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.btnBookIn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
             this.txtGetPayload = new System.Windows.Forms.TextBox();
             this.txtMaxGVM = new System.Windows.Forms.TextBox();
             this.btnUpdatePayloadSplit = new System.Windows.Forms.Button();
@@ -221,7 +220,8 @@ namespace QWS_Local
             this.taQuarryOrders = new QWS_Local.dsBookInTableAdapters.QuarryOrdersTableAdapter();
             this.bsBlanketAgreement = new System.Windows.Forms.BindingSource(this.components);
             this.taBlanketAgreement = new QWS_Local.dsBookInTableAdapters.BlanketAgreementCheckTableAdapter();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             gCMLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             ownerLabel = new System.Windows.Forms.Label();
@@ -229,8 +229,6 @@ namespace QWS_Local
             mobLabel = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
-            lblTRs = new System.Windows.Forms.Label();
-            lblTKs = new System.Windows.Forms.Label();
             docNumLabel1 = new System.Windows.Forms.Label();
             deliveryDateLabel1 = new System.Windows.Forms.Label();
             customerLabel1 = new System.Windows.Forms.Label();
@@ -379,24 +377,6 @@ namespace QWS_Local
             label4.Size = new System.Drawing.Size(59, 17);
             label4.TabIndex = 70;
             label4.Text = "Payload";
-            // 
-            // lblTRs
-            // 
-            lblTRs.AutoSize = true;
-            lblTRs.Location = new System.Drawing.Point(369, 99);
-            lblTRs.Name = "lblTRs";
-            lblTRs.Size = new System.Drawing.Size(34, 17);
-            lblTRs.TabIndex = 71;
-            lblTRs.Text = "TRs";
-            // 
-            // lblTKs
-            // 
-            lblTKs.AutoSize = true;
-            lblTKs.Location = new System.Drawing.Point(370, 73);
-            lblTKs.Name = "lblTKs";
-            lblTKs.Size = new System.Drawing.Size(33, 17);
-            lblTKs.TabIndex = 72;
-            lblTKs.Text = "TKs";
             // 
             // docNumLabel1
             // 
@@ -1902,13 +1882,13 @@ namespace QWS_Local
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.textBox15);
             this.groupBox3.Controls.Add(this.txtGetPayload);
             this.groupBox3.Controls.Add(this.txtMaxGVM);
             this.groupBox3.Controls.Add(this.btnUpdatePayloadSplit);
             this.groupBox3.Controls.Add(this.txtPayloadSplit);
-            this.groupBox3.Controls.Add(lblTKs);
-            this.groupBox3.Controls.Add(lblTRs);
             this.groupBox3.Controls.Add(label4);
             this.groupBox3.Controls.Add(label3);
             this.groupBox3.Controls.Add(this.nudPayloadTk);
@@ -1927,13 +1907,24 @@ namespace QWS_Local
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Truck Details";
             // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(106, 126);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.ReadOnly = true;
+            this.textBox15.Size = new System.Drawing.Size(120, 23);
+            this.textBox15.TabIndex = 118;
+            this.textBox15.Text = "Loader Display :";
+            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // txtGetPayload
             // 
-            this.txtGetPayload.Location = new System.Drawing.Point(433, 43);
+            this.txtGetPayload.BackColor = System.Drawing.Color.LightBlue;
+            this.txtGetPayload.Location = new System.Drawing.Point(464, 43);
             this.txtGetPayload.Multiline = true;
             this.txtGetPayload.Name = "txtGetPayload";
             this.txtGetPayload.ReadOnly = true;
-            this.txtGetPayload.Size = new System.Drawing.Size(175, 77);
+            this.txtGetPayload.Size = new System.Drawing.Size(144, 77);
             this.txtGetPayload.TabIndex = 117;
             this.txtGetPayload.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -2123,15 +2114,23 @@ namespace QWS_Local
             // 
             this.taBlanketAgreement.ClearBeforeFill = true;
             // 
-            // textBox15
+            // label17
             // 
-            this.textBox15.Location = new System.Drawing.Point(106, 126);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.ReadOnly = true;
-            this.textBox15.Size = new System.Drawing.Size(120, 23);
-            this.textBox15.TabIndex = 118;
-            this.textBox15.Text = "Loader Display :";
-            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(369, 73);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(54, 17);
+            this.label17.TabIndex = 119;
+            this.label17.Text = "label17";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(369, 99);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(54, 17);
+            this.label18.TabIndex = 120;
+            this.label18.Text = "label18";
             // 
             // BookInMaterial
             // 
@@ -2343,5 +2342,7 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox txtPayload1;
         private System.Windows.Forms.TextBox txtGetPayload;
         private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
     }
 }

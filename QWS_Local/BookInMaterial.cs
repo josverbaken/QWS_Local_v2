@@ -183,7 +183,27 @@ namespace QWS_Local
                     default:
                         break;
                 }
-                FormLoaded = true;
+                    string labelTK = string.Empty;
+                    string labelTR = string.Empty;
+                    switch (_TIQRow.TruckConfig)
+                    {
+                        case "TT":
+                        case "TKs":
+                        case "TRs":
+                            labelTK = "TKs";
+                            labelTR = "TRs";
+                            break;
+                        case "BD":
+                        case "BDa":
+                        case "BDb":
+                            labelTK = "A-trailer";
+                            labelTR = "B-trailer";
+                            break;
+                    }
+                    this.label17.Text = labelTK;
+                    this.label18.Text = labelTR;
+
+                    FormLoaded = true;
                 dgvQuarryOrders.ClearSelection();
                 if (FormTIQType != TIQType.ExBin)
                 {
@@ -318,7 +338,7 @@ namespace QWS_Local
                         myPayloadTk = 0.0M;
                         nudPayloadTk.Value = 0.0M; ;
                         nudPayloadTk.Enabled = true;
-                        nudPayloadTk.BackColor = Color.AliceBlue;
+                        nudPayloadTk.BackColor = Color.LightBlue;
                         nudPayloadTr.Enabled = false;
                         txtGetPayload.Visible = true;
                         txtGetPayload.Text = "Get A trailer payload from driver.";
@@ -332,7 +352,7 @@ namespace QWS_Local
                         nudPayloadTk.Enabled = false;
                         nudPayloadTr.Value = 0.0M; 
                         nudPayloadTr.Enabled = true;
-                        nudPayloadTr.BackColor = Color.AliceBlue;
+                        nudPayloadTr.BackColor = Color.LightBlue;
                         txtGetPayload.Visible = true;
                         txtGetPayload.Text = "Get B trailer payload from driver.";
                         txtPayloadSplit.Text = myPayloadTr.ToString();

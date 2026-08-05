@@ -16,6 +16,7 @@ namespace QWS_Local
             //tabControl1.TabPages.Remove(tpBaseItem);
             tabControl1.SelectedTab = tpSPLotStatus;
             rbOpen.Checked = true;
+            chkItemQA.AutoCheck = false;
             SPLotStatusRefresh();
         }
          
