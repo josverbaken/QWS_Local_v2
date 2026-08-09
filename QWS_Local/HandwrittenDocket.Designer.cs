@@ -29,11 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label docDateLabel;
+            System.Windows.Forms.Label cardCodeLabel;
+            System.Windows.Forms.Label docNumLabel;
+            System.Windows.Forms.Label cardNameLabel;
+            System.Windows.Forms.Label purchaseOrderLabel;
+            System.Windows.Forms.Label cntCodeLabel;
+            System.Windows.Forms.Label contactNameLabel;
+            System.Windows.Forms.Label contactMobileLabel;
+            System.Windows.Forms.Label docketLineLabel;
+            System.Windows.Forms.Label itemCodeLabel;
+            System.Windows.Forms.Label quantityLabel;
+            System.Windows.Forms.Label grossLabel;
+            System.Windows.Forms.Label tareLabel;
+            System.Windows.Forms.Label nettLabel;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtDocNum = new System.Windows.Forms.TextBox();
             this.btnSaveDocket = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.wBDocketsDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,13 +106,60 @@
             this.dataGridViewTextBoxColumn48 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn49 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsWBDocketLines = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtNett = new System.Windows.Forms.TextBox();
+            this.txtTare = new System.Windows.Forms.TextBox();
+            this.txtGross = new System.Windows.Forms.TextBox();
+            this.wBDocketLinesDataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn50 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn51 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn53 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn54 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn56 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn59 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn60 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn61 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn62 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wBDocketLinesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quantityTextBox = new System.Windows.Forms.TextBox();
+            this.itemCodeTextBox = new System.Windows.Forms.TextBox();
+            this.docketLineTextBox = new System.Windows.Forms.TextBox();
+            this.contactMobileTextBox = new System.Windows.Forms.TextBox();
+            this.contactNameTextBox = new System.Windows.Forms.TextBox();
+            this.cntCodeTextBox = new System.Windows.Forms.TextBox();
+            this.purchaseOrderTextBox = new System.Windows.Forms.TextBox();
+            this.cardNameTextBox = new System.Windows.Forms.TextBox();
+            this.docNumTextBox = new System.Windows.Forms.TextBox();
+            this.cardCodeTextBox = new System.Windows.Forms.TextBox();
+            this.docDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.taWBDockets = new QWS_Local.dsTIQ2TableAdapters.WBDocketsTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
             this.taWBDocketLines = new QWS_Local.dsTIQ2TableAdapters.WBDocketLinesTableAdapter();
+            docDateLabel = new System.Windows.Forms.Label();
+            cardCodeLabel = new System.Windows.Forms.Label();
+            docNumLabel = new System.Windows.Forms.Label();
+            cardNameLabel = new System.Windows.Forms.Label();
+            purchaseOrderLabel = new System.Windows.Forms.Label();
+            cntCodeLabel = new System.Windows.Forms.Label();
+            contactNameLabel = new System.Windows.Forms.Label();
+            contactMobileLabel = new System.Windows.Forms.Label();
+            docketLineLabel = new System.Windows.Forms.Label();
+            itemCodeLabel = new System.Windows.Forms.Label();
+            quantityLabel = new System.Windows.Forms.Label();
+            grossLabel = new System.Windows.Forms.Label();
+            tareLabel = new System.Windows.Forms.Label();
+            nettLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -106,7 +169,136 @@
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wBDocketLinesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsWBDocketLines)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wBDocketLinesDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wBDocketLinesBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // docDateLabel
+            // 
+            docDateLabel.AutoSize = true;
+            docDateLabel.Location = new System.Drawing.Point(99, 73);
+            docDateLabel.Name = "docDateLabel";
+            docDateLabel.Size = new System.Drawing.Size(75, 18);
+            docDateLabel.TabIndex = 0;
+            docDateLabel.Text = "Doc Date:";
+            // 
+            // cardCodeLabel
+            // 
+            cardCodeLabel.AutoSize = true;
+            cardCodeLabel.Location = new System.Drawing.Point(100, 105);
+            cardCodeLabel.Name = "cardCodeLabel";
+            cardCodeLabel.Size = new System.Drawing.Size(84, 18);
+            cardCodeLabel.TabIndex = 2;
+            cardCodeLabel.Text = "Card Code:";
+            // 
+            // docNumLabel
+            // 
+            docNumLabel.AutoSize = true;
+            docNumLabel.Location = new System.Drawing.Point(61, 27);
+            docNumLabel.Name = "docNumLabel";
+            docNumLabel.Size = new System.Drawing.Size(76, 18);
+            docNumLabel.TabIndex = 4;
+            docNumLabel.Text = "Doc Num:";
+            // 
+            // cardNameLabel
+            // 
+            cardNameLabel.AutoSize = true;
+            cardNameLabel.Location = new System.Drawing.Point(88, 141);
+            cardNameLabel.Name = "cardNameLabel";
+            cardNameLabel.Size = new System.Drawing.Size(88, 18);
+            cardNameLabel.TabIndex = 6;
+            cardNameLabel.Text = "Card Name:";
+            // 
+            // purchaseOrderLabel
+            // 
+            purchaseOrderLabel.AutoSize = true;
+            purchaseOrderLabel.Location = new System.Drawing.Point(99, 179);
+            purchaseOrderLabel.Name = "purchaseOrderLabel";
+            purchaseOrderLabel.Size = new System.Drawing.Size(117, 18);
+            purchaseOrderLabel.TabIndex = 8;
+            purchaseOrderLabel.Text = "Purchase Order:";
+            // 
+            // cntCodeLabel
+            // 
+            cntCodeLabel.AutoSize = true;
+            cntCodeLabel.Location = new System.Drawing.Point(87, 225);
+            cntCodeLabel.Name = "cntCodeLabel";
+            cntCodeLabel.Size = new System.Drawing.Size(75, 18);
+            cntCodeLabel.TabIndex = 10;
+            cntCodeLabel.Text = "Cnt Code:";
+            // 
+            // contactNameLabel
+            // 
+            contactNameLabel.AutoSize = true;
+            contactNameLabel.Location = new System.Drawing.Point(98, 282);
+            contactNameLabel.Name = "contactNameLabel";
+            contactNameLabel.Size = new System.Drawing.Size(108, 18);
+            contactNameLabel.TabIndex = 12;
+            contactNameLabel.Text = "Contact Name:";
+            // 
+            // contactMobileLabel
+            // 
+            contactMobileLabel.AutoSize = true;
+            contactMobileLabel.Location = new System.Drawing.Point(123, 325);
+            contactMobileLabel.Name = "contactMobileLabel";
+            contactMobileLabel.Size = new System.Drawing.Size(112, 18);
+            contactMobileLabel.TabIndex = 14;
+            contactMobileLabel.Text = "Contact Mobile:";
+            // 
+            // docketLineLabel
+            // 
+            docketLineLabel.AutoSize = true;
+            docketLineLabel.Location = new System.Drawing.Point(632, 88);
+            docketLineLabel.Name = "docketLineLabel";
+            docketLineLabel.Size = new System.Drawing.Size(91, 18);
+            docketLineLabel.TabIndex = 16;
+            docketLineLabel.Text = "Docket Line:";
+            // 
+            // itemCodeLabel
+            // 
+            itemCodeLabel.AutoSize = true;
+            itemCodeLabel.Location = new System.Drawing.Point(638, 172);
+            itemCodeLabel.Name = "itemCodeLabel";
+            itemCodeLabel.Size = new System.Drawing.Size(80, 18);
+            itemCodeLabel.TabIndex = 18;
+            itemCodeLabel.Text = "Item Code:";
+            // 
+            // quantityLabel
+            // 
+            quantityLabel.AutoSize = true;
+            quantityLabel.Location = new System.Drawing.Point(644, 243);
+            quantityLabel.Name = "quantityLabel";
+            quantityLabel.Size = new System.Drawing.Size(66, 18);
+            quantityLabel.TabIndex = 20;
+            quantityLabel.Text = "Quantity:";
+            // 
+            // grossLabel
+            // 
+            grossLabel.AutoSize = true;
+            grossLabel.Location = new System.Drawing.Point(543, 329);
+            grossLabel.Name = "grossLabel";
+            grossLabel.Size = new System.Drawing.Size(54, 18);
+            grossLabel.TabIndex = 23;
+            grossLabel.Text = "Gross:";
+            // 
+            // tareLabel
+            // 
+            tareLabel.AutoSize = true;
+            tareLabel.Location = new System.Drawing.Point(555, 359);
+            tareLabel.Name = "tareLabel";
+            tareLabel.Size = new System.Drawing.Size(42, 18);
+            tareLabel.TabIndex = 25;
+            tareLabel.Text = "Tare:";
+            // 
+            // nettLabel
+            // 
+            nettLabel.AutoSize = true;
+            nettLabel.Location = new System.Drawing.Point(558, 389);
+            nettLabel.Name = "nettLabel";
+            nettLabel.Size = new System.Drawing.Size(39, 18);
+            nettLabel.TabIndex = 27;
+            nettLabel.Text = "Nett:";
             // 
             // splitContainer1
             // 
@@ -124,7 +316,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
+            this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer1.Size = new System.Drawing.Size(1160, 773);
             this.splitContainer1.SplitterDistance = 191;
             this.splitContainer1.SplitterWidth = 6;
@@ -155,6 +347,7 @@
             this.btnSaveDocket.TabIndex = 1;
             this.btnSaveDocket.Text = "Save";
             this.btnSaveDocket.UseVisualStyleBackColor = true;
+            this.btnSaveDocket.Click += new System.EventHandler(this.btnSaveDocket_Click);
             // 
             // btnCheck
             // 
@@ -167,10 +360,32 @@
             this.btnCheck.UseVisualStyleBackColor = true;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(963, 773);
+            this.tabControl1.TabIndex = 1;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.splitContainer2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 27);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(955, 742);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
             this.splitContainer2.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -183,8 +398,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.wBDocketLinesDataGridView);
-            this.splitContainer2.Size = new System.Drawing.Size(963, 773);
-            this.splitContainer2.SplitterDistance = 346;
+            this.splitContainer2.Size = new System.Drawing.Size(949, 736);
+            this.splitContainer2.SplitterDistance = 329;
             this.splitContainer2.SplitterWidth = 6;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -575,6 +790,274 @@
             this.bsWBDocketLines.DataMember = "WBDocketLines";
             this.bsWBDocketLines.DataSource = this.dsTIQ2;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(nettLabel);
+            this.tabPage2.Controls.Add(this.txtNett);
+            this.tabPage2.Controls.Add(tareLabel);
+            this.tabPage2.Controls.Add(this.txtTare);
+            this.tabPage2.Controls.Add(grossLabel);
+            this.tabPage2.Controls.Add(this.txtGross);
+            this.tabPage2.Controls.Add(this.wBDocketLinesDataGridView1);
+            this.tabPage2.Controls.Add(quantityLabel);
+            this.tabPage2.Controls.Add(this.quantityTextBox);
+            this.tabPage2.Controls.Add(itemCodeLabel);
+            this.tabPage2.Controls.Add(this.itemCodeTextBox);
+            this.tabPage2.Controls.Add(docketLineLabel);
+            this.tabPage2.Controls.Add(this.docketLineTextBox);
+            this.tabPage2.Controls.Add(contactMobileLabel);
+            this.tabPage2.Controls.Add(this.contactMobileTextBox);
+            this.tabPage2.Controls.Add(contactNameLabel);
+            this.tabPage2.Controls.Add(this.contactNameTextBox);
+            this.tabPage2.Controls.Add(cntCodeLabel);
+            this.tabPage2.Controls.Add(this.cntCodeTextBox);
+            this.tabPage2.Controls.Add(purchaseOrderLabel);
+            this.tabPage2.Controls.Add(this.purchaseOrderTextBox);
+            this.tabPage2.Controls.Add(cardNameLabel);
+            this.tabPage2.Controls.Add(this.cardNameTextBox);
+            this.tabPage2.Controls.Add(docNumLabel);
+            this.tabPage2.Controls.Add(this.docNumTextBox);
+            this.tabPage2.Controls.Add(cardCodeLabel);
+            this.tabPage2.Controls.Add(this.cardCodeTextBox);
+            this.tabPage2.Controls.Add(docDateLabel);
+            this.tabPage2.Controls.Add(this.docDateDateTimePicker);
+            this.tabPage2.Location = new System.Drawing.Point(4, 27);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(955, 742);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // txtNett
+            // 
+            this.txtNett.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "Nett", true));
+            this.txtNett.Location = new System.Drawing.Point(603, 386);
+            this.txtNett.Name = "txtNett";
+            this.txtNett.Size = new System.Drawing.Size(100, 24);
+            this.txtNett.TabIndex = 28;
+            this.txtNett.Text = "13.4";
+            // 
+            // txtTare
+            // 
+            this.txtTare.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "Tare", true));
+            this.txtTare.Location = new System.Drawing.Point(603, 356);
+            this.txtTare.Name = "txtTare";
+            this.txtTare.Size = new System.Drawing.Size(100, 24);
+            this.txtTare.TabIndex = 26;
+            this.txtTare.Text = "10.0";
+            // 
+            // txtGross
+            // 
+            this.txtGross.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "Gross", true));
+            this.txtGross.Location = new System.Drawing.Point(603, 326);
+            this.txtGross.Name = "txtGross";
+            this.txtGross.Size = new System.Drawing.Size(100, 24);
+            this.txtGross.TabIndex = 24;
+            this.txtGross.Text = "23.40";
+            // 
+            // wBDocketLinesDataGridView1
+            // 
+            this.wBDocketLinesDataGridView1.AutoGenerateColumns = false;
+            this.wBDocketLinesDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.wBDocketLinesDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn50,
+            this.dataGridViewTextBoxColumn51,
+            this.dataGridViewTextBoxColumn52,
+            this.dataGridViewTextBoxColumn53,
+            this.dataGridViewTextBoxColumn54,
+            this.dataGridViewTextBoxColumn55,
+            this.dataGridViewCheckBoxColumn2,
+            this.dataGridViewTextBoxColumn56,
+            this.dataGridViewTextBoxColumn57,
+            this.dataGridViewTextBoxColumn58,
+            this.dataGridViewTextBoxColumn59,
+            this.dataGridViewTextBoxColumn60,
+            this.dataGridViewTextBoxColumn61,
+            this.dataGridViewTextBoxColumn62});
+            this.wBDocketLinesDataGridView1.DataSource = this.wBDocketLinesBindingSource;
+            this.wBDocketLinesDataGridView1.Location = new System.Drawing.Point(20, 485);
+            this.wBDocketLinesDataGridView1.Name = "wBDocketLinesDataGridView1";
+            this.wBDocketLinesDataGridView1.Size = new System.Drawing.Size(915, 220);
+            this.wBDocketLinesDataGridView1.TabIndex = 22;
+            // 
+            // dataGridViewTextBoxColumn50
+            // 
+            this.dataGridViewTextBoxColumn50.DataPropertyName = "DocNum";
+            this.dataGridViewTextBoxColumn50.HeaderText = "DocNum";
+            this.dataGridViewTextBoxColumn50.Name = "dataGridViewTextBoxColumn50";
+            // 
+            // dataGridViewTextBoxColumn51
+            // 
+            this.dataGridViewTextBoxColumn51.DataPropertyName = "DocketLine";
+            this.dataGridViewTextBoxColumn51.HeaderText = "DocketLine";
+            this.dataGridViewTextBoxColumn51.Name = "dataGridViewTextBoxColumn51";
+            // 
+            // dataGridViewTextBoxColumn52
+            // 
+            this.dataGridViewTextBoxColumn52.DataPropertyName = "WarehouseCode";
+            this.dataGridViewTextBoxColumn52.HeaderText = "WarehouseCode";
+            this.dataGridViewTextBoxColumn52.Name = "dataGridViewTextBoxColumn52";
+            // 
+            // dataGridViewTextBoxColumn53
+            // 
+            this.dataGridViewTextBoxColumn53.DataPropertyName = "BaseEntry";
+            this.dataGridViewTextBoxColumn53.HeaderText = "BaseEntry";
+            this.dataGridViewTextBoxColumn53.Name = "dataGridViewTextBoxColumn53";
+            // 
+            // dataGridViewTextBoxColumn54
+            // 
+            this.dataGridViewTextBoxColumn54.DataPropertyName = "ItemCode";
+            this.dataGridViewTextBoxColumn54.HeaderText = "ItemCode";
+            this.dataGridViewTextBoxColumn54.Name = "dataGridViewTextBoxColumn54";
+            // 
+            // dataGridViewTextBoxColumn55
+            // 
+            this.dataGridViewTextBoxColumn55.DataPropertyName = "ItemDescription";
+            this.dataGridViewTextBoxColumn55.HeaderText = "ItemDescription";
+            this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
+            // 
+            // dataGridViewCheckBoxColumn2
+            // 
+            this.dataGridViewCheckBoxColumn2.DataPropertyName = "ItemQA";
+            this.dataGridViewCheckBoxColumn2.HeaderText = "ItemQA";
+            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn56
+            // 
+            this.dataGridViewTextBoxColumn56.DataPropertyName = "ItmsGrpCod";
+            this.dataGridViewTextBoxColumn56.HeaderText = "ItmsGrpCod";
+            this.dataGridViewTextBoxColumn56.Name = "dataGridViewTextBoxColumn56";
+            // 
+            // dataGridViewTextBoxColumn57
+            // 
+            this.dataGridViewTextBoxColumn57.DataPropertyName = "StockpileLot";
+            this.dataGridViewTextBoxColumn57.HeaderText = "StockpileLot";
+            this.dataGridViewTextBoxColumn57.Name = "dataGridViewTextBoxColumn57";
+            // 
+            // dataGridViewTextBoxColumn58
+            // 
+            this.dataGridViewTextBoxColumn58.DataPropertyName = "Quantity";
+            this.dataGridViewTextBoxColumn58.HeaderText = "Quantity";
+            this.dataGridViewTextBoxColumn58.Name = "dataGridViewTextBoxColumn58";
+            // 
+            // dataGridViewTextBoxColumn59
+            // 
+            this.dataGridViewTextBoxColumn59.DataPropertyName = "CreatedDTTM";
+            this.dataGridViewTextBoxColumn59.HeaderText = "CreatedDTTM";
+            this.dataGridViewTextBoxColumn59.Name = "dataGridViewTextBoxColumn59";
+            // 
+            // dataGridViewTextBoxColumn60
+            // 
+            this.dataGridViewTextBoxColumn60.DataPropertyName = "SWW";
+            this.dataGridViewTextBoxColumn60.HeaderText = "SWW";
+            this.dataGridViewTextBoxColumn60.Name = "dataGridViewTextBoxColumn60";
+            // 
+            // dataGridViewTextBoxColumn61
+            // 
+            this.dataGridViewTextBoxColumn61.DataPropertyName = "AgrNo";
+            this.dataGridViewTextBoxColumn61.HeaderText = "AgrNo";
+            this.dataGridViewTextBoxColumn61.Name = "dataGridViewTextBoxColumn61";
+            // 
+            // dataGridViewTextBoxColumn62
+            // 
+            this.dataGridViewTextBoxColumn62.DataPropertyName = "AgrLine";
+            this.dataGridViewTextBoxColumn62.HeaderText = "AgrLine";
+            this.dataGridViewTextBoxColumn62.Name = "dataGridViewTextBoxColumn62";
+            // 
+            // wBDocketLinesBindingSource
+            // 
+            this.wBDocketLinesBindingSource.DataMember = "FK_WBDocketLines_WBDockets";
+            this.wBDocketLinesBindingSource.DataSource = this.bsWBDockets;
+            // 
+            // quantityTextBox
+            // 
+            this.quantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wBDocketLinesBindingSource, "Quantity", true));
+            this.quantityTextBox.Location = new System.Drawing.Point(716, 240);
+            this.quantityTextBox.Name = "quantityTextBox";
+            this.quantityTextBox.Size = new System.Drawing.Size(100, 24);
+            this.quantityTextBox.TabIndex = 21;
+            // 
+            // itemCodeTextBox
+            // 
+            this.itemCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wBDocketLinesBindingSource, "ItemCode", true));
+            this.itemCodeTextBox.Location = new System.Drawing.Point(724, 169);
+            this.itemCodeTextBox.Name = "itemCodeTextBox";
+            this.itemCodeTextBox.Size = new System.Drawing.Size(100, 24);
+            this.itemCodeTextBox.TabIndex = 19;
+            // 
+            // docketLineTextBox
+            // 
+            this.docketLineTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.wBDocketLinesBindingSource, "DocketLine", true));
+            this.docketLineTextBox.Location = new System.Drawing.Point(729, 85);
+            this.docketLineTextBox.Name = "docketLineTextBox";
+            this.docketLineTextBox.Size = new System.Drawing.Size(100, 24);
+            this.docketLineTextBox.TabIndex = 17;
+            // 
+            // contactMobileTextBox
+            // 
+            this.contactMobileTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "ContactMobile", true));
+            this.contactMobileTextBox.Location = new System.Drawing.Point(241, 322);
+            this.contactMobileTextBox.Name = "contactMobileTextBox";
+            this.contactMobileTextBox.Size = new System.Drawing.Size(100, 24);
+            this.contactMobileTextBox.TabIndex = 15;
+            // 
+            // contactNameTextBox
+            // 
+            this.contactNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "ContactName", true));
+            this.contactNameTextBox.Location = new System.Drawing.Point(212, 279);
+            this.contactNameTextBox.Name = "contactNameTextBox";
+            this.contactNameTextBox.Size = new System.Drawing.Size(100, 24);
+            this.contactNameTextBox.TabIndex = 13;
+            // 
+            // cntCodeTextBox
+            // 
+            this.cntCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "CntCode", true));
+            this.cntCodeTextBox.Location = new System.Drawing.Point(168, 222);
+            this.cntCodeTextBox.Name = "cntCodeTextBox";
+            this.cntCodeTextBox.Size = new System.Drawing.Size(100, 24);
+            this.cntCodeTextBox.TabIndex = 11;
+            // 
+            // purchaseOrderTextBox
+            // 
+            this.purchaseOrderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "PurchaseOrder", true));
+            this.purchaseOrderTextBox.Location = new System.Drawing.Point(222, 176);
+            this.purchaseOrderTextBox.Name = "purchaseOrderTextBox";
+            this.purchaseOrderTextBox.Size = new System.Drawing.Size(100, 24);
+            this.purchaseOrderTextBox.TabIndex = 9;
+            // 
+            // cardNameTextBox
+            // 
+            this.cardNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "CardName", true));
+            this.cardNameTextBox.Location = new System.Drawing.Point(182, 138);
+            this.cardNameTextBox.Name = "cardNameTextBox";
+            this.cardNameTextBox.Size = new System.Drawing.Size(100, 24);
+            this.cardNameTextBox.TabIndex = 7;
+            // 
+            // docNumTextBox
+            // 
+            this.docNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "DocNum", true));
+            this.docNumTextBox.Location = new System.Drawing.Point(143, 24);
+            this.docNumTextBox.Name = "docNumTextBox";
+            this.docNumTextBox.Size = new System.Drawing.Size(100, 24);
+            this.docNumTextBox.TabIndex = 5;
+            // 
+            // cardCodeTextBox
+            // 
+            this.cardCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "CardCode", true));
+            this.cardCodeTextBox.Location = new System.Drawing.Point(190, 102);
+            this.cardCodeTextBox.Name = "cardCodeTextBox";
+            this.cardCodeTextBox.Size = new System.Drawing.Size(100, 24);
+            this.cardCodeTextBox.TabIndex = 3;
+            // 
+            // docDateDateTimePicker
+            // 
+            this.docDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bsWBDockets, "DocDate", true));
+            this.docDateDateTimePicker.Location = new System.Drawing.Point(180, 69);
+            this.docDateDateTimePicker.Name = "docDateDateTimePicker";
+            this.docDateDateTimePicker.Size = new System.Drawing.Size(200, 24);
+            this.docDateDateTimePicker.TabIndex = 1;
+            // 
             // taWBDockets
             // 
             this.taWBDockets.ClearBeforeFill = true;
@@ -610,6 +1093,8 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -619,6 +1104,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wBDocketLinesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsWBDocketLines)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wBDocketLinesDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wBDocketLinesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -689,5 +1178,38 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn47;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn48;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn49;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TextBox quantityTextBox;
+        private System.Windows.Forms.BindingSource wBDocketLinesBindingSource;
+        private System.Windows.Forms.TextBox itemCodeTextBox;
+        private System.Windows.Forms.TextBox docketLineTextBox;
+        private System.Windows.Forms.TextBox contactMobileTextBox;
+        private System.Windows.Forms.TextBox contactNameTextBox;
+        private System.Windows.Forms.TextBox cntCodeTextBox;
+        private System.Windows.Forms.TextBox purchaseOrderTextBox;
+        private System.Windows.Forms.TextBox cardNameTextBox;
+        private System.Windows.Forms.TextBox docNumTextBox;
+        private System.Windows.Forms.TextBox cardCodeTextBox;
+        private System.Windows.Forms.DateTimePicker docDateDateTimePicker;
+        private System.Windows.Forms.DataGridView wBDocketLinesDataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn50;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn51;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn52;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn53;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn54;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn55;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn56;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn57;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn58;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn59;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn60;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn61;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn62;
+        private System.Windows.Forms.TextBox txtNett;
+        private System.Windows.Forms.TextBox txtTare;
+        private System.Windows.Forms.TextBox txtGross;
     }
 }
