@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
+using static QWS_Local.dsBookIn;
+using static QWS_Local.dsTIQ2;
 
 namespace QWS_Local
 {
@@ -17,6 +20,11 @@ namespace QWS_Local
         private static decimal myGross;
         private static decimal myTare;
         private static decimal myNett;
+
+        private static bool IsPORequired = false;
+
+        private static dsTIQ2.WBDocketsRow docketsRow;
+        private static dsTIQ2.WBDocketLinesRow linesRow;
 
         public HandwrittenDocket()
         {
@@ -30,14 +38,6 @@ namespace QWS_Local
                 var parent = this.MdiParent as QWS_MDIParent;
                 return parent.UserName;
             }
-        }
-
-        private void wBDocketsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.bsWBDockets.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dsTIQ2);
-
         }
 
         private void HandwrittenDocket_Load(object sender, EventArgs e)
@@ -64,11 +64,13 @@ namespace QWS_Local
                     DialogResult dr = MessageBox.Show("Press OK to create docket","Confirm New Docket.",MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if (dr == DialogResult.OK)
                     {
+                        btnSaveDocket.Enabled = true;
                         CreateNewDocket(myDocNum);
                     }
                 }
                 else
                 {
+                    btnSaveDocket.Enabled=false;
                     dsTIQ2TableAdapters.WBDocketLinesTableAdapter taWBDocketLines = new dsTIQ2TableAdapters.WBDocketLinesTableAdapter();
                     taWBDocketLines.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                     taWBDocketLines.FillBy(dsTIQ2.WBDocketLines, myDocNum);
@@ -90,9 +92,14 @@ namespace QWS_Local
         {
             try
             {
+                bsWBDockets.EndEdit();  
                 dsTIQ2TableAdapters.WBDocketsTableAdapter taWBDockets = new dsTIQ2TableAdapters.WBDocketsTableAdapter();
                 taWBDockets.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 taWBDockets.Update(dsTIQ2.WBDockets);
+                bsWBDocketLines.EndEdit();
+                dsTIQ2TableAdapters.WBDocketLinesTableAdapter taWBDocketLines = new dsTIQ2TableAdapters.WBDocketLinesTableAdapter();
+                taWBDocketLines.Connection.ConnectionString= QWSConfig.cnQWSLocal;
+                taWBDocketLines.Update(dsTIQ2.WBDocketLines);
             }
             catch (Exception ex)
             {
@@ -104,7 +111,6 @@ namespace QWS_Local
         {
             try
             {
-                MessageBox.Show("TODO to write code for new docket with DocNum = " + DocNum.ToString());
                 dsTIQ2.WBDockets.Clear();
                 dsTIQ2.WBDocketLines.Clear();
                 //dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
@@ -160,8 +166,8 @@ namespace QWS_Local
                 //    }
                 //}
                 DataRow dr = dsTIQ2.WBDockets.NewRow();
-                dsTIQ2.WBDocketsRow docketsRow = (dsTIQ2.WBDocketsRow)dr;
-
+                //dsTIQ2.WBDocketsRow docketsRow = (dsTIQ2.WBDocketsRow)dr;
+                docketsRow = (dsTIQ2.WBDocketsRow)dr;
                 docketsRow.DocNum = DocNum;
                 docketsRow.DocDate = DateTime.Now;
                 docketsRow.CardCode = "<CustomerCode>";
@@ -217,8 +223,8 @@ namespace QWS_Local
                 int iLines = bsWBDocketLines.Count; // is zero based, will increment as lines added
 
                 DataRow dr = dsTIQ2.WBDocketLines.NewRow();
-                dsTIQ2.WBDocketLinesRow linesRow = (dsTIQ2.WBDocketLinesRow)dr;
-
+                //dsTIQ2.WBDocketLinesRow linesRow = (dsTIQ2.WBDocketLinesRow)dr;
+                linesRow = (dsTIQ2.WBDocketLinesRow)dr;
                 linesRow.DocNum = docketsRow.DocNum;
                 linesRow.BaseEntry = BaseEntry;
                 linesRow.DocketLine = lineNum;
@@ -266,5 +272,197 @@ namespace QWS_Local
             }
         }
 
+        private void btnGetItem_Click(object sender, EventArgs e)
+        {
+            LookUpItem();
+        }
+
+        private void LookUpItem()
+        {
+            try
+            {
+                ItemSearch frmItemSearch = new ItemSearch(true, mySiteID);
+                DialogResult dr = frmItemSearch.ShowDialog();
+                if (dr == DialogResult.OK)
+                {//get details
+                    dsBookIn.Item.Clear(); // to allow multiple look ups
+                    dsBookIn.Item.ImportRow(frmItemSearch.myItem);
+                    SetExBinNoOrderItem();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lookup Item", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SetExBinNoOrderItem()
+        {
+            try
+            {
+                bool ItemOK = true;
+                if (bsItem.Count > 0)
+                {
+                    // Check blanket agreement
+                    int myAgrNo = 0;
+                    int myAgrLine = 0;
+                    dsBookIn.BlanketAgreementCheckRow myBlanketRow = (dsBookIn.BlanketAgreementCheckRow)CheckBlanketAgreement(txtCardCode.Text, txtItemCode.Text);
+                    if (myBlanketRow != null)
+                    {
+                        switch (myBlanketRow.AgrStatus)
+                        {
+                            case "D":
+                                MessageBox.Show("Unable to continue! Please resolve Agreement no : " + myBlanketRow.Number.ToString());
+                                ItemOK = false;
+                                break;
+                            case "F":
+                                MessageBox.Show("Unable to continue because Agreement is on hold : " + myBlanketRow.Number.ToString());
+                                ItemOK = false;
+                                break;
+                            case "A":
+                                MessageBox.Show("Blanket Agreement is approved!");
+                                myAgrNo = myBlanketRow.AgrNo;
+                                myAgrLine = myBlanketRow.AgrLineNum;
+                                break;
+                            default:
+                                MessageBox.Show("Invalid BA Status : " + myBlanketRow.AgrStatus.ToString());
+                                break;
+                        }
+                    }
+                    DataRow myRow = ((DataRowView)bsItem.Current).Row;
+                    if (IsPORequired == true && txtCustON.TextLength == 0)
+                    {
+                        //PO Required cannot proceed
+                        MessageBox.Show("Customer PO is required \r\nplease enter.", "PO Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        ItemOK = false;
+                    }
+                    if (myRow != null && ItemOK == true)
+                    {
+                        dsBookIn.ItemRow itemRow = (dsBookIn.ItemRow)myRow;
+                        linesRow.BaseEntry = 0;
+                        //docketsRow.CardCode = txtCardCode.Text;
+                        //docketsRow.CardName = txtCustomer.Text;
+                        //docketsRow.PurchaseOrder = txtCustON.Text;
+                        //docketsRow.CartageCode = "Ex-Bin";
+                        //docketsRow.DeliveryAddress = "Ex-Bin";
+                        linesRow.ItemCode = itemRow.ItemCode;
+                        linesRow.ItemDescription = itemRow.ItemName;
+                        linesRow.AgrNo = myAgrNo;
+                        linesRow.AgrLine = myAgrLine;
+                        //if (ACStatus != "A")
+                        //{
+                        //    _TIQRow.QueueStatus = "C";
+                        //}
+                        //bsTIQ2.EndEdit();
+                        //tabControl2.SelectedTab = tpTruckconfig;
+                    }
+                }
+                //dgvTruckConfig.ClearSelection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "SetExBinNoOrderItem");
+            }
+        }
+
+        private BlanketAgreementCheckRow CheckBlanketAgreement(string CardCode, string ItemCode)
+        {
+            try
+            {
+                dsBookInTableAdapters.BlanketAgreementCheckTableAdapter taBlanketAgreement = new dsBookInTableAdapters.BlanketAgreementCheckTableAdapter();
+                taBlanketAgreement.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                int iCount = taBlanketAgreement.Fill(this.dsBookIn.BlanketAgreementCheck, CardCode, ItemCode);
+                if (iCount == 1)
+                {
+                    BlanketAgreementCheckRow myRow = (BlanketAgreementCheckRow)dsBookIn.BlanketAgreementCheck.Rows[0];
+                    return myRow;
+                }
+                else if (iCount > 1)
+                {
+                    MessageBox.Show("Multiple Blanket Agreements - cannot proceed!");
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "CheckBlanketAgreement Error!");
+                return null;
+            }
+        }
+
+        private void btnSetExBinItem_Click(object sender, EventArgs e)
+        {
+            SetExBinNoOrderItem();
+        }
+
+        private void btnGetCustomer_Click(object sender, EventArgs e)
+        {
+            GetCustomer();
+        }
+
+        private void GetCustomer()
+        {
+            try
+            {
+                BusinessSearch frmBusinessSearch = new BusinessSearch(true);
+                DialogResult dr = frmBusinessSearch.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    docketsRow.CardCode = frmBusinessSearch.SAPCode;
+                    docketsRow.CardName = frmBusinessSearch.BusinessName;
+                    IsPORequired = CheckPORequired(frmBusinessSearch.SAPCode);
+                    //return true;
+                }
+                else
+                {
+                    //MessageBox.Show("Customer not found/set. Cannot proceed!");
+                    // One message is enough
+                    //return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "GetCustomer Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                throw;
+            }
+        }
+
+        private bool CheckPORequired(string CardCode)
+        {
+            SqlConnection sqlConnection = new SqlConnection(QWSConfig.cnQWSLocal);
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = sqlConnection;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "PORequired";
+            cmd.Parameters.AddWithValue("@CardCode", CardCode);
+            sqlConnection.Open();
+            string myPOReq = (string)cmd.ExecuteScalar();
+            sqlConnection.Close();
+            if (myPOReq == "Y")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            dsTIQ2.WBDockets.Clear();
+            dsTIQ2.WBDocketLines.Clear();
+        }
+
+        private void btnGetContact_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCalculateNett_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
