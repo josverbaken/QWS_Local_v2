@@ -462,7 +462,112 @@ namespace QWS_Local
 
         private void btnCalculateNett_Click(object sender, EventArgs e)
         {
+            CalculateNett();
+        }
+
+        private void CalculateNett()
+        {
+            if (bsWBDockets.Count > 0)
+            {
+                docketsRow.Nett = docketsRow.Gross - docketsRow.Tare;
+                bsWBDockets.EndEdit();
+                //docket
+            }
+        }
+
+        private void btnGetOrder_Click(object sender, EventArgs e)
+        {
 
         }
+
+        private void btnGetDriver_Click(object sender, EventArgs e)
+        {
+            GetTruckDriver();
+        }
+
+        private void GetTruckDriver()
+        {
+            TruckDriverSearch frmTruckDriver = new TruckDriverSearch("C000185"); // TODO get truck owner code
+            DialogResult dr = frmTruckDriver.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                docketsRow.TruckDriverID = frmTruckDriver.TruckDriverID;
+                docketsRow.TruckDriver = frmTruckDriver.TruckDriver;
+                bsWBDockets.EndEdit();
+            }
+            else
+            {
+                MessageBox.Show("Truck Driver NOT Found!","Truck Driver",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void FindTruckConfig(string Rego, bool Resume)
+        {
+            try
+            {
+                //DGVLoaded = false;
+                //btnHold.Enabled = false;
+                //btnRetare.Enabled = false;
+                //btnRetare.BackColor = SystemColors.Control;
+                //dsQWSLocal2024.TruckDriver.Clear();
+                dsTruckConfig.ConfiguredTrucks.Clear();
+                dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter taConfiguredTrucks = new dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
+                taConfiguredTrucks.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                int iCount = taConfiguredTrucks.FillByRego(dsTruckConfig.ConfiguredTrucks, Rego);
+                if (iCount > 0) // Configured Truck found
+                {
+                    MessageBox.Show(iCount.ToString() + " configurations found.");
+                    //EntryDTTM = DateTime.Now;
+                    //if (IsBookedIn(Rego) == true)
+                    //{
+                    //    if (Resume == false)
+                    //    {
+                    //        MessageBox.Show("Cannot proceed! \r\nTruck already in queue!", "Already Booked In!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    //    }
+                    //    else
+                    //    {
+                    //        // Resume == True
+                    //        UpdateOwnerGUI();
+                    //        if (_TIQRow != null)
+                    //        {
+                    //            string msg = "TIQ Row was passed with Rego = ";
+                    //            msg += _TIQRow.Rego + " TruckconfigID = ";
+                    //            msg += _TIQRow.TruckConfigID.ToString();
+                    //            DGVLoaded = true;
+                    //        }
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    if (Resume == false)
+                    //    {
+                    //        UpdateOwnerGUI();
+                    //        TIQID = NewTIQ(TIQType.EnterRego, myParentTIQID, "tba", false);
+                    //        dgvConfiguredTrucks.ClearSelection();
+                    //        DGVLoaded = true;
+                    //    }
+                    //}
+                }
+                else
+                {
+                    // 20251206 JV create blank TIQ with Rego and parkup
+                    MessageBox.Show("Unknown truck/configuration.", "Find Truck", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //EntryDTTM = DateTime.Now;
+                    //TIQID = NewTIQ(txtTruckRego.Text);
+                    //((QWS_MDIParent)this.MdiParent).BringTIQ2Front();
+                    //this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnFindTruck_Click(object sender, EventArgs e)
+        {
+            FindTruckConfig(txtTruckRego.Text, false);
+        }
+
     }
 }
