@@ -55,26 +55,42 @@ namespace QWS_Local
         {
             try
             {
+                string myMessage = "Press Yes to create new docket based on SAP Order.";
+                myMessage += "\r\nPress No to create Ex-Bin No-Order docket.";
+                myMessage += "\r\nPress cancel to abort creating new docket.";
+                string myTopic = "Docket Number Check";
                 dsTIQ2TableAdapters.WBDocketsTableAdapter taWBDockets = new dsTIQ2TableAdapters.WBDocketsTableAdapter();
                 taWBDockets.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 int myDocNum = System.Convert.ToInt32(txtDocNum.Text);
                 int iCount = taWBDockets.FillBy(dsTIQ2.WBDockets,myDocNum);
                 if (iCount == 0)
                 {
-                    DialogResult dr = MessageBox.Show("Press OK to create docket","Confirm New Docket.",MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (dr == DialogResult.OK)
+                    btnSaveDocket.Enabled = true;
+                    DialogResult dr1 = MessageBox.Show(myMessage,myTopic,MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    switch (dr1)
                     {
-                        btnSaveDocket.Enabled = true;
-                        CreateNewDocket(myDocNum);
+                        case DialogResult.Cancel:
+                            myMessage = "New docket cancelled.";
+                            myTopic = "Cancelled by WBO";
+                            break;
+                        case DialogResult.Yes:
+                            rbSAPOrder.Checked = true;
+                            CreateNewDocket(myDocNum);
+                            break;
+                        case DialogResult.No:
+                            rbExBinNoOrder.Checked = true;
+                            CreateNewDocket(myDocNum);
+                            break;
                     }
                 }
                 else
                 {
-                    btnSaveDocket.Enabled=false;
-                    dsTIQ2TableAdapters.WBDocketLinesTableAdapter taWBDocketLines = new dsTIQ2TableAdapters.WBDocketLinesTableAdapter();
-                    taWBDocketLines.Connection.ConnectionString = QWSConfig.cnQWSLocal;
-                    taWBDocketLines.FillBy(dsTIQ2.WBDocketLines, myDocNum);
-                    MessageBox.Show("Docket already used!", "Docket Number Check", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    dsTIQ2.WBDockets.Clear();
+                    dsTIQ2.WBDocketLines.Clear();
+                    myMessage = "Docket already exists.";
+                    myTopic = "Docket Number Check";
+                    btnSaveDocket.Enabled = false;
+                    MessageBox.Show(myMessage, myTopic, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             catch (Exception ex)
@@ -307,7 +323,7 @@ namespace QWS_Local
                     // Check blanket agreement
                     int myAgrNo = 0;
                     int myAgrLine = 0;
-                    dsBookIn.BlanketAgreementCheckRow myBlanketRow = (dsBookIn.BlanketAgreementCheckRow)CheckBlanketAgreement(txtCardCode.Text, txtItemCode.Text);
+                    dsBookIn.BlanketAgreementCheckRow myBlanketRow = (dsBookIn.BlanketAgreementCheckRow)CheckBlanketAgreement(txtCardCode.Text, linesRow.ItemCode);
                     if (myBlanketRow != null)
                     {
                         switch (myBlanketRow.AgrStatus)
@@ -348,6 +364,7 @@ namespace QWS_Local
                         //docketsRow.DeliveryAddress = "Ex-Bin";
                         linesRow.ItemCode = itemRow.ItemCode;
                         linesRow.ItemDescription = itemRow.ItemName;
+                        linesRow.Quantity = docketsRow.Nett;
                         linesRow.AgrNo = myAgrNo;
                         linesRow.AgrLine = myAgrLine;
                         //if (ACStatus != "A")
@@ -412,13 +429,10 @@ namespace QWS_Local
                     docketsRow.CardCode = frmBusinessSearch.SAPCode;
                     docketsRow.CardName = frmBusinessSearch.BusinessName;
                     IsPORequired = CheckPORequired(frmBusinessSearch.SAPCode);
-                    //return true;
                 }
                 else
                 {
-                    //MessageBox.Show("Customer not found/set. Cannot proceed!");
-                    // One message is enough
-                    //return false;
+                    MessageBox.Show("Customer not found/set. Cannot proceed!");
                 }
             }
             catch (Exception ex)
@@ -457,7 +471,14 @@ namespace QWS_Local
 
         private void btnGetContact_Click(object sender, EventArgs e)
         {
+            GetContact();
+        }
 
+        private void GetContact()
+        {
+            // this is for ex bin no order
+            // SAP orders normally supply a contact
+            MessageBox.Show("TODO write code to get order details from SAP_OCPR");
         }
 
         private void btnCalculateNett_Click(object sender, EventArgs e)
@@ -470,14 +491,19 @@ namespace QWS_Local
             if (bsWBDockets.Count > 0)
             {
                 docketsRow.Nett = docketsRow.Gross - docketsRow.Tare;
+                // TODO check tare against that on file
                 bsWBDockets.EndEdit();
-                //docket
             }
         }
 
         private void btnGetOrder_Click(object sender, EventArgs e)
         {
+            GetOrder();
+        }
 
+        private void GetOrder()
+        {
+            MessageBox.Show("TODO write code to get order details from SAP_ORDR");
         }
 
         private void btnGetDriver_Click(object sender, EventArgs e)
@@ -487,7 +513,8 @@ namespace QWS_Local
 
         private void GetTruckDriver()
         {
-            TruckDriverSearch frmTruckDriver = new TruckDriverSearch("C000185"); // TODO get truck owner code
+            string TruckOwnerCode = CurrentTruckConfig().CardCode;
+            TruckDriverSearch frmTruckDriver = new TruckDriverSearch(TruckOwnerCode);
             DialogResult dr = frmTruckDriver.ShowDialog();
             if (dr == DialogResult.OK)
             {
@@ -505,57 +532,13 @@ namespace QWS_Local
         {
             try
             {
-                //DGVLoaded = false;
-                //btnHold.Enabled = false;
-                //btnRetare.Enabled = false;
-                //btnRetare.BackColor = SystemColors.Control;
-                //dsQWSLocal2024.TruckDriver.Clear();
                 dsTruckConfig.ConfiguredTrucks.Clear();
                 dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter taConfiguredTrucks = new dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
                 taConfiguredTrucks.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                 int iCount = taConfiguredTrucks.FillByRego(dsTruckConfig.ConfiguredTrucks, Rego);
-                if (iCount > 0) // Configured Truck found
+                if (iCount == 0) // Configured Truck NOT found
                 {
-                    MessageBox.Show(iCount.ToString() + " configurations found.");
-                    //EntryDTTM = DateTime.Now;
-                    //if (IsBookedIn(Rego) == true)
-                    //{
-                    //    if (Resume == false)
-                    //    {
-                    //        MessageBox.Show("Cannot proceed! \r\nTruck already in queue!", "Already Booked In!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    //    }
-                    //    else
-                    //    {
-                    //        // Resume == True
-                    //        UpdateOwnerGUI();
-                    //        if (_TIQRow != null)
-                    //        {
-                    //            string msg = "TIQ Row was passed with Rego = ";
-                    //            msg += _TIQRow.Rego + " TruckconfigID = ";
-                    //            msg += _TIQRow.TruckConfigID.ToString();
-                    //            DGVLoaded = true;
-                    //        }
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    if (Resume == false)
-                    //    {
-                    //        UpdateOwnerGUI();
-                    //        TIQID = NewTIQ(TIQType.EnterRego, myParentTIQID, "tba", false);
-                    //        dgvConfiguredTrucks.ClearSelection();
-                    //        DGVLoaded = true;
-                    //    }
-                    //}
-                }
-                else
-                {
-                    // 20251206 JV create blank TIQ with Rego and parkup
                     MessageBox.Show("Unknown truck/configuration.", "Find Truck", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    //EntryDTTM = DateTime.Now;
-                    //TIQID = NewTIQ(txtTruckRego.Text);
-                    //((QWS_MDIParent)this.MdiParent).BringTIQ2Front();
-                    //this.Close();
                 }
             }
             catch (Exception ex)
@@ -569,5 +552,43 @@ namespace QWS_Local
             FindTruckConfig(txtTruckRego.Text, false);
         }
 
+        private void btnSetTruckConfig_Click(object sender, EventArgs e)
+        {
+            SetTruckConfig();
+        }
+
+        private void SetTruckConfig()
+        {
+            dsTruckConfig.ConfiguredTrucksRow myTruckConfigRow = CurrentTruckConfig();
+            docketsRow.TruckConfig = myTruckConfigRow.VehicleType;
+            docketsRow.TruckOwnerCode = myTruckConfigRow.CardCode;
+            docketsRow.TruckOwner = myTruckConfigRow.TruckOwner;
+            bsWBDockets.EndEdit();
+        }
+
+        private dsTruckConfig.ConfiguredTrucksRow CurrentTruckConfig()
+        {
+            DataRow myRow = ((DataRowView)bsConfiguredTrucks.Current).Row;
+            dsTruckConfig.ConfiguredTrucksRow myTruckConfigRow = (dsTruckConfig.ConfiguredTrucksRow)myRow;
+            return myTruckConfigRow;
+        }
+
+        private void rbExBinNoOrder_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbExBinNoOrder.Checked)
+            {
+                btnGetCustomer.Focus();
+                // TODO update GUI
+            }
+        }
+
+        private void rbSAPOrder_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbSAPOrder.Checked)
+            {
+                btnGetOrder.Focus();
+                // TODO update GUI
+            }
+        }
     }
 }
