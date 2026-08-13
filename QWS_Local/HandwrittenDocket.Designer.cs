@@ -99,7 +99,7 @@
             this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtSAPOrderDocNum = new System.Windows.Forms.TextBox();
             this.rbExBinNoOrder = new System.Windows.Forms.RadioButton();
             this.rbSAPOrder = new System.Windows.Forms.RadioButton();
             docNumLabel = new System.Windows.Forms.Label();
@@ -163,7 +163,7 @@
             // contactNameLabel
             // 
             contactNameLabel.AutoSize = true;
-            contactNameLabel.Location = new System.Drawing.Point(23, 98);
+            contactNameLabel.Location = new System.Drawing.Point(63, 98);
             contactNameLabel.Name = "contactNameLabel";
             contactNameLabel.Size = new System.Drawing.Size(68, 18);
             contactNameLabel.TabIndex = 12;
@@ -318,7 +318,7 @@
             this.gbCustomer.Controls.Add(this.rbSAPOrder);
             this.gbCustomer.Controls.Add(this.rbExBinNoOrder);
             this.gbCustomer.Controls.Add(label1);
-            this.gbCustomer.Controls.Add(this.textBox3);
+            this.gbCustomer.Controls.Add(this.txtSAPOrderDocNum);
             this.gbCustomer.Controls.Add(this.btnGetOrder);
             this.gbCustomer.Controls.Add(this.cardNameTextBox);
             this.gbCustomer.Controls.Add(this.contactMobileTextBox);
@@ -343,7 +343,7 @@
             // 
             // btnGetOrder
             // 
-            this.btnGetOrder.Location = new System.Drawing.Point(772, 151);
+            this.btnGetOrder.Location = new System.Drawing.Point(772, 71);
             this.btnGetOrder.Margin = new System.Windows.Forms.Padding(4);
             this.btnGetOrder.Name = "btnGetOrder";
             this.btnGetOrder.Size = new System.Drawing.Size(128, 32);
@@ -357,6 +357,7 @@
             this.cardNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "CardName", true));
             this.cardNameTextBox.Location = new System.Drawing.Point(137, 35);
             this.cardNameTextBox.Name = "cardNameTextBox";
+            this.cardNameTextBox.ReadOnly = true;
             this.cardNameTextBox.Size = new System.Drawing.Size(200, 24);
             this.cardNameTextBox.TabIndex = 7;
             // 
@@ -365,6 +366,7 @@
             this.contactMobileTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "ContactMobile", true));
             this.contactMobileTextBox.Location = new System.Drawing.Point(356, 95);
             this.contactMobileTextBox.Name = "contactMobileTextBox";
+            this.contactMobileTextBox.ReadOnly = true;
             this.contactMobileTextBox.Size = new System.Drawing.Size(100, 24);
             this.contactMobileTextBox.TabIndex = 15;
             // 
@@ -373,6 +375,7 @@
             this.distanceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "Distance", true));
             this.distanceTextBox.Location = new System.Drawing.Point(624, 155);
             this.distanceTextBox.Name = "distanceTextBox";
+            this.distanceTextBox.ReadOnly = true;
             this.distanceTextBox.Size = new System.Drawing.Size(100, 24);
             this.distanceTextBox.TabIndex = 42;
             // 
@@ -381,6 +384,7 @@
             this.contactNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "ContactName", true));
             this.contactNameTextBox.Location = new System.Drawing.Point(137, 95);
             this.contactNameTextBox.Name = "contactNameTextBox";
+            this.contactNameTextBox.ReadOnly = true;
             this.contactNameTextBox.Size = new System.Drawing.Size(200, 24);
             this.contactNameTextBox.TabIndex = 13;
             // 
@@ -390,6 +394,7 @@
             this.deliveryAddressTextBox.Location = new System.Drawing.Point(137, 125);
             this.deliveryAddressTextBox.Multiline = true;
             this.deliveryAddressTextBox.Name = "deliveryAddressTextBox";
+            this.deliveryAddressTextBox.ReadOnly = true;
             this.deliveryAddressTextBox.Size = new System.Drawing.Size(319, 58);
             this.deliveryAddressTextBox.TabIndex = 41;
             // 
@@ -403,13 +408,14 @@
             // 
             // btnGetContact
             // 
-            this.btnGetContact.Location = new System.Drawing.Point(772, 91);
+            this.btnGetContact.Location = new System.Drawing.Point(772, 144);
             this.btnGetContact.Margin = new System.Windows.Forms.Padding(4);
             this.btnGetContact.Name = "btnGetContact";
             this.btnGetContact.Size = new System.Drawing.Size(128, 32);
             this.btnGetContact.TabIndex = 37;
             this.btnGetContact.Text = "Get Contact";
             this.btnGetContact.UseVisualStyleBackColor = true;
+            this.btnGetContact.Visible = false;
             this.btnGetContact.Click += new System.EventHandler(this.btnGetContact_Click);
             // 
             // txtCardCode
@@ -417,6 +423,7 @@
             this.txtCardCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "CardCode", true));
             this.txtCardCode.Location = new System.Drawing.Point(356, 35);
             this.txtCardCode.Name = "txtCardCode";
+            this.txtCardCode.ReadOnly = true;
             this.txtCardCode.Size = new System.Drawing.Size(100, 24);
             this.txtCardCode.TabIndex = 3;
             // 
@@ -544,6 +551,8 @@
             // 
             // configuredTrucksDataGridView
             // 
+            this.configuredTrucksDataGridView.AllowUserToAddRows = false;
+            this.configuredTrucksDataGridView.AllowUserToDeleteRows = false;
             this.configuredTrucksDataGridView.AutoGenerateColumns = false;
             this.configuredTrucksDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.configuredTrucksDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -553,6 +562,7 @@
             this.configuredTrucksDataGridView.DataSource = this.bsConfiguredTrucks;
             this.configuredTrucksDataGridView.Location = new System.Drawing.Point(6, 60);
             this.configuredTrucksDataGridView.Name = "configuredTrucksDataGridView";
+            this.configuredTrucksDataGridView.ReadOnly = true;
             this.configuredTrucksDataGridView.Size = new System.Drawing.Size(352, 139);
             this.configuredTrucksDataGridView.TabIndex = 46;
             // 
@@ -561,6 +571,7 @@
             this.dataGridViewTextBoxColumn1.DataPropertyName = "RegoTk";
             this.dataGridViewTextBoxColumn1.HeaderText = "RegoTk";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -574,6 +585,7 @@
             this.dataGridViewTextBoxColumn12.DataPropertyName = "VehicleType";
             this.dataGridViewTextBoxColumn12.HeaderText = "Config";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
             // 
             // bsConfiguredTrucks
             // 
@@ -751,13 +763,13 @@
             this.dataGridViewTextBoxColumn58.HeaderText = "Quantity";
             this.dataGridViewTextBoxColumn58.Name = "dataGridViewTextBoxColumn58";
             // 
-            // textBox3
+            // txtSAPOrderDocNum
             // 
-            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "SAPOrderDocNum", true));
-            this.textBox3.Location = new System.Drawing.Point(624, 68);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 24);
-            this.textBox3.TabIndex = 44;
+            this.txtSAPOrderDocNum.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "SAPOrderDocNum", true));
+            this.txtSAPOrderDocNum.Location = new System.Drawing.Point(624, 68);
+            this.txtSAPOrderDocNum.Name = "txtSAPOrderDocNum";
+            this.txtSAPOrderDocNum.Size = new System.Drawing.Size(100, 24);
+            this.txtSAPOrderDocNum.TabIndex = 44;
             // 
             // label1
             // 
@@ -888,7 +900,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn57;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn58;
         private System.Windows.Forms.RadioButton rbExBinNoOrder;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtSAPOrderDocNum;
         private System.Windows.Forms.RadioButton rbSAPOrder;
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Diagnostics.PerformanceData;
 using System.Drawing;
 using System.Linq;
@@ -55,7 +56,8 @@ namespace QWS_Local
         {
             try
             {
-                string myMessage = "Press Yes to create new docket based on SAP Order.";
+                string myMessage = "Doc Num : " + txtDocNum.Text;
+                myMessage += "\r\n\r\nPress Yes to create new docket based on SAP Order.";
                 myMessage += "\r\nPress No to create Ex-Bin No-Order docket.";
                 myMessage += "\r\nPress cancel to abort creating new docket.";
                 string myTopic = "Docket Number Check";
@@ -129,17 +131,12 @@ namespace QWS_Local
             {
                 dsTIQ2.WBDockets.Clear();
                 dsTIQ2.WBDocketLines.Clear();
-                //dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
-                //string RegB = myTIQRow.RegoTr2;
-                //if (myTIQRow.RegoTr3.Length > 0)
-                //{
-                //    RegB = myTIQRow.RegoTr2;
-                //}
-                string myContactName = "";
-                string myContactMobile = "";
+                string myContactName = string.Empty;
+                string myContactMobile = string.Empty;
                 int myCntCode = -9;
+                string myDeliveryAddress = string.Empty;
+                int myDistance = 0;
 
-                // Safely attempt the conversion
                 if (decimal.TryParse(txtGross.Text, out decimal Gross))
                 {
                     myGross =Gross;
@@ -167,52 +164,56 @@ namespace QWS_Local
                     myNett = 0.0M;
                 }
 
-                //int myORDRDocNum = myTIQRow.SAPOrder;
-                //if (myORDRDocNum > 0)
-                //{
-                //    dsBookInTableAdapters.QuarryOrdersTableAdapter taQuarryOrders = new dsBookInTableAdapters.QuarryOrdersTableAdapter();
-                //    taQuarryOrders.Connection.ConnectionString = QWSConfig.cnQWSLocal;
-                //    int iRows = taQuarryOrders.FillBy(dsBookIn.QuarryOrders, myTIQRow.SAPOrder);
-                //    if (iRows > 0)
-                //    {
-                //        dsBookIn.QuarryOrdersRow myOrderRow = (dsBookIn.QuarryOrdersRow)dsBookIn.QuarryOrders.Rows[0];
-                //        myContactName = myOrderRow.ContactName;
-                //        myContactMobile = myOrderRow.ContactMobile;
-                //        myCntCode = myOrderRow.CntctCode;
-                //    }
-                //}
+                if (Int32.TryParse(txtSAPOrderDocNum.Text, out int SSAPOrderDocNum))
+                {
+                    int myORDRDocNum = SSAPOrderDocNum;
+                    if (myORDRDocNum > 0)
+                    {
+                        dsBookInTableAdapters.QuarryOrdersTableAdapter taQuarryOrders = new dsBookInTableAdapters.QuarryOrdersTableAdapter();
+                        taQuarryOrders.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                        int iRows = taQuarryOrders.FillBy(dsBookIn.QuarryOrders, myORDRDocNum);
+                        if (iRows > 0)
+                        {
+                            dsBookIn.QuarryOrdersRow myOrderRow = (dsBookIn.QuarryOrdersRow)dsBookIn.QuarryOrders.Rows[0];
+                            myContactName = myOrderRow.ContactName;
+                            myContactMobile = myOrderRow.ContactMobile;
+                            myCntCode = myOrderRow.CntctCode;
+                            myDeliveryAddress = myOrderRow.DeliveryAddress;
+                            myDistance = myOrderRow.Distance;
+                        }
+                    }
+                }
                 DataRow dr = dsTIQ2.WBDockets.NewRow();
-                //dsTIQ2.WBDocketsRow docketsRow = (dsTIQ2.WBDocketsRow)dr;
                 docketsRow = (dsTIQ2.WBDocketsRow)dr;
                 docketsRow.DocNum = DocNum;
                 docketsRow.DocDate = DateTime.Now;
-                docketsRow.CardCode = "<CustomerCode>";
-                docketsRow.CardName = "<Customer>";
-                docketsRow.PurchaseOrder = "CustON";
+                docketsRow.CardCode = string.Empty;
+                docketsRow.CardName = string.Empty;
+                docketsRow.PurchaseOrder = string.Empty;
                 docketsRow.SAPOrderDocNum = 0;
                 docketsRow.CntCode = myCntCode;
                 docketsRow.ContactName = myContactName;
                 docketsRow.ContactMobile = myContactMobile;
                 docketsRow.DeliveryDate = DateTime.Now;
-                docketsRow.DeliveryAddress = "";
-                docketsRow.MapRef = "";
-                docketsRow.Distance = 0;
-                docketsRow.TruckRego = "<Rego>";
-                docketsRow.RegA = "<RegA>";
-                docketsRow.RegB = "<RegB>";
-                docketsRow.TruckOwnerCode = "C01234";
-                docketsRow.TruckOwner = "<TruckOwner>";
-                docketsRow.TruckConfig = "";
+                docketsRow.DeliveryAddress = myDeliveryAddress;
+                docketsRow.MapRef = string.Empty;
+                docketsRow.Distance = myDistance;
+                docketsRow.TruckRego = string.Empty;
+                docketsRow.RegA = string.Empty;
+                docketsRow.RegB = string.Empty;
+                docketsRow.TruckOwnerCode = string.Empty;
+                docketsRow.TruckOwner = string.Empty;
+                docketsRow.TruckConfig = string.Empty;
                 docketsRow.TruckConfigID = 1;
                 docketsRow.GrossLegal = 43.50M;
                 docketsRow.Gross = myGross;
                 docketsRow.Tare = myTare;
                 docketsRow.Nett = myNett;
                 docketsRow.OverloadPoints = 0;
-                docketsRow.OverloadDesc = "<OverloadDesc>";
+                docketsRow.OverloadDesc = string.Empty;
                 docketsRow.WBMode = "Manual";
                 docketsRow.TruckDriverID = 1;
-                docketsRow.TruckDriver = "<Driver>";
+                docketsRow.TruckDriver = string.Empty;
                 docketsRow.SalesPersonCode = -1;
                 docketsRow.SalesPerson = "";//"Weighbridge Operator";
                 docketsRow.EnteredBy = QWS_WBO;
@@ -221,7 +222,7 @@ namespace QWS_Local
                 docketsRow.TIQID = 0; // TODO check what issues this may cause
                 dsTIQ2.WBDockets.AddWBDocketsRow(docketsRow);
                 bsWBDockets.EndEdit();
-                DocketLineAdd("tba", "item", false, 128, "Items", 0, 0, 0);
+                DocketLineAdd("tba", "Item Description", false, 128, "Items", 0, 0, 0);
             }
             catch (Exception ex)
             {
@@ -492,6 +493,7 @@ namespace QWS_Local
             {
                 docketsRow.Nett = docketsRow.Gross - docketsRow.Tare;
                 // TODO check tare against that on file
+                // TODO update line quantity value
                 bsWBDockets.EndEdit();
             }
         }
@@ -577,8 +579,11 @@ namespace QWS_Local
         {
             if (rbExBinNoOrder.Checked)
             {
+                btnGetCustomer.Enabled=true;
+                btnGetOrder.Enabled = false;
+                btnGetItem.Enabled = true;
+                txtSAPOrderDocNum.ReadOnly = true;
                 btnGetCustomer.Focus();
-                // TODO update GUI
             }
         }
 
@@ -586,8 +591,11 @@ namespace QWS_Local
         {
             if (rbSAPOrder.Checked)
             {
+                btnGetCustomer.Enabled=false;
+                btnGetOrder.Enabled = true;
+                btnGetItem.Enabled = false;
+                txtSAPOrderDocNum.ReadOnly = false;
                 btnGetOrder.Focus();
-                // TODO update GUI
             }
         }
     }
