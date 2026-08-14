@@ -18,6 +18,8 @@ namespace QWS_Local
     public partial class HandwrittenDocket : Form
     {
         private static int mySiteID;
+        private static int myDocNum = 0;
+        private static int mySAPOrderDocNum = 0;
         private static decimal myGross;
         private static decimal myTare;
         private static decimal myNett;
@@ -63,7 +65,7 @@ namespace QWS_Local
                 string myTopic = "Docket Number Check";
                 dsTIQ2TableAdapters.WBDocketsTableAdapter taWBDockets = new dsTIQ2TableAdapters.WBDocketsTableAdapter();
                 taWBDockets.Connection.ConnectionString = QWSConfig.cnQWSLocal;
-                int myDocNum = System.Convert.ToInt32(txtDocNum.Text);
+                myDocNum = System.Convert.ToInt32(txtDocNum.Text);
                 int iCount = taWBDockets.FillBy(dsTIQ2.WBDockets,myDocNum);
                 if (iCount == 0)
                 {
@@ -77,7 +79,8 @@ namespace QWS_Local
                             break;
                         case DialogResult.Yes:
                             rbSAPOrder.Checked = true;
-                            CreateNewDocket(myDocNum);
+                            //CreateNewDocket(myDocNum);
+                            mtxtSAPOrderDocNum.Focus();
                             break;
                         case DialogResult.No:
                             rbExBinNoOrder.Checked = true;
@@ -137,50 +140,34 @@ namespace QWS_Local
                 string myDeliveryAddress = string.Empty;
                 int myDistance = 0;
 
-                if (decimal.TryParse(txtGross.Text, out decimal Gross))
-                {
-                    myGross =Gross;
-                }
-                else
+                if(decimal.TryParse(mtxtGross.Text, out decimal myGross)==false)
                 {
                     myGross = 0.0M;
                 }
 
-                if (decimal.TryParse(txtTare.Text, out decimal Tare))
-                {
-                    myTare = Tare;
-                }
-                else
+                if (decimal.TryParse(mtxtTare.Text, out decimal myTare)==false)
                 {
                     myTare = 0.0M;
                 }
 
-                if (decimal.TryParse(txtNett.Text, out decimal Nett))
-                {
-                    myNett = Nett;
-                }
-                else
+                if (decimal.TryParse(mtxtNett.Text, out decimal myNett)==false)
                 {
                     myNett = 0.0M;
                 }
 
-                if (Int32.TryParse(txtSAPOrderDocNum.Text, out int SSAPOrderDocNum))
+                if (mySAPOrderDocNum > 0)
                 {
-                    int myORDRDocNum = SSAPOrderDocNum;
-                    if (myORDRDocNum > 0)
+                    dsBookInTableAdapters.QuarryOrdersTableAdapter taQuarryOrders = new dsBookInTableAdapters.QuarryOrdersTableAdapter();
+                    taQuarryOrders.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                    int iRows = taQuarryOrders.FillBy(dsBookIn.QuarryOrders, mySAPOrderDocNum);
+                    if (iRows > 0)
                     {
-                        dsBookInTableAdapters.QuarryOrdersTableAdapter taQuarryOrders = new dsBookInTableAdapters.QuarryOrdersTableAdapter();
-                        taQuarryOrders.Connection.ConnectionString = QWSConfig.cnQWSLocal;
-                        int iRows = taQuarryOrders.FillBy(dsBookIn.QuarryOrders, myORDRDocNum);
-                        if (iRows > 0)
-                        {
-                            dsBookIn.QuarryOrdersRow myOrderRow = (dsBookIn.QuarryOrdersRow)dsBookIn.QuarryOrders.Rows[0];
-                            myContactName = myOrderRow.ContactName;
-                            myContactMobile = myOrderRow.ContactMobile;
-                            myCntCode = myOrderRow.CntctCode;
-                            myDeliveryAddress = myOrderRow.DeliveryAddress;
-                            myDistance = myOrderRow.Distance;
-                        }
+                        dsBookIn.QuarryOrdersRow myOrderRow = (dsBookIn.QuarryOrdersRow)dsBookIn.QuarryOrders.Rows[0];
+                        myContactName = myOrderRow.ContactName;
+                        myContactMobile = myOrderRow.ContactMobile;
+                        myCntCode = myOrderRow.CntctCode;
+                        myDeliveryAddress = myOrderRow.DeliveryAddress;
+                        myDistance = myOrderRow.Distance;
                     }
                 }
                 DataRow dr = dsTIQ2.WBDockets.NewRow();
@@ -477,7 +464,7 @@ namespace QWS_Local
 
         private void GetContact()
         {
-            // this is for ex bin no order
+            // this is for ex bin no order, not currently implemented
             // SAP orders normally supply a contact
             MessageBox.Show("TODO write code to get order details from SAP_OCPR");
         }
@@ -491,10 +478,16 @@ namespace QWS_Local
         {
             if (bsWBDockets.Count > 0)
             {
-                docketsRow.Nett = docketsRow.Gross - docketsRow.Tare;
+                decimal myQty = docketsRow.Gross - docketsRow.Tare;
+                docketsRow.Nett = myQty;
                 // TODO check tare against that on file
                 // TODO update line quantity value
                 bsWBDockets.EndEdit();
+                foreach (dsTIQ2.WBDocketLinesRow linesRow in dsTIQ2.WBDocketLines)
+                {
+                    linesRow.Quantity = myQty;
+                }
+                bsWBDocketLines.EndEdit();
             }
         }
 
@@ -505,7 +498,17 @@ namespace QWS_Local
 
         private void GetOrder()
         {
-            MessageBox.Show("TODO write code to get order details from SAP_ORDR");
+            //MessageBox.Show("TODO write code to get order details from SAP_ORDR");
+            if (int.TryParse(mtxtSAPOrderDocNum.Text, out int result))
+            {
+                mySAPOrderDocNum = result;
+                CreateNewDocket(myDocNum);
+            }
+            else
+            {
+                MessageBox.Show("mtxtSAPOrderDocNum = " + mtxtSAPOrderDocNum.Text ,"SAP Order DocNum Error!", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+
         }
 
         private void btnGetDriver_Click(object sender, EventArgs e)
@@ -523,6 +526,7 @@ namespace QWS_Local
                 docketsRow.TruckDriverID = frmTruckDriver.TruckDriverID;
                 docketsRow.TruckDriver = frmTruckDriver.TruckDriver;
                 bsWBDockets.EndEdit();
+                mtxtGross.Focus();
             }
             else
             {
@@ -582,7 +586,7 @@ namespace QWS_Local
                 btnGetCustomer.Enabled=true;
                 btnGetOrder.Enabled = false;
                 btnGetItem.Enabled = true;
-                txtSAPOrderDocNum.ReadOnly = true;
+                mtxtSAPOrderDocNum.ReadOnly = true;
                 btnGetCustomer.Focus();
             }
         }
@@ -594,8 +598,32 @@ namespace QWS_Local
                 btnGetCustomer.Enabled=false;
                 btnGetOrder.Enabled = true;
                 btnGetItem.Enabled = false;
-                txtSAPOrderDocNum.ReadOnly = false;
+                mtxtSAPOrderDocNum.ReadOnly = false;
                 btnGetOrder.Focus();
+            }
+        }
+
+        private void nudGross_SelectAll(object sender, EventArgs e)
+        {
+            // Safely cast the sender back to a NumericUpDown control
+            NumericUpDown numBox = sender as NumericUpDown;
+
+            if (numBox != null)
+            {
+                // Select all text from position 0 up to the maximum string length
+                numBox.Select(0, numBox.Text.Length);
+            }
+        }
+
+        private void nudTare_MouseUp(object sender, MouseEventArgs e)
+        {
+            // Safely cast the sender back to a NumericUpDown control
+            NumericUpDown numBox = sender as NumericUpDown;
+
+            if (numBox != null)
+            {
+                // Select all text from position 0 up to the maximum string length
+                numBox.Select(0, numBox.Text.Length);
             }
         }
     }

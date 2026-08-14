@@ -44,13 +44,18 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gbDocketLines = new System.Windows.Forms.GroupBox();
             this.wBDocketLinesDataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn54 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsWBDocketLines = new System.Windows.Forms.BindingSource(this.components);
             this.bsWBDockets = new System.Windows.Forms.BindingSource(this.components);
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.btnGetItem = new System.Windows.Forms.Button();
-            this.bsBlanketAgreementCheck = new System.Windows.Forms.BindingSource(this.components);
-            this.dsBookIn = new QWS_Local.dsBookIn();
             this.gbCustomer = new System.Windows.Forms.GroupBox();
+            this.rbSAPOrder = new System.Windows.Forms.RadioButton();
+            this.rbExBinNoOrder = new System.Windows.Forms.RadioButton();
             this.btnGetOrder = new System.Windows.Forms.Button();
             this.cardNameTextBox = new System.Windows.Forms.TextBox();
             this.contactMobileTextBox = new System.Windows.Forms.TextBox();
@@ -68,6 +73,9 @@
             this.docDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.btnCheck = new System.Windows.Forms.Button();
             this.gbTruck = new System.Windows.Forms.GroupBox();
+            this.mtxtTare = new System.Windows.Forms.MaskedTextBox();
+            this.mtxtNett = new System.Windows.Forms.MaskedTextBox();
+            this.mtxtGross = new System.Windows.Forms.MaskedTextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnSetTruckConfig = new System.Windows.Forms.Button();
             this.configuredTrucksDataGridView = new System.Windows.Forms.DataGridView();
@@ -82,9 +90,8 @@
             this.truckDriverTextBox = new System.Windows.Forms.TextBox();
             this.txtTruckRego = new System.Windows.Forms.TextBox();
             this.btnCalculateNett = new System.Windows.Forms.Button();
-            this.txtGross = new System.Windows.Forms.TextBox();
-            this.txtTare = new System.Windows.Forms.TextBox();
-            this.txtNett = new System.Windows.Forms.TextBox();
+            this.bsBlanketAgreementCheck = new System.Windows.Forms.BindingSource(this.components);
+            this.dsBookIn = new QWS_Local.dsBookIn();
             this.bsItem = new System.Windows.Forms.BindingSource(this.components);
             this.taWBDockets = new QWS_Local.dsTIQ2TableAdapters.WBDocketsTableAdapter();
             this.tableAdapterManager = new QWS_Local.dsTIQ2TableAdapters.TableAdapterManager();
@@ -94,14 +101,7 @@
             this.taBlanketAgreementCheck = new QWS_Local.dsBookInTableAdapters.BlanketAgreementCheckTableAdapter();
             this.taConfiguredTrucks = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
             this.tableAdapterManager2 = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
-            this.dataGridViewTextBoxColumn54 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSAPOrderDocNum = new System.Windows.Forms.TextBox();
-            this.rbExBinNoOrder = new System.Windows.Forms.RadioButton();
-            this.rbSAPOrder = new System.Windows.Forms.RadioButton();
+            this.mtxtSAPOrderDocNum = new System.Windows.Forms.MaskedTextBox();
             docNumLabel = new System.Windows.Forms.Label();
             cardNameLabel = new System.Windows.Forms.Label();
             purchaseOrderLabel = new System.Windows.Forms.Label();
@@ -122,14 +122,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsWBDocketLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsWBDockets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsBlanketAgreementCheck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsBookIn)).BeginInit();
             this.gbCustomer.SuspendLayout();
             this.gbDocket.SuspendLayout();
             this.gbTruck.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.configuredTrucksDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsBlanketAgreementCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsBookIn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsItem)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,11 +163,11 @@
             // contactNameLabel
             // 
             contactNameLabel.AutoSize = true;
-            contactNameLabel.Location = new System.Drawing.Point(63, 98);
+            contactNameLabel.Location = new System.Drawing.Point(34, 162);
             contactNameLabel.Name = "contactNameLabel";
-            contactNameLabel.Size = new System.Drawing.Size(68, 18);
+            contactNameLabel.Size = new System.Drawing.Size(97, 18);
             contactNameLabel.TabIndex = 12;
-            contactNameLabel.Text = "Contact :";
+            contactNameLabel.Text = "Site Contact :";
             // 
             // grossLabel
             // 
@@ -217,7 +217,7 @@
             // deliveryAddressLabel
             // 
             deliveryAddressLabel.AutoSize = true;
-            deliveryAddressLabel.Location = new System.Drawing.Point(9, 128);
+            deliveryAddressLabel.Location = new System.Drawing.Point(9, 98);
             deliveryAddressLabel.Name = "deliveryAddressLabel";
             deliveryAddressLabel.Size = new System.Drawing.Size(122, 18);
             deliveryAddressLabel.TabIndex = 40;
@@ -231,6 +231,15 @@
             distanceLabel.Size = new System.Drawing.Size(70, 18);
             distanceLabel.TabIndex = 41;
             distanceLabel.Text = "Distance:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(535, 71);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(83, 18);
+            label1.TabIndex = 45;
+            label1.Text = "SAP Order:";
             // 
             // splitContainer1
             // 
@@ -277,6 +286,41 @@
             this.wBDocketLinesDataGridView1.Size = new System.Drawing.Size(761, 169);
             this.wBDocketLinesDataGridView1.TabIndex = 22;
             // 
+            // dataGridViewTextBoxColumn54
+            // 
+            this.dataGridViewTextBoxColumn54.DataPropertyName = "ItemCode";
+            this.dataGridViewTextBoxColumn54.HeaderText = "ItemCode";
+            this.dataGridViewTextBoxColumn54.Name = "dataGridViewTextBoxColumn54";
+            this.dataGridViewTextBoxColumn54.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn55
+            // 
+            this.dataGridViewTextBoxColumn55.DataPropertyName = "ItemDescription";
+            this.dataGridViewTextBoxColumn55.HeaderText = "ItemDescription";
+            this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
+            this.dataGridViewTextBoxColumn55.ReadOnly = true;
+            this.dataGridViewTextBoxColumn55.Width = 250;
+            // 
+            // dataGridViewCheckBoxColumn2
+            // 
+            this.dataGridViewCheckBoxColumn2.DataPropertyName = "ItemQA";
+            this.dataGridViewCheckBoxColumn2.HeaderText = "ItemQA";
+            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
+            this.dataGridViewCheckBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn57
+            // 
+            this.dataGridViewTextBoxColumn57.DataPropertyName = "StockpileLot";
+            this.dataGridViewTextBoxColumn57.HeaderText = "StockpileLot";
+            this.dataGridViewTextBoxColumn57.Name = "dataGridViewTextBoxColumn57";
+            // 
+            // dataGridViewTextBoxColumn58
+            // 
+            this.dataGridViewTextBoxColumn58.DataPropertyName = "Quantity";
+            this.dataGridViewTextBoxColumn58.HeaderText = "Quantity";
+            this.dataGridViewTextBoxColumn58.Name = "dataGridViewTextBoxColumn58";
+            this.dataGridViewTextBoxColumn58.ReadOnly = true;
+            // 
             // bsWBDocketLines
             // 
             this.bsWBDocketLines.DataMember = "FK_WBDocketLines_WBDockets";
@@ -303,22 +347,12 @@
             this.btnGetItem.UseVisualStyleBackColor = true;
             this.btnGetItem.Click += new System.EventHandler(this.btnGetItem_Click);
             // 
-            // bsBlanketAgreementCheck
-            // 
-            this.bsBlanketAgreementCheck.DataMember = "BlanketAgreementCheck";
-            this.bsBlanketAgreementCheck.DataSource = this.dsBookIn;
-            // 
-            // dsBookIn
-            // 
-            this.dsBookIn.DataSetName = "dsBookIn";
-            this.dsBookIn.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // gbCustomer
             // 
+            this.gbCustomer.Controls.Add(this.mtxtSAPOrderDocNum);
             this.gbCustomer.Controls.Add(this.rbSAPOrder);
             this.gbCustomer.Controls.Add(this.rbExBinNoOrder);
             this.gbCustomer.Controls.Add(label1);
-            this.gbCustomer.Controls.Add(this.txtSAPOrderDocNum);
             this.gbCustomer.Controls.Add(this.btnGetOrder);
             this.gbCustomer.Controls.Add(this.cardNameTextBox);
             this.gbCustomer.Controls.Add(this.contactMobileTextBox);
@@ -340,6 +374,30 @@
             this.gbCustomer.TabIndex = 45;
             this.gbCustomer.TabStop = false;
             this.gbCustomer.Text = "Customer | Order | Delivery Address";
+            // 
+            // rbSAPOrder
+            // 
+            this.rbSAPOrder.AutoSize = true;
+            this.rbSAPOrder.Location = new System.Drawing.Point(638, 37);
+            this.rbSAPOrder.Name = "rbSAPOrder";
+            this.rbSAPOrder.Size = new System.Drawing.Size(97, 22);
+            this.rbSAPOrder.TabIndex = 47;
+            this.rbSAPOrder.TabStop = true;
+            this.rbSAPOrder.Text = "SAP Order";
+            this.rbSAPOrder.UseVisualStyleBackColor = true;
+            this.rbSAPOrder.CheckedChanged += new System.EventHandler(this.rbSAPOrder_CheckedChanged);
+            // 
+            // rbExBinNoOrder
+            // 
+            this.rbExBinNoOrder.AutoSize = true;
+            this.rbExBinNoOrder.Location = new System.Drawing.Point(502, 36);
+            this.rbExBinNoOrder.Name = "rbExBinNoOrder";
+            this.rbExBinNoOrder.Size = new System.Drawing.Size(134, 22);
+            this.rbExBinNoOrder.TabIndex = 46;
+            this.rbExBinNoOrder.TabStop = true;
+            this.rbExBinNoOrder.Text = "Ex Bin No Order";
+            this.rbExBinNoOrder.UseVisualStyleBackColor = true;
+            this.rbExBinNoOrder.CheckedChanged += new System.EventHandler(this.rbExBinNoOrder_CheckedChanged);
             // 
             // btnGetOrder
             // 
@@ -364,7 +422,7 @@
             // contactMobileTextBox
             // 
             this.contactMobileTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "ContactMobile", true));
-            this.contactMobileTextBox.Location = new System.Drawing.Point(356, 95);
+            this.contactMobileTextBox.Location = new System.Drawing.Point(356, 159);
             this.contactMobileTextBox.Name = "contactMobileTextBox";
             this.contactMobileTextBox.ReadOnly = true;
             this.contactMobileTextBox.Size = new System.Drawing.Size(100, 24);
@@ -382,7 +440,7 @@
             // contactNameTextBox
             // 
             this.contactNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "ContactName", true));
-            this.contactNameTextBox.Location = new System.Drawing.Point(137, 95);
+            this.contactNameTextBox.Location = new System.Drawing.Point(137, 159);
             this.contactNameTextBox.Name = "contactNameTextBox";
             this.contactNameTextBox.ReadOnly = true;
             this.contactNameTextBox.Size = new System.Drawing.Size(200, 24);
@@ -391,7 +449,7 @@
             // deliveryAddressTextBox
             // 
             this.deliveryAddressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "DeliveryAddress", true));
-            this.deliveryAddressTextBox.Location = new System.Drawing.Point(137, 125);
+            this.deliveryAddressTextBox.Location = new System.Drawing.Point(137, 95);
             this.deliveryAddressTextBox.Multiline = true;
             this.deliveryAddressTextBox.Name = "deliveryAddressTextBox";
             this.deliveryAddressTextBox.ReadOnly = true;
@@ -505,6 +563,9 @@
             // 
             // gbTruck
             // 
+            this.gbTruck.Controls.Add(this.mtxtTare);
+            this.gbTruck.Controls.Add(this.mtxtNett);
+            this.gbTruck.Controls.Add(this.mtxtGross);
             this.gbTruck.Controls.Add(this.textBox2);
             this.gbTruck.Controls.Add(this.btnSetTruckConfig);
             this.gbTruck.Controls.Add(this.configuredTrucksDataGridView);
@@ -516,11 +577,8 @@
             this.gbTruck.Controls.Add(this.txtTruckRego);
             this.gbTruck.Controls.Add(truckRegoLabel);
             this.gbTruck.Controls.Add(this.btnCalculateNett);
-            this.gbTruck.Controls.Add(this.txtGross);
             this.gbTruck.Controls.Add(grossLabel);
-            this.gbTruck.Controls.Add(this.txtTare);
             this.gbTruck.Controls.Add(tareLabel);
-            this.gbTruck.Controls.Add(this.txtNett);
             this.gbTruck.Controls.Add(nettLabel);
             this.gbTruck.Location = new System.Drawing.Point(51, 515);
             this.gbTruck.Name = "gbTruck";
@@ -528,6 +586,37 @@
             this.gbTruck.TabIndex = 43;
             this.gbTruck.TabStop = false;
             this.gbTruck.Text = "Truck";
+            // 
+            // mtxtTare
+            // 
+            this.mtxtTare.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "Tare", true));
+            this.mtxtTare.Location = new System.Drawing.Point(667, 151);
+            this.mtxtTare.Mask = "00.00";
+            this.mtxtTare.Name = "mtxtTare";
+            this.mtxtTare.Size = new System.Drawing.Size(100, 24);
+            this.mtxtTare.TabIndex = 51;
+            this.mtxtTare.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // mtxtNett
+            // 
+            this.mtxtNett.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "Nett", true));
+            this.mtxtNett.Location = new System.Drawing.Point(667, 181);
+            this.mtxtNett.Mask = "00.00";
+            this.mtxtNett.Name = "mtxtNett";
+            this.mtxtNett.ReadOnly = true;
+            this.mtxtNett.Size = new System.Drawing.Size(100, 24);
+            this.mtxtNett.TabIndex = 50;
+            this.mtxtNett.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // mtxtGross
+            // 
+            this.mtxtGross.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "Gross", true));
+            this.mtxtGross.Location = new System.Drawing.Point(667, 118);
+            this.mtxtGross.Mask = "00.00";
+            this.mtxtGross.Name = "mtxtGross";
+            this.mtxtGross.Size = new System.Drawing.Size(100, 24);
+            this.mtxtGross.TabIndex = 49;
+            this.mtxtGross.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox2
             // 
@@ -634,7 +723,7 @@
             this.truckDriverTextBox.Location = new System.Drawing.Point(566, 63);
             this.truckDriverTextBox.Name = "truckDriverTextBox";
             this.truckDriverTextBox.ReadOnly = true;
-            this.truckDriverTextBox.Size = new System.Drawing.Size(200, 24);
+            this.truckDriverTextBox.Size = new System.Drawing.Size(199, 24);
             this.truckDriverTextBox.TabIndex = 39;
             // 
             // txtTruckRego
@@ -656,33 +745,15 @@
             this.btnCalculateNett.UseVisualStyleBackColor = true;
             this.btnCalculateNett.Click += new System.EventHandler(this.btnCalculateNett_Click);
             // 
-            // txtGross
+            // bsBlanketAgreementCheck
             // 
-            this.txtGross.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "Gross", true));
-            this.txtGross.Location = new System.Drawing.Point(666, 118);
-            this.txtGross.Name = "txtGross";
-            this.txtGross.Size = new System.Drawing.Size(100, 24);
-            this.txtGross.TabIndex = 24;
-            this.txtGross.Text = "23.40";
+            this.bsBlanketAgreementCheck.DataMember = "BlanketAgreementCheck";
+            this.bsBlanketAgreementCheck.DataSource = this.dsBookIn;
             // 
-            // txtTare
+            // dsBookIn
             // 
-            this.txtTare.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "Tare", true));
-            this.txtTare.Location = new System.Drawing.Point(666, 148);
-            this.txtTare.Name = "txtTare";
-            this.txtTare.Size = new System.Drawing.Size(100, 24);
-            this.txtTare.TabIndex = 26;
-            this.txtTare.Text = "10.0";
-            // 
-            // txtNett
-            // 
-            this.txtNett.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "Nett", true));
-            this.txtNett.Location = new System.Drawing.Point(666, 178);
-            this.txtNett.Name = "txtNett";
-            this.txtNett.ReadOnly = true;
-            this.txtNett.Size = new System.Drawing.Size(100, 24);
-            this.txtNett.TabIndex = 28;
-            this.txtNett.Text = "13.4";
+            this.dsBookIn.DataSetName = "dsBookIn";
+            this.dsBookIn.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bsItem
             // 
@@ -732,77 +803,13 @@
             this.tableAdapterManager2.Connection = null;
             this.tableAdapterManager2.UpdateOrder = QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // dataGridViewTextBoxColumn54
+            // mtxtSAPOrderDocNum
             // 
-            this.dataGridViewTextBoxColumn54.DataPropertyName = "ItemCode";
-            this.dataGridViewTextBoxColumn54.HeaderText = "ItemCode";
-            this.dataGridViewTextBoxColumn54.Name = "dataGridViewTextBoxColumn54";
-            // 
-            // dataGridViewTextBoxColumn55
-            // 
-            this.dataGridViewTextBoxColumn55.DataPropertyName = "ItemDescription";
-            this.dataGridViewTextBoxColumn55.HeaderText = "ItemDescription";
-            this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
-            this.dataGridViewTextBoxColumn55.Width = 250;
-            // 
-            // dataGridViewCheckBoxColumn2
-            // 
-            this.dataGridViewCheckBoxColumn2.DataPropertyName = "ItemQA";
-            this.dataGridViewCheckBoxColumn2.HeaderText = "ItemQA";
-            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn57
-            // 
-            this.dataGridViewTextBoxColumn57.DataPropertyName = "StockpileLot";
-            this.dataGridViewTextBoxColumn57.HeaderText = "StockpileLot";
-            this.dataGridViewTextBoxColumn57.Name = "dataGridViewTextBoxColumn57";
-            // 
-            // dataGridViewTextBoxColumn58
-            // 
-            this.dataGridViewTextBoxColumn58.DataPropertyName = "Quantity";
-            this.dataGridViewTextBoxColumn58.HeaderText = "Quantity";
-            this.dataGridViewTextBoxColumn58.Name = "dataGridViewTextBoxColumn58";
-            // 
-            // txtSAPOrderDocNum
-            // 
-            this.txtSAPOrderDocNum.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "SAPOrderDocNum", true));
-            this.txtSAPOrderDocNum.Location = new System.Drawing.Point(624, 68);
-            this.txtSAPOrderDocNum.Name = "txtSAPOrderDocNum";
-            this.txtSAPOrderDocNum.Size = new System.Drawing.Size(100, 24);
-            this.txtSAPOrderDocNum.TabIndex = 44;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(535, 71);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(83, 18);
-            label1.TabIndex = 45;
-            label1.Text = "SAP Order:";
-            // 
-            // rbExBinNoOrder
-            // 
-            this.rbExBinNoOrder.AutoSize = true;
-            this.rbExBinNoOrder.Location = new System.Drawing.Point(502, 36);
-            this.rbExBinNoOrder.Name = "rbExBinNoOrder";
-            this.rbExBinNoOrder.Size = new System.Drawing.Size(134, 22);
-            this.rbExBinNoOrder.TabIndex = 46;
-            this.rbExBinNoOrder.TabStop = true;
-            this.rbExBinNoOrder.Text = "Ex Bin No Order";
-            this.rbExBinNoOrder.UseVisualStyleBackColor = true;
-            this.rbExBinNoOrder.CheckedChanged += new System.EventHandler(this.rbExBinNoOrder_CheckedChanged);
-            // 
-            // rbSAPOrder
-            // 
-            this.rbSAPOrder.AutoSize = true;
-            this.rbSAPOrder.Location = new System.Drawing.Point(638, 37);
-            this.rbSAPOrder.Name = "rbSAPOrder";
-            this.rbSAPOrder.Size = new System.Drawing.Size(97, 22);
-            this.rbSAPOrder.TabIndex = 47;
-            this.rbSAPOrder.TabStop = true;
-            this.rbSAPOrder.Text = "SAP Order";
-            this.rbSAPOrder.UseVisualStyleBackColor = true;
-            this.rbSAPOrder.CheckedChanged += new System.EventHandler(this.rbSAPOrder_CheckedChanged);
+            this.mtxtSAPOrderDocNum.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "SAPOrderDocNum", true));
+            this.mtxtSAPOrderDocNum.Location = new System.Drawing.Point(624, 68);
+            this.mtxtSAPOrderDocNum.Name = "mtxtSAPOrderDocNum";
+            this.mtxtSAPOrderDocNum.Size = new System.Drawing.Size(100, 24);
+            this.mtxtSAPOrderDocNum.TabIndex = 48;
             // 
             // HandwrittenDocket
             // 
@@ -823,8 +830,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsWBDocketLines)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsWBDockets)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsBlanketAgreementCheck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsBookIn)).EndInit();
             this.gbCustomer.ResumeLayout(false);
             this.gbCustomer.PerformLayout();
             this.gbDocket.ResumeLayout(false);
@@ -834,6 +839,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.configuredTrucksDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsBlanketAgreementCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsBookIn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsItem)).EndInit();
             this.ResumeLayout(false);
 
@@ -858,9 +865,6 @@
         private System.Windows.Forms.TextBox txtCardCode;
         private System.Windows.Forms.DateTimePicker docDateDateTimePicker;
         private System.Windows.Forms.DataGridView wBDocketLinesDataGridView1;
-        private System.Windows.Forms.TextBox txtNett;
-        private System.Windows.Forms.TextBox txtTare;
-        private System.Windows.Forms.TextBox txtGross;
         private System.Windows.Forms.Button btnGetItem;
         private dsBookIn dsBookIn;
         private System.Windows.Forms.BindingSource bsItem;
@@ -894,13 +898,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.RadioButton rbExBinNoOrder;
+        private System.Windows.Forms.RadioButton rbSAPOrder;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn54;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn55;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn57;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn58;
-        private System.Windows.Forms.RadioButton rbExBinNoOrder;
-        private System.Windows.Forms.TextBox txtSAPOrderDocNum;
-        private System.Windows.Forms.RadioButton rbSAPOrder;
+        private System.Windows.Forms.MaskedTextBox mtxtTare;
+        private System.Windows.Forms.MaskedTextBox mtxtNett;
+        private System.Windows.Forms.MaskedTextBox mtxtGross;
+        private System.Windows.Forms.MaskedTextBox mtxtSAPOrderDocNum;
     }
 }
