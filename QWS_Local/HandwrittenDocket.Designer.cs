@@ -54,6 +54,7 @@
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.btnGetItem = new System.Windows.Forms.Button();
             this.gbCustomer = new System.Windows.Forms.GroupBox();
+            this.mtxtSAPOrderDocNum = new System.Windows.Forms.MaskedTextBox();
             this.rbSAPOrder = new System.Windows.Forms.RadioButton();
             this.rbExBinNoOrder = new System.Windows.Forms.RadioButton();
             this.btnGetOrder = new System.Windows.Forms.Button();
@@ -101,7 +102,7 @@
             this.taBlanketAgreementCheck = new QWS_Local.dsBookInTableAdapters.BlanketAgreementCheckTableAdapter();
             this.taConfiguredTrucks = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
             this.tableAdapterManager2 = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
-            this.mtxtSAPOrderDocNum = new System.Windows.Forms.MaskedTextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             docNumLabel = new System.Windows.Forms.Label();
             cardNameLabel = new System.Windows.Forms.Label();
             purchaseOrderLabel = new System.Windows.Forms.Label();
@@ -349,6 +350,7 @@
             // 
             // gbCustomer
             // 
+            this.gbCustomer.Controls.Add(this.textBox3);
             this.gbCustomer.Controls.Add(this.mtxtSAPOrderDocNum);
             this.gbCustomer.Controls.Add(this.rbSAPOrder);
             this.gbCustomer.Controls.Add(this.rbExBinNoOrder);
@@ -375,9 +377,18 @@
             this.gbCustomer.TabStop = false;
             this.gbCustomer.Text = "Customer | Order | Delivery Address";
             // 
+            // mtxtSAPOrderDocNum
+            // 
+            this.mtxtSAPOrderDocNum.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "SAPOrderDocNum", true));
+            this.mtxtSAPOrderDocNum.Location = new System.Drawing.Point(624, 68);
+            this.mtxtSAPOrderDocNum.Name = "mtxtSAPOrderDocNum";
+            this.mtxtSAPOrderDocNum.Size = new System.Drawing.Size(100, 24);
+            this.mtxtSAPOrderDocNum.TabIndex = 48;
+            // 
             // rbSAPOrder
             // 
             this.rbSAPOrder.AutoSize = true;
+            this.rbSAPOrder.Enabled = false;
             this.rbSAPOrder.Location = new System.Drawing.Point(638, 37);
             this.rbSAPOrder.Name = "rbSAPOrder";
             this.rbSAPOrder.Size = new System.Drawing.Size(97, 22);
@@ -390,6 +401,7 @@
             // rbExBinNoOrder
             // 
             this.rbExBinNoOrder.AutoSize = true;
+            this.rbExBinNoOrder.Enabled = false;
             this.rbExBinNoOrder.Location = new System.Drawing.Point(502, 36);
             this.rbExBinNoOrder.Name = "rbExBinNoOrder";
             this.rbExBinNoOrder.Size = new System.Drawing.Size(134, 22);
@@ -803,13 +815,14 @@
             this.tableAdapterManager2.Connection = null;
             this.tableAdapterManager2.UpdateOrder = QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // mtxtSAPOrderDocNum
+            // textBox3
             // 
-            this.mtxtSAPOrderDocNum.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "SAPOrderDocNum", true));
-            this.mtxtSAPOrderDocNum.Location = new System.Drawing.Point(624, 68);
-            this.mtxtSAPOrderDocNum.Name = "mtxtSAPOrderDocNum";
-            this.mtxtSAPOrderDocNum.Size = new System.Drawing.Size(100, 24);
-            this.mtxtSAPOrderDocNum.TabIndex = 48;
+            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "CntCode", true));
+            this.textBox3.Location = new System.Drawing.Point(460, 159);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(82, 24);
+            this.textBox3.TabIndex = 49;
             // 
             // HandwrittenDocket
             // 
@@ -909,5 +922,6 @@
         private System.Windows.Forms.MaskedTextBox mtxtNett;
         private System.Windows.Forms.MaskedTextBox mtxtGross;
         private System.Windows.Forms.MaskedTextBox mtxtSAPOrderDocNum;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }

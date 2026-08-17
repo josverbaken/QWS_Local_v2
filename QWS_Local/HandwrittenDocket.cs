@@ -20,9 +20,9 @@ namespace QWS_Local
         private static int mySiteID;
         private static int myDocNum = 0;
         private static int mySAPOrderDocNum = 0;
-        private static decimal myGross;
-        private static decimal myTare;
-        private static decimal myNett;
+        private static decimal myGross = 0.0M;
+        private static decimal myTare = 0.0M;
+        private static decimal myNett = 0.0M;
 
         private static bool IsPORequired = false;
 
@@ -79,7 +79,6 @@ namespace QWS_Local
                             break;
                         case DialogResult.Yes:
                             rbSAPOrder.Checked = true;
-                            //CreateNewDocket(myDocNum);
                             mtxtSAPOrderDocNum.Focus();
                             break;
                         case DialogResult.No:
@@ -134,42 +133,7 @@ namespace QWS_Local
             {
                 dsTIQ2.WBDockets.Clear();
                 dsTIQ2.WBDocketLines.Clear();
-                string myContactName = string.Empty;
-                string myContactMobile = string.Empty;
-                int myCntCode = -9;
-                string myDeliveryAddress = string.Empty;
-                int myDistance = 0;
 
-                if(decimal.TryParse(mtxtGross.Text, out decimal myGross)==false)
-                {
-                    myGross = 0.0M;
-                }
-
-                if (decimal.TryParse(mtxtTare.Text, out decimal myTare)==false)
-                {
-                    myTare = 0.0M;
-                }
-
-                if (decimal.TryParse(mtxtNett.Text, out decimal myNett)==false)
-                {
-                    myNett = 0.0M;
-                }
-
-                if (mySAPOrderDocNum > 0)
-                {
-                    dsBookInTableAdapters.QuarryOrdersTableAdapter taQuarryOrders = new dsBookInTableAdapters.QuarryOrdersTableAdapter();
-                    taQuarryOrders.Connection.ConnectionString = QWSConfig.cnQWSLocal;
-                    int iRows = taQuarryOrders.FillBy(dsBookIn.QuarryOrders, mySAPOrderDocNum);
-                    if (iRows > 0)
-                    {
-                        dsBookIn.QuarryOrdersRow myOrderRow = (dsBookIn.QuarryOrdersRow)dsBookIn.QuarryOrders.Rows[0];
-                        myContactName = myOrderRow.ContactName;
-                        myContactMobile = myOrderRow.ContactMobile;
-                        myCntCode = myOrderRow.CntctCode;
-                        myDeliveryAddress = myOrderRow.DeliveryAddress;
-                        myDistance = myOrderRow.Distance;
-                    }
-                }
                 DataRow dr = dsTIQ2.WBDockets.NewRow();
                 docketsRow = (dsTIQ2.WBDocketsRow)dr;
                 docketsRow.DocNum = DocNum;
@@ -178,13 +142,13 @@ namespace QWS_Local
                 docketsRow.CardName = string.Empty;
                 docketsRow.PurchaseOrder = string.Empty;
                 docketsRow.SAPOrderDocNum = 0;
-                docketsRow.CntCode = myCntCode;
-                docketsRow.ContactName = myContactName;
-                docketsRow.ContactMobile = myContactMobile;
+                docketsRow.CntCode = -9;
+                docketsRow.ContactName = string.Empty;
+                docketsRow.ContactMobile = string.Empty;
                 docketsRow.DeliveryDate = DateTime.Now;
-                docketsRow.DeliveryAddress = myDeliveryAddress;
+                docketsRow.DeliveryAddress = string.Empty;
                 docketsRow.MapRef = string.Empty;
-                docketsRow.Distance = myDistance;
+                docketsRow.Distance = 0;
                 docketsRow.TruckRego = string.Empty;
                 docketsRow.RegA = string.Empty;
                 docketsRow.RegB = string.Empty;
@@ -207,6 +171,29 @@ namespace QWS_Local
                 docketsRow.Comments = "";
                 docketsRow.CreatedDTTM = DateTime.Now;
                 docketsRow.TIQID = 0; // TODO check what issues this may cause
+
+                if (mySAPOrderDocNum > 0)
+                {
+                    dsBookInTableAdapters.QuarryOrdersTableAdapter taQuarryOrders = new dsBookInTableAdapters.QuarryOrdersTableAdapter();
+                    taQuarryOrders.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                    int iRows = taQuarryOrders.FillBy(dsBookIn.QuarryOrders, mySAPOrderDocNum);
+                    if (iRows > 0)
+                    {
+                        dsBookIn.QuarryOrdersRow myOrderRow = (dsBookIn.QuarryOrdersRow)dsBookIn.QuarryOrders.Rows[0];
+                        docketsRow.CardCode = myOrderRow.CardCode;
+                        docketsRow.CardName = myOrderRow.Customer;
+                        docketsRow.PurchaseOrder = myOrderRow.PurchaseOrder;
+                        docketsRow.SAPOrderDocNum = mySAPOrderDocNum;
+
+                        docketsRow.ContactName = myOrderRow.ContactName;
+                        docketsRow.ContactMobile = myOrderRow.ContactMobile;
+                        docketsRow.CntCode = myOrderRow.CntctCode;
+
+                        docketsRow.DeliveryAddress = myOrderRow.DeliveryAddress;
+                        docketsRow.Distance = myOrderRow.Distance;
+                    }
+                }
+
                 dsTIQ2.WBDockets.AddWBDocketsRow(docketsRow);
                 bsWBDockets.EndEdit();
                 DocketLineAdd("tba", "Item Description", false, 128, "Items", 0, 0, 0);
