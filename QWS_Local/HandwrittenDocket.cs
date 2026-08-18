@@ -6,6 +6,7 @@ using System.Diagnostics.Eventing.Reader;
 using System.Diagnostics.PerformanceData;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -76,14 +77,20 @@ namespace QWS_Local
                         case DialogResult.Cancel:
                             myMessage = "New docket cancelled.";
                             myTopic = "Cancelled by WBO";
+                            txtDocketType.Text = string.Empty;
                             break;
                         case DialogResult.Yes:
-                            rbSAPOrder.Checked = true;
+                            txtDocketType.Text = "SAP Order";
+                            btnGetOrder.Enabled = true;
+                            btnGetCustomer.Enabled = false;
                             mtxtSAPOrderDocNum.Focus();
                             break;
                         case DialogResult.No:
-                            rbExBinNoOrder.Checked = true;
+                            txtDocketType.Text = "Ex-Bin No-Order";
+                            btnGetOrder.Enabled = false;
+                            btnGetCustomer.Enabled = true;
                             CreateNewDocket(myDocNum);
+                            btnGetCustomer.Focus();
                             break;
                     }
                 }
@@ -191,16 +198,50 @@ namespace QWS_Local
 
                         docketsRow.DeliveryAddress = myOrderRow.DeliveryAddress;
                         docketsRow.Distance = myOrderRow.Distance;
+
+                        dsTIQ2.WBDockets.AddWBDocketsRow(docketsRow);
+                        bsWBDockets.EndEdit();
+                        GetSAPOrderLines(myOrderRow.DocEntry);
                     }
                 }
-
-                dsTIQ2.WBDockets.AddWBDocketsRow(docketsRow);
-                bsWBDockets.EndEdit();
-                DocketLineAdd("tba", "Item Description", false, 128, "Items", 0, 0, 0);
+                else // Ex-Bin No-order
+                {
+                    dsTIQ2.WBDockets.AddWBDocketsRow(docketsRow);
+                    bsWBDockets.EndEdit();
+                    DocketLineAdd("tba", "Item Description", false, 128, "Items", 0, 0, 0);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "New Docket Error!");
+            }
+        }
+
+        private void GetSAPOrderLines(int SAPOrderDocEntry)
+        {
+            try
+            {
+                dsBookInTableAdapters.QuarryOrderLinesTableAdapter taQuarryOrderLines = new dsBookInTableAdapters.QuarryOrderLinesTableAdapter();
+                taQuarryOrderLines.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                int iRows = taQuarryOrderLines.FillByDocEntry(dsBookIn.QuarryOrderLines, SAPOrderDocEntry);
+                foreach (dsBookIn.QuarryOrderLinesRow linesRow in dsBookIn.QuarryOrderLines)
+                {
+                    bool ItemQA = false;
+                    if (linesRow.ItemQA == "Y")
+                    {
+                        ItemQA = true;
+                    }
+                    if (linesRow.SWW == "Freight")
+                    {
+                        linesRow.Quantity = 0.0M;
+                    }
+                    DocketLineAdd(linesRow.ItemCode, linesRow.Dscription, ItemQA, linesRow.ItmsGrpCod, linesRow.SWW, 0, linesRow.DocEntry, linesRow.LineNum);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "GetSAPOrderLines", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
         }
 
@@ -235,25 +276,29 @@ namespace QWS_Local
                 }
                 else
                 {
-                    decimal myMinimumCart = QWSConfig.MinimumCart;
-                    if (SWW == "Freight" && myNett < myMinimumCart)
-                    {
-                        decimal myPayload = docketsRow.GrossLegal - docketsRow.Tare;
-                        if (myPayload < myMinimumCart)
-                        {
-                            linesRow.Quantity = myPayload;
-                        }
-                        else
-                        {
-                            linesRow.Quantity = myMinimumCart;
-                        }
-                    }
-                    else
-                    {
-                        linesRow.Quantity = myNett;
-                    }
-                }
-                linesRow.CreatedDTTM = DateTime.Now;
+                    linesRow.Quantity = 0.0M; // does not allow nulls
+                } 
+                    //else // TODO review if appropriate for Handwritten Dockets
+                    //{
+                    //    decimal myMinimumCart = QWSConfig.MinimumCart;
+                    //    if (SWW == "Freight" && myNett < myMinimumCart)
+                    //    {
+                    //        decimal myPayload = docketsRow.GrossLegal - docketsRow.Tare;
+                    //        if (myPayload < myMinimumCart)
+                    //        {
+                    //            linesRow.Quantity = myPayload;
+                    //        }
+                    //        else
+                    //        {
+                    //            linesRow.Quantity = myMinimumCart;
+                    //        }
+                    //    }
+                    //    else
+                    //    {
+                    //        linesRow.Quantity = myNett;
+                    //    }
+                    //}
+                    linesRow.CreatedDTTM = DateTime.Now;
                 dsTIQ2.WBDocketLines.AddWBDocketLinesRow(linesRow);
                 bsWBDocketLines.EndEdit();
             }
@@ -513,6 +558,7 @@ namespace QWS_Local
                 docketsRow.TruckDriverID = frmTruckDriver.TruckDriverID;
                 docketsRow.TruckDriver = frmTruckDriver.TruckDriver;
                 bsWBDockets.EndEdit();
+                mtxtGross.SelectAll();
                 mtxtGross.Focus();
             }
             else
@@ -533,6 +579,7 @@ namespace QWS_Local
                 {
                     MessageBox.Show("Unknown truck/configuration.", "Find Truck", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+                btnGetDriver.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -557,6 +604,7 @@ namespace QWS_Local
             docketsRow.TruckOwnerCode = myTruckConfigRow.CardCode;
             docketsRow.TruckOwner = myTruckConfigRow.TruckOwner;
             bsWBDockets.EndEdit();
+            btnGetDriver.Enabled = true;
         }
 
         private dsTruckConfig.ConfiguredTrucksRow CurrentTruckConfig()
@@ -565,31 +613,7 @@ namespace QWS_Local
             dsTruckConfig.ConfiguredTrucksRow myTruckConfigRow = (dsTruckConfig.ConfiguredTrucksRow)myRow;
             return myTruckConfigRow;
         }
-
-        private void rbExBinNoOrder_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbExBinNoOrder.Checked)
-            {
-                btnGetCustomer.Enabled=true;
-                btnGetOrder.Enabled = false;
-                btnGetItem.Enabled = true;
-                mtxtSAPOrderDocNum.ReadOnly = true;
-                btnGetCustomer.Focus();
-            }
-        }
-
-        private void rbSAPOrder_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbSAPOrder.Checked)
-            {
-                btnGetCustomer.Enabled=false;
-                btnGetOrder.Enabled = true;
-                btnGetItem.Enabled = false;
-                mtxtSAPOrderDocNum.ReadOnly = false;
-                btnGetOrder.Focus();
-            }
-        }
-
+   
         private void nudGross_SelectAll(object sender, EventArgs e)
         {
             // Safely cast the sender back to a NumericUpDown control
@@ -612,6 +636,22 @@ namespace QWS_Local
                 // Select all text from position 0 up to the maximum string length
                 numBox.Select(0, numBox.Text.Length);
             }
+        }
+
+        private void mtxtGross_Leave(object sender, EventArgs e)
+        {
+            mtxtTare.SelectAll();
+            mtxtTare.Focus();
+        }
+
+        private void mtxtTare_Leave(object sender, EventArgs e)
+        {
+            btnCalculateNett.Focus();
+        }
+
+        private void txtTruckRego_Leave(object sender, EventArgs e)
+        {
+            txtTruckRego.Text = txtTruckRego.Text.ToUpper();
         }
     }
 }

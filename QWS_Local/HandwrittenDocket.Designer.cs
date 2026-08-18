@@ -39,7 +39,6 @@
             System.Windows.Forms.Label truckDriverLabel;
             System.Windows.Forms.Label truckRegoLabel;
             System.Windows.Forms.Label deliveryAddressLabel;
-            System.Windows.Forms.Label distanceLabel;
             System.Windows.Forms.Label label1;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gbDocketLines = new System.Windows.Forms.GroupBox();
@@ -55,12 +54,9 @@
             this.btnGetItem = new System.Windows.Forms.Button();
             this.gbCustomer = new System.Windows.Forms.GroupBox();
             this.mtxtSAPOrderDocNum = new System.Windows.Forms.MaskedTextBox();
-            this.rbSAPOrder = new System.Windows.Forms.RadioButton();
-            this.rbExBinNoOrder = new System.Windows.Forms.RadioButton();
             this.btnGetOrder = new System.Windows.Forms.Button();
             this.cardNameTextBox = new System.Windows.Forms.TextBox();
             this.contactMobileTextBox = new System.Windows.Forms.TextBox();
-            this.distanceTextBox = new System.Windows.Forms.TextBox();
             this.contactNameTextBox = new System.Windows.Forms.TextBox();
             this.deliveryAddressTextBox = new System.Windows.Forms.TextBox();
             this.txtCustON = new System.Windows.Forms.TextBox();
@@ -80,9 +76,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnSetTruckConfig = new System.Windows.Forms.Button();
             this.configuredTrucksDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsConfiguredTrucks = new System.Windows.Forms.BindingSource(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.btnFindTruck = new System.Windows.Forms.Button();
@@ -102,7 +95,12 @@
             this.taBlanketAgreementCheck = new QWS_Local.dsBookInTableAdapters.BlanketAgreementCheckTableAdapter();
             this.taConfiguredTrucks = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
             this.tableAdapterManager2 = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtDocketType = new System.Windows.Forms.TextBox();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tare = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaxGVM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             docNumLabel = new System.Windows.Forms.Label();
             cardNameLabel = new System.Windows.Forms.Label();
             purchaseOrderLabel = new System.Windows.Forms.Label();
@@ -113,7 +111,6 @@
             truckDriverLabel = new System.Windows.Forms.Label();
             truckRegoLabel = new System.Windows.Forms.Label();
             deliveryAddressLabel = new System.Windows.Forms.Label();
-            distanceLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -224,19 +221,10 @@
             deliveryAddressLabel.TabIndex = 40;
             deliveryAddressLabel.Text = "Delivery Address:";
             // 
-            // distanceLabel
-            // 
-            distanceLabel.AutoSize = true;
-            distanceLabel.Location = new System.Drawing.Point(548, 158);
-            distanceLabel.Name = "distanceLabel";
-            distanceLabel.Size = new System.Drawing.Size(70, 18);
-            distanceLabel.TabIndex = 41;
-            distanceLabel.Text = "Distance:";
-            // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(535, 71);
+            label1.Location = new System.Drawing.Point(546, 71);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(83, 18);
             label1.TabIndex = 45;
@@ -350,17 +338,13 @@
             // 
             // gbCustomer
             // 
-            this.gbCustomer.Controls.Add(this.textBox3);
+            this.gbCustomer.Controls.Add(this.txtDocketType);
             this.gbCustomer.Controls.Add(this.mtxtSAPOrderDocNum);
-            this.gbCustomer.Controls.Add(this.rbSAPOrder);
-            this.gbCustomer.Controls.Add(this.rbExBinNoOrder);
             this.gbCustomer.Controls.Add(label1);
             this.gbCustomer.Controls.Add(this.btnGetOrder);
             this.gbCustomer.Controls.Add(this.cardNameTextBox);
             this.gbCustomer.Controls.Add(this.contactMobileTextBox);
-            this.gbCustomer.Controls.Add(distanceLabel);
             this.gbCustomer.Controls.Add(contactNameLabel);
-            this.gbCustomer.Controls.Add(this.distanceTextBox);
             this.gbCustomer.Controls.Add(this.contactNameTextBox);
             this.gbCustomer.Controls.Add(deliveryAddressLabel);
             this.gbCustomer.Controls.Add(purchaseOrderLabel);
@@ -380,36 +364,10 @@
             // mtxtSAPOrderDocNum
             // 
             this.mtxtSAPOrderDocNum.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "SAPOrderDocNum", true));
-            this.mtxtSAPOrderDocNum.Location = new System.Drawing.Point(624, 68);
+            this.mtxtSAPOrderDocNum.Location = new System.Drawing.Point(635, 68);
             this.mtxtSAPOrderDocNum.Name = "mtxtSAPOrderDocNum";
             this.mtxtSAPOrderDocNum.Size = new System.Drawing.Size(100, 24);
             this.mtxtSAPOrderDocNum.TabIndex = 48;
-            // 
-            // rbSAPOrder
-            // 
-            this.rbSAPOrder.AutoSize = true;
-            this.rbSAPOrder.Enabled = false;
-            this.rbSAPOrder.Location = new System.Drawing.Point(638, 37);
-            this.rbSAPOrder.Name = "rbSAPOrder";
-            this.rbSAPOrder.Size = new System.Drawing.Size(97, 22);
-            this.rbSAPOrder.TabIndex = 47;
-            this.rbSAPOrder.TabStop = true;
-            this.rbSAPOrder.Text = "SAP Order";
-            this.rbSAPOrder.UseVisualStyleBackColor = true;
-            this.rbSAPOrder.CheckedChanged += new System.EventHandler(this.rbSAPOrder_CheckedChanged);
-            // 
-            // rbExBinNoOrder
-            // 
-            this.rbExBinNoOrder.AutoSize = true;
-            this.rbExBinNoOrder.Enabled = false;
-            this.rbExBinNoOrder.Location = new System.Drawing.Point(502, 36);
-            this.rbExBinNoOrder.Name = "rbExBinNoOrder";
-            this.rbExBinNoOrder.Size = new System.Drawing.Size(134, 22);
-            this.rbExBinNoOrder.TabIndex = 46;
-            this.rbExBinNoOrder.TabStop = true;
-            this.rbExBinNoOrder.Text = "Ex Bin No Order";
-            this.rbExBinNoOrder.UseVisualStyleBackColor = true;
-            this.rbExBinNoOrder.CheckedChanged += new System.EventHandler(this.rbExBinNoOrder_CheckedChanged);
             // 
             // btnGetOrder
             // 
@@ -428,7 +386,7 @@
             this.cardNameTextBox.Location = new System.Drawing.Point(137, 35);
             this.cardNameTextBox.Name = "cardNameTextBox";
             this.cardNameTextBox.ReadOnly = true;
-            this.cardNameTextBox.Size = new System.Drawing.Size(200, 24);
+            this.cardNameTextBox.Size = new System.Drawing.Size(317, 24);
             this.cardNameTextBox.TabIndex = 7;
             // 
             // contactMobileTextBox
@@ -440,22 +398,13 @@
             this.contactMobileTextBox.Size = new System.Drawing.Size(100, 24);
             this.contactMobileTextBox.TabIndex = 15;
             // 
-            // distanceTextBox
-            // 
-            this.distanceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "Distance", true));
-            this.distanceTextBox.Location = new System.Drawing.Point(624, 155);
-            this.distanceTextBox.Name = "distanceTextBox";
-            this.distanceTextBox.ReadOnly = true;
-            this.distanceTextBox.Size = new System.Drawing.Size(100, 24);
-            this.distanceTextBox.TabIndex = 42;
-            // 
             // contactNameTextBox
             // 
             this.contactNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "ContactName", true));
             this.contactNameTextBox.Location = new System.Drawing.Point(137, 159);
             this.contactNameTextBox.Name = "contactNameTextBox";
             this.contactNameTextBox.ReadOnly = true;
-            this.contactNameTextBox.Size = new System.Drawing.Size(200, 24);
+            this.contactNameTextBox.Size = new System.Drawing.Size(213, 24);
             this.contactNameTextBox.TabIndex = 13;
             // 
             // deliveryAddressTextBox
@@ -491,10 +440,10 @@
             // txtCardCode
             // 
             this.txtCardCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "CardCode", true));
-            this.txtCardCode.Location = new System.Drawing.Point(356, 35);
+            this.txtCardCode.Location = new System.Drawing.Point(460, 35);
             this.txtCardCode.Name = "txtCardCode";
             this.txtCardCode.ReadOnly = true;
-            this.txtCardCode.Size = new System.Drawing.Size(100, 24);
+            this.txtCardCode.Size = new System.Drawing.Size(93, 24);
             this.txtCardCode.TabIndex = 3;
             // 
             // btnGetCustomer
@@ -624,11 +573,11 @@
             // 
             this.mtxtGross.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "Gross", true));
             this.mtxtGross.Location = new System.Drawing.Point(667, 118);
-            this.mtxtGross.Mask = "00.00";
             this.mtxtGross.Name = "mtxtGross";
             this.mtxtGross.Size = new System.Drawing.Size(100, 24);
             this.mtxtGross.TabIndex = 49;
             this.mtxtGross.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.mtxtGross.Leave += new System.EventHandler(this.mtxtGross_Leave);
             // 
             // textBox2
             // 
@@ -641,7 +590,7 @@
             // 
             // btnSetTruckConfig
             // 
-            this.btnSetTruckConfig.Location = new System.Drawing.Point(367, 81);
+            this.btnSetTruckConfig.Location = new System.Drawing.Point(527, 167);
             this.btnSetTruckConfig.Margin = new System.Windows.Forms.Padding(4);
             this.btnSetTruckConfig.Name = "btnSetTruckConfig";
             this.btnSetTruckConfig.Size = new System.Drawing.Size(55, 32);
@@ -659,34 +608,15 @@
             this.configuredTrucksDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn12});
+            this.dataGridViewTextBoxColumn12,
+            this.Tare,
+            this.MaxGVM});
             this.configuredTrucksDataGridView.DataSource = this.bsConfiguredTrucks;
             this.configuredTrucksDataGridView.Location = new System.Drawing.Point(6, 60);
             this.configuredTrucksDataGridView.Name = "configuredTrucksDataGridView";
             this.configuredTrucksDataGridView.ReadOnly = true;
-            this.configuredTrucksDataGridView.Size = new System.Drawing.Size(352, 139);
+            this.configuredTrucksDataGridView.Size = new System.Drawing.Size(489, 139);
             this.configuredTrucksDataGridView.TabIndex = 46;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "RegoTk";
-            this.dataGridViewTextBoxColumn1.HeaderText = "RegoTk";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "RegoTrailer";
-            this.dataGridViewTextBoxColumn5.HeaderText = "RegoTrailer";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "VehicleType";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Config";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
             // 
             // bsConfiguredTrucks
             // 
@@ -745,6 +675,7 @@
             this.txtTruckRego.Name = "txtTruckRego";
             this.txtTruckRego.Size = new System.Drawing.Size(100, 24);
             this.txtTruckRego.TabIndex = 40;
+            this.txtTruckRego.Leave += new System.EventHandler(this.txtTruckRego_Leave);
             // 
             // btnCalculateNett
             // 
@@ -815,14 +746,51 @@
             this.tableAdapterManager2.Connection = null;
             this.tableAdapterManager2.UpdateOrder = QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // textBox3
+            // txtDocketType
             // 
-            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "CntCode", true));
-            this.textBox3.Location = new System.Drawing.Point(460, 159);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(82, 24);
-            this.textBox3.TabIndex = 49;
+            this.txtDocketType.Location = new System.Drawing.Point(581, 35);
+            this.txtDocketType.Name = "txtDocketType";
+            this.txtDocketType.ReadOnly = true;
+            this.txtDocketType.Size = new System.Drawing.Size(154, 24);
+            this.txtDocketType.TabIndex = 50;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "RegoTk";
+            this.dataGridViewTextBoxColumn1.HeaderText = "RegoTk";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "RegoTrailer";
+            this.dataGridViewTextBoxColumn5.HeaderText = "RegoTrailer";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "VehicleType";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Config";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Width = 80;
+            // 
+            // Tare
+            // 
+            this.Tare.DataPropertyName = "Tare";
+            this.Tare.HeaderText = "Tare";
+            this.Tare.Name = "Tare";
+            this.Tare.ReadOnly = true;
+            this.Tare.Width = 80;
+            // 
+            // MaxGVM
+            // 
+            this.MaxGVM.DataPropertyName = "MaxGVM";
+            this.MaxGVM.HeaderText = "MaxGVM";
+            this.MaxGVM.Name = "MaxGVM";
+            this.MaxGVM.ReadOnly = true;
+            this.MaxGVM.Width = 80;
             // 
             // HandwrittenDocket
             // 
@@ -893,7 +861,6 @@
         private System.Windows.Forms.GroupBox gbDocket;
         private System.Windows.Forms.GroupBox gbTruck;
         private System.Windows.Forms.TextBox txtTruckRego;
-        private System.Windows.Forms.TextBox distanceTextBox;
         private System.Windows.Forms.TextBox deliveryAddressTextBox;
         private System.Windows.Forms.GroupBox gbCustomer;
         private System.Windows.Forms.Button btnGetOrder;
@@ -907,12 +874,7 @@
         private dsTruckConfigTableAdapters.TableAdapterManager tableAdapterManager2;
         private System.Windows.Forms.DataGridView configuredTrucksDataGridView;
         private System.Windows.Forms.Button btnSetTruckConfig;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.RadioButton rbExBinNoOrder;
-        private System.Windows.Forms.RadioButton rbSAPOrder;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn54;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn55;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
@@ -922,6 +884,11 @@
         private System.Windows.Forms.MaskedTextBox mtxtNett;
         private System.Windows.Forms.MaskedTextBox mtxtGross;
         private System.Windows.Forms.MaskedTextBox mtxtSAPOrderDocNum;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtDocketType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tare;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaxGVM;
     }
 }
