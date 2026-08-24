@@ -95,7 +95,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Gross</rd:DefaultName>
-                          <Top>9.71876cm</Top>
+                          <Top>10.49046cm</Top>
                           <Left>4.00403cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
@@ -125,7 +125,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Tare</rd:DefaultName>
-                          <Top>10.5081cm</Top>
+                          <Top>11.2798cm</Top>
                           <Left>4.00403cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
@@ -155,7 +155,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Nett</rd:DefaultName>
-                          <Top>11.29744cm</Top>
+                          <Top>12.06914cm</Top>
                           <Left>4.00403cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
@@ -189,7 +189,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>TruckRego</rd:DefaultName>
-                          <Top>8.94237cm</Top>
+                          <Top>9.71407cm</Top>
                           <Left>4.00403cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
@@ -220,7 +220,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <Top>15.37945cm</Top>
+                          <Top>16.15115cm</Top>
                           <Left>0.45862cm</Left>
                           <Height>1.02333cm</Height>
                           <Width>6.15125cm</Width>
@@ -281,7 +281,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Overload</rd:DefaultName>
-                          <Top>12.08678cm</Top>
+                          <Top>12.85848cm</Top>
                           <Left>4.00403cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
@@ -311,7 +311,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>InvoiceQty</rd:DefaultName>
-                          <Top>12.87612cm</Top>
+                          <Top>13.64782cm</Top>
                           <Left>4.00403cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
@@ -341,7 +341,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>LoadsToday</rd:DefaultName>
-                          <Top>13.66546cm</Top>
+                          <Top>14.43716cm</Top>
                           <Left>4.00403cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
@@ -371,7 +371,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>TonnesToday</rd:DefaultName>
-                          <Top>14.4548cm</Top>
+                          <Top>15.2265cm</Top>
                           <Left>4.00403cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
@@ -467,7 +467,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox16</rd:DefaultName>
-                          <Top>8.94237cm</Top>
+                          <Top>9.71407cm</Top>
                           <Left>1.36292cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
@@ -499,7 +499,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox17</rd:DefaultName>
-                          <Top>9.7364cm</Top>
+                          <Top>10.5081cm</Top>
                           <Left>1.36292cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
@@ -531,7 +531,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox18</rd:DefaultName>
-                          <Top>10.51279cm</Top>
+                          <Top>11.28449cm</Top>
                           <Left>1.3982cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
@@ -563,7 +563,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox19</rd:DefaultName>
-                          <Top>11.29744cm</Top>
+                          <Top>12.06914cm</Top>
                           <Left>1.3982cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
@@ -595,7 +595,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox20</rd:DefaultName>
-                          <Top>12.08678cm</Top>
+                          <Top>12.85848cm</Top>
                           <Left>1.3982cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
@@ -627,7 +627,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox21</rd:DefaultName>
-                          <Top>12.87612cm</Top>
+                          <Top>13.64782cm</Top>
                           <Left>1.3982cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
@@ -659,7 +659,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox22</rd:DefaultName>
-                          <Top>13.66546cm</Top>
+                          <Top>14.43716cm</Top>
                           <Left>1.3982cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
@@ -691,7 +691,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox23</rd:DefaultName>
-                          <Top>14.4548cm</Top>
+                          <Top>15.2265cm</Top>
                           <Left>1.3982cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
@@ -722,8 +722,8 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Comments</rd:DefaultName>
-                          <Top>16.57917cm</Top>
-                          <Left>0.45862cm</Left>
+                          <Top>6.42717cm</Top>
+                          <Left>0.3175cm</Left>
                           <Height>0.6cm</Height>
                           <Width>6.15125cm</Width>
                           <ZIndex>21</ZIndex>
@@ -783,7 +783,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>MaterialCode</rd:DefaultName>
-                          <Top>6.39189cm</Top>
+                          <Top>7.20356cm</Top>
                           <Left>0.3175cm</Left>
                           <Height>0.6cm</Height>
                           <Width>6.18653cm</Width>
@@ -799,7 +799,7 @@
                           </Style>
                         </Textbox>
                         <Line Name="Line1">
-                          <Top>9.54237cm</Top>
+                          <Top>10.31407cm</Top>
                           <Left>1.3982cm</Left>
                           <Height>0cm</Height>
                           <Width>5.10583cm</Width>
@@ -826,7 +826,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>CartageCode</rd:DefaultName>
-                          <Top>7.16828cm</Top>
+                          <Top>7.97995cm</Top>
                           <Left>0.35278cm</Left>
                           <Height>0.6cm</Height>
                           <Width>6.11597cm</Width>
@@ -857,8 +857,8 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>SurchargeCode</rd:DefaultName>
-                          <Top>7.94467cm</Top>
-                          <Left>0.35278cm</Left>
+                          <Top>8.93768cm</Top>
+                          <Left>0.3175cm</Left>
                           <Height>0.6cm</Height>
                           <Width>6.11597cm</Width>
                           <ZIndex>26</ZIndex>
@@ -1159,6 +1159,7 @@
                         </Border>
                       </Style>
                     </Rectangle>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>

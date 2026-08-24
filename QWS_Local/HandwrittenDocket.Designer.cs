@@ -43,16 +43,12 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gbDocketLines = new System.Windows.Forms.GroupBox();
             this.wBDocketLinesDataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn54 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsWBDocketLines = new System.Windows.Forms.BindingSource(this.components);
             this.bsWBDockets = new System.Windows.Forms.BindingSource(this.components);
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
             this.btnGetItem = new System.Windows.Forms.Button();
             this.gbCustomer = new System.Windows.Forms.GroupBox();
+            this.txtDocketType = new System.Windows.Forms.TextBox();
             this.mtxtSAPOrderDocNum = new System.Windows.Forms.MaskedTextBox();
             this.btnGetOrder = new System.Windows.Forms.Button();
             this.cardNameTextBox = new System.Windows.Forms.TextBox();
@@ -76,6 +72,11 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnSetTruckConfig = new System.Windows.Forms.Button();
             this.configuredTrucksDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tare = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaxGVM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsConfiguredTrucks = new System.Windows.Forms.BindingSource(this.components);
             this.dsTruckConfig = new QWS_Local.dsTruckConfig();
             this.btnFindTruck = new System.Windows.Forms.Button();
@@ -95,12 +96,10 @@
             this.taBlanketAgreementCheck = new QWS_Local.dsBookInTableAdapters.BlanketAgreementCheckTableAdapter();
             this.taConfiguredTrucks = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
             this.tableAdapterManager2 = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
-            this.txtDocketType = new System.Windows.Forms.TextBox();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tare = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaxGVM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn54 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             docNumLabel = new System.Windows.Forms.Label();
             cardNameLabel = new System.Windows.Forms.Label();
             purchaseOrderLabel = new System.Windows.Forms.Label();
@@ -267,48 +266,12 @@
             this.dataGridViewTextBoxColumn54,
             this.dataGridViewTextBoxColumn55,
             this.dataGridViewCheckBoxColumn2,
-            this.dataGridViewTextBoxColumn57,
-            this.dataGridViewTextBoxColumn58});
+            this.dataGridViewTextBoxColumn57});
             this.wBDocketLinesDataGridView1.DataSource = this.bsWBDocketLines;
             this.wBDocketLinesDataGridView1.Location = new System.Drawing.Point(6, 32);
             this.wBDocketLinesDataGridView1.Name = "wBDocketLinesDataGridView1";
             this.wBDocketLinesDataGridView1.Size = new System.Drawing.Size(761, 169);
             this.wBDocketLinesDataGridView1.TabIndex = 22;
-            // 
-            // dataGridViewTextBoxColumn54
-            // 
-            this.dataGridViewTextBoxColumn54.DataPropertyName = "ItemCode";
-            this.dataGridViewTextBoxColumn54.HeaderText = "ItemCode";
-            this.dataGridViewTextBoxColumn54.Name = "dataGridViewTextBoxColumn54";
-            this.dataGridViewTextBoxColumn54.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn55
-            // 
-            this.dataGridViewTextBoxColumn55.DataPropertyName = "ItemDescription";
-            this.dataGridViewTextBoxColumn55.HeaderText = "ItemDescription";
-            this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
-            this.dataGridViewTextBoxColumn55.ReadOnly = true;
-            this.dataGridViewTextBoxColumn55.Width = 250;
-            // 
-            // dataGridViewCheckBoxColumn2
-            // 
-            this.dataGridViewCheckBoxColumn2.DataPropertyName = "ItemQA";
-            this.dataGridViewCheckBoxColumn2.HeaderText = "ItemQA";
-            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
-            this.dataGridViewCheckBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn57
-            // 
-            this.dataGridViewTextBoxColumn57.DataPropertyName = "StockpileLot";
-            this.dataGridViewTextBoxColumn57.HeaderText = "StockpileLot";
-            this.dataGridViewTextBoxColumn57.Name = "dataGridViewTextBoxColumn57";
-            // 
-            // dataGridViewTextBoxColumn58
-            // 
-            this.dataGridViewTextBoxColumn58.DataPropertyName = "Quantity";
-            this.dataGridViewTextBoxColumn58.HeaderText = "Quantity";
-            this.dataGridViewTextBoxColumn58.Name = "dataGridViewTextBoxColumn58";
-            this.dataGridViewTextBoxColumn58.ReadOnly = true;
             // 
             // bsWBDocketLines
             // 
@@ -360,6 +323,14 @@
             this.gbCustomer.TabIndex = 45;
             this.gbCustomer.TabStop = false;
             this.gbCustomer.Text = "Customer | Order | Delivery Address";
+            // 
+            // txtDocketType
+            // 
+            this.txtDocketType.Location = new System.Drawing.Point(581, 35);
+            this.txtDocketType.Name = "txtDocketType";
+            this.txtDocketType.ReadOnly = true;
+            this.txtDocketType.Size = new System.Drawing.Size(154, 24);
+            this.txtDocketType.TabIndex = 50;
             // 
             // mtxtSAPOrderDocNum
             // 
@@ -552,7 +523,6 @@
             // 
             this.mtxtTare.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "Tare", true));
             this.mtxtTare.Location = new System.Drawing.Point(667, 151);
-            this.mtxtTare.Mask = "00.00";
             this.mtxtTare.Name = "mtxtTare";
             this.mtxtTare.Size = new System.Drawing.Size(100, 24);
             this.mtxtTare.TabIndex = 51;
@@ -617,6 +587,44 @@
             this.configuredTrucksDataGridView.ReadOnly = true;
             this.configuredTrucksDataGridView.Size = new System.Drawing.Size(489, 139);
             this.configuredTrucksDataGridView.TabIndex = 46;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "RegoTk";
+            this.dataGridViewTextBoxColumn1.HeaderText = "RegoTk";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "RegoTrailer";
+            this.dataGridViewTextBoxColumn5.HeaderText = "RegoTrailer";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "VehicleType";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Config";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Width = 80;
+            // 
+            // Tare
+            // 
+            this.Tare.DataPropertyName = "Tare";
+            this.Tare.HeaderText = "Tare";
+            this.Tare.Name = "Tare";
+            this.Tare.ReadOnly = true;
+            this.Tare.Width = 80;
+            // 
+            // MaxGVM
+            // 
+            this.MaxGVM.DataPropertyName = "MaxGVM";
+            this.MaxGVM.HeaderText = "MaxGVM";
+            this.MaxGVM.Name = "MaxGVM";
+            this.MaxGVM.ReadOnly = true;
+            this.MaxGVM.Width = 80;
             // 
             // bsConfiguredTrucks
             // 
@@ -746,51 +754,33 @@
             this.tableAdapterManager2.Connection = null;
             this.tableAdapterManager2.UpdateOrder = QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // txtDocketType
+            // dataGridViewTextBoxColumn54
             // 
-            this.txtDocketType.Location = new System.Drawing.Point(581, 35);
-            this.txtDocketType.Name = "txtDocketType";
-            this.txtDocketType.ReadOnly = true;
-            this.txtDocketType.Size = new System.Drawing.Size(154, 24);
-            this.txtDocketType.TabIndex = 50;
+            this.dataGridViewTextBoxColumn54.DataPropertyName = "ItemCode";
+            this.dataGridViewTextBoxColumn54.HeaderText = "ItemCode";
+            this.dataGridViewTextBoxColumn54.Name = "dataGridViewTextBoxColumn54";
+            this.dataGridViewTextBoxColumn54.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn55
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "RegoTk";
-            this.dataGridViewTextBoxColumn1.HeaderText = "RegoTk";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn55.DataPropertyName = "ItemDescription";
+            this.dataGridViewTextBoxColumn55.HeaderText = "ItemDescription";
+            this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
+            this.dataGridViewTextBoxColumn55.ReadOnly = true;
+            this.dataGridViewTextBoxColumn55.Width = 350;
             // 
-            // dataGridViewTextBoxColumn5
+            // dataGridViewCheckBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "RegoTrailer";
-            this.dataGridViewTextBoxColumn5.HeaderText = "RegoTrailer";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn2.DataPropertyName = "ItemQA";
+            this.dataGridViewCheckBoxColumn2.HeaderText = "ItemQA";
+            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
+            this.dataGridViewCheckBoxColumn2.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn12
+            // dataGridViewTextBoxColumn57
             // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "VehicleType";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Config";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Width = 80;
-            // 
-            // Tare
-            // 
-            this.Tare.DataPropertyName = "Tare";
-            this.Tare.HeaderText = "Tare";
-            this.Tare.Name = "Tare";
-            this.Tare.ReadOnly = true;
-            this.Tare.Width = 80;
-            // 
-            // MaxGVM
-            // 
-            this.MaxGVM.DataPropertyName = "MaxGVM";
-            this.MaxGVM.HeaderText = "MaxGVM";
-            this.MaxGVM.Name = "MaxGVM";
-            this.MaxGVM.ReadOnly = true;
-            this.MaxGVM.Width = 80;
+            this.dataGridViewTextBoxColumn57.DataPropertyName = "StockpileLot";
+            this.dataGridViewTextBoxColumn57.HeaderText = "StockpileLot";
+            this.dataGridViewTextBoxColumn57.Name = "dataGridViewTextBoxColumn57";
             // 
             // HandwrittenDocket
             // 
@@ -875,11 +865,6 @@
         private System.Windows.Forms.DataGridView configuredTrucksDataGridView;
         private System.Windows.Forms.Button btnSetTruckConfig;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn54;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn55;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn57;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn58;
         private System.Windows.Forms.MaskedTextBox mtxtTare;
         private System.Windows.Forms.MaskedTextBox mtxtNett;
         private System.Windows.Forms.MaskedTextBox mtxtGross;
@@ -890,5 +875,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tare;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaxGVM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn54;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn55;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn57;
     }
 }
