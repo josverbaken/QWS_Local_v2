@@ -155,9 +155,9 @@ namespace QWS_Local
         {
             try
             {
-                dsTIQ2TableAdapters.StockpileBOMTableAdapter taStockpileBOM = new dsTIQ2TableAdapters.StockpileBOMTableAdapter();
-                taStockpileBOM.Connection.ConnectionString=QWSConfig.cnQWSLocal;
-                taStockpileBOM.FillByItemCode(dsTIQ2.StockpileBOM, txtItemCode.Text);
+                dsTIQ2TableAdapters.SPLotItemsMapTableAdapter taSPLotItemsMap = new dsTIQ2TableAdapters.SPLotItemsMapTableAdapter();
+                taSPLotItemsMap.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                taSPLotItemsMap.FillBy(dsTIQ2.SPLotItemsMap, txtItemCode.Text);
             }
             catch (Exception ex)
             {

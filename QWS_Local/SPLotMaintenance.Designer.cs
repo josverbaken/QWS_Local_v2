@@ -40,11 +40,8 @@
             System.Windows.Forms.Label createdDTTMLabel;
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label allocationDTTMLabel;
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.bsSPLotNoAudit = new System.Windows.Forms.BindingSource(this.components);
-            this.dsTIQ2 = new QWS_Local.dsTIQ2();
-            this.bsSPLotStatus = new System.Windows.Forms.BindingSource(this.components);
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpSPLotStatus = new System.Windows.Forms.TabPage();
             this.splitContainer7 = new System.Windows.Forms.SplitContainer();
@@ -57,17 +54,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnFindBaseItemCode = new System.Windows.Forms.Button();
             this.txtBaseItemCode = new System.Windows.Forms.TextBox();
-            this.bsStockpileBOM = new System.Windows.Forms.BindingSource(this.components);
             this.txtItemCode = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.allocationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mCODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BaseItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lotNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lotStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allocationDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsStockpileLotAllocation = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbAll = new System.Windows.Forms.RadioButton();
             this.rbOpen = new System.Windows.Forms.RadioButton();
@@ -95,14 +85,6 @@
             this.txtManualItemCode = new System.Windows.Forms.TextBox();
             this.btnRefreshManualAllocation = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.allocationIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sPLotNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.docketNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tonnesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reversalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsStockpileManualAllocation = new System.Windows.Forms.BindingSource(this.components);
             this.tpDataEntry = new System.Windows.Forms.TabPage();
             this.gbManualAllocation = new System.Windows.Forms.GroupBox();
             this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
@@ -115,7 +97,6 @@
             this.docketNumTextBox = new System.Windows.Forms.TextBox();
             this.gbDeliveryDocket = new System.Windows.Forms.GroupBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.bsSPLotCheckDocket = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.txtDocNum2Check = new System.Windows.Forms.TextBox();
             this.btnAddAllocation = new System.Windows.Forms.Button();
@@ -129,6 +110,25 @@
             this.btnSaveBaseItemMapping = new System.Windows.Forms.Button();
             this.btnBaseItemMapping = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.bsSPLotStatus = new System.Windows.Forms.BindingSource(this.components);
+            this.dsTIQ2 = new QWS_Local.dsTIQ2();
+            this.bsStockpileBOM = new System.Windows.Forms.BindingSource(this.components);
+            this.allocationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mCODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lotNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lotStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allocationDTTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsStockpileLotAllocation = new System.Windows.Forms.BindingSource(this.components);
+            this.bsSPLotNoAudit = new System.Windows.Forms.BindingSource(this.components);
+            this.allocationIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sPLotNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.docketNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tonnesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reversalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsStockpileManualAllocation = new System.Windows.Forms.BindingSource(this.components);
+            this.bsSPLotCheckDocket = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.baseItemCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -154,9 +154,6 @@
             createdDTTMLabel = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             allocationDTTMLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.bsSPLotNoAudit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsSPLotStatus)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpSPLotStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).BeginInit();
@@ -168,13 +165,11 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileBOM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileLotAllocation)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tpDockets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
@@ -194,17 +189,22 @@
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileManualAllocation)).BeginInit();
             this.tpDataEntry.SuspendLayout();
             this.gbManualAllocation.SuspendLayout();
             this.gbDeliveryDocket.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsSPLotCheckDocket)).BeginInit();
             this.tpBaseItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
             this.splitContainer5.Panel1.SuspendLayout();
             this.splitContainer5.Panel2.SuspendLayout();
             this.splitContainer5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsSPLotStatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileBOM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileLotAllocation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsSPLotNoAudit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileManualAllocation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsSPLotCheckDocket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotItemsMap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SPLotNoAuditBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SPLotNoStatusBindingSource)).BeginInit();
@@ -309,21 +309,6 @@
             allocationDTTMLabel.TabIndex = 17;
             allocationDTTMLabel.Text = "Allocation DTTM:";
             // 
-            // bsSPLotNoAudit
-            // 
-            this.bsSPLotNoAudit.DataMember = "SPLotNoAudit";
-            this.bsSPLotNoAudit.DataSource = this.dsTIQ2;
-            // 
-            // dsTIQ2
-            // 
-            this.dsTIQ2.DataSetName = "dsTIQ2";
-            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bsSPLotStatus
-            // 
-            this.bsSPLotStatus.DataMember = "SPLotNoStatus";
-            this.bsSPLotStatus.DataSource = this.dsTIQ2;
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tpSPLotStatus);
@@ -380,9 +365,9 @@
             // reportViewer2
             // 
             this.reportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.bsSPLotStatus;
-            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource3.Name = "DataSet1";
+            reportDataSource3.Value = this.bsSPLotStatus;
+            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource3);
             this.reportViewer2.LocalReport.ReportEmbeddedResource = "QWS_Local.SPLotStatus.rdlc";
             this.reportViewer2.Location = new System.Drawing.Point(0, 0);
             this.reportViewer2.Name = "reportViewer2";
@@ -466,17 +451,12 @@
             // 
             // txtBaseItemCode
             // 
-            this.txtBaseItemCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsStockpileBOM, "BaseItemCode", true));
+            this.txtBaseItemCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsSPLotItemsMap, "BaseItemCode", true));
             this.txtBaseItemCode.Location = new System.Drawing.Point(159, 67);
             this.txtBaseItemCode.Name = "txtBaseItemCode";
             this.txtBaseItemCode.ReadOnly = true;
             this.txtBaseItemCode.Size = new System.Drawing.Size(100, 24);
             this.txtBaseItemCode.TabIndex = 1;
-            // 
-            // bsStockpileBOM
-            // 
-            this.bsStockpileBOM.DataMember = "StockpileBOM";
-            this.bsStockpileBOM.DataSource = this.dsTIQ2;
             // 
             // txtItemCode
             // 
@@ -526,22 +506,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_DefaultValuesNeeded);
             // 
-            // allocationIDDataGridViewTextBoxColumn
-            // 
-            this.allocationIDDataGridViewTextBoxColumn.DataPropertyName = "AllocationID";
-            this.allocationIDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.allocationIDDataGridViewTextBoxColumn.Name = "allocationIDDataGridViewTextBoxColumn";
-            this.allocationIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.allocationIDDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // mCODataGridViewTextBoxColumn
-            // 
-            this.mCODataGridViewTextBoxColumn.DataPropertyName = "MCO";
-            this.mCODataGridViewTextBoxColumn.HeaderText = "MCO";
-            this.mCODataGridViewTextBoxColumn.Name = "mCODataGridViewTextBoxColumn";
-            this.mCODataGridViewTextBoxColumn.ReadOnly = true;
-            this.mCODataGridViewTextBoxColumn.Width = 150;
-            // 
             // BaseItemCode
             // 
             this.BaseItemCode.DataPropertyName = "BaseItemCode";
@@ -549,33 +513,6 @@
             this.BaseItemCode.Name = "BaseItemCode";
             this.BaseItemCode.ReadOnly = true;
             this.BaseItemCode.Width = 150;
-            // 
-            // lotNoDataGridViewTextBoxColumn
-            // 
-            this.lotNoDataGridViewTextBoxColumn.DataPropertyName = "LotNo";
-            this.lotNoDataGridViewTextBoxColumn.HeaderText = "Lot No";
-            this.lotNoDataGridViewTextBoxColumn.Name = "lotNoDataGridViewTextBoxColumn";
-            this.lotNoDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // lotStatusDataGridViewTextBoxColumn
-            // 
-            this.lotStatusDataGridViewTextBoxColumn.DataPropertyName = "LotStatus";
-            this.lotStatusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.lotStatusDataGridViewTextBoxColumn.Name = "lotStatusDataGridViewTextBoxColumn";
-            this.lotStatusDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // allocationDTTMDataGridViewTextBoxColumn
-            // 
-            this.allocationDTTMDataGridViewTextBoxColumn.DataPropertyName = "AllocationDTTM";
-            this.allocationDTTMDataGridViewTextBoxColumn.HeaderText = "Allocation DTTM";
-            this.allocationDTTMDataGridViewTextBoxColumn.Name = "allocationDTTMDataGridViewTextBoxColumn";
-            this.allocationDTTMDataGridViewTextBoxColumn.ReadOnly = true;
-            this.allocationDTTMDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // bsStockpileLotAllocation
-            // 
-            this.bsStockpileLotAllocation.DataMember = "StockpileLotAllocation";
-            this.bsStockpileLotAllocation.DataSource = this.dsTIQ2;
             // 
             // groupBox1
             // 
@@ -721,9 +658,9 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource2.Name = "DataSet1";
-            reportDataSource2.Value = this.bsSPLotNoAudit;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource4.Name = "DataSet1";
+            reportDataSource4.Value = this.bsSPLotNoAudit;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource4);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "QWS_Local.SPLotNoAudit.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Margin = new System.Windows.Forms.Padding(4);
@@ -911,62 +848,6 @@
             this.dataGridView3.Size = new System.Drawing.Size(885, 738);
             this.dataGridView3.TabIndex = 0;
             // 
-            // allocationIDDataGridViewTextBoxColumn1
-            // 
-            this.allocationIDDataGridViewTextBoxColumn1.DataPropertyName = "AllocationID";
-            this.allocationIDDataGridViewTextBoxColumn1.HeaderText = "AllocationID";
-            this.allocationIDDataGridViewTextBoxColumn1.Name = "allocationIDDataGridViewTextBoxColumn1";
-            this.allocationIDDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.allocationIDDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "ItemCode";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Item Code";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // sPLotNoDataGridViewTextBoxColumn
-            // 
-            this.sPLotNoDataGridViewTextBoxColumn.DataPropertyName = "SPLotNo";
-            this.sPLotNoDataGridViewTextBoxColumn.HeaderText = "SP Lot No";
-            this.sPLotNoDataGridViewTextBoxColumn.Name = "sPLotNoDataGridViewTextBoxColumn";
-            this.sPLotNoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // docketNumDataGridViewTextBoxColumn
-            // 
-            this.docketNumDataGridViewTextBoxColumn.DataPropertyName = "DocketNum";
-            this.docketNumDataGridViewTextBoxColumn.HeaderText = "Docket";
-            this.docketNumDataGridViewTextBoxColumn.Name = "docketNumDataGridViewTextBoxColumn";
-            this.docketNumDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tonnesDataGridViewTextBoxColumn
-            // 
-            this.tonnesDataGridViewTextBoxColumn.DataPropertyName = "Tonnes";
-            this.tonnesDataGridViewTextBoxColumn.HeaderText = "Tonnes";
-            this.tonnesDataGridViewTextBoxColumn.Name = "tonnesDataGridViewTextBoxColumn";
-            this.tonnesDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // reversalDataGridViewCheckBoxColumn
-            // 
-            this.reversalDataGridViewCheckBoxColumn.DataPropertyName = "Reversal";
-            this.reversalDataGridViewCheckBoxColumn.HeaderText = "Reversal";
-            this.reversalDataGridViewCheckBoxColumn.Name = "reversalDataGridViewCheckBoxColumn";
-            this.reversalDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // commentDataGridViewTextBoxColumn
-            // 
-            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
-            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
-            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
-            this.commentDataGridViewTextBoxColumn.ReadOnly = true;
-            this.commentDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // bsStockpileManualAllocation
-            // 
-            this.bsStockpileManualAllocation.DataMember = "StockpileManualAllocation";
-            this.bsStockpileManualAllocation.DataSource = this.dsTIQ2;
-            // 
             // tpDataEntry
             // 
             this.tpDataEntry.AutoScroll = true;
@@ -975,7 +856,7 @@
             this.tpDataEntry.Location = new System.Drawing.Point(4, 27);
             this.tpDataEntry.Name = "tpDataEntry";
             this.tpDataEntry.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDataEntry.Size = new System.Drawing.Size(1093, 744);
+            this.tpDataEntry.Size = new System.Drawing.Size(1093, 749);
             this.tpDataEntry.TabIndex = 1;
             this.tpDataEntry.Text = "Data Entry";
             this.tpDataEntry.UseVisualStyleBackColor = true;
@@ -1114,11 +995,6 @@
             this.maskedTextBox1.TabIndex = 30;
             this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
-            // 
-            // bsSPLotCheckDocket
-            // 
-            this.bsSPLotCheckDocket.DataMember = "SPLotCheckDocket";
-            this.bsSPLotCheckDocket.DataSource = this.dsTIQ2;
             // 
             // button1
             // 
@@ -1265,6 +1141,130 @@
             this.dataGridView2.Size = new System.Drawing.Size(751, 775);
             this.dataGridView2.TabIndex = 1;
             // 
+            // bsSPLotStatus
+            // 
+            this.bsSPLotStatus.DataMember = "SPLotNoStatus";
+            this.bsSPLotStatus.DataSource = this.dsTIQ2;
+            // 
+            // dsTIQ2
+            // 
+            this.dsTIQ2.DataSetName = "dsTIQ2";
+            this.dsTIQ2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bsStockpileBOM
+            // 
+            this.bsStockpileBOM.DataMember = "StockpileBOM";
+            this.bsStockpileBOM.DataSource = this.dsTIQ2;
+            // 
+            // allocationIDDataGridViewTextBoxColumn
+            // 
+            this.allocationIDDataGridViewTextBoxColumn.DataPropertyName = "AllocationID";
+            this.allocationIDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.allocationIDDataGridViewTextBoxColumn.Name = "allocationIDDataGridViewTextBoxColumn";
+            this.allocationIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.allocationIDDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // mCODataGridViewTextBoxColumn
+            // 
+            this.mCODataGridViewTextBoxColumn.DataPropertyName = "MCO";
+            this.mCODataGridViewTextBoxColumn.HeaderText = "MCO";
+            this.mCODataGridViewTextBoxColumn.Name = "mCODataGridViewTextBoxColumn";
+            this.mCODataGridViewTextBoxColumn.ReadOnly = true;
+            this.mCODataGridViewTextBoxColumn.Width = 150;
+            // 
+            // lotNoDataGridViewTextBoxColumn
+            // 
+            this.lotNoDataGridViewTextBoxColumn.DataPropertyName = "LotNo";
+            this.lotNoDataGridViewTextBoxColumn.HeaderText = "Lot No";
+            this.lotNoDataGridViewTextBoxColumn.Name = "lotNoDataGridViewTextBoxColumn";
+            this.lotNoDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // lotStatusDataGridViewTextBoxColumn
+            // 
+            this.lotStatusDataGridViewTextBoxColumn.DataPropertyName = "LotStatus";
+            this.lotStatusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.lotStatusDataGridViewTextBoxColumn.Name = "lotStatusDataGridViewTextBoxColumn";
+            this.lotStatusDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // allocationDTTMDataGridViewTextBoxColumn
+            // 
+            this.allocationDTTMDataGridViewTextBoxColumn.DataPropertyName = "AllocationDTTM";
+            this.allocationDTTMDataGridViewTextBoxColumn.HeaderText = "Allocation DTTM";
+            this.allocationDTTMDataGridViewTextBoxColumn.Name = "allocationDTTMDataGridViewTextBoxColumn";
+            this.allocationDTTMDataGridViewTextBoxColumn.ReadOnly = true;
+            this.allocationDTTMDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // bsStockpileLotAllocation
+            // 
+            this.bsStockpileLotAllocation.DataMember = "StockpileLotAllocation";
+            this.bsStockpileLotAllocation.DataSource = this.dsTIQ2;
+            // 
+            // bsSPLotNoAudit
+            // 
+            this.bsSPLotNoAudit.DataMember = "SPLotNoAudit";
+            this.bsSPLotNoAudit.DataSource = this.dsTIQ2;
+            // 
+            // allocationIDDataGridViewTextBoxColumn1
+            // 
+            this.allocationIDDataGridViewTextBoxColumn1.DataPropertyName = "AllocationID";
+            this.allocationIDDataGridViewTextBoxColumn1.HeaderText = "AllocationID";
+            this.allocationIDDataGridViewTextBoxColumn1.Name = "allocationIDDataGridViewTextBoxColumn1";
+            this.allocationIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.allocationIDDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ItemCode";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Item Code";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // sPLotNoDataGridViewTextBoxColumn
+            // 
+            this.sPLotNoDataGridViewTextBoxColumn.DataPropertyName = "SPLotNo";
+            this.sPLotNoDataGridViewTextBoxColumn.HeaderText = "SP Lot No";
+            this.sPLotNoDataGridViewTextBoxColumn.Name = "sPLotNoDataGridViewTextBoxColumn";
+            this.sPLotNoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // docketNumDataGridViewTextBoxColumn
+            // 
+            this.docketNumDataGridViewTextBoxColumn.DataPropertyName = "DocketNum";
+            this.docketNumDataGridViewTextBoxColumn.HeaderText = "Docket";
+            this.docketNumDataGridViewTextBoxColumn.Name = "docketNumDataGridViewTextBoxColumn";
+            this.docketNumDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tonnesDataGridViewTextBoxColumn
+            // 
+            this.tonnesDataGridViewTextBoxColumn.DataPropertyName = "Tonnes";
+            this.tonnesDataGridViewTextBoxColumn.HeaderText = "Tonnes";
+            this.tonnesDataGridViewTextBoxColumn.Name = "tonnesDataGridViewTextBoxColumn";
+            this.tonnesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // reversalDataGridViewCheckBoxColumn
+            // 
+            this.reversalDataGridViewCheckBoxColumn.DataPropertyName = "Reversal";
+            this.reversalDataGridViewCheckBoxColumn.HeaderText = "Reversal";
+            this.reversalDataGridViewCheckBoxColumn.Name = "reversalDataGridViewCheckBoxColumn";
+            this.reversalDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // commentDataGridViewTextBoxColumn
+            // 
+            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
+            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
+            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
+            this.commentDataGridViewTextBoxColumn.ReadOnly = true;
+            this.commentDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // bsStockpileManualAllocation
+            // 
+            this.bsStockpileManualAllocation.DataMember = "StockpileManualAllocation";
+            this.bsStockpileManualAllocation.DataSource = this.dsTIQ2;
+            // 
+            // bsSPLotCheckDocket
+            // 
+            this.bsSPLotCheckDocket.DataMember = "SPLotCheckDocket";
+            this.bsSPLotCheckDocket.DataSource = this.dsTIQ2;
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "ItemCode";
@@ -1354,9 +1354,6 @@
             this.Name = "SPLotMaintenance";
             this.Text = "SPLotMaintenance";
             this.Load += new System.EventHandler(this.SPLotMaintenance_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bsSPLotNoAudit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsSPLotStatus)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpSPLotStatus.ResumeLayout(false);
             this.splitContainer7.Panel1.ResumeLayout(false);
@@ -1369,13 +1366,11 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileBOM)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileLotAllocation)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tpDockets.ResumeLayout(false);
@@ -1399,19 +1394,24 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileManualAllocation)).EndInit();
             this.tpDataEntry.ResumeLayout(false);
             this.gbManualAllocation.ResumeLayout(false);
             this.gbManualAllocation.PerformLayout();
             this.gbDeliveryDocket.ResumeLayout(false);
             this.gbDeliveryDocket.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsSPLotCheckDocket)).EndInit();
             this.tpBaseItem.ResumeLayout(false);
             this.splitContainer5.Panel1.ResumeLayout(false);
             this.splitContainer5.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
             this.splitContainer5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsSPLotStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsTIQ2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileBOM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileLotAllocation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsSPLotNoAudit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsStockpileManualAllocation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsSPLotCheckDocket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSPLotItemsMap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SPLotNoAuditBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SPLotNoStatusBindingSource)).EndInit();
