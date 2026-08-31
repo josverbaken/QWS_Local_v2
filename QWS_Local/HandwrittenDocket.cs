@@ -275,31 +275,27 @@ namespace QWS_Local
                 {
                     linesRow.Quantity = 1.0M;
                 }
-                else
+                else // 20260831 consider appropriate for Handwritten Dockets
                 {
-                    linesRow.Quantity = 0.0M; // does not allow nulls
-                } 
-                    //else // TODO review if appropriate for Handwritten Dockets
-                    //{
-                    //    decimal myMinimumCart = QWSConfig.MinimumCart;
-                    //    if (SWW == "Freight" && myNett < myMinimumCart)
-                    //    {
-                    //        decimal myPayload = docketsRow.GrossLegal - docketsRow.Tare;
-                    //        if (myPayload < myMinimumCart)
-                    //        {
-                    //            linesRow.Quantity = myPayload;
-                    //        }
-                    //        else
-                    //        {
-                    //            linesRow.Quantity = myMinimumCart;
-                    //        }
-                    //    }
-                    //    else
-                    //    {
-                    //        linesRow.Quantity = myNett;
-                    //    }
-                    //}
-                    linesRow.CreatedDTTM = DateTime.Now;
+                    decimal myMinimumCart = QWSConfig.MinimumCart;
+                    if (SWW == "Freight" && myNett < myMinimumCart)
+                    {
+                        decimal myPayload = docketsRow.GrossLegal - docketsRow.Tare;
+                        if (myPayload < myMinimumCart)
+                        {
+                            linesRow.Quantity = myPayload;
+                        }
+                        else
+                        {
+                            linesRow.Quantity = myMinimumCart;
+                        }
+                    }
+                    else
+                    {
+                        linesRow.Quantity = myNett;
+                    }
+                }
+                linesRow.CreatedDTTM = DateTime.Now;
                 dsTIQ2.WBDocketLines.AddWBDocketLinesRow(linesRow);
                 bsWBDocketLines.EndEdit();
             }
