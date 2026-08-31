@@ -43,6 +43,10 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gbDocketLines = new System.Windows.Forms.GroupBox();
             this.wBDocketLinesDataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn54 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsWBDocketLines = new System.Windows.Forms.BindingSource(this.components);
             this.bsWBDockets = new System.Windows.Forms.BindingSource(this.components);
             this.dsTIQ2 = new QWS_Local.dsTIQ2();
@@ -56,7 +60,6 @@
             this.contactNameTextBox = new System.Windows.Forms.TextBox();
             this.deliveryAddressTextBox = new System.Windows.Forms.TextBox();
             this.txtCustON = new System.Windows.Forms.TextBox();
-            this.btnGetContact = new System.Windows.Forms.Button();
             this.txtCardCode = new System.Windows.Forms.TextBox();
             this.btnGetCustomer = new System.Windows.Forms.Button();
             this.gbDocket = new System.Windows.Forms.GroupBox();
@@ -66,9 +69,9 @@
             this.docDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.btnCheck = new System.Windows.Forms.Button();
             this.gbTruck = new System.Windows.Forms.GroupBox();
-            this.mtxtTare = new System.Windows.Forms.MaskedTextBox();
-            this.mtxtNett = new System.Windows.Forms.MaskedTextBox();
-            this.mtxtGross = new System.Windows.Forms.MaskedTextBox();
+            this.nudNett = new System.Windows.Forms.NumericUpDown();
+            this.nudGross = new System.Windows.Forms.NumericUpDown();
+            this.nudTare = new System.Windows.Forms.NumericUpDown();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnSetTruckConfig = new System.Windows.Forms.Button();
             this.configuredTrucksDataGridView = new System.Windows.Forms.DataGridView();
@@ -96,10 +99,6 @@
             this.taBlanketAgreementCheck = new QWS_Local.dsBookInTableAdapters.BlanketAgreementCheckTableAdapter();
             this.taConfiguredTrucks = new QWS_Local.dsTruckConfigTableAdapters.ConfiguredTrucksTableAdapter();
             this.tableAdapterManager2 = new QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager();
-            this.dataGridViewTextBoxColumn54 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             docNumLabel = new System.Windows.Forms.Label();
             cardNameLabel = new System.Windows.Forms.Label();
             purchaseOrderLabel = new System.Windows.Forms.Label();
@@ -122,6 +121,9 @@
             this.gbCustomer.SuspendLayout();
             this.gbDocket.SuspendLayout();
             this.gbTruck.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNett)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudGross)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTare)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.configuredTrucksDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).BeginInit();
@@ -273,6 +275,34 @@
             this.wBDocketLinesDataGridView1.Size = new System.Drawing.Size(761, 169);
             this.wBDocketLinesDataGridView1.TabIndex = 22;
             // 
+            // dataGridViewTextBoxColumn54
+            // 
+            this.dataGridViewTextBoxColumn54.DataPropertyName = "ItemCode";
+            this.dataGridViewTextBoxColumn54.HeaderText = "ItemCode";
+            this.dataGridViewTextBoxColumn54.Name = "dataGridViewTextBoxColumn54";
+            this.dataGridViewTextBoxColumn54.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn55
+            // 
+            this.dataGridViewTextBoxColumn55.DataPropertyName = "ItemDescription";
+            this.dataGridViewTextBoxColumn55.HeaderText = "ItemDescription";
+            this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
+            this.dataGridViewTextBoxColumn55.ReadOnly = true;
+            this.dataGridViewTextBoxColumn55.Width = 350;
+            // 
+            // dataGridViewCheckBoxColumn2
+            // 
+            this.dataGridViewCheckBoxColumn2.DataPropertyName = "ItemQA";
+            this.dataGridViewCheckBoxColumn2.HeaderText = "ItemQA";
+            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
+            this.dataGridViewCheckBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn57
+            // 
+            this.dataGridViewTextBoxColumn57.DataPropertyName = "StockpileLot";
+            this.dataGridViewTextBoxColumn57.HeaderText = "StockpileLot";
+            this.dataGridViewTextBoxColumn57.Name = "dataGridViewTextBoxColumn57";
+            // 
             // bsWBDocketLines
             // 
             this.bsWBDocketLines.DataMember = "FK_WBDocketLines_WBDockets";
@@ -314,7 +344,6 @@
             this.gbCustomer.Controls.Add(this.deliveryAddressTextBox);
             this.gbCustomer.Controls.Add(this.txtCustON);
             this.gbCustomer.Controls.Add(cardNameLabel);
-            this.gbCustomer.Controls.Add(this.btnGetContact);
             this.gbCustomer.Controls.Add(this.txtCardCode);
             this.gbCustomer.Controls.Add(this.btnGetCustomer);
             this.gbCustomer.Location = new System.Drawing.Point(51, 91);
@@ -396,18 +425,6 @@
             this.txtCustON.Size = new System.Drawing.Size(100, 24);
             this.txtCustON.TabIndex = 9;
             // 
-            // btnGetContact
-            // 
-            this.btnGetContact.Location = new System.Drawing.Point(772, 144);
-            this.btnGetContact.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGetContact.Name = "btnGetContact";
-            this.btnGetContact.Size = new System.Drawing.Size(128, 32);
-            this.btnGetContact.TabIndex = 37;
-            this.btnGetContact.Text = "Get Contact";
-            this.btnGetContact.UseVisualStyleBackColor = true;
-            this.btnGetContact.Visible = false;
-            this.btnGetContact.Click += new System.EventHandler(this.btnGetContact_Click);
-            // 
             // txtCardCode
             // 
             this.txtCardCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "CardCode", true));
@@ -460,7 +477,7 @@
             this.txtDocNum.Location = new System.Drawing.Point(139, 30);
             this.txtDocNum.Name = "txtDocNum";
             this.txtDocNum.Size = new System.Drawing.Size(100, 24);
-            this.txtDocNum.TabIndex = 5;
+            this.txtDocNum.TabIndex = 1;
             // 
             // btnSaveDocket
             // 
@@ -480,7 +497,7 @@
             this.docDateDateTimePicker.Location = new System.Drawing.Point(258, 30);
             this.docDateDateTimePicker.Name = "docDateDateTimePicker";
             this.docDateDateTimePicker.Size = new System.Drawing.Size(200, 24);
-            this.docDateDateTimePicker.TabIndex = 1;
+            this.docDateDateTimePicker.TabIndex = 2;
             // 
             // btnCheck
             // 
@@ -488,16 +505,16 @@
             this.btnCheck.Margin = new System.Windows.Forms.Padding(4);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(128, 32);
-            this.btnCheck.TabIndex = 0;
+            this.btnCheck.TabIndex = 3;
             this.btnCheck.Text = "Check";
             this.btnCheck.UseVisualStyleBackColor = true;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // gbTruck
             // 
-            this.gbTruck.Controls.Add(this.mtxtTare);
-            this.gbTruck.Controls.Add(this.mtxtNett);
-            this.gbTruck.Controls.Add(this.mtxtGross);
+            this.gbTruck.Controls.Add(this.nudNett);
+            this.gbTruck.Controls.Add(this.nudGross);
+            this.gbTruck.Controls.Add(this.nudTare);
             this.gbTruck.Controls.Add(this.textBox2);
             this.gbTruck.Controls.Add(this.btnSetTruckConfig);
             this.gbTruck.Controls.Add(this.configuredTrucksDataGridView);
@@ -519,35 +536,40 @@
             this.gbTruck.TabStop = false;
             this.gbTruck.Text = "Truck";
             // 
-            // mtxtTare
+            // nudNett
             // 
-            this.mtxtTare.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "Tare", true));
-            this.mtxtTare.Location = new System.Drawing.Point(667, 151);
-            this.mtxtTare.Name = "mtxtTare";
-            this.mtxtTare.Size = new System.Drawing.Size(100, 24);
-            this.mtxtTare.TabIndex = 51;
-            this.mtxtTare.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nudNett.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bsWBDockets, "Nett", true));
+            this.nudNett.DecimalPlaces = 2;
+            this.nudNett.Location = new System.Drawing.Point(667, 179);
+            this.nudNett.Name = "nudNett";
+            this.nudNett.ReadOnly = true;
+            this.nudNett.Size = new System.Drawing.Size(98, 24);
+            this.nudNett.TabIndex = 54;
+            this.nudNett.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // mtxtNett
+            // nudGross
             // 
-            this.mtxtNett.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "Nett", true));
-            this.mtxtNett.Location = new System.Drawing.Point(667, 181);
-            this.mtxtNett.Mask = "00.00";
-            this.mtxtNett.Name = "mtxtNett";
-            this.mtxtNett.ReadOnly = true;
-            this.mtxtNett.Size = new System.Drawing.Size(100, 24);
-            this.mtxtNett.TabIndex = 50;
-            this.mtxtNett.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nudGross.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bsWBDockets, "Gross", true));
+            this.nudGross.DecimalPlaces = 2;
+            this.nudGross.Location = new System.Drawing.Point(667, 121);
+            this.nudGross.Name = "nudGross";
+            this.nudGross.Size = new System.Drawing.Size(99, 24);
+            this.nudGross.TabIndex = 53;
+            this.nudGross.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nudGross.Enter += new System.EventHandler(this.NumericUpDown_SelectAll);
+            this.nudGross.MouseUp += new System.Windows.Forms.MouseEventHandler(this.NumericUpDown_SelectAll);
             // 
-            // mtxtGross
+            // nudTare
             // 
-            this.mtxtGross.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsWBDockets, "Gross", true));
-            this.mtxtGross.Location = new System.Drawing.Point(667, 118);
-            this.mtxtGross.Name = "mtxtGross";
-            this.mtxtGross.Size = new System.Drawing.Size(100, 24);
-            this.mtxtGross.TabIndex = 49;
-            this.mtxtGross.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.mtxtGross.Leave += new System.EventHandler(this.mtxtGross_Leave);
+            this.nudTare.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bsWBDockets, "Tare", true));
+            this.nudTare.DecimalPlaces = 2;
+            this.nudTare.Location = new System.Drawing.Point(667, 148);
+            this.nudTare.Name = "nudTare";
+            this.nudTare.Size = new System.Drawing.Size(98, 24);
+            this.nudTare.TabIndex = 52;
+            this.nudTare.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nudTare.Enter += new System.EventHandler(this.NumericUpDown_SelectAll);
+            this.nudTare.MouseUp += new System.Windows.Forms.MouseEventHandler(this.NumericUpDown_MouseUp);
             // 
             // textBox2
             // 
@@ -754,34 +776,6 @@
             this.tableAdapterManager2.Connection = null;
             this.tableAdapterManager2.UpdateOrder = QWS_Local.dsTruckConfigTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // dataGridViewTextBoxColumn54
-            // 
-            this.dataGridViewTextBoxColumn54.DataPropertyName = "ItemCode";
-            this.dataGridViewTextBoxColumn54.HeaderText = "ItemCode";
-            this.dataGridViewTextBoxColumn54.Name = "dataGridViewTextBoxColumn54";
-            this.dataGridViewTextBoxColumn54.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn55
-            // 
-            this.dataGridViewTextBoxColumn55.DataPropertyName = "ItemDescription";
-            this.dataGridViewTextBoxColumn55.HeaderText = "ItemDescription";
-            this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
-            this.dataGridViewTextBoxColumn55.ReadOnly = true;
-            this.dataGridViewTextBoxColumn55.Width = 350;
-            // 
-            // dataGridViewCheckBoxColumn2
-            // 
-            this.dataGridViewCheckBoxColumn2.DataPropertyName = "ItemQA";
-            this.dataGridViewCheckBoxColumn2.HeaderText = "ItemQA";
-            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
-            this.dataGridViewCheckBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn57
-            // 
-            this.dataGridViewTextBoxColumn57.DataPropertyName = "StockpileLot";
-            this.dataGridViewTextBoxColumn57.HeaderText = "StockpileLot";
-            this.dataGridViewTextBoxColumn57.Name = "dataGridViewTextBoxColumn57";
-            // 
             // HandwrittenDocket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -807,6 +801,9 @@
             this.gbDocket.PerformLayout();
             this.gbTruck.ResumeLayout(false);
             this.gbTruck.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNett)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudGross)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTare)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.configuredTrucksDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsConfiguredTrucks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsTruckConfig)).EndInit();
@@ -846,7 +843,6 @@
         private System.Windows.Forms.Button btnGetCustomer;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnCalculateNett;
-        private System.Windows.Forms.Button btnGetContact;
         private System.Windows.Forms.TextBox truckDriverTextBox;
         private System.Windows.Forms.GroupBox gbDocket;
         private System.Windows.Forms.GroupBox gbTruck;
@@ -865,9 +861,6 @@
         private System.Windows.Forms.DataGridView configuredTrucksDataGridView;
         private System.Windows.Forms.Button btnSetTruckConfig;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.MaskedTextBox mtxtTare;
-        private System.Windows.Forms.MaskedTextBox mtxtNett;
-        private System.Windows.Forms.MaskedTextBox mtxtGross;
         private System.Windows.Forms.MaskedTextBox mtxtSAPOrderDocNum;
         private System.Windows.Forms.TextBox txtDocketType;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -879,5 +872,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn55;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn57;
+        private System.Windows.Forms.NumericUpDown nudTare;
+        private System.Windows.Forms.NumericUpDown nudNett;
+        private System.Windows.Forms.NumericUpDown nudGross;
     }
 }

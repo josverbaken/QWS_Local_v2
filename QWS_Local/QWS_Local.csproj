@@ -31,8 +31,8 @@
     <SuiteName>Quarry Weighbridge System</SuiteName>
     <WebPage>QWSLocal</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>261</ApplicationRevision>
-    <ApplicationVersion>2.2026.8.261</ApplicationVersion>
+    <ApplicationRevision>310</ApplicationRevision>
+    <ApplicationVersion>2.2026.8.310</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>

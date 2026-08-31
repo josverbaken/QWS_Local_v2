@@ -48,6 +48,9 @@ namespace QWS_Local
         {
             var parent = this.MdiParent as QWS_MDIParent;
             mySiteID = parent.SiteID;
+            btnGetItem.Enabled = false;
+            btnFindTruck.Enabled = false;
+            btnSaveDocket.Enabled = false;
         }
 
         private void btnCheck_Click(object sender, EventArgs e)
@@ -70,7 +73,6 @@ namespace QWS_Local
                 int iCount = taWBDockets.FillBy(dsTIQ2.WBDockets,myDocNum);
                 if (iCount == 0)
                 {
-                    btnSaveDocket.Enabled = true;
                     DialogResult dr1 = MessageBox.Show(myMessage,myTopic,MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                     switch (dr1)
                     {
@@ -100,7 +102,6 @@ namespace QWS_Local
                     dsTIQ2.WBDocketLines.Clear();
                     myMessage = "Docket already exists.";
                     myTopic = "Docket Number Check";
-                    btnSaveDocket.Enabled = false;
                     MessageBox.Show(myMessage, myTopic, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
@@ -177,7 +178,7 @@ namespace QWS_Local
                 docketsRow.EnteredBy = QWS_WBO;
                 docketsRow.Comments = "";
                 docketsRow.CreatedDTTM = DateTime.Now;
-                docketsRow.TIQID = 0; // TODO check what issues this may cause
+                docketsRow.TIQID = 0; 
 
                 if (mySAPOrderDocNum > 0)
                 {
@@ -324,6 +325,7 @@ namespace QWS_Local
                     dsBookIn.Item.Clear(); // to allow multiple look ups
                     dsBookIn.Item.ImportRow(frmItemSearch.myItem);
                     SetExBinNoOrderItem();
+                    btnFindTruck.Enabled = true;
                 }
 
             }
@@ -449,6 +451,7 @@ namespace QWS_Local
                     docketsRow.CardCode = frmBusinessSearch.SAPCode;
                     docketsRow.CardName = frmBusinessSearch.BusinessName;
                     IsPORequired = CheckPORequired(frmBusinessSearch.SAPCode);
+                    btnGetItem.Enabled = true;
                 }
                 else
                 {
@@ -489,18 +492,6 @@ namespace QWS_Local
             dsTIQ2.WBDocketLines.Clear();
         }
 
-        private void btnGetContact_Click(object sender, EventArgs e)
-        {
-            GetContact();
-        }
-
-        private void GetContact()
-        {
-            // this is for ex bin no order, not currently implemented
-            // SAP orders normally supply a contact
-            MessageBox.Show("TODO write code to get order details from SAP_OCPR");
-        }
-
         private void btnCalculateNett_Click(object sender, EventArgs e)
         {
             CalculateNett();
@@ -520,6 +511,7 @@ namespace QWS_Local
                     linesRow.Quantity = myQty;
                 }
                 bsWBDocketLines.EndEdit();
+                btnSaveDocket.Enabled = true;
             }
         }
 
@@ -530,11 +522,11 @@ namespace QWS_Local
 
         private void GetOrder()
         {
-            //MessageBox.Show("TODO write code to get order details from SAP_ORDR");
             if (int.TryParse(mtxtSAPOrderDocNum.Text, out int result))
             {
                 mySAPOrderDocNum = result;
                 CreateNewDocket(myDocNum);
+                btnFindTruck.Enabled = true;
             }
             else
             {
@@ -558,8 +550,7 @@ namespace QWS_Local
                 docketsRow.TruckDriverID = frmTruckDriver.TruckDriverID;
                 docketsRow.TruckDriver = frmTruckDriver.TruckDriver;
                 bsWBDockets.EndEdit();
-                mtxtGross.SelectAll();
-                mtxtGross.Focus();
+                nudGross.Focus();
             }
             else
             {
@@ -603,7 +594,10 @@ namespace QWS_Local
             docketsRow.TruckConfig = myTruckConfigRow.VehicleType;
             docketsRow.TruckOwnerCode = myTruckConfigRow.CardCode;
             docketsRow.TruckOwner = myTruckConfigRow.TruckOwner;
+            docketsRow.Tare = myTruckConfigRow.Tare;
+            docketsRow.Nett = 0.0M;
             bsWBDockets.EndEdit();
+            btnSaveDocket.Enabled = false;
             btnGetDriver.Enabled = true;
         }
 
@@ -638,20 +632,31 @@ namespace QWS_Local
             }
         }
 
-        private void mtxtGross_Leave(object sender, EventArgs e)
+        private void NumericUpDown_SelectAll(object sender, EventArgs e)
         {
-            mtxtTare.SelectAll();
-            mtxtTare.Focus();
+            if (sender is NumericUpDown numericUpDown)
+            {
+                numericUpDown.Select(0, numericUpDown.Text.Length);
+            }
         }
 
-        private void mtxtTare_Leave(object sender, EventArgs e)
-        {
-            btnCalculateNett.Focus();
-        }
 
         private void txtTruckRego_Leave(object sender, EventArgs e)
         {
             txtTruckRego.Text = txtTruckRego.Text.ToUpper();
+        }
+
+        private void NumericUpDown_MouseUp(object sender, MouseEventArgs e)
+        {
+            // Safely cast the sender back to a NumericUpDown control
+            NumericUpDown numBox = sender as NumericUpDown;
+
+            if (numBox != null)
+            {
+                // Select all text from position 0 up to the maximum string length
+                numBox.Select(0, numBox.Text.Length);
+            }
+
         }
     }
 }
