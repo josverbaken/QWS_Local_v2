@@ -26,6 +26,8 @@ namespace QWS_Local
         public static decimal MinimumTopUp { get; set; } = 600.0M;
         public static string ShortLoadFee { get; set; } = "tba";
         public static bool EnableSMS { get; set; } = true;
+        public static string SMSAPIKey { get; set; } = "tba";
+        public static string SMSAPISecret { get; set; } = "tba";
         public static string cnQWSLocal
         {
             get

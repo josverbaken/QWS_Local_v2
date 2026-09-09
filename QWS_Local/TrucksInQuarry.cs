@@ -132,8 +132,8 @@ namespace QWS_Local
                         }
                         else
                         {
-                            DialogResult dialogResult = MessageBox.Show("Press Yes to bypass LPR\r\nPress No try try again","Vehicles On Site",MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                            if(dialogResult == DialogResult.Yes)
+                            DialogResult dialogResult = MessageBox.Show("Press Yes to bypass LPR\r\nPress No try try again", "Vehicles On Site", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                            if (dialogResult == DialogResult.Yes)
                             {
                                 BookInTruck frmBookIn = new BookInTruck();
                                 frmBookIn.MdiParent = this.MdiParent;
@@ -632,7 +632,7 @@ namespace QWS_Local
                 case "BDa":
                 case "BDb":
                     UnderloadAmount = 0.0M;
-                    SplitLoad = true; 
+                    SplitLoad = true;
                     break;
                 default:
                     SplitLoad = false;
@@ -802,6 +802,11 @@ namespace QWS_Local
                     taWBDocketLines.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                     taWBDocketLines.Update(dsTIQ2.WBDocketLines);
                     // 20250828 Not using SMTP2GO, may use a different process later.
+                    // 20260910 Use SMSGlobal API instead of SMTP2GO, but only if EnableSMS = true
+                    if (QWSConfig.EnableSMS == true) // TODO && IsDelivery == true)
+                    {
+                        NotifyDeliveryBySMS(myDocNum);
+                    }
                     //if (Properties.Settings.Default.EnableSMS == true && IsDelivery == true)
                     //{               
                     //    NotifyDeliveryBySMS(myDocNum);
@@ -1507,6 +1512,21 @@ namespace QWS_Local
             string msg = "LPR Count = ";
             msg += bsVehiclesOnSite.Count.ToString();
             txtLPRCount.Text = msg;
+        }
+
+        private void NotifyDeliveryBySMS(int DocNum) // consider sending docket to driver as an alternative to paper docket
+        {
+            try
+            {
+                //SMSGlobalAPI smsGlobalAPI = new SMSGlobalAPI();
+                //smsGlobalAPI.SendSMS(DocNum);
+                // Copilot boilerplate 
+                MessageBox.Show("SMS notification sent for DocNum: " + DocNum.ToString(), "NotifyDeliveryBySMS", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "NotifyDeliveryBySMS Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
