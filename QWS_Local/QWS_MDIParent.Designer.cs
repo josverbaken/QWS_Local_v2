@@ -39,6 +39,7 @@
             this.operatorRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verkadaLPRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.qWSConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.handwrittenDocketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuitemMaintainVehicles = new System.Windows.Forms.ToolStripMenuItem();
             this.vehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pBSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,7 +66,7 @@
             this.tableAdapterManager = new QWS_Local.dsAdminTableAdapters.TableAdapterManager();
             this.bsQWSConfig = new System.Windows.Forms.BindingSource(this.components);
             this.taQWSConfig = new QWS_Local.dsAdminTableAdapters.taQWSConfig();
-            this.handwrittenDocketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sMSGlobalTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsOperator)).BeginInit();
@@ -119,7 +120,8 @@
             this.operatorRolesToolStripMenuItem,
             this.verkadaLPRToolStripMenuItem,
             this.qWSConfigurationToolStripMenuItem,
-            this.handwrittenDocketToolStripMenuItem});
+            this.handwrittenDocketToolStripMenuItem,
+            this.sMSGlobalTestToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.adminToolStripMenuItem.Text = "Admin";
@@ -165,6 +167,13 @@
             this.qWSConfigurationToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
             this.qWSConfigurationToolStripMenuItem.Text = "QWS Configuration";
             this.qWSConfigurationToolStripMenuItem.Click += new System.EventHandler(this.qWSConfigurationToolStripMenuItem_Click_1);
+            // 
+            // handwrittenDocketToolStripMenuItem
+            // 
+            this.handwrittenDocketToolStripMenuItem.Name = "handwrittenDocketToolStripMenuItem";
+            this.handwrittenDocketToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
+            this.handwrittenDocketToolStripMenuItem.Text = "Handwritten Docket";
+            this.handwrittenDocketToolStripMenuItem.Click += new System.EventHandler(this.handwrittenDocketToolStripMenuItem_Click);
             // 
             // menuitemMaintainVehicles
             // 
@@ -361,12 +370,12 @@
             // 
             this.taQWSConfig.ClearBeforeFill = true;
             // 
-            // handwrittenDocketToolStripMenuItem
+            // sMSGlobalTestToolStripMenuItem
             // 
-            this.handwrittenDocketToolStripMenuItem.Name = "handwrittenDocketToolStripMenuItem";
-            this.handwrittenDocketToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
-            this.handwrittenDocketToolStripMenuItem.Text = "Handwritten Docket";
-            this.handwrittenDocketToolStripMenuItem.Click += new System.EventHandler(this.handwrittenDocketToolStripMenuItem_Click);
+            this.sMSGlobalTestToolStripMenuItem.Name = "sMSGlobalTestToolStripMenuItem";
+            this.sMSGlobalTestToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
+            this.sMSGlobalTestToolStripMenuItem.Text = "SMSGlobal Test";
+            this.sMSGlobalTestToolStripMenuItem.Click += new System.EventHandler(this.sMSGlobalTestToolStripMenuItem_Click);
             // 
             // QWS_MDIParent
             // 
@@ -432,5 +441,6 @@
         private dsAdminTableAdapters.taQWSConfig taQWSConfig;
         private System.Windows.Forms.ToolStripMenuItem qWSConfigurationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem handwrittenDocketToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sMSGlobalTestToolStripMenuItem;
     }
 }

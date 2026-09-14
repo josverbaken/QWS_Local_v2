@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
+using WinformSMS;
 
 namespace QWS_Local
 {
@@ -722,6 +723,14 @@ namespace QWS_Local
             frmHandwrittenDocket.MdiParent = this;
             frmHandwrittenDocket.WindowState = FormWindowState.Maximized;
             frmHandwrittenDocket.Show();
+        }
+
+        private void sMSGlobalTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SMSGlobal frmSMSGlobal = new SMSGlobal();
+            frmSMSGlobal.MdiParent = this;
+            frmSMSGlobal.WindowState = FormWindowState.Maximized;
+            frmSMSGlobal.Show();
         }
     }
 }
