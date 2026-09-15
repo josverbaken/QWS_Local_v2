@@ -437,6 +437,42 @@ namespace QWS_Local
             AddExBinOrder2TIQ();
         }
 
+        private string TIQStatus(string ACStatus)
+        {
+            string myStatus = "Q";
+            switch (ACStatus)
+            {
+                case "A":
+                    myStatus = "Q";
+                    break;
+                case "I":
+                    myStatus = "C";
+                    break;
+                case "H": //check cutoff time
+                    DateTime myCutOffTM = DateTime.Today.AddMinutes(QWSConfig.CreditCutoffTM);
+                    if (DateTime.Now > myCutOffTM) // after cut off time
+                    {
+                        myStatus = "C";
+                    }
+                    else
+                    {
+                        DialogResult dr = MessageBox.Show("Customer is on Credit Hold!\r\nDo you want to continue?", "Credit Hold", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dr == DialogResult.Yes)
+                        {
+                            myStatus = "Q";
+                        }
+                        else
+                        {
+                            myStatus = "C";
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+            return myStatus;
+        }
+
         private void AddExBinOrder2TIQ()
         {
             try
@@ -456,11 +492,7 @@ namespace QWS_Local
                 _TIQRow.MaterialDesc = CurrentQuarryOrder().Material;
                 _TIQRow.DeliveryAddress = "Ex-Bin";
                 _TIQRow.CartageCode = "";
-                if (CurrentQuarryOrder().AccountStatus != "A")
-                {
-                    _TIQRow.QueueStatus = "C";
-                }
-                _TIQRow.QueueStatus = "Q";
+                _TIQRow.QueueStatus = TIQStatus(CurrentQuarryOrder().AccountStatus);
                 this.Validate();
                 bsTIQ2.EndEdit();
                 dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
@@ -533,10 +565,7 @@ namespace QWS_Local
                 _TIQRow.Material = myOrderRow.MaterialCode;
                 _TIQRow.MaterialDesc = myOrderRow.Material;
                 _TIQRow.DeliveryAddress = myOrderRow.DeliveryAddress;
-                if (myOrderRow.AccountStatus != "A")
-                {
-                    _TIQRow.QueueStatus = "C";
-                }
+                _TIQRow.QueueStatus = TIQStatus(myOrderRow.AccountStatus);
                 if (myOrderRow.CartageCode.Length > 0)
                 {
                     _TIQRow.CartageCode = myOrderRow.CartageCode;
@@ -856,10 +885,7 @@ namespace QWS_Local
                         _TIQRow.MaterialDesc = itemRow.ItemName;
                         _TIQRow.AgrNo = myAgrNo;
                         _TIQRow.AgrLine = myAgrLine;
-                        if (ACStatus != "A")
-                        {
-                            _TIQRow.QueueStatus = "C";
-                        }
+                        _TIQRow.QueueStatus = TIQStatus(ACStatus);
                         bsTIQ2.EndEdit();
                         tabControl2.SelectedTab = tpTruckconfig;
                     }
