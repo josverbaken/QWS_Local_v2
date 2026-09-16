@@ -382,6 +382,7 @@ namespace QWS_Local
                         //docketsRow.DeliveryAddress = "Ex-Bin";
                         linesRow.ItemCode = itemRow.ItemCode;
                         linesRow.ItemDescription = itemRow.ItemName;
+                        linesRow.ItemQA = itemRow.QA == "Y" ? true : false;
                         linesRow.Quantity = docketsRow.Nett;
                         linesRow.AgrNo = myAgrNo;
                         linesRow.AgrLine = myAgrLine;
