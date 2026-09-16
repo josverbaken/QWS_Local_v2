@@ -470,6 +470,10 @@ namespace QWS_Local
                 default:
                     break;
             }
+            if (FormTIQType == TIQType.Imported)
+            {
+               myStatus = "I";
+            }
             return myStatus;
         }
 
