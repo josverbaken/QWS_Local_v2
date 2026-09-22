@@ -19,7 +19,6 @@ namespace QWS_Local
     {
         private static string NetworkAddress = string.Empty;
         private static string NetworkSubnet = string.Empty;
-        Configuration config;
 
         public AboutQWSLocal()
         {
