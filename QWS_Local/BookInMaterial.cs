@@ -456,8 +456,13 @@ namespace QWS_Local
                     }
                     else
                     {
-                        DialogResult dr = MessageBox.Show("Customer is on Credit Hold!\r\nDo you want to continue?", "Credit Hold", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (dr == DialogResult.Yes)
+                        string msg = CustomerName + " is on Credit Hold!";
+                        msg += "\r\n\r\n* Check that you have the correct customer.";
+                        msg += "\r\n* Cutoff time is " + myCutOffTM.ToString("HH:mm");
+                        msg += "\r\n* QWS will not accept loads after this time.";
+                        msg += "\r\n\r\nDo you want to continue?";
+                        DialogResult dr = MessageBox.Show(msg, "Credit Hold", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                        if (dr == DialogResult.OK)
                         {
                             myStatus = "Q";
                         }
