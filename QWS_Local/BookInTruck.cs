@@ -1098,9 +1098,9 @@ namespace QWS_Local
             if (rbTruckOnly.Checked == true)
             {
                 btnContinue.Enabled = true;
-                _TIQRow.TruckConfig = "TKs";
+                _TIQRow.TruckConfig = "TKo";
                 _TIQRow.QueueStatus = "X";
-                //bsTIQ.EndEdit();
+                // bsTIQ.EndEdit(); // TODO find where it gets overwritten and fix it. It is not needed here as it is done in UpdateTIQ
             }
         }
 
@@ -1109,7 +1109,7 @@ namespace QWS_Local
             if (rbTrailerOnly.Checked == true)
             {
                 btnContinue.Enabled = true;
-                _TIQRow.TruckConfig = "TRs";
+                _TIQRow.TruckConfig = "TRo";
                 _TIQRow.QueueStatus = "X";
                 //bsTIQ.EndEdit();
             }

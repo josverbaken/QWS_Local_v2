@@ -439,11 +439,11 @@ namespace QWS_Local
 
         private string TIQStatus(string ACStatus)
         {
-            string myStatus = "Q";
+            string myStatus = _TIQRow.QueueStatus; // retain status if already set 
             switch (ACStatus)
             {
                 case "A":
-                    myStatus = "Q";
+                    //myStatus = "Q";
                     break;
                 case "I":
                     myStatus = "C";
@@ -462,11 +462,7 @@ namespace QWS_Local
                         msg += "\r\n* QWS will not accept loads after this time.";
                         msg += "\r\n\r\nDo you want to continue?";
                         DialogResult dr = MessageBox.Show(msg, "Credit Hold", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                        if (dr == DialogResult.OK)
-                        {
-                            myStatus = "Q";
-                        }
-                        else
+                        if (dr != DialogResult.OK)
                         {
                             myStatus = "C";
                         }

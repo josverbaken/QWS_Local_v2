@@ -664,7 +664,7 @@ namespace QWS_Local
                         LoadOkay = true;
                     }
                 }
-                if (myTIQRow.Nett < myMinimumCart && myTIQRow.QueueStatus == "Q" && Delivery == true && LoadOkay != false)
+                if (myTIQRow.Nett < myMinimumCart && myTIQRow.TruckConfig == "TK" && myTIQRow.QueueStatus == "Q" && Delivery == true && LoadOkay != false)
                 {
                     string msg1 = "Did the customer understand and accept that they will be charged minimum cartage?";
                     WBOConfirmation frmWBOConfirmation = new WBOConfirmation(msg1);
@@ -679,7 +679,7 @@ namespace QWS_Local
                         LoadOkay = false;
                     }
                 }
-                if (myTIQRow.Nett < myMinimumMaterial && myTIQRow.QueueStatus == "Q" && LoadOkay != false) // not G or E
+                if (myTIQRow.Nett < myMinimumMaterial  && myTIQRow.QueueStatus == "Q" && LoadOkay != false) // not G or E
                 {
                     string msg1 = "Did the customer understand and accept that they will be charged a short load fee?";
                     WBOConfirmation frmWBOConfirmation = new WBOConfirmation(msg1);
@@ -1444,17 +1444,21 @@ namespace QWS_Local
             if (ACStatus == "A")
             {
                 string myTruckConfig = CurrentTIQ().TruckConfig;
-                if (myTruckConfig == "TKs")
+                switch (myTruckConfig)
                 {
-                    CurrentTIQ().QueueStatus = "Q";
-                }
-                if (myTruckConfig == "TRs")
-                {
-                    CurrentTIQ().QueueStatus = "S";
-                }
-                else
-                {
-                    CurrentTIQ().QueueStatus = "Q";
+                    case "TKs":
+                        CurrentTIQ().QueueStatus = "Q";
+                        break;
+                    case "TRs":
+                        CurrentTIQ().QueueStatus = "S";
+                        break;
+                    case "TKo":
+                    case "TRo":
+                        CurrentTIQ().QueueStatus = "X";
+                        break;
+                    default:
+                        CurrentTIQ().QueueStatus = "Q";
+                        break;
                 }
                 bsTIQ2.EndEdit();
                 dsTIQ2TableAdapters.TIQTableAdapter taTIQ2 = new dsTIQ2TableAdapters.TIQTableAdapter();
