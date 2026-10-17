@@ -614,10 +614,10 @@ namespace QWS_Local
         {
             dsTIQ2.TIQRow myTIQRow = CurrentTIQ();
 
-            myTareWeight = myTIQRow.Tare; //System.Convert.ToDecimal(txtTare.Text);
+            myTareWeight = myTIQRow.Tare;
             decimal UnderloadAmount = myTIQRow.Payload - myTIQRow.Nett;
-            decimal myMinimumMaterial = QWSConfig.MinimumMaterial;//Properties.Settings.Default.MinimumMaterial;
-            decimal myMinimumCart = QWSConfig.MinimumCart;//Properties.Settings.Default.MinimumCart;
+            decimal myMinimumMaterial = QWSConfig.MinimumMaterial;
+            decimal myMinimumCart = QWSConfig.MinimumCart;
             bool SplitLoad = false;
             bool Delivery = false;
             bool LoadOkay = true;
@@ -627,8 +627,10 @@ namespace QWS_Local
             }
             switch (myTIQRow.TruckConfig)
             {
-                case "TRs":
                 case "TKs":
+                case "TRs":
+                case "TKo":
+                case "TRo":
                 case "BDa":
                 case "BDb":
                     UnderloadAmount = 0.0M;
@@ -1177,10 +1179,10 @@ namespace QWS_Local
                 else
                 {
                     decimal myMinimumCart = QWSConfig.MinimumCart;
-                    if (SWW == "Freight" && CurrentTIQ().Nett < myMinimumCart)
+                    if (SWW == "Freight" && CurrentTIQ().Nett < myMinimumCart && CurrentTIQ().TruckConfig == "TK")
                     {
                         decimal myPayload = docketsRow.GrossLegal - docketsRow.Tare;
-                        if (myPayload < myMinimumCart)
+                        if (myPayload < myMinimumCart) // 20261017
                         {
                             linesRow.Quantity = myPayload;
                         }
