@@ -803,16 +803,11 @@ namespace QWS_Local
                     dsTIQ2TableAdapters.WBDocketLinesTableAdapter taWBDocketLines = new dsTIQ2TableAdapters.WBDocketLinesTableAdapter();
                     taWBDocketLines.Connection.ConnectionString = QWSConfig.cnQWSLocal;
                     taWBDocketLines.Update(dsTIQ2.WBDocketLines);
-                    // 20250828 Not using SMTP2GO, may use a different process later.
                     // 20260910 Use SMSGlobal API instead of SMTP2GO, but only if EnableSMS = true
                     if (QWSConfig.EnableSMS == true) // TODO && IsDelivery == true)
                     {
                         NotifyDeliveryBySMS(myDocNum);
                     }
-                    //if (Properties.Settings.Default.EnableSMS == true && IsDelivery == true)
-                    //{               
-                    //    NotifyDeliveryBySMS(myDocNum);
-                    //}
                     RemoveFromTIQ(myTIQID, "Docket posted successfully.");
                     RefreshQueue();
 

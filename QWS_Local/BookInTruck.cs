@@ -1100,7 +1100,6 @@ namespace QWS_Local
                 btnContinue.Enabled = true;
                 _TIQRow.TruckConfig = "TKo";
                 _TIQRow.QueueStatus = "X";
-                // bsTIQ.EndEdit(); // TODO find where it gets overwritten and fix it. It is not needed here as it is done in UpdateTIQ
             }
         }
 
@@ -1111,7 +1110,6 @@ namespace QWS_Local
                 btnContinue.Enabled = true;
                 _TIQRow.TruckConfig = "TRo";
                 _TIQRow.QueueStatus = "X";
-                //bsTIQ.EndEdit();
             }
         }
 

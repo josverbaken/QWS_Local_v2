@@ -237,7 +237,7 @@ namespace QWS_Local
                 int iRows = taStockpileLotAllocation.Fill(dsTIQ2.StockpileLotAllocation);
                 if (iRows == 0)
                 {
-                    txtBaseItemCode.Text = txtItemCode.Text; //TODO check mapping
+                    txtBaseItemCode.Text = txtItemCode.Text;
                 }
             }
             catch (Exception ex)
