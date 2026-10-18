@@ -35,6 +35,8 @@
             System.Windows.Forms.Label custONLabel;
             System.Windows.Forms.Label label1;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbDriverDeclined = new System.Windows.Forms.RadioButton();
+            this.rbDriverConfirmation = new System.Windows.Forms.RadioButton();
             this.txtTurnaroundTime = new System.Windows.Forms.TextBox();
             this.txtUnderload = new System.Windows.Forms.TextBox();
             this.txtPayload = new System.Windows.Forms.TextBox();
@@ -62,8 +64,7 @@
             this.taCustomer = new QWS_Local.dsTIQ2TableAdapters.BusinessGetByCodeTableAdapter();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtComment = new System.Windows.Forms.TextBox();
-            this.rbDriverConfirmation = new System.Windows.Forms.RadioButton();
-            this.rbDriverDeclined = new System.Windows.Forms.RadioButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             grossLabel = new System.Windows.Forms.Label();
             tareLabel = new System.Windows.Forms.Label();
             nettLabel = new System.Windows.Forms.Label();
@@ -127,6 +128,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.rbDriverDeclined);
             this.groupBox1.Controls.Add(this.rbDriverConfirmation);
             this.groupBox1.Controls.Add(this.txtTurnaroundTime);
@@ -146,6 +148,27 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "1) Check Truck Details";
+            // 
+            // rbDriverDeclined
+            // 
+            this.rbDriverDeclined.AutoSize = true;
+            this.rbDriverDeclined.Location = new System.Drawing.Point(75, 93);
+            this.rbDriverDeclined.Name = "rbDriverDeclined";
+            this.rbDriverDeclined.Size = new System.Drawing.Size(126, 22);
+            this.rbDriverDeclined.TabIndex = 15;
+            this.rbDriverDeclined.Text = "Driver Declined";
+            this.rbDriverDeclined.UseVisualStyleBackColor = true;
+            // 
+            // rbDriverConfirmation
+            // 
+            this.rbDriverConfirmation.AutoSize = true;
+            this.rbDriverConfirmation.Location = new System.Drawing.Point(75, 67);
+            this.rbDriverConfirmation.Name = "rbDriverConfirmation";
+            this.rbDriverConfirmation.Size = new System.Drawing.Size(130, 22);
+            this.rbDriverConfirmation.TabIndex = 14;
+            this.rbDriverConfirmation.Text = "Driver Accepted";
+            this.rbDriverConfirmation.UseVisualStyleBackColor = true;
+            this.rbDriverConfirmation.CheckedChanged += new System.EventHandler(this.rbDriverConfirmation_CheckedChanged);
             // 
             // txtTurnaroundTime
             // 
@@ -387,26 +410,15 @@
             this.txtComment.Size = new System.Drawing.Size(453, 24);
             this.txtComment.TabIndex = 0;
             // 
-            // rbDriverConfirmation
+            // textBox1
             // 
-            this.rbDriverConfirmation.AutoSize = true;
-            this.rbDriverConfirmation.Location = new System.Drawing.Point(75, 67);
-            this.rbDriverConfirmation.Name = "rbDriverConfirmation";
-            this.rbDriverConfirmation.Size = new System.Drawing.Size(130, 22);
-            this.rbDriverConfirmation.TabIndex = 14;
-            this.rbDriverConfirmation.Text = "Driver Accepted";
-            this.rbDriverConfirmation.UseVisualStyleBackColor = true;
-            this.rbDriverConfirmation.CheckedChanged += new System.EventHandler(this.rbDriverConfirmation_CheckedChanged);
-            // 
-            // rbDriverDeclined
-            // 
-            this.rbDriverDeclined.AutoSize = true;
-            this.rbDriverDeclined.Location = new System.Drawing.Point(75, 93);
-            this.rbDriverDeclined.Name = "rbDriverDeclined";
-            this.rbDriverDeclined.Size = new System.Drawing.Size(126, 22);
-            this.rbDriverDeclined.TabIndex = 15;
-            this.rbDriverDeclined.Text = "Driver Declined";
-            this.rbDriverDeclined.UseVisualStyleBackColor = true;
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTIQ2, "TruckConfig", true));
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(164, 34);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(48, 24);
+            this.textBox1.TabIndex = 16;
             // 
             // PostDocket
             // 
@@ -476,5 +488,6 @@
         private System.Windows.Forms.TextBox txtTurnaroundTime;
         private System.Windows.Forms.RadioButton rbDriverConfirmation;
         private System.Windows.Forms.RadioButton rbDriverDeclined;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

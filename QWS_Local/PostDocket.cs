@@ -71,10 +71,10 @@ namespace QWS_Local
             decimal UnderloadAmount = myRow.Payload - myRow.Nett;
             switch (myRow.TruckConfig)
             {
-                case "TRs":
-                    SplitLoad = true;
-                    break;
                 case "TKs":
+                case "TRs":
+                case "TKo":
+                case "TRo": 
                     SplitLoad = true;
                     break;
                 default:
