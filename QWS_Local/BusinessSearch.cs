@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -73,6 +74,22 @@ namespace QWS_Local
                 if (SearchCustomerOnly == true)
                 {
                     bsBusiness.Filter = "SAPCode like 'C%'";
+                }
+                if (iCount == 0)
+                {
+                    string strMsgHeader = "Business not found!";
+                    string strMsg = "Press Yes to create Offline account.";
+                    DialogResult result = MessageBox.Show(strMsg, strMsgHeader, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        // Handle offline account creation logic here
+                        GetOfflineCardCode();
+                        tabControl1.SelectedTab = tpOffline;
+                    }
+                }
+                else
+                {
+                    ShowDetailsTab();
                 }
             }
             catch (Exception ex)
@@ -172,6 +189,37 @@ namespace QWS_Local
                 SearchByCode();
             }
         }
-    }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtLinkCode.Text = "C000185";
+        }
+
+        private void btnAddOfflineBP_Click(object sender, EventArgs e)
+        {
+            txtLinkCode.Text = string.Empty;
+        }
+
+        private void GetOfflineCardCode()
+        {
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(QWSConfig.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "OfflineCardCode";
+                sqlConnection.Open();
+                object queryResult = cmd.ExecuteScalar();
+                string myCardCode = queryResult != null ? queryResult.ToString() : "failed!"; // string.Empty;
+                sqlConnection.Close();
+                txtQWSCardCode.Text = myCardCode;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "GetOfflineCardCode Error!");
+            }
+        }
+
+    }
 }

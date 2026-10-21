@@ -40,6 +40,12 @@ namespace QWS_Local
             System.Windows.Forms.Label pORequiredLabel;
             System.Windows.Forms.Label documentOwnerLabel;
             System.Windows.Forms.Label sAPUpdateDTTMLabel;
+            System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label label3;
+            System.Windows.Forms.Label label5;
+            System.Windows.Forms.Label label8;
+            System.Windows.Forms.Label label10;
+            System.Windows.Forms.Label label2;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSelect = new System.Windows.Forms.Button();
@@ -47,9 +53,14 @@ namespace QWS_Local
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpList = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.AccountStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sAPCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tradingNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsBusiness = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
             this.tpDetails = new System.Windows.Forms.TabPage();
+            this.txtSAP2QWSsyncAdvice = new System.Windows.Forms.TextBox();
+            this.sAPUpdateDTTMTextBox = new System.Windows.Forms.TextBox();
             this.sAPCodeTextBox = new System.Windows.Forms.TextBox();
             this.documentOwnerTextBox = new System.Windows.Forms.TextBox();
             this.tradingNameTextBox = new System.Windows.Forms.TextBox();
@@ -59,13 +70,18 @@ namespace QWS_Local
             this.groupTextBox = new System.Windows.Forms.TextBox();
             this.aBNTextBox = new System.Windows.Forms.TextBox();
             this.aCTypeTextBox = new System.Windows.Forms.TextBox();
+            this.tpOffline = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddOfflineBP = new System.Windows.Forms.Button();
+            this.rbSupplier = new System.Windows.Forms.RadioButton();
+            this.rbCustomer = new System.Windows.Forms.RadioButton();
+            this.txtLinkCode = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtQWSCardCode = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
             this.taBusiness = new QWS_Local.dsQWSLocal2024TableAdapters.BusinessTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
-            this.AccountStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sAPCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tradingNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sAPUpdateDTTMTextBox = new System.Windows.Forms.TextBox();
-            this.txtSAP2QWSsyncAdvice = new System.Windows.Forms.TextBox();
             sAPCodeLabel = new System.Windows.Forms.Label();
             tradingNameLabel = new System.Windows.Forms.Label();
             alternateNameLabel = new System.Windows.Forms.Label();
@@ -76,6 +92,12 @@ namespace QWS_Local
             pORequiredLabel = new System.Windows.Forms.Label();
             documentOwnerLabel = new System.Windows.Forms.Label();
             sAPUpdateDTTMLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -86,6 +108,7 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.bsBusiness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
             this.tpDetails.SuspendLayout();
+            this.tpOffline.SuspendLayout();
             this.SuspendLayout();
             // 
             // sAPCodeLabel
@@ -169,6 +192,71 @@ namespace QWS_Local
             documentOwnerLabel.TabIndex = 16;
             documentOwnerLabel.Text = "Document Owner:";
             // 
+            // sAPUpdateDTTMLabel
+            // 
+            sAPUpdateDTTMLabel.AutoSize = true;
+            sAPUpdateDTTMLabel.Location = new System.Drawing.Point(60, 246);
+            sAPUpdateDTTMLabel.Name = "sAPUpdateDTTMLabel";
+            sAPUpdateDTTMLabel.Size = new System.Drawing.Size(99, 18);
+            sAPUpdateDTTMLabel.TabIndex = 18;
+            sAPUpdateDTTMLabel.Text = "Last Updated:";
+            sAPUpdateDTTMLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(60, 241);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(99, 18);
+            label1.TabIndex = 39;
+            label1.Text = "Last Updated:";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(38, 29);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(121, 18);
+            label3.TabIndex = 21;
+            label3.Text = "QWS CardCode:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(54, 59);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(105, 18);
+            label5.TabIndex = 23;
+            label5.Text = "Trading Name:";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(117, 89);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(42, 18);
+            label8.TabIndex = 31;
+            label8.Text = "ABN:";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(95, 149);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(64, 18);
+            label10.TabIndex = 29;
+            label10.Text = "ACType:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(262, 29);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(112, 18);
+            label2.TabIndex = 41;
+            label2.Text = "SAP Link Code:";
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -230,6 +318,7 @@ namespace QWS_Local
             // 
             this.tabControl1.Controls.Add(this.tpList);
             this.tabControl1.Controls.Add(this.tpDetails);
+            this.tabControl1.Controls.Add(this.tpOffline);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -266,6 +355,28 @@ namespace QWS_Local
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(583, 402);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // AccountStatus
+            // 
+            this.AccountStatus.DataPropertyName = "AccountStatus";
+            this.AccountStatus.HeaderText = "Status";
+            this.AccountStatus.Name = "AccountStatus";
+            this.AccountStatus.ReadOnly = true;
+            // 
+            // sAPCodeDataGridViewTextBoxColumn
+            // 
+            this.sAPCodeDataGridViewTextBoxColumn.DataPropertyName = "SAPCode";
+            this.sAPCodeDataGridViewTextBoxColumn.HeaderText = "SAPCode";
+            this.sAPCodeDataGridViewTextBoxColumn.Name = "sAPCodeDataGridViewTextBoxColumn";
+            this.sAPCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tradingNameDataGridViewTextBoxColumn
+            // 
+            this.tradingNameDataGridViewTextBoxColumn.DataPropertyName = "TradingName";
+            this.tradingNameDataGridViewTextBoxColumn.HeaderText = "Customer";
+            this.tradingNameDataGridViewTextBoxColumn.Name = "tradingNameDataGridViewTextBoxColumn";
+            this.tradingNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tradingNameDataGridViewTextBoxColumn.Width = 250;
             // 
             // bsBusiness
             // 
@@ -307,6 +418,23 @@ namespace QWS_Local
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
+            // 
+            // txtSAP2QWSsyncAdvice
+            // 
+            this.txtSAP2QWSsyncAdvice.Location = new System.Drawing.Point(57, 274);
+            this.txtSAP2QWSsyncAdvice.Multiline = true;
+            this.txtSAP2QWSsyncAdvice.Name = "txtSAP2QWSsyncAdvice";
+            this.txtSAP2QWSsyncAdvice.ReadOnly = true;
+            this.txtSAP2QWSsyncAdvice.Size = new System.Drawing.Size(377, 117);
+            this.txtSAP2QWSsyncAdvice.TabIndex = 21;
+            // 
+            // sAPUpdateDTTMTextBox
+            // 
+            this.sAPUpdateDTTMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsBusiness, "SAPUpdateDTTM", true));
+            this.sAPUpdateDTTMTextBox.Location = new System.Drawing.Point(165, 243);
+            this.sAPUpdateDTTMTextBox.Name = "sAPUpdateDTTMTextBox";
+            this.sAPUpdateDTTMTextBox.Size = new System.Drawing.Size(269, 24);
+            this.sAPUpdateDTTMTextBox.TabIndex = 20;
             // 
             // sAPCodeTextBox
             // 
@@ -380,6 +508,122 @@ namespace QWS_Local
             this.aCTypeTextBox.Size = new System.Drawing.Size(269, 24);
             this.aCTypeTextBox.TabIndex = 9;
             // 
+            // tpOffline
+            // 
+            this.tpOffline.Controls.Add(this.button1);
+            this.tpOffline.Controls.Add(this.btnAddOfflineBP);
+            this.tpOffline.Controls.Add(this.rbSupplier);
+            this.tpOffline.Controls.Add(this.rbCustomer);
+            this.tpOffline.Controls.Add(this.txtLinkCode);
+            this.tpOffline.Controls.Add(label2);
+            this.tpOffline.Controls.Add(this.textBox1);
+            this.tpOffline.Controls.Add(label1);
+            this.tpOffline.Controls.Add(this.txtQWSCardCode);
+            this.tpOffline.Controls.Add(label3);
+            this.tpOffline.Controls.Add(this.textBox4);
+            this.tpOffline.Controls.Add(label5);
+            this.tpOffline.Controls.Add(label8);
+            this.tpOffline.Controls.Add(this.textBox9);
+            this.tpOffline.Controls.Add(label10);
+            this.tpOffline.Location = new System.Drawing.Point(4, 27);
+            this.tpOffline.Name = "tpOffline";
+            this.tpOffline.Size = new System.Drawing.Size(589, 408);
+            this.tpOffline.TabIndex = 2;
+            this.tpOffline.Text = "Offline";
+            this.tpOffline.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(210, 298);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(114, 49);
+            this.button1.TabIndex = 69;
+            this.button1.Text = "New";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnAddOfflineBP
+            // 
+            this.btnAddOfflineBP.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnAddOfflineBP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddOfflineBP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddOfflineBP.Location = new System.Drawing.Point(346, 298);
+            this.btnAddOfflineBP.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddOfflineBP.Name = "btnAddOfflineBP";
+            this.btnAddOfflineBP.Size = new System.Drawing.Size(114, 49);
+            this.btnAddOfflineBP.TabIndex = 68;
+            this.btnAddOfflineBP.Text = "Save";
+            this.btnAddOfflineBP.UseVisualStyleBackColor = false;
+            this.btnAddOfflineBP.Click += new System.EventHandler(this.btnAddOfflineBP_Click);
+            // 
+            // rbSupplier
+            // 
+            this.rbSupplier.AutoSize = true;
+            this.rbSupplier.Location = new System.Drawing.Point(308, 147);
+            this.rbSupplier.Name = "rbSupplier";
+            this.rbSupplier.Size = new System.Drawing.Size(79, 22);
+            this.rbSupplier.TabIndex = 44;
+            this.rbSupplier.TabStop = true;
+            this.rbSupplier.Text = "Supplier";
+            this.rbSupplier.UseVisualStyleBackColor = true;
+            // 
+            // rbCustomer
+            // 
+            this.rbCustomer.AutoSize = true;
+            this.rbCustomer.Location = new System.Drawing.Point(181, 149);
+            this.rbCustomer.Name = "rbCustomer";
+            this.rbCustomer.Size = new System.Drawing.Size(92, 22);
+            this.rbCustomer.TabIndex = 43;
+            this.rbCustomer.TabStop = true;
+            this.rbCustomer.Text = "Customer";
+            this.rbCustomer.UseVisualStyleBackColor = true;
+            // 
+            // txtLinkCode
+            // 
+            this.txtLinkCode.Location = new System.Drawing.Point(376, 26);
+            this.txtLinkCode.Name = "txtLinkCode";
+            this.txtLinkCode.Size = new System.Drawing.Size(84, 24);
+            this.txtLinkCode.TabIndex = 42;
+            this.txtLinkCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBox1
+            // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsBusiness, "SAPUpdateDTTM", true));
+            this.textBox1.Location = new System.Drawing.Point(165, 238);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(295, 24);
+            this.textBox1.TabIndex = 40;
+            // 
+            // txtQWSCardCode
+            // 
+            this.txtQWSCardCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsBusiness, "SAPCode", true));
+            this.txtQWSCardCode.Location = new System.Drawing.Point(165, 26);
+            this.txtQWSCardCode.Name = "txtQWSCardCode";
+            this.txtQWSCardCode.ReadOnly = true;
+            this.txtQWSCardCode.Size = new System.Drawing.Size(84, 24);
+            this.txtQWSCardCode.TabIndex = 22;
+            // 
+            // textBox4
+            // 
+            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsBusiness, "TradingName", true));
+            this.textBox4.Location = new System.Drawing.Point(165, 56);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(295, 24);
+            this.textBox4.TabIndex = 24;
+            // 
+            // textBox9
+            // 
+            this.textBox9.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsBusiness, "ABN", true));
+            this.textBox9.Location = new System.Drawing.Point(165, 86);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(129, 24);
+            this.textBox9.TabIndex = 32;
+            // 
             // taBusiness
             // 
             this.taBusiness.ClearBeforeFill = true;
@@ -395,55 +639,6 @@ namespace QWS_Local
             this.tableAdapterManager1.VehiclePrefCustomersTableAdapter = null;
             this.tableAdapterManager1.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager1.VehicleTableAdapter = null;
-            // 
-            // AccountStatus
-            // 
-            this.AccountStatus.DataPropertyName = "AccountStatus";
-            this.AccountStatus.HeaderText = "Status";
-            this.AccountStatus.Name = "AccountStatus";
-            this.AccountStatus.ReadOnly = true;
-            // 
-            // sAPCodeDataGridViewTextBoxColumn
-            // 
-            this.sAPCodeDataGridViewTextBoxColumn.DataPropertyName = "SAPCode";
-            this.sAPCodeDataGridViewTextBoxColumn.HeaderText = "SAPCode";
-            this.sAPCodeDataGridViewTextBoxColumn.Name = "sAPCodeDataGridViewTextBoxColumn";
-            this.sAPCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tradingNameDataGridViewTextBoxColumn
-            // 
-            this.tradingNameDataGridViewTextBoxColumn.DataPropertyName = "TradingName";
-            this.tradingNameDataGridViewTextBoxColumn.HeaderText = "Customer";
-            this.tradingNameDataGridViewTextBoxColumn.Name = "tradingNameDataGridViewTextBoxColumn";
-            this.tradingNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tradingNameDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // sAPUpdateDTTMLabel
-            // 
-            sAPUpdateDTTMLabel.AutoSize = true;
-            sAPUpdateDTTMLabel.Location = new System.Drawing.Point(60, 246);
-            sAPUpdateDTTMLabel.Name = "sAPUpdateDTTMLabel";
-            sAPUpdateDTTMLabel.Size = new System.Drawing.Size(99, 18);
-            sAPUpdateDTTMLabel.TabIndex = 18;
-            sAPUpdateDTTMLabel.Text = "Last Updated:";
-            sAPUpdateDTTMLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // sAPUpdateDTTMTextBox
-            // 
-            this.sAPUpdateDTTMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsBusiness, "SAPUpdateDTTM", true));
-            this.sAPUpdateDTTMTextBox.Location = new System.Drawing.Point(165, 243);
-            this.sAPUpdateDTTMTextBox.Name = "sAPUpdateDTTMTextBox";
-            this.sAPUpdateDTTMTextBox.Size = new System.Drawing.Size(269, 24);
-            this.sAPUpdateDTTMTextBox.TabIndex = 20;
-            // 
-            // txtSAP2QWSsyncAdvice
-            // 
-            this.txtSAP2QWSsyncAdvice.Location = new System.Drawing.Point(57, 274);
-            this.txtSAP2QWSsyncAdvice.Multiline = true;
-            this.txtSAP2QWSsyncAdvice.Name = "txtSAP2QWSsyncAdvice";
-            this.txtSAP2QWSsyncAdvice.ReadOnly = true;
-            this.txtSAP2QWSsyncAdvice.Size = new System.Drawing.Size(377, 117);
-            this.txtSAP2QWSsyncAdvice.TabIndex = 21;
             // 
             // BusinessSearch
             // 
@@ -472,6 +667,8 @@ namespace QWS_Local
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).EndInit();
             this.tpDetails.ResumeLayout(false);
             this.tpDetails.PerformLayout();
+            this.tpOffline.ResumeLayout(false);
+            this.tpOffline.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -503,5 +700,15 @@ namespace QWS_Local
         private System.Windows.Forms.DataGridViewTextBoxColumn tradingNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox txtSAP2QWSsyncAdvice;
         private System.Windows.Forms.TextBox sAPUpdateDTTMTextBox;
+        private System.Windows.Forms.TabPage tpOffline;
+        private System.Windows.Forms.Button btnAddOfflineBP;
+        private System.Windows.Forms.RadioButton rbSupplier;
+        private System.Windows.Forms.RadioButton rbCustomer;
+        private System.Windows.Forms.TextBox txtLinkCode;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtQWSCardCode;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Button button1;
     }
 }
