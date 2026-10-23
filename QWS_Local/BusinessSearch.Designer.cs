@@ -45,7 +45,6 @@ namespace QWS_Local
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label10;
-            System.Windows.Forms.Label label2;
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSelect = new System.Windows.Forms.Button();
@@ -71,7 +70,7 @@ namespace QWS_Local
             this.aBNTextBox = new System.Windows.Forms.TextBox();
             this.aCTypeTextBox = new System.Windows.Forms.TextBox();
             this.tpOffline = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.btnAddOfflineBP = new System.Windows.Forms.Button();
             this.rbSupplier = new System.Windows.Forms.RadioButton();
             this.rbCustomer = new System.Windows.Forms.RadioButton();
@@ -79,9 +78,9 @@ namespace QWS_Local
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtQWSCardCode = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
             this.taBusiness = new QWS_Local.dsQWSLocal2024TableAdapters.BusinessTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
+            this.lblLinkCode = new System.Windows.Forms.Label();
             sAPCodeLabel = new System.Windows.Forms.Label();
             tradingNameLabel = new System.Windows.Forms.Label();
             alternateNameLabel = new System.Windows.Forms.Label();
@@ -97,7 +96,6 @@ namespace QWS_Local
             label5 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -247,15 +245,6 @@ namespace QWS_Local
             label10.Size = new System.Drawing.Size(64, 18);
             label10.TabIndex = 29;
             label10.Text = "ACType:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(262, 29);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(112, 18);
-            label2.TabIndex = 41;
-            label2.Text = "SAP Link Code:";
             // 
             // splitContainer1
             // 
@@ -510,12 +499,12 @@ namespace QWS_Local
             // 
             // tpOffline
             // 
-            this.tpOffline.Controls.Add(this.button1);
+            this.tpOffline.Controls.Add(this.lblLinkCode);
+            this.tpOffline.Controls.Add(this.maskedTextBox1);
             this.tpOffline.Controls.Add(this.btnAddOfflineBP);
             this.tpOffline.Controls.Add(this.rbSupplier);
             this.tpOffline.Controls.Add(this.rbCustomer);
             this.tpOffline.Controls.Add(this.txtLinkCode);
-            this.tpOffline.Controls.Add(label2);
             this.tpOffline.Controls.Add(this.textBox1);
             this.tpOffline.Controls.Add(label1);
             this.tpOffline.Controls.Add(this.txtQWSCardCode);
@@ -523,7 +512,6 @@ namespace QWS_Local
             this.tpOffline.Controls.Add(this.textBox4);
             this.tpOffline.Controls.Add(label5);
             this.tpOffline.Controls.Add(label8);
-            this.tpOffline.Controls.Add(this.textBox9);
             this.tpOffline.Controls.Add(label10);
             this.tpOffline.Location = new System.Drawing.Point(4, 27);
             this.tpOffline.Name = "tpOffline";
@@ -532,19 +520,13 @@ namespace QWS_Local
             this.tpOffline.Text = "Offline";
             this.tpOffline.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // maskedTextBox1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(210, 298);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 49);
-            this.button1.TabIndex = 69;
-            this.button1.Text = "New";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.maskedTextBox1.Location = new System.Drawing.Point(166, 86);
+            this.maskedTextBox1.Mask = "00-000-000-000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(158, 24);
+            this.maskedTextBox1.TabIndex = 70;
             // 
             // btnAddOfflineBP
             // 
@@ -563,23 +545,23 @@ namespace QWS_Local
             // rbSupplier
             // 
             this.rbSupplier.AutoSize = true;
-            this.rbSupplier.Location = new System.Drawing.Point(308, 147);
+            this.rbSupplier.Location = new System.Drawing.Point(165, 187);
             this.rbSupplier.Name = "rbSupplier";
-            this.rbSupplier.Size = new System.Drawing.Size(79, 22);
+            this.rbSupplier.Size = new System.Drawing.Size(219, 22);
             this.rbSupplier.TabIndex = 44;
             this.rbSupplier.TabStop = true;
-            this.rbSupplier.Text = "Supplier";
+            this.rbSupplier.Text = "Supplier - Cartage Contractor";
             this.rbSupplier.UseVisualStyleBackColor = true;
             // 
             // rbCustomer
             // 
             this.rbCustomer.AutoSize = true;
-            this.rbCustomer.Location = new System.Drawing.Point(181, 149);
+            this.rbCustomer.Location = new System.Drawing.Point(166, 147);
             this.rbCustomer.Name = "rbCustomer";
-            this.rbCustomer.Size = new System.Drawing.Size(92, 22);
+            this.rbCustomer.Size = new System.Drawing.Size(271, 22);
             this.rbCustomer.TabIndex = 43;
             this.rbCustomer.TabStop = true;
-            this.rbCustomer.Text = "Customer";
+            this.rbCustomer.Text = "Customer - quarry sales, truck owner";
             this.rbCustomer.UseVisualStyleBackColor = true;
             // 
             // txtLinkCode
@@ -616,14 +598,6 @@ namespace QWS_Local
             this.textBox4.Size = new System.Drawing.Size(295, 24);
             this.textBox4.TabIndex = 24;
             // 
-            // textBox9
-            // 
-            this.textBox9.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsBusiness, "ABN", true));
-            this.textBox9.Location = new System.Drawing.Point(165, 86);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(129, 24);
-            this.textBox9.TabIndex = 32;
-            // 
             // taBusiness
             // 
             this.taBusiness.ClearBeforeFill = true;
@@ -640,8 +614,18 @@ namespace QWS_Local
             this.tableAdapterManager1.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager1.VehicleTableAdapter = null;
             // 
+            // lblLinkCode
+            // 
+            this.lblLinkCode.AutoSize = true;
+            this.lblLinkCode.Location = new System.Drawing.Point(264, 29);
+            this.lblLinkCode.Name = "lblLinkCode";
+            this.lblLinkCode.Size = new System.Drawing.Size(112, 18);
+            this.lblLinkCode.TabIndex = 71;
+            this.lblLinkCode.Text = "SAP Link Code:";
+            // 
             // BusinessSearch
             // 
+            this.AcceptButton = this.btnSearch;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(597, 534);
@@ -708,7 +692,7 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox txtQWSCardCode;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Label lblLinkCode;
     }
 }

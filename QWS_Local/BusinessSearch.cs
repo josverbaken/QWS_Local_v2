@@ -14,6 +14,15 @@ namespace QWS_Local
             get { return mySAPCode; }
         }
 
+        private enum OfflineMode
+        {
+            None,
+            CreateNew,
+            LinkExisting
+        }
+
+        private OfflineMode frmOfflineMode = OfflineMode.None;
+
         private string myBusinessName;
         public string BusinessName
         {
@@ -53,6 +62,7 @@ namespace QWS_Local
         private void BusinessSearch_Load(object sender, EventArgs e)
         {
             this.KeyPreview = true;
+            SetOfflineUI();
             string msg = "If data seems old and out of sync with SAP,\r\n";
             msg += "please initiate an update by adding the following comment in SAP B1 and updating:\"Sync to QWS\"";
             txtSAP2QWSsyncAdvice.Text = msg;
@@ -73,7 +83,7 @@ namespace QWS_Local
                 int iCount = taBusiness.FillByNameOrCode(dsQWSLocal2024.Business, txtSearch.Text);
                 if (SearchCustomerOnly == true)
                 {
-                    bsBusiness.Filter = "SAPCode like 'C%'";
+                    bsBusiness.Filter = "CardType like 'C'"; // 20261023 swap to card type C for customer only search, allows for Offline prefix = T
                 }
                 if (iCount == 0)
                 {
@@ -82,15 +92,26 @@ namespace QWS_Local
                     DialogResult result = MessageBox.Show(strMsg, strMsgHeader, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
-                        // Handle offline account creation logic here
                         GetOfflineCardCode();
+                        frmOfflineMode = OfflineMode.CreateNew;
                         tabControl1.SelectedTab = tpOffline;
                     }
                 }
                 else
                 {
+                    DataRow dataRow = ((DataRowView)bsBusiness.Current).Row;
+                    dsQWSLocal2024.BusinessRow businessRow = (dsQWSLocal2024.BusinessRow)dataRow;
+                    if (businessRow.SAPCode.StartsWith("T"))
+                    {
+                        frmOfflineMode = OfflineMode.LinkExisting;
+                    }
+                    else
+                    {
+                        frmOfflineMode = OfflineMode.None;
+                    }
                     ShowDetailsTab();
                 }
+                SetOfflineUI();
             }
             catch (Exception ex)
             {
@@ -221,5 +242,23 @@ namespace QWS_Local
             }
         }
 
+        private void SetOfflineUI()
+        {
+            if (frmOfflineMode == OfflineMode.CreateNew)
+            {
+                lblLinkCode.Visible = false;
+                txtLinkCode.Visible = false;
+            }
+            else if (frmOfflineMode == OfflineMode.LinkExisting)
+            {
+                lblLinkCode.Visible = true;
+                txtLinkCode.Visible = true;
+            }
+            else
+            {
+                lblLinkCode.Visible = false;
+                txtLinkCode.Visible = false;
+            }
+        }
     }
 }
