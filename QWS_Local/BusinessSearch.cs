@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 
 namespace QWS_Local
@@ -259,6 +260,70 @@ namespace QWS_Local
                 lblLinkCode.Visible = false;
                 txtLinkCode.Visible = false;
             }
+        }
+
+        private void btnLink2SAP_Click(object sender, EventArgs e)
+        {
+            ConfirmLink2SAP();
+        }
+
+        private void ConfirmLink2SAP()
+        {
+           if (CheckSAPCode() == true)
+            {
+                Link2SAP();
+            }
+        }
+
+        private bool CheckSAPCode()
+        {
+            string LinkBP = string.Empty;
+            dsQWSLocal2024TableAdapters.BusinessTableAdapter taBusiness2 = new dsQWSLocal2024TableAdapters.BusinessTableAdapter();
+            taBusiness2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+            dsQWSLocal2024.BusinessDataTable dtBusiness = new dsQWSLocal2024.BusinessDataTable();
+            int iCount = taBusiness2.FillByNameOrCode(dtBusiness, txtLinkCode.Text);
+            if (iCount ==1)
+            { 
+                LinkBP = dtBusiness[0].TradingName;
+            }
+            else
+            {
+                MessageBox.Show("SAP code = " + txtLinkCode.Text + " not found!", "Check SAP Code", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            string msg = "Please confirm SAP code = " + txtLinkCode.Text + "\r\n";
+            msg += "Trading name = " + LinkBP + "\r\n";
+            DialogResult result = MessageBox.Show(msg, "Confirm linked SAP Business Partner", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void Link2SAP()
+        {
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(QWSConfig.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "Link2SAP";
+                cmd.Parameters.AddWithValue("@QWSCode", txtQWSCardCode.Text);
+                cmd.Parameters.AddWithValue("@SAPCode", txtLinkCode.Text);
+                sqlConnection.Open();
+                cmd.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Link2SAP Error!");
+            }
+
         }
     }
 }
