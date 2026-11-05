@@ -35,6 +35,11 @@ namespace QWS_Local
             System.Windows.Forms.Label licenseExpLabel;
             System.Windows.Forms.Label inductionExpLabel;
             System.Windows.Forms.Label activeLabel;
+            System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label label2;
+            System.Windows.Forms.Label label3;
+            System.Windows.Forms.Label label4;
+            System.Windows.Forms.Label label5;
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.activeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.personDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,14 +61,34 @@ namespace QWS_Local
             this.personTextBox = new System.Windows.Forms.TextBox();
             this.cardCodeTextBox = new System.Windows.Forms.TextBox();
             this.tradingNameTextBox = new System.Windows.Forms.TextBox();
+            this.tpOffline = new System.Windows.Forms.TabPage();
+            this.txtSAPCntctCode = new System.Windows.Forms.TextBox();
+            this.txtQWSCntctCode = new System.Windows.Forms.TextBox();
+            this.txtActive = new System.Windows.Forms.TextBox();
+            this.txtInductionExp = new System.Windows.Forms.TextBox();
+            this.txtLicenseExp = new System.Windows.Forms.TextBox();
+            this.txtSAPUpdateDTTM = new System.Windows.Forms.TextBox();
+            this.txtLicenseType = new System.Windows.Forms.TextBox();
+            this.txtMobile = new System.Windows.Forms.TextBox();
+            this.txtPosition = new System.Windows.Forms.TextBox();
+            this.txtPerson = new System.Windows.Forms.TextBox();
+            this.txtCardCode = new System.Windows.Forms.TextBox();
+            this.txtTradingName = new System.Windows.Forms.TextBox();
             this.txtInfo = new System.Windows.Forms.TextBox();
             this.btnSelectDriver = new System.Windows.Forms.Button();
             this.taTruckDriver2024 = new QWS_Local.dsQWSLocal2024TableAdapters.TruckDriverTableAdapter();
+            this.btnLinkContact2SAP = new System.Windows.Forms.Button();
+            this.btnAddOfflineContact = new System.Windows.Forms.Button();
             licenseTypeLabel = new System.Windows.Forms.Label();
             sAPUpdateDTTMLabel = new System.Windows.Forms.Label();
             licenseExpLabel = new System.Windows.Forms.Label();
             inductionExpLabel = new System.Windows.Forms.Label();
             activeLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsTruckDriver2024)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsQWSLocal2024)).BeginInit();
@@ -74,6 +99,7 @@ namespace QWS_Local
             this.tabControl1.SuspendLayout();
             this.tpList.SuspendLayout();
             this.tpDetails.SuspendLayout();
+            this.tpOffline.SuspendLayout();
             this.SuspendLayout();
             // 
             // licenseTypeLabel
@@ -120,6 +146,51 @@ namespace QWS_Local
             activeLabel.Size = new System.Drawing.Size(51, 18);
             activeLabel.TabIndex = 21;
             activeLabel.Text = "Active:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(426, 201);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(51, 18);
+            label1.TabIndex = 35;
+            label1.Text = "Active:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(374, 168);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(100, 18);
+            label2.TabIndex = 33;
+            label2.Text = "Induction Exp:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(383, 135);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(92, 18);
+            label3.TabIndex = 31;
+            label3.Text = "License Exp:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(174, 230);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(134, 18);
+            label4.TabIndex = 30;
+            label4.Text = "SAPUpdate DTTM:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(373, 103);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(99, 18);
+            label5.TabIndex = 28;
+            label5.Text = "License Type:";
             // 
             // dataGridView1
             // 
@@ -214,6 +285,7 @@ namespace QWS_Local
             // 
             this.tabControl1.Controls.Add(this.tpList);
             this.tabControl1.Controls.Add(this.tpDetails);
+            this.tabControl1.Controls.Add(this.tpOffline);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -338,6 +410,130 @@ namespace QWS_Local
             this.tradingNameTextBox.Size = new System.Drawing.Size(264, 24);
             this.tradingNameTextBox.TabIndex = 1;
             // 
+            // tpOffline
+            // 
+            this.tpOffline.Controls.Add(this.btnLinkContact2SAP);
+            this.tpOffline.Controls.Add(this.btnAddOfflineContact);
+            this.tpOffline.Controls.Add(this.txtSAPCntctCode);
+            this.tpOffline.Controls.Add(this.txtQWSCntctCode);
+            this.tpOffline.Controls.Add(label1);
+            this.tpOffline.Controls.Add(this.txtActive);
+            this.tpOffline.Controls.Add(label2);
+            this.tpOffline.Controls.Add(this.txtInductionExp);
+            this.tpOffline.Controls.Add(label3);
+            this.tpOffline.Controls.Add(this.txtLicenseExp);
+            this.tpOffline.Controls.Add(label4);
+            this.tpOffline.Controls.Add(this.txtSAPUpdateDTTM);
+            this.tpOffline.Controls.Add(label5);
+            this.tpOffline.Controls.Add(this.txtLicenseType);
+            this.tpOffline.Controls.Add(this.txtMobile);
+            this.tpOffline.Controls.Add(this.txtPosition);
+            this.tpOffline.Controls.Add(this.txtPerson);
+            this.tpOffline.Controls.Add(this.txtCardCode);
+            this.tpOffline.Controls.Add(this.txtTradingName);
+            this.tpOffline.Location = new System.Drawing.Point(4, 27);
+            this.tpOffline.Name = "tpOffline";
+            this.tpOffline.Size = new System.Drawing.Size(1187, 280);
+            this.tpOffline.TabIndex = 2;
+            this.tpOffline.Text = "Offline";
+            this.tpOffline.UseVisualStyleBackColor = true;
+            // 
+            // txtSAPCntctCode
+            // 
+            this.txtSAPCntctCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "CntctCode", true));
+            this.txtSAPCntctCode.Location = new System.Drawing.Point(489, 34);
+            this.txtSAPCntctCode.Name = "txtSAPCntctCode";
+            this.txtSAPCntctCode.Size = new System.Drawing.Size(112, 24);
+            this.txtSAPCntctCode.TabIndex = 39;
+            // 
+            // txtQWSCntctCode
+            // 
+            this.txtQWSCntctCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "SAPCntctCode", true));
+            this.txtQWSCntctCode.Location = new System.Drawing.Point(721, 34);
+            this.txtQWSCntctCode.Name = "txtQWSCntctCode";
+            this.txtQWSCntctCode.Size = new System.Drawing.Size(112, 24);
+            this.txtQWSCntctCode.TabIndex = 38;
+            // 
+            // txtActive
+            // 
+            this.txtActive.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "Active", true));
+            this.txtActive.Location = new System.Drawing.Point(489, 197);
+            this.txtActive.Name = "txtActive";
+            this.txtActive.Size = new System.Drawing.Size(112, 24);
+            this.txtActive.TabIndex = 37;
+            // 
+            // txtInductionExp
+            // 
+            this.txtInductionExp.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "InductionExp", true));
+            this.txtInductionExp.Location = new System.Drawing.Point(489, 165);
+            this.txtInductionExp.Name = "txtInductionExp";
+            this.txtInductionExp.Size = new System.Drawing.Size(112, 24);
+            this.txtInductionExp.TabIndex = 36;
+            // 
+            // txtLicenseExp
+            // 
+            this.txtLicenseExp.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "LicenseExp", true));
+            this.txtLicenseExp.Location = new System.Drawing.Point(489, 132);
+            this.txtLicenseExp.Name = "txtLicenseExp";
+            this.txtLicenseExp.Size = new System.Drawing.Size(112, 24);
+            this.txtLicenseExp.TabIndex = 34;
+            // 
+            // txtSAPUpdateDTTM
+            // 
+            this.txtSAPUpdateDTTM.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "SAPUpdateDTTM", true));
+            this.txtSAPUpdateDTTM.Location = new System.Drawing.Point(324, 227);
+            this.txtSAPUpdateDTTM.Name = "txtSAPUpdateDTTM";
+            this.txtSAPUpdateDTTM.Size = new System.Drawing.Size(277, 24);
+            this.txtSAPUpdateDTTM.TabIndex = 32;
+            // 
+            // txtLicenseType
+            // 
+            this.txtLicenseType.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "LicenseType", true));
+            this.txtLicenseType.Location = new System.Drawing.Point(489, 99);
+            this.txtLicenseType.Name = "txtLicenseType";
+            this.txtLicenseType.Size = new System.Drawing.Size(112, 24);
+            this.txtLicenseType.TabIndex = 29;
+            // 
+            // txtMobile
+            // 
+            this.txtMobile.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "Mob", true));
+            this.txtMobile.Location = new System.Drawing.Point(36, 132);
+            this.txtMobile.Name = "txtMobile";
+            this.txtMobile.Size = new System.Drawing.Size(112, 24);
+            this.txtMobile.TabIndex = 27;
+            // 
+            // txtPosition
+            // 
+            this.txtPosition.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "Position", true));
+            this.txtPosition.Location = new System.Drawing.Point(36, 99);
+            this.txtPosition.Name = "txtPosition";
+            this.txtPosition.Size = new System.Drawing.Size(264, 24);
+            this.txtPosition.TabIndex = 26;
+            // 
+            // txtPerson
+            // 
+            this.txtPerson.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "Person", true));
+            this.txtPerson.Location = new System.Drawing.Point(36, 67);
+            this.txtPerson.Name = "txtPerson";
+            this.txtPerson.Size = new System.Drawing.Size(264, 24);
+            this.txtPerson.TabIndex = 25;
+            // 
+            // txtCardCode
+            // 
+            this.txtCardCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "CardCode", true));
+            this.txtCardCode.Location = new System.Drawing.Point(307, 34);
+            this.txtCardCode.Name = "txtCardCode";
+            this.txtCardCode.Size = new System.Drawing.Size(112, 24);
+            this.txtCardCode.TabIndex = 24;
+            // 
+            // txtTradingName
+            // 
+            this.txtTradingName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsTruckDriver2024, "TradingName", true));
+            this.txtTradingName.Location = new System.Drawing.Point(36, 34);
+            this.txtTradingName.Name = "txtTradingName";
+            this.txtTradingName.Size = new System.Drawing.Size(264, 24);
+            this.txtTradingName.TabIndex = 23;
+            // 
             // txtInfo
             // 
             this.txtInfo.Location = new System.Drawing.Point(62, 34);
@@ -360,6 +556,34 @@ namespace QWS_Local
             // taTruckDriver2024
             // 
             this.taTruckDriver2024.ClearBeforeFill = true;
+            // 
+            // btnLinkContact2SAP
+            // 
+            this.btnLinkContact2SAP.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnLinkContact2SAP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLinkContact2SAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLinkContact2SAP.Location = new System.Drawing.Point(859, 30);
+            this.btnLinkContact2SAP.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLinkContact2SAP.Name = "btnLinkContact2SAP";
+            this.btnLinkContact2SAP.Size = new System.Drawing.Size(63, 33);
+            this.btnLinkContact2SAP.TabIndex = 74;
+            this.btnLinkContact2SAP.Text = "Link";
+            this.btnLinkContact2SAP.UseVisualStyleBackColor = false;
+            this.btnLinkContact2SAP.Click += new System.EventHandler(this.btnLinkContact2SAP_Click);
+            // 
+            // btnAddOfflineContact
+            // 
+            this.btnAddOfflineContact.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnAddOfflineContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddOfflineContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddOfflineContact.Location = new System.Drawing.Point(808, 202);
+            this.btnAddOfflineContact.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddOfflineContact.Name = "btnAddOfflineContact";
+            this.btnAddOfflineContact.Size = new System.Drawing.Size(114, 49);
+            this.btnAddOfflineContact.TabIndex = 73;
+            this.btnAddOfflineContact.Text = "Save";
+            this.btnAddOfflineContact.UseVisualStyleBackColor = false;
+            this.btnAddOfflineContact.Click += new System.EventHandler(this.btnAddOfflineContact_Click);
             // 
             // TruckDriverSearch
             // 
@@ -388,6 +612,8 @@ namespace QWS_Local
             this.tpList.ResumeLayout(false);
             this.tpDetails.ResumeLayout(false);
             this.tpDetails.PerformLayout();
+            this.tpOffline.ResumeLayout(false);
+            this.tpOffline.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -418,5 +644,20 @@ namespace QWS_Local
         private dsQWSLocal2024 dsQWSLocal2024;
         private System.Windows.Forms.BindingSource bsTruckDriver2024;
         private dsQWSLocal2024TableAdapters.TruckDriverTableAdapter taTruckDriver2024;
+        private System.Windows.Forms.TabPage tpOffline;
+        private System.Windows.Forms.TextBox txtActive;
+        private System.Windows.Forms.TextBox txtInductionExp;
+        private System.Windows.Forms.TextBox txtLicenseExp;
+        private System.Windows.Forms.TextBox txtSAPUpdateDTTM;
+        private System.Windows.Forms.TextBox txtLicenseType;
+        private System.Windows.Forms.TextBox txtMobile;
+        private System.Windows.Forms.TextBox txtPosition;
+        private System.Windows.Forms.TextBox txtPerson;
+        private System.Windows.Forms.TextBox txtCardCode;
+        private System.Windows.Forms.TextBox txtTradingName;
+        private System.Windows.Forms.TextBox txtQWSCntctCode;
+        private System.Windows.Forms.TextBox txtSAPCntctCode;
+        private System.Windows.Forms.Button btnLinkContact2SAP;
+        private System.Windows.Forms.Button btnAddOfflineContact;
     }
 }

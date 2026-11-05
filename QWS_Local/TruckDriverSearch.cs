@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 
 namespace QWS_Local
 {
@@ -92,6 +93,71 @@ namespace QWS_Local
             if (bsTruckDriver2024.Count > 0)
             {
                 SetDriver();
+            }
+        }
+
+        private void btnAddOfflineContact_Click(object sender, EventArgs e)
+        {
+            AddOfflineContact();
+        }
+
+        private void btnLinkContact2SAP_Click(object sender, EventArgs e)
+        {
+            LinkContact2SAP();
+        }
+
+        private void LinkContact2SAP()
+        {
+            try
+            {
+                int cntctCode = Convert.ToInt32(txtQWSCntctCode.Text);
+                int sapCntctCode = Convert.ToInt32(txtSAPCntctCode.Text);
+                SqlConnection sqlConnection = new SqlConnection(QWSConfig.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "LinkContact2SAP";
+                cmd.Parameters.AddWithValue("@QWSCntctCode", cntctCode);
+                cmd.Parameters.AddWithValue("@SAPCntctCode", sapCntctCode);
+                sqlConnection.Open();
+                cmd.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Link2SAP Error!");
+            }
+        }
+        
+
+        private void AddOfflineContact()
+        {
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(QWSConfig.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "OfflineContactAdd";
+                cmd.Parameters.AddWithValue("@CntctCode", txtQWSCntctCode.Text);
+                cmd.Parameters.AddWithValue("@CardCode", txtCardCode.Text);
+                cmd.Parameters.AddWithValue("@Name", txtPerson.Text);
+                cmd.Parameters.AddWithValue("@Position", txtPosition.Text);
+                cmd.Parameters.AddWithValue("@Tel1", "tba");
+                cmd.Parameters.AddWithValue("@Cellolar", txtMobile.Text);
+                cmd.Parameters.AddWithValue("@E_MailL", "tba");
+                cmd.Parameters.AddWithValue("@LicenseType", txtLicenseType.Text);
+                cmd.Parameters.AddWithValue("@LicenseExp", txtLicenseExp.Text);
+                cmd.Parameters.AddWithValue("@InductionExp", txtInductionExp.Text);
+                cmd.Parameters.AddWithValue("@Active", true);
+                cmd.Parameters.AddWithValue("@SAPUpdateDTTM", DateTime.Now);
+                sqlConnection.Open();
+                cmd.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "AddOfflineContact Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -70,18 +70,19 @@ namespace QWS_Local
             this.aBNTextBox = new System.Windows.Forms.TextBox();
             this.aCTypeTextBox = new System.Windows.Forms.TextBox();
             this.tpOffline = new System.Windows.Forms.TabPage();
+            this.btnLink2SAP = new System.Windows.Forms.Button();
             this.lblLinkCode = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.mtxtABN = new System.Windows.Forms.MaskedTextBox();
             this.btnAddOfflineBP = new System.Windows.Forms.Button();
             this.rbSupplier = new System.Windows.Forms.RadioButton();
             this.rbCustomer = new System.Windows.Forms.RadioButton();
             this.txtLinkCode = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtQWSCardCode = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtTradingName = new System.Windows.Forms.TextBox();
             this.taBusiness = new QWS_Local.dsQWSLocal2024TableAdapters.BusinessTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
-            this.btnLink2SAP = new System.Windows.Forms.Button();
+            this.btnContactPersons = new System.Windows.Forms.Button();
             sAPCodeLabel = new System.Windows.Forms.Label();
             tradingNameLabel = new System.Windows.Forms.Label();
             alternateNameLabel = new System.Windows.Forms.Label();
@@ -380,6 +381,7 @@ namespace QWS_Local
             // 
             // tpDetails
             // 
+            this.tpDetails.Controls.Add(this.btnContactPersons);
             this.tpDetails.Controls.Add(this.txtSAP2QWSsyncAdvice);
             this.tpDetails.Controls.Add(this.sAPUpdateDTTMTextBox);
             this.tpDetails.Controls.Add(sAPUpdateDTTMLabel);
@@ -502,7 +504,7 @@ namespace QWS_Local
             // 
             this.tpOffline.Controls.Add(this.btnLink2SAP);
             this.tpOffline.Controls.Add(this.lblLinkCode);
-            this.tpOffline.Controls.Add(this.maskedTextBox1);
+            this.tpOffline.Controls.Add(this.mtxtABN);
             this.tpOffline.Controls.Add(this.btnAddOfflineBP);
             this.tpOffline.Controls.Add(this.rbSupplier);
             this.tpOffline.Controls.Add(this.rbCustomer);
@@ -511,7 +513,7 @@ namespace QWS_Local
             this.tpOffline.Controls.Add(label1);
             this.tpOffline.Controls.Add(this.txtQWSCardCode);
             this.tpOffline.Controls.Add(label3);
-            this.tpOffline.Controls.Add(this.textBox4);
+            this.tpOffline.Controls.Add(this.txtTradingName);
             this.tpOffline.Controls.Add(label5);
             this.tpOffline.Controls.Add(label8);
             this.tpOffline.Controls.Add(label10);
@@ -522,6 +524,20 @@ namespace QWS_Local
             this.tpOffline.Text = "Offline";
             this.tpOffline.UseVisualStyleBackColor = true;
             // 
+            // btnLink2SAP
+            // 
+            this.btnLink2SAP.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnLink2SAP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLink2SAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLink2SAP.Location = new System.Drawing.Point(476, 22);
+            this.btnLink2SAP.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLink2SAP.Name = "btnLink2SAP";
+            this.btnLink2SAP.Size = new System.Drawing.Size(63, 33);
+            this.btnLink2SAP.TabIndex = 72;
+            this.btnLink2SAP.Text = "Link";
+            this.btnLink2SAP.UseVisualStyleBackColor = false;
+            this.btnLink2SAP.Click += new System.EventHandler(this.btnLink2SAP_Click);
+            // 
             // lblLinkCode
             // 
             this.lblLinkCode.AutoSize = true;
@@ -531,13 +547,13 @@ namespace QWS_Local
             this.lblLinkCode.TabIndex = 71;
             this.lblLinkCode.Text = "SAP Link Code:";
             // 
-            // maskedTextBox1
+            // mtxtABN
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(166, 86);
-            this.maskedTextBox1.Mask = "00-000-000-000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(158, 24);
-            this.maskedTextBox1.TabIndex = 70;
+            this.mtxtABN.Location = new System.Drawing.Point(166, 86);
+            this.mtxtABN.Mask = "00-000-000-000";
+            this.mtxtABN.Name = "mtxtABN";
+            this.mtxtABN.Size = new System.Drawing.Size(158, 24);
+            this.mtxtABN.TabIndex = 70;
             // 
             // btnAddOfflineBP
             // 
@@ -601,13 +617,13 @@ namespace QWS_Local
             this.txtQWSCardCode.Size = new System.Drawing.Size(84, 24);
             this.txtQWSCardCode.TabIndex = 22;
             // 
-            // textBox4
+            // txtTradingName
             // 
-            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsBusiness, "TradingName", true));
-            this.textBox4.Location = new System.Drawing.Point(165, 56);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(295, 24);
-            this.textBox4.TabIndex = 24;
+            this.txtTradingName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsBusiness, "TradingName", true));
+            this.txtTradingName.Location = new System.Drawing.Point(165, 56);
+            this.txtTradingName.Name = "txtTradingName";
+            this.txtTradingName.Size = new System.Drawing.Size(295, 24);
+            this.txtTradingName.TabIndex = 24;
             // 
             // taBusiness
             // 
@@ -625,19 +641,19 @@ namespace QWS_Local
             this.tableAdapterManager1.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager1.VehicleTableAdapter = null;
             // 
-            // btnLink2SAP
+            // btnContactPersons
             // 
-            this.btnLink2SAP.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnLink2SAP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLink2SAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLink2SAP.Location = new System.Drawing.Point(476, 22);
-            this.btnLink2SAP.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLink2SAP.Name = "btnLink2SAP";
-            this.btnLink2SAP.Size = new System.Drawing.Size(63, 33);
-            this.btnLink2SAP.TabIndex = 72;
-            this.btnLink2SAP.Text = "Link";
-            this.btnLink2SAP.UseVisualStyleBackColor = false;
-            this.btnLink2SAP.Click += new System.EventHandler(this.btnLink2SAP_Click);
+            this.btnContactPersons.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnContactPersons.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContactPersons.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContactPersons.Location = new System.Drawing.Point(453, 31);
+            this.btnContactPersons.Margin = new System.Windows.Forms.Padding(4);
+            this.btnContactPersons.Name = "btnContactPersons";
+            this.btnContactPersons.Size = new System.Drawing.Size(114, 54);
+            this.btnContactPersons.TabIndex = 68;
+            this.btnContactPersons.Text = "Drivers";
+            this.btnContactPersons.UseVisualStyleBackColor = false;
+            this.btnContactPersons.Click += new System.EventHandler(this.btnContactPersons_Click);
             // 
             // BusinessSearch
             // 
@@ -707,9 +723,10 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox txtLinkCode;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox txtQWSCardCode;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.TextBox txtTradingName;
+        private System.Windows.Forms.MaskedTextBox mtxtABN;
         private System.Windows.Forms.Label lblLinkCode;
         private System.Windows.Forms.Button btnLink2SAP;
+        private System.Windows.Forms.Button btnContactPersons;
     }
 }

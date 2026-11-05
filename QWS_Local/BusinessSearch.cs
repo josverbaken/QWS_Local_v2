@@ -211,15 +211,51 @@ namespace QWS_Local
                 SearchByCode();
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            txtLinkCode.Text = "C000185";
-        }
-
+     
         private void btnAddOfflineBP_Click(object sender, EventArgs e)
         {
-            txtLinkCode.Text = string.Empty;
+            SaveOfflineBP();
+        }
+
+        private void SaveOfflineBP()
+        {
+            try
+            {
+                string myCardType = "C"; // default to customer, can be changed to S for supplier if needed
+                int myGroupCode = 101; // default group code for customers, can be changed if needed
+                if (rbCustomer.Checked == true)
+                {
+                    myCardType = "C";
+                }
+                else if (rbSupplier.Checked == true)
+                {
+                    myCardType = "S";
+                    myGroupCode = 117;
+                }
+                else
+                {
+                    MessageBox.Show("Please select Customer or Supplier", "Select Card Type", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                SqlConnection sqlConnection = new SqlConnection(QWSConfig.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "OfflineBPAdd";
+                cmd.Parameters.AddWithValue("@CardCode", txtQWSCardCode.Text);
+                cmd.Parameters.AddWithValue("@CardType", myCardType);
+                cmd.Parameters.AddWithValue("@SAPLinkCode", txtLinkCode.Text);
+                cmd.Parameters.AddWithValue("@TradingName", txtTradingName.Text);
+                cmd.Parameters.AddWithValue("@ABN", mtxtABN.Text);
+                cmd.Parameters.AddWithValue("@GroupCode", myGroupCode);
+                sqlConnection.Open();
+                cmd.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "SaveOfflineBP Error!");
+            }
         }
 
         private void GetOfflineCardCode()
@@ -324,6 +360,25 @@ namespace QWS_Local
                 MessageBox.Show(ex.Message, "Link2SAP Error!");
             }
 
+        }
+
+        private void btnContactPersons_Click(object sender, EventArgs e)
+        {
+            ContactPersons();
+        }
+
+        private void ContactPersons()
+        {
+            try
+            {
+                TruckDriverSearch frmContactPersons = new TruckDriverSearch(txtQWSCardCode.Text);
+                frmContactPersons.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Contact Persons Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -9,10 +9,10 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TruckDriverTableAdapter" GeneratorDataComponentClassName="TruckDriverTableAdapter" Name="TruckDriver" UserDataComponentName="TruckDriverTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.TruckDriver" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWS_NQ_Dev.dbo.TruckDriver" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        CntctCode, CardCode, TradingName, AccountStatus, Person, Position, Tel, Mob, Email, LicenseType, LicenseExp, InductionExp, Active, SAPUpdateDTTM
+                    <CommandText>SELECT        CntctCode, CardCode, TradingName, AccountStatus, Person, Position, Tel, Mob, Email, LicenseType, LicenseExp, InductionExp, Active, SAPUpdateDTTM, SAPCntctCode
 FROM            TruckDriver AS t0</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -34,6 +34,7 @@ FROM            TruckDriver AS t0</CommandText>
               <Mapping SourceColumn="InductionExp" DataSetColumn="InductionExp" />
               <Mapping SourceColumn="Active" DataSetColumn="Active" />
               <Mapping SourceColumn="SAPUpdateDTTM" DataSetColumn="SAPUpdateDTTM" />
+              <Mapping SourceColumn="SAPCntctCode" DataSetColumn="SAPCntctCode" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.TruckDriver" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByCardCode" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillByCardCode" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByCardCode">
@@ -598,10 +599,10 @@ SELECT Rego, VIN, CardCode, Owner, Make, Model, AxleConfiguration, MassAccredita
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BusinessTableAdapter" GeneratorDataComponentClassName="BusinessTableAdapter" Name="Business" UserDataComponentName="BusinessTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.Business" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWS_NQ_Dev.dbo.Business" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        SAPCode, TradingName, AlternateName, BusinessType, [Group], ACType, ABN, BillingAddress, ConnectedBusiness, AccountStatus, PORequired, DocumentOwner, SAPUpdateDTTM
+                    <CommandText>SELECT        SAPCode, TradingName, AlternateName, BusinessType, [Group], ACType, ABN, BillingAddress, ConnectedBusiness, AccountStatus, PORequired, DocumentOwner, SAPUpdateDTTM, SAPLinkCode
 FROM            Business AS t0</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -622,6 +623,7 @@ FROM            Business AS t0</CommandText>
               <Mapping SourceColumn="PORequired" DataSetColumn="PORequired" />
               <Mapping SourceColumn="DocumentOwner" DataSetColumn="DocumentOwner" />
               <Mapping SourceColumn="SAPUpdateDTTM" DataSetColumn="SAPUpdateDTTM" />
+              <Mapping SourceColumn="SAPLinkCode" DataSetColumn="SAPLinkCode" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="cnQWSLocal (Settings)" DbObjectName="QWSLocal.dbo.BusinessGetByCode" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillByCardCode" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCardCode" GeneratorSourceName="FillByCardCode" GetMethodModifier="Public" GetMethodName="GetDataByCardCode" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCardCode" UserSourceName="FillByCardCode">
@@ -994,6 +996,7 @@ WHERE Rego like @Rego</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="SAPUpdateDTTM" msprop:Generator_ColumnPropNameInTable="SAPUpdateDTTMColumn" msprop:Generator_ColumnPropNameInRow="SAPUpdateDTTM" msprop:Generator_UserColumnName="SAPUpdateDTTM" msprop:Generator_ColumnVarNameInTable="columnSAPUpdateDTTM" type="xs:dateTime" />
+              <xs:element name="SAPCntctCode" msprop:Generator_ColumnPropNameInRow="SAPCntctCode" msprop:Generator_ColumnPropNameInTable="SAPCntctCodeColumn" msprop:Generator_ColumnVarNameInTable="columnSAPCntctCode" msprop:Generator_UserColumnName="SAPCntctCode" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1260,9 +1263,9 @@ WHERE Rego like @Rego</CommandText>
               <xs:element name="IsLeadVehicle" msprop:Generator_ColumnPropNameInTable="IsLeadVehicleColumn" msprop:Generator_ColumnPropNameInRow="IsLeadVehicle" msprop:Generator_UserColumnName="IsLeadVehicle" msprop:Generator_ColumnVarNameInTable="columnIsLeadVehicle" type="xs:boolean" />
               <xs:element name="Active" msprop:Generator_ColumnPropNameInTable="ActiveColumn" msprop:Generator_ColumnPropNameInRow="Active" msprop:Generator_UserColumnName="Active" msprop:Generator_ColumnVarNameInTable="columnActive" type="xs:boolean" />
               <xs:element name="CreateDTTM" msprop:Generator_ColumnPropNameInTable="CreateDTTMColumn" msprop:Generator_ColumnPropNameInRow="CreateDTTM" msprop:Generator_UserColumnName="CreateDTTM" msprop:Generator_ColumnVarNameInTable="columnCreateDTTM" type="xs:dateTime" />
-              <xs:element name="ACCDelivery" msprop:Generator_ColumnPropNameInRow="ACCDelivery" msprop:Generator_ColumnPropNameInTable="ACCDeliveryColumn" msprop:Generator_ColumnVarNameInTable="columnACCDelivery" msprop:Generator_UserColumnName="ACCDelivery" type="xs:boolean" />
-              <xs:element name="ACCPickup" msprop:Generator_ColumnPropNameInRow="ACCPickup" msprop:Generator_ColumnPropNameInTable="ACCPickupColumn" msprop:Generator_ColumnVarNameInTable="columnACCPickup" msprop:Generator_UserColumnName="ACCPickup" type="xs:boolean" />
-              <xs:element name="OverrideMinCart" msprop:Generator_ColumnPropNameInRow="OverrideMinCart" msprop:Generator_ColumnPropNameInTable="OverrideMinCartColumn" msprop:Generator_ColumnVarNameInTable="columnOverrideMinCart" msprop:Generator_UserColumnName="OverrideMinCart" type="xs:boolean" />
+              <xs:element name="ACCDelivery" msprop:Generator_ColumnPropNameInTable="ACCDeliveryColumn" msprop:Generator_ColumnPropNameInRow="ACCDelivery" msprop:Generator_UserColumnName="ACCDelivery" msprop:Generator_ColumnVarNameInTable="columnACCDelivery" type="xs:boolean" />
+              <xs:element name="ACCPickup" msprop:Generator_ColumnPropNameInTable="ACCPickupColumn" msprop:Generator_ColumnPropNameInRow="ACCPickup" msprop:Generator_UserColumnName="ACCPickup" msprop:Generator_ColumnVarNameInTable="columnACCPickup" type="xs:boolean" />
+              <xs:element name="OverrideMinCart" msprop:Generator_ColumnPropNameInTable="OverrideMinCartColumn" msprop:Generator_ColumnPropNameInRow="OverrideMinCart" msprop:Generator_UserColumnName="OverrideMinCart" msprop:Generator_ColumnVarNameInTable="columnOverrideMinCart" type="xs:boolean" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1304,7 +1307,7 @@ WHERE Rego like @Rego</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ACType" msprop:Generator_ColumnPropNameInTable="ACTypeColumn" msprop:Generator_ColumnPropNameInRow="ACType" msprop:Generator_UserColumnName="ACType" msprop:Generator_ColumnVarNameInTable="columnACType">
+              <xs:element name="ACType" msprop:Generator_ColumnPropNameInTable="ACTypeColumn" msprop:Generator_ColumnPropNameInRow="ACType" msprop:Generator_UserColumnName="ACType" msprop:Generator_ColumnVarNameInTable="columnACType" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -1354,6 +1357,13 @@ WHERE Rego like @Rego</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="SAPUpdateDTTM" msprop:Generator_ColumnPropNameInTable="SAPUpdateDTTMColumn" msprop:Generator_ColumnPropNameInRow="SAPUpdateDTTM" msprop:Generator_UserColumnName="SAPUpdateDTTM" msprop:Generator_ColumnVarNameInTable="columnSAPUpdateDTTM" type="xs:dateTime" />
+              <xs:element name="SAPLinkCode" msprop:Generator_UserColumnName="SAPLinkCode" msprop:Generator_ColumnPropNameInTable="SAPLinkCodeColumn" msprop:Generator_ColumnPropNameInRow="SAPLinkCode" msprop:Generator_ColumnVarNameInTable="columnSAPLinkCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
