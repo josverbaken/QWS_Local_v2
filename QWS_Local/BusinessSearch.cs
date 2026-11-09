@@ -63,7 +63,14 @@ namespace QWS_Local
         private void BusinessSearch_Load(object sender, EventArgs e)
         {
             this.KeyPreview = true;
-            SetOfflineUI();
+            if (QWSConfig.Offline)
+            {
+                SetOfflineUI();
+            }
+            else
+            {
+                tabControl1.TabPages.Remove(tpOffline);
+            }
             string msg = "If data seems old and out of sync with SAP,\r\n";
             msg += "please initiate an update by adding the following comment in SAP B1 and updating:\"Sync to QWS\"";
             txtSAP2QWSsyncAdvice.Text = msg;
@@ -88,14 +95,21 @@ namespace QWS_Local
                 }
                 if (iCount == 0)
                 {
-                    string strMsgHeader = "Business not found!";
-                    string strMsg = "Press Yes to create Offline account.";
-                    DialogResult result = MessageBox.Show(strMsg, strMsgHeader, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (result == DialogResult.Yes)
+                    if (QWSConfig.Offline == true)
                     {
-                        GetOfflineCardCode();
-                        frmOfflineMode = OfflineMode.CreateNew;
-                        tabControl1.SelectedTab = tpOffline;
+                        string strMsgHeader = "Business not found!";
+                        string strMsg = "Press Yes to create Offline account.";
+                        DialogResult result = MessageBox.Show(strMsg, strMsgHeader, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (result == DialogResult.Yes)
+                        {
+                            GetOfflineCardCode();
+                            frmOfflineMode = OfflineMode.CreateNew;
+                            tabControl1.SelectedTab = tpOffline;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Business not found, please check SAP.", "Business not found!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
@@ -110,7 +124,7 @@ namespace QWS_Local
                     {
                         frmOfflineMode = OfflineMode.None;
                     }
-                    ShowDetailsTab();
+                    //ShowDetailsTab(); TODO - only if count == 1, otherwise show list of results for user to select
                 }
                 SetOfflineUI();
             }
@@ -118,19 +132,6 @@ namespace QWS_Local
             {
                 MessageBox.Show(ex.Message, "SearchByCode Error!");
             }
-        }
-
-        private void btnSelectBusiness_Click(object sender, EventArgs e)
-        {
-            if (SetOwnerParams() == true)
-            {
-                this.DialogResult = DialogResult.OK;
-            }
-            else
-            {
-                this.DialogResult = DialogResult.No;
-            }
-            this.Close();
         }
 
         private bool SetOwnerParams()
@@ -183,20 +184,34 @@ namespace QWS_Local
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            if (SetOwnerParams() == true)
-            {
-                this.DialogResult = DialogResult.OK;
-            }
-            else
-            {
-                this.DialogResult = DialogResult.Cancel;
-            }
-            this.Close();
+            SelectBusiness();
         }
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
             ShowDetailsTab();
+        }
+
+        private void SelectBusiness()
+        {
+            DataRow dataRow = ((DataRowView)bsBusiness.Current).Row;
+            dsQWSLocal2024.BusinessRow businessRow = (dsQWSLocal2024.BusinessRow)dataRow;
+            if (businessRow.SAPCode.StartsWith("T") && businessRow.SAPLinkCode.Length > 0)
+            {
+                MessageBox.Show("This is an offline account linked to SAP code = " + businessRow.SAPLinkCode + "\r\nPlease select the SAP code instead.", "Offline Account", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (SetOwnerParams() == true)
+                {
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    this.DialogResult = DialogResult.Cancel;
+                }
+                this.Close();
+            }
         }
 
         private void ShowDetailsTab()

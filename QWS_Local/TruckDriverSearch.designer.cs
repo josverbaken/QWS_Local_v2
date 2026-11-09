@@ -79,6 +79,7 @@ namespace QWS_Local
             this.taTruckDriver2024 = new QWS_Local.dsQWSLocal2024TableAdapters.TruckDriverTableAdapter();
             this.btnLinkContact2SAP = new System.Windows.Forms.Button();
             this.btnAddOfflineContact = new System.Windows.Forms.Button();
+            this.btnNewDriver = new System.Windows.Forms.Button();
             licenseTypeLabel = new System.Windows.Forms.Label();
             sAPUpdateDTTMLabel = new System.Windows.Forms.Label();
             licenseExpLabel = new System.Windows.Forms.Label();
@@ -274,6 +275,7 @@ namespace QWS_Local
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.btnNewDriver);
             this.splitContainer1.Panel2.Controls.Add(this.txtInfo);
             this.splitContainer1.Panel2.Controls.Add(this.btnSelectDriver);
             this.splitContainer1.Size = new System.Drawing.Size(1195, 430);
@@ -585,6 +587,16 @@ namespace QWS_Local
             this.btnAddOfflineContact.UseVisualStyleBackColor = false;
             this.btnAddOfflineContact.Click += new System.EventHandler(this.btnAddOfflineContact_Click);
             // 
+            // btnNewDriver
+            // 
+            this.btnNewDriver.Location = new System.Drawing.Point(757, 21);
+            this.btnNewDriver.Name = "btnNewDriver";
+            this.btnNewDriver.Size = new System.Drawing.Size(182, 62);
+            this.btnNewDriver.TabIndex = 6;
+            this.btnNewDriver.Text = "New Offline Driver";
+            this.btnNewDriver.UseVisualStyleBackColor = true;
+            this.btnNewDriver.Click += new System.EventHandler(this.btnNewDriver_Click);
+            // 
             // TruckDriverSearch
             // 
             this.AcceptButton = this.btnSelectDriver;
@@ -659,5 +671,6 @@ namespace QWS_Local
         private System.Windows.Forms.TextBox txtSAPCntctCode;
         private System.Windows.Forms.Button btnLinkContact2SAP;
         private System.Windows.Forms.Button btnAddOfflineContact;
+        private System.Windows.Forms.Button btnNewDriver;
     }
 }

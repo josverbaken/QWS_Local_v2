@@ -29,6 +29,7 @@ namespace QWS_Local
         public static string SMSAPIKey { get; set; } = "tba";
         public static string SMSAPISecret { get; set; } = "tba";
         public static int CreditCutoffTM { get; set; } = 900;
+        public static bool Offline { get; set; } = true;
         public static string cnQWSLocal
         {
             get

@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Data;
 using System.Windows.Forms;
-using Microsoft.Data.SqlClient;
+using System.Xml.Linq;
 
 namespace QWS_Local
 {
@@ -42,6 +43,11 @@ namespace QWS_Local
         private void TruckDriverSearch_Load(object sender, EventArgs e)
         {
             bsTruckDriver2024.Sort = "Active DESC, Person ASC";
+            if (QWSConfig.Offline == false)
+            {
+                tabControl1.TabPages.Remove(tpOffline);
+                btnNewDriver.Visible = false;
+            }
         }
 
         private void btnSelectDriver_Click(object sender, EventArgs e)
@@ -134,12 +140,13 @@ namespace QWS_Local
         {
             try
             {
+                bsTruckDriver2024.EndEdit();
                 SqlConnection sqlConnection = new SqlConnection(QWSConfig.cnQWSLocal);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = sqlConnection;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "OfflineContactAdd";
-                cmd.Parameters.AddWithValue("@CntctCode", txtQWSCntctCode.Text);
+                cmd.Parameters.AddWithValue("@CntctCode", txtSAPCntctCode.Text);
                 cmd.Parameters.AddWithValue("@CardCode", txtCardCode.Text);
                 cmd.Parameters.AddWithValue("@Name", txtPerson.Text);
                 cmd.Parameters.AddWithValue("@Position", txtPosition.Text);
@@ -149,7 +156,7 @@ namespace QWS_Local
                 cmd.Parameters.AddWithValue("@LicenseType", txtLicenseType.Text);
                 cmd.Parameters.AddWithValue("@LicenseExp", txtLicenseExp.Text);
                 cmd.Parameters.AddWithValue("@InductionExp", txtInductionExp.Text);
-                cmd.Parameters.AddWithValue("@Active", true);
+                cmd.Parameters.AddWithValue("@Active", "Y");
                 cmd.Parameters.AddWithValue("@SAPUpdateDTTM", DateTime.Now);
                 sqlConnection.Open();
                 cmd.ExecuteNonQuery();
@@ -158,6 +165,82 @@ namespace QWS_Local
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "AddOfflineContact Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnNewDriver_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure to create a new driver?", "New Driver", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                tabControl1.SelectedTab = tpOffline;
+                NewDriver();
+            }
+        }
+
+        private void NewDriver()
+        {
+            try
+            {
+                myDriverID = GetNewDriverCode();
+                if (myDriverID > 0)
+                {
+                    txtQWSCntctCode.Text = myDriverID.ToString();
+                    // Clear other fields for new driver entry
+                    // 1. Call AddNew() to create a new row object and append it to the end
+                    DataRowView newRowView = (DataRowView)bsTruckDriver2024.AddNew();
+
+                    // 2. Populate the cells
+                    newRowView["CntctCode"] = myDriverID;
+                    newRowView["SAPCntctCode"] = 0;
+                    newRowView["CardCode"] = "SAP BP Code";
+                    newRowView["TradingName"] = "SAP BP Name";
+                    newRowView["AccountStatus"] = "A";
+                    newRowView["Person"] = "new driver";
+                    newRowView["Position"] = "Driver";
+                    newRowView["Tel"] = "tba";
+                    newRowView["Mob"] = "0411";
+                    newRowView["email"] = "tba";
+                    newRowView["LicenseType"] = "HR";
+                    newRowView["LicenseExp"] = DateTime.Now.AddYears(1);
+                    newRowView["InductionExp"] = DateTime.Now.AddYears(1);
+                    newRowView["Active"] = "Y";
+                    newRowView["SAPUpdateDTTM"] = DateTime.Now;
+
+                    // 3. Commit the changes to the underlying DataTable
+                    bsTruckDriver2024.EndEdit();
+
+                }
+                else
+                {
+                    MessageBox.Show("Failed to get new driver code.");
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private int GetNewDriverCode()
+        {
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(QWSConfig.cnQWSLocal);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "OfflineCntctCode";
+                sqlConnection.Open();
+                int myCntctCode = Convert.ToInt32(cmd.ExecuteScalar());
+                sqlConnection.Close();
+                return myCntctCode;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return 0;
             }
         }
     }

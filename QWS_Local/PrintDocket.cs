@@ -140,5 +140,27 @@ namespace QWS_Local
                 bsDocketList.Filter = "";
             }
         }
+
+        private void btnGetOutstanding_Click(object sender, EventArgs e)
+        {
+            GetOutstanding();
+        }
+
+        private void GetOutstanding()
+        {
+            try
+            {
+                dsQWS.DocketList.Clear();
+                dsQWSViewsTableAdapters.DocketListTableAdapter taDocketList = new dsQWSViewsTableAdapters.DocketListTableAdapter();
+                taDocketList.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                int iRows = taDocketList.FillOutstanding(this.dsQWS.DocketList, mySiteID);
+                textBox2.Text = iRows.ToString();
+                dgvOutstanding.ClearSelection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "GetOutstanding Error!");
+            }
+        }
     }
 }
