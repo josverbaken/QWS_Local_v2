@@ -29,9 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.bsDeliveryDocket = new System.Windows.Forms.BindingSource(this.components);
             this.dsDocketReport = new QWS_Local.dsDocketReport();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -47,22 +46,6 @@
             this.btnGetDocketList = new System.Windows.Forms.Button();
             this.dtpDocketList = new System.Windows.Forms.DateTimePicker();
             this.dgvDocketList = new System.Windows.Forms.DataGridView();
-            this.tpDocket = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnGetDocket = new System.Windows.Forms.Button();
-            this.txtDocketNo = new System.Windows.Forms.TextBox();
-            this.btnPrintDocket = new System.Windows.Forms.Button();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.taDeliveryDocket = new QWS_Local.dsDocketReportTableAdapters.DeliveryDocketTableAdapter();
-            this.tpOutstanding = new System.Windows.Forms.TabPage();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.btnGetOutstanding = new System.Windows.Forms.Button();
-            this.dgvOutstanding = new System.Windows.Forms.DataGridView();
-            this.bsDocketList = new System.Windows.Forms.BindingSource(this.components);
-            this.dsQWS = new QWS_Local.dsQWSViews();
-            this.taDocketList = new QWS_Local.dsQWSViewsTableAdapters.DocketListTableAdapter();
-            this.tableAdapterManager = new QWS_Local.dsQWSViewsTableAdapters.TableAdapterManager();
             this.docNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProcessStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.docDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,26 +64,38 @@
             this.overloadPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.overloadDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wBModeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsDocketList = new System.Windows.Forms.BindingSource(this.components);
+            this.dsQWS = new QWS_Local.dsQWSViews();
+            this.tpDocket = new System.Windows.Forms.TabPage();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnGetDocket = new System.Windows.Forms.Button();
+            this.txtDocketNo = new System.Windows.Forms.TextBox();
+            this.btnPrintDocket = new System.Windows.Forms.Button();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.tpOutstanding = new System.Windows.Forms.TabPage();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.btnGetOutstanding = new System.Windows.Forms.Button();
+            this.dgvOutstanding = new System.Windows.Forms.DataGridView();
+            this.taDeliveryDocket = new QWS_Local.dsDocketReportTableAdapters.DeliveryDocketTableAdapter();
+            this.taDocketList = new QWS_Local.dsQWSViewsTableAdapters.DocketListTableAdapter();
+            this.tableAdapterManager = new QWS_Local.dsQWSViewsTableAdapters.TableAdapterManager();
+            this.bsDocketList2 = new System.Windows.Forms.BindingSource(this.components);
+            this.docNumDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DocDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemCodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemDescriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deliveryAddressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.purchaseOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.truckRegoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.truckConfigDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grossDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tareDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nettDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bsDeliveryDocket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDocketReport)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -111,6 +106,8 @@
             this.splitContainer2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocketList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDocketList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWS)).BeginInit();
             this.tpDocket.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -122,8 +119,7 @@
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOutstanding)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsDocketList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDocketList2)).BeginInit();
             this.SuspendLayout();
             // 
             // bsDeliveryDocket
@@ -148,6 +144,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1200, 623);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tpList
             // 
@@ -303,186 +300,6 @@
             this.dgvDocketList.Size = new System.Drawing.Size(966, 584);
             this.dgvDocketList.TabIndex = 0;
             // 
-            // tpDocket
-            // 
-            this.tpDocket.Controls.Add(this.splitContainer1);
-            this.tpDocket.Location = new System.Drawing.Point(4, 27);
-            this.tpDocket.Margin = new System.Windows.Forms.Padding(4);
-            this.tpDocket.Name = "tpDocket";
-            this.tpDocket.Padding = new System.Windows.Forms.Padding(4);
-            this.tpDocket.Size = new System.Drawing.Size(1192, 592);
-            this.tpDocket.TabIndex = 1;
-            this.tpDocket.Text = "Docket";
-            this.tpDocket.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(4, 4);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
-            this.splitContainer1.Panel1.Controls.Add(this.btnGetDocket);
-            this.splitContainer1.Panel1.Controls.Add(this.txtDocketNo);
-            this.splitContainer1.Panel1.Controls.Add(this.btnPrintDocket);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.reportViewer1);
-            this.splitContainer1.Size = new System.Drawing.Size(1184, 589);
-            this.splitContainer1.SplitterDistance = 280;
-            this.splitContainer1.SplitterWidth = 6;
-            this.splitContainer1.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(53, 208);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 24);
-            this.textBox1.TabIndex = 3;
-            // 
-            // btnGetDocket
-            // 
-            this.btnGetDocket.Location = new System.Drawing.Point(44, 168);
-            this.btnGetDocket.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGetDocket.Name = "btnGetDocket";
-            this.btnGetDocket.Size = new System.Drawing.Size(150, 32);
-            this.btnGetDocket.TabIndex = 2;
-            this.btnGetDocket.Text = "Find";
-            this.btnGetDocket.UseVisualStyleBackColor = true;
-            this.btnGetDocket.Click += new System.EventHandler(this.btnGetDocket_Click);
-            // 
-            // txtDocketNo
-            // 
-            this.txtDocketNo.Location = new System.Drawing.Point(44, 115);
-            this.txtDocketNo.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDocketNo.Name = "txtDocketNo";
-            this.txtDocketNo.Size = new System.Drawing.Size(148, 24);
-            this.txtDocketNo.TabIndex = 1;
-            // 
-            // btnPrintDocket
-            // 
-            this.btnPrintDocket.Location = new System.Drawing.Point(44, 238);
-            this.btnPrintDocket.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPrintDocket.Name = "btnPrintDocket";
-            this.btnPrintDocket.Size = new System.Drawing.Size(150, 32);
-            this.btnPrintDocket.TabIndex = 0;
-            this.btnPrintDocket.Text = "Print";
-            this.btnPrintDocket.UseVisualStyleBackColor = true;
-            this.btnPrintDocket.Click += new System.EventHandler(this.btnPrintDocket_Click);
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DocketReportDataset";
-            reportDataSource1.Value = this.bsDeliveryDocket;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "QWS_Local.DocketRpt.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(898, 589);
-            this.reportViewer1.TabIndex = 1;
-            // 
-            // taDeliveryDocket
-            // 
-            this.taDeliveryDocket.ClearBeforeFill = true;
-            // 
-            // tpOutstanding
-            // 
-            this.tpOutstanding.Controls.Add(this.splitContainer3);
-            this.tpOutstanding.Location = new System.Drawing.Point(4, 27);
-            this.tpOutstanding.Name = "tpOutstanding";
-            this.tpOutstanding.Size = new System.Drawing.Size(1192, 592);
-            this.tpOutstanding.TabIndex = 2;
-            this.tpOutstanding.Text = "Outstanding";
-            this.tpOutstanding.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer3
-            // 
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer3.Name = "splitContainer3";
-            // 
-            // splitContainer3.Panel1
-            // 
-            this.splitContainer3.Panel1.Controls.Add(this.btnGetOutstanding);
-            // 
-            // splitContainer3.Panel2
-            // 
-            this.splitContainer3.Panel2.Controls.Add(this.dgvOutstanding);
-            this.splitContainer3.Size = new System.Drawing.Size(1192, 592);
-            this.splitContainer3.SplitterDistance = 282;
-            this.splitContainer3.TabIndex = 0;
-            // 
-            // btnGetOutstanding
-            // 
-            this.btnGetOutstanding.Location = new System.Drawing.Point(37, 47);
-            this.btnGetOutstanding.Name = "btnGetOutstanding";
-            this.btnGetOutstanding.Size = new System.Drawing.Size(200, 52);
-            this.btnGetOutstanding.TabIndex = 3;
-            this.btnGetOutstanding.Text = "Get List";
-            this.btnGetOutstanding.UseVisualStyleBackColor = true;
-            this.btnGetOutstanding.Click += new System.EventHandler(this.btnGetOutstanding_Click);
-            // 
-            // dgvOutstanding
-            // 
-            this.dgvOutstanding.AllowUserToAddRows = false;
-            this.dgvOutstanding.AllowUserToDeleteRows = false;
-            this.dgvOutstanding.AutoGenerateColumns = false;
-            this.dgvOutstanding.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOutstanding.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.DocDate,
-            this.dataGridViewTextBoxColumn2,
-            this.CardCode,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18});
-            this.dgvOutstanding.DataSource = this.bsDocketList;
-            this.dgvOutstanding.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvOutstanding.Location = new System.Drawing.Point(0, 0);
-            this.dgvOutstanding.Name = "dgvOutstanding";
-            this.dgvOutstanding.ReadOnly = true;
-            this.dgvOutstanding.Size = new System.Drawing.Size(906, 592);
-            this.dgvOutstanding.TabIndex = 1;
-            // 
-            // bsDocketList
-            // 
-            this.bsDocketList.DataMember = "DocketList";
-            this.bsDocketList.DataSource = this.dsQWS;
-            // 
-            // dsQWS
-            // 
-            this.dsQWS.DataSetName = "dsQWSViews";
-            this.dsQWS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // taDocketList
-            // 
-            this.taDocketList.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSViewsTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
             // docNumDataGridViewTextBoxColumn
             // 
             this.docNumDataGridViewTextBoxColumn.DataPropertyName = "DocNum";
@@ -501,9 +318,9 @@
             // docDateDataGridViewTextBoxColumn
             // 
             this.docDateDataGridViewTextBoxColumn.DataPropertyName = "DocDate";
-            dataGridViewCellStyle1.Format = "t";
-            dataGridViewCellStyle1.NullValue = null;
-            this.docDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Format = "t";
+            dataGridViewCellStyle4.NullValue = null;
+            this.docDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.docDateDataGridViewTextBoxColumn.HeaderText = "Time";
             this.docDateDataGridViewTextBoxColumn.Name = "docDateDataGridViewTextBoxColumn";
             this.docDateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -615,12 +432,192 @@
             this.wBModeDataGridViewTextBoxColumn.Name = "wBModeDataGridViewTextBoxColumn";
             this.wBModeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn1
+            // bsDocketList
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "DocNum";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Docket";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.bsDocketList.DataMember = "DocketList";
+            this.bsDocketList.DataSource = this.dsQWS;
+            // 
+            // dsQWS
+            // 
+            this.dsQWS.DataSetName = "dsQWSViews";
+            this.dsQWS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tpDocket
+            // 
+            this.tpDocket.Controls.Add(this.splitContainer1);
+            this.tpDocket.Location = new System.Drawing.Point(4, 27);
+            this.tpDocket.Margin = new System.Windows.Forms.Padding(4);
+            this.tpDocket.Name = "tpDocket";
+            this.tpDocket.Padding = new System.Windows.Forms.Padding(4);
+            this.tpDocket.Size = new System.Drawing.Size(1192, 592);
+            this.tpDocket.TabIndex = 1;
+            this.tpDocket.Text = "Docket";
+            this.tpDocket.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.btnGetDocket);
+            this.splitContainer1.Panel1.Controls.Add(this.txtDocketNo);
+            this.splitContainer1.Panel1.Controls.Add(this.btnPrintDocket);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.reportViewer1);
+            this.splitContainer1.Size = new System.Drawing.Size(1184, 584);
+            this.splitContainer1.SplitterDistance = 280;
+            this.splitContainer1.SplitterWidth = 6;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(53, 208);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 24);
+            this.textBox1.TabIndex = 3;
+            // 
+            // btnGetDocket
+            // 
+            this.btnGetDocket.Location = new System.Drawing.Point(44, 168);
+            this.btnGetDocket.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGetDocket.Name = "btnGetDocket";
+            this.btnGetDocket.Size = new System.Drawing.Size(150, 32);
+            this.btnGetDocket.TabIndex = 2;
+            this.btnGetDocket.Text = "Find";
+            this.btnGetDocket.UseVisualStyleBackColor = true;
+            this.btnGetDocket.Click += new System.EventHandler(this.btnGetDocket_Click);
+            // 
+            // txtDocketNo
+            // 
+            this.txtDocketNo.Location = new System.Drawing.Point(44, 115);
+            this.txtDocketNo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDocketNo.Name = "txtDocketNo";
+            this.txtDocketNo.Size = new System.Drawing.Size(148, 24);
+            this.txtDocketNo.TabIndex = 1;
+            // 
+            // btnPrintDocket
+            // 
+            this.btnPrintDocket.Location = new System.Drawing.Point(44, 238);
+            this.btnPrintDocket.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrintDocket.Name = "btnPrintDocket";
+            this.btnPrintDocket.Size = new System.Drawing.Size(150, 32);
+            this.btnPrintDocket.TabIndex = 0;
+            this.btnPrintDocket.Text = "Print";
+            this.btnPrintDocket.UseVisualStyleBackColor = true;
+            this.btnPrintDocket.Click += new System.EventHandler(this.btnPrintDocket_Click);
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource4.Name = "DocketReportDataset";
+            reportDataSource4.Value = this.bsDeliveryDocket;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource4);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "QWS_Local.DocketRpt.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(898, 584);
+            this.reportViewer1.TabIndex = 1;
+            // 
+            // tpOutstanding
+            // 
+            this.tpOutstanding.Controls.Add(this.splitContainer3);
+            this.tpOutstanding.Location = new System.Drawing.Point(4, 27);
+            this.tpOutstanding.Name = "tpOutstanding";
+            this.tpOutstanding.Size = new System.Drawing.Size(1192, 592);
+            this.tpOutstanding.TabIndex = 2;
+            this.tpOutstanding.Text = "Outstanding";
+            this.tpOutstanding.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.btnGetOutstanding);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.dgvOutstanding);
+            this.splitContainer3.Size = new System.Drawing.Size(1192, 592);
+            this.splitContainer3.SplitterDistance = 282;
+            this.splitContainer3.TabIndex = 0;
+            // 
+            // btnGetOutstanding
+            // 
+            this.btnGetOutstanding.Location = new System.Drawing.Point(37, 47);
+            this.btnGetOutstanding.Name = "btnGetOutstanding";
+            this.btnGetOutstanding.Size = new System.Drawing.Size(200, 52);
+            this.btnGetOutstanding.TabIndex = 3;
+            this.btnGetOutstanding.Text = "Get List";
+            this.btnGetOutstanding.UseVisualStyleBackColor = true;
+            this.btnGetOutstanding.Click += new System.EventHandler(this.btnGetOutstanding_Click);
+            // 
+            // dgvOutstanding
+            // 
+            this.dgvOutstanding.AllowUserToAddRows = false;
+            this.dgvOutstanding.AllowUserToDeleteRows = false;
+            this.dgvOutstanding.AutoGenerateColumns = false;
+            this.dgvOutstanding.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOutstanding.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.docNumDataGridViewTextBoxColumn1,
+            this.DocDate,
+            this.dataGridViewTextBoxColumn2,
+            this.CardCode,
+            this.cardNameDataGridViewTextBoxColumn1,
+            this.itemCodeDataGridViewTextBoxColumn1,
+            this.itemDescriptionDataGridViewTextBoxColumn1,
+            this.deliveryAddressDataGridViewTextBoxColumn1,
+            this.purchaseOrderDataGridViewTextBoxColumn,
+            this.contactNameDataGridViewTextBoxColumn,
+            this.truckRegoDataGridViewTextBoxColumn1,
+            this.truckConfigDataGridViewTextBoxColumn,
+            this.grossDataGridViewTextBoxColumn1,
+            this.tareDataGridViewTextBoxColumn1,
+            this.nettDataGridViewTextBoxColumn1});
+            this.dgvOutstanding.DataSource = this.bsDocketList2;
+            this.dgvOutstanding.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvOutstanding.Location = new System.Drawing.Point(0, 0);
+            this.dgvOutstanding.Name = "dgvOutstanding";
+            this.dgvOutstanding.ReadOnly = true;
+            this.dgvOutstanding.Size = new System.Drawing.Size(906, 592);
+            this.dgvOutstanding.TabIndex = 1;
+            // 
+            // taDeliveryDocket
+            // 
+            this.taDeliveryDocket.ClearBeforeFill = true;
+            // 
+            // taDocketList
+            // 
+            this.taDocketList.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.UpdateOrder = QWS_Local.dsQWSViewsTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // bsDocketList2
+            // 
+            this.bsDocketList2.DataMember = "DocketList";
+            this.bsDocketList2.DataSource = this.dsQWS;
+            // 
+            // docNumDataGridViewTextBoxColumn1
+            // 
+            this.docNumDataGridViewTextBoxColumn1.DataPropertyName = "DocNum";
+            this.docNumDataGridViewTextBoxColumn1.HeaderText = "DocNum";
+            this.docNumDataGridViewTextBoxColumn1.Name = "docNumDataGridViewTextBoxColumn1";
+            this.docNumDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // DocDate
             // 
@@ -644,122 +641,82 @@
             this.CardCode.Name = "CardCode";
             this.CardCode.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn10
+            // cardNameDataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "CardName";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Customer";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.cardNameDataGridViewTextBoxColumn1.DataPropertyName = "CardName";
+            this.cardNameDataGridViewTextBoxColumn1.HeaderText = "CardName";
+            this.cardNameDataGridViewTextBoxColumn1.Name = "cardNameDataGridViewTextBoxColumn1";
+            this.cardNameDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn4
+            // itemCodeDataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Turnaround";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Turnaround";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.itemCodeDataGridViewTextBoxColumn1.DataPropertyName = "ItemCode";
+            this.itemCodeDataGridViewTextBoxColumn1.HeaderText = "ItemCode";
+            this.itemCodeDataGridViewTextBoxColumn1.Name = "itemCodeDataGridViewTextBoxColumn1";
+            this.itemCodeDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn5
+            // itemDescriptionDataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "TruckRego";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Rego";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.itemDescriptionDataGridViewTextBoxColumn1.DataPropertyName = "ItemDescription";
+            this.itemDescriptionDataGridViewTextBoxColumn1.HeaderText = "ItemDescription";
+            this.itemDescriptionDataGridViewTextBoxColumn1.Name = "itemDescriptionDataGridViewTextBoxColumn1";
+            this.itemDescriptionDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn12
+            // deliveryAddressDataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "ItemCode";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Material";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.deliveryAddressDataGridViewTextBoxColumn1.DataPropertyName = "DeliveryAddress";
+            this.deliveryAddressDataGridViewTextBoxColumn1.HeaderText = "DeliveryAddress";
+            this.deliveryAddressDataGridViewTextBoxColumn1.Name = "deliveryAddressDataGridViewTextBoxColumn1";
+            this.deliveryAddressDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn6
+            // purchaseOrderDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Driver";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Driver";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.purchaseOrderDataGridViewTextBoxColumn.DataPropertyName = "PurchaseOrder";
+            this.purchaseOrderDataGridViewTextBoxColumn.HeaderText = "PurchaseOrder";
+            this.purchaseOrderDataGridViewTextBoxColumn.Name = "purchaseOrderDataGridViewTextBoxColumn";
+            this.purchaseOrderDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn7
+            // contactNameDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "DriverMobile";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Driver Mobile";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.contactNameDataGridViewTextBoxColumn.DataPropertyName = "ContactName";
+            this.contactNameDataGridViewTextBoxColumn.HeaderText = "ContactName";
+            this.contactNameDataGridViewTextBoxColumn.Name = "contactNameDataGridViewTextBoxColumn";
+            this.contactNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn3
+            // truckRegoDataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "DocDate";
-            dataGridViewCellStyle2.Format = "t";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Time";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.truckRegoDataGridViewTextBoxColumn1.DataPropertyName = "TruckRego";
+            this.truckRegoDataGridViewTextBoxColumn1.HeaderText = "TruckRego";
+            this.truckRegoDataGridViewTextBoxColumn1.Name = "truckRegoDataGridViewTextBoxColumn1";
+            this.truckRegoDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn8
+            // truckConfigDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Gross";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Gross";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 80;
+            this.truckConfigDataGridViewTextBoxColumn.DataPropertyName = "TruckConfig";
+            this.truckConfigDataGridViewTextBoxColumn.HeaderText = "TruckConfig";
+            this.truckConfigDataGridViewTextBoxColumn.Name = "truckConfigDataGridViewTextBoxColumn";
+            this.truckConfigDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn9
+            // grossDataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Overload";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Overload";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 80;
+            this.grossDataGridViewTextBoxColumn1.DataPropertyName = "Gross";
+            this.grossDataGridViewTextBoxColumn1.HeaderText = "Gross";
+            this.grossDataGridViewTextBoxColumn1.Name = "grossDataGridViewTextBoxColumn1";
+            this.grossDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn11
+            // tareDataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "DeliveryAddress";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Delivery Address";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.tareDataGridViewTextBoxColumn1.DataPropertyName = "Tare";
+            this.tareDataGridViewTextBoxColumn1.HeaderText = "Tare";
+            this.tareDataGridViewTextBoxColumn1.Name = "tareDataGridViewTextBoxColumn1";
+            this.tareDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn13
+            // nettDataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "ItemDescription";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Material Description";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Tare";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Tare";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Nett";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Nett";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "OverloadPoints";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Overload Points";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "OverloadDesc";
-            this.dataGridViewTextBoxColumn17.HeaderText = "Overload Description";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "WBMode";
-            this.dataGridViewTextBoxColumn18.HeaderText = "WB Mode";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.nettDataGridViewTextBoxColumn1.DataPropertyName = "Nett";
+            this.nettDataGridViewTextBoxColumn1.HeaderText = "Nett";
+            this.nettDataGridViewTextBoxColumn1.Name = "nettDataGridViewTextBoxColumn1";
+            this.nettDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // PrintDocket
             // 
@@ -784,6 +741,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocketList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDocketList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsQWS)).EndInit();
             this.tpDocket.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -796,8 +755,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOutstanding)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsDocketList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsQWS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDocketList2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -853,25 +811,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn overloadPointsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn overloadDescDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn wBModeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.BindingSource bsDocketList2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn docNumDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn DocDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn CardCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cardNameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemCodeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemDescriptionDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deliveryAddressDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn purchaseOrderDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contactNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn truckRegoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn truckConfigDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grossDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tareDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nettDataGridViewTextBoxColumn1;
     }
 }

@@ -150,16 +150,29 @@ namespace QWS_Local
         {
             try
             {
-                dsQWS.DocketList.Clear();
-                dsQWSViewsTableAdapters.DocketListTableAdapter taDocketList = new dsQWSViewsTableAdapters.DocketListTableAdapter();
-                taDocketList.Connection.ConnectionString = QWSConfig.cnQWSLocal;
-                int iRows = taDocketList.FillOutstanding(this.dsQWS.DocketList, mySiteID);
+                dsQWSViewsTableAdapters.DocketListTableAdapter taDocketList2 = new dsQWSViewsTableAdapters.DocketListTableAdapter();
+                taDocketList2.Connection.ConnectionString = QWSConfig.cnQWSLocal;
+                dsQWSViews.DocketListDataTable dtDocketList2 = new dsQWSViews.DocketListDataTable();
+                int iRows = taDocketList2.FillOutstanding(dtDocketList2, mySiteID);
+                dgvOutstanding.DataSource = dtDocketList2;
                 textBox2.Text = iRows.ToString();
                 dgvOutstanding.ClearSelection();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "GetOutstanding Error!");
+            }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab == tpOutstanding)
+            {
+                GetOutstanding();
+            }
+            if (tabControl1.SelectedTab == tpList)
+            {
+                GetDocketListDTP(dtpDocketList.Value);
             }
         }
     }
