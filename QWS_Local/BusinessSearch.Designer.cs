@@ -58,6 +58,7 @@ namespace QWS_Local
             this.bsBusiness = new System.Windows.Forms.BindingSource(this.components);
             this.dsQWSLocal2024 = new QWS_Local.dsQWSLocal2024();
             this.tpDetails = new System.Windows.Forms.TabPage();
+            this.btnContactPersons = new System.Windows.Forms.Button();
             this.txtSAP2QWSsyncAdvice = new System.Windows.Forms.TextBox();
             this.sAPUpdateDTTMTextBox = new System.Windows.Forms.TextBox();
             this.sAPCodeTextBox = new System.Windows.Forms.TextBox();
@@ -82,7 +83,6 @@ namespace QWS_Local
             this.txtTradingName = new System.Windows.Forms.TextBox();
             this.taBusiness = new QWS_Local.dsQWSLocal2024TableAdapters.BusinessTableAdapter();
             this.tableAdapterManager1 = new QWS_Local.dsQWSLocal2024TableAdapters.TableAdapterManager();
-            this.btnContactPersons = new System.Windows.Forms.Button();
             sAPCodeLabel = new System.Windows.Forms.Label();
             tradingNameLabel = new System.Windows.Forms.Label();
             alternateNameLabel = new System.Windows.Forms.Label();
@@ -373,6 +373,7 @@ namespace QWS_Local
             // 
             this.bsBusiness.DataMember = "Business";
             this.bsBusiness.DataSource = this.dsQWSLocal2024;
+            this.bsBusiness.CurrentChanged += new System.EventHandler(this.bsBusiness_CurrentChanged);
             // 
             // dsQWSLocal2024
             // 
@@ -410,6 +411,20 @@ namespace QWS_Local
             this.tpDetails.TabIndex = 1;
             this.tpDetails.Text = "Details";
             this.tpDetails.UseVisualStyleBackColor = true;
+            // 
+            // btnContactPersons
+            // 
+            this.btnContactPersons.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnContactPersons.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContactPersons.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContactPersons.Location = new System.Drawing.Point(453, 31);
+            this.btnContactPersons.Margin = new System.Windows.Forms.Padding(4);
+            this.btnContactPersons.Name = "btnContactPersons";
+            this.btnContactPersons.Size = new System.Drawing.Size(114, 54);
+            this.btnContactPersons.TabIndex = 68;
+            this.btnContactPersons.Text = "Drivers";
+            this.btnContactPersons.UseVisualStyleBackColor = false;
+            this.btnContactPersons.Click += new System.EventHandler(this.btnContactPersons_Click);
             // 
             // txtSAP2QWSsyncAdvice
             // 
@@ -593,6 +608,7 @@ namespace QWS_Local
             // 
             // txtLinkCode
             // 
+            this.txtLinkCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsBusiness, "SAPLinkCode", true));
             this.txtLinkCode.Location = new System.Drawing.Point(376, 26);
             this.txtLinkCode.Name = "txtLinkCode";
             this.txtLinkCode.Size = new System.Drawing.Size(84, 24);
@@ -640,20 +656,6 @@ namespace QWS_Local
             this.tableAdapterManager1.VehiclePrefCustomersTableAdapter = null;
             this.tableAdapterManager1.VehicleRegFeeCodesTableAdapter = null;
             this.tableAdapterManager1.VehicleTableAdapter = null;
-            // 
-            // btnContactPersons
-            // 
-            this.btnContactPersons.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnContactPersons.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnContactPersons.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContactPersons.Location = new System.Drawing.Point(453, 31);
-            this.btnContactPersons.Margin = new System.Windows.Forms.Padding(4);
-            this.btnContactPersons.Name = "btnContactPersons";
-            this.btnContactPersons.Size = new System.Drawing.Size(114, 54);
-            this.btnContactPersons.TabIndex = 68;
-            this.btnContactPersons.Text = "Drivers";
-            this.btnContactPersons.UseVisualStyleBackColor = false;
-            this.btnContactPersons.Click += new System.EventHandler(this.btnContactPersons_Click);
             // 
             // BusinessSearch
             // 

@@ -91,7 +91,8 @@ namespace QWS_Local
                 int iCount = taBusiness.FillByNameOrCode(dsQWSLocal2024.Business, txtSearch.Text);
                 if (SearchCustomerOnly == true)
                 {
-                    bsBusiness.Filter = "CardType like 'C'"; // 20261023 swap to card type C for customer only search, allows for Offline prefix = T
+                    //bsBusiness.Filter = "CardType like 'C'"; // 20261023 swap to card type C for customer only search, allows for Offline prefix = T
+                    bsBusiness.Filter = "SAPCode not like 'S%'"; // note CardType not available
                 }
                 if (iCount == 0)
                 {
@@ -287,6 +288,7 @@ namespace QWS_Local
                 string myCardCode = queryResult != null ? queryResult.ToString() : "failed!"; // string.Empty;
                 sqlConnection.Close();
                 txtQWSCardCode.Text = myCardCode;
+                txtTradingName.Text = txtSearch.Text;
             }
             catch (Exception ex)
             {
@@ -300,16 +302,22 @@ namespace QWS_Local
             {
                 lblLinkCode.Visible = false;
                 txtLinkCode.Visible = false;
+                btnLink2SAP.Visible = false;
+                btnAddOfflineBP.Visible = true;
             }
             else if (frmOfflineMode == OfflineMode.LinkExisting)
             {
                 lblLinkCode.Visible = true;
                 txtLinkCode.Visible = true;
+                btnLink2SAP.Visible = true;
+                btnAddOfflineBP.Visible = true;
             }
             else
             {
                 lblLinkCode.Visible = false;
                 txtLinkCode.Visible = false;
+                btnLink2SAP.Visible = false;
+                btnAddOfflineBP.Visible = false;
             }
         }
 
@@ -393,6 +401,37 @@ namespace QWS_Local
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Contact Persons Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void bsBusiness_CurrentChanged(object sender, EventArgs e)
+        {
+            RefreshOfflineUI();
+        }
+
+        private void RefreshOfflineUI()
+        {
+            if (bsBusiness.Count > 0)
+            {
+                DataRow dataRow = ((DataRowView)bsBusiness.Current).Row;
+                dsQWSLocal2024.BusinessRow businessRow = (dsQWSLocal2024.BusinessRow)dataRow;
+                if (businessRow.SAPCode.StartsWith("T"))
+                {
+                    frmOfflineMode = OfflineMode.LinkExisting;
+                }
+                else
+                {
+                    frmOfflineMode = OfflineMode.None;
+                }
+                if (businessRow.BusinessType == "S")
+                {
+                    rbSupplier.Checked = true;
+                }
+                else
+                {
+                    rbCustomer.Checked = true;
+                }
+                SetOfflineUI();
             }
         }
     }
